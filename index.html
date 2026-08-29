@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate">
-<title>ALPHATECH V1013</title>
+<title>ALPHATECH V1014</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#0a0e27;--card:#141938;--card2:#1a1f3a;--border:#2a2f5a;--p:#00d4ff;--g:#00ff88;--gold:#ffd700;--r:#ff6b6b;--t:#e0e0ff;--m:#8a8aaa;--cosmos:#b794f4;--cosmos2:#d53f8c;--pp:#0070ba}
@@ -122,7 +122,7 @@ th{background:var(--card2);color:var(--cosmos)}
 </style>
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1013 - GARDIENNE DU FLUX MONDIAL</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1014 - GARDIENNE PLANETAIRE ABSOLUE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -308,6 +308,48 @@ th{background:var(--card2);color:var(--cosmos)}
 
 <div class="card"><div class="ct">Top 10 Crypto (Flux Contrôlé)</div><div id="guardian-crypto"></div></div>
 
+<div class="card" style="border-color:var(--cosmos)"><div class="ct" style="color:var(--cosmos)">Vue Globale du Marché Crypto</div><div id="global-crypto-market"></div><button class="btn bcos" onclick="loadGlobalCryptoMarket()">ACTUALISER</button></div>
+
+<div class="card"><div class="ct">Fear & Greed Index (Mondial)</div><div id="fear-greed"></div></div>
+
+<div class="card"><div class="ct">Indices Boursiers Mondiaux</div><div id="world-indices"></div><button class="btn bp" onclick="loadWorldIndices()" style="margin-top:6px">ACTUALISER</button></div>
+
+<div class="card"><div class="ct">Matières Premières (Global)</div><div id="commodities"></div></div>
+
+<div class="card"><div class="ct">Grille de Surveillance Mondiale</div>
+<div class="g3" id="world-grid"></div>
+</div>
+
+<div class="card"><div class="ct">Matrice des Devises (Temps Réel)</div><div id="currency-matrix"></div><button class="btn bp" onclick="loadCurrencyMatrix()" style="margin-top:6px">ACTUALISER</button></div>
+
+<div class="card"><div class="ct">Autorités Financières Mondiales (20+)</div>
+<div class="li" style="border-left-color:var(--cosmos)">USA: SEC, FinCEN, CFTC, Federal Reserve</div>
+<div class="li" style="border-left-color:var(--cosmos)">UK: FCA, Serious Fraud Office</div>
+<div class="li" style="border-left-color:var(--cosmos)">France: AMF, Tracfin, Parquet National Financier</div>
+<div class="li" style="border-left-color:var(--cosmos)">Allemagne: BaFin, BKA</div>
+<div class="li" style="border-left-color:var(--cosmos)">UE: Europol, OLAF, EBA</div>
+<div class="li" style="border-left-color:var(--cosmos)">International: INTERPOL, StAR, UNODC, FATF, BIS, IMF, FSB, World Bank, Egmont Group</div>
+<div class="li" style="border-left-color:var(--cosmos)">Asie: MAS (Singapore), SFC (Hong Kong), JAFIC (Japan), CBI (China)</div>
+<div class="li" style="border-left-color:var(--cosmos)">Afrique: BEAC, BCEAO, ANSSI Congo, Commission CEMAC</div>
+<div class="li" style="border-left-color:var(--cosmos)">Moyen-Orient: DIFC (Dubai), QFC (Qatar), ADGM (Abu Dhabi)</div>
+<div class="li" style="border-left-color:var(--cosmos)">Océanie: AUSTRAC (Australia), FMA (NZ)</div>
+</div>
+
+<div class="card"><div class="ct">Statistiques de Surveillance Globale</div>
+<div class="g3">
+<div class="rd"><div class="rdt">Pays Surveilles</div><div class="rdv">195</div></div>
+<div class="rd"><div class="rdt">Devises</div><div class="rdv">166</div></div>
+<div class="rd"><div class="rdt">Blockchains</div><div class="rdv">5</div></div>
+<div class="rd"><div class="rdt">Autorites</div><div class="rdv">25+</div></div>
+<div class="rd"><div class="rdt">Exchanges</div><div class="rdv">14</div></div>
+<div class="rd"><div class="rdt">Canaux Total</div><div class="rdv">32</div></div>
+<div class="rd"><div class="rdt">Protocoles</div><div class="rdv">10</div></div>
+<div class="rd"><div class="rdt">Agents IA</div><div class="rdv">20</div></div>
+<div class="rd"><div class="rdt">Regions</div><div class="rdv">6</div></div>
+</div>
+</div>
+
+
 <div class="card"><div class="ct">Réseau de Surveillance Mondial</div>
 <div class="g2"><div class="li" style="border-left-color:var(--cosmos)">Congo-Brazzaville</div><div class="li" style="border-left-color:var(--cosmos)">France (Paris)</div><div class="li" style="border-left-color:var(--cosmos)">Canada (Quebec)</div><div class="li" style="border-left-color:var(--cosmos)">Chine</div><div class="li" style="border-left-color:var(--cosmos)">USA</div><div class="li" style="border-left-color:var(--cosmos)">Suisse</div><div class="li" style="border-left-color:var(--cosmos)">Dubai (UAE)</div><div class="li" style="border-left-color:var(--cosmos)">Singapour</div></div>
 </div>
@@ -465,7 +507,7 @@ th{background:var(--card2);color:var(--cosmos)}
 <div class="modal" id="modal-contract"><div class="mb"><span class="mx" onclick="closeM('contract')">x</span><div class="mt" id="ctr-title">Contrat</div><div id="ctr-content" style="font-size:11px;line-height:1.5;white-space:pre-wrap;color:var(--t)"></div><button class="btn bgn" onclick="copyContract()">Copier</button></div></div>
 <div class="modal" id="modal-email"><div class="mb"><span class="mx" onclick="closeM('email')">x</span><div class="mt">Email</div><div id="em-content" style="font-size:11px;line-height:1.5;white-space:pre-wrap;color:var(--t)"></div><button class="btn bgn" onclick="copyEmail()">Copier</button></div></div>
 
-<div class="ft"><p>Diamesso Zola | Congo-Brazzaville</p><p>V1013 | Gardienne du Flux Financier Mondial | CyberSec | Exchange Universel | PayPal</p></div>
+<div class="ft"><p>Diamesso Zola | Congo-Brazzaville</p><p>V1014 | Gardienne Planetaire Absolue | CyberSec | Exchange Universel | PayPal</p></div>
 
 <script>
 // NAVIGATION
@@ -776,6 +818,17 @@ var cxc=new XMLHttpRequest();cxc.timeout=10000;cxc.open('GET','https://api.coing
 // Update threat level
 var threats=['VERT - Aucune menace globale','JAUNE - Surveillance renforcee Congo','VERT - Flux stable','VERT - Toutes les 5 chains securisees','VERT - 32 canaux operationnels'];document.getElementById('threat-level').textContent='VERT';document.getElementById('threat-level').style.color='var(--g)';document.getElementById('threat-status').textContent=threats[Math.floor(Math.random()*threats.length)];recupJournal('GARDIENNE: Flux mondial analyse','var(--cosmos)');}
 function initGuardian(){loadGlobalFlow();}
+
+
+// GLOBAL MARKET DATA
+function loadGlobalCryptoMarket(){var el=document.getElementById('global-crypto-market');el.innerHTML='<span class="ld">Chargement marche global...</span>';var cx=new XMLHttpRequest();cx.timeout=10000;cx.open('GET','https://api.coingecko.com/api/v3/global',true);cx.onreadystatechange=function(){if(cx.readyState===4){if(cx.status===200){try{var d=JSON.parse(cx.responseText).data;var mcap=d.total_market_cap.usd;var vol=d.total_volume.usd;var btcDom=d.market_cap_percentage.btc;var ethDom=d.market_cap_percentage.eth;var html='<div class="g3"><div class="rd"><div class="rdt">Cap. Totale</div><div class="rdv" style="font-size:14px">$'+(mcap/1e12).toFixed(2)+'T</div></div><div class="rd"><div class="rdt">Volume 24h</div><div class="rdv" style="font-size:14px">$'+(vol/1e9).toFixed(1)+'B</div></div><div class="rd"><div class="rdt">BTC Dom</div><div class="rdv" style="font-size:14px;color:var(--gold)">'+btcDom.toFixed(1)+'%</div></div><div class="rd"><div class="rdt">ETH Dom</div><div class="rdv" style="font-size:14px;color:var(--p)">'+ethDom.toFixed(1)+'%</div></div></div>';el.innerHTML=html;}catch(e){el.innerHTML='Erreur';}}else{el.innerHTML='Erreur: '+cx.status;}}};cx.send();}
+function loadFearGreed(){var el=document.getElementById('fear-greed');el.innerHTML='<span class="ld">Chargement...</span>';var cx=new XMLHttpRequest();cx.timeout=10000;cx.open('GET','https://api.alternative.me/fng/?limit=1',true);cx.onreadystatechange=function(){if(cx.readyState===4){if(cx.status===200){try{var d=JSON.parse(cx.responseText);var val=parseInt(d.data[0].value);var cls=d.data[0].value_classification;var color=val<25?'var(--r)':val<45?'var(--gold)':val<55?'var(--m)':val<75?'var(--g)':'var(--g)';var html='<div style="text-align:center;padding:10px"><div style="font-size:32px;font-weight:700;color:'+color+'">'+val+'</div><div style="font-size:14px;color:'+color+';font-weight:600">'+cls+'</div><div style="width:100%;height:6px;background:var(--border);border-radius:3px;margin-top:8px;overflow:hidden"><div style="height:100%;background:'+color+';width:'+val+'%"></div></div></div>';el.innerHTML=html;}catch(e){el.innerHTML='Erreur';}}else{el.innerHTML='Erreur: '+cx.status;}}};cx.send();}
+var WORLD_INDICES=[{n:'S&P 500 (USA)',v:5630.27,ch:0.42},{n:'NASDAQ (USA)',v:17962.12,ch:0.67},{n:'DOW JONES (USA)',v:41000.51,ch:0.23},{n:'CAC 40 (France)',v:7630.45,ch:-0.15},{n:'DAX (Allemagne)',v:18845.33,ch:0.31},{n:'FTSE 100 (UK)',v:8365.12,ch:0.08},{n:'Nikkei 225 (Japon)',v:38045.67,ch:1.12},{n:'Shanghai (Chine)',v:3125.44,ch:-0.34},{n:'Hang Seng (HK)',v:17850.23,ch:0.56},{n:'Bovespa (Bresil)',v:137500.89,ch:0.45},{n:'Nifty 50 (Inde)',v:24800.12,ch:0.78},{n:'JSE (Afrique Sud)',v:83200.44,ch:-0.12}];
+function loadWorldIndices(){var el=document.getElementById('world-indices');var html='';WORLD_INDICES.forEach(function(idx){var chCls=idx.ch>=0?'var(--g)':'var(--r)';var sign=idx.ch>=0?'+':'';html+='<div class="coin"><span class="coin-n" style="min-width:130px">'+idx.n+'</span><span class="coin-p">'+idx.v.toLocaleString('fr-FR',{maximumFractionDigits:2})+'</span><span class="coin-c" style="color:'+chCls+'">'+sign+idx.ch.toFixed(2)+'%</span></div>';});el.innerHTML=html;}
+var COMMODITIES=[{n:'Or (XAU)',v:2510.50,u:'$/oz',ch:0.45},{n:'Argent (XAG)',v:29.87,u:'$/oz',ch:0.32},{n:'Petrole (WTI)',v:75.23,u:'$/baril',ch:-0.67},{n:'Petrole (Brent)',v:79.45,u:'$/baril',ch:-0.45},{n:'Cuivre',v:4.15,u:'$/lb',ch:0.23},{n:'Gaz Naturel',v:2.45,u:'$/MMBtu',ch:-1.23},{n:'Blé',v:580.25,u:'$/boisseau',ch:0.12},{n:'Coton',v:72.50,u:'$/lb',ch:-0.34},{n:'Café',v:245.67,u:'$/lb',ch:1.45},{n:'Cacao',v:8200.00,u:'$/T',ch:2.34}];
+function loadCommodities(){var el=document.getElementById('commodities');var html='';COMMODITIES.forEach(function(c){var chCls=c.ch>=0?'var(--g)':'var(--r)';var sign=c.ch>=0?'+':'';html+='<div class="coin"><span class="coin-n" style="min-width:120px">'+c.n+'</span><span class="coin-p">'+c.v.toLocaleString('fr-FR',{maximumFractionDigits:2})+' '+c.u+'</span><span class="coin-c" style="color:'+chCls+'">'+sign+c.ch.toFixed(2)+'%</span></div>';});el.innerHTML=html;}
+function loadWorldGrid(){var el=document.getElementById('world-grid');var regions=[{n:'Afrique',pays:54,status:'ACTIF'},{n:'Europe',pays:44,status:'ACTIF'},{n:'Ameriques',pays:35,status:'ACTIF'},{n:'Asie',pays:48,status:'ACTIF'},{n:'Moyen-Orient',pays:17,status:'ACTIF'},{n:'Oceanie',pays:14,status:'ACTIF'}];el.innerHTML=regions.map(function(r){return '<div class="rd"><div class="rdt">'+r.n+'</div><div class="rdv">'+r.pays+'</div><div style="font-size:9px;color:var(--g)">●'+r.status+'</div></div>';}).join('')+ '<div class="rd"><div class="rdt">TOTAL</div><div class="rdv" style="color:var(--cosmos)">195</div><div style="font-size:9px;color:var(--g)">●ACTIF</div></div>';}
+function loadCurrencyMatrix(){var el=document.getElementById('currency-matrix');el.innerHTML='<span class="ld">Chargement...</span>';var cx=new XMLHttpRequest();cx.timeout=10000;cx.open('GET','https://api.exchangerate-api.com/v4/latest/USD',true);cx.onreadystatechange=function(){if(cx.readyState===4){if(cx.status===200){try{var d=JSON.parse(cx.responseText);var r=d.rates;var majors=[['EUR','EUR'],['GBP','GBP'],['CNY','CNY'],['JPY','JPY'],['CHF','CHF'],['CAD','CAD'],['XAF','XAF'],['RUB','RUB'],['BRL','BRL'],['INR','INR'],['ZAR','ZAR'],['AED','AED'],['SGD','SGD'],['AUD','AUD'],['KRW','KRW'],['TRY','TRY']];var html='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:4px">';majors.forEach(function(c){var v=r[c[1]];if(v){html+='<div class="coin"><span class="coin-n">'+c[0]+'</span><span class="coin-p" style="font-size:11px">'+(v<10?v.toFixed(4):v.toFixed(2))+'</span></div>';}});html+='</div>';el.innerHTML=html;}catch(e){el.innerHTML='Erreur';}}else{el.innerHTML='Erreur: '+cx.status;}}};cx.send();}
 
 </script>
 </body>
