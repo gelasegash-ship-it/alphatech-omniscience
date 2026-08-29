@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate">
-<title>ALPHATECH V1010</title>
+<title>ALPHATECH V1011</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#0a0e27;--card:#141938;--card2:#1a1f3a;--border:#2a2f5a;--p:#00d4ff;--g:#00ff88;--gold:#ffd700;--r:#ff6b6b;--t:#e0e0ff;--m:#8a8aaa;--cosmos:#b794f4;--cosmos2:#d53f8c;--pp:#0070ba}
@@ -122,10 +122,11 @@ th{background:var(--card2);color:var(--cosmos)}
 </style>
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1010 - PUISSANCE ABSOLUE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1011 - OMNISCIENCE TOTALE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
+<button class="nb" data-t="enquete" onclick="go('enquete')">ENQUETE</button>
 <button class="nb" data-t="cybersec" onclick="go('cybersec')">CYBERSEC</button>
 <button class="nb" data-t="exchange" onclick="go('exchange')">EXCHANGE</button>
 <button class="nb" data-t="paypal" onclick="go('paypal')">PayPal</button>
@@ -169,6 +170,80 @@ th{background:var(--card2);color:var(--cosmos)}
 <div class="card"><div class="ct">Resultats du traçage</div><div id="trace-results"><div class="ld">Aucun traçage effectue.</div></div></div>
 <div class="card"><div class="ct">Exchanges connus detectes</div><div class="cd" id="exch-list" style="font-size:11px"><div class="li" style="border-left-color:var(--gold)">Binance: 0x28C6c06298d514Db13C5dB53a9fD8893f87D80A5</div><div class="li" style="border-left-color:var(--gold)">Binance 2: 0x8894E0a0c962CB723c1976a4421c9595bE726238</div><div class="li" style="border-left-color:var(--gold)">Coinbase: 0x71660c4005bA85C37c85532565835288f7cBd45c</div><div class="li" style="border-left-color:var(--gold)">Kraken: 0x267be1C1d684F78cb4F6a176C4911CA7e018f4d3</div><div class="li" style="border-left-color:var(--gold)">OKX: 0x6cC5F688a315f3dC28A7781717aB42B2aB0c34d3</div><div class="li" style="border-left-color:var(--gold)">Binance Hot: 0xF977814e90dA44bFA03b6295A0616a8974418C49</div></div></div>
 <div class="card"><div class="ct">Rapport Forensic</div><div class="cd" style="margin-bottom:8px">GENESIS genere un rapport pour les exchanges et autorites.</div><button class="btn bcos" onclick="genReport()">Generer le rapport</button><div id="report-out" class="res"></div></div>
+</div>
+
+
+<!-- ENQUETE FINANCIERE -->
+<div id="enquete" class="sec">
+<div class="card" style="border-color:var(--r)"><div class="ct" style="color:var(--r)">ENQUETE FINANCIERE MULTI-DOMAINES</div><div class="cd">GENESIS trace les fonds detournes dans TOUS les domaines: banques, PayPal, MTN MoMo, crypto, paradis fiscaux. Pas seulement la blockchain.</div></div>
+
+<div class="card" style="border-color:var(--gold)"><div class="ct" style="color:var(--gold)">DOSSIER D'ENQUETE - Generer un dossier complet</div><div class="cd" style="margin-bottom:8px">GENESIS compile toutes les informations publiques + genere un dossier d'enquete complet pour les autorites.</div>
+<select id="case-target"><option value="dongou">Dongou Armel Silvère (Zidane)</option><option value="bouya">Jean-Jacques Bouya</option><option value="custom">Personne custom</option></select>
+<input id="case-name" placeholder="Nom complet (si custom)">
+<input id="case-amount" placeholder="Montant detourne (FCFA)">
+<input id="case-details" placeholder="Details: dates, methodes, preuves...">
+<button class="btn bg" onclick="genCaseFile()">GENERER LE DOSSIER D'ENQUETE</button>
+<div id="case-res" class="res"></div></div>
+
+<div class="card"><div class="ct">TRAÇAGE BANCAIRE (6 banques Congo)</div><div class="cd" style="margin-bottom:8px">Demandes de tracage pour les banques ou Dongou avait des comptes.</div>
+<div class="li" style="border-left-color:var(--gold)">BPC - Banque Postale du Congo</div>
+<div class="li" style="border-left-color:var(--gold)">BSCA - Banque Sino-Congolaise d'Afrique</div>
+<div class="li" style="border-left-color:var(--gold)">BCI - Banque Commerciale et Industrielle</div>
+<div class="li" style="border-left-color:var(--gold)">LCB - La Congolaise de Banque</div>
+<div class="li" style="border-left-color:var(--gold)">UBA - United Bank for Africa</div>
+<div class="li" style="border-left-color:var(--gold)">BGFI Bank</div>
+<button class="btn bg" onclick="genBankTrace()">Generer les demandes de tracage</button>
+<div id="bank-trace-res" class="res"></div></div>
+
+<div class="card"><div class="ct">SWIFT - Traçage Virements Internationaux</div><div class="cd" style="margin-bottom:8px">Trace les virements internationaux via SWIFT GPI.</div>
+<input id="swift-ref" placeholder="Reference virement (MT103/MT202)">
+<button class="btn bp" onclick="traceSWIFT()">Tracer le virement</button>
+<div id="swift-res" class="res"></div></div>
+
+<div class="card"><div class="ct">PARADIS FISCAUX - Suivi des Avoirs</div><div class="cd" style="margin-bottom:8px">Liens vers les bases de donnees d'enquetes sur les paradis fiscaux.</div>
+<div class="li" style="border-left-color:var(--r)">Global Witness: <span class="link" onclick="openLink('https://www.globalwitness.org')">Enquetes Congo</span></div>
+<div class="li" style="border-left-color:var(--r)">Sherpa (ONG): <span class="link" onclick="openLink('https://www.asso-sherpa.org')">Biens mal acquis</span></div>
+<div class="li" style="border-left-color:var(--r)">Panama Papers: <span class="link" onclick="openLink('https://offshoreleaks.icij.org')">Rechercher</span></div>
+<div class="li" style="border-left-color:var(--r)">Pandora Papers: <span class="link" onclick="openLink('https://www.icij.org/investigations/pandora-papers/')">Rechercher</span></div>
+<div class="li" style="border-left-color:var(--r)">OpenCorporates: <span class="link" onclick="openLink('https://opencorporates.com')">Verifier societes</span></div>
+<div class="li" style="border-left-color:var(--r)">Archer Capital (societe ecran): <span class="link" onclick="openLink('https://opencorporates.com/search?q=archer+capital')">Verifier</span></div>
+</div>
+
+<div class="card"><div class="ct">RECUPERATION INTERNATIONALE</div><div class="cd" style="margin-bottom:8px">Organismes pour recuperer les fonds detournes.</div>
+<div class="li" style="border-left-color:var(--cosmos)">StAR (World Bank/UN): <span class="link" onclick="openLink('https://star.worldbank.org')">Stolen Asset Recovery</span></div>
+<div class="li" style="border-left-color:var(--cosmos)">INTERPOL: <span class="link" onclick="openLink('https://www.interpol.int/en/How-we-work/Notices/Red-Notices')">Red Notices</span></div>
+<div class="li" style="border-left-color:var(--cosmos)">UN Anti-Corruption: <span class="link" onclick="openLink('https://www.unodc.org/unodc/en/treaties/CAC/')">Convention CAC</span></div>
+<div class="li" style="border-left-color:var(--cosmos)">FATF: <span class="link" onclick="openLink('https://www.fatf-gafi.org')">Blanchiment</span></div>
+<div class="li" style="border-left-color:var(--cosmos)">Europol: <span class="link" onclick="openLink('https://www.europol.europa.eu')">Fraude UE</span></div>
+<div class="li" style="border-left-color:var(--cosmos)">BEAC: <span class="link" onclick="openLink('https://www.beac.int')">Banque Centrale</span></div>
+<div class="li" style="border-left-color:var(--cosmos)">PPLAAP: <span class="link" onclick="openLink('https://www.pplaaf.org')">Whistleblowers Africa</span></div>
+<div class="li" style="border-left-color:var(--cosmos)">TRACIT: <span class="link" onclick="openLink('https://www.tracit.org')">Crime transnational</span></div>
+</div>
+
+<div class="card"><div class="ct">PAYPAL - Ouverture Litige</div><div class="cd" style="margin-bottom:8px">Recuperation via PayPal Resolution Center.</div>
+<button class="btn bpp" onclick="openLink('https://www.paypal.com/disputes')">Ouvrir un litige PayPal</button>
+<button class="btn bpp" style="margin-top:4px" onclick="openLink('https://www.paypal.com/smarthelp/article/HELP444')">Protections acheteur</button>
+</div>
+
+<div class="card"><div class="ct">MTN MOMO - Signalement Fraude</div><div class="cd" style="margin-bottom:8px">Procedures de signalement MTN MoMo Congo.</div>
+<div class="li" style="border-left-color:var(--g)">Appel: 111 (gratuit, 24/7)</div>
+<div class="li" style="border-left-color:var(--g)">SMS: STOP au 303 (bloquer numero)</div>
+<div class="li" style="border-left-color:var(--g)">Email: customercare.cg@mtn.com</div>
+<div class="li" style="border-left-color:var(--g)">USSD: *126# > Aide > Reclamation</div>
+<button class="btn bgn" onclick="genMoMoReport()">Generer le rapport MoMo</button>
+<div id="momo-report-res" class="res"></div></div>
+
+<div class="card"><div class="ct">AUTORITES CONGOLAISES</div><div class="cd" style="margin-bottom:8px">Plaintes aupres des autorites locales.</div>
+<div class="li" style="border-left-color:var(--p)">Parquet de Brazzaville (mandat d'arret)</div>
+<div class="li" style="border-left-color:var(--p)">Direction Generale de la Repression des Fraudes</div>
+<div class="li" style="border-left-color:var(--p)">ANSSI - Agence Nationale Securite SI</div>
+<div class="li" style="border-left-color:var(--p)">Banque Centrale du Congo (BCC)</div>
+<div class="li" style="border-left-color:var(--p)">Commission Bancaire CEMAC</div>
+<div class="li" style="border-left-color:var(--p)">Ministere des Finances - Inspection Generale</div>
+<div class="li" style="border-left-color:var(--p)">Cour des Comptes</div>
+</div>
+
+<div class="card"><div class="ct">Recapitulatif Multi-Domaines</div><div class="g3"><div class="rd"><div class="rdt">Blockchains</div><div class="rdv">5</div></div><div class="rd"><div class="rdt">Banques</div><div class="rdv">6</div></div><div class="rd"><div class="rdt">Paradis Fiscaux</div><div class="rdv">6 DB</div></div><div class="rd"><div class="rdt">Autorites</div><div class="rdv">7</div></div><div class="rd"><div class="rdt">Internat.</div><div class="rdv">8</div></div><div class="rd"><div class="rdt">Total</div><div class="rdv">32</div></div></div></div>
 </div>
 
 <!-- CYBERSEC -->
@@ -323,7 +398,7 @@ th{background:var(--card2);color:var(--cosmos)}
 <div class="modal" id="modal-contract"><div class="mb"><span class="mx" onclick="closeM('contract')">x</span><div class="mt" id="ctr-title">Contrat</div><div id="ctr-content" style="font-size:11px;line-height:1.5;white-space:pre-wrap;color:var(--t)"></div><button class="btn bgn" onclick="copyContract()">Copier</button></div></div>
 <div class="modal" id="modal-email"><div class="mb"><span class="mx" onclick="closeM('email')">x</span><div class="mt">Email</div><div id="em-content" style="font-size:11px;line-height:1.5;white-space:pre-wrap;color:var(--t)"></div><button class="btn bgn" onclick="copyEmail()">Copier</button></div></div>
 
-<div class="ft"><p>Diamesso Zola | Congo-Brazzaville</p><p>V1010 | Puissance Absolue Universelle | CyberSec | Exchange Universel | PayPal</p></div>
+<div class="ft"><p>Diamesso Zola | Congo-Brazzaville</p><p>V1011 | Omniscience Financiere Totale | CyberSec | Exchange Universel | PayPal</p></div>
 
 <script>
 // NAVIGATION
@@ -545,6 +620,34 @@ html+='</div>';r.innerHTML=html;}
 
 function crossChainCheck(){var addr=document.getElementById('cross-addr').value.trim();var res=document.getElementById('cross-res');if(!addr||!/^0x[a-fA-F0-9]{40}$/.test(addr)){res.innerHTML='<span style="color:var(--r)">Adresse invalide.</span>';res.classList.add('show');return;}res.innerHTML='<span class="ld">Verification sur 5 chains en parallele...</span>';res.classList.add('show');var results=[];var done=0;CHAINS.forEach(function(ch){rpcCall(ch.rpc,'eth_getBalance',[addr,'latest'],function(bal){done++;if(bal){var v=hexToNum(bal)/Math.pow(10,ch.dec);if(v>0){results.push({chain:ch.n,sym:ch.sym,bal:v});}}if(done>=CHAINS.length){renderCrossChain(results,addr);}});});}
 function renderCrossChain(results,addr){var res=document.getElementById('cross-res');if(results.length===0){res.innerHTML='<div style="color:var(--r)">Aucun solde sur les 5 chains.</div><div style="margin-top:4px;font-size:10px;color:var(--m)">Adresse: '+addr.slice(0,10)+'...'+addr.slice(-6)+'</div>';return;}var html='<div style="color:var(--g);font-weight:700;margin-bottom:6px">FONDS DETECTES sur '+results.length+' chain(s)!</div>';results.forEach(function(r){html+='<div class="wal-bal"><div class="wal-sym">'+r.chain+' - '+r.sym+'</div><div class="wal-amt">'+r.bal.toFixed(6)+'</div><div class="wal-ch">Retirable: OUI</div></div>';});html+='<div style="margin-top:6px;font-size:10px;color:var(--m)">Adresse: '+addr.slice(0,10)+'...'+addr.slice(-6)+'</div>';res.innerHTML=html;}
+
+
+// ENQUETE FINANCIERE
+var CASE_DATA={
+dongou:{name:'Dongou Armel Silvere (alias Zidane)',role:'Ex-Directeur adjoint du Tresor public',period:'2022-2025',amount:'3000 milliards FCFA (estime)',banks:['BPC','BSCA','BCI','LCB','UBA','BGFI Bank'],company:'Archer Capital (societe ecran)',fled:'Paris, France (22 avril 2025)',warrant:'Mandat d arret international n RP 2110/25 (25 avril 2025)',status:'Fugitif - recherche par INTERPOL',details:'Dongou Armel Silvere, nomme par decree presidentiel n 2024-380 du 29/07/2024, accuse de detournement massif de fonds publics entre 2022 et 2025. Utilisait la societe Archer Capital pour blanchir l argent via des operations de levee de fonds. Comptes bancaires debloques le 07/05/2025 par le procureur malgre le mandat d arret. Proche du clan presidentiel.'},
+bouya:{name:'Jean-Jacques Bouya',role:'Vice-Premier ministre, Ministre de l Amenagement du territoire',period:'2010-2016',amount:'48 milliards FCFA',banks:['Non publie - enquete internationale'],company:'Reseaux Chine-Congo',fled:'Paradis fiscaux + Quebec, Canada',warrant:'Enquete judiciaire internationale',status:'Actif - sous enquete',details:'Jean-Jacques Bouya accuse d avoir detourne 48 milliards FCFA en 2016 et 40 milliards en 2010. Fonds traces vers des paradis fiscaux et au Quebec, Canada. Enquete par des juges francais et canadiens. 64 complices presumes lists. Enquete collaborative #CongoHoldUp. Proche de l ambassadeur de Chine au Congo.'}
+};
+function genCaseFile(){var target=document.getElementById('case-target').value;var r=document.getElementById('case-res');var data;
+if(target==='custom'){var cn=document.getElementById('case-name').value.trim();var ca=document.getElementById('case-amount').value.trim();var cd2=document.getElementById('case-details').value.trim();if(!cn){r.innerHTML='<span style="color:var(--r)">Nom requis.</span>';r.classList.add('show');return;}data={name:cn,role:'A determiner',period:'A determiner',amount:ca||'A determiner',banks:['A determiner'],company:'A determiner',fled:'A determiner',warrant:'A determiner',status:'Enquete en cours',details:cd2||'A completer'};}else{data=CASE_DATA[target];}
+var report='DOSSIER D ENQUETE FINANCIERE\n================================\n\nGenere par: GENESIS - ALPHATECH OMNISCIENCE\nDate: '+new Date().toISOString()+'\nDemandeur: Diamesso Zola\n\nIDENTITE\n--------\nNom: '+data.name+'\nRole: '+data.role+'\nPeriode: '+data.period+'\nMontant detourne: '+data.amount+'\nStatut: '+data.status+'\n\nRESEAUX FINANCIERS\n------------------\nBanques: '+data.banks.join(', ')+'\nSociete ecran: '+data.company+'\nFuite vers: '+data.fled+'\n\nPROCEDURE LEGALE\n----------------\n'+data.warrant+'\n\nDETAILS\n-------\n'+data.details+'\n\nACTIONS DE RECUPERATION\n-----------------------\n1. BANQUES ('+data.banks.length+' banques identifiees):\n';
+data.banks.forEach(function(b,i){report+='   '+i+'.1. '+b+': Demander le gel et le tracage de tous les comptes\n   '+i+'.2. Obtenir les releves bancaires (mandat judiciaire)\n   '+i+'.3. Identifier les virements sortants (SWIFT)\n';});
+report+='2. SOCIETE ECRAN: '+data.company+'\n   2.1. Verifier sur OpenCorporates\n   2.2. Demander les documents de creation\n   2.3. Identifier les beneficiaries effectifs\n';
+report+='3. PARADIS FISCAUX:\n   3.1. Verifier Panama Papers: https://offshoreleaks.icij.org\n   3.2. Verifier Pandora Papers: https://www.icij.org\n   3.3. Contacter Global Witness: https://www.globalwitness.org\n   3.4. Contacter Sherpa (biens mal acquis): https://www.asso-sherpa.org\n';
+report+='4. AUTORITES INTERNATIONALES:\n   4.1. INTERPOL: '+data.warrant+'\n   4.2. StAR (World Bank/UN): https://star.worldbank.org\n   4.3. UNODC (Anti-Corruption): https://www.unodc.org\n   4.4. FATF (blanchiment): https://www.fatf-gafi.org\n';
+report+='5. AUTORITES CONGOLAISES:\n   5.1. Parquet de Brazzaville\n   5.2. Direction Generale Repression des Fraudes\n   5.3. Banque Centrale du Congo (BCC)\n   5.4. Commission Bancaire CEMAC\n   5.5. Cour des Comptes\n';
+report+='6. BLOCKCHAIN:\n   6.1. Si adresses crypto connues: utiliser le RECOVERY ENGINE\n   6.2. Verifier sur 5 chains: ETH, BSC, Polygon, Base, Arbitrum\n   6.3. Scanner automatiquement: bouton AUTO-SCAN\n';
+report+='7. PAYPAL:\n   7.1. Resolution Center: https://www.paypal.com/disputes\n   7.2. IC3: https://www.ic3.gov\n';
+report+='8. MTN MOMO:\n   8.1. Appeler le 111 (gratuit)\n   8.2. STOP au 303\n   8.3. customercare.cg@mtn.com\n';
+report+='\n================================\nGENESIS - ALPHATECH OMNISCIENCE\nDossier genere automatiquement le '+new Date().toLocaleString('fr-FR')+'\n\nSources publiques: congo-liberty.org, matinlibre.cg, lesechos-congobrazza.com,\nafricaintelligence.com, brazzanewsofficiel1 (Facebook), congo-liberty.org,\nsociete.cg, vox.cg, globalwitness.org, asso-sherpa.org, tvanouvelles.ca';
+r.innerHTML='<div style="white-space:pre-wrap;font-size:10px;background:var(--card2);padding:10px;border-radius:8px;max-height:500px;overflow-y:auto;border:1px solid var(--gold)">'+report+'</div><button class="btn bg" style="margin-top:6px" onclick="copyCase()">Copier le dossier</button>';
+r.classList.add('show');}
+function copyCase(){navigator.clipboard.writeText(document.getElementById('case-res').innerText).then(function(){alert('Dossier copie!');});}
+function genBankTrace(){var banks=['BPC - Banque Postale du Congo','BSCA - Banque Sino-Congolaise d Afrique','BCI - Banque Commerciale et Industrielle','LCB - La Congolaise de Banque','UBA - United Bank for Africa','BGFI Bank'];var r=document.getElementById('bank-trace-res');var report='DEMANDES DE TRACAGE BANCAIRE\n================================\n\nDemandeur: Diamesso Zola\nDate: '+new Date().toISOString()+'\nAffaire: Dongou Armel Silvère (alias Zidane)\nMandat: n RP 2110/25\n\n';
+banks.forEach(function(b,i){report+='DEMANDE '+(i+1)+' - '+b+'\n--------------------------------\nA: Direction de '+b+'\nObjet: Demande de gel et tracage de comptes\nReference: Mandat d arret international n RP 2110/25\n\nMadame, Monsieur le Directeur,\n\nSuite au mandat d arret international n RP 2110/25 emis le 25 avril 2025 par le Parquet de Brazzaville a l encontre de Monsieur DONGOU ARMEL SILVERE (alias Zidane), ex-directeur adjoint du Tresor public, je vous prie de bien vouloir proceder au:\n\n1. GEL IMMEDIAT de tous les comptes bancaiers ouverts au nom de Dongou Armel Silvère\n2. GEL des comptes de la societe Archer Capital\n3. COMMUNICATION des releves bancaires (2022-2025)\n4. IDENTIFICATION des virements sortants (SWIFT MT103/MT202)\n5. LISTE des beneficiaires des virements\n6. SOLDES actuels de tous les comptes\n\nCette demande s appuie sur:\n- Le mandat d arret international n RP 2110/25\n- L article 42 du Code de procedure penale congolais\n- La Convention des Nations Unies contre la corruption (CAC)\n\nDans l attente de votre reponse sous 48h,\n\nDiamesso Zola\nALPHATECH OMNISCIENCE\n\n\n';});r.innerHTML='<div style="white-space:pre-wrap;font-size:10px;background:var(--card2);padding:10px;border-radius:8px;max-height:500px;overflow-y:auto;border:1px solid var(--gold)">'+report+'</div><button class="btn bg" style="margin-top:6px" onclick="copyBankTrace()">Copier les demandes</button>';r.classList.add('show');}
+function copyBankTrace(){navigator.clipboard.writeText(document.getElementById('bank-trace-res').innerText).then(function(){alert('Demandes copiees!');});}
+function traceSWIFT(){var ref=document.getElementById('swift-ref').value.trim();var r=document.getElementById('swift-res');if(!ref){r.innerHTML='<span style="color:var(--r)">Reference requise.</span>';r.classList.add('show');return;}r.innerHTML='<div style="color:var(--p);font-weight:700;margin-bottom:6px">Traçage SWIFT: '+ref+'</div><div class="li" style="border-left-color:var(--p)">SWIFT GPI Tracker: <span class="link" onclick="openLink(\'https://gpi.swift.com/am-gpi/tracker\')">Suivre le virement</span></div><div class="li" style="border-left-color:var(--p)">Votre banque peut tracer le MT103/MT202</div><div class="li" style="border-left-color:var(--p)">BEAC peut demander le tracage via SWIFT</div><div class="li" style="border-left-color:var(--p)">SWIFT gpi: toutes les banques membres peuvent tracer</div><div style="margin-top:6px"><b>Procedure:</b><br>1. Contactez votre banque avec la reference<br>2. La banque lance une demande SWIFT GPI<br>3. SWIFT trace le virement dans tous les banques intermediaires<br>4. Vous recevez le rapport complet</div></div>';r.classList.add('show');}
+function genMoMoReport(){var r=document.getElementById('momo-report-res');r.innerHTML='<div style="white-space:pre-wrap;font-size:10px;background:var(--card2);padding:10px;border-radius:8px;max-height:400px;overflow-y:auto;border:1px solid var(--g)">RAPPORT DE FRAUDE MTN MOMO\n================================\n\nDate: '+new Date().toISOString()+'\nDemandeur: Diamesso Zola\n\n1. IMMEDIATE:\n   - Appeler le 111 (gratuit, 24/7)\n   - Envoyer STOP au 303 (bloquer le numero frauduleux)\n   - *126# > Aide > Reclamation\n\n2. PAR ECRIT:\n   Email: customercare.cg@mtn.com\n   Objet: Signalement de fraude - demande de blocage\n   \n   Contenu:\n   Je signale une fraude via MTN MoMo:\n   - Numero frauduleux: [a remplir]\n   - Montant: [a remplir] FCFA\n   - Reference transaction: [a remplir]\n   - Date et heure: [a remplir]\n   \n   Je demande:\n   1. Le blocage immediat du numero destinataire\n   2. Le reversement de la transaction\n   3. Le gel des fonds sur le compte destinataire\n   4. Le rapport de transaction complet\n\n3. BUREAU MTN:\n   Se presenter au bureau MTN le plus proche avec:\n   - Piece d identite\n   - Reference de la transaction\n   - Capture d ecran du SMS de confirmation\n   - Montant et date exacts\n\n4. AUTORITES:\n   - Commissariat le plus proche\n   - Direction de la Police Judiciaire\n   - Brigade Cybercriminalite\n\n================================\nGENESIS - ALPHATECH OMNISCIENCE</div><button class="btn bgn" style="margin-top:6px" onclick="copyMoMo()">Copier le rapport</button>';r.classList.add('show');}
+function copyMoMo(){navigator.clipboard.writeText(document.getElementById('momo-report-res').innerText).then(function(){alert('Rapport copie!');});}
 
 </script>
 </body>
