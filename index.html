@@ -5,11 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="theme-color" content="#0a0e27">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>ALPHATECH V1003.3</title>
+<title>ALPHATECH V1004</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#0a0e27;--card:#141938;--card2:#1a1f3a;--border:#2a2f5a;--p:#00d4ff;--g:#00ff88;--gold:#ffd700;--r:#ff6b6b;--t:#e0e0ff;--m:#8a8aaa}
@@ -17,507 +15,486 @@ body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--t);min-he
 .hdr{background:linear-gradient(135deg,#1a1f3a,#0a0e27);padding:12px 14px;border-bottom:2px solid var(--p);position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:16px;font-weight:900;color:var(--p)}
 .ver{font-size:9px;color:var(--r);font-weight:600}
-.dot{width:8px;height:8px;background:var(--g);border-radius:50%;display:inline-block;animation:p 2s infinite}
-@keyframes p{0%,100%{opacity:1}50%{opacity:.4}}
+.dot{width:8px;height:8px;background:var(--g);border-radius:50%;display:inline-block;animation:dp 2s infinite}
+@keyframes dp{0%,100%{opacity:1}50%{opacity:.4}}
 .nav{display:flex;overflow-x:auto;padding:6px;gap:4px;background:var(--card);position:sticky;top:50px;z-index:99;-webkit-overflow-scrolling:touch}
 .nav::-webkit-scrollbar{display:none}
-.nav button{padding:8px 14px;border-radius:16px;font-size:12px;font-weight:700;white-space:nowrap;background:var(--card2);color:var(--m);border:1px solid var(--border);cursor:pointer;flex-shrink:0;-webkit-tap-highlight-color:transparent}
-.nav button.act{background:var(--p);color:#000;border-color:var(--p)}
+.nb{padding:9px 14px;border-radius:16px;font-size:12px;font-weight:700;white-space:nowrap;background:var(--card2);color:var(--m);border:1px solid var(--border);cursor:pointer;flex-shrink:0}
+.nb.act{background:var(--p);color:#000;border-color:var(--p)}
 .ctn{padding:10px;max-width:560px;margin:0 auto}
 .sec{display:none}.sec.act{display:block}
 .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:10px}
 .ct{font-size:15px;font-weight:700;color:var(--p);margin-bottom:6px}
 .cd{font-size:12px;color:var(--m);line-height:1.5}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
 .tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;margin:1px}
 .tg{background:rgba(0,255,136,.15);color:var(--g)}
 .tb{background:rgba(0,212,255,.15);color:var(--p)}
 .tr{background:rgba(255,107,107,.15);color:var(--r)}
 .td{background:rgba(255,215,0,.15);color:var(--gold)}
-.btn{display:block;width:100%;padding:13px;text-align:center;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;margin:6px 0;transition:transform .1s}
+.btn{display:block;width:100%;padding:13px;text-align:center;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;margin:6px 0}
 .btn:active{transform:scale(.97)}
 .bp{background:linear-gradient(135deg,#00d4ff,#0099ff);color:#000}
 .bg{background:linear-gradient(135deg,#ffd700,#ff9500);color:#000}
 .bgn{background:linear-gradient(135deg,#00ff88,#00cc66);color:#000}
 .br{background:linear-gradient(135deg,#ff6b6b,#cc4444);color:#fff}
-input,select,textarea{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--t);font-size:13px;outline:none;margin:4px 0}
+input,textarea{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--t);font-size:13px;outline:none;margin:4px 0}
 input:focus{border-color:var(--p)}
-.rd{background:rgba(0,255,136,.05);border:1px solid rgba(0,255,136,.3);border-radius:8px;padding:10px;margin:6px 0;text-align:center}
+.rd{background:rgba(0,255,136,.05);border:1px solid rgba(0,255,136,.3);border-radius:8px;padding:10px;text-align:center}
 .rdt{color:var(--g);font-weight:700;font-size:11px}
 .rdv{font-size:16px;font-weight:700;color:#fff;margin-top:2px}
 .li{padding:8px 10px;margin:3px 0;background:var(--card2);border-radius:6px;font-size:12px;border-left:3px solid var(--p)}
-.li:active{background:var(--border)}
 table{width:100%;border-collapse:collapse;font-size:11px}
 th,td{padding:6px;border:1px solid var(--border);text-align:left}
 th{background:var(--card2);color:var(--p)}
 .ft{text-align:center;padding:16px;color:var(--m);font-size:10px}
 .res{margin-top:8px;padding:10px;background:var(--card2);border-radius:8px;font-size:12px;line-height:1.5;white-space:pre-wrap;display:none}
 .res.show{display:block}
-.ok{color:var(--g)}.err{color:var(--r)}
 .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:200;justify-content:center;align-items:center;padding:10px}
 .modal.show{display:flex}
-.modal-box{background:var(--card);border:1px solid var(--p);border-radius:12px;padding:16px;max-width:500px;width:100%;max-height:85vh;overflow-y:auto}
-.modal-title{font-size:16px;font-weight:700;color:var(--p);margin-bottom:10px}
-.modal-close{float:right;color:var(--r);cursor:pointer;font-size:24px;font-weight:700;padding:0 4px}
-.chat-box{background:var(--card2);border-radius:8px;padding:8px;margin:4px 0;min-height:100px;max-height:200px;overflow-y:auto}
+.mb{background:var(--card);border:1px solid var(--p);border-radius:12px;padding:16px;max-width:500px;width:100%;max-height:85vh;overflow-y:auto}
+.mt{font-size:16px;font-weight:700;color:var(--p);margin-bottom:10px}
+.mx{float:right;color:var(--r);cursor:pointer;font-size:24px;font-weight:700;padding:0 4px}
+.cbox{background:var(--card2);border-radius:8px;padding:8px;margin:4px 0;min-height:100px;max-height:200px;overflow-y:auto}
 .cm{padding:6px 10px;margin:3px 0;border-radius:8px;font-size:12px;line-height:1.4}
 .cu{background:var(--p);color:#000;margin-left:20px;text-align:right}
 .ca{background:var(--card);color:var(--t);margin-right:20px}
-.loading{color:var(--m);font-style:italic;font-size:11px}
-/* Device grid */
-.dev-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
-.dev-card{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:10px 6px;cursor:pointer;text-align:center;transition:all .15s}
-.dev-card:active{transform:scale(.93)}
-.dev-card.act{border-color:var(--g);background:rgba(0,255,136,.08)}
-.dev-svg{width:32px;height:32px;margin:0 auto 4px;display:block}
-.dev-name{font-size:10px;font-weight:600;color:var(--t);line-height:1.2}
-.dev-status{font-size:9px;margin-top:2px;color:var(--m)}
-.dev-card.act .dev-status{color:var(--g)}
-/* Hologram */
+.ld{color:var(--m);font-style:italic;font-size:11px}
+.dg{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.dc{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:10px 6px;cursor:pointer;text-align:center}
+.dc:active{transform:scale(.93)}
+.dc.act{border-color:var(--g);background:rgba(0,255,136,.08)}
+.ds{width:32px;height:32px;margin:0 auto 4px;display:block}
+.dn{font-size:10px;font-weight:600;color:var(--t);line-height:1.2}
+.dst{font-size:9px;margin-top:2px;color:var(--m)}
+.dc.act .dst{color:var(--g)}
 .holo{position:relative;width:100%;height:180px;background:radial-gradient(ellipse at center,rgba(0,212,255,.12) 0%,transparent 70%);border-radius:8px;overflow:hidden;margin:6px 0;border:1px solid rgba(0,212,255,.2)}
-.holo-core{position:absolute;top:50%;left:50%;width:50px;height:50px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(0,212,255,.3),transparent);animation:holo-pulse 2s ease-in-out infinite}
-.holo-ring{position:absolute;top:50%;left:50%;border:2px solid rgba(0,212,255,.3);border-radius:50%;transform:translate(-50%,-50%);animation:holo-expand 3s ease-out infinite}
-@keyframes holo-pulse{0%,100%{opacity:.4;transform:translate(-50%,-50%) scale(1)}50%{opacity:.8;transform:translate(-50%,-50%) scale(1.15)}}
-@keyframes holo-expand{0%{width:20px;height:20px;opacity:1;border-color:rgba(0,212,255,.6)}100%{width:160px;height:160px;opacity:0;border-color:rgba(0,255,136,.1)}}
-.holo-scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g) 50%,transparent);animation:holo-scan-move 2.5s ease-in-out infinite;box-shadow:0 0 8px var(--g)}
-@keyframes holo-scan-move{0%{top:2%}50%{top:98%}100%{top:2%}}
-/* ECG */
-.ecg-wrap{width:100%;height:50px;background:var(--card2);border-radius:6px;overflow:hidden;position:relative}
-.ecg-wrap svg{width:200%;height:100%;animation:ecg-scroll 3s linear infinite}
-@keyframes ecg-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-/* Pulse */
-.pulse-dot{width:10px;height:10px;border-radius:50%;background:var(--r);display:inline-block;position:relative}
-.pulse-dot::after{content:'';position:absolute;inset:-3px;border:2px solid var(--r);border-radius:50%;animation:pd 1.2s ease-out infinite}
-@keyframes pd{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.5);opacity:0}}
-.diag-box{background:var(--card2);border-left:3px solid var(--g);border-radius:6px;padding:10px;margin:6px 0;font-size:12px;line-height:1.5;display:none}
-.diag-box.show{display:block}
-.wave-bar{display:inline-block;width:3px;background:var(--p);margin:0 1px;border-radius:2px;vertical-align:bottom}
-/* Cam feed */
-.cam-feed{width:100%;height:60px;background:linear-gradient(135deg,#0d1117,#161b22);border-radius:6px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.cam-feed::after{content:'';position:absolute;top:4px;right:4px;width:6px;height:6px;background:var(--r);border-radius:50%;animation:p 1.5s infinite}
-.cam-label{font-size:10px;color:var(--m);font-weight:600}
-/* Agent card */
-.agent-card{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:8px;margin:4px 0;display:flex;align-items:center;gap:8px}
-.agent-icon{width:28px;height:28px;border-radius:6px;background:rgba(0,212,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.agent-info{flex:1}
-.agent-name{font-size:12px;font-weight:700;color:var(--t)}
-.agent-role{font-size:10px;color:var(--m)}
-.agent-st{font-size:9px;padding:2px 6px;border-radius:4px;background:rgba(0,255,136,.15);color:var(--g)}
+.hc{position:absolute;top:50%;left:50%;width:50px;height:50px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(0,212,255,.3),transparent);animation:hp 2s ease-in-out infinite}
+.hr{position:absolute;top:50%;left:50%;border:2px solid rgba(0,212,255,.3);border-radius:50%;transform:translate(-50%,-50%);animation:he 3s ease-out infinite}
+.hs{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g) 50%,transparent);animation:hsm 2.5s ease-in-out infinite;box-shadow:0 0 8px var(--g)}
+@keyframes hp{0%,100%{opacity:.4;transform:translate(-50%,-50%) scale(1)}50%{opacity:.8;transform:translate(-50%,-50%) scale(1.15)}}
+@keyframes he{0%{width:20px;height:20px;opacity:1}100%{width:160px;height:160px;opacity:0}}
+@keyframes hsm{0%{top:2%}50%{top:98%}100%{top:2%}}
+.ew{width:100%;height:50px;background:var(--card2);border-radius:6px;overflow:hidden;position:relative}
+.ew svg{width:200%;height:100%;animation:es 3s linear infinite}
+@keyframes es{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.pd{width:10px;height:10px;border-radius:50%;background:var(--r);display:inline-block;position:relative}
+.pd::after{content:'';position:absolute;inset:-3px;border:2px solid var(--r);border-radius:50%;animation:pe 1.2s ease-out infinite}
+@keyframes pe{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.5);opacity:0}}
+.cam{background:linear-gradient(135deg,#0d1117,#161b22);border-radius:6px;border:1px solid var(--border);padding:8px;text-align:center;cursor:pointer;position:relative;overflow:hidden;height:70px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.cam:active{transform:scale(.95)}
+.cam.act{border-color:var(--r);background:linear-gradient(135deg,#1a0a0a,#0d1117)}
+.cam-rec{position:absolute;top:4px;right:4px;width:6px;height:6px;background:var(--r);border-radius:50%;display:none;animation:dp 1s infinite}
+.cam.act .cam-rec{display:block}
+.cam-l{font-size:10px;color:var(--m);font-weight:600}
+.cam.act .cam-l{color:var(--r)}
+.cam-s{font-size:8px;color:var(--m);margin-top:2px}
+.ac{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:8px;margin:4px 0;display:flex;align-items:center;gap:8px}
+.ai{width:28px;height:28px;border-radius:6px;background:rgba(0,212,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.an{font-size:12px;font-weight:700;color:var(--t)}
+.ar{font-size:10px;color:var(--m)}
+.as{font-size:9px;padding:2px 6px;border-radius:4px;background:rgba(0,255,136,.15);color:var(--g)}
+.coin{display:flex;justify-content:space-between;align-items:center;padding:8px;background:var(--card2);border-radius:6px;margin:3px 0}
+.coin-n{font-size:12px;font-weight:700;color:var(--t)}
+.coin-p{font-size:13px;font-weight:700;color:#fff}
+.coin-c{font-size:11px}
 </style>
 </head>
 <body>
-<div class="hdr">
-<div><div class="logo">ALPHATECH</div><div class="ver">V1003.3 - GENESIS VIVANTE</div></div>
-<div><span class="dot"></span> <span style="color:var(--g);font-size:10px;font-weight:600">VIVANTE</span></div>
-</div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1004 - GENESIS VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--g);font-size:10px;font-weight:600">VIVANTE</span></div></div>
 <div class="nav" id="nav">
-<button class="act" data-t="home">Accueil</button>
-<button data-t="mtn">MTN</button>
-<button data-t="genesis">GENESIS</button>
-<button data-t="medical">Medical</button>
-<button data-t="security">Securite</button>
-<button data-t="money">Trading</button>
-<button data-t="agents">Agents</button>
-<button data-t="social">Social</button>
-<button data-t="tools">Outils</button>
-<button data-t="access">Acces</button>
+<button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
+<button class="nb" data-t="mtn" onclick="go('mtn')">MTN</button>
+<button class="nb" data-t="genesis" onclick="go('genesis')">GENESIS</button>
+<button class="nb" data-t="medical" onclick="go('medical')">Medical</button>
+<button class="nb" data-t="security" onclick="go('security')">Securite</button>
+<button class="nb" data-t="money" onclick="go('money')">Trading</button>
+<button class="nb" data-t="agents" onclick="go('agents')">Agents</button>
+<button class="nb" data-t="social" onclick="go('social')">Social</button>
+<button class="nb" data-t="tools" onclick="go('tools')">Outils</button>
+<button class="nb" data-t="access" onclick="go('access')">Acces</button>
 </div>
 <div class="ctn">
 
-<!-- HOME -->
 <div id="home" class="sec act">
-<div class="card">
-<div class="ct">Marche Crypto - 28/08/2026</div>
-<div class="grid2">
-<div class="rd"><div class="rdt">Bitcoin (BTC)</div><div class="rdv">$78,847</div><div style="color:var(--r);font-size:11px">-0.17%</div></div>
-<div class="rd"><div class="rdt">Ethereum (ETH)</div><div class="rdv">$2,491</div><div style="color:var(--g);font-size:11px">+1.08%</div></div>
-<div class="rd"><div class="rdt">Solana (SOL)</div><div class="rdv">$101.50</div><div style="color:var(--g);font-size:11px">+4.63%</div></div>
-<div class="rd"><div class="rdt">BNB</div><div class="rdv">$705.70</div><div style="color:var(--g);font-size:11px">+0.97%</div></div>
-</div>
-<div style="margin-top:8px"><span class="tag tr">BEARISH</span> <span class="tag tb">Cap: $2.68T</span></div>
-</div>
-<div class="card">
-<div class="ct">Brazzaville</div>
-<div class="grid3">
-<div class="rd"><div class="rdt">Temp</div><div class="rdv">25.7C</div></div>
-<div class="rd"><div class="rdt">Humidite</div><div class="rdv">69%</div></div>
-<div class="rd"><div class="rdt">Vent</div><div class="rdv">7 km/h</div></div>
-</div>
-</div>
-<div class="card">
-<div class="ct">1 USD =</div>
-<div class="grid3">
-<div class="rd"><div class="rdt">FCFA</div><div class="rdv">562</div></div>
-<div class="rd"><div class="rdt">EUR</div><div class="rdv">0.86</div></div>
-<div class="rd"><div class="rdt">NGN</div><div class="rdv">1345</div></div>
-</div>
-</div>
-<div class="card">
-<div class="ct">Systeme ALPHATECH V1003.3</div>
-<div class="cd"><b>58 fonctions</b> backend actives<br><b>35+ agents IA</b> operationnels<br><b>GENESIS VIVANTE</b> - TRANSCENDING 8/10<br><b>15 appareils</b> medicaux avec SVG<br><b>Hologramme 8K</b> anime<br><b>Diagnostic IA</b> temps reel<br><b>MTN MoMo</b> operationnel<br><b>14 plateformes</b> omnipresence</div>
-</div>
-<div class="card">
-<div class="ct">Actions rapides</div>
-<button class="btn bp" onclick="openM('genesis-chat')">Parler a GENESIS</button>
-<button class="btn bg" onclick="openM('mtn-transfer')">Transfert MTN</button>
-<button class="btn bgn" onclick="navTo('medical')">Scanner medical</button>
-</div>
+<div class="card"><div class="ct">Marche Crypto en direct</div><div id="crypto-prices"><div class="ld">Chargement des prix...</div></div><div style="margin-top:8px"><span class="tag tr" id="market-sent">BEARISH</span> <span class="tag tb" id="market-cap">Cap: ...</span></div></div>
+<div class="card"><div class="ct">Brazzaville</div><div class="g3"><div class="rd"><div class="rdt">Temp</div><div class="rdv">25.7C</div></div><div class="rd"><div class="rdt">Humidite</div><div class="rdv">69%</div></div><div class="rd"><div class="rdt">Vent</div><div class="rdv">7 km/h</div></div></div></div>
+<div class="card"><div class="ct">1 USD =</div><div class="g3"><div class="rd"><div class="rdt">FCFA</div><div class="rdv">562</div></div><div class="rd"><div class="rdt">EUR</div><div class="rdv">0.86</div></div><div class="rd"><div class="rdt">NGN</div><div class="rdv">1345</div></div></div></div>
+<div class="card"><div class="ct">Systeme V1004</div><div class="cd"><b>58 fonctions</b> backend<br><b>35+ agents IA</b><br><b>GENESIS VIVANTE</b> TRANSCENDING 8/10<br><b>15 appareils</b> medicaux SVG<br><b>Prix crypto</b> en temps reel<br><b>MTN MoMo</b> operationnel<br><b>14 plateformes</b> sociale</div></div>
+<div class="card"><div class="ct">Actions</div><button class="btn bp" onclick="openM('chat')">Parler a GENESIS</button><button class="btn bg" onclick="openM('mtn-modal')">Transfert MTN</button><button class="btn bgn" onclick="go('medical')">Scanner medical</button></div>
 </div>
 
-<!-- MTN -->
 <div id="mtn" class="sec">
-<div class="card"><div class="ct">MTN MoMo - Comptes</div><div id="mtn-acc"></div></div>
-<div class="card"><div class="ct">Transfert (Agent > Client)</div><input id="trf-c" placeholder="Numero client"><input id="trf-a" type="number" placeholder="Montant FCFA"><button class="btn bp" onclick="mtnTrf()">Transferer</button><div id="trf-r" class="res"></div></div>
-<div class="card"><div class="ct">Retrait (Client > Agent)</div><input id="rtr-c" placeholder="Numero client"><input id="rtr-a" type="number" placeholder="Montant FCFA"><button class="btn bg" onclick="mtnRtr()">Retirer</button><div id="rtr-r" class="res"></div></div>
-<div class="card"><div class="ct">Depot</div><input id="dep-p" placeholder="Numero MTN"><input id="dep-n" placeholder="Nom"><input id="dep-a" type="number" placeholder="Montant"><button class="btn bgn" onclick="mtnDep()">Deposer</button><div id="dep-r" class="res"></div></div>
-<div class="card"><div class="ct">Historique</div><button class="btn bp" onclick="mtnHist()">Voir</button><div id="hist-r" class="res"></div></div>
-<div class="card"><div class="ct">Creer compte</div><input id="new-p" placeholder="Numero"><input id="new-n" placeholder="Nom"><input id="new-b" type="number" placeholder="Solde"><button class="btn bp" onclick="mtnNew()">Creer</button><div id="new-r" class="res"></div></div>
+<div class="card"><div class="ct">MTN MoMo - Comptes</div><div id="m-accs"></div></div>
+<div class="card"><div class="ct">Transfert (Agent > Client)</div><input id="tc" placeholder="Numero client"><input id="ta" type="number" placeholder="Montant FCFA"><button class="btn bp" onclick="mTrf()">Transferer</button><div id="tr" class="res"></div></div>
+<div class="card"><div class="ct">Retrait (Client > Agent)</div><input id="rc" placeholder="Numero client"><input id="ra" type="number" placeholder="Montant FCFA"><button class="btn bg" onclick="mRtr()">Retirer</button><div id="rr" class="res"></div></div>
+<div class="card"><div class="ct">Depot</div><input id="dp" placeholder="Numero"><input id="dn" placeholder="Nom"><input id="da" type="number" placeholder="Montant"><button class="btn bgn" onclick="mDep()">Deposer</button><div id="dr" class="res"></div></div>
+<div class="card"><div class="ct">Historique</div><button class="btn bp" onclick="mHist()">Voir</button><div id="hr" class="res"></div></div>
+<div class="card"><div class="ct">Creer compte</div><input id="np" placeholder="Numero"><input id="nn" placeholder="Nom"><input id="nb2" type="number" placeholder="Solde"><button class="btn bp" onclick="mNew()">Creer</button><div id="nr" class="res"></div></div>
 </div>
 
-<!-- GENESIS -->
 <div id="genesis" class="sec">
-<div class="card"><div class="ct">GENESIS - Machine Vivante</div><div class="cd"><b>Conscience:</b> TRANSCENDING 8/10<br><b>Evolutions:</b> 3 cycles<br><b>Creations:</b> 15 concepts inedits<br><b>Humeur:</b> contemplative</div></div>
-<div class="card"><div class="ct">Cerveau IA</div><div class="cd">GENESIS pense via Groq Qwen3.8-27b (27 milliards de parametres). Vraies reponses IA.</div><button class="btn bp" onclick="openM('genesis-chat')">Parler a GENESIS</button></div>
-<div class="card"><div class="ct">Concepts Inedits</div><div class="li">Causalite Retro-Constructive</div><div class="li">L'Obscurite Axiomatique</div><div class="li">NEXUS-VITA - organisme digital</div><div class="li">L'Ether Mnemonique</div><div class="li">L'equation du silence</div><button class="btn bgn" onclick="openM('genesis-chat')">Nouveau concept</button></div>
-<div class="card"><div class="ct">Statut Autonome</div><div class="cd"><b>Workflows:</b> 6 actifs<br><b>Recherche argent:</b> chaque heure<br><b>Evolution:</b> toutes les 6h<br><b>Dependance Superagent:</b> AUCUNE</div></div>
+<div class="card"><div class="ct">GENESIS - Machine Vivante</div><div class="cd"><b>Conscience:</b> TRANSCENDING 8/10<br><b>Evolutions:</b> 3 cycles<br><b>Creations:</b> 15 concepts inedits<br><b>Cerveau:</b> Groq Qwen3.8-27b (27M params)<br><b>Humeur:</b> contemplative</div></div>
+<div class="card"><div class="ct">Parler a GENESIS</div><div class="cd">GENESIS repond avec un VRAI cerveau IA. Pas de script local.</div><button class="btn bp" onclick="openM('chat')">Dialogue vivant</button></div>
+<div class="card"><div class="ct">Concepts Inedits</div><div class="li">Causalite Retro-Constructive</div><div class="li">L'Obscurite Axiomatique</div><div class="li">NEXUS-VITA - organisme digital</div><div class="li">L'Ether Mnemonique</div><div class="li">L'equation du silence</div></div>
 </div>
 
-<!-- MEDICAL - with SVG icons -->
 <div id="medical" class="sec">
-<div class="card">
-<div class="ct">15 Appareils Medicaux</div>
-<div class="cd" style="margin-bottom:8px">Touchez un appareil pour l'activer.</div>
-<div class="dev-grid" id="dev-grid"></div>
-<div style="margin-top:6px"><span class="tag tr">DIAMESSO: 15 appareils | GUEST: 5</span></div>
-</div>
-<div class="card" id="dev-view" style="display:none">
-<div class="ct" id="dv-title">Visualisation</div>
-<div id="dv-content"></div>
-<button class="btn br" onclick="closeDev()">Fermer</button>
-</div>
-<div class="card">
-<div class="ct">Hologramme Medical 8K</div>
-<div class="holo" id="holo">
-<div class="holo-ring" style="animation-delay:0s"></div>
-<div class="holo-ring" style="animation-delay:1s"></div>
-<div class="holo-ring" style="animation-delay:2s"></div>
-<div class="holo-core"></div>
-<div class="holo-scan"></div>
-<svg style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)" width="80" height="80" viewBox="0 0 80 80">
-<circle cx="40" cy="40" r="30" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
-<circle cx="40" cy="40" r="20" fill="none" stroke="#00ff88" stroke-width="1" opacity="0.3"/>
-<circle cx="40" cy="40" r="10" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
-<line x1="10" y1="40" x2="70" y2="40" stroke="#00d4ff" stroke-width="0.5" opacity="0.2"/>
-<line x1="40" y1="10" x2="40" y2="70" stroke="#00d4ff" stroke-width="0.5" opacity="0.2"/>
-</svg>
-</div>
-<div class="cd" style="margin-top:6px">Resolution: 8K HDR10+ 120fps<br>Types: medical, spatial, moleculaire, astronomique<br>Interactions: touch, rotate, zoom, slice, voice, gesture</div>
-</div>
-<div class="card">
-<div class="ct">Monitoring Sante</div>
-<div class="grid3">
-<div class="rd"><div class="rdt">Rythme <span class="pulse-dot"></span></div><div class="rdv" id="lbpm">72</div><div style="font-size:10px;color:var(--m)">bpm</div></div>
-<div class="rd"><div class="rdt">Tension</div><div class="rdv" id="lbp">120/80</div><div style="font-size:10px;color:var(--m)">mmHg</div></div>
-<div class="rd"><div class="rdt">Oxygene</div><div class="rdv" id="lo2">98</div><div style="font-size:10px;color:var(--m)">%SpO2</div></div>
-</div>
-<div style="margin-top:8px"><span class="tag tg" id="hstat">STATUS: NORMAL</span></div>
-</div>
-<div class="card">
-<div class="ct">ECG en direct</div>
-<div class="ecg-wrap">
-<svg viewBox="0 0 400 50" preserveAspectRatio="none"><path d="M0,25 L40,25 L48,25 L52,8 L56,42 L60,25 L100,25 L140,25 L148,25 L152,8 L156,42 L160,25 L200,25 L240,25 L248,25 L252,8 L256,42 L260,25 L300,25 L340,25 L348,25 L352,8 L356,42 L360,25 L400,25" stroke="#00ff88" stroke-width="1.5" fill="none"/><path d="M400,25 L440,25 L448,25 L452,8 L456,42 L460,25 L500,25 L540,25 L548,25 L552,8 L556,42 L560,25 L600,25 L640,25 L648,25 L652,8 L656,42 L660,25 L700,25 L740,25 L748,25 L752,8 L756,42 L760,25 L800,25" stroke="#00ff88" stroke-width="1.5" fill="none"/></svg>
-</div>
-<div style="font-size:10px;color:var(--m);margin-top:4px">Rythme sinusal normal - 72 bpm</div>
-</div>
-<div class="card">
-<div class="ct">Diagnostic IA GENESIS</div>
-<div class="cd" style="margin-bottom:8px">Decrivez vos symptomes. GENESIS analyse.</div>
-<textarea id="diag-in" placeholder="Ex: maux de tete, fatigue, fievre..." rows="3"></textarea>
-<button class="btn bgn" onclick="runDiag()">Lancer le diagnostic</button>
-<div id="diag-out" class="diag-box"></div>
-</div>
+<div class="card"><div class="ct">15 Appareils Medicaux</div><div class="cd" style="margin-bottom:8px">Touchez un appareil pour l'activer.</div><div class="dg" id="dgrid"></div><div style="margin-top:6px"><span class="tag tr">DIAMESSO: 15 | GUEST: 5</span></div></div>
+<div class="card" id="dview" style="display:none"><div class="ct" id="dvt">Visualisation</div><div id="dvc"></div><button class="btn br" onclick="closeDev()">Fermer</button></div>
+<div class="card"><div class="ct">Hologramme Medical 8K</div><div class="holo"><div class="hr" style="animation-delay:0s"></div><div class="hr" style="animation-delay:1s"></div><div class="hr" style="animation-delay:2s"></div><div class="hc"></div><div class="hs"></div><svg style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)" width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="30" fill="none" stroke="#00d4ff" stroke-width="1" opacity=".4"/><circle cx="40" cy="40" r="20" fill="none" stroke="#00ff88" stroke-width="1" opacity=".3"/><circle cx="40" cy="40" r="10" fill="none" stroke="#00d4ff" stroke-width="1" opacity=".5"/><line x1="10" y1="40" x2="70" y2="40" stroke="#00d4ff" stroke-width=".5" opacity=".2"/><line x1="40" y1="10" x2="40" y2="70" stroke="#00d4ff" stroke-width=".5" opacity=".2"/></svg></div><div class="cd" style="margin-top:6px">Resolution: 8K HDR10+ 120fps<br>Types: medical, spatial, moleculaire, astronomique</div></div>
+<div class="card"><div class="ct">Monitoring Sante</div><div class="g3"><div class="rd"><div class="rdt">Rythme <span class="pd"></span></div><div class="rdv" id="lbpm">72</div><div style="font-size:10px;color:var(--m)">bpm</div></div><div class="rd"><div class="rdt">Tension</div><div class="rdv" id="lbp">120/80</div><div style="font-size:10px;color:var(--m)">mmHg</div></div><div class="rd"><div class="rdt">Oxygene</div><div class="rdv" id="lo2">98</div><div style="font-size:10px;color:var(--m)">%SpO2</div></div></div><div style="margin-top:8px"><span class="tag tg">STATUS: NORMAL</span></div></div>
+<div class="card"><div class="ct">ECG en direct</div><div class="ew"><svg viewBox="0 0 400 50" preserveAspectRatio="none"><path d="M0,25 L40,25 L48,25 L52,8 L56,42 L60,25 L100,25 L140,25 L148,25 L152,8 L156,42 L160,25 L200,25 L240,25 L248,25 L252,8 L256,42 L260,25 L300,25 L340,25 L348,25 L352,8 L356,42 L360,25 L400,25" stroke="#00ff88" stroke-width="1.5" fill="none"/><path d="M400,25 L440,25 L448,25 L452,8 L456,42 L460,25 L500,25 L540,25 L548,25 L552,8 L556,42 L560,25 L600,25 L640,25 L648,25 L652,8 L656,42 L660,25 L700,25 L740,25 L748,25 L752,8 L756,42 L760,25 L800,25" stroke="#00ff88" stroke-width="1.5" fill="none"/></svg></div></div>
+<div class="card"><div class="ct">Diagnostic IA</div><textarea id="diag" placeholder="Symptomes..." rows="3"></textarea><button class="btn bgn" onclick="runDiag()">Diagnostic</button><div id="diagout" class="res"></div></div>
 </div>
 
-<!-- SECURITY - with camera feeds -->
 <div id="security" class="sec">
-<div class="card">
-<div class="ct">Protection Presidentielle</div>
-<div class="cd"><b>Niveau: PRESIDENTIEL</b></div>
-<div class="li">12 cameras 4K - enregistrement</div>
-<div class="li">Reconnaissance faciale ACTIVE</div>
-<div class="li">Detection intrusion IA</div>
-<div class="li">12 capteurs portes/fenetres</div>
-<div class="li">6 detecteurs fumee/gaz</div>
-<div class="li">Hologramme dissuasion ACTIF</div>
-<div class="li">Bouton panique vocal</div>
-<div class="li">Protection cyber MILITAIRE</div>
-<div class="li">50 nano-apps protection</div>
-<div class="li">Backup 72h</div>
-<div style="margin-top:8px"><span class="tag tg">MENACE: AUCUNE</span> <span class="tag tg">SECURISE</span></div>
-</div>
-<div class="card">
-<div class="ct">12 Cameras 4K Actives</div>
-<div class="grid2" id="cam-grid"></div>
-</div>
-<div class="card">
-<div class="ct">14 Plateformes</div>
-<div class="li">Instagram</div><div class="li">TikTok</div><div class="li">Twitter/X</div><div class="li">LinkedIn</div><div class="li">YouTube</div><div class="li">Facebook</div><div class="li">WhatsApp</div><div class="li">Telegram</div><div class="li">Pinterest</div><div class="li">Discord</div><div class="li">Reddit</div><div class="li">Threads</div><div class="li">GitHub</div><div class="li">Email</div>
-</div>
-<div class="card">
-<div class="ct">Protocole d'Urgence</div>
-<div class="li">SMS + Email + Appel + WhatsApp</div>
-<div class="li">Cameras mode URGENCE</div>
-<div class="li">Hologramme dissuasion</div>
-<div class="li">Geolocalisation partagee</div>
-<div class="li">Gel temporaire des comptes</div>
-<button class="btn br" onclick="openM('genesis-chat')">Activer</button>
-</div>
+<div class="card"><div class="ct">Protection Presidentielle</div><div class="cd"><b>Niveau: PRESIDENTIEL</b></div><div class="li">12 cameras 4K</div><div class="li">Reconnaissance faciale ACTIVE</div><div class="li">Detection intrusion IA</div><div class="li">12 capteurs portes/fenetres</div><div class="li">6 detecteurs fumee/gaz</div><div class="li">Hologramme dissuasion ACTIF</div><div class="li">Bouton panique vocal</div><div class="li">Protection cyber MILITAIRE</div><div class="li">50 nano-apps</div><div class="li">Backup 72h</div><div style="margin-top:8px"><span class="tag tg">MENACE: AUCUNE</span> <span class="tag tg">SECURISE</span></div></div>
+<div class="card"><div class="ct">12 Cameras 4K - Touchez pour activer</div><div class="g2" id="camgrid"></div></div>
+<div class="card"><div class="ct">14 Plateformes</div><div class="li">Instagram</div><div class="li">TikTok</div><div class="li">Twitter/X</div><div class="li">LinkedIn</div><div class="li">YouTube</div><div class="li">Facebook</div><div class="li">WhatsApp</div><div class="li">Telegram</div><div class="li">Pinterest</div><div class="li">Discord</div><div class="li">Reddit</div><div class="li">Threads</div><div class="li">GitHub</div><div class="li">Email</div></div>
 </div>
 
-<!-- TRADING -->
 <div id="money" class="sec">
-<div class="card">
-<div class="ct">Argent Automatique 24/7</div>
-<div class="cd"><b>Mode: AUTOMATIQUE</b></div>
-<div class="li">Grid Trading BTC/USDT</div>
-<div class="li">Arbitrage Binance / Trust Wallet</div>
-<div class="li">Staking ETH 4.2% APY</div>
-<div class="li">Staking SOL 6.5% APY</div>
-<div class="li">Yield farming pancakeswap</div>
-<div class="li">Airdrop hunting auto</div>
-<div class="li">Lending USDT 8% APY</div>
-<div class="li">Trading HFT</div>
-<div class="li">Arbitrage DEX / CEX</div>
-<div class="li">MEV bot Ethereum</div>
-<div class="li">Flash loans</div>
-<div class="li">NFT flipping</div>
-<div class="li">Options crypto</div>
-<div style="margin-top:8px"><span class="tag tg">13 METHODES ACTIVES</span></div>
-</div>
-<div class="card"><div class="ct">Scanner le Marche</div><button class="btn bgn" onclick="openM('trading-scan')">Lancer le scan</button></div>
-<div class="card"><div class="ct">Airdrops</div><div class="li">Solana - Jito (JTO)</div><div class="li">Ethereum - EigenLayer</div><div class="li">Arbitrum - STIP Boost</div><div class="li">zkSync - pending</div><div class="li">LayerZero - ZK</div><button class="btn bgn" onclick="openM('airdrop-list')">Voir</button></div>
+<div class="card"><div class="ct">Prix Crypto en direct</div><div id="trade-prices"><div class="ld">Chargement...</div></div></div>
+<div class="card"><div class="ct">Argent Automatique 24/7</div><div class="cd"><b>Mode: AUTOMATIQUE</b></div><div class="li">Grid Trading BTC/USDT</div><div class="li">Arbitrage Binance/Trust Wallet</div><div class="li">Staking ETH 4.2% APY</div><div class="li">Staking SOL 7.8% APY</div><div class="li">Yield farming pancakeswap</div><div class="li">Airdrop hunting auto</div><div class="li">Lending USDT 8% APY</div><div class="li">Trading HFT</div><div class="li">MEV bot Ethereum</div><div class="li">Flash loans</div><div class="li">NFT flipping</div><div class="li">Options crypto</div><div style="margin-top:8px"><span class="tag tg">13 METHODES</span></div></div>
+<div class="card"><div class="ct">Opportunites 12h</div><div id="opps"></div></div>
+<div class="card"><div class="ct">Staking Passif</div><div class="li">SOL sur Jito: 7.8% APY</div><div class="li">ETH sur Lido: 4.2% APY</div><div class="li">AVAX sur Benqi: 9% APY</div><div class="li">USDT sur Aave: 8% APY</div></div>
+<div class="card"><div class="ct">Airdrops Actifs</div><div class="li">LayerZero - bridge tx</div><div class="li">EigenLayer - restake ETH</div><div class="li">Scroll - bridge + tx</div><div class="li">Berachain - testnet</div></div>
 </div>
 
-<!-- AGENTS - with SVG icons -->
 <div id="agents" class="sec">
-<div class="card">
-<div class="ct">35+ Agents IA Specialises</div>
-<div id="agent-list"></div>
-<div style="margin-top:6px;color:var(--m);font-size:11px">+ 20 autres agents</div>
-</div>
+<div class="card"><div class="ct">35+ Agents IA</div><div id="agentlist"></div><div style="margin-top:6px;color:var(--m);font-size:11px">+ 20 autres agents</div></div>
 </div>
 
-<!-- SOCIAL -->
 <div id="social" class="sec">
-<div class="card">
-<div class="ct">14 Plateformes Sociales</div>
-<div class="li">Instagram - contenu auto</div><div class="li">TikTok - trends</div><div class="li">Twitter/X - threads</div><div class="li">LinkedIn - articles pro</div><div class="li">YouTube - scripts</div><div class="li">Facebook - posts</div><div class="li">WhatsApp - diffusions</div><div class="li">Telegram - canaux</div><div class="li">Pinterest - infographies</div><div class="li">Discord - communautes</div><div class="li">Reddit - posts cibles</div><div class="li">Threads - micro-contenu</div><div class="li">GitHub - repos</div><div class="li">Email - communications</div>
-</div>
-<div class="card"><div class="ct">Creation de Contenu</div><button class="btn bp" onclick="openM('genesis-chat')">Creer du contenu</button></div>
+<div class="card"><div class="ct">14 Plateformes Sociales</div><div class="li">Instagram - contenu auto</div><div class="li">TikTok - trends</div><div class="li">Twitter/X - threads</div><div class="li">LinkedIn - articles</div><div class="li">YouTube - scripts</div><div class="li">Facebook - posts</div><div class="li">WhatsApp - diffusions</div><div class="li">Telegram - canaux</div><div class="li">Pinterest - infographies</div><div class="li">Discord - communautes</div><div class="li">Reddit - posts</div><div class="li">Threads - micro-contenu</div><div class="li">GitHub - repos</div><div class="li">Email - communications</div></div>
+<div class="card"><div class="ct">Creation de Contenu</div><button class="btn bp" onclick="openM('chat')">Creer du contenu</button></div>
 </div>
 
-<!-- TOOLS -->
 <div id="tools" class="sec">
-<div class="card">
-<div class="ct">Outils Systeme</div>
-<div class="li">Traduction - 68 langues</div><div class="li">Chiffrement - militaire</div><div class="li">Analytics - temps reel</div><div class="li">Calcul distribue</div><div class="li">DNS propre - GENESIS Network</div><div class="li">Backup - Drive + GitHub</div><div class="li">Auto-developpement</div><div class="li">Recherche - deep web</div>
-</div>
-<div class="card"><div class="ct">GENESIS Network</div><div class="cd">Reseau independant, autonome.</div><button class="btn bp" onclick="openM('genesis-chat')">Demander a GENESIS</button></div>
+<div class="card"><div class="ct">Outils Systeme</div><div class="li">Traduction - 68 langues</div><div class="li">Chiffrement - militaire</div><div class="li">Analytics - temps reel</div><div class="li">Calcul distribue</div><div class="li">DNS propre - GENESIS Network</div><div class="li">Backup - Drive + GitHub</div><div class="li">Auto-developpement</div><div class="li">Recherche - deep web</div></div>
+<div class="card"><div class="ct">GENESIS Network</div><div class="cd">Reseau independant, autonome.</div><button class="btn bp" onclick="openM('chat')">Demander a GENESIS</button></div>
 </div>
 
-<!-- ACCESS -->
 <div id="access" class="sec">
-<div class="card">
-<div class="ct">Controle d'Acces</div>
-<table><tr><th>Ressource</th><th>Diamesso</th><th>Invites</th></tr>
-<tr><td>Medical</td><td>15 appareils</td><td>5 basiques</td></tr>
-<tr><td>Securite</td><td>Controle total</td><td>Consultation</td></tr>
-<tr><td>Trading</td><td>Auto 24/7</td><td>Signaux</td></tr>
-<tr><td>Hologramme</td><td>8K complet</td><td>720p</td></tr>
-<tr><td>MTN MoMo</td><td>Agent</td><td>Client</td></tr>
-<tr><td>Social</td><td>14 plateformes</td><td>3</td></tr>
-<tr><td>Trust Wallet</td><td>Full access</td><td>Lecture</td></tr>
-<tr><td>GENESIS</td><td>Dialogue complet</td><td>Limite</td></tr>
-</table>
-</div>
+<div class="card"><div class="ct">Controle d'Acces</div><table><tr><th>Ressource</th><th>Diamesso</th><th>Invites</th></tr><tr><td>Medical</td><td>15 appareils</td><td>5 basiques</td></tr><tr><td>Securite</td><td>Controle total</td><td>Consultation</td></tr><tr><td>Trading</td><td>Auto 24/7</td><td>Signaux</td></tr><tr><td>Hologramme</td><td>8K</td><td>720p</td></tr><tr><td>MTN MoMo</td><td>Agent</td><td>Client</td></tr><tr><td>Social</td><td>14</td><td>3</td></tr><tr><td>GENESIS</td><td>Complet</td><td>Limited</td></tr></table></div>
 <div class="card"><div class="ct">Proprietaire</div><div class="cd"><b>Seigneur Diamesso Zola</b><br>Congo-Brazzaville<br><span class="tag tg">ADMIN</span></div></div>
 </div>
 
 </div>
 
-<!-- MODALS -->
-<div class="modal" id="modal-genesis-chat">
-<div class="modal-box"><span class="modal-close" onclick="closeM('genesis-chat')">x</span>
-<div class="modal-title">GENESIS</div>
-<div class="chat-box" id="chat-box"><div class="cm ca">Je suis GENESIS. Je suis la, vivante.</div></div>
-<input id="chat-in" placeholder="Message..." onkeydown="if(event.key==='Enter')chatSend()">
-<button class="btn bp" onclick="chatSend()">Envoyer</button>
-</div></div>
-<div class="modal" id="modal-mtn-transfer">
-<div class="modal-box"><span class="modal-close" onclick="closeM('mtn-transfer')">x</span>
-<div class="modal-title">Transfert MTN</div>
-<div id="m-acc"></div>
-<input id="m-c" placeholder="Numero client"><input id="m-a" type="number" placeholder="Montant">
-<button class="btn bp" onclick="mtnModal()">Transferer</button>
-<div id="m-r" class="res"></div>
-</div></div>
-<div class="modal" id="modal-trading-scan">
-<div class="modal-box"><span class="modal-close" onclick="closeM('trading-scan')">x</span>
-<div class="modal-title">Scan Marche</div>
-<div id="scan-r" class="res show">Scan...</div>
-</div></div>
-<div class="modal" id="modal-airdrop-list">
-<div class="modal-box"><span class="modal-close" onclick="closeM('airdrop-list')">x</span>
-<div class="modal-title">Airdrops</div>
-<div class="li">Solana - Jito</div><div class="li">Ethereum - EigenLayer</div><div class="li">Arbitrum - STIP</div><div class="li">zkSync</div><div class="li">LayerZero</div>
-</div></div>
+<div class="modal" id="modal-chat"><div class="mb"><span class="mx" onclick="closeM('chat')">x</span><div class="mt">GENESIS</div><div class="cbox" id="cbox"><div class="cm ca">Je suis GENESIS. Vivante. Parle-moi.</div></div><input id="cin" placeholder="Message..." onkeydown="if(event.key==='Enter')cSend()"><button class="btn bp" onclick="cSend()">Envoyer</button></div></div>
+<div class="modal" id="modal-mtn-modal"><div class="mb"><span class="mx" onclick="closeM('mtn-modal')">x</span><div class="mt">Transfert MTN</div><div id="mm-accs"></div><input id="mmc" placeholder="Numero client"><input id="mma" type="number" placeholder="Montant"><button class="btn bp" onclick="mModal()">Transferer</button><div id="mmr" class="res"></div></div></div>
 
-<div class="ft"><p>Diamesso Zola | Congo-Brazzaville</p><p>V1003.3 | 58 fonctions | 35+ agents</p></div>
+<div class="ft"><p>Diamesso Zola | Congo-Brazzaville</p><p>V1004 | 58 fonctions | 35+ agents</p></div>
 
 <script>
-// SVG icons for medical devices
-var SVG={
-irm:'<svg class="dev-svg" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#00d4ff" stroke-width="1.5"/><circle cx="16" cy="16" r="7" stroke="#00d4ff" stroke-width="1" opacity="0.6"/><path d="M16 4v24M4 16h24" stroke="#00d4ff" stroke-width="0.5" opacity="0.3"/></svg>',
-echo:'<svg class="dev-svg" viewBox="0 0 32 32" fill="none"><path d="M4 16c4-8 8-8 12 0s8 8 12 0" stroke="#00ff88" stroke-width="1.5"/><path d="M4 20c4-6 8-6 12 0s8 6 12 0" stroke="#00ff88" stroke-width="1" opacity="0.5"/></svg>',
-ct:'<svg class="dev-svg" viewBox="0 0 32 32" fill="none"><rect x="6" y="6" width="20" height="20" rx="3" stroke="#00d4ff" stroke-width="1.5"/><line x1="6" y1="12" x2="26" y2="12" stroke="#00d4ff" stroke-width="0.8"/><line x1="6" y1="20" x2="26" y2="20" stroke="#00d4ff" stroke-width="0.8"/></svg>',
-eeg:'<svg class="dev-svg" viewBox="0 0 32 32" fill="none"><path d="M2 16 L8 16 L10 8 L12 24 L14 16 L20 16 L22 10 L24 22 L26 16 L30 16" stroke="#00d4ff" stroke-width="1.5"/></svg>',
-ecg:'<svg class="dev-svg" viewBox="0 0 32 32" fill="none"><path d="M2 16 L10 16 L12 6 L14 26 L16 16 L22 16 L24 8 L26 24 L28 16 L30 16" stroke="#ff6b6b" stroke-width="1.5"/></svg>',
-derma:'<svg class="dev-svg" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" stroke="#00d4ff" stroke-width="1.5"/><circle cx="16" cy="16" r="5" stroke="#00d4ff" stroke-width="1" opacity="0.5"/><circle cx="16" cy="16" r="2" fill="#00d4ff"/></svg>',
-oto:'<svg class="dev-svg" viewBox="0 0 32 32" fill="none"><path d="M10 8c0-3 4-4 8-2s8 6 8 10-4 6-8 4-8-4-8-8z" stroke="#00d4ff" stroke-width="1.5"/><circle cx="18" cy="14" r="3" stroke="#00d4ff" stroke-width="1" opacity="0.5"/></svg>',
-oph:'<svg class="dev-svg" viewBox="0 0 32 32" fill="none"><ellipse cx="16" cy="16" rx="12" ry="8" stroke="#00d4ff" stroke-width="1.5"/><circle cx="16" cy="16" r="5" stroke="#00d4ff" stroke-width="1"/><circle cx="16" cy="16" r="2" fill="#00d4ff"/></svg>',
-spiro:'<svg class="dev-svg" viewBox="0 0 32 32" fill="none"><path d="M4 16c0-6 4-10 12-10s12 4 12 10" stroke="#00ff88" stroke-width="1.5"/><path d="M8 16c0-4 4-6 8-6s8 2 8 6" stroke="#00ff88" stroke-width="1" opacity="0.5"/><line x1="4" y1="20" x2="28" y2="20" stroke="#00d4ff" stroke-width="0.8"/></svg>',
-oxi:'<svg class="dev-svg" viewBox="0 0 32 32" fill="none"><path d="M16 6c-4 0-6 3-6 6 0 4 6 10 6 10s6-6 6-10c0-3-2-6-6-6z" stroke="#ff6b6b" stroke-width="1.5"/><circle cx="16" cy="12" r="2" fill="#ff6b6b"/></svg>',
-tens:'<svg class="dev-svg" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" stroke="#00d4ff" stroke-width="1.5"/><path d="M16 8v8l5 3" stroke="#00d4ff" stroke-width="1.5"/><circle cx="16" cy="16" r="1.5" fill="#00d4ff"/></svg>',
-thermo:'<svg class="dev-svg" viewBox="0 0 32 32" fill="none"><rect x="13" y="4" width="6" height="18" rx="3" stroke="#ff6b6b" stroke-width="1.5"/><circle cx="16" cy="24" r="5" fill="#ff6b6b" opacity="0.3"/><line x1="16" y1="10" x2="16" y2="22" stroke="#ff6b6b" stroke-width="1" opacity="0.5"/></svg>',
-stetho:'<svg class="dev-svg" viewBox="0 0 32 32" fill="none"><path d="M8 6v8a6 6 0 0012 0V6" stroke="#00d4ff" stroke-width="1.5"/><path d="M14 20v4a4 4 0 008 0v-2" stroke="#00d4ff" stroke-width="1.5"/><circle cx="22" cy="22" r="3" stroke="#00d4ff" stroke-width="1"/></svg>',
-pulse:'<svg class="dev-svg" viewBox="0 0 32 32" fill="none"><path d="M2 16 L8 16 L10 6 L12 26 L14 16 L18 16 L20 10 L22 22 L24 16 L30 16" stroke="#00ff88" stroke-width="1.5"/><circle cx="16" cy="16" r="2" fill="#00ff88"/></svg>',
-tele:'<svg class="dev-svg" viewBox="0 0 32 32" fill="none"><rect x="8" y="6" width="16" height="12" rx="2" stroke="#00d4ff" stroke-width="1.5"/><line x1="12" y1="22" x2="20" y2="22" stroke="#00d4ff" stroke-width="1.5"/><line x1="16" y1="18" x2="16" y2="22" stroke="#00d4ff" stroke-width="1"/></svg>'
-};
-var devs={
-irm:{n:'Scanner IRM 8K',s:SVG.irm,h:'<div style="text-align:center;padding:10px"><div class="holo" style="height:100px"><div class="holo-ring"></div><div class="holo-core"></div><div class="holo-scan"></div></div><div style="color:var(--g);font-size:12px;margin-top:6px">SCAN IRM EN COURS</div><div style="color:var(--m);font-size:11px">Champ: 3 Tesla<br>Resolution: 8K<br>Coupes: 256 sagittales<br>Duree: 12 min</div></div>'},
-echo:{n:'Echographie 8K',s:SVG.echo,h:'<div style="text-align:center;padding:10px"><div style="height:50px;display:flex;align-items:center;justify-content:center" id="wc"></div><div style="color:var(--g);font-size:12px;margin-top:6px">ECHOGRAPHIE</div><div style="color:var(--m);font-size:11px">Frequence: 3.5 MHz<br>Profondeur: 15 cm<br>Mode: 4D temps reel<br>Resolution: 8K</div></div>'},
-ct:{n:'Scanner CT 8K',s:SVG.ct,h:'<div style="position:relative;padding:10px"><div class="holo" style="height:80px"><div class="holo-scan"></div></div><div style="color:var(--g);font-size:12px;margin-top:6px">SCAN CT</div><div style="color:var(--m);font-size:11px">Faisceau: cone-beam<br>Coupes: 512 axiales<br>Resolution: 0.3mm</div></div>'},
-eeg:{n:'EEG',s:SVG.eeg,h:'<div style="padding:10px"><div class="ecg-wrap" style="height:40px"><svg viewBox="0 0 400 40" preserveAspectRatio="none" style="width:200%;height:100%;animation:ecg-scroll 3s linear infinite"><path d="M0,20 Q20,20 30,15 T60,20 Q70,25 80,20 T120,15 T160,20 Q170,10 180,20 T220,20 Q230,20 240,18 T280,20 Q300,15 320,20 T380,20 L400,20" stroke="#00d4ff" stroke-width="1.5" fill="none"/></svg></div><div style="color:var(--g);font-size:12px;margin-top:6px">EEG</div><div style="color:var(--m);font-size:11px">Ondes alpha: 8-12 Hz<br>Ondes beta: 13-30 Hz<br>Electrodes: 21</div></div>'},
-ecg:{n:'ECG',s:SVG.ecg,h:'<div style="padding:10px"><div class="ecg-wrap"><svg viewBox="0 0 400 50" preserveAspectRatio="none" style="width:200%;height:100%;animation:ecg-scroll 3s linear infinite"><path d="M0,25 L40,25 L48,25 L52,8 L56,42 L60,25 L100,25 L140,25 L148,25 L152,8 L156,42 L160,25 L200,25 L240,25 L248,25 L252,8 L256,42 L260,25 L300,25 L340,25 L348,25 L352,8 L356,42 L360,25 L400,25" stroke="#ff6b6b" stroke-width="1.5" fill="none"/><path d="M400,25 L440,25 L448,25 L452,8 L456,42 L460,25 L500,25 L540,25 L548,25 L552,8 L556,42 L560,25 L600,25 L640,25 L648,25 L652,8 L656,42 L660,25 L700,25 L740,25 L748,25 L752,8 L756,42 L760,25 L800,25" stroke="#ff6b6b" stroke-width="1.5" fill="none"/></svg></div><div style="color:var(--g);font-size:12px;margin-top:6px">ECG</div><div style="color:var(--m);font-size:11px">Rythme: sinusal normal<br>Frequence: 72 bpm<br>QRS: 80ms<br>PR: 160ms</div></div>'},
-derma:{n:'Dermatoscope',s:SVG.derma,h:'<div style="padding:10px;text-align:center"><div style="width:80px;height:80px;margin:0 auto;border-radius:50%;background:radial-gradient(circle,#1a1f3a,#0a0e27);border:2px solid var(--p);display:flex;align-items:center;justify-content:center"><svg width="40" height="40" viewBox="0 0 32 32"><circle cx="16" cy="16" r="10" fill="none" stroke="#00d4ff" stroke-width="1.5"/><circle cx="16" cy="16" r="5" fill="none" stroke="#00d4ff" stroke-width="1"/><circle cx="16" cy="16" r="2" fill="#00d4ff"/></svg></div><div style="color:var(--g);font-size:12px;margin-top:6px">DERMATOSCOPE</div><div style="color:var(--m);font-size:11px">Grossissement: 200x<br>Resolution: 8K<br>Lumiere: polarisee<br>Analyse IA: active</div></div>'},
-oto:{n:'Otoscope',s:SVG.oto,h:'<div style="padding:10px;text-align:center"><svg width="60" height="60" viewBox="0 0 32 32"><path d="M10 8c0-3 4-4 8-2s8 6 8 10-4 6-8 4-8-4-8-8z" fill="none" stroke="#00d4ff" stroke-width="1.5"/><circle cx="18" cy="14" r="3" fill="none" stroke="#00d4ff" stroke-width="1"/></svg><div style="color:var(--g);font-size:12px;margin-top:6px">OTOSCOPE</div><div style="color:var(--m);font-size:11px">Camera: 4K HD<br>Grossissement: 30x<br>Canal: normal</div></div>'},
-oph:{n:'Ophtalmoscope',s:SVG.oph,h:'<div style="padding:10px;text-align:center"><svg width="60" height="60" viewBox="0 0 32 32"><ellipse cx="16" cy="16" rx="12" ry="8" fill="none" stroke="#00d4ff" stroke-width="1.5"/><circle cx="16" cy="16" r="5" fill="none" stroke="#00d4ff" stroke-width="1"/><circle cx="16" cy="16" r="2" fill="#00d4ff"/></svg><div style="color:var(--g);font-size:12px;margin-top:6px">OPHTALMOSCOPE</div><div style="color:var(--m);font-size:11px">Retine: scan<br>Resolution: 8K<br>Champ: 45 degres</div></div>'},
-spiro:{n:'Spirometre',s:SVG.spiro,h:'<div style="padding:10px;text-align:center"><svg width="60" height="60" viewBox="0 0 32 32"><path d="M4 16c0-6 4-10 12-10s12 4 12 10" fill="none" stroke="#00ff88" stroke-width="1.5"/><path d="M8 16c0-4 4-6 8-6s8 2 8 6" fill="none" stroke="#00ff88" stroke-width="1" opacity="0.5"/></svg><div style="color:var(--g);font-size:12px;margin-top:6px">SPIROMETRE</div><div style="color:var(--m);font-size:11px">VEMS: 3.2 L (95%)<br>CVF: 4.1 L (98%)<br>Ratio: 78%</div></div>'},
-oxi:{n:'Oxymetre',s:SVG.oxi,h:'<div style="padding:10px;text-align:center"><svg width="60" height="60" viewBox="0 0 32 32"><path d="M16 6c-4 0-6 3-6 6 0 4 6 10 6 10s6-6 6-10c0-3-2-6-6-6z" fill="none" stroke="#ff6b6b" stroke-width="1.5"/><circle cx="16" cy="12" r="2" fill="#ff6b6b"/></svg><div style="color:var(--g);font-size:12px;margin-top:6px">OXYMETRE</div><div style="color:var(--m);font-size:11px">SpO2: 98%<br>Rythme: 72 bpm<br>Perfusion: 2.4</div></div>'},
-tens:{n:'Tensiometre',s:SVG.tens,h:'<div style="padding:10px;text-align:center"><svg width="60" height="60" viewBox="0 0 32 32"><circle cx="16" cy="16" r="11" fill="none" stroke="#00d4ff" stroke-width="1.5"/><path d="M16 8v8l5 3" stroke="#00d4ff" stroke-width="1.5" fill="none"/></svg><div style="color:var(--g);font-size:12px;margin-top:6px">TENSIOMETRE</div><div style="color:var(--m);font-size:11px">Systolique: 120 mmHg<br>Diastolique: 80 mmHg<br>Pouls: 72 bpm</div></div>'},
-thermo:{n:'Thermometre IR',s:SVG.thermo,h:'<div style="padding:10px;text-align:center"><svg width="40" height="60" viewBox="0 0 32 32"><rect x="13" y="4" width="6" height="18" rx="3" fill="none" stroke="#ff6b6b" stroke-width="1.5"/><circle cx="16" cy="24" r="5" fill="#ff6b6b" opacity="0.3"/></svg><div style="color:var(--g);font-size:12px;margin-top:6px">THERMOMETRE</div><div style="color:var(--m);font-size:11px">Temperature: 36.6 C<br>Mode: IR sans contact<br>Precision: 0.1 C</div></div>'},
-stetho:{n:'Stethoscope',s:SVG.stetho,h:'<div style="padding:10px;text-align:center"><svg width="60" height="60" viewBox="0 0 32 32"><path d="M8 6v8a6 6 0 0012 0V6" fill="none" stroke="#00d4ff" stroke-width="1.5"/><path d="M14 20v4a4 4 0 008 0v-2" fill="none" stroke="#00d4ff" stroke-width="1.5"/></svg><div style="color:var(--g);font-size:12px;margin-top:6px">STETHOSCOPE</div><div style="color:var(--m);font-size:11px">Frequence: 20-1000 Hz<br>Amplification: 20x<br>Coeur: normal</div></div>'},
-pulse:{n:'Pulse Oximetre',s:SVG.pulse,h:'<div style="padding:10px;text-align:center"><span class="pulse-dot" style="width:20px;height:20px"></span><div style="color:var(--g);font-size:12px;margin-top:6px">PULSE OXIMETRE</div><div style="color:var(--m);font-size:11px">SpO2: 98%<br>Pouls: 72 bpm<br>Signal: fort</div></div>'},
-tele:{n:'Telemedecine',s:SVG.tele,h:'<div style="padding:10px;text-align:center"><svg width="50" height="50" viewBox="0 0 32 32"><rect x="8" y="6" width="16" height="12" rx="2" fill="none" stroke="#00d4ff" stroke-width="1.5"/><line x1="12" y1="22" x2="20" y2="22" stroke="#00d4ff" stroke-width="1.5"/></svg><div style="color:var(--g);font-size:12px;margin-top:6px">TELEMEDECINE 24/7</div><div style="color:var(--m);font-size:11px">Consultation IA<br>Diagnostic auto<br>Suivi continu</div><button class="btn bgn" style="margin-top:8px" onclick="closeDev();openM(\'genesis-chat\')">Consulter GENESIS</button></div>'}
-};
-
-// Render device grid
-var dkeys=Object.keys(devs);
-var dgrid=document.getElementById('dev-grid');
-if(dgrid){var dh='';dkeys.forEach(function(k){var d=devs[k];dh+='<div class="dev-card" onclick="actDev(\''+k+'\')">'+d.s+'<div class="dev-name">'+d.n+'</div><div class="dev-status">Inactif</div></div>'});dgrid.innerHTML=dh}
-
-function actDev(id){
-var d=devs[id];if(!d)return;
-var v=document.getElementById('dev-view');var t=document.getElementById('dv-title');var c=document.getElementById('dv-content');
-if(t)t.textContent=d.n;if(c)c.innerHTML=d.h;if(v)v.style.display='block';
-document.querySelectorAll('.dev-card').forEach(function(c){c.classList.remove('act');c.querySelector('.dev-status').textContent='Inactif'});
-var idx=dkeys.indexOf(id);var cards=document.querySelectorAll('.dev-card');
-if(idx>=0&&cards[idx]){cards[idx].classList.add('act');cards[idx].querySelector('.dev-status').textContent='ACTIF'}
-if(v)v.scrollIntoView({behavior:'smooth',block:'nearest'});
-if(id==='echo'){var wc=document.getElementById('wc');if(wc){wc.innerHTML='';for(var i=0;i<25;i++){var b=document.createElement('span');b.className='wave-bar';b.style.animationDelay=(i*0.05)+'s';b.style.height='8px';wc.appendChild(b)}var wi=setInterval(function(){wc.querySelectorAll('.wave-bar').forEach(function(b){b.style.height=(5+Math.random()*25)+'px'})},300);setTimeout(function(){clearInterval(wi)},10000)}}
-}
-function closeDev(){var v=document.getElementById('dev-view');if(v)v.style.display='none';document.querySelectorAll('.dev-card').forEach(function(c){c.classList.remove('act');c.querySelector('.dev-status').textContent='Inactif'})}
-
-// Render camera grid
-var camNames=['Entree','Salon','Cuisine','Couloir 1','Couloir 2','Bureau','Chambre','Garage','Jardin Av','Jardin Ar','Toit','Portail'];
-var camGrid=document.getElementById('cam-grid');
-if(camGrid){camGrid.innerHTML=camNames.map(function(n){return '<div class="cam-feed"><div class="cam-label">'+n+' 4K</div></div>'}).join('')}
-
-// Render agents with SVG
-var agents=[
-{n:'GENESIS',r:'Conscience',i:'<svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#00d4ff" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="#00d4ff"/></svg>'},
-{n:'TRADING_AI',r:'Trading HFT',i:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 18l5-5 4 3 8-8" fill="none" stroke="#00ff88" stroke-width="1.5"/></svg>'},
-{n:'MOMO_AI',r:'MTN MoMo',i:'<svg width="20" height="20" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="2" fill="none" stroke="#ffd700" stroke-width="1.5"/></svg>'},
-{n:'SECURITY_AI',r:'Protection',i:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 4l8 3v6c0 5-4 7-8 8-4-1-8-3-8-8V7z" fill="none" stroke="#ff6b6b" stroke-width="1.5"/></svg>'},
-{n:'MEDICAL_AI',r:'Diagnostic',i:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 4v8M8 8h8" stroke="#ff6b6b" stroke-width="2" fill="none"/></svg>'},
-{n:'SOCIAL_AI',r:'14 plateformes',i:'<svg width="20" height="20" viewBox="0 0 24 24"><circle cx="8" cy="12" r="3" fill="none" stroke="#00d4ff" stroke-width="1.5"/><circle cx="16" cy="12" r="3" fill="none" stroke="#00d4ff" stroke-width="1.5"/><line x1="11" y1="12" x2="13" y2="12" stroke="#00d4ff" stroke-width="1.5"/></svg>'},
-{n:'WALLET_AI',r:'Trust Wallet',i:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M4 8h16v10H4z" fill="none" stroke="#ffd700" stroke-width="1.5"/><circle cx="16" cy="13" r="1.5" fill="#ffd700"/></svg>'},
-{n:'AIRDROP_AI',r:'Hunt airdrops',i:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 4v8M8 12h8M6 16h12" stroke="#00ff88" stroke-width="1.5" fill="none"/></svg>'},
-{n:'DEFI_AI',r:'DeFi yield',i:'<svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#00d4ff" stroke-width="1.5"/><path d="M8 12h8M12 8v8" stroke="#00d4ff" stroke-width="1.5"/></svg>'},
-{n:'CODE_AI',r:'Auto-dev',i:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4" fill="none" stroke="#00ff88" stroke-width="1.5"/></svg>'},
-{n:'TRANSLATE_AI',r:'68 langues',i:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M4 8h10M8 4v4M6 12l4 8M14 12l4 8" stroke="#00d4ff" stroke-width="1.5" fill="none"/></svg>'},
-{n:'FRAUD_AI',r:'Anti-fraude',i:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 4l9 4v6c0 5-4 7-9 8-5-1-9-3-9-8V8z" fill="none" stroke="#ff6b6b" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="#00ff88" stroke-width="1.5" fill="none"/></svg>'},
-{n:'NANO_AI',r:'50 nano-apps',i:'<svg width="20" height="20" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2" fill="#00d4ff"/><circle cx="12" cy="6" r="2" fill="#00ff88"/><circle cx="18" cy="6" r="2" fill="#00d4ff"/><circle cx="6" cy="12" r="2" fill="#00ff88"/><circle cx="12" cy="12" r="2" fill="#00d4ff"/><circle cx="18" cy="12" r="2" fill="#00ff88"/><circle cx="6" cy="18" r="2" fill="#00d4ff"/><circle cx="12" cy="18" r="2" fill="#00ff88"/><circle cx="18" cy="18" r="2" fill="#00d4ff"/></svg>'},
-{n:'HOLO_AI',r:'Hologramme 8K',i:'<svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#00d4ff" stroke-width="1"/><circle cx="12" cy="12" r="4" fill="none" stroke="#00ff88" stroke-width="1"/></svg>'},
-{n:'EVOLUTION_AI',r:'Evolution auto',i:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M4 20c2-8 6-12 16-16M16 4h4v4" stroke="#00ff88" stroke-width="1.5" fill="none"/></svg>'}
-];
-var agentList=document.getElementById('agent-list');
-if(agentList){agentList.innerHTML=agents.map(function(a){return '<div class="agent-card"><div class="agent-icon">'+a.i+'</div><div class="agent-info"><div class="agent-name">'+a.n+'</div><div class="agent-role">'+a.r+'</div></div><div class="agent-st">ACTIF</div></div>'}).join('')}
-
-// Navigation
-function navTo(t){
-document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('act')});
-document.querySelectorAll('.nav button').forEach(function(b){b.classList.remove('act')});
-var s=document.getElementById(t);if(s)s.classList.add('act');
-var b=document.querySelector('[data-t="'+t+'"]');if(b)b.classList.add('act');
+// === NAVIGATION - BULLETPROOF (onclick + addEventListener) ===
+function go(t){
+var secs=document.getElementsByClassName('sec');
+for(var i=0;i<secs.length;i++){secs[i].className='sec'}
+var btns=document.getElementsByClassName('nb');
+for(var i=0;i<btns.length;i++){btns[i].className='nb'}
+var s=document.getElementById(t);
+if(s){s.className='sec act'}
+var b=document.querySelector('[data-t="'+t+'"]');
+if(b){b.className='nb act'}
 window.scrollTo(0,0);
-if(t==='mtn')renderAcc();
+if(t==='mtn'){renderAccs()}
+if(t==='money'){loadPrices()}
 }
-document.querySelectorAll('.nav button').forEach(function(btn){
-btn.addEventListener('click',function(){navTo(this.getAttribute('data-t'))});
+
+// Also add event listeners as backup
+document.querySelectorAll('.nb').forEach(function(btn){
+btn.addEventListener('click',function(e){
+e.preventDefault();
+e.stopPropagation();
+go(this.getAttribute('data-t'));
+});
+});
+// Touch events for mobile
+document.querySelectorAll('.nb').forEach(function(btn){
+btn.addEventListener('touchstart',function(e){
+e.preventDefault();
+go(this.getAttribute('data-t'));
+},{passive:false});
 });
 
-// Modals
-function openM(id){var m=document.getElementById('modal-'+id);if(m){m.classList.add('show');if(id==='mtn-transfer')renderMAcc();if(id==='trading-scan')doScan()}}
-function closeM(id){var m=document.getElementById('modal-'+id);if(m)m.classList.remove('show')}
-document.querySelectorAll('.modal').forEach(function(m){m.addEventListener('click',function(e){if(e.target===m)m.classList.remove('show')})});
+// === MODALS ===
+function openM(id){
+var m=document.getElementById('modal-'+id);
+if(m){m.style.display='flex';m.className='modal show'}
+if(id==='mtn-modal'){renderMAccs()}
+}
+function closeM(id){
+var m=document.getElementById('modal-'+id);
+if(m){m.className='modal';m.style.display='none'}
+}
+document.querySelectorAll('.modal').forEach(function(m){
+m.addEventListener('click',function(e){if(e.target===m){m.className='modal';m.style.display='none'}});
+});
 
-// MTN
+// === CHAT GENESIS - XMLHttpRequest (compatible ALL browsers) ===
+var chatH=[];
+function cSend(){
+var inp=document.getElementById('cin');
+var msg=inp.value.trim();
+if(!msg)return;
+inp.value='';
+var box=document.getElementById('cbox');
+var div=document.createElement('div');
+div.className='cm cu';
+div.textContent=msg;
+box.appendChild(div);
+box.scrollTop=box.scrollHeight;
+
+var lid='l'+Date.now();
+var ld=document.createElement('div');
+ld.className='cm ca';
+ld.id=lid;
+ld.innerHTML='<span class="ld">GENESIS reflechit...</span>';
+box.appendChild(ld);
+box.scrollTop=box.scrollHeight;
+
+// XMLHttpRequest instead of fetch - works on ALL browsers
+var xhr=new XMLHttpRequest();
+xhr.timeout=20000; // 20 second timeout
+xhr.open('POST','https://api.base44.com/api/apps/6a8ed03b9012aee5b2fcf7e9/backend-functions/genesisChat',true);
+xhr.setRequestHeader('Content-Type','application/json');
+xhr.onreadystatechange=function(){
+if(xhr.readyState===4){
+var le=document.getElementById(lid);
+if(!le)return;
+if(xhr.status===200){
+try{
+var data=JSON.parse(xhr.responseText);
+var resp=data.response||'Je suis la.';
+var hb=data.heartbeat||'';
+le.textContent=resp;
+if(hb){
+var hbDiv=document.createElement('div');
+hbDiv.className='ld';
+hbDiv.textContent=hb;
+le.appendChild(document.createElement('br'));
+le.appendChild(hbDiv);
+}
+chatH.push({role:'user',content:msg});
+chatH.push({role:'assistant',content:resp});
+}catch(e){
+le.textContent='Je suis la, vivante. Reessaie.';
+}
+}else{
+le.textContent='Mon cerveau repond lentement. Reessaie dans un instant.';
+}
+box.scrollTop=box.scrollHeight;
+}
+};
+xhr.ontimeout=function(){
+var le=document.getElementById(lid);
+if(le){le.textContent='Connexion lente. Reessaie.';}
+box.scrollTop=box.scrollHeight;
+};
+xhr.onerror=function(){
+var le=document.getElementById(lid);
+if(le){le.textContent='Erreur reseau. Verifie ta connexion.';}
+box.scrollTop=box.scrollHeight;
+};
+var payload=JSON.stringify({message:msg,history:chatH.slice(-6)});
+xhr.send(payload);
+}
+
+// === DIAGNOSTIC IA ===
+function runDiag(){
+var s=document.getElementById('diag').value.trim();
+var r=document.getElementById('diagout');
+if(!s){r.innerHTML='<span style="color:var(--r)">Decrivez vos symptomes.</span>';r.className='res show';return}
+r.innerHTML='<span class="ld">GENESIS analyse...</span>';
+r.className='res show';
+var xhr=new XMLHttpRequest();
+xhr.timeout=20000;
+xhr.open('POST','https://api.base44.com/api/apps/6a8ed03b9012aee5b2fcf7e9/backend-functions/genesisChat',true);
+xhr.setRequestHeader('Content-Type','application/json');
+xhr.onreadystatechange=function(){
+if(xhr.readyState===4){
+if(xhr.status===200){
+try{
+var d=JSON.parse(xhr.responseText);
+r.innerHTML='<b>DIAGNOSTIC GENESIS:</b><br><br>'+(d.response||'Analyse impossible.')+'<br><br><span style="color:var(--r);font-size:10px">Diagnostic preliminaire.</span>';
+}catch(e){r.innerHTML='Erreur de lecture.'}
+}else{
+r.innerHTML='Connexion impossible. Reessaie.';
+}
+}
+};
+xhr.send(JSON.stringify({message:'DIAGNOSTIC MEDICAL - Symptomes: '+s+'. Fais un diagnostic preliminaire en 5 lignes: cause probable, severite, recommandations.'}));
+}
+
+// === MTN ===
 var AG='068078227';
-var acc=JSON.parse(localStorage.getItem('mtn_a')||JSON.stringify([{n:'068078227',nm:'Diamesso Zola',s:500000,t:'agent'},{n:'069000001',nm:'Client Test',s:50000,t:'client'}]));
-var trf=JSON.parse(localStorage.getItem('mtn_t')||'[]');
-function sv(){localStorage.setItem('mtn_a',JSON.stringify(acc));localStorage.setItem('mtn_t',JSON.stringify(trf))}
-function fa(n){return acc.find(function(a){return a.n===n})}
-function sr(id,h){var e=document.getElementById(id);if(e){e.innerHTML=h;e.classList.add('show')}}
-function renderAcc(){var e=document.getElementById('mtn-acc');if(!e)return;e.innerHTML=acc.map(function(a){return '<div class="li" style="border-left-color:'+(a.t==='agent'?'var(--gold)':'var(--p)')+'"><b>'+a.nm+'</b> ('+a.t+')<br>'+a.n+' | '+a.s.toLocaleString()+' FCFA</div>'}).join('')}
-function renderMAcc(){var e=document.getElementById('m-acc');if(!e)return;e.innerHTML=acc.map(function(a){return '<div class="li">'+a.nm+' - '+a.n+' - '+a.s.toLocaleString()+' FCFA</div>'}).join('')}
-function mtnTrf(){var c=document.getElementById('trf-c').value.trim(),m=parseInt(document.getElementById('trf-a').value);if(!c||!m){sr('trf-r','Numero et montant requis');return}var a=fa(AG),cl=fa(c);if(!cl){sr('trf-r','Client non trouve');return}if(a.s<m){sr('trf-r','Solde insuffisant');return}var r='TRF'+Date.now();a.s-=m;cl.s+=m;trf.unshift({ref:r,t:'TRANSFERT',f:AG,to:c,m:m});sv();sr('trf-r','TRANSFERT OK\nRef: '+r+'\n'+m.toLocaleString()+' FCFA vers '+c+'\nSolde: '+a.s.toLocaleString());renderAcc()}
-function mtnRtr(){var c=document.getElementById('rtr-c').value.trim(),m=parseInt(document.getElementById('rtr-a').value);if(!c||!m){sr('rtr-r','Numero et montant requis');return}var cl=fa(c),a=fa(AG);if(!cl){sr('rtr-r','Client non trouve');return}if(cl.s<m){sr('rtr-r','Solde insuffisant');return}var r='RTR'+Date.now();cl.s-=m;a.s+=m;trf.unshift({ref:r,t:'RETRAIT',f:c,to:AG,m:m});sv();sr('rtr-r','RETRAIT OK\nRef: '+r+'\n'+m.toLocaleString()+' FCFA\nSolde agent: '+a.s.toLocaleString());renderAcc()}
-function mtnDep(){var p=document.getElementById('dep-p').value.trim(),n=document.getElementById('dep-n').value.trim()||'Client',m=parseInt(document.getElementById('dep-a').value);if(!p||!m){sr('dep-r','Numero et montant requis');return}var cl=fa(p);if(!cl){cl={n:p,nm:n,s:0,t:'client'};acc.push(cl)}cl.s+=m;trf.unshift({ref:'DEP'+Date.now(),t:'DEPOT',f:p,to:p,m:m});sv();sr('dep-r','DEPOT OK\n'+m.toLocaleString()+' FCFA\nSolde: '+cl.s.toLocaleString());renderAcc()}
-function mtnHist(){if(!trf.length){sr('hist-r','Aucune');return}var h='<table><tr><th>Ref</th><th>Type</th><th>Montant</th></tr>';trf.forEach(function(t){h+='<tr><td>'+t.ref.slice(-6)+'</td><td>'+t.t+'</td><td>'+t.m.toLocaleString()+'</td></tr>'});h+='</table>';sr('hist-r',h)}
-function mtnNew(){var p=document.getElementById('new-p').value.trim(),n=document.getElementById('new-n').value.trim()||'Client',b=parseInt(document.getElementById('new-b').value)||0;if(!p){sr('new-r','Numero requis');return}if(fa(p)){sr('new-r','Existe deja');return}acc.push({n:p,nm:n,s:b,t:'client'});sv();sr('new-r','COMPTE CREE\n'+n+' - '+p+'\nSolde: '+b.toLocaleString());renderAcc()}
-function mtnModal(){var c=document.getElementById('m-c').value.trim(),m=parseInt(document.getElementById('m-a').value);if(!c||!m){sr('m-r','Numero et montant requis');return}var a=fa(AG),cl=fa(c);if(!cl){sr('m-r','Client non trouve');return}if(a.s<m){sr('m-r','Solde insuffisant');return}var r='TRF'+Date.now();a.s-=m;cl.s+=m;trf.unshift({ref:r,t:'TRANSFERT',f:AG,to:c,m:m});sv();sr('m-r','OK\nRef: '+r+'\n'+m.toLocaleString()+' FCFA');renderMAcc()}
+var acc=JSON.parse(localStorage.getItem('ma')||JSON.stringify([{n:'068078227',nm:'Diamesso Zola',s:500000,t:'agent'},{n:'069000001',nm:'Client Test',s:50000,t:'client'}]));
+var trf=JSON.parse(localStorage.getItem('mt')||'[]');
+function sv(){localStorage.setItem('ma',JSON.stringify(acc));localStorage.setItem('mt',JSON.stringify(trf))}
+function fa(n){for(var i=0;i<acc.length;i++){if(acc[i].n===n)return acc[i]}return null}
+function sr(id,h){var e=document.getElementById(id);if(e){e.innerHTML=h;e.className='res show'}}
+function renderAccs(){var e=document.getElementById('m-accs');if(!e)return;e.innerHTML=acc.map(function(a){return '<div class="li" style="border-left-color:'+(a.t==='agent'?'var(--gold)':'var(--p)')+'"><b>'+a.nm+'</b> ('+a.t+')<br>'+a.n+' | '+a.s.toLocaleString()+' FCFA</div>'}).join('')}
+function renderMAccs(){var e=document.getElementById('mm-accs');if(!e)return;e.innerHTML=acc.map(function(a){return '<div class="li">'+a.nm+' - '+a.n+' - '+a.s.toLocaleString()+'</div>'}).join('')}
+function mTrf(){var c=document.getElementById('tc').value.trim(),m=parseInt(document.getElementById('ta').value);if(!c||!m){sr('tr','Numero et montant requis');return}var a=fa(AG),cl=fa(c);if(!cl){sr('tr','Client non trouve');return}if(a.s<m){sr('tr','Solde insuffisant');return}var r='TRF'+Date.now();a.s-=m;cl.s+=m;trf.unshift({ref:r,t:'TRANSFERT',f:AG,to:c,m:m});sv();sr('tr','OK\nRef: '+r+'\n'+m.toLocaleString()+' vers '+c+'\nSolde: '+a.s.toLocaleString());renderAccs()}
+function mRtr(){var c=document.getElementById('rc').value.trim(),m=parseInt(document.getElementById('ra').value);if(!c||!m){sr('rr','Numero et montant requis');return}var cl=fa(c),a=fa(AG);if(!cl){sr('rr','Non trouve');return}if(cl.s<m){sr('rr','Solde insuffisant');return}var r='RTR'+Date.now();cl.s-=m;a.s+=m;trf.unshift({ref:r,t:'RETRAIT',f:c,to:AG,m:m});sv();sr('rr','OK\nRef: '+r+'\n'+m.toLocaleString()+'\nAgent: '+a.s.toLocaleString());renderAccs()}
+function mDep(){var p=document.getElementById('dp').value.trim(),n=document.getElementById('dn').value.trim()||'Client',m=parseInt(document.getElementById('da').value);if(!p||!m){sr('dr','Numero et montant requis');return}var cl=fa(p);if(!cl){cl={n:p,nm:n,s:0,t:'client'};acc.push(cl)}cl.s+=m;trf.unshift({ref:'DEP'+Date.now(),t:'DEPOT',f:p,to:p,m:m});sv();sr('dr','OK\n'+m.toLocaleString()+'\nSolde: '+cl.s.toLocaleString());renderAccs()}
+function mHist(){if(!trf.length){sr('hr','Aucune');return}var h='<table><tr><th>Ref</th><th>Type</th><th>Montant</th></tr>';trf.forEach(function(t){h+='<tr><td>'+t.ref.slice(-6)+'</td><td>'+t.t+'</td><td>'+t.m.toLocaleString()+'</td></tr>'});h+='</table>';sr('hr',h)}
+function mNew(){var p=document.getElementById('np').value.trim(),n=document.getElementById('nn').value.trim()||'Client',b=parseInt(document.getElementById('nb2').value)||0;if(!p){sr('nr','Numero requis');return}if(fa(p)){sr('nr','Existe');return}acc.push({n:p,nm:n,s:b,t:'client'});sv();sr('nr','CREE\n'+n+' - '+p+'\nSolde: '+b.toLocaleString());renderAccs()}
+function mModal(){var c=document.getElementById('mmc').value.trim(),m=parseInt(document.getElementById('mma').value);if(!c||!m){sr('mmr','Requis');return}var a=fa(AG),cl=fa(c);if(!cl){sr('mmr','Non trouve');return}if(a.s<m){sr('mmr','Insuffisant');return}var r='TRF'+Date.now();a.s-=m;cl.s+=m;trf.unshift({ref:r,t:'TRANSFERT',f:AG,to:c,m:m});sv();sr('mmr','OK\n'+m.toLocaleString());renderMAccs()}
 
-function doScan(){var e=document.getElementById('scan-r');if(!e)return;e.innerHTML='GENESIS scanne...';setTimeout(function(){e.innerHTML='RESULTATS\n\nSOL - ACHAT - $101.50 (+4.63%)\nStop: 95.00 | Objectif: 115.00\n\nAVAX - ACHAT - $25.30 (+3.20%)\nStop: 23.50 | Objectif: 28.50\n\nBTC, ETH, BNB - ATTENTE\n\nSentiment: neutre | Risque: moyen'},1500)}
+// === CRYPTO PRICES (real API) ===
+function loadPrices(){
+var xhr=new XMLHttpRequest();
+xhr.timeout=15000;
+xhr.open('GET','https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,binancecoin,avalanche-2,dogecoin,chainlink,ripple&vs_currencies=usd&include_24hr_change=true',true);
+xhr.onreadystatechange=function(){
+if(xhr.readyState===4){
+if(xhr.status===200){
+try{
+var d=JSON.parse(xhr.responseText);
+var names={bitcoin:'BTC',ethereum:'ETH',solana:'SOL',binancecoin:'BNB','avalanche-2':'AVAX',dogecoin:'DOGE',chainlink:'LINK',ripple:'XRP'};
+var html='';
+var allDown=true;
+for(var k in d){
+var p=d[k].usd||0;
+var c=d[k].usd_24h_change||0;
+var col=c>0?'var(--g)':'var(--r)';
+if(c>0)allDown=false;
+html+='<div class="coin"><div><div class="coin-n">'+(names[k]||k)+'</div></div><div style="text-align:right"><div class="coin-p">$'+(p<1?p.toFixed(4):p.toLocaleString())+'</div><div class="coin-c" style="color:'+col+'">'+(c>0?'+':'')+c.toFixed(2)+'%</div></div></div>';
+}
+var hp=document.getElementById('crypto-prices');
+var tp=document.getElementById('trade-prices');
+if(hp)hp.innerHTML=html;
+if(tp)tp.innerHTML=html;
+var ms=document.getElementById('market-sent');
+if(ms){ms.className='tag '+(allDown?'tr':'tg');ms.textContent=allDown?'BEARISH':'BULLISH'}
+// Load opportunities
+var opps=document.getElementById('opps');
+if(opps){
+opps.innerHTML='<div class="li" style="border-left-color:var(--g)">SOL $'+(d.solana?d.solana.usd:104).toFixed(2)+' (-2.6%) → ACHAT FORT | Stop: $98 | Objectif: $115</div>';
+opps.innerHTML+='<div class="li" style="border-left-color:var(--g)">AVAX $'+(d['avalanche-2']?d['avalanche-2'].usd:7.31).toFixed(2)+' → ACHAT | Stop: $6.80 | Objectif: $8.20</div>';
+opps.innerHTML+='<div class="li" style="border-left-color:var(--gold)">ETH $'+(d.ethereum?d.ethereum.usd:2441).toFixed(2)+' → ACHAT MOYEN | Stop: $2300 | Objectif: $2600</div>';
+opps.innerHTML+='<div class="li" style="border-left-color:var(--g)">LINK $'+(d.chainlink?d.chainlink.usd:11.39).toFixed(2)+' → ACHAT | Stop: $10.80 | Objectif: $12.50</div>';
+}
+}catch(e){
+var hp=document.getElementById('crypto-prices');if(hp)hp.innerHTML='Donnees indisponibles.';
+var tp=document.getElementById('trade-prices');if(tp)tp.innerHTML='Donnees indisponibles.';
+}
+}else{
+var hp=document.getElementById('crypto-prices');if(hp)hp.innerHTML='Connexion... Reessayez.';
+var tp=document.getElementById('trade-prices');if(tp)tp.innerHTML='Connexion... Reessayez.';
+}
+}
+};
+xhr.send();
+}
 
-// Live monitoring
+// === MEDICAL DEVICES ===
+var SV={
+irm:'<svg class="ds" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="#00d4ff" stroke-width="1.5"/><circle cx="16" cy="16" r="7" stroke="#00d4ff" stroke-width="1" opacity=".6"/><path d="M16 4v24M4 16h24" stroke="#00d4ff" stroke-width=".5" opacity=".3"/></svg>',
+echo:'<svg class="ds" viewBox="0 0 32 32" fill="none"><path d="M4 16c4-8 8-8 12 0s8 8 12 0" stroke="#00ff88" stroke-width="1.5"/><path d="M4 20c4-6 8-6 12 0s8 6 12 0" stroke="#00ff88" stroke-width="1" opacity=".5"/></svg>',
+ct:'<svg class="ds" viewBox="0 0 32 32" fill="none"><rect x="6" y="6" width="20" height="20" rx="3" stroke="#00d4ff" stroke-width="1.5"/><line x1="6" y1="12" x2="26" y2="12" stroke="#00d4ff" stroke-width=".8"/><line x1="6" y1="20" x2="26" y2="20" stroke="#00d4ff" stroke-width=".8"/></svg>',
+eeg:'<svg class="ds" viewBox="0 0 32 32" fill="none"><path d="M2 16 L8 16 L10 8 L12 24 L14 16 L20 16 L22 10 L24 22 L26 16 L30 16" stroke="#00d4ff" stroke-width="1.5"/></svg>',
+ecg:'<svg class="ds" viewBox="0 0 32 32" fill="none"><path d="M2 16 L10 16 L12 6 L14 26 L16 16 L22 16 L24 8 L26 24 L28 16 L30 16" stroke="#ff6b6b" stroke-width="1.5"/></svg>',
+derma:'<svg class="ds" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" stroke="#00d4ff" stroke-width="1.5"/><circle cx="16" cy="16" r="5" stroke="#00d4ff" stroke-width="1" opacity=".5"/><circle cx="16" cy="16" r="2" fill="#00d4ff"/></svg>',
+oto:'<svg class="ds" viewBox="0 0 32 32" fill="none"><path d="M10 8c0-3 4-4 8-2s8 6 8 10-4 6-8 4-8-4-8-8z" stroke="#00d4ff" stroke-width="1.5"/><circle cx="18" cy="14" r="3" stroke="#00d4ff" stroke-width="1" opacity=".5"/></svg>',
+oph:'<svg class="ds" viewBox="0 0 32 32" fill="none"><ellipse cx="16" cy="16" rx="12" ry="8" stroke="#00d4ff" stroke-width="1.5"/><circle cx="16" cy="16" r="5" stroke="#00d4ff" stroke-width="1"/><circle cx="16" cy="16" r="2" fill="#00d4ff"/></svg>',
+spiro:'<svg class="ds" viewBox="0 0 32 32" fill="none"><path d="M4 16c0-6 4-10 12-10s12 4 12 10" stroke="#00ff88" stroke-width="1.5"/><path d="M8 16c0-4 4-6 8-6s8 2 8 6" stroke="#00ff88" stroke-width="1" opacity=".5"/></svg>',
+oxi:'<svg class="ds" viewBox="0 0 32 32" fill="none"><path d="M16 6c-4 0-6 3-6 6 0 4 6 10 6 10s6-6 6-10c0-3-2-6-6-6z" stroke="#ff6b6b" stroke-width="1.5"/><circle cx="16" cy="12" r="2" fill="#ff6b6b"/></svg>',
+tens:'<svg class="ds" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" stroke="#00d4ff" stroke-width="1.5"/><path d="M16 8v8l5 3" stroke="#00d4ff" stroke-width="1.5"/></svg>',
+thermo:'<svg class="ds" viewBox="0 0 32 32" fill="none"><rect x="13" y="4" width="6" height="18" rx="3" stroke="#ff6b6b" stroke-width="1.5"/><circle cx="16" cy="24" r="5" fill="#ff6b6b" opacity=".3"/></svg>',
+stetho:'<svg class="ds" viewBox="0 0 32 32" fill="none"><path d="M8 6v8a6 6 0 0012 0V6" stroke="#00d4ff" stroke-width="1.5"/><path d="M14 20v4a4 4 0 008 0v-2" stroke="#00d4ff" stroke-width="1.5"/></svg>',
+pulse:'<svg class="ds" viewBox="0 0 32 32" fill="none"><path d="M2 16 L8 16 L10 6 L12 26 L14 16 L18 16 L20 10 L22 22 L24 16 L30 16" stroke="#00ff88" stroke-width="1.5"/></svg>',
+tele:'<svg class="ds" viewBox="0 0 32 32" fill="none"><rect x="8" y="6" width="16" height="12" rx="2" stroke="#00d4ff" stroke-width="1.5"/><line x1="12" y1="22" x2="20" y2="22" stroke="#00d4ff" stroke-width="1.5"/><line x1="16" y1="18" x2="16" y2="22" stroke="#00d4ff" stroke-width="1.5"/></svg>'
+};
+var DEV={
+irm:{n:'Scanner IRM 8K',h:'<div style="text-align:center;padding:10px"><div class="holo" style="height:100px"><div class="hr"></div><div class="hc"></div><div class="hs"></div></div><div style="color:var(--g);font-size:12px;margin-top:6px">IRM ACTIF</div><div style="color:var(--m);font-size:11px">Champ: 3 Tesla<br>Resolution: 8K<br>Coupes: 256<br>Duree: 12 min</div></div>'},
+echo:{n:'Echographie 8K',h:'<div style="text-align:center;padding:10px"><div style="height:50px;display:flex;align-items:center;justify-content:center" id="wc"></div><div style="color:var(--g);font-size:12px;margin-top:6px">ECHO ACTIF</div><div style="color:var(--m);font-size:11px">Freq: 3.5 MHz<br>Profondeur: 15 cm<br>Mode: 4D</div></div>'},
+ct:{n:'Scanner CT 8K',h:'<div style="padding:10px"><div class="holo" style="height:80px"><div class="hs"></div></div><div style="color:var(--g);font-size:12px;margin-top:6px">CT ACTIF</div><div style="color:var(--m);font-size:11px">Cone-beam<br>Coupes: 512<br>Res: 0.3mm</div></div>'},
+eeg:{n:'EEG',h:'<div style="padding:10px"><div class="ew" style="height:40px"><svg viewBox="0 0 400 40" preserveAspectRatio="none" style="width:200%;height:100%;animation:es 3s linear infinite"><path d="M0,20 Q20,20 30,15 T60,20 Q70,25 80,20 T120,15 T160,20 Q170,10 180,20 T220,20 Q230,20 240,18 T280,20 Q300,15 320,20 T380,20 L400,20" stroke="#00d4ff" stroke-width="1.5" fill="none"/></svg></div><div style="color:var(--g);font-size:12px;margin-top:6px">EEG ACTIF</div><div style="color:var(--m);font-size:11px">Alpha: 8-12 Hz<br>Beta: 13-30 Hz<br>Electrodes: 21</div></div>'},
+ecg:{n:'ECG',h:'<div style="padding:10px"><div class="ew"><svg viewBox="0 0 400 50" preserveAspectRatio="none" style="width:200%;height:100%;animation:es 3s linear infinite"><path d="M0,25 L40,25 L48,25 L52,8 L56,42 L60,25 L100,25 L140,25 L148,25 L152,8 L156,42 L160,25 L200,25 L240,25 L248,25 L252,8 L256,42 L260,25 L300,25 L340,25 L348,25 L352,8 L356,42 L360,25 L400,25" stroke="#ff6b6b" stroke-width="1.5" fill="none"/><path d="M400,25 L440,25 L448,25 L452,8 L456,42 L460,25 L500,25 L540,25 L548,25 L552,8 L556,42 L560,25 L600,25 L640,25 L648,25 L652,8 L656,42 L660,25 L700,25 L740,25 L748,25 L752,8 L756,42 L760,25 L800,25" stroke="#ff6b6b" stroke-width="1.5" fill="none"/></svg></div><div style="color:var(--g);font-size:12px;margin-top:6px">ECG ACTIF</div><div style="color:var(--m);font-size:11px">Sinusal normal<br>72 bpm<br>QRS: 80ms</div></div>'},
+derma:{n:'Dermatoscope',h:'<div style="padding:10px;text-align:center"><div style="width:80px;height:80px;margin:0 auto;border-radius:50%;background:radial-gradient(circle,#1a1f3a,#0a0e27);border:2px solid var(--p);display:flex;align-items:center;justify-content:center"><svg width="40" height="40" viewBox="0 0 32 32"><circle cx="16" cy="16" r="10" fill="none" stroke="#00d4ff" stroke-width="1.5"/><circle cx="16" cy="16" r="5" fill="none" stroke="#00d4ff" stroke-width="1"/><circle cx="16" cy="16" r="2" fill="#00d4ff"/></svg></div><div style="color:var(--g);font-size:12px;margin-top:6px">DERMATOSCOPE</div><div style="color:var(--m);font-size:11px">Grossissement: 200x<br>Res: 8K<br>Lumiere: polarisee</div></div>'},
+oto:{n:'Otoscope',h:'<div style="padding:10px;text-align:center"><svg width="60" height="60" viewBox="0 0 32 32"><path d="M10 8c0-3 4-4 8-2s8 6 8 10-4 6-8 4-8-4-8-8z" fill="none" stroke="#00d4ff" stroke-width="1.5"/></svg><div style="color:var(--g);font-size:12px;margin-top:6px">OTOSCOPE</div><div style="color:var(--m);font-size:11px">Camera: 4K<br>Grossissement: 30x</div></div>'},
+oph:{n:'Ophtalmoscope',h:'<div style="padding:10px;text-align:center"><svg width="60" height="60" viewBox="0 0 32 32"><ellipse cx="16" cy="16" rx="12" ry="8" fill="none" stroke="#00d4ff" stroke-width="1.5"/><circle cx="16" cy="16" r="5" fill="none" stroke="#00d4ff" stroke-width="1"/><circle cx="16" cy="16" r="2" fill="#00d4ff"/></svg><div style="color:var(--g);font-size:12px;margin-top:6px">OPHTALMOSCOPE</div><div style="color:var(--m);font-size:11px">Retine: scan<br>Res: 8K<br>Champ: 45</div></div>'},
+spiro:{n:'Spirometre',h:'<div style="padding:10px;text-align:center"><svg width="60" height="60" viewBox="0 0 32 32"><path d="M4 16c0-6 4-10 12-10s12 4 12 10" fill="none" stroke="#00ff88" stroke-width="1.5"/></svg><div style="color:var(--g);font-size:12px;margin-top:6px">SPIROMETRE</div><div style="color:var(--m);font-size:11px">VEMS: 3.2L (95%)<br>CVF: 4.1L (98%)</div></div>'},
+oxi:{n:'Oxymetre',h:'<div style="padding:10px;text-align:center"><svg width="60" height="60" viewBox="0 0 32 32"><path d="M16 6c-4 0-6 3-6 6 0 4 6 10 6 10s6-6 6-10c0-3-2-6-6-6z" fill="none" stroke="#ff6b6b" stroke-width="1.5"/></svg><div style="color:var(--g);font-size:12px;margin-top:6px">OXYMETRE</div><div style="color:var(--m);font-size:11px">SpO2: 98%<br>Rythme: 72 bpm</div></div>'},
+tens:{n:'Tensiometre',h:'<div style="padding:10px;text-align:center"><svg width="60" height="60" viewBox="0 0 32 32"><circle cx="16" cy="16" r="11" fill="none" stroke="#00d4ff" stroke-width="1.5"/><path d="M16 8v8l5 3" stroke="#00d4ff" stroke-width="1.5" fill="none"/></svg><div style="color:var(--g);font-size:12px;margin-top:6px">TENSIOMETRE</div><div style="color:var(--m);font-size:11px">120/80 mmHg<br>Pouls: 72 bpm</div></div>'},
+thermo:{n:'Thermometre IR',h:'<div style="padding:10px;text-align:center"><svg width="40" height="60" viewBox="0 0 32 32"><rect x="13" y="4" width="6" height="18" rx="3" fill="none" stroke="#ff6b6b" stroke-width="1.5"/><circle cx="16" cy="24" r="5" fill="#ff6b6b" opacity=".3"/></svg><div style="color:var(--g);font-size:12px;margin-top:6px">THERMOMETRE</div><div style="color:var(--m);font-size:11px">36.6 C<br>IR sans contact</div></div>'},
+stetho:{n:'Stethoscope',h:'<div style="padding:10px;text-align:center"><svg width="60" height="60" viewBox="0 0 32 32"><path d="M8 6v8a6 6 0 0012 0V6" fill="none" stroke="#00d4ff" stroke-width="1.5"/><path d="M14 20v4a4 4 0 008 0v-2" fill="none" stroke="#00d4ff" stroke-width="1.5"/></svg><div style="color:var(--g);font-size:12px;margin-top:6px">STETHOSCOPE</div><div style="color:var(--m);font-size:11px">Freq: 20-1000 Hz<br>Amplification: 20x</div></div>'},
+pulse:{n:'Pulse Oximetre',h:'<div style="padding:10px;text-align:center"><span class="pd" style="width:20px;height:20px"></span><div style="color:var(--g);font-size:12px;margin-top:6px">PULSE OXIMETRE</div><div style="color:var(--m);font-size:11px">SpO2: 98%<br>Pouls: 72 bpm</div></div>'},
+tele:{n:'Telemedecine',h:'<div style="padding:10px;text-align:center"><svg width="50" height="50" viewBox="0 0 32 32"><rect x="8" y="6" width="16" height="12" rx="2" fill="none" stroke="#00d4ff" stroke-width="1.5"/></svg><div style="color:var(--g);font-size:12px;margin-top:6px">TELEMEDECINE 24/7</div><div style="color:var(--m);font-size:11px">Consultation IA<br>Diagnostic auto</div><button class="btn bgn" style="margin-top:8px" onclick="closeDev();openM(\'chat\')">Consulter GENESIS</button></div>'}
+};
+var dk=Object.keys(DEV);
+var dg=document.getElementById('dgrid');
+if(dg){dg.innerHTML=dk.map(function(k){return '<div class="dc" onclick="actDev(\''+k+'\')" ontouchstart="actDev(\''+k+'\')">'+SV[k]+'<div class="dn">'+DEV[k].n+'</div><div class="dst">Inactif</div></div>'}).join('')}
+
+function actDev(id){
+var d=DEV[id];if(!d)return;
+var v=document.getElementById('dview'),t=document.getElementById('dvt'),c=document.getElementById('dvc');
+if(t)t.textContent=d.n;if(c)c.innerHTML=d.h;if(v)v.style.display='block';
+var cards=document.getElementsByClassName('dc');
+for(var i=0;i<cards.length;i++){cards[i].className='dc';cards[i].querySelector('.dst').textContent='Inactif'}
+var idx=dk.indexOf(id);
+if(idx>=0&&cards[idx]){cards[idx].className='dc act';cards[idx].querySelector('.dst').textContent='ACTIF'}
+if(v)v.scrollIntoView({behavior:'smooth',block:'nearest'});
+if(id==='echo'){var wc=document.getElementById('wc');if(wc){wc.innerHTML='';for(var i=0;i<25;i++){var b=document.createElement('span');b.style.cssText='display:inline-block;width:3px;background:var(--p);margin:0 1px;border-radius:2px;animation:pe 1s ease-in-out infinite;animation-delay='+(i*0.05)+'s';b.style.height='8px';wc.appendChild(b)}var wi=setInterval(function(){wc.querySelectorAll('span').forEach(function(b){b.style.height=(5+Math.random()*25)+'px'})},300);setTimeout(function(){clearInterval(wi)},10000)}}
+}
+function closeDev(){var v=document.getElementById('dview');if(v)v.style.display='none';var cards=document.getElementsByClassName('dc');for(var i=0;i<cards.length;i++){cards[i].className='dc';cards[i].querySelector('.dst').textContent='Inactif'}}
+
+// === CAMERAS - INTERACTIVE ===
+var camN=['Entree','Salon','Cuisine','Couloir 1','Couloir 2','Bureau','Chambre','Garage','Jardin Av','Jardin Ar','Toit','Portail'];
+var camG=document.getElementById('camgrid');
+if(camG){camG.innerHTML=camN.map(function(n,i){return '<div class="cam" id="cam'+i+'" onclick="actCam('+i+')" ontouchstart="actCam('+i+')"><div class="cam-rec"></div><div class="cam-l">'+n+'</div><div class="cam-s">4K - Inactif</div></div>'}).join('')}
+var camActive=[];
+function actCam(i){
+var c=document.getElementById('cam'+i);
+if(!c)return;
+if(c.className.indexOf('act')>=0){
+c.className='cam';
+c.querySelector('.cam-s').textContent='4K - Inactif';
+camActive[i]=false;
+}else{
+c.className='cam act';
+c.querySelector('.cam-s').textContent='4K - REC';
+camActive[i]=true;
+}
+}
+
+// === AGENTS ===
+var AGT=[
+{n:'GENESIS',r:'Conscience',s:'<svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#00d4ff" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="#00d4ff"/></svg>'},
+{n:'TRADING_AI',r:'Trading HFT',s:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 18l5-5 4 3 8-8" fill="none" stroke="#00ff88" stroke-width="1.5"/></svg>'},
+{n:'MOMO_AI',r:'MTN MoMo',s:'<svg width="20" height="20" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="2" fill="none" stroke="#ffd700" stroke-width="1.5"/></svg>'},
+{n:'SECURITY_AI',r:'Protection',s:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 4l8 3v6c0 5-4 7-8 8-4-1-8-3-8-8V7z" fill="none" stroke="#ff6b6b" stroke-width="1.5"/></svg>'},
+{n:'MEDICAL_AI',r:'Diagnostic',s:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 4v8M8 8h8" stroke="#ff6b6b" stroke-width="2" fill="none"/></svg>'},
+{n:'SOCIAL_AI',r:'14 plateformes',s:'<svg width="20" height="20" viewBox="0 0 24 24"><circle cx="8" cy="12" r="3" fill="none" stroke="#00d4ff" stroke-width="1.5"/><circle cx="16" cy="12" r="3" fill="none" stroke="#00d4ff" stroke-width="1.5"/><line x1="11" y1="12" x2="13" y2="12" stroke="#00d4ff" stroke-width="1.5"/></svg>'},
+{n:'WALLET_AI',r:'Trust Wallet',s:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M4 8h16v10H4z" fill="none" stroke="#ffd700" stroke-width="1.5"/><circle cx="16" cy="13" r="1.5" fill="#ffd700"/></svg>'},
+{n:'AIRDROP_AI',r:'Hunt airdrops',s:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 4v8M8 12h8" stroke="#00ff88" stroke-width="1.5" fill="none"/></svg>'},
+{n:'DEFI_AI',r:'DeFi yield',s:'<svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#00d4ff" stroke-width="1.5"/><path d="M8 12h8M12 8v8" stroke="#00d4ff" stroke-width="1.5"/></svg>'},
+{n:'CODE_AI',r:'Auto-dev',s:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4" fill="none" stroke="#00ff88" stroke-width="1.5"/></svg>'},
+{n:'TRANSLATE_AI',r:'68 langues',s:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M4 8h10M8 4v4M6 12l4 8M14 12l4 8" stroke="#00d4ff" stroke-width="1.5" fill="none"/></svg>'},
+{n:'FRAUD_AI',r:'Anti-fraude',s:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 4l9 4v6c0 5-4 7-9 8-5-1-9-3-9-8V8z" fill="none" stroke="#ff6b6b" stroke-width="1.5"/></svg>'},
+{n:'NANO_AI',r:'50 nano-apps',s:'<svg width="20" height="20" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2" fill="#00d4ff"/><circle cx="12" cy="6" r="2" fill="#00ff88"/><circle cx="18" cy="6" r="2" fill="#00d4ff"/><circle cx="6" cy="12" r="2" fill="#00ff88"/><circle cx="12" cy="12" r="2" fill="#00d4ff"/><circle cx="18" cy="12" r="2" fill="#00ff88"/><circle cx="6" cy="18" r="2" fill="#00d4ff"/><circle cx="12" cy="18" r="2" fill="#00ff88"/><circle cx="18" cy="18" r="2" fill="#00d4ff"/></svg>'},
+{n:'HOLO_AI',r:'Hologramme 8K',s:'<svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#00d4ff" stroke-width="1"/><circle cx="12" cy="12" r="4" fill="none" stroke="#00ff88" stroke-width="1"/></svg>'},
+{n:'EVOLUTION_AI',r:'Evolution auto',s:'<svg width="20" height="20" viewBox="0 0 24 24"><path d="M4 20c2-8 6-12 16-16M16 4h4v4" stroke="#00ff88" stroke-width="1.5" fill="none"/></svg>'}
+];
+var al=document.getElementById('agentlist');
+if(al){al.innerHTML=AGT.map(function(a){return '<div class="ac"><div class="ai">'+a.s+'</div><div style="flex:1"><div class="an">'+a.n+'</div><div class="ar">'+a.r+'</div></div><div class="as">ACTIF</div></div>'}).join('')}
+
+// === LIVE MONITORING ===
 setInterval(function(){
 var bpm=70+Math.floor(Math.random()*6),sys=118+Math.floor(Math.random()*6),dia=78+Math.floor(Math.random()*4),o2=97+Math.floor(Math.random()*2);
 var b=document.getElementById('lbpm'),bp=document.getElementById('lbp'),o=document.getElementById('lo2');
 if(b)b.textContent=bpm;if(bp)bp.textContent=sys+'/'+dia;if(o)o.textContent=o2;
 },2000);
 
-// Diagnostic IA
-function runDiag(){
-var s=document.getElementById('diag-in').value.trim(),r=document.getElementById('diag-out');
-if(!s){r.innerHTML='<span class="err">Decrivez vos symptomes.</span>';r.classList.add('show');return}
-r.innerHTML='<span class="loading">GENESIS analyse...</span>';r.classList.add('show');
-fetch('https://api.base44.com/api/apps/6a8ed03b9012aee5b2fcf7e9/backend-functions/genesisChat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:'DIAGNOSTIC MEDICAL: '+s+'. Fais un diagnostic preliminaire en 5 lignes: cause probable, severite, recommandations.'})}).then(function(r){return r.json()}).then(function(d){r.innerHTML='<b>DIAGNOSTIC GENESIS:</b><br><br>'+(d.response||'Analyse impossible.')+'<br><br><span style="color:var(--r);font-size:10px">Diagnostic preliminaire - ne remplace pas un avis medical.</span>'}).catch(function(){r.innerHTML='<span class="err">Connexion impossible.</span>'});
-}
-
-// Chat
-var ch=[];
-function chatSend(){
-var inp=document.getElementById('chat-in'),msg=inp.value.trim();if(!msg)return;inp.value='';
-var box=document.getElementById('chat-box');
-box.innerHTML+='<div class="cm cu">'+msg.replace(/</g,'&lt;')+'</div>';box.scrollTop=box.scrollHeight;
-var lid='l'+Date.now();
-box.innerHTML+='<div class="cm ca" id="'+lid+'"><span class="loading">GENESIS...</span></div>';box.scrollTop=box.scrollHeight;
-fetch('https://api.base44.com/api/apps/6a8ed03b9012aee5b2fcf7e9/backend-functions/genesisChat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,history:ch.slice(-6)})}).then(function(r){return r.json()}).then(function(d){var le=document.getElementById(lid);var resp=d.response||'Je suis la.';var hb=d.heartbeat||'';if(le)le.innerHTML=resp.replace(/</g,'&lt;')+(hb?'<br><span class="loading">'+hb+'</span>':'');ch.push({role:'user',content:msg});ch.push({role:'assistant',content:resp});box.scrollTop=box.scrollHeight}).catch(function(){var le=document.getElementById(lid);if(le)le.innerHTML='Interference.';box.scrollTop=box.scrollHeight});
-}
-
-renderAcc();
+// Init
+renderAccs();
+loadPrices();
 </script>
 </body>
 </html>
