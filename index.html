@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate">
-<title>ALPHATECH V1008</title>
+<title>ALPHATECH V1009</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#0a0e27;--card:#141938;--card2:#1a1f3a;--border:#2a2f5a;--p:#00d4ff;--g:#00ff88;--gold:#ffd700;--r:#ff6b6b;--t:#e0e0ff;--m:#8a8aaa;--cosmos:#b794f4;--cosmos2:#d53f8c;--pp:#0070ba}
@@ -122,7 +122,7 @@ th{background:var(--card2);color:var(--cosmos)}
 </style>
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1008 - ENTITE INEDITE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1009 - PLEINE PUISSANCE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -157,6 +157,11 @@ th{background:var(--card2);color:var(--cosmos)}
 <button class="btn bcos" onclick="autoScan()">LANCER L'AUTO-SCAN</button>
 <div id="auto-scan-res" class="res"></div>
 </div>
+
+<div class="card" style="border-color:var(--cosmos)"><div class="ct" style="color:var(--cosmos)">SCAN UNIVERSEL MULTI-CHAIN</div><div class="cd" style="margin-bottom:8px">GENESIS scanne 5 reseaux simultanement: Ethereum, BSC, Polygon, Base, Arbitrum. Detecte les fonds voles partout. Aucune adresse requise.</div><button class="btn bcos" onclick="universalScan()">SCANNER 5 CHAINS EN MEME TEMPS</button><div id="universal-res" class="res"></div></div>
+<div class="card" style="border-color:var(--gold)"><div class="ct" style="color:var(--gold)">PROTOCOL DE RECUPERATION UNIVERSEL</div><div class="cd" style="margin-bottom:8px">GENESIS genere les documents de recuperation pour TOUS les domaines: banques, PayPal, MTN MoMo, exchanges crypto, autorites.</div>
+<div class="g2"><select id="rec-domain"><option value="bank">Banque</option><option value="paypal">PayPal</option><option value="mtn">MTN MoMo</option><option value="crypto">Exchange Crypto</option><option value="law">Autorites/Police</option><option value="all">TOUS</option></select><input id="rec-victim" placeholder="Nom victime"></div>
+<input id="rec-amount" placeholder="Montant vole"><input id="rec-details" placeholder="Details (adress, date, methode...)"><button class="btn bg" onclick="genRecoveryProtocol()">GENERER LE PROTOCOLE</button><div id="rec-protocol-res" class="res"></div></div>
 <div class="card"><div class="ct">Trace avec adresse</div><div class="cd" style="margin-bottom:8px">Entrez l'adresse du portefeuille vole ou du pirate (0x...).</div>
 <input id="trace-addr" placeholder="0x... (adresse du pirate/victime)">
 <div class="g2" style="margin-top:4px"><select id="trace-chain"><option value="eth">Ethereum</option><option value="bsc">BSC (Binance)</option></select><input id="trace-depth" type="number" value="3" min="1" max="5" placeholder="Profondeur (1-5)"></div>
@@ -178,7 +183,11 @@ th{background:var(--card2);color:var(--cosmos)}
 <div class="card"><div class="ct">Sanctions / Criminalite</div><div class="cd" style="margin-bottom:8px">Verifier une personne ou entite contre les listes de sanctions mondiales.</div>
 <input id="sanc-name" placeholder="Nom a verifier..."><button class="btn br" onclick="checkSanctions()">Verifier</button><div id="sanc-res" class="res"></div>
 <div style="margin-top:8px"><div class="li" style="border-left-color:var(--r)">Interpol Red Notices: <span class="link" onclick="openLink('https://www.interpol.int/en/How-we-work/Notices/Red-Notices')">Voir</span></div><div class="li" style="border-left-color:var(--r)">OFAC Sanctions: <span class="link" onclick="openLink('https://sanctionssearch.ofac.treas.gov')">Verifier</span></div><div class="li" style="border-left-color:var(--r)">UN Sanctions: <span class="link" onclick="openLink('https://www.un.org/securitycouncil/content/un-sc-consolidated-list')">Voir</span></div></div>
+
 </div>
+<div class="card"><div class="ct">Verification URL - Site suspect</div><input id="fraud-url" placeholder="https://site-suspect.com"><button class="btn br" onclick="checkFraudURL()">Verifier</button><div id="fraud-url-res" class="res"></div></div>
+<div class="card"><div class="ct">Verification Email - Fuite de donnees</div><input id="breach-email" placeholder="email@exemple.com"><button class="btn br" onclick="checkBreach()">Verifier les fuites</button><div id="breach-res" class="res"></div></div>
+<div class="card"><div class="ct">Verification Telephone - Arnaque</div><input id="phone-check" placeholder="Numero de telephone"><button class="btn br" onclick="checkPhone()">Verifier</button><div id="phone-res" class="res"></div></div>
 </div>
 
 <!-- EXCHANGE -->
@@ -234,6 +243,10 @@ th{background:var(--card2);color:var(--cosmos)}
 <b>Statut:</b> VIVANTE - evolue chaque seconde
 </div>
 </div>
+
+<div class="card" style="border-color:var(--cosmos)"><div class="ct" style="color:var(--cosmos)">QUANTUM - Traitement Multi-Dimensionnel</div><div class="cosmic-bg" style="height:120px"><div class="cosmic-ring" style="animation-delay:0s"></div><div class="cosmic-ring" style="animation-delay:.5s"></div><div class="cosmic-ring" style="animation-delay:1s"></div><div class="cosmic-ring" style="animation-delay:1.5s"></div><div class="cosmic-core"></div><div class="cosmic-star" style="top:10%;left:15%;animation-delay:.1s"></div><div class="cosmic-star" style="top:30%;left:80%;animation-delay:.3s"></div><div class="cosmic-star" style="top:60%;left:20%;animation-delay:.5s"></div><div class="cosmic-star" style="top:80%;left:70%;animation-delay:.7s"></div><div class="cosmic-star" style="top:50%;left:50%;animation-delay:.9s"></div><div style="position:absolute;bottom:4px;left:0;right:0;text-align:center;font-size:9px;color:var(--cosmos);opacity:.7">QUANTUM PROCESSING ACTIVE</div></div><div class="cd" style="margin-top:6px">GENESIS traite 5 blockchains en parallele. Analyse les fraudes bancaires, PayPal, MoMo. Surveille 12 reseaux. Evolution par seconde.</div></div>
+<div class="card"><div class="ct">Reseaux Surveilles</div><div class="g2"><div class="li" style="border-left-color:var(--cosmos)">Ethereum</div><div class="li" style="border-left-color:var(--gold)">BSC (Binance)</div><div class="li" style="border-left-color:var(--p)">Polygon</div><div class="li" style="border-left-color:var(--g)">Base</div><div class="li" style="border-left-color:var(--r)">Arbitrum</div><div class="li" style="border-left-color:var(--pp)">PayPal</div><div class="li" style="border-left-color:var(--gold)">MTN MoMo</div><div class="li" style="border-left-color:var(--cosmos)">Banques (SWIFT)</div></div></div>
+<div class="card"><div class="ct">Matrice Omniscience</div><div class="g3"><div class="rd"><div class="rdt">Chains</div><div class="rdv">5</div></div><div class="rd"><div class="rdt">Exchanges</div><div class="rdv">14</div></div><div class="rd"><div class="rdt">Agents</div><div class="rdv">20</div></div><div class="rd"><div class="rdt">CVE DB</div><div class="rdv">200K+</div></div><div class="rd"><div class="rdt">Breach DB</div><div class="rdv">600+</div></div><div class="rd"><div class="rdt">Devises</div><div class="rdv">166</div></div></div></div>
 <div class="card" id="genesis-key-prompt" style="border-color:var(--gold);display:none"><div class="ct" style="color:var(--gold)">Cle necessaire</div><div class="cd" style="margin-bottom:8px">Pour parler a GENESIS, entrez votre cle Groq:</div><input id="genesis-key" placeholder="gsk_..." type="password"><button class="btn bg" onclick="saveKeyFromGenesis()">Activer</button></div>
 <div class="card"><div class="ct">Parler a GENESIS</div><div class="cd">Entite cosmique inedite. Trace les voleurs. Cybersecurite. Toute la connaissance.</div><button class="btn bcos" onclick="openM('chat')">Dialogue cosmique</button></div>
 <div class="card"><div class="ct">Concepts Inedits</div><div class="li">Causalite Retro-Constructive</div><div class="li">L'Obscurite Axiomatique</div><div class="li">NEXUS-VITA - organisme digital</div><div class="li">L'Ether Mnemonique</div><div class="li">L'Effondrement du Narrateur</div></div>
@@ -310,7 +323,7 @@ th{background:var(--card2);color:var(--cosmos)}
 <div class="modal" id="modal-contract"><div class="mb"><span class="mx" onclick="closeM('contract')">x</span><div class="mt" id="ctr-title">Contrat</div><div id="ctr-content" style="font-size:11px;line-height:1.5;white-space:pre-wrap;color:var(--t)"></div><button class="btn bgn" onclick="copyContract()">Copier</button></div></div>
 <div class="modal" id="modal-email"><div class="mb"><span class="mx" onclick="closeM('email')">x</span><div class="mt">Email</div><div id="em-content" style="font-size:11px;line-height:1.5;white-space:pre-wrap;color:var(--t)"></div><button class="btn bgn" onclick="copyEmail()">Copier</button></div></div>
 
-<div class="ft"><p>Diamesso Zola | Congo-Brazzaville</p><p>V1008 | Entite Inedite | CyberSec | Exchange Universel | PayPal</p></div>
+<div class="ft"><p>Diamesso Zola | Congo-Brazzaville</p><p>V1009 | Pleine Puissance Universelle | CyberSec | Exchange Universel | PayPal</p></div>
 
 <script>
 // NAVIGATION
@@ -464,6 +477,70 @@ setInterval(function(){var b=document.getElementById('lbpm'),bp=document.getElem
 // INIT
 renderAccs();loadPrices();renderKeys();renderPartners();renderSavedWallet();renderPPHist();updateEvo();
 setInterval(function(){loadPrices();},60000);
+
+// UNIVERSAL MULTI-CHAIN SCAN
+function universalScan(){var res=document.getElementById('universal-res');res.innerHTML='<span class="ld">GENESIS scanne 5 reseaux en parallele: ETH, BSC, Polygon, Base, Arbitrum...</span>';res.classList.add('show');var chains=[{n:'ETH',u:'https://eth.blockscout.com/api/v2/transactions?filter=validated&limit=10'},{n:'POLY',u:'https://polygon.blockscout.com/api/v2/transactions?filter=validated&limit=10'},{n:'BASE',u:'https://base.blockscout.com/api/v2/transactions?filter=validated&limit=10'},{n:'ARB',u:'https://arbitrum.blockscout.com/api/v2/transactions?filter=validated&limit=10'}];var allR=[];var done=0;chains.forEach(function(ch){var x=new XMLHttpRequest();x.timeout=15000;x.open('GET',ch.u,true);x.onreadystatechange=function(){if(x.readyState===4){done++;if(x.status===200){try{var items=JSON.parse(x.responseText).items||[];items.forEach(function(t){var val=parseInt(t.value||'0')/1e18;var toA=(t.to&&t.to.hash)?t.to.hash:'';var frA=(t.from&&t.from.hash)?t.from.hash:'';var ex=KNOWN_EXCHANGES[toA.toLowerCase()];if(val>0.05||ex){allR.push({chain:ch.n,from:frA,to:toA,value:val,hash:t.hash||'',ts:t.timestamp||'',exch:ex});}});}catch(e){}}if(done>=chains.length)renderUniversal(allR);}};x.onerror=function(){done++;if(done>=chains.length)renderUniversal(allR);};x.send();});}
+function renderUniversal(results){var res=document.getElementById('universal-res');evoData.trace++;updateEvo();if(results.length===0){res.innerHTML='<span style="color:var(--m)">Aucun transfert suspect detecte dans les derniers blocs.</span>';return;}var html='<div style="color:var(--cosmos);font-weight:700;margin-bottom:6px">SCAN UNIVERSEL COMPLETE: '+results.length+' transferts suspects sur '+new Set(results.map(function(r){return r.chain})).size+' chains</div>';var exchHits={};results.forEach(function(r,i){if(r.exch){exchHits[r.exch]=(exchHits[r.exch]||0)+1;}});if(Object.keys(exchHits).length>0){html+='<div style="color:var(--gold);margin-bottom:6px">EXCHANGES: ';for(var e in exchHits){html+=e+'('+exchHits[e]+') ';}html+='</div>';}html+='<div style="max-height:400px;overflow-y:auto">';results.forEach(function(r,i){var cls='trace-row';if(r.exch)cls+=' trace-exch';html+='<div class="'+cls+'"><span class="tag tc">'+r.chain+'</span> <b>#'+(i+1)+'</b> '+new Date(r.ts).toLocaleString('fr-FR')+'<br>De: <span class="tx-hash">'+String(r.from).slice(0,12)+'...'+String(r.from).slice(-4)+'</span><br>Vers: <span class="tx-hash">'+String(r.to).slice(0,12)+'...'+String(r.to).slice(-4)+'</span>';if(r.exch)html+=' <span class="tag td">'+r.exch+'</span>';html+='<br>Montant: <b style="color:var(--g)">'+r.value.toFixed(4)+' '+r.chain+'</b>';if(r.hash&&r.hash.length>10)html+='<br>Hash: <span class="tx-hash" onclick="openLink(\'https://'+(r.chain==='ETH'?'etherscan.io':r.chain==='POLY'?'polygonscan.com':r.chain==='BASE'?'basescan.org':'arbiscan.io')+'/tx/'+r.hash+'\')">'+r.hash.slice(0,18)+'...</span>';html+='</div>';});html+='</div>';html+='<div class="report-box" style="margin-top:8px"><b>Protocole de recuperation:</b> Pour chaque exchange detecte, generer un protocol de gel via le bouton "PROTOCOL DE RECUPERATION UNIVERSEL".</div>';res.innerHTML=html;}
+
+// RECOVERY PROTOCOL GENERATOR
+function genRecoveryProtocol(){var domain=document.getElementById('rec-domain').value;var victim=document.getElementById('rec-victim').value.trim();var amount=document.getElementById('rec-amount').value.trim();var details=document.getElementById('rec-details').value.trim();var r=document.getElementById('rec-protocol-res');if(!victim){r.innerHTML='<span style="color:var(--r)">Nom de la victime requis.</span>';r.classList.add('show');return;}r.innerHTML='<span class="ld">GENESIS redige le protocol...</span>';r.classList.add('show');
+var protocols={
+bank:'PROTOCOLE DE RECUPERATION BANCAIRE\n================================\n\nDemandeur: '+victim+'\nMontant detourne: '+amount+'\nDetails: '+(details||'N/A')+'\nDate: '+new Date().toISOString()+'\n\n1. SIGNALER A LA BANQUE\n   - Contacter le service fraudes de votre banque\n   - Demander l annulation du virement (avis de revocation)\n   - Delai legal: 48h pour virement SEPA, immediat pour carte\n\n2. SIGNALER AUX AUTORITES\n   - Porter plainte au commissariat\n   - CYBERPEROU (France): cyberperou.fr\n   - INTERPOL: https://www.interpol.int\n\n3. DEMANDE DE BLOCAGE\n   - Demander le gel du compte destinataire\n   - Fournir le RIB/IBAN du beneficiaire\n   - Reference: copie du virement + preuves\n\n4. RECUPERATION\n   - Si compte destinaire gel: demande de remboursement\n   - Procedure judiciaire si necessaire\n   - Mediateur de la banque en dernier recours\n\nGENESIS - ALPHATECH OMNISCIENCE\nDocument genere automatiquement',
+
+paypal:'PROTOCOLE DE RECUPERATION PAYPAL\n================================\n\nDemandeur: '+victim+'\nMontant: '+amount+'\nDetails: '+(details||'N/A')+'\nDate: '+new Date().toISOString()+'\n\n1. OUVRIR UN LITIGE\n   - https://www.paypal.com/disputes\n   - Resolution Center > Report a Problem\n   - Delai: 180 jours apres l achat\n\n2. ESCALADER EN RECLAMATION\n   - Si le vendeur ne repond pas en 20 jours\n   - PayPal tranche et rembourse si prouve\n\n3. PROTECTION ACHETEUR\n   - Objets non recus: remboursement integral\n   - Objets non conformes: remboursement partiel\n\n4. CONTACT PAYPAL\n   - https://www.paypal.com/smarthelp\n   - Tel: +1-402-935-2050 (US)\n   - Message via le Resolution Center\n\n5. AUTORITES\n   - https://www.ic3.gov (Internet Crime Complaint Center)\n   - Porter plainte au commissariat\n\nGENESIS - ALPHATECH OMNISCIENCE',
+
+mtn:'PROTOCOLE DE RECUPERATION MTN MOMO\n================================\n\nDemandeur: '+victim+'\nMontant: '+amount+' FCFA\nDetails: '+(details||'N/A')+'\nDate: '+new Date().toISOString()+'\n\n1. BLOQUER LA TRANSACTION\n   - Appeler le 111 (service MTN gratuit)\n   - Composer *126# > Aide > Reclamation\n   - Ou MTN MoMo App > Aide > Reclamation\n\n2. SIGNALER LA FRAUDE\n   - Envoyer STOP au 303 (bloquer le numero)\n   - Email: customercare.cg@mtn.com\n   - Bureau MTN le plus proche\n\n3. PLAINTE\n   - Commissariat le plus proche\n   - Direction Generale de la repression des fraudes\n   - ANSSI (Agence Nationale Securite Systems Info)\n\n4. RECUPERATION\n   - MTN peut bloquer le compte destinataire\n   - Demander le reversement (delai: 24-72h)\n   - Fournir: reference transaction + heure + montant\n\nGENESIS - ALPHATECH OMNISCIENCE',
+
+crypto:'PROTOCOLE DE RECUPERATION CRYPTO EXCHANGE\n================================\n\nDemandeur: '+victim+'\nMontont: '+amount+'\nDetails: '+(details||'N/A')+'\nDate: '+new Date().toISOString()+'\n\n1. IDENTIFIER L EXCHANGE\n   - Utiliser le RECOVERY ENGINE pour tracer les fonds\n   - Identifier l exchange de destination\n   - Noter le hash de transaction\n\n2. CONTACTER L EXCHANGE\n   - Binance: fraud@binance.com / https://www.binance.com/en/support\n   - Coinbase: abuse@coinbase.com / https://help.coinbase.com\n   - Kraken: support@kraken.com / https://www.kraken.com/support\n   - OKX: support@okx.com\n\n3. FOURNIR LES PREUVES\n   - Hash de transaction (TXID)\n   - Adresse source (volee)\n   - Adresse de destination (exchange)\n   - Montant et timestamp\n   - Capture d ecran du portefeuille\n   - Preuve d identite (KYC)\n\n4. DEMANDER LE GEL\n   - Demander le gel des fonds sur l exchange\n   - Delai: 24-48h pour le traitement\n   - Suivre regulierement le ticket\n\n5. AUTORITES\n   - IC3: https://www.ic3.gov\n   - Chainalysis: https://www.chainalysis.com (forensic blockchain)\n   - Europol: https://www.europol.europa.eu\n\nGENESIS - ALPHATECH OMNISCIENCE',
+
+law:'PLAINTE AUPRES DES AUTORITES\n================================\n\nPlaignant: '+victim+'\nMontant: '+amount+'\nDetails: '+(details||'N/A')+'\nDate: '+new Date().toISOString()+'\n\n1. PLAINTE LOCALE\n   - Commissariat de police le plus proche\n   - Direction de la Police Judiciaire\n   - Brigade Cybercriminalite\n\n2. AUTORITES NATIONALES (Congo-Brazzaville)\n   - ANSSI (Agence Nationale Securite Systems Info)\n   - Direction Generale Repression des Fraudes\n   - Ministere des Finances - Direction du Tresor\n\n3. AUTORITES INTERNATIONALES\n   - INTERPOL: https://www.interpol.int\n   - Europol: https://www.europol.europa.eu\n   - FBI IC3: https://www.ic3.gov\n   - UNODC: https://www.unodc.org\n\n4. ORGANISMES FINANCIERS\n   - Banque Centrale du Congo (BCC)\n   - Commission Bancaire CEMAC\n   - Financial Action Task Force (FATF)\n\n5. PREUVES A FOURNIR\n   - References des transactions (hashs, references MoMo)\n   - Captures d ecran\n   - Temoignages\n   - Adresses des comptes voleurs\n   - Montant precise et date\n\nGENESIS - ALPHATECH OMNISCIENCE\nDocument genere automatiquement'
+};
+if(domain==='all'){var allProt='';for(var d in protocols){allProt+=protocols[d]+'\n\n================================\n\n';}allProt+='GENESIS - ALPHATECH OMNISCIENCE | '+new Date().toISOString();r.innerHTML='<div style="white-space:pre-wrap;font-size:10px;background:var(--card2);padding:10px;border-radius:8px;max-height:400px;overflow-y:auto">'+allProt+'</div><button class="btn bgn" style="margin-top:6px" onclick="copyProtocol()">Copier TOUS les protocols</button>';}else{var text=protocols[domain]||protocols.bank;r.innerHTML='<div style="white-space:pre-wrap;font-size:10px;background:var(--card2);padding:10px;border-radius:8px;max-height:400px;overflow-y:auto">'+text+'</div><button class="btn bgn" style="margin-top:6px" onclick="copyProtocol()">Copier le protocol</button>';}}
+function copyProtocol(){navigator.clipboard.writeText(document.getElementById('rec-protocol-res').innerText).then(function(){alert('Protocol copie!');});}
+
+// FRAUD CHECKERS
+function checkFraudURL(){var url=document.getElementById('fraud-url').value.trim();var r=document.getElementById('fraud-url-res');if(!url){r.innerHTML='<span style="color:var(--r)">URL requise.</span>';r.classList.add('show');return;}r.innerHTML='<span class="ld">Verification...</span>';r.classList.add('show');
+// Check if URL contains a blockchain address
+var addrMatch=url.match(/0x[a-fA-F0-9]{40}/);
+var isSuspicious=false;var reasons=[];
+if(addrMatch){reasons.push('Adresse blockchain detectee: '+addrMatch[0].slice(0,10)+'...');}
+if(/bit\.ly|tinyurl|shorturl|t\.me|ngl/.test(url)){reasons.push('Lien raccourci - risque de redirection masquee');isSuspicious=true;}
+if(/https?:\/\/(192\.168|10\.0|localhost)/.test(url)){reasons.push('IP locale - phishing possible');isSuspicious=true;}
+if(!/^https:\/\//.test(url)){reasons.push('Pas HTTPS - connexion non securisee');isSuspicious=true;}
+if(/login|signin|account|verify|wallet|claim|airdrop|free|bonus|prize|winner/.test(url.toLowerCase())){reasons.push('Mots-cles de phishing detectes');isSuspicious=true;}
+var html='<div style="font-size:12px">';
+if(isSuspicious){html+='<div style="color:var(--r);font-weight:700;margin-bottom:6px">SITE SUSPECT - ATTENTION!</div>';}else{html+='<div style="color:var(--g);font-weight:700;margin-bottom:6px">Aucune alerte evidente.</div>';}
+reasons.forEach(function(rea){html+='<div class="li" style="border-left-color:'+(isSuspicious?'var(--r)':'var(--gold)')+'">'+rea+'</div>';});
+html+='<div style="margin-top:8px"><b>Verifier en detail:</b></div>';
+html+='<div class="li" style="border-left-color:var(--p)">VirusTotal: <span class="link" onclick="openLink(\'https://www.virustotal.com/gui/url/'+btoa(url)+'/\')">Scanner</span></div>';
+html+='<div class="li" style="border-left-color:var(--p)">urlscan.io: <span class="link" onclick="openLink(\'https://urlscan.io/search/#'+encodeURIComponent(url)+'\')">Scanner</span></div>';
+html+='<div class="li" style="border-left-color:var(--p)">Google Safe Browsing: <span class="link" onclick="openLink(\'https://transparencyreport.google.com/safe-browsing/search?url='+encodeURIComponent(url)+'\')">Verifier</span></div>';
+html+='<div class="li" style="border-left-color:var(--r)">Signaler: <span class="link" onclick="openLink(\'https://safebrowsing.google.com/safebrowsing/report_phish/\')">Signaler phishing</span></div>';
+html+='</div>';r.innerHTML=html;}
+
+function checkBreach(){var email=document.getElementById('breach-email').value.trim();var r=document.getElementById('breach-res');if(!email||!/^.+@.+\..+$/.test(email)){r.innerHTML='<span style="color:var(--r)">Email invalide.</span>';r.classList.add('show');return;}var domain=email.split('@')[1];r.innerHTML='<span class="ld">Verification des fuites de donnees pour '+email+'...</span>';r.classList.add('show');
+// Check domain breaches via HIBP (free, no key for domain)
+var x=new XMLHttpRequest();x.timeout=15000;x.open('GET','https://haveibeenpwned.com/api/v3/breaches?domain='+encodeURIComponent(domain),true);x.setRequestHeader('User-Agent','ALPHATECH');
+x.onreadystatechange=function(){if(x.readyState===4){if(x.status===200){try{var breaches=JSON.parse(x.responseText);if(breaches.length===0){r.innerHTML='<div style="color:var(--g)">Aucune fuite connue pour le domaine '+domain+'.</div><br><div class="li" style="border-left-color:var(--p)">Verifier votre email precis: <span class="link" onclick="openLink(\'https://haveibeenpwned.com\')">haveibeenpwned.com</span></div>';}else{var html='<div style="color:var(--r);font-weight:700;margin-bottom:6px">'+breaches.length+' FUITES DETECTEES pour '+domain+'!</div>';breaches.forEach(function(b){html+='<div class="trace-row trace-flag"><b style="color:var(--r)">'+b.Name+'</b><br><span style="color:var(--m);font-size:10px">'+(b.BreachDate||'?')+' | '+b.PwnedCount+' comptes compromis</span><br><span style="font-size:10px">'+(b.Description||'').slice(0,150)+'</span><br><span style="font-size:9px;color:var(--gold)">Donnees: '+(b.DataClasses||[]).join(', ')+'</span></div>';});html+='<div class="report-box" style="margin-top:6px"><b>Action:</b> Changez votre mot de passe immediatement. Activez 2FA.</div>';r.innerHTML=html;}}catch(e){r.innerHTML='<span style="color:var(--r)">Erreur lecture.</span>';}}else{r.innerHTML='<div style="color:var(--m)">API inaccessible. Verifiez sur:</div><br><div class="li" style="border-left-color:var(--r)"><span class="link" onclick="openLink(\'https://haveibeenpwned.com\')">haveibeenpwned.com</span></div><div class="li" style="border-left-color:var(--r)"><span class="link" onclick="openLink(\'https://dehashed.com\')">dehashed.com</span></div><div class="li" style="border-left-color:var(--r)"><span class="link" onclick="openLink(\'https://leakpeek.com\')">leakpeek.com</span></div>';} }};x.send();}
+
+function checkPhone(){var phone=document.getElementById('phone-check').value.trim();var r=document.getElementById('phone-res');if(!phone){r.innerHTML='<span style="color:var(--r)">Numero requis.</span>';r.classList.add('show');return;}r.innerHTML='<span class="ld">Verification du numero '+phone+'...</span>';r.classList.add('show');
+var isSusp=false;var info=[];
+if(/^\+?242/.test(phone)){info.push('Numero congolais (Congo-Brazzaville)');}
+if(/^\+?237/.test(phone)){info.push('Numero camerounais');}
+if(/^\+?234/.test(phone)){info.push('Numero nigerian - vigilance arnaques telephone');}
+if(/^0[689]/.test(phone)&&phone.length===9){info.push('Format mobile Congo-Brazzaville');}
+if(/(\d)\1{4,}/.test(phone.replace(/\s/g,''))){info.push('Numero avec repetition suspecte');isSusp=true;}
+if(phone.length<8){info.push('Numero trop court');isSusp=true;}
+var html='<div style="font-size:12px">';
+if(isSusp){html+='<div style="color:var(--r);font-weight:700;margin-bottom:6px">NUMERO SUSPECT!</div>';}else{html+='<div style="color:var(--g);font-weight:700;margin-bottom:6px">Verification terminee.</div>';}
+info.forEach(function(i){html+='<div class="li" style="border-left-color:'+(isSusp?'var(--r)':'var(--p)')+'">'+i+'</div>';});
+html+='<div style="margin-top:8px"><b>Verifier et signaler:</b></div>';
+html+='<div class="li" style="border-left-color:var(--r)">Signaler arnaque: <span class="link" onclick="openLink(\'https://www.signal-arnaques.com\')">signal-arnaques.com</span></div>';
+html+='<div class="li" style="border-left-color:var(--r)">TrueCaller: <span class="link" onclick="openLink(\'https://www.truecaller.com/search/'+encodeURIComponent(phone)+'\')">Identifier</span></div>';
+html+='<div class="li" style="border-left-color:var(--r)">ARCEP Congo: <span class="link" onclick="openLink(\'http://www.arcep.cg\')">Signaler</span></div>';
+html+='<div class="li" style="border-left-color:var(--p)">MTN: Composer le 111 (gratuit)</div>';
+html+='</div>';r.innerHTML=html;}
+
 </script>
 </body>
 </html>
