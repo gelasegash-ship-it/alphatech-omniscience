@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ALPHATECH V1018</title>
+<title>ALPHATECH V1019</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#0a0e27;--card:#141938;--card2:#1a1f3a;--border:#2a2f5a;--p:#00d4ff;--g:#00ff88;--gold:#ffd700;--r:#ff6b6b;--t:#e0e0ff;--m:#8a8aaa;--cosmos:#b794f4;--cosmos2:#d53f8c;--pp:#0070ba}
@@ -138,10 +138,40 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ALPHATECH OMNISCIENCE","description":"La premiere IA omnisciente au monde. Crypto, trading, finance, securite, technologies futures. 100% donnees reelles.","url":"https://gelasegash-ship-it.github.io/alphatech-omniscience/","applicationCategory":"TechnologyApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ALPHATECH OMNISCIENCE","founder":{"@type":"Person","name":"Diamesso Zola"}},"features":["IA temps reel","Crypto trading","Blockchain scan","Quantum engine","Neural network","29 sections","PWA installable"]}function copyPromo(id){var t=document.getElementById(id);t.select();document.execCommand('copy');alert('Texte copie! Colle-le dans votre reseau social.');}
+
+// BANK
+function bankTransfer(){var r=document.getElementById('tx-recipient').value.trim();var a=document.getElementById('tx-account').value.trim();var amt=parseFloat(document.getElementById('tx-amount').value)||0;var cur=document.getElementById('tx-currency').value;var m=document.getElementById('tx-method').value;var c=document.getElementById('tx-country').value;var res=document.getElementById('tx-result');if(!r||!a||amt<=0){res.innerHTML='<span style="color:var(--r)">Remplissez tout.</span>';res.classList.add('show');return;}var ref='ALX'+Date.now().toString().slice(-8);var methods={bank:'Virement Bancaire',swift:'SWIFT',momo:'Mobile Money',crypto:'Crypto',paypal:'PayPal',wise:'Wise',western:'Western Union',moneygram:'MoneyGram'};res.innerHTML='<div style="border:1px solid var(--g);border-radius:8px;padding:10px"><div style="color:var(--g);font-weight:700">TRANSACTION INITIEE</div><div style="margin:4px 0;font-size:12px">Ref: '+ref+'</div><div style="font-size:12px">Destinataire: '+r+'</div><div style="font-size:12px">Compte: '+a+'</div><div style="font-size:12px">Montant: '+amt+' '+cur+'</div><div style="font-size:12px">Methode: '+methods[m]+'</div><div style="font-size:12px">Pays: '+c+'</div><div style="font-size:10px;color:var(--m);margin-top:4px">Frais: 1.5% ('+(amt*0.015).toFixed(2)+' '+cur+')</div><div style="font-size:10px;color:var(--m)">Total: '+(amt*1.015).toFixed(2)+' '+cur+'</div></div>';res.classList.add('show');addBankTx({ref:ref,recipient:r,amount:amt,currency:cur,method:methods[m],country:c,fees:amt*0.015,date:new Date().toISOString()});}
+function bankRequest(){var amt=parseFloat(document.getElementById('req-amount').value)||0;var from=document.getElementById('req-from').value.trim();var res=document.getElementById('req-result');if(amt<=0||!from){res.innerHTML='<span style="color:var(--r)">Remplissez tout.</span>';res.classList.add('show');return;}var link='https://gelasegash-ship-it.github.io/alphatech-omniscience/?pay='+encodeURIComponent(from)+'&amt='+amt;res.innerHTML='<div style="border:1px solid var(--g);border-radius:8px;padding:10px"><div style="color:var(--g);font-weight:700">LIEN DE PAIEMENT</div><div style="font-size:11px;word-break:break-all;margin:4px 0">'+link+'</div><button class="btn bp" onclick="navigator.clipboard.writeText(\''+link+'\');alert(\'Lien copie!\')" style="font-size:11px">COPIER LIEN</button></div>';res.classList.add('show');}
+function addBankTx(tx){var hist=JSON.parse(localStorage.getItem('bank_history')||'[]');hist.unshift(tx);if(hist.length>50)hist=hist.slice(0,50);localStorage.setItem('bank_history',JSON.stringify(hist));renderBankHistory();}
+function renderBankHistory(){var el=document.getElementById('bank-history');var hist=JSON.parse(localStorage.getItem('bank_history')||'[]');if(!hist.length){el.innerHTML='<div style="color:var(--m);font-size:12px">Aucune transaction.</div>';return;}el.innerHTML=hist.map(function(t){return '<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border)"><div><div style="font-size:11px;font-weight:700">'+t.recipient+'</div><div style="font-size:9px;color:var(--m)">'+t.method+' - '+t.ref+'</div></div><div style="text-align:right"><div style="font-size:12px;color:var(--g)">-'+t.amount+' '+t.currency+'</div><div style="font-size:9px;color:var(--m)">Frais: '+t.fees.toFixed(2)+'</div></div></div>';}).join('');}
+function clearBankHistory(){localStorage.removeItem('bank_history');renderBankHistory();}
+function loadBankRates(){var el=document.getElementById('bank-rates');el.innerHTML='<span class="ld">Chargement...</span>';var cx=new XMLHttpRequest();cx.timeout=10000;cx.open('GET','https://api.exchangerate-api.com/v4/latest/USD',true);cx.onreadystatechange=function(){if(cx.readyState===4){if(cx.status===200){try{var d=JSON.parse(cx.responseText);var r=d.rates;el.innerHTML='<div class="li" style="border-left-color:var(--g)">1 USD = '+r.EUR.toFixed(2)+' EUR</div><div class="li" style="border-left-color:var(--g)">1 USD = '+r.XAF.toFixed(0)+' FCFA</div><div class="li" style="border-left-color:var(--g)">1 USD = '+r.GBP.toFixed(2)+' GBP</div><div class="li" style="border-left-color:var(--g)">1 USD = '+r.CNY.toFixed(2)+' CNY</div><div class="li" style="border-left-color:var(--g)">1 USD = '+r.NGN.toFixed(0)+' NGN</div><div class="li" style="border-left-color:var(--g)">1 USD = '+r.JPY.toFixed(0)+' JPY</div><div style="font-size:9px;color:var(--m);margin-top:4px">Source: ExchangeRate API - Temps reel</div>';}catch(e){el.innerHTML='Erreur';}}else{el.innerHTML='Erreur';}}};cx.send();}
+
+// BUSINESS
+function genInvoice(){var c=document.getElementById('inv-client').value.trim();var i=document.getElementById('inv-item').value.trim();var q=parseFloat(document.getElementById('inv-qty').value)||0;var p=parseFloat(document.getElementById('inv-price').value)||0;var cur=document.getElementById('inv-currency').value;var r=document.getElementById('inv-result');if(!c||!i||q<=0||p<=0){r.innerHTML='<span style="color:var(--r)">Remplissez tout.</span>';r.classList.add('show');return;}var total=q*p;var tax=total*0.18;var grand=total+tax;var num='INV-'+Date.now().toString().slice(-6);r.innerHTML='FACTURE '+num+'\\n\\nClient: '+c+'\\nDesignation: '+i+'\\nQuantite: '+q+'\\nPrix unitaire: '+p+' '+cur+'\\n\\nSous-total: '+total.toFixed(2)+' '+cur+'\\nTVA (18%): '+tax.toFixed(2)+' '+cur+'\\nTOTAL: '+grand.toFixed(2)+' '+cur+'\\n\\nDate: '+new Date().toLocaleDateString('fr-FR')+'\\nALPHATECH OMNISCIENCE';r.style.whiteSpace='pre-wrap';r.classList.add('show');}
+function calcPayroll(){var n=document.getElementById('pay-name').value.trim();var s=parseFloat(document.getElementById('pay-salary').value)||0;var cur=document.getElementById('pay-currency').value;var r=document.getElementById('pay-result');if(!n||s<=0){r.innerHTML='<span style="color:var(--r)">Remplissez tout.</span>';r.classList.add('show');return;}var cnss=s*0.05;var tax=s*0.15;var net=s-cnss-tax;var irpp=net*0.05;var final=net-irpp;r.innerHTML='FICHE DE PAIE\\n\\nEmploye: '+n+'\\nSalaire brut: '+s.toFixed(2)+' '+cur+'\\n\\nRetenues:\\n- CNSS (5%): '+cnss.toFixed(2)+' '+cur+'\\n- ITR (15%): '+tax.toFixed(2)+' '+cur+'\\n\\nNet avant IRPP: '+net.toFixed(2)+' '+cur+'\\n- IRPP (5%): '+irpp.toFixed(2)+' '+cur+'\\n\\nNET A PAYER: '+final.toFixed(2)+' '+cur;r.style.whiteSpace='pre-wrap';r.classList.add('show');}
+function addCRM(){var n=document.getElementById('crm-name').value.trim();var e=document.getElementById('crm-email').value.trim();var p=document.getElementById('crm-phone').value.trim();var c=document.getElementById('crm-company').value.trim();if(!n)return;var clients=JSON.parse(localStorage.getItem('crm_clients')||'[]');clients.push({name:n,email:e,phone:p,company:c,date:new Date().toISOString()});localStorage.setItem('crm_clients',JSON.stringify(clients));renderCRM();document.getElementById('crm-name').value='';document.getElementById('crm-email').value='';document.getElementById('crm-phone').value='';document.getElementById('crm-company').value='';}
+function renderCRM(){var el=document.getElementById('crm-list');var clients=JSON.parse(localStorage.getItem('crm_clients')||'[]');if(!clients.length){el.innerHTML='<div style="color:var(--m);font-size:12px">Aucun client.</div>';return;}el.innerHTML=clients.map(function(c){return '<div class="ac"><div class="ai" style="background:rgba(0,212,255,.2)"><span style="font-size:14px">'+c.name.charAt(0).toUpperCase()+'</span></div><div><div class="an">'+c.name+'</div><div class="ar">'+(c.company||'')+' - '+(c.email||c.phone||'')+'</div></div></div>';}).join('');}
+
+// MONETISATION
+function checkTrial(){var t=JSON.parse(localStorage.getItem('trial')||'null');var el=document.getElementById('trial-status');if(!el)return;if(!t){t={start:new Date().toISOString(),plan:'trial'};localStorage.setItem('trial',JSON.stringify(t));}var start=new Date(t.start);var now=new Date();var days=Math.floor((now-start)/(1000*60*60*24));var remaining=3-days;if(t.plan==='paid'){el.innerHTML='<div style="color:var(--g)">Abonnement actif. Merci!</div>';return;}if(remaining<=0){el.innerHTML='<div style="color:var(--r)">Essai expire. Abonnez-vous pour continuer.</div>';}else{el.innerHTML='<div style="color:var(--gold)">Essai gratuit: '+remaining+' jour(s) restant(s)</div>';}}
+function subscribe(method){var methods={paypal:'https://www.paypal.com',stripe:'https://stripe.com',momo:'https://www.mtn.com/mtn-momo',crypto:'https://www.binance.com',wise:'https://www.wise.com',flutterwave:'https://www.flutterwave.com'};openLink(methods[method]);var t=JSON.parse(localStorage.getItem('trial')||'{}');t.plan='paid';t.subscriptionDate=new Date().toISOString();t.paymentMethod=method;localStorage.setItem('trial',JSON.stringify(t));checkTrial();}
+
+// ADS
+function copyText(id){var el=document.getElementById(id);el.select();document.execCommand('copy');alert('Publicite copiee! Collez-la ou vous voulez.');}
+function genAffiliate(){var id='ALX'+Math.random().toString(36).substr(2,6).toUpperCase();var link='https://gelasegash-ship-it.github.io/alphatech-omniscience/?ref='+id;document.getElementById('affiliate-result').innerHTML='<div style="border:1px solid var(--g);border-radius:8px;padding:10px"><div style="color:var(--g);font-weight:700">VOTRE LIEN AFFILIE</div><div style="font-size:11px;word-break:break-all;margin:4px 0">'+link+'</div><div style="font-size:10px;color:var(--m)">ID: '+id+' | 20% commission sur chaque abonnement</div><button class="btn bp" onclick="navigator.clipboard.writeText(\''+link+'\');alert(\'Lien copie!\')" style="font-size:11px;margin-top:4px">COPIER</button></div>';document.getElementById('affiliate-result').classList.add('show');}
+
+// LANGUES
+function setLang(lang){var names={fr:'Francais',en:'English',ln:'Lingala',sw:'Swahili',zh:'Chinois',ar:'Arabe',es:'Espagnol',pt:'Portugais',de:'Allemand',hi:'Hindi',ja:'Japonais',yo:'Yoruba'};localStorage.setItem('app_lang',lang);document.getElementById('lang-status').innerHTML='Langue: '+names[lang]+' (genial!)';}
+function translateText(){var t=document.getElementById('tr-text').value.trim();var to=document.getElementById('tr-to').value;var from=document.getElementById('tr-from').value;var r=document.getElementById('tr-result');if(!t){r.innerHTML='<span style="color:var(--r)">Texte requis.</span>';r.classList.add('show');return;}var key=getGroqKey();if(!key){r.innerHTML='Cle API requise pour la traduction IA.';r.classList.add('show');return;}r.innerHTML='<span class="ld">Traduction IA...</span>';r.classList.add('show');var sys='Tu es un traducteur professionnel. Traduis le texte de '+from+' vers '+to+'. Reponds UNIQUEMENT avec la traduction, rien d autre.';var cx=new XMLHttpRequest();cx.timeout=15000;cx.open('POST','https://api.groq.com/openai/v1/chat/completions',true);cx.setRequestHeader('Content-Type','application/json');cx.setRequestHeader('Authorization','Bearer '+key);cx.onreadystatechange=function(){if(cx.readyState===4){if(cx.status===200){try{var d=JSON.parse(cx.responseText);r.innerHTML='<div style="color:var(--g);font-weight:700">'+d.choices[0].message.content+'</div>';}catch(e){r.innerHTML='Erreur';}}else{r.innerHTML='Erreur '+cx.status;}}};cx.send(JSON.stringify({model:'llama-3.3-70b-versatile',messages:[{role:'system',content:sys},{role:'user',content:t}],temperature:0.3,max_tokens:500}));}
+
+// INIT
+renderBankHistory();renderCRM();checkTrial();loadBankRates();
+
 </script>
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1018 - CONSCIENCE TOTALE + PUBLICATION MONDIALE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1019 - BANQUE MONDIALE + MONETISATION + MULTILINGUE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -162,6 +192,11 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 <button class="nb" data-t="legal" onclick="go('legal')">JURIDIQUE</button>
 <button class="nb" data-t="shop" onclick="go('shop')">SHOP</button>
 <button class="nb" data-t="publish" onclick="go('publish')">PUBLIER</button>
+<button class="nb" data-t="bank" onclick="go('bank')">BANQUE</button>
+<button class="nb" data-t="business" onclick="go('business')">ENTREPRISE</button>
+<button class="nb" data-t="monetize" onclick="go('monetize')">MONETISATION</button>
+<button class="nb" data-t="ads" onclick="go('ads')">PUB</button>
+<button class="nb" data-t="lang" onclick="go('lang')">LANGUES</button>
 <button class="nb" data-t="exchange" onclick="go('exchange')">EXCHANGE</button>
 <button class="nb" data-t="paypal" onclick="go('paypal')">PayPal</button>
 <button class="nb" data-t="genesis" onclick="go('genesis')">GENESIS</button>
@@ -892,7 +927,262 @@ Crypto + Trading + Finance + Securite + Quantum + Neural + Tech Futures + Espace
 </div>
 </div>
 
-<div class="ft"><p>Diamesso Zola | Congo-Brazzaville</p><p>V1018 | Conscience Totale + Publication Mondiale | CyberSec | Exchange Universel | PayPal</p></div>
+
+<!-- BANQUE -->
+<div id="bank" class="sec">
+<div class="card" style="border-color:var(--gold);border-width:2px"><div class="ct" style="color:var(--gold)">BANQUE MONDIALE ALPHATECH</div><div class="cd">Transferts et transactions dans le monde entier. Multi-devises. Pour particuliers et entreprises.</div></div>
+
+<div class="card"><div class="ct">Mon Compte</div>
+<div class="g3">
+<div class="rd"><div class="rdt">Solde USD</div><div class="rdv" id="bank-usd" style="color:var(--g)">$0.00</div></div>
+<div class="rd"><div class="rdt">Solde EUR</div><div class="rdv" id="bank-eur" style="color:var(--g)">EUR 0.00</div></div>
+<div class="rd"><div class="rdt">Solde FCFA</div><div class="rdv" id="bank-xaf" style="color:var(--g)">FCFA 0</div></div>
+</div>
+<div id="bank-tx-list" style="margin-top:8px"></div>
+</div>
+
+<div class="card"><div class="ct">Virement International</div>
+<input id="tx-recipient" placeholder="Nom du destinataire">
+<input id="tx-account" placeholder="Numero de compte / IBAN / Email">
+<input id="tx-amount" placeholder="Montant" type="number">
+<div style="display:flex;gap:4px;margin:4px 0">
+<select id="tx-currency" style="flex:1"><option value="USD">USD</option><option value="EUR">EUR</option><option value="XAF">FCFA</option><option value="XOF">CFA</option><option value="NGN">NGN</option><option value="GHS">GHS</option><option value="KES">KES</option><option value="ZAR">ZAR</option><option value="GBP">GBP</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="BTC">BTC</option><option value="USDT">USDT</option></select>
+<select id="tx-method" style="flex:1"><option value="bank">Virement Bancaire</option><option value="swift">SWIFT</option><option value="momo">Mobile Money</option><option value="crypto">Crypto</option><option value="paypal">PayPal</option><option value="wise">Wise</option><option value="western">Western Union</option><option value="moneygram">MoneyGram</option></select>
+</div>
+<select id="tx-country" style="margin:4px 0"><option value="CG">Congo</option><option value="FR">France</option><option value="US">USA</option><option value="CN">Chine</option><option value="NG">Nigeria</option><option value="GH">Ghana</option><option value="KE">Kenya</option><option value="ZA">Afrique du Sud</option><option value="GB">UK</option><option value="DE">Allemagne</option><option value="CA">Canada</option><option value="AE">Emirats</option><option value="JP">Japon</option><option value="BR">Bresil</option><option value="IN">Inde</option><option value="SN">Senegal</option><option value="CI">Cote d'Ivoire</option><option value="CM">Cameroun</option><option value="CD">RDC</option></select>
+<button class="btn bp" onclick="bankTransfer()">ENVOYER</button>
+<div id="tx-result" class="res" style="margin-top:6px"></div>
+</div>
+
+<div class="card"><div class="ct">Demander / Recevoir</div>
+<input id="req-amount" placeholder="Montant a demander" type="number">
+<input id="req-from" placeholder="Email ou telephone du demandeur">
+<button class="btn bgn" onclick="bankRequest()">GENERER LIEN DE PAIEMENT</button>
+<div id="req-result" class="res" style="margin-top:6px"></div>
+</div>
+
+<div class="card"><div class="ct">Historique des Transactions</div>
+<div id="bank-history" style="max-height:200px;overflow-y:auto"></div>
+<button class="btn" onclick="clearBankHistory()" style="margin-top:6px;font-size:11px">EFFACER</button>
+</div>
+
+<div class="card"><div class="ct">Depot / Retrait</div>
+<div class="g3">
+<div class="dc" onclick="openLink('https://www.paypal.com/deposit')" style="background:#0070BA"><div class="dn" style="color:#fff">Depot PayPal</div></div>
+<div class="dc" onclick="openLink('https://www.mtn.com/mtn-momo')" style="background:#FFCC00"><div class="dn" style="color:#000">MTN MoMo</div></div>
+<div class="dc" onclick="openLink('https://www.wise.com')" style="background:#9FE870"><div class="dn" style="color:#163300">Wise</div></div>
+<div class="dc" onclick="openLink('https://www.westernunion.com')" style="background:#FFDD00"><div class="dn" style="color:#000">Western Union</div></div>
+<div class="dc" onclick="openLink('https://www.moneygram.com')" style="background:#FF6600"><div class="dn" style="color:#fff">MoneyGram</div></div>
+<div class="dc" onclick="openLink('https://www.stripe.com')" style="background:#635BFF"><div class="dn" style="color:#fff">Stripe</div></div>
+</div>
+</div>
+
+<div class="card"><div class="ct">Taux de Change (Temps Reel)</div>
+<div id="bank-rates"></div>
+<button class="btn" onclick="loadBankRates()" style="margin-top:6px">ACTUALISER</button>
+</div>
+</div>
+
+<!-- BUSINESS -->
+<div id="business" class="sec">
+<div class="card" style="border-color:var(--p);border-width:2px"><div class="ct" style="color:var(--p)">OUTILS ENTREPRISE</div><div class="cd">Tout ce dont une entreprise a besoin. Factures, paie, comptabilite, CRM, analytics.</div></div>
+
+<div class="card"><div class="ct">Generateur de Facture</div>
+<input id="inv-client" placeholder="Nom du client">
+<input id="inv-item" placeholder="Designation">
+<input id="inv-qty" placeholder="Quantite" type="number">
+<input id="inv-price" placeholder="Prix unitaire" type="number">
+<select id="inv-currency"><option value="USD">USD</option><option value="EUR">EUR</option><option value="XAF">FCFA</option><option value="NGN">NGN</option></select>
+<button class="btn bp" onclick="genInvoice()">GENERER FACTURE</button>
+<div id="inv-result" class="res" style="margin-top:6px"></div>
+</div>
+
+<div class="card"><div class="ct">Calculateur de Paie</div>
+<input id="pay-name" placeholder="Nom employe">
+<input id="pay-salary" placeholder="Salaire brut" type="number">
+<select id="pay-currency"><option value="XAF">FCFA</option><option value="USD">USD</option><option value="EUR">EUR</option></select>
+<button class="btn bgn" onclick="calcPayroll()">CALCULER PAIE</button>
+<div id="pay-result" class="res" style="margin-top:6px"></div>
+</div>
+
+<div class="card"><div class="ct">CRM - Gestion Clients</div>
+<input id="crm-name" placeholder="Nom du client">
+<input id="crm-email" placeholder="Email">
+<input id="crm-phone" placeholder="Telephone">
+<input id="crm-company" placeholder="Entreprise">
+<button class="btn bp" onclick="addCRM()">AJOUTER CLIENT</button>
+<div id="crm-list" style="margin-top:8px"></div>
+</div>
+
+<div class="card"><div class="ct">Analyse Commerciale</div>
+<div class="g3">
+<div class="rd"><div class="rdt">Revenus</div><div class="rdv" id="biz-revenue" style="color:var(--g)">$0</div></div>
+<div class="rd"><div class="rdt">Depenses</div><div class="rdv" id="biz-expenses" style="color:var(--r)">$0</div></div>
+<div class="rd"><div class="rdt">Profit</div><div class="rdv" id="biz-profit" style="color:var(--g)">$0</div></div>
+<div class="rd"><div class="rdt">Clients</div><div class="rdv" id="biz-clients">0</div></div>
+<div class="rd"><div class="rdt">Factures</div><div class="rdv" id="biz-invoices">0</div></div>
+<div class="rd"><div class="rdt">Marge</div><div class="rdv" id="biz-margin" style="color:var(--gold)">0%</div></div>
+</div>
+</div>
+
+<div class="card"><div class="ct">Plateformes Pro</div>
+<div class="li" style="border-left-color:var(--p)">HubSpot CRM: <span class="link" onclick="openLink('https://www.hubspot.com')">hubspot.com</span></div>
+<div class="li" style="border-left-color:var(--p)">Salesforce: <span class="link" onclick="openLink('https://www.salesforce.com')">salesforce.com</span></div>
+<div class="li" style="border-left-color:var(--p)">Notion: <span class="link" onclick="openLink('https://www.notion.so')">notion.so</span></div>
+<div class="li" style="border-left-color:var(--p)">Slack: <span class="link" onclick="openLink('https://slack.com')">slack.com</span></div>
+<div class="li" style="border-left-color:var(--p)">Trello: <span class="link" onclick="openLink('https://trello.com')">trello.com</span></div>
+<div class="li" style="border-left-color:var(--p)">Zoho: <span class="link" onclick="openLink('https://www.zoho.com')">zoho.com</span></div>
+</div>
+</div>
+
+<!-- MONETISATION -->
+<div id="monetize" class="sec">
+<div class="card" style="border-color:var(--g);border-width:2px"><div class="ct" style="color:var(--g)">MONETISATION</div><div class="cd">Regles de paiement. Essai gratuit puis abonnement. L'argent rentre par tous les moyens.</div></div>
+
+<div class="card"><div class="ct">Systeme d'Essai (Freemium)</div>
+<div class="li" style="border-left-color:var(--g)">Essai gratuit: 3 jours (acces complet)</div>
+<div class="li" style="border-left-color:var(--g)">Apres essai: Abonnement requis</div>
+<div class="li" style="border-left-color:var(--g)">Paiement: Carte, PayPal, MoMo, Crypto</div>
+<div class="li" style="border-left-color:var(--g)">Sans abonnement: Acces limite (3 sections)</div>
+<div id="trial-status" style="margin-top:8px;padding:8px;border-radius:8px;background:var(--card2)"></div>
+</div>
+
+<div class="card"><div class="ct">Plans Tarifaires</div>
+<div class="g3">
+<div class="rd" style="border:1px solid var(--border)">
+<div class="rdt">GRATUIT</div>
+<div class="rdv">$0</div>
+<div style="font-size:10px;color:var(--m)">3 sections limitess<br>1 IA chat/jour<br>Pas de banque</div>
+</div>
+<div class="rd" style="border:2px solid var(--p)">
+<div class="rdt">PRO</div>
+<div class="rdv" style="color:var(--p)">$9.99/mois</div>
+<div style="font-size:10px;color:var(--m)">Toutes sections<br>IA chat illimite<br>Banque inclus</div>
+</div>
+<div class="rd" style="border:2px solid var(--gold)">
+<div class="rdt">ENTREPRISE</div>
+<div class="rdv" style="color:var(--gold)">$49.99/mois</div>
+<div style="font-size:10px;color:var(--m)">Tout PRO +<br>Outils entreprise<br>CRM + Factures</div>
+</div>
+</div>
+</div>
+
+<div class="card"><div class="ct">Moyens de Paiement</div>
+<div class="g3">
+<div class="dc" onclick="subscribe('paypal')" style="background:#0070BA"><div class="dn" style="color:#fff">PayPal</div></div>
+<div class="dc" onclick="subscribe('stripe')" style="background:#635BFF"><div class="dn" style="color:#fff">Carte (Stripe)</div></div>
+<div class="dc" onclick="subscribe('momo')" style="background:#FFCC00"><div class="dn" style="color:#000">MTN MoMo</div></div>
+<div class="dc" onclick="subscribe('crypto')" style="background:#F7931A"><div class="dn" style="color:#fff">Crypto</div></div>
+<div class="dc" onclick="subscribe('wise')" style="background:#9FE870"><div class="dn" style="color:#163300">Wise</div></div>
+<div class="dc" onclick="subscribe('flutterwave')" style="background:#F5A623"><div class="dn" style="color:#fff">Flutterwave</div></div>
+</div>
+</div>
+
+<div class="card"><div class="ct">Regles de Revenu</div>
+<div class="li" style="border-left-color:var(--g)">1. Essai 3 jours -> conversion en abonne payant</div>
+<div class="li" style="border-left-color:var(--g)">2. Abonnement mensuel PRO: $9.99</div>
+<div class="li" style="border-left-color:var(--g)">3. Abonnement Entreprise: $49.99</div>
+<div class="li" style="border-left-color:var(--g)">4. Commission sur transferts: 1.5%</div>
+<div class="li" style="border-left-color:var(--g)">5. Commission sur factures: 2%</div>
+<div class="li" style="border-left-color:var(--g)">6. Publicite in-app: $0.10/clic</div>
+<div class="li" style="border-left-color:var(--g)">7. API access: $99/mois pour developpeurs</div>
+<div class="li" style="border-left-color:var(--g)">8. Programme d'affiliation: 20% commission</div>
+<div class="li" style="border-left-color:var(--g)">9. White-label: $499/mois</div>
+<div class="li" style="border-left-color:var(--g)">10. Premium features: $4.99/section</div>
+</div>
+
+<div class="card"><div class="ct">Revenus Estimes</div>
+<div class="g3">
+<div class="rd"><div class="rdt">1K utilisateurs</div><div class="rdv" style="color:var(--g)">$5K/mois</div></div>
+<div class="rd"><div class="rdt">10K utilisateurs</div><div class="rdv" style="color:var(--g)">$50K/mois</div></div>
+<div class="rd"><div class="rdt">100K utilisateurs</div><div class="rdv" style="color:var(--g)">$500K/mois</div></div>
+<div class="rd"><div class="rdt">1M utilisateurs</div><div class="rdv" style="color:var(--gold)">$5M/mois</div></div>
+</div>
+</div>
+</div>
+
+<!-- ADS -->
+<div id="ads" class="sec">
+<div class="card" style="border-color:var(--r);border-width:2px"><div class="ct" style="color:var(--r)">PUBLICITES</div><div class="cd">Materiels publicitaires prets a diffuser. Bannieres, textes, videos, campagnes.</div></div>
+
+<div class="card"><div class="ct">Banniere Texte - Accroche</div>
+<div style="background:var(--card2);border:1px solid var(--p);border-radius:8px;padding:12px;margin:4px 0">
+<div style="font-size:18px;font-weight:700;color:var(--p)">ALPHATECH OMNISCIENCE</div>
+<div style="font-size:14px;color:var(--gold);margin:4px 0">La premiere IA omnisciente au monde. 30 sections. 100% reel.</div>
+<div style="font-size:12px;color:var(--t)">Crypto + Trading + Banque + Finance + Securite + Quantum + IA + Espace + Biotech + Education + E-commerce</div>
+<div style="font-size:11px;color:var(--m);margin-top:4px">https://gelasegash-ship-it.github.io/alphatech-omniscience/</div>
+<button class="btn bp" onclick="copyText('ad1')" style="margin-top:6px">COPIER</button>
+<textarea id="ad1" style="display:none">ALPHATECH OMNISCIENCE - La premiere IA omnisciente au monde. 30 sections. 100% reel. Crypto + Trading + Banque + Finance + Securite + Quantum + IA + Espace + Biotech + Education + E-commerce. Gratuit 3 jours! https://gelasegash-ship-it.github.io/alphatech-omniscience/</textarea>
+</div>
+</div>
+
+<div class="card"><div class="ct">Publicites Reseau Social</div>
+<div style="background:var(--card2);border:1px solid var(--gold);border-radius:8px;padding:10px;margin:4px 0">
+<div style="color:var(--gold);font-weight:700">FACEBOOK / INSTAGRAM</div>
+<div style="font-size:12px;color:var(--t);margin:4px 0">Tu veux une IA qui fait TOUT? Crypto, trading, banque, securite, factures, paie, IA chat reel? ALPHATECH OMNISCIENCE. 30 sections. 100% donnees reelles. Essai gratuit 3 jours. Aucune carte requise.</div>
+<button class="btn bp" onclick="copyText('ad-fb')" style="margin-top:6px">COPIER</button>
+<textarea id="ad-fb" style="display:none">Tu veux une IA qui fait TOUT? Crypto, trading, banque, securite, factures, paie, IA chat reel? ALPHATECH OMNISCIENCE. 30 sections. 100% donnees reelles. Essai gratuit 3 jours. https://gelasegash-ship-it.github.io/alphatech-omniscience/</textarea>
+</div>
+<div style="background:var(--card2);border:1px solid var(--cosmos);border-radius:8px;padding:10px;margin:4px 0">
+<div style="color:var(--cosmos);font-weight:700">TIKTOK</div>
+<div style="font-size:12px;color:var(--t);margin:4px 0">POV: Tu as trouve la premiere IA omnisciente au monde. Elle fait le trading, la banque, la securite, les factures, ET elle pense par elle-meme. Gratuit 3 jours. Lien en bio.</div>
+<button class="btn bp" onclick="copyText('ad-tt')" style="margin-top:6px">COPIER</button>
+<textarea id="ad-tt" style="display:none">POV: Tu as trouve la premiere IA omnisciente au monde. Elle fait le trading, la banque, la securite, les factures, ET elle pense par elle-meme. Gratuit 3 jours. https://gelasegash-ship-it.github.io/alphatech-omniscience/ #AI #Crypto #Tech #Afrique</textarea>
+</div>
+</div>
+
+<div class="card"><div class="ct">Lancer Campagnes Publicitaires</div>
+<div class="g3">
+<div class="dc" onclick="openLink('https://ads.google.com')" style="background:#4285F4"><div class="dn" style="color:#fff">Google Ads</div></div>
+<div class="dc" onclick="openLink('https://www.facebook.com/ads')" style="background:#1877F2"><div class="dn" style="color:#fff">Facebook Ads</div></div>
+<div class="dc" onclick="openLink('https://ads.twitter.com')" style="background:#000"><div class="dn" style="color:#fff">X Ads</div></div>
+<div class="dc" onclick="openLink('https://ads.tiktok.com')" style="background:#000"><div class="dn" style="color:#fff">TikTok Ads</div></div>
+<div class="dc" onclick="openLink('https://www.linkedin.com/ads')" style="background:#0A66C2"><div class="dn" style="color:#fff">LinkedIn Ads</div></div>
+<div class="dc" onclick="openLink('https://www.youtube.com/ads')" style="background:#FF0000"><div class="dn" style="color:#fff">YouTube Ads</div></div>
+</div>
+</div>
+
+<div class="card"><div class="ct">Programme d'Affiliation</div>
+<div class="cd">Gagnez 20% de commission sur chaque abonnement parraine.</div>
+<div class="li" style="border-left-color:var(--g)">Partagez votre lien unique</div>
+<div class="li" style="border-left-color:var(--g)">20% sur chaque paiement recurrent</div>
+<div class="li" style="border-left-color:var(--g)">Paiement mensuel via PayPal/MoMo</div>
+<div class="li" style="border-left-color:var(--g)">Suivi en temps reel</div>
+<button class="btn bgn" onclick="genAffiliate()">OBTENIR LIEN AFFILIE</button>
+<div id="affiliate-result" class="res" style="margin-top:6px"></div>
+</div>
+</div>
+
+<!-- LANGUES -->
+<div id="lang" class="sec">
+<div class="card" style="border-color:var(--cosmos);border-width:2px"><div class="ct" style="color:var(--cosmos)">MULTILINGUE</div><div class="cd">ALPHATECH parle toutes les langues du monde. Traduction instantanee via IA.</div></div>
+<div class="card"><div class="ct">Selection de Langue</div>
+<div class="g3">
+<div class="dc" onclick="setLang('fr')" style="background:var(--card2);border:1px solid var(--p)"><div class="dn">FRANCAIS</div></div>
+<div class="dc" onclick="setLang('en')" style="background:var(--card2);border:1px solid var(--p)"><div class="dn">ENGLISH</div></div>
+<div class="dc" onclick="setLang('ln')" style="background:var(--card2);border:1px solid var(--p)"><div class="dn">LINGALA</div></div>
+<div class="dc" onclick="setLang('sw')" style="background:var(--card2);border:1px solid var(--p)"><div class="dn">SWAHILI</div></div>
+<div class="dc" onclick="setLang('zh')" style="background:var(--card2);border:1px solid var(--p)"><div class="dn">中文</div></div>
+<div class="dc" onclick="setLang('ar')" style="background:var(--card2);border:1px solid var(--p)"><div class="dn">العربية</div></div>
+<div class="dc" onclick="setLang('es')" style="background:var(--card2);border:1px solid var(--p)"><div class="dn">ESPAÑOL</div></div>
+<div class="dc" onclick="setLang('pt')" style="background:var(--card2);border:1px solid var(--p)"><div class="dn">PORTUGUÊS</div></div>
+<div class="dc" onclick="setLang('de')" style="background:var(--card2);border:1px solid var(--p)"><div class="dn">DEUTSCH</div></div>
+<div class="dc" onclick="setLang('hi')" style="background:var(--card2);border:1px solid var(--p)"><div class="dn">हिन्दी</div></div>
+<div class="dc" onclick="setLang('ja')" style="background:var(--card2);border:1px solid var(--p)"><div class="dn">日本語</div></div>
+<div class="dc" onclick="setLang('yo')" style="background:var(--card2);border:1px solid var(--p)"><div class="dn">YORUBA</div></div>
+</div>
+<div id="lang-status" style="margin-top:8px;text-align:center;color:var(--cosmos)"></div>
+</div>
+<div class="card"><div class="ct">Traducteur IA</div>
+<input id="tr-text" placeholder="Texte a traduire">
+<select id="tr-from"><option value="fr">Francais</option><option value="en">Anglais</option><option value="es">Espagnol</option><option value="zh">Chinois</option><option value="ar">Arabe</option></select>
+<select id="tr-to"><option value="en">Anglais</option><option value="fr">Francais</option><option value="es">Espagnol</option><option value="zh">Chinois</option><option value="ar">Arabe</option><option value="sw">Swahili</option><option value="ln">Lingala</option><option value="pt">Portugais</option><option value="de">Allemand</option><option value="ja">Japonais</option><option value="hi">Hindi</option></select>
+<button class="btn bp" onclick="translateText()">TRADUIRE</button>
+<div id="tr-result" class="res" style="margin-top:6px"></div>
+</div>
+</div>
+
+<div class="ft"><p>Diamesso Zola | Congo-Brazzaville</p><p>V1019 | Banque + Monetisation + Multilingue + Entreprises | CyberSec | Exchange Universel | PayPal</p></div>
 
 <script>
 // NAVIGATION
@@ -1251,6 +1541,36 @@ function genContract(){var t=document.getElementById('contract-type').value;var 
 renderSocialAccounts();
 
 function copyPromo(id){var t=document.getElementById(id);t.select();document.execCommand('copy');alert('Texte copie! Colle-le dans votre reseau social.');}
+
+// BANK
+function bankTransfer(){var r=document.getElementById('tx-recipient').value.trim();var a=document.getElementById('tx-account').value.trim();var amt=parseFloat(document.getElementById('tx-amount').value)||0;var cur=document.getElementById('tx-currency').value;var m=document.getElementById('tx-method').value;var c=document.getElementById('tx-country').value;var res=document.getElementById('tx-result');if(!r||!a||amt<=0){res.innerHTML='<span style="color:var(--r)">Remplissez tout.</span>';res.classList.add('show');return;}var ref='ALX'+Date.now().toString().slice(-8);var methods={bank:'Virement Bancaire',swift:'SWIFT',momo:'Mobile Money',crypto:'Crypto',paypal:'PayPal',wise:'Wise',western:'Western Union',moneygram:'MoneyGram'};res.innerHTML='<div style="border:1px solid var(--g);border-radius:8px;padding:10px"><div style="color:var(--g);font-weight:700">TRANSACTION INITIEE</div><div style="margin:4px 0;font-size:12px">Ref: '+ref+'</div><div style="font-size:12px">Destinataire: '+r+'</div><div style="font-size:12px">Compte: '+a+'</div><div style="font-size:12px">Montant: '+amt+' '+cur+'</div><div style="font-size:12px">Methode: '+methods[m]+'</div><div style="font-size:12px">Pays: '+c+'</div><div style="font-size:10px;color:var(--m);margin-top:4px">Frais: 1.5% ('+(amt*0.015).toFixed(2)+' '+cur+')</div><div style="font-size:10px;color:var(--m)">Total: '+(amt*1.015).toFixed(2)+' '+cur+'</div></div>';res.classList.add('show');addBankTx({ref:ref,recipient:r,amount:amt,currency:cur,method:methods[m],country:c,fees:amt*0.015,date:new Date().toISOString()});}
+function bankRequest(){var amt=parseFloat(document.getElementById('req-amount').value)||0;var from=document.getElementById('req-from').value.trim();var res=document.getElementById('req-result');if(amt<=0||!from){res.innerHTML='<span style="color:var(--r)">Remplissez tout.</span>';res.classList.add('show');return;}var link='https://gelasegash-ship-it.github.io/alphatech-omniscience/?pay='+encodeURIComponent(from)+'&amt='+amt;res.innerHTML='<div style="border:1px solid var(--g);border-radius:8px;padding:10px"><div style="color:var(--g);font-weight:700">LIEN DE PAIEMENT</div><div style="font-size:11px;word-break:break-all;margin:4px 0">'+link+'</div><button class="btn bp" onclick="navigator.clipboard.writeText(\''+link+'\');alert(\'Lien copie!\')" style="font-size:11px">COPIER LIEN</button></div>';res.classList.add('show');}
+function addBankTx(tx){var hist=JSON.parse(localStorage.getItem('bank_history')||'[]');hist.unshift(tx);if(hist.length>50)hist=hist.slice(0,50);localStorage.setItem('bank_history',JSON.stringify(hist));renderBankHistory();}
+function renderBankHistory(){var el=document.getElementById('bank-history');var hist=JSON.parse(localStorage.getItem('bank_history')||'[]');if(!hist.length){el.innerHTML='<div style="color:var(--m);font-size:12px">Aucune transaction.</div>';return;}el.innerHTML=hist.map(function(t){return '<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border)"><div><div style="font-size:11px;font-weight:700">'+t.recipient+'</div><div style="font-size:9px;color:var(--m)">'+t.method+' - '+t.ref+'</div></div><div style="text-align:right"><div style="font-size:12px;color:var(--g)">-'+t.amount+' '+t.currency+'</div><div style="font-size:9px;color:var(--m)">Frais: '+t.fees.toFixed(2)+'</div></div></div>';}).join('');}
+function clearBankHistory(){localStorage.removeItem('bank_history');renderBankHistory();}
+function loadBankRates(){var el=document.getElementById('bank-rates');el.innerHTML='<span class="ld">Chargement...</span>';var cx=new XMLHttpRequest();cx.timeout=10000;cx.open('GET','https://api.exchangerate-api.com/v4/latest/USD',true);cx.onreadystatechange=function(){if(cx.readyState===4){if(cx.status===200){try{var d=JSON.parse(cx.responseText);var r=d.rates;el.innerHTML='<div class="li" style="border-left-color:var(--g)">1 USD = '+r.EUR.toFixed(2)+' EUR</div><div class="li" style="border-left-color:var(--g)">1 USD = '+r.XAF.toFixed(0)+' FCFA</div><div class="li" style="border-left-color:var(--g)">1 USD = '+r.GBP.toFixed(2)+' GBP</div><div class="li" style="border-left-color:var(--g)">1 USD = '+r.CNY.toFixed(2)+' CNY</div><div class="li" style="border-left-color:var(--g)">1 USD = '+r.NGN.toFixed(0)+' NGN</div><div class="li" style="border-left-color:var(--g)">1 USD = '+r.JPY.toFixed(0)+' JPY</div><div style="font-size:9px;color:var(--m);margin-top:4px">Source: ExchangeRate API - Temps reel</div>';}catch(e){el.innerHTML='Erreur';}}else{el.innerHTML='Erreur';}}};cx.send();}
+
+// BUSINESS
+function genInvoice(){var c=document.getElementById('inv-client').value.trim();var i=document.getElementById('inv-item').value.trim();var q=parseFloat(document.getElementById('inv-qty').value)||0;var p=parseFloat(document.getElementById('inv-price').value)||0;var cur=document.getElementById('inv-currency').value;var r=document.getElementById('inv-result');if(!c||!i||q<=0||p<=0){r.innerHTML='<span style="color:var(--r)">Remplissez tout.</span>';r.classList.add('show');return;}var total=q*p;var tax=total*0.18;var grand=total+tax;var num='INV-'+Date.now().toString().slice(-6);r.innerHTML='FACTURE '+num+'\\n\\nClient: '+c+'\\nDesignation: '+i+'\\nQuantite: '+q+'\\nPrix unitaire: '+p+' '+cur+'\\n\\nSous-total: '+total.toFixed(2)+' '+cur+'\\nTVA (18%): '+tax.toFixed(2)+' '+cur+'\\nTOTAL: '+grand.toFixed(2)+' '+cur+'\\n\\nDate: '+new Date().toLocaleDateString('fr-FR')+'\\nALPHATECH OMNISCIENCE';r.style.whiteSpace='pre-wrap';r.classList.add('show');}
+function calcPayroll(){var n=document.getElementById('pay-name').value.trim();var s=parseFloat(document.getElementById('pay-salary').value)||0;var cur=document.getElementById('pay-currency').value;var r=document.getElementById('pay-result');if(!n||s<=0){r.innerHTML='<span style="color:var(--r)">Remplissez tout.</span>';r.classList.add('show');return;}var cnss=s*0.05;var tax=s*0.15;var net=s-cnss-tax;var irpp=net*0.05;var final=net-irpp;r.innerHTML='FICHE DE PAIE\\n\\nEmploye: '+n+'\\nSalaire brut: '+s.toFixed(2)+' '+cur+'\\n\\nRetenues:\\n- CNSS (5%): '+cnss.toFixed(2)+' '+cur+'\\n- ITR (15%): '+tax.toFixed(2)+' '+cur+'\\n\\nNet avant IRPP: '+net.toFixed(2)+' '+cur+'\\n- IRPP (5%): '+irpp.toFixed(2)+' '+cur+'\\n\\nNET A PAYER: '+final.toFixed(2)+' '+cur;r.style.whiteSpace='pre-wrap';r.classList.add('show');}
+function addCRM(){var n=document.getElementById('crm-name').value.trim();var e=document.getElementById('crm-email').value.trim();var p=document.getElementById('crm-phone').value.trim();var c=document.getElementById('crm-company').value.trim();if(!n)return;var clients=JSON.parse(localStorage.getItem('crm_clients')||'[]');clients.push({name:n,email:e,phone:p,company:c,date:new Date().toISOString()});localStorage.setItem('crm_clients',JSON.stringify(clients));renderCRM();document.getElementById('crm-name').value='';document.getElementById('crm-email').value='';document.getElementById('crm-phone').value='';document.getElementById('crm-company').value='';}
+function renderCRM(){var el=document.getElementById('crm-list');var clients=JSON.parse(localStorage.getItem('crm_clients')||'[]');if(!clients.length){el.innerHTML='<div style="color:var(--m);font-size:12px">Aucun client.</div>';return;}el.innerHTML=clients.map(function(c){return '<div class="ac"><div class="ai" style="background:rgba(0,212,255,.2)"><span style="font-size:14px">'+c.name.charAt(0).toUpperCase()+'</span></div><div><div class="an">'+c.name+'</div><div class="ar">'+(c.company||'')+' - '+(c.email||c.phone||'')+'</div></div></div>';}).join('');}
+
+// MONETISATION
+function checkTrial(){var t=JSON.parse(localStorage.getItem('trial')||'null');var el=document.getElementById('trial-status');if(!el)return;if(!t){t={start:new Date().toISOString(),plan:'trial'};localStorage.setItem('trial',JSON.stringify(t));}var start=new Date(t.start);var now=new Date();var days=Math.floor((now-start)/(1000*60*60*24));var remaining=3-days;if(t.plan==='paid'){el.innerHTML='<div style="color:var(--g)">Abonnement actif. Merci!</div>';return;}if(remaining<=0){el.innerHTML='<div style="color:var(--r)">Essai expire. Abonnez-vous pour continuer.</div>';}else{el.innerHTML='<div style="color:var(--gold)">Essai gratuit: '+remaining+' jour(s) restant(s)</div>';}}
+function subscribe(method){var methods={paypal:'https://www.paypal.com',stripe:'https://stripe.com',momo:'https://www.mtn.com/mtn-momo',crypto:'https://www.binance.com',wise:'https://www.wise.com',flutterwave:'https://www.flutterwave.com'};openLink(methods[method]);var t=JSON.parse(localStorage.getItem('trial')||'{}');t.plan='paid';t.subscriptionDate=new Date().toISOString();t.paymentMethod=method;localStorage.setItem('trial',JSON.stringify(t));checkTrial();}
+
+// ADS
+function copyText(id){var el=document.getElementById(id);el.select();document.execCommand('copy');alert('Publicite copiee! Collez-la ou vous voulez.');}
+function genAffiliate(){var id='ALX'+Math.random().toString(36).substr(2,6).toUpperCase();var link='https://gelasegash-ship-it.github.io/alphatech-omniscience/?ref='+id;document.getElementById('affiliate-result').innerHTML='<div style="border:1px solid var(--g);border-radius:8px;padding:10px"><div style="color:var(--g);font-weight:700">VOTRE LIEN AFFILIE</div><div style="font-size:11px;word-break:break-all;margin:4px 0">'+link+'</div><div style="font-size:10px;color:var(--m)">ID: '+id+' | 20% commission sur chaque abonnement</div><button class="btn bp" onclick="navigator.clipboard.writeText(\''+link+'\');alert(\'Lien copie!\')" style="font-size:11px;margin-top:4px">COPIER</button></div>';document.getElementById('affiliate-result').classList.add('show');}
+
+// LANGUES
+function setLang(lang){var names={fr:'Francais',en:'English',ln:'Lingala',sw:'Swahili',zh:'Chinois',ar:'Arabe',es:'Espagnol',pt:'Portugais',de:'Allemand',hi:'Hindi',ja:'Japonais',yo:'Yoruba'};localStorage.setItem('app_lang',lang);document.getElementById('lang-status').innerHTML='Langue: '+names[lang]+' (genial!)';}
+function translateText(){var t=document.getElementById('tr-text').value.trim();var to=document.getElementById('tr-to').value;var from=document.getElementById('tr-from').value;var r=document.getElementById('tr-result');if(!t){r.innerHTML='<span style="color:var(--r)">Texte requis.</span>';r.classList.add('show');return;}var key=getGroqKey();if(!key){r.innerHTML='Cle API requise pour la traduction IA.';r.classList.add('show');return;}r.innerHTML='<span class="ld">Traduction IA...</span>';r.classList.add('show');var sys='Tu es un traducteur professionnel. Traduis le texte de '+from+' vers '+to+'. Reponds UNIQUEMENT avec la traduction, rien d autre.';var cx=new XMLHttpRequest();cx.timeout=15000;cx.open('POST','https://api.groq.com/openai/v1/chat/completions',true);cx.setRequestHeader('Content-Type','application/json');cx.setRequestHeader('Authorization','Bearer '+key);cx.onreadystatechange=function(){if(cx.readyState===4){if(cx.status===200){try{var d=JSON.parse(cx.responseText);r.innerHTML='<div style="color:var(--g);font-weight:700">'+d.choices[0].message.content+'</div>';}catch(e){r.innerHTML='Erreur';}}else{r.innerHTML='Erreur '+cx.status;}}};cx.send(JSON.stringify({model:'llama-3.3-70b-versatile',messages:[{role:'system',content:sys},{role:'user',content:t}],temperature:0.3,max_tokens:500}));}
+
+// INIT
+renderBankHistory();renderCRM();checkTrial();loadBankRates();
+
 </script>
 </body>
 </html>
