@@ -244,11 +244,107 @@ function renderTopics(){var el=document.getElementById('forum-list');var topics=
 // INIT ALL
 renderMkt('all');renderProfiles();renderPapers();renderTopics();renderRoom();
 
+
+function momoPay(){
+var phone=document.getElementById('momo-phone').value.trim();
+var r=document.getElementById('momo-result');
+if(!phone||phone.length<8){r.innerHTML='<span style="color:var(--r)">Numero invalide.</span>';return;}
+r.innerHTML='<span class="ld">Envoi demande MTN MoMo...</span>';
+fetch('https://api.base44.com/v1/apps/6a8ed03b9012aee5b2fcf7e9/backend-functions/mtnPayment',{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({action:'requestToPay',amount:'10',currency:'EUR',payerPartyId:phone,payerMessage:'ALPHATECH PRO',payeeNote:'Abonnement mensuel'})
+}).then(function(res){return res.json();}).then(function(d){
+if(d.success){
+r.innerHTML='<div style="color:var(--g);font-weight:700">DEMANDE ENVOYEE!</div><div style="font-size:12px;margin-top:4px">Reference: '+d.referenceId+'</div><div style="font-size:11px;color:var(--t)">Vous recevrez une notification sur votre telephone MTN. Validez le paiement.</div><button class="btn bp" onclick="checkMomo(\''+d.referenceId+'\')" style="margin-top:6px;font-size:11px">VERIFIER STATUT</button>';
+var t=JSON.parse(localStorage.getItem('trial')||'{}');
+t.plan='pending';t.momoRef=d.referenceId;t.paymentMethod='momo';
+localStorage.setItem('trial',JSON.stringify(t));
+}else{
+r.innerHTML='<div style="color:var(--r)">Erreur: '+(d.error||'MTN MoMo indisponible')+'</div><div style="font-size:10px;color:var(--m);margin-top:4px">'+(d.solution||'Reessayez plus tard.')+'</div>';
+}
+}).catch(function(e){
+r.innerHTML='<div style="color:var(--r)">Erreur de connexion.</div>';
+});
+}
+function checkMomo(ref){
+fetch('https://api.base44.com/v1/apps/6a8ed03b9012aee5b2fcf7e9/backend-functions/mtnPayment',{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({action:'checkStatus',referenceId:ref})
+}).then(function(res){return res.json();}).then(function(d){
+if(d.success){
+var status=d.status||'PENDING';
+if(status==='SUCCESSFUL'){
+var t=JSON.parse(localStorage.getItem('trial')||'{}');
+t.plan='paid';t.subscriptionDate=new Date().toISOString();t.paymentMethod='momo';
+localStorage.setItem('trial',JSON.stringify(t));
+checkTrial();
+alert('Paiement MTN MoMo confirme! Abonnement PRO actif.');
+}else if(status==='PENDING'){
+alert('Paiement en attente. Validez la demande sur votre telephone MTN.');
+}else{
+alert('Paiement: '+status);
+}
+}else{
+alert('Erreur verification: '+(d.error||''));
+}
+}).catch(function(e){alert('Erreur de connexion.');});
+}
+
 </script>
-<script src="https://www.paypal.com/sdk/js?client-id=BAALCHzub_bmN0Fh9emingNFvn7z0Ki2JJT5xDZIHlFag9lPu-jpiivcpO5WWPP_iZ66Klv2mNXeYzWviY&currency=USD&intent=capture&commit=true"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=BAALCHzub_bmN0Fh9emingNFvn7z0Ki2JJT5xDZIHlFag9lPu-jpiivcpO5WWPP_iZ66Klv2mNXeYzWviY&currency=USD&intent=capture&commit=true">
+function momoPay(){
+var phone=document.getElementById('momo-phone').value.trim();
+var r=document.getElementById('momo-result');
+if(!phone||phone.length<8){r.innerHTML='<span style="color:var(--r)">Numero invalide.</span>';return;}
+r.innerHTML='<span class="ld">Envoi demande MTN MoMo...</span>';
+fetch('https://api.base44.com/v1/apps/6a8ed03b9012aee5b2fcf7e9/backend-functions/mtnPayment',{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({action:'requestToPay',amount:'10',currency:'EUR',payerPartyId:phone,payerMessage:'ALPHATECH PRO',payeeNote:'Abonnement mensuel'})
+}).then(function(res){return res.json();}).then(function(d){
+if(d.success){
+r.innerHTML='<div style="color:var(--g);font-weight:700">DEMANDE ENVOYEE!</div><div style="font-size:12px;margin-top:4px">Reference: '+d.referenceId+'</div><div style="font-size:11px;color:var(--t)">Vous recevrez une notification sur votre telephone MTN. Validez le paiement.</div><button class="btn bp" onclick="checkMomo(\''+d.referenceId+'\')" style="margin-top:6px;font-size:11px">VERIFIER STATUT</button>';
+var t=JSON.parse(localStorage.getItem('trial')||'{}');
+t.plan='pending';t.momoRef=d.referenceId;t.paymentMethod='momo';
+localStorage.setItem('trial',JSON.stringify(t));
+}else{
+r.innerHTML='<div style="color:var(--r)">Erreur: '+(d.error||'MTN MoMo indisponible')+'</div><div style="font-size:10px;color:var(--m);margin-top:4px">'+(d.solution||'Reessayez plus tard.')+'</div>';
+}
+}).catch(function(e){
+r.innerHTML='<div style="color:var(--r)">Erreur de connexion.</div>';
+});
+}
+function checkMomo(ref){
+fetch('https://api.base44.com/v1/apps/6a8ed03b9012aee5b2fcf7e9/backend-functions/mtnPayment',{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({action:'checkStatus',referenceId:ref})
+}).then(function(res){return res.json();}).then(function(d){
+if(d.success){
+var status=d.status||'PENDING';
+if(status==='SUCCESSFUL'){
+var t=JSON.parse(localStorage.getItem('trial')||'{}');
+t.plan='paid';t.subscriptionDate=new Date().toISOString();t.paymentMethod='momo';
+localStorage.setItem('trial',JSON.stringify(t));
+checkTrial();
+alert('Paiement MTN MoMo confirme! Abonnement PRO actif.');
+}else if(status==='PENDING'){
+alert('Paiement en attente. Validez la demande sur votre telephone MTN.');
+}else{
+alert('Paiement: '+status);
+}
+}else{
+alert('Erreur verification: '+(d.error||''));
+}
+}).catch(function(e){alert('Erreur de connexion.');});
+}
+
+</script>
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1021 - PAIEMENTS PAYPAL + NOM GELASE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1021 - PAYPAL + MTN MOMO REELS</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1860,6 +1956,54 @@ function renderTopics(){var el=document.getElementById('forum-list');var topics=
 
 // INIT ALL
 renderMkt('all');renderProfiles();renderPapers();renderTopics();renderRoom();
+
+
+function momoPay(){
+var phone=document.getElementById('momo-phone').value.trim();
+var r=document.getElementById('momo-result');
+if(!phone||phone.length<8){r.innerHTML='<span style="color:var(--r)">Numero invalide.</span>';return;}
+r.innerHTML='<span class="ld">Envoi demande MTN MoMo...</span>';
+fetch('https://api.base44.com/v1/apps/6a8ed03b9012aee5b2fcf7e9/backend-functions/mtnPayment',{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({action:'requestToPay',amount:'10',currency:'EUR',payerPartyId:phone,payerMessage:'ALPHATECH PRO',payeeNote:'Abonnement mensuel'})
+}).then(function(res){return res.json();}).then(function(d){
+if(d.success){
+r.innerHTML='<div style="color:var(--g);font-weight:700">DEMANDE ENVOYEE!</div><div style="font-size:12px;margin-top:4px">Reference: '+d.referenceId+'</div><div style="font-size:11px;color:var(--t)">Vous recevrez une notification sur votre telephone MTN. Validez le paiement.</div><button class="btn bp" onclick="checkMomo(\''+d.referenceId+'\')" style="margin-top:6px;font-size:11px">VERIFIER STATUT</button>';
+var t=JSON.parse(localStorage.getItem('trial')||'{}');
+t.plan='pending';t.momoRef=d.referenceId;t.paymentMethod='momo';
+localStorage.setItem('trial',JSON.stringify(t));
+}else{
+r.innerHTML='<div style="color:var(--r)">Erreur: '+(d.error||'MTN MoMo indisponible')+'</div><div style="font-size:10px;color:var(--m);margin-top:4px">'+(d.solution||'Reessayez plus tard.')+'</div>';
+}
+}).catch(function(e){
+r.innerHTML='<div style="color:var(--r)">Erreur de connexion.</div>';
+});
+}
+function checkMomo(ref){
+fetch('https://api.base44.com/v1/apps/6a8ed03b9012aee5b2fcf7e9/backend-functions/mtnPayment',{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({action:'checkStatus',referenceId:ref})
+}).then(function(res){return res.json();}).then(function(d){
+if(d.success){
+var status=d.status||'PENDING';
+if(status==='SUCCESSFUL'){
+var t=JSON.parse(localStorage.getItem('trial')||'{}');
+t.plan='paid';t.subscriptionDate=new Date().toISOString();t.paymentMethod='momo';
+localStorage.setItem('trial',JSON.stringify(t));
+checkTrial();
+alert('Paiement MTN MoMo confirme! Abonnement PRO actif.');
+}else if(status==='PENDING'){
+alert('Paiement en attente. Validez la demande sur votre telephone MTN.');
+}else{
+alert('Paiement: '+status);
+}
+}else{
+alert('Erreur verification: '+(d.error||''));
+}
+}).catch(function(e){alert('Erreur de connexion.');});
+}
 
 </script>
 </body>
