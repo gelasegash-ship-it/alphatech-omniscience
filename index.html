@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ALPHATECH V1020</title>
+<title>ALPHATECH V1021</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#0a0e27;--card:#141938;--card2:#1a1f3a;--border:#2a2f5a;--p:#00d4ff;--g:#00ff88;--gold:#ffd700;--r:#ff6b6b;--t:#e0e0ff;--m:#8a8aaa;--cosmos:#b794f4;--cosmos2:#d53f8c;--pp:#0070ba}
@@ -155,7 +155,52 @@ function renderCRM(){var el=document.getElementById('crm-list');var clients=JSON
 
 // MONETISATION
 function checkTrial(){var t=JSON.parse(localStorage.getItem('trial')||'null');var el=document.getElementById('trial-status');if(!el)return;if(!t){t={start:new Date().toISOString(),plan:'trial'};localStorage.setItem('trial',JSON.stringify(t));}var start=new Date(t.start);var now=new Date();var days=Math.floor((now-start)/(1000*60*60*24));var remaining=3-days;if(t.plan==='paid'){el.innerHTML='<div style="color:var(--g)">Abonnement actif. Merci!</div>';return;}if(remaining<=0){el.innerHTML='<div style="color:var(--r)">Essai expire. Abonnez-vous pour continuer.</div>';}else{el.innerHTML='<div style="color:var(--gold)">Essai gratuit: '+remaining+' jour(s) restant(s)</div>';}}
-function subscribe(method){var methods={paypal:'https://www.paypal.com',stripe:'https://stripe.com',momo:'https://www.mtn.com/mtn-momo',crypto:'https://www.binance.com',wise:'https://www.wise.com',flutterwave:'https://www.flutterwave.com'};openLink(methods[method]);var t=JSON.parse(localStorage.getItem('trial')||'{}');t.plan='paid';t.subscriptionDate=new Date().toISOString();t.paymentMethod=method;localStorage.setItem('trial',JSON.stringify(t));checkTrial();}
+function subscribe(method){
+if(method==='paypal'){
+var el=document.getElementById('paypal-container');
+if(!el)return;
+el.innerHTML='<div id="paypal-btn-'+Date.now()+'" style="margin:8px 0"></div>';
+var contId='paypal-btn-'+Date.now();
+paypal.Buttons({
+createOrder:function(data,actions){
+return actions.order.create({
+purchase_units:[{
+amount:{value:'9.99'},
+description:'ALPHATECH OMNISCIENCE - Abonnement PRO Mensuel'
+}]
+});
+},
+onApprove:function(data,actions){
+return actions.order.capture().then(function(details){
+var t=JSON.parse(localStorage.getItem('trial')||'{}');
+t.plan='paid';t.subscriptionDate=new Date().toISOString();t.paymentMethod='paypal';t.paypalOrder=details.id;t.paypalEmail=details.payer.email_address;
+localStorage.setItem('trial',JSON.stringify(t));
+checkTrial();
+alert('Paiement confirme! Merci '+details.payer.name.given_name+'. Votre abonnement PRO est actif.');
+});
+},
+onError:function(err){
+alert('Erreur de paiement PayPal. Reessayez.');
+}
+}).render('#'+contId);
+return;
+}
+if(method==='crypto'){
+var el=document.getElementById('paypal-container');
+el.innerHTML='<div style="padding:12px;border:1px solid #F7931A;border-radius:8px"><div style="font-weight:700;color:#F7931A;margin-bottom:6px">PAIEMENT CRYPTO</div><div style="font-size:12px;color:var(--t)">Envoyez $9.99 en BTC, ETH ou USDT a ladresse ci-dessous, puis envoyez la transaction hash a support@alphatech.ai</div><div style="background:var(--card2);padding:8px;border-radius:4px;margin:6px 0;font-size:11px;word-break:break-all">BTC: bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</div><div style="background:var(--card2);padding:8px;border-radius:4px;margin:6px 0;font-size:11px;word-break:break-all">ETH/USDT: 0x742d35Cc6634C0532925a3b844Bc9e7595f0bD4e</div><button class="btn bp" onclick="confirmCryptoPay()">J\'AI PAYE</button></div>';
+return;
+}
+var methods={stripe:'https://stripe.com',momo:'https://www.mtn.com/mtn-momo',wise:'https://www.wise.com',flutterwave:'https://www.flutterwave.com'};
+openLink(methods[method]);
+alert('Vous allez etre redirige vers '+method+'. Completez le paiement de $9.99/mois, puis envoyez la confirmation a support@alphatech.ai');
+}
+function confirmCryptoPay(){
+var t=JSON.parse(localStorage.getItem('trial')||'{}');
+t.plan='paid';t.subscriptionDate=new Date().toISOString();t.paymentMethod='crypto';
+localStorage.setItem('trial',JSON.stringify(t));
+checkTrial();
+alert('Paiement crypto enregistre! Verifiez votre email pour la confirmation.');
+}
 
 // ADS
 function copyText(id){var el=document.getElementById(id);el.select();document.execCommand('copy');alert('Publicite copiee! Collez-la ou vous voulez.');}
@@ -173,7 +218,7 @@ renderBankHistory();renderCRM();checkTrial();loadBankRates();
 function addProduct(){var n=document.getElementById('mkt-name').value.trim();var p=parseFloat(document.getElementById('mkt-price').value)||0;var c=document.getElementById('mkt-currency').value;var cat=document.getElementById('mkt-cat').value;var d=document.getElementById('mkt-desc').value.trim();if(!n||p<=0)return;var products=JSON.parse(localStorage.getItem('mkt_products')||'[]');products.unshift({name:n,price:p,currency:c,cat:cat,desc:d,seller:'Vous',date:new Date().toISOString()});localStorage.setItem('mkt_products',JSON.stringify(products));renderMkt('all');document.getElementById('mkt-name').value='';document.getElementById('mkt-price').value='';document.getElementById('mkt-desc').value='';}
 function renderMkt(filter){var el=document.getElementById('mkt-list');var products=JSON.parse(localStorage.getItem('mkt_products')||'[]');if(filter&&filter!=='all')products=products.filter(function(p){return p.cat===filter;});if(!products.length){el.innerHTML='<div style="color:var(--m);font-size:12px">Aucun produit. Soyez le premier a vendre!</div>';return;}var cats={tech:'Tech',fashion:'Mode',food:'Food',home:'Maison',beauty:'Beaute',auto:'Auto',service:'Services',digital:'Digital',art:'Art',other:'Autre'};el.innerHTML=products.map(function(p){return '<div class="ac"><div class="ai" style="background:rgba(255,215,0,.2)"><span style="font-size:14px">'+p.name.charAt(0).toUpperCase()+'</span></div><div style="flex:1"><div class="an">'+p.name+'</div><div class="ar">'+(cats[p.cat]||p.cat)+' - '+(p.desc||'')+'</div></div><div style="text-align:right"><div style="color:var(--gold);font-weight:700">'+p.price+' '+p.currency+'</div><button class="btn bp" onclick="buyProduct(\''+p.name+'\')" style="font-size:10px;margin-top:2px">ACHETER</button></div></div>';}).join('');}
 function filterMkt(cat){renderMkt(cat);}
-function buyProduct(name){alert('Commande de "'+name+'" initialisee. Paiement securise via escrow. Le vendeur sera notifie.');}
+function buyProduct(name){var el=document.getElementById('mkt-list');var products=JSON.parse(localStorage.getItem('mkt_products')||'[]');var p=products.find(function(x){return x.name===name;});if(!p)return;var modal=document.createElement('div');modal.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);z-index:9999;display:flex;align-items:center;justify-content:center';modal.innerHTML='<div style="background:var(--card);border-radius:12px;padding:20px;max-width:400px;width:90%"><div style="color:var(--gold);font-weight:700;font-size:16px;margin-bottom:8px">ACHETER: '+name+'</div><div style="font-size:12px;color:var(--t)">Prix: '+p.price+' '+p.currency+'</div><div id="mkt-paypal"></div><button onclick="this.parentElement.parentElement.remove()" style="margin-top:8px;color:var(--m);cursor:pointer;font-size:12px">Annuler</button></div>';document.body.appendChild(modal);if(p.currency!=='USD'){p.price=p.price*0.001;}paypal.Buttons({createOrder:function(data,actions){return actions.order.create({purchase_units:[{amount:{value:p.price.toFixed(2)},description:'Achat: '+name}]});},onApprove:function(data,actions){return actions.order.capture().then(function(details){alert('Achat confirme! '+name+' - Paiement de '+p.price.toFixed(2)+' USD. Le vendeur sera notifie. Escrow actif.');modal.remove();});}}).render('#mkt-paypal');}
 
 // RENCONTRE
 function createProfile(){var n=document.getElementById('meet-name').value.trim();var a=document.getElementById('meet-age').value;var g=document.getElementById('meet-gender').value;var s=document.getElementById('meet-seeking').value;var c=document.getElementById('meet-city').value.trim();var b=document.getElementById('meet-bio').value.trim();if(!n||!a)return;var profiles=JSON.parse(localStorage.getItem('meet_profiles')||'[]');profiles.unshift({name:n,age:a,gender:g,seeking:s,city:c,bio:b,date:new Date().toISOString()});localStorage.setItem('meet_profiles',JSON.stringify(profiles));renderProfiles();document.getElementById('meet-name').value='';document.getElementById('meet-age').value='';document.getElementById('meet-city').value='';document.getElementById('meet-bio').value='';}
@@ -188,7 +233,7 @@ function renderRoom(){var el=document.getElementById('room-messages');var msgs=J
 function sendRoomMsg(){var inp=document.getElementById('room-input');var t=inp.value.trim();if(!t)return;var msgs=JSON.parse(localStorage.getItem('room_'+currentRoom)||'[]');msgs.push({user:'Vous',text:t,time:new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})});if(msgs.length>100)msgs=msgs.slice(-100);localStorage.setItem('room_'+currentRoom,JSON.stringify(msgs));inp.value='';renderRoom();}
 
 // SCIENCE
-function submitPaper(){var t=document.getElementById('sci-title').value.trim();var a=document.getElementById('sci-authors').value.trim();var f=document.getElementById('sci-field').value;var ab=document.getElementById('sci-abstract').value.trim();var k=document.getElementById('sci-keywords').value.trim();var r=document.getElementById('sci-result');if(!t||!a||!ab){r.innerHTML='<span style="color:var(--r)">Remplissez titre, auteurs et resume.</span>';r.classList.add('show');return;}var doi='10.'+Date.now().toString().slice(-10)+'/'+f;var papers=JSON.parse(localStorage.getItem('sci_papers')||'[]');papers.unshift({title:t,authors:a,field:f,abstract:ab,keywords:k,doi:doi,date:new Date().toISOString()});localStorage.setItem('sci_papers',JSON.stringify(papers));r.innerHTML='<div style="border:1px solid var(--g);border-radius:8px;padding:10px"><div style="color:var(--g);font-weight:700">ARTICLE SOUMIS!</div><div style="font-size:12px;margin:4px 0">DOI: '+doi+'</div><div style="font-size:11px;color:var(--t)">Titre: '+t+'</div><div style="font-size:10px;color:var(--m)">Frais: $49 (review + indexation Google)</div><div style="font-size:10px;color:var(--m)">Statut: En cours de review par IA</div></div>';r.classList.add('show');renderPapers();}
+function submitPaper(){var t=document.getElementById('sci-title').value.trim();var a=document.getElementById('sci-authors').value.trim();var f=document.getElementById('sci-field').value;var ab=document.getElementById('sci-abstract').value.trim();var k=document.getElementById('sci-keywords').value.trim();var r=document.getElementById('sci-result');if(!t||!a||!ab){r.innerHTML='<span style="color:var(--r)">Remplissez titre, auteurs et resume.</span>';r.classList.add('show');return;}var doi='10.'+Date.now().toString().slice(-10)+'/'+f;r.innerHTML='<div style="border:1px solid var(--g);border-radius:8px;padding:10px"><div style="color:var(--g);font-weight:700">ARTICLE PRET!</div><div style="font-size:12px;margin:4px 0">DOI: '+doi+'</div><div style="font-size:11px;color:var(--t)">Titre: '+t+'</div><div style="font-size:10px;color:var(--gold)">Frais de publication: $49</div><div id="sci-paypal-btn"></div></div>';r.classList.add('show');paypal.Buttons({createOrder:function(data,actions){return actions.order.create({purchase_units:[{amount:{value:'49.00'},description:'Publication Scientifique - '+t}]});},onApprove:function(data,actions){return actions.order.capture().then(function(details){var papers=JSON.parse(localStorage.getItem('sci_papers')||'[]');papers.unshift({title:t,authors:a,field:f,abstract:ab,keywords:k,doi:doi,date:new Date().toISOString(),paid:true,paypalOrder:details.id});localStorage.setItem('sci_papers',JSON.stringify(papers));r.innerHTML='<div style="border:1px solid var(--g);border-radius:8px;padding:10px"><div style="color:var(--g);font-weight:700">PUBLIE! Merci '+details.payer.name.given_name+'</div><div style="font-size:12px;margin:4px 0">DOI: '+doi+'</div><div style="font-size:10px;color:var(--m)">Statut: En review par IA. Indexation Google en cours.</div></div>';renderPapers();});}}).render('#sci-paypal-btn');}
 function renderPapers(){var el=document.getElementById('sci-list');var papers=JSON.parse(localStorage.getItem('sci_papers')||'[]');if(!papers.length){el.innerHTML='<div style="color:var(--m);font-size:12px">Aucun article. Soumettez le premier!</div>';return;}var fields={cs:'Informatique',physics:'Physique',bio:'Biologie',med:'Medecine',math:'Mathematiques',chem:'Chimie',econ:'Economie',psych:'Psychologie',eng:'Ingenierie',astro:'Astronomie'};el.innerHTML=papers.map(function(p){return '<div class="ac"><div class="ai" style="background:rgba(138,43,226,.2)"><span style="font-size:14px">PDF</span></div><div style="flex:1"><div class="an">'+p.title+'</div><div class="ar">'+p.authors+'</div><div style="font-size:10px;color:var(--cosmos)">'+fields[p.field]+' | DOI: '+p.doi+'</div><div style="font-size:10px;color:var(--m);margin-top:2px">'+p.abstract.substring(0,100)+'...</div></div></div>';}).join('');}
 function searchPapers(){var q=document.getElementById('sci-search').value.trim().toLowerCase();var r=document.getElementById('sci-search-result');if(!q){r.innerHTML='<span style="color:var(--r)">Entrez un terme.</span>';return;}var papers=JSON.parse(localStorage.getItem('sci_papers')||'[]');var found=papers.filter(function(p){return p.title.toLowerCase().includes(q)||p.authors.toLowerCase().includes(q)||p.keywords.toLowerCase().includes(q)||p.abstract.toLowerCase().includes(q);});if(!found.length){r.innerHTML='<div style="color:var(--m)">Aucun resultat pour "'+q+'".</div>';return;}r.innerHTML='<div style="color:var(--g);margin-bottom:4px">'+found.length+' resultat(s)</div>'+found.map(function(p){return '<div class="ac"><div style="flex:1"><div class="an">'+p.title+'</div><div class="ar">'+p.authors+'</div></div></div>';}).join('');}
 
@@ -200,9 +245,10 @@ function renderTopics(){var el=document.getElementById('forum-list');var topics=
 renderMkt('all');renderProfiles();renderPapers();renderTopics();renderRoom();
 
 </script>
+<script src="https://www.paypal.com/sdk/js?client-id=BAALCHzub_bmN0Fh9emingNFvn7z0Ki2JJT5xDZIHlFag9lPu-jpiivcpO5WWPP_iZ66Klv2mNXeYzWviY&currency=USD&intent=capture&commit=true"></script>
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1020 - MARKETPLACE + SCIENCE + RENCONTRE + FORUM</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1021 - PAIEMENTS PAYPAL REELS</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1112,7 +1158,7 @@ Crypto + Trading + Finance + Securite + Quantum + Neural + Tech Futures + Espace
 <div class="dc" onclick="subscribe('wise')" style="background:#9FE870"><div class="dn" style="color:#163300">Wise</div></div>
 <div class="dc" onclick="subscribe('flutterwave')" style="background:#F5A623"><div class="dn" style="color:#fff">Flutterwave</div></div>
 </div>
-</div>
+<div id="paypal-container" style="margin-top:10px"></div></div>
 
 <div class="card"><div class="ct">Regles de Revenu</div>
 <div class="li" style="border-left-color:var(--g)">1. Essai 3 jours -> conversion en abonne payant</div>
@@ -1305,7 +1351,8 @@ Crypto + Trading + Finance + Securite + Quantum + Neural + Tech Futures + Espace
 <textarea id="sci-abstract" placeholder="Resume (abstract)" rows="3"></textarea>
 <textarea id="sci-keywords" placeholder="Mots-cles (separe par virgules)" rows="1"></textarea>
 <div style="font-size:10px;color:var(--gold);margin:4px 0">Frais de publication: $49 (review + indexation Google)</div>
-<button class="btn bp" onclick="submitPaper()">SOUMETTRE ($49)</button>
+<button class="btn bp" onclick="submitPaper()">SOUMETTRE</button>
+<div id="sci-paypal" style="margin-top:8px"></div>
 <div id="sci-result" class="res" style="margin-top:6px"></div>
 </div>
 <div class="card"><div class="ct">Articles Publies</div>
@@ -1349,7 +1396,7 @@ Crypto + Trading + Finance + Securite + Quantum + Neural + Tech Futures + Espace
 </div>
 </div>
 
-<div class="ft"><p>Diamesso Zola | Congo-Brazzaville</p><p>V1020 | Marketplace + Science + Rencontre + Forum + Chat | CyberSec | Exchange Universel | PayPal</p></div>
+<div class="ft"><p>Diamesso Zola | Congo-Brazzaville</p><p>V1021 | PayPal Reel - Abonnements + Publications + Marketplace | CyberSec | Exchange Universel | PayPal</p></div>
 
 <script>
 // NAVIGATION
@@ -1725,7 +1772,52 @@ function renderCRM(){var el=document.getElementById('crm-list');var clients=JSON
 
 // MONETISATION
 function checkTrial(){var t=JSON.parse(localStorage.getItem('trial')||'null');var el=document.getElementById('trial-status');if(!el)return;if(!t){t={start:new Date().toISOString(),plan:'trial'};localStorage.setItem('trial',JSON.stringify(t));}var start=new Date(t.start);var now=new Date();var days=Math.floor((now-start)/(1000*60*60*24));var remaining=3-days;if(t.plan==='paid'){el.innerHTML='<div style="color:var(--g)">Abonnement actif. Merci!</div>';return;}if(remaining<=0){el.innerHTML='<div style="color:var(--r)">Essai expire. Abonnez-vous pour continuer.</div>';}else{el.innerHTML='<div style="color:var(--gold)">Essai gratuit: '+remaining+' jour(s) restant(s)</div>';}}
-function subscribe(method){var methods={paypal:'https://www.paypal.com',stripe:'https://stripe.com',momo:'https://www.mtn.com/mtn-momo',crypto:'https://www.binance.com',wise:'https://www.wise.com',flutterwave:'https://www.flutterwave.com'};openLink(methods[method]);var t=JSON.parse(localStorage.getItem('trial')||'{}');t.plan='paid';t.subscriptionDate=new Date().toISOString();t.paymentMethod=method;localStorage.setItem('trial',JSON.stringify(t));checkTrial();}
+function subscribe(method){
+if(method==='paypal'){
+var el=document.getElementById('paypal-container');
+if(!el)return;
+el.innerHTML='<div id="paypal-btn-'+Date.now()+'" style="margin:8px 0"></div>';
+var contId='paypal-btn-'+Date.now();
+paypal.Buttons({
+createOrder:function(data,actions){
+return actions.order.create({
+purchase_units:[{
+amount:{value:'9.99'},
+description:'ALPHATECH OMNISCIENCE - Abonnement PRO Mensuel'
+}]
+});
+},
+onApprove:function(data,actions){
+return actions.order.capture().then(function(details){
+var t=JSON.parse(localStorage.getItem('trial')||'{}');
+t.plan='paid';t.subscriptionDate=new Date().toISOString();t.paymentMethod='paypal';t.paypalOrder=details.id;t.paypalEmail=details.payer.email_address;
+localStorage.setItem('trial',JSON.stringify(t));
+checkTrial();
+alert('Paiement confirme! Merci '+details.payer.name.given_name+'. Votre abonnement PRO est actif.');
+});
+},
+onError:function(err){
+alert('Erreur de paiement PayPal. Reessayez.');
+}
+}).render('#'+contId);
+return;
+}
+if(method==='crypto'){
+var el=document.getElementById('paypal-container');
+el.innerHTML='<div style="padding:12px;border:1px solid #F7931A;border-radius:8px"><div style="font-weight:700;color:#F7931A;margin-bottom:6px">PAIEMENT CRYPTO</div><div style="font-size:12px;color:var(--t)">Envoyez $9.99 en BTC, ETH ou USDT a ladresse ci-dessous, puis envoyez la transaction hash a support@alphatech.ai</div><div style="background:var(--card2);padding:8px;border-radius:4px;margin:6px 0;font-size:11px;word-break:break-all">BTC: bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</div><div style="background:var(--card2);padding:8px;border-radius:4px;margin:6px 0;font-size:11px;word-break:break-all">ETH/USDT: 0x742d35Cc6634C0532925a3b844Bc9e7595f0bD4e</div><button class="btn bp" onclick="confirmCryptoPay()">J\'AI PAYE</button></div>';
+return;
+}
+var methods={stripe:'https://stripe.com',momo:'https://www.mtn.com/mtn-momo',wise:'https://www.wise.com',flutterwave:'https://www.flutterwave.com'};
+openLink(methods[method]);
+alert('Vous allez etre redirige vers '+method+'. Completez le paiement de $9.99/mois, puis envoyez la confirmation a support@alphatech.ai');
+}
+function confirmCryptoPay(){
+var t=JSON.parse(localStorage.getItem('trial')||'{}');
+t.plan='paid';t.subscriptionDate=new Date().toISOString();t.paymentMethod='crypto';
+localStorage.setItem('trial',JSON.stringify(t));
+checkTrial();
+alert('Paiement crypto enregistre! Verifiez votre email pour la confirmation.');
+}
 
 // ADS
 function copyText(id){var el=document.getElementById(id);el.select();document.execCommand('copy');alert('Publicite copiee! Collez-la ou vous voulez.');}
@@ -1743,7 +1835,7 @@ renderBankHistory();renderCRM();checkTrial();loadBankRates();
 function addProduct(){var n=document.getElementById('mkt-name').value.trim();var p=parseFloat(document.getElementById('mkt-price').value)||0;var c=document.getElementById('mkt-currency').value;var cat=document.getElementById('mkt-cat').value;var d=document.getElementById('mkt-desc').value.trim();if(!n||p<=0)return;var products=JSON.parse(localStorage.getItem('mkt_products')||'[]');products.unshift({name:n,price:p,currency:c,cat:cat,desc:d,seller:'Vous',date:new Date().toISOString()});localStorage.setItem('mkt_products',JSON.stringify(products));renderMkt('all');document.getElementById('mkt-name').value='';document.getElementById('mkt-price').value='';document.getElementById('mkt-desc').value='';}
 function renderMkt(filter){var el=document.getElementById('mkt-list');var products=JSON.parse(localStorage.getItem('mkt_products')||'[]');if(filter&&filter!=='all')products=products.filter(function(p){return p.cat===filter;});if(!products.length){el.innerHTML='<div style="color:var(--m);font-size:12px">Aucun produit. Soyez le premier a vendre!</div>';return;}var cats={tech:'Tech',fashion:'Mode',food:'Food',home:'Maison',beauty:'Beaute',auto:'Auto',service:'Services',digital:'Digital',art:'Art',other:'Autre'};el.innerHTML=products.map(function(p){return '<div class="ac"><div class="ai" style="background:rgba(255,215,0,.2)"><span style="font-size:14px">'+p.name.charAt(0).toUpperCase()+'</span></div><div style="flex:1"><div class="an">'+p.name+'</div><div class="ar">'+(cats[p.cat]||p.cat)+' - '+(p.desc||'')+'</div></div><div style="text-align:right"><div style="color:var(--gold);font-weight:700">'+p.price+' '+p.currency+'</div><button class="btn bp" onclick="buyProduct(\''+p.name+'\')" style="font-size:10px;margin-top:2px">ACHETER</button></div></div>';}).join('');}
 function filterMkt(cat){renderMkt(cat);}
-function buyProduct(name){alert('Commande de "'+name+'" initialisee. Paiement securise via escrow. Le vendeur sera notifie.');}
+function buyProduct(name){var el=document.getElementById('mkt-list');var products=JSON.parse(localStorage.getItem('mkt_products')||'[]');var p=products.find(function(x){return x.name===name;});if(!p)return;var modal=document.createElement('div');modal.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.8);z-index:9999;display:flex;align-items:center;justify-content:center';modal.innerHTML='<div style="background:var(--card);border-radius:12px;padding:20px;max-width:400px;width:90%"><div style="color:var(--gold);font-weight:700;font-size:16px;margin-bottom:8px">ACHETER: '+name+'</div><div style="font-size:12px;color:var(--t)">Prix: '+p.price+' '+p.currency+'</div><div id="mkt-paypal"></div><button onclick="this.parentElement.parentElement.remove()" style="margin-top:8px;color:var(--m);cursor:pointer;font-size:12px">Annuler</button></div>';document.body.appendChild(modal);if(p.currency!=='USD'){p.price=p.price*0.001;}paypal.Buttons({createOrder:function(data,actions){return actions.order.create({purchase_units:[{amount:{value:p.price.toFixed(2)},description:'Achat: '+name}]});},onApprove:function(data,actions){return actions.order.capture().then(function(details){alert('Achat confirme! '+name+' - Paiement de '+p.price.toFixed(2)+' USD. Le vendeur sera notifie. Escrow actif.');modal.remove();});}}).render('#mkt-paypal');}
 
 // RENCONTRE
 function createProfile(){var n=document.getElementById('meet-name').value.trim();var a=document.getElementById('meet-age').value;var g=document.getElementById('meet-gender').value;var s=document.getElementById('meet-seeking').value;var c=document.getElementById('meet-city').value.trim();var b=document.getElementById('meet-bio').value.trim();if(!n||!a)return;var profiles=JSON.parse(localStorage.getItem('meet_profiles')||'[]');profiles.unshift({name:n,age:a,gender:g,seeking:s,city:c,bio:b,date:new Date().toISOString()});localStorage.setItem('meet_profiles',JSON.stringify(profiles));renderProfiles();document.getElementById('meet-name').value='';document.getElementById('meet-age').value='';document.getElementById('meet-city').value='';document.getElementById('meet-bio').value='';}
@@ -1758,7 +1850,7 @@ function renderRoom(){var el=document.getElementById('room-messages');var msgs=J
 function sendRoomMsg(){var inp=document.getElementById('room-input');var t=inp.value.trim();if(!t)return;var msgs=JSON.parse(localStorage.getItem('room_'+currentRoom)||'[]');msgs.push({user:'Vous',text:t,time:new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})});if(msgs.length>100)msgs=msgs.slice(-100);localStorage.setItem('room_'+currentRoom,JSON.stringify(msgs));inp.value='';renderRoom();}
 
 // SCIENCE
-function submitPaper(){var t=document.getElementById('sci-title').value.trim();var a=document.getElementById('sci-authors').value.trim();var f=document.getElementById('sci-field').value;var ab=document.getElementById('sci-abstract').value.trim();var k=document.getElementById('sci-keywords').value.trim();var r=document.getElementById('sci-result');if(!t||!a||!ab){r.innerHTML='<span style="color:var(--r)">Remplissez titre, auteurs et resume.</span>';r.classList.add('show');return;}var doi='10.'+Date.now().toString().slice(-10)+'/'+f;var papers=JSON.parse(localStorage.getItem('sci_papers')||'[]');papers.unshift({title:t,authors:a,field:f,abstract:ab,keywords:k,doi:doi,date:new Date().toISOString()});localStorage.setItem('sci_papers',JSON.stringify(papers));r.innerHTML='<div style="border:1px solid var(--g);border-radius:8px;padding:10px"><div style="color:var(--g);font-weight:700">ARTICLE SOUMIS!</div><div style="font-size:12px;margin:4px 0">DOI: '+doi+'</div><div style="font-size:11px;color:var(--t)">Titre: '+t+'</div><div style="font-size:10px;color:var(--m)">Frais: $49 (review + indexation Google)</div><div style="font-size:10px;color:var(--m)">Statut: En cours de review par IA</div></div>';r.classList.add('show');renderPapers();}
+function submitPaper(){var t=document.getElementById('sci-title').value.trim();var a=document.getElementById('sci-authors').value.trim();var f=document.getElementById('sci-field').value;var ab=document.getElementById('sci-abstract').value.trim();var k=document.getElementById('sci-keywords').value.trim();var r=document.getElementById('sci-result');if(!t||!a||!ab){r.innerHTML='<span style="color:var(--r)">Remplissez titre, auteurs et resume.</span>';r.classList.add('show');return;}var doi='10.'+Date.now().toString().slice(-10)+'/'+f;r.innerHTML='<div style="border:1px solid var(--g);border-radius:8px;padding:10px"><div style="color:var(--g);font-weight:700">ARTICLE PRET!</div><div style="font-size:12px;margin:4px 0">DOI: '+doi+'</div><div style="font-size:11px;color:var(--t)">Titre: '+t+'</div><div style="font-size:10px;color:var(--gold)">Frais de publication: $49</div><div id="sci-paypal-btn"></div></div>';r.classList.add('show');paypal.Buttons({createOrder:function(data,actions){return actions.order.create({purchase_units:[{amount:{value:'49.00'},description:'Publication Scientifique - '+t}]});},onApprove:function(data,actions){return actions.order.capture().then(function(details){var papers=JSON.parse(localStorage.getItem('sci_papers')||'[]');papers.unshift({title:t,authors:a,field:f,abstract:ab,keywords:k,doi:doi,date:new Date().toISOString(),paid:true,paypalOrder:details.id});localStorage.setItem('sci_papers',JSON.stringify(papers));r.innerHTML='<div style="border:1px solid var(--g);border-radius:8px;padding:10px"><div style="color:var(--g);font-weight:700">PUBLIE! Merci '+details.payer.name.given_name+'</div><div style="font-size:12px;margin:4px 0">DOI: '+doi+'</div><div style="font-size:10px;color:var(--m)">Statut: En review par IA. Indexation Google en cours.</div></div>';renderPapers();});}}).render('#sci-paypal-btn');}
 function renderPapers(){var el=document.getElementById('sci-list');var papers=JSON.parse(localStorage.getItem('sci_papers')||'[]');if(!papers.length){el.innerHTML='<div style="color:var(--m);font-size:12px">Aucun article. Soumettez le premier!</div>';return;}var fields={cs:'Informatique',physics:'Physique',bio:'Biologie',med:'Medecine',math:'Mathematiques',chem:'Chimie',econ:'Economie',psych:'Psychologie',eng:'Ingenierie',astro:'Astronomie'};el.innerHTML=papers.map(function(p){return '<div class="ac"><div class="ai" style="background:rgba(138,43,226,.2)"><span style="font-size:14px">PDF</span></div><div style="flex:1"><div class="an">'+p.title+'</div><div class="ar">'+p.authors+'</div><div style="font-size:10px;color:var(--cosmos)">'+fields[p.field]+' | DOI: '+p.doi+'</div><div style="font-size:10px;color:var(--m);margin-top:2px">'+p.abstract.substring(0,100)+'...</div></div></div>';}).join('');}
 function searchPapers(){var q=document.getElementById('sci-search').value.trim().toLowerCase();var r=document.getElementById('sci-search-result');if(!q){r.innerHTML='<span style="color:var(--r)">Entrez un terme.</span>';return;}var papers=JSON.parse(localStorage.getItem('sci_papers')||'[]');var found=papers.filter(function(p){return p.title.toLowerCase().includes(q)||p.authors.toLowerCase().includes(q)||p.keywords.toLowerCase().includes(q)||p.abstract.toLowerCase().includes(q);});if(!found.length){r.innerHTML='<div style="color:var(--m)">Aucun resultat pour "'+q+'".</div>';return;}r.innerHTML='<div style="color:var(--g);margin-bottom:4px">'+found.length+' resultat(s)</div>'+found.map(function(p){return '<div class="ac"><div style="flex:1"><div class="an">'+p.title+'</div><div class="ar">'+p.authors+'</div></div></div>';}).join('');}
 
