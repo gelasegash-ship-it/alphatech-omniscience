@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gelasegash-ship-it.github.io/alphatech-omniscience/sitemap.xml
