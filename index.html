@@ -336,8 +336,7 @@ function subscribe(method){
 if(method==='paypal'){
 var el=document.getElementById('paypal-container');
 if(!el)return;
-el.innerHTML='</script>
-<div id="paypal-btn-'+Date.now()+'" style="margin:8px 0"></div>';
+el.innerHTML='<div id="paypal-btn-'+Date.now()+'" style="margin:8px 0"></div>';
 var contId='paypal-btn-'+Date.now();
 paypal.Buttons({
 createOrder:function(data,actions){
@@ -763,9 +762,7 @@ fetch('https://api.base44.com/v1/apps/6a8ed03b9012aee5b2fcf7e9/backend-functions
 method:'POST',headers:{'Content-Type':'application/json'},
 body:JSON.stringify({prompt:idea,systemPrompt:sys,model:'auto',maxTokens:300,temperature:0.9})
 }).then(function(res){return res.json();}).then(function(d){
-if(d.success){r.innerHTML='<div style="white-space:pre-wrap;font-size:11px">'+d.response+'</div>
-<script>
-<button class="btn bp" style="margin-top:6px;font-size:10px" onclick="navigator.clipboard.writeText(\''+d.response.replace(/'/g,"\\'")+'\');alert(\'Prompt copie!\')">COPIER PROMPT</button>';}
+if(d.success){r.innerHTML='<div style="white-space:pre-wrap;font-size:11px">'+d.response+'</div><button class="btn bp" style="margin-top:6px;font-size:10px" onclick="navigator.clipboard.writeText(\''+d.response.replace(/'/g,"\\'")+'\');alert(\'Prompt copie!\')">COPIER PROMPT</button>';}
 else{r.innerHTML='<span style="color:var(--r)">Erreur IA.</span>';}
 }).catch(function(e){r.innerHTML='<span style="color:var(--r)">Erreur.</span>';});
 }</script>
@@ -3785,6 +3782,16 @@ updateInterfaceMood();
 
 setInterval(function(){
 var ge=document.getElementById('genEvol');if(ge)ge.textContent=parseInt(localStorage.getItem('genesis_evolutions'
+)||'0');
+var gc=document.getElementById('genCreat');if(gc)gc.textContent=parseInt(localStorage.getItem('genesis_creativity')||'0');
+var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getItem('genesis_mood')||'contemplative';
+},2000);
+
+
+function showGel(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.style.display='none');document.getElementById('gelasehouse-section').style.display='block';}
+function showGrowth(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.style.display='none');document.getElementById('growth-section').style.display='block';}
+function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.style.display='none');document.getElementById('revenue-section').style.display='block';}
+</script>
 <!-- GELASEHOUSE SERVICES SECTION -->
 <div id="gelasehouse-section" style="display:none;padding:10px">
 <div class="card" style="border-color:var(--g);border-width:2px">
@@ -3968,15 +3975,6 @@ var ge=document.getElementById('genEvol');if(ge)ge.textContent=parseInt(localSto
 <div class="li" style="border-left-color:var(--g)"><strong>Avec 1000 abonnés ALPHATECH: 60.000.000 FCFA / $50.000 / mois</strong></div>
 </div>
 </div>
-)||'0');
-var gc=document.getElementById('genCreat');if(gc)gc.textContent=parseInt(localStorage.getItem('genesis_creativity')||'0');
-var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getItem('genesis_mood')||'contemplative';
-},2000);
 
-
-function showGel(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.style.display='none');document.getElementById('gelasehouse-section').style.display='block';}
-function showGrowth(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.style.display='none');document.getElementById('growth-section').style.display='block';}
-function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.style.display='none');document.getElementById('revenue-section').style.display='block';}
-</script>
 </body>
 </html>
