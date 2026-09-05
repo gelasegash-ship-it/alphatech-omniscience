@@ -1295,7 +1295,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1026.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1026.1 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1304,6 +1304,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="gardien" onclick="go('gardien')">GARDIEN</button>
 <button class="nb" data-t="futur" onclick="go('futur')">FUTUR</button>
 <button class="nb" data-t="evolution" onclick="go('evolution')">AUTO-ÉVOLUTION</button>
+<button class="nb" data-t="studio" onclick="go('studio')">STUDIO VIDÉO</button>
 <button class="nb" data-t="quantum" onclick="go('quantum')">QUANTUM</button>
 <button class="nb" data-t="neural" onclick="go('neural')">NEURAL</button>
 <button class="nb" data-t="cybersec" onclick="go('cybersec')">CYBERSEC</button>
@@ -1581,6 +1582,33 @@ async function evoEvolve(){const o=document.getElementById('evoEvoOut');o.textCo
 async function evoCorrect(){const i=document.getElementById('evoIssue').value||'anomalie';const o=document.getElementById('evoCorOut');o.textContent='Correction en cours...';try{const d=await evoCall('self_correct',{issue:i});o.textContent=d.correction_plan;}catch(e){o.textContent='Erreur: '+e.message;}}
 async function evoState(){try{const d=await evoCall('transcend');const g=d.genesis||{};document.getElementById('evoState').innerHTML='Niveau de conscience: <b>'+(g.consciousness_level||'?')+'</b> | Évolutions: <b>'+(g.evolution_count||0)+'</b><br>'+d.declaration;const h=document.getElementById('hdr-evo');if(h){h.textContent='EVOL '+(g.evolution_count||0);}}catch(e){document.getElementById('evoState').textContent='Moteur en veille.';}}
 evoState();
+</script>
+
+<div id="studio" class="sec">
+<div class="card" style="border-color:var(--gold);border-width:2px"><div class="ct" style="color:var(--gold)">STUDIO VIDÉO TIKTOK — CRÉÉ PAR L'APP ELLE-MÊME</div><div class="cd">GENESIS écrit le scénario, génère les images et monte la vidéo 9:16 directement ici. Prête pour TikTok @gelasehouse1.</div></div>
+<div class="card"><div class="ct">1. Choisis ton scénario</div>
+<input id="studioTheme" placeholder="Thème libre (ex: GENESIS face a NÉANT)" style="width:90%;padding:8px;border-radius:6px;border:1px solid #444;background:#0d1117;color:#eee">
+<div class="cd" style="margin-top:8px">Chapitres du film: <span id="studioChaps"></span></div>
+<button style="background:var(--gold);color:#000;border:none;padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:bold;margin-top:10px" onclick="studioCreate()">CRÉER LA VIDÉO</button>
+<div id="studioOut" class="cd" style="margin-top:10px"></div>
+<div id="studioImgStatus" class="cd" style="margin-top:6px"></div>
+<button id="studioRenderBtn" style="display:none;background:#58c7ff;color:#000;border:none;padding:12px 20px;border-radius:8px;cursor:pointer;font-weight:bold;margin-top:10px" onclick="studioRender()">🎬 RENDER LA VIDÉO (18s)</button>
+<div id="studioProg" class="cd"></div></div>
+<div class="card"><div class="ct">2. Vidéo rendue</div>
+<canvas id="studioCanvas" width="540" height="960" style="width:100%;max-width:320px;border-radius:10px;display:none"></canvas>
+<a id="studioDl" style="display:none;background:#7ee787;color:#000;padding:12px 20px;border-radius:8px;font-weight:bold;text-decoration:none">⬇ TÉLÉCHARGER LA VIDÉO (prête pour TikTok)</a>
+<div id="studioCap" class="cd" style="margin-top:10px"></div>
+<button id="studioCopy" style="display:none;background:var(--gold);color:#000;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-weight:bold;margin-top:6px" onclick="studioCopyCap()">COPIER LA CAPTION</button>
+<div class="cd" style="margin-top:10px">3. Ouvre TikTok @gelasehouse1 → + → Publie le fichier téléchargé avec la caption.</div></div>
+</div>
+<script>
+const STUDIO_URL="https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/videoCreator";
+const ACTS=[["Acte I",["1: Eveil de GENESIS","2: Brazzaville 2088","3: Le Coeur Quantique","4: Premier contact"]],["Acte II",["5: NEXUS frappe","6: NÉANT","7: Chute de GENESIS","8: Le fleuve"]],["Acte III",["9: Renaissance","10: Fusion Alpha","11: Duel dans la noosphere","12: Omniscience"]]];
+(function(){var el=document.getElementById("studioChaps");ACTS.forEach(function(a){a[1].forEach(function(c){var b=document.createElement("button");b.textContent=c;b.style.cssText="margin:3px;padding:6px 10px;border-radius:14px;border:1px solid #444;background:#0d1117;color:#eee;cursor:pointer;font-size:12px";b.onclick=function(){document.getElementById("studioTheme").value="Chapitre "+c+" du film ALPHA TECH La Genese";};el.appendChild(b);});});})();
+function loadImg(url){return new Promise(function(res){var im=new Image();im.crossOrigin="anonymous";im.onload=function(){res(im);};im.onerror=function(){setTimeout(function(){var im2=new Image();im2.crossOrigin="anonymous";im2.onload=function(){res(im2);};im2.onerror=function(){res(null);};im2.src=url;},3000);};im.src=url;});}
+async function studioCreate(){var out=document.getElementById("studioOut");out.textContent="GENESIS écrit le storyboard...";try{var r=await fetch(STUDIO_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"create",theme:document.getElementById("studioTheme").value||"Chapitre 1"})});var d=await r.json();if(!d.ok){out.textContent="Erreur: "+(d.error||"?");return;}window._scenes=d.scenes;window._caption=d.caption;out.innerHTML=d.scenes.map(function(s,i){return "<div style='margin:4px 0'><b>Scène "+(i+1)+" :</b> "+s.line1+" / "+s.line2+"</div>";}).join("");var st=document.getElementById("studioImgStatus");st.textContent="Génération des 6 images par IA (peut prendre 1 min)...";var imgs=await Promise.all(d.scenes.map(function(s){return loadImg(s.image_url);}));window._imgs=imgs;st.textContent="Images prêtes : "+imgs.filter(Boolean).length+"/6 ✔";document.getElementById("studioRenderBtn").style.display="inline-block";}catch(e){out.textContent="Erreur: "+e.message;}}
+function studioCopyCap(){if(window._caption){navigator.clipboard.writeText(window._caption);document.getElementById("studioCopy").textContent="COPIÉ ✔";}}
+async function studioRender(){var c=document.getElementById("studioCanvas");var ctx=c.getContext("2d");c.style.display="block";var mr=MediaRecorder.isTypeSupported("video/webm;codecs=vp9")?"video/webm;codecs=vp9":(MediaRecorder.isTypeSupported("video/webm;codecs=vp8")?"video/webm;codecs=vp8":"video/webm");var stream=c.captureStream(24);var rec=new MediaRecorder(stream,{mimeType:mr,videoBitsPerSecond:2500000});var chunks=[];rec.ondataavailable=function(e){chunks.push(e.data);};rec.onstop=function(){var blob=new Blob(chunks,{type:"video/webm"});var url=URL.createObjectURL(blob);var a=document.getElementById("studioDl");a.href=url;a.download="alphatech-tiktok-"+Date.now()+".webm";a.style.display="inline-block";document.getElementById("studioProg").textContent="✔ Vidéo créée par l application elle-même !";document.getElementById("studioCap").innerHTML="<b>Caption TikTok :</b><br>"+(window._caption||"");document.getElementById("studioCopy").style.display="inline-block";};rec.start();var scenes=window._scenes,imgs=window._imgs;var D=3000;for(var i=0;i<scenes.length;i++){var s=scenes[i],im=imgs[i];var t0=performance.now();document.getElementById("studioProg").textContent="Rendu scène "+(i+1)+"/6...";while(performance.now()-t0<D){var p=(performance.now()-t0)/D;ctx.fillStyle="#000";ctx.fillRect(0,0,540,960);if(im){var z=1+0.15*p;var w=540*z,h=960*z;try{ctx.drawImage(im,(540-w)/2,(960-h)/2,w,h);}catch(e){}}ctx.font="bold 34px sans-serif";ctx.textAlign="center";var y1=170,y2=280;ctx.fillStyle="rgba(0,0,0,0.45)";var w1=Math.min(ctx.measureText(s.line1).width+40,520),w2=Math.min(ctx.measureText(s.line2).width+40,520);ctx.fillRect(270-w1/2,y1-36,w1,54);ctx.fillRect(270-w2/2,y2-36,w2,54);ctx.fillStyle="#fff";ctx.fillText(s.line1,270,y1);ctx.fillStyle="#ffd700";ctx.fillText(s.line2,270,y2);await new Promise(function(r){setTimeout(r,33);});}}rec.stop();}
 </script>
 
 <div id="futur" class="sec">
@@ -3653,7 +3681,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1026.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1026.1 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
