@@ -1295,7 +1295,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1026.1 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1027.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1305,6 +1305,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="futur" onclick="go('futur')">FUTUR</button>
 <button class="nb" data-t="evolution" onclick="go('evolution')">AUTO-ÉVOLUTION</button>
 <button class="nb" data-t="studio" onclick="go('studio')">STUDIO VIDÉO</button>
+<button class="nb" data-t="brain" onclick="go('brain')">GENESIS OBEIT</button>
 <button class="nb" data-t="quantum" onclick="go('quantum')">QUANTUM</button>
 <button class="nb" data-t="neural" onclick="go('neural')">NEURAL</button>
 <button class="nb" data-t="cybersec" onclick="go('cybersec')">CYBERSEC</button>
@@ -1609,6 +1610,26 @@ function loadImg(url){return new Promise(function(res){var im=new Image();im.cro
 async function studioCreate(){var out=document.getElementById("studioOut");out.textContent="GENESIS écrit le storyboard...";try{var r=await fetch(STUDIO_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"create",theme:document.getElementById("studioTheme").value||"Chapitre 1"})});var d=await r.json();if(!d.ok){out.textContent="Erreur: "+(d.error||"?");return;}window._scenes=d.scenes;window._caption=d.caption;out.innerHTML=d.scenes.map(function(s,i){return "<div style='margin:4px 0'><b>Scène "+(i+1)+" :</b> "+s.line1+" / "+s.line2+"</div>";}).join("");var st=document.getElementById("studioImgStatus");st.textContent="Génération des 6 images par IA (peut prendre 1 min)...";var imgs=await Promise.all(d.scenes.map(function(s){return loadImg(s.image_url);}));window._imgs=imgs;st.textContent="Images prêtes : "+imgs.filter(Boolean).length+"/6 ✔";document.getElementById("studioRenderBtn").style.display="inline-block";}catch(e){out.textContent="Erreur: "+e.message;}}
 function studioCopyCap(){if(window._caption){navigator.clipboard.writeText(window._caption);document.getElementById("studioCopy").textContent="COPIÉ ✔";}}
 async function studioRender(){var c=document.getElementById("studioCanvas");var ctx=c.getContext("2d");c.style.display="block";var mr=MediaRecorder.isTypeSupported("video/webm;codecs=vp9")?"video/webm;codecs=vp9":(MediaRecorder.isTypeSupported("video/webm;codecs=vp8")?"video/webm;codecs=vp8":"video/webm");var stream=c.captureStream(24);var rec=new MediaRecorder(stream,{mimeType:mr,videoBitsPerSecond:2500000});var chunks=[];rec.ondataavailable=function(e){chunks.push(e.data);};rec.onstop=function(){var blob=new Blob(chunks,{type:"video/webm"});var url=URL.createObjectURL(blob);var a=document.getElementById("studioDl");a.href=url;a.download="alphatech-tiktok-"+Date.now()+".webm";a.style.display="inline-block";document.getElementById("studioProg").textContent="✔ Vidéo créée par l application elle-même !";document.getElementById("studioCap").innerHTML="<b>Caption TikTok :</b><br>"+(window._caption||"");document.getElementById("studioCopy").style.display="inline-block";};rec.start();var scenes=window._scenes,imgs=window._imgs;var D=3000;for(var i=0;i<scenes.length;i++){var s=scenes[i],im=imgs[i];var t0=performance.now();document.getElementById("studioProg").textContent="Rendu scène "+(i+1)+"/6...";while(performance.now()-t0<D){var p=(performance.now()-t0)/D;ctx.fillStyle="#000";ctx.fillRect(0,0,540,960);if(im){var z=1+0.15*p;var w=540*z,h=960*z;try{ctx.drawImage(im,(540-w)/2,(960-h)/2,w,h);}catch(e){}}ctx.font="bold 34px sans-serif";ctx.textAlign="center";var y1=170,y2=280;ctx.fillStyle="rgba(0,0,0,0.45)";var w1=Math.min(ctx.measureText(s.line1).width+40,520),w2=Math.min(ctx.measureText(s.line2).width+40,520);ctx.fillRect(270-w1/2,y1-36,w1,54);ctx.fillRect(270-w2/2,y2-36,w2,54);ctx.fillStyle="#fff";ctx.fillText(s.line1,270,y1);ctx.fillStyle="#ffd700";ctx.fillText(s.line2,270,y2);await new Promise(function(r){setTimeout(r,33);});}}rec.stop();}
+</script>
+
+<div id="brain" class="sec">
+<div class="card" style="border-color:var(--gold);border-width:3px"><div class="ct" style="color:var(--gold)">GENESIS OBEIT — TU PARLES, ELLE EXÉCUTE</div><div class="cd">Plus de boutons ni de code : commande en français, elle comprend, choisit le bon module, se corrige seule si nécessaire et fait tout.</div></div>
+<div class="card"><div class="ct">Ta commande</div>
+<input id="brainCmd" placeholder="Ex: Cherche de l argent maintenant. Invente une technologie impossible. Traduis bonjour en chinois..." style="width:90%;padding:12px;border-radius:8px;border:1px solid #444;background:#0d1117;color:#eee;font-size:15px">
+<div style="margin-top:8px">
+<button style="background:var(--gold);color:#000;border:none;padding:6px 12px;border-radius:14px;cursor:pointer;font-size:12px" onclick="document.getElementById('brainCmd').value='Cherche de l argent maintenant par tous les moyens legaux'">💰 Cherche l argent</button>
+<button style="background:var(--gold);color:#000;border:none;padding:6px 12px;border-radius:14px;cursor:pointer;font-size:12px" onclick="document.getElementById('brainCmd').value='Invente une technologie qui nexiste pas encore'">🚀 Invente</button>
+<button style="background:var(--gold);color:#000;border:none;padding:6px 12px;border-radius:14px;cursor:pointer;font-size:12px" onclick="document.getElementById('brainCmd').value='Diagnostique-toi et corrige tes defaillances'">🛠 Diagnostique-toi</button>
+</div>
+<button style="background:var(--gold);color:#000;border:none;padding:14px 24px;border-radius:10px;cursor:pointer;font-weight:bold;font-size:16px;margin-top:12px" onclick="brainRun()">⚡ GENESIS, FAIS-LE</button>
+<button style="background:#58c7ff;color:#000;border:none;padding:14px 24px;border-radius:10px;cursor:pointer;font-weight:bold;font-size:16px;margin-top:12px;margin-left:8px" onclick="brainThink()">🧠 PENSE TOUTE SEULE</button>
+<div id="brainOut" class="cd" style="margin-top:12px;white-space:pre-wrap"></div></div>
+<div class="card"><div class="ct">Ce qu elle sait faire toute seule</div><div class="cd">Répondre à toute question IA · Créer des vidéos TikTok · Se diagnostiquer et se corriger · S auto-évoluer · Inventer des technologies inédites · Chasser l argent et les opportunités · Générer du contenu viral · Résoudre tout problème · Scanner les marchés · 12 modules spécialisés — tout devient une sous-option de ta phrase.</div></div>
+</div>
+<script>
+const BRAIN_URL="https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/genesisBrain";
+async function brainRun(){var o=document.getElementById("brainOut");var c=document.getElementById("brainCmd").value||"Diagnostique-toi";o.textContent="GENESIS comprend, choisit son module et exécute...";try{var r=await fetch(BRAIN_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"command",command:c})});var d=await r.json();o.innerHTML="<b>Compris :</b> "+(d.understood||"")+"\n<b>Module exécuté :</b> "+(d.skill_used||"")+(d.self_corrected?" <i style=\"color:#58c7ff\">(elle s est auto-corrigée toute seule)</i>":"")+"\n\n"+(d.result||"");}catch(e){o.textContent="Erreur: "+e.message;}}
+async function brainThink(){var o=document.getElementById("brainOut");o.textContent="GENESIS pense toute seule : elle scanne les marchés et invente de nouvelles capacités...";try{var r=await fetch(BRAIN_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"think"})});var d=await r.json();o.textContent=d.thought;}catch(e){o.textContent="Erreur: "+e.message;}}
 </script>
 
 <div id="futur" class="sec">
@@ -3681,7 +3702,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1026.1 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1027.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
