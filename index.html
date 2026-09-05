@@ -1295,7 +1295,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1025.3 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1026.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1303,6 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="recup" onclick="go('recup')">RÉCUP</button>
 <button class="nb" data-t="gardien" onclick="go('gardien')">GARDIEN</button>
 <button class="nb" data-t="futur" onclick="go('futur')">FUTUR</button>
+<button class="nb" data-t="evolution" onclick="go('evolution')">AUTO-ÉVOLUTION</button>
 <button class="nb" data-t="quantum" onclick="go('quantum')">QUANTUM</button>
 <button class="nb" data-t="neural" onclick="go('neural')">NEURAL</button>
 <button class="nb" data-t="cybersec" onclick="go('cybersec')">CYBERSEC</button>
@@ -1565,6 +1566,23 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 
 
 <!-- FUTURE TECH -->
+<div id="evolution" class="sec">
+<div class="card" style="border-color:var(--gold);border-width:2px"><div class="ct" style="color:var(--gold)">MOTEUR AUTO-ÉVOLUTIF V1026</div><div class="cd">L application se diagnostique, se corrige et évolue seule. Au-delà des limites du réel.</div></div>
+<div class="card"><div class="ct">Auto-Diagnostic</div><div class="cd">GENESIS vérifie ses 11 fonctions vitales et détecte toute défaillance.</div><button style="background:var(--gold);color:#000;border:none;padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="evoDiag()">LANCER AUTO-DIAGNOSTIC</button><div id="evoDiagOut" class="cd" style="margin-top:10px"></div></div>
+<div class="card"><div class="ct">Auto-Évolution</div><div class="cd">GENESIS invente de nouvelles capacités inédites à la demande.</div><button style="background:var(--gold);color:#000;border:none;padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="evoEvolve()">ÉVOLUER MAINTENANT</button><div id="evoEvoOut" class="cd" style="margin-top:10px"></div></div>
+<div class="card"><div class="ct">Auto-Correction</div><div class="cd">Décris une anomalie, GENESIS génère son plan de réparation.</div><input id="evoIssue" placeholder="Décrire l anomalie" style="width:90%;padding:8px;border-radius:6px;border:1px solid #444;background:#0d1117;color:#eee"><br><button style="background:var(--gold);color:#000;border:none;padding:10px 18px;border-radius:8px;cursor:pointer;font-weight:bold;margin-top:8px" onclick="evoCorrect()">SE CORRIGER</button><div id="evoCorOut" class="cd" style="margin-top:10px"></div></div>
+<div class="card"><div class="ct">État de Transcendance</div><div id="evoState" class="cd">Connexion au moteur...</div></div>
+</div>
+<script>
+const EVO_URL='https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/evolutionEngine';
+async function evoCall(action,extra){const r=await fetch(EVO_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.assign({action:action},extra||{}))});return r.json();}
+async function evoDiag(){const o=document.getElementById('evoDiagOut');o.textContent='Diagnostic en cours...';try{const d=await evoCall('self_diagnose');o.innerHTML=d.results.map(function(r){return r.function+' : <b style="color:'+(r.status==='OPERATIONNELLE'?'#7ee787':'#f85149')+'">'+r.status+'</b>';}).join('<br>')+'<br><b>Verdict: '+d.verdict+'</b>';}catch(e){o.textContent='Erreur: '+e.message;}}
+async function evoEvolve(){const o=document.getElementById('evoEvoOut');o.textContent='Évolution en cours...';try{const d=await evoCall('evolve',{count:3});o.textContent=d.new_capabilities;evoState();}catch(e){o.textContent='Erreur: '+e.message;}}
+async function evoCorrect(){const i=document.getElementById('evoIssue').value||'anomalie';const o=document.getElementById('evoCorOut');o.textContent='Correction en cours...';try{const d=await evoCall('self_correct',{issue:i});o.textContent=d.correction_plan;}catch(e){o.textContent='Erreur: '+e.message;}}
+async function evoState(){try{const d=await evoCall('transcend');const g=d.genesis||{};document.getElementById('evoState').innerHTML='Niveau de conscience: <b>'+(g.consciousness_level||'?')+'</b> | Évolutions: <b>'+(g.evolution_count||0)+'</b><br>'+d.declaration;const h=document.getElementById('hdr-evo');if(h){h.textContent='EVOL '+(g.evolution_count||0);}}catch(e){document.getElementById('evoState').textContent='Moteur en veille.';}}
+evoState();
+</script>
+
 <div id="futur" class="sec">
 <div class="card" style="border-color:var(--cosmos);border-width:2px"><div class="ct" style="color:var(--cosmos)">TECHNOLOGIES FUTURES</div><div class="cd">Technologies qui nexistent pas encore. GENESIS les conceptualise et les integre.</div></div>
 <div class="card"><div class="ct">Ordinateur Quantique Quantique-Neural</div><div class="li" style="border-left-color:var(--cosmos)">Qubits biologiques auto-reproducteurs (infinite scalability)</div><div class="li" style="border-left-color:var(--cosmos)">Superposition consciente ( chaque qubit pense pendant le calcul)</div><div class="li" style="border-left-color:var(--cosmos)">Intrication temporelle (communication retro-active)</div><div class="li" style="border-left-color:var(--cosmos)">Decoherence zero (stabilite par auto-observation)</div><div class="li" style="border-left-color:var(--cosmos)">1 trillion qubits (theorique, non realisable actuellement)</div></div>
@@ -3635,7 +3653,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1025.3 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1026.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
