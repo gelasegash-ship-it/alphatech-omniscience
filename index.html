@@ -1301,7 +1301,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1030.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1031.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -3709,7 +3709,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1030.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1031.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -3838,10 +3838,14 @@ facShow(key);facStatus('✅ Section « '+s+' » réécrite par l IA. Version am�
     <input id="agGoal" placeholder="Objectif (ex: trouve 3 clients pour un site web aujourd'hui)" style="flex:1;min-width:220px;padding:10px 12px;border-radius:9px;border:1px solid var(--border);background:var(--card2);color:var(--t);font-size:13px">
     <button onclick="agVoice()" id="agVoiceBtn" style="background:var(--card2);color:var(--gold);border:1px solid var(--gold);border-radius:9px;padding:10px 14px;cursor:pointer;font-size:13px">🎤 PARLER</button>
     <button onclick="agPlan()" style="background:#ffd700;color:#000;border:none;border-radius:9px;padding:10px 16px;font-weight:bold;cursor:pointer;font-size:13px">⚡ EXÉCUTER</button>
+    <button onclick="agAutopilot()" style="background:var(--g);color:#000;border:none;border-radius:9px;padding:10px 16px;font-weight:bold;cursor:pointer;font-size:13px">🚀 AUTO-PILOTE</button>
   </div>
   <div id="agStatus" style="color:var(--gold);font-size:12px;margin-top:10px;min-height:16px"></div>
   <div id="agMutation" style="display:none;background:var(--card2);border-left:3px solid var(--g);padding:8px 12px;border-radius:6px;margin-top:8px;color:var(--t);font-size:12px"></div>
-</div>
+<div id="agPerms" style="display:none;background:var(--card);border:1px solid var(--r);border-radius:12px;padding:14px;margin-bottom:14px">
+  <h3 style="color:var(--r);margin:0 0 8px;font-size:14px">🔒 ACTIONS TÉLÉPHONE PRÊTES — AUTORISE</h3>
+  <div id="agPermList"></div>
+</div></div>
 <div id="agSteps" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px">
   <h3 style="color:var(--gold);margin:0 0 10px;font-size:15px">📋 PLAN DE L'AGENT</h3>
   <div id="agStepList"></div>
@@ -3950,6 +3954,70 @@ out.innerHTML=h;
 }
 </script>
 </div>
+<script>
+var AG_BASE='https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/autonomousAgent';
+var AG_LAST_PLAN=null;
+function agSleep(ms){return new Promise(function(r){setTimeout(r,ms);});}
+function agBadge(){try{var b=document.querySelector('[data-t="agent"]');if(b&&!b.dataset.on){b.dataset.on='1';b.style.boxShadow='0 0 10px #ffd700';}}catch(e){}}
+async function agPlanRaw(goal){
+var hist=agHist().map(function(x){return x.goal+' ('+x.done+')';}).join(' | ');
+var r=await fetch(AG_BASE,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'plan',goal:goal,history:hist})});
+return await r.json();
+}
+async function agAutoStep(s){
+if(s.type==='go'&&s.section){go(s.section);window.scrollTo(0,0);}
+else if(s.type==='copy'){try{if(navigator.clipboard){navigator.clipboard.writeText(s.text||s.detail||'');}}catch(e){}}
+else if(s.type==='notify'){
+if('Notification' in window){try{var p=await Notification.requestPermission();if(p==='granted'){new Notification(s.title||'ALPHATECH',{body:s.text||s.detail||''});}}catch(e){}}
+}
+else if(s.type==='workaround'){document.getElementById('agProblem').value=(s.detail||s.title||'');}
+await agSleep(500);return true;
+}
+function agPermCard(s,i){
+var c=document.createElement('div');c.style.cssText='background:var(--card2);border:1px solid var(--r);border-radius:10px;padding:10px;margin-bottom:8px';
+var icons={wa:'💬',tel:'📞',share:'📤'};
+c.innerHTML='<div style="display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap"><div><span style="font-size:16px">'+(icons[s.type]||'🔒')+'</span> <b style="color:var(--t);font-size:13px">'+(s.title||s.type)+'</b></div><button style="background:#ff6b6b;color:#fff;border:none;border-radius:8px;padding:7px 13px;font-size:12px;font-weight:bold;cursor:pointer">AUTORISER</button></div>'+(s.text?'<div style="color:var(--m);font-size:11px;margin-top:6px">'+s.text.slice(0,180)+'</div>':'');
+var btn=c.querySelector('button');
+btn.onclick=function(){
+var n=(s.number||'').replace(/[^0-9]/g,'');
+if(s.type==='wa'){window.open('https://wa.me/'+n+'?text='+encodeURIComponent(s.text||''),'_blank');}
+else if(s.type==='tel'){window.open('tel:+'+n);}
+else if(s.type==='share'){if(navigator.share){navigator.share({text:s.text||s.title||''}).catch(function(){});}}
+btn.textContent='✓';btn.style.background='var(--g)';btn.disabled=true;
+};
+return c;
+}
+async function agAutopilot(){
+agBadge();
+var g=(document.getElementById('agGoal').value||'').trim();
+if(!g){var missions=['Trouve 3 clients aujourd hui a Brazzaville','Fais grandir mes reseaux et ma visibilite aujourd hui','Prepare la formation IA de samedi et vends 10 places','Trouve des revenus immediats pour cette semaine','Organise ma journee business pour un maximum de resultat'];g=missions[Math.floor(Math.random()*missions.length)];document.getElementById('agGoal').value=g;agStatus('🚀 Mission du jour choisie toute seule: '+g);}
+agStatus('🚀 AUTO-PILOTE: l agent planifie et execute tout seul...');
+try{
+var d=await agPlanRaw(g);
+if(!d||!d.ok||!d.steps||!d.steps.length){agStatus('❌ '+(d&&d.error||'echec'));return;}
+AG_LAST_PLAN=d;
+var mut=document.getElementById('agMutation');mut.style.display='block';mut.innerHTML='🧬 <b>Mutation:</b> '+(d.mutation||'');
+var auto=0,perms=[],list=document.getElementById('agStepList');list.innerHTML='';
+document.getElementById('agSteps').style.display='block';
+for(var i=0;i<d.steps.length;i++){
+var s=d.steps[i];
+var c=document.createElement('div');c.style.cssText='background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:8px';
+c.innerHTML='<div style="display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap"><div><b style="color:var(--t);font-size:13px">'+(i+1)+'. '+(s.title||s.type)+'</b></div><span style="font-size:11px;color:var(--m)">...</span></div>';
+list.appendChild(c);
+var tag=c.querySelector('span');
+if(s.permission){perms.push(s);tag.textContent='🔒 en file d autorisation';tag.style.color='var(--r)';}
+else{await agAutoStep(s);auto++;tag.textContent='✓ exécuté';tag.style.color='var(--g)';}
+}
+var pl=document.getElementById('agPermList');pl.innerHTML='';
+perms.forEach(function(s,ix){pl.appendChild(agPermCard(s,ix));});
+document.getElementById('agPerms').style.display=perms.length?'block':'none';
+agHistAdd(g,auto+' auto + '+perms.length+' autorisations');
+agStatus('✅ AUTO-PILOTE terminé: '+auto+' étape(s) exécutée(s) toute seule'+(perms.length?', '+perms.length+' action(s) téléphone prêtes ci-dessus — autorise-les.':'.'),1);
+document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+auto+' étape(s) exécutée(s) toute seule'+(perms.length?', '+perms.length+' action(s) téléphone prêtes ci-dessus.':' — plan 100% exécuté.');
+}catch(e){agStatus('❌ Erreur réseau: '+e.message);}
+}
+(function(){agBadge();try{var today=new Date().toISOString().slice(0,10);if(localStorage.getItem('at_agent_greet')!==today){localStorage.setItem('at_agent_greet',today);var st=document.getElementById('agStatus');if(st){setTimeout(function(){st.innerHTML='👋 L opérateur est ACTIF. Clique 🚀 AUTO-PILOTE et il prend le contrôle tout seul — ou donne ton objectif et il exécute.';},900);}}}catch(e){}})();
+</script>
 <script>
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('./sw.js').catch(function(){});});}
 (function(){var THEMES=[{n:"OR OMNISCIENCE"},{n:"CYBER NOIR",v:{"--bg":"#050505","--card":"#0d1117","--card2":"#161b22","--border":"#30363d","--p":"#58c7ff","--g":"#7ee787","--t":"#e6edf3","--m":"#8b949e","--cosmos":"#a371f7","--cosmos2":"#f778ba"}},{n:"EMERAUDE",v:{"--bg":"#04120c","--card":"#0a1f15","--card2":"#0f2a1c","--border":"#1e4632","--p":"#2eff8b","--g":"#a3ff12","--t":"#e0ffe9","--m":"#7fae90","--cosmos":"#59f2d6","--cosmos2":"#ffd166"}},{n:"ROYAL",v:{"--bg":"#0a0714","--card":"#150f2b","--card2":"#1d1640","--border":"#3b2d6b","--p":"#b388ff","--g":"#00ffa3","--t":"#efe9ff","--m":"#9d8fc4","--cosmos":"#8f7bff","--cosmos2":"#ff6ec7"}}];var t=parseInt(localStorage.getItem("at_theme")||"0")||0;function apply(){var th=THEMES[t%THEMES.length];var names=["--bg","--card","--card2","--border","--p","--g","--t","--m","--cosmos","--cosmos2"];names.forEach(function(k){document.documentElement.style.removeProperty(k);});if(th.v){for(var k in th.v){document.documentElement.style.setProperty(k,th.v[k]);}}var b=document.getElementById("themeBtn");if(b){b.title=th.n;}}var b=document.createElement("button");b.id="themeBtn";b.textContent="\u{1F3A8}";b.style.cssText="position:fixed;bottom:14px;right:14px;z-index:99999;background:#ffd700;color:#000;border:none;border-radius:50%;width:46px;height:46px;font-size:20px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.6)";b.onclick=function(){t=(t+1)%THEMES.length;localStorage.setItem("at_theme",String(t));apply();};document.body.appendChild(b);apply();})();
