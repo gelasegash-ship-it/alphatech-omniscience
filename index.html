@@ -1301,7 +1301,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1029.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1030.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1313,6 +1313,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="studio" onclick="go('studio')">STUDIO VIDÉO</button>
 <button class="nb" data-t="brain" onclick="go('brain')">GENESIS OBEIT</button>
 <button class="nb" data-t="factory" onclick="go('factory')">USINE À APPS</button>
+<button class="nb" data-t="agent" onclick="go('agent')">IA AUTONOME</button>
 <button class="nb" data-t="quantum" onclick="go('quantum')">QUANTUM</button>
 <button class="nb" data-t="neural" onclick="go('neural')">NEURAL</button>
 <button class="nb" data-t="cybersec" onclick="go('cybersec')">CYBERSEC</button>
@@ -3708,7 +3709,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1029.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1030.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -3827,6 +3828,126 @@ localStorage.setItem(key,JSON.stringify({name:(d.name||s+' (réécrite)'),code:d
 facShow(key);facStatus('✅ Section « '+s+' » réécrite par l IA. Version améliorée ouverte ci-dessous — l originale reste intacte.');facRender();
 }catch(e){facStatus('❌ Erreur réseau: '+e.message);}}
 (function(){var sel=document.getElementById('facSection');if(sel){var bs=document.querySelectorAll('.nb');for(var i=0;i<bs.length;i++){var t=bs[i].getAttribute('data-t');if(t){var o=document.createElement('option');o.value=t;o.textContent=t;sel.appendChild(o);}}}facRender();})();
+</script>
+</div>
+<div id="agent" class="sec">
+<h2 style="color:var(--gold)">🤖 IA AUTONOME — L'OPÉRATEUR</h2>
+<p style="color:var(--m);font-size:13px;margin:6px 0 14px">Plus qu'un humain : elle planifie, exécute, mute ses stratégies, contourne les obstacles. Elle pilote ton téléphone — <b style="color:var(--gold)">chaque action externe exige ton autorisation</b>. Elle reste toujours dans un cadre légal.</p>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px">
+  <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+    <input id="agGoal" placeholder="Objectif (ex: trouve 3 clients pour un site web aujourd'hui)" style="flex:1;min-width:220px;padding:10px 12px;border-radius:9px;border:1px solid var(--border);background:var(--card2);color:var(--t);font-size:13px">
+    <button onclick="agVoice()" id="agVoiceBtn" style="background:var(--card2);color:var(--gold);border:1px solid var(--gold);border-radius:9px;padding:10px 14px;cursor:pointer;font-size:13px">🎤 PARLER</button>
+    <button onclick="agPlan()" style="background:#ffd700;color:#000;border:none;border-radius:9px;padding:10px 16px;font-weight:bold;cursor:pointer;font-size:13px">⚡ EXÉCUTER</button>
+  </div>
+  <div id="agStatus" style="color:var(--gold);font-size:12px;margin-top:10px;min-height:16px"></div>
+  <div id="agMutation" style="display:none;background:var(--card2);border-left:3px solid var(--g);padding:8px 12px;border-radius:6px;margin-top:8px;color:var(--t);font-size:12px"></div>
+</div>
+<div id="agSteps" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px">
+  <h3 style="color:var(--gold);margin:0 0 10px;font-size:15px">📋 PLAN DE L'AGENT</h3>
+  <div id="agStepList"></div>
+</div>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px">
+  <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+    <input id="agProblem" placeholder="BLOQUÉ ? Décris l'obstacle..." style="flex:1;min-width:200px;padding:10px 12px;border-radius:9px;border:1px solid var(--border);background:var(--card2);color:var(--t);font-size:13px">
+    <button onclick="agSolve()" style="background:var(--card2);color:var(--g);border:1px solid var(--g);border-radius:9px;padding:10px 14px;cursor:pointer;font-size:13px;font-weight:bold">🧬 3 VOIES DE CONTOURNEMENT</button>
+  </div>
+  <div id="agRoutes" style="margin-top:10px"></div>
+</div>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px">
+  <h3 onclick="agMutate()" style="color:var(--gold);margin:0 0 8px;font-size:15px;cursor:pointer">🧬 MUTATIONS <span style="font-size:11px;color:var(--m)">(clique: l'agent mute maintenant)</span></h3>
+  <div id="agMutations" style="color:var(--t);font-size:12px">L'agent apprend à chaque exécution et mute ses stratégies pour la prochaine.</div>
+</div>
+<script>
+var AG_URL='https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/autonomousAgent';
+function agStatus(m){var e=document.getElementById('agStatus');if(e)e.textContent=m;}
+function agHist(){try{return JSON.parse(localStorage.getItem('at_agent_hist')||'[]');}catch(e){return [];}}
+function agHistAdd(goal,done){var h=agHist();h.push({goal:goal,done:done,at:new Date().toISOString()});h=h.slice(-8);localStorage.setItem('at_agent_hist',JSON.stringify(h));}
+async function agPlan(){
+var g=(document.getElementById('agGoal').value||'').trim();if(!g){agStatus('Écris un objectif.');return;}
+agStatus('🧠 L agent analyse ton objectif et construit son plan...');
+try{
+var hist=agHist().map(function(x){return x.goal+' ('+x.done+')';}).join(' | ');
+var r=await fetch(AG_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'plan',goal:g,history:hist})});
+var d=await r.json();
+if(!d||!d.ok||!d.steps||!d.steps.length){agStatus('❌ '+(d&&d.error||'échec'));return;}
+var mut=document.getElementById('agMutation');mut.style.display='block';mut.innerHTML='🧬 <b>Mutation:</b> '+(d.mutation||'');
+var list=document.getElementById('agStepList');list.innerHTML='';
+d.steps.forEach(function(s,i){
+var c=document.createElement('div');c.style.cssText='background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:8px';
+var icons={wa:'💬',tel:'📞',share:'📤',copy:'📋',notify:'🔔',go:'🧭',app:'⚙️',workaround:'🧬'};
+var perm=s.permission||false;
+c.innerHTML='<div style="display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap"><div><span style="font-size:16px">'+(icons[s.type]||'⚙️')+'</span> <b style="color:var(--t);font-size:13px">'+(i+1)+'. '+(s.title||s.type)+'</b>'+(perm?' <span style="color:var(--r);font-size:11px">🔒 permission requise</span>':'')+'</div><button style="background:'+(perm?'#ff6b6b':'#ffd700')+';color:'+(perm?'#fff':'#000')+';border:none;border-radius:8px;padding:7px 13px;font-size:12px;font-weight:bold;cursor:pointer">'+(perm?'AUTORISER':'EXÉCUTER')+'</button></div>'+(s.detail?'<div style="color:var(--m);font-size:11px;margin-top:6px">'+s.detail+'</div>':'');
+var btn=c.querySelector('button');
+btn.onclick=function(){agStep(s,btn,c,i);};
+list.appendChild(c);
+});
+document.getElementById('agSteps').style.display='block';
+agStatus('✅ Plan prêt: '+d.steps.length+' étapes. Exécute-les dans l ordre.');
+}catch(e){agStatus('❌ Erreur réseau: '+e.message);}
+}
+async function agStep(s,btn,c,i){
+btn.disabled=true;btn.textContent='...';
+var done='exécuté';
+try{
+if(s.type==='go'&&s.section){go(s.section);window.scrollTo(0,0);}
+else if(s.type==='wa'){
+var n=(s.number||'').replace(/[^0-9]/g,'');
+window.open('https://wa.me/'+n+'?text='+encodeURIComponent(s.text||''),'_blank');done='WhatsApp ouvert (autorisé)';
+}else if(s.type==='tel'){window.open('tel:+'+(s.number||'').replace(/[^0-9]/g,''));done='Appel lancé (autorisé)';}
+else if(s.type==='share'){
+if(navigator.share){navigator.share({text:s.text||s.title||''}).catch(function(){});}else{agStatus('Partage non supporté — texte copié.');}
+done='partagé';
+}else if(s.type==='copy'){
+if(navigator.clipboard){navigator.clipboard.writeText(s.text||'').catch(function(){});}
+done='copié';
+}else if(s.type==='notify'){
+if('Notification' in window){Notification.requestPermission().then(function(p){if(p==='granted'){new Notification(s.title||'ALPHATECH',{body:s.text||''});}});}
+done='notifié';
+}else if(s.type==='workaround'){agSolveWith(s.detail||s.title||'');done='voie alternative proposée';}
+else{done=s.detail?('à faire: '+s.detail):'prêt';}
+}catch(e){done='erreur: '+e.message;}
+btn.textContent='✓';btn.style.background='var(--g)';btn.style.color='#000';
+var g=(document.getElementById('agGoal').value||'').trim();
+agHistAdd(g,(i+1)+' étape(s)');
+agStatus('Étape '+(i+1)+' '+done+'.');
+}
+function agVoice(){
+var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+if(!SR){agStatus(' Reconognition vocale non supportée sur ce navigateur.');return;}
+var rec=new SR();rec.lang='fr-FR';rec.interimResults=false;
+agStatus('🎤 Parle maintenant...');rec.start();
+rec.onresult=function(e){document.getElementById('agGoal').value=e.results[0][0].transcript;agStatus(' Objectif capté. Clique EXÉCUTER.');};
+rec.onerror=function(){agStatus('❌ Voix non comprise. Réessaie.');};
+}
+async function agSolveWith(p){document.getElementById('agProblem').value=p;agSolve();}
+async function agSolve(){
+var p=(document.getElementById('agProblem').value||'').trim();if(!p){agStatus('Décris l obstacle.');return;}
+var out=document.getElementById('agRoutes');out.innerHTML='<div style="color:var(--gold);font-size:12px">🧬 L agent cherche 3 voies...</div>';
+try{
+var r=await fetch(AG_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'solve',problem:p})});
+var d=await r.json();
+if(!d||!d.ok||!d.routes){out.innerHTML='<div style="color:var(--r);font-size:12px">❌ '+(d&&d.error||'échec')+'</div>';return;}
+out.innerHTML='';
+d.routes.forEach(function(rt,ix){
+var col=rt.feasibility==='forte'?'var(--g)':(rt.feasibility==='moyenne'?'var(--gold)':'var(--m)');
+var el=document.createElement('div');el.style.cssText='background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:8px';
+el.innerHTML='<b style="color:'+col+';font-size:13px">'+(ix+1)+'. '+(rt.name||'voie')+'</b> <span style="color:var(--m);font-size:11px">['+(rt.feasibility||'?')+']</span><div style="color:var(--t);font-size:12px;margin-top:4px">'+((rt.steps||[]).map(function(s){return '→ '+s;}).join('<br>'))+'</div>';
+out.appendChild(el);
+});
+}catch(e){out.innerHTML='<div style="color:var(--r);font-size:12px">❌ '+e.message+'</div>';}
+}
+async function agMutate(){
+var out=document.getElementById('agMutations');out.textContent='🧬 Mutation en cours...';
+try{
+var hist=agHist().map(function(x){return x.goal+':'+x.done;}).join(' | ');
+var r=await fetch(AG_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'mutate',context:hist||'premiere activation'})});
+var d=await r.json();
+if(!d||!d.ok){out.textContent='❌ '+(d&&d.error||'échec');return;}
+var h='<i>'+(d.manifesto||'')+'</i><br>';
+(d.mutations||[]).forEach(function(m){h+='<br>🧬 <b>'+m.area+'</b>: '+m.change+' <span style="color:var(--m)">('+m.reason+')</span>';});
+out.innerHTML=h;
+}catch(e){out.textContent='❌ '+e.message;}
+}
 </script>
 </div>
 <script>
