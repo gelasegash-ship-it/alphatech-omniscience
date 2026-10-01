@@ -1301,7 +1301,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1028.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1029.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1312,6 +1312,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="evolution" onclick="go('evolution')">AUTO-ÉVOLUTION</button>
 <button class="nb" data-t="studio" onclick="go('studio')">STUDIO VIDÉO</button>
 <button class="nb" data-t="brain" onclick="go('brain')">GENESIS OBEIT</button>
+<button class="nb" data-t="factory" onclick="go('factory')">USINE À APPS</button>
 <button class="nb" data-t="quantum" onclick="go('quantum')">QUANTUM</button>
 <button class="nb" data-t="neural" onclick="go('neural')">NEURAL</button>
 <button class="nb" data-t="cybersec" onclick="go('cybersec')">CYBERSEC</button>
@@ -3707,7 +3708,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1028.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1029.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -3759,6 +3760,75 @@ tick();setInterval(tick,1000);
 b.appendChild(dot);b.appendChild(txt);document.body.appendChild(b);
 })();
 </script>
+<div id="factory" class="sec">
+<h2 style="color:var(--gold)">🏭 USINE À APPLICATIONS AUTO-RÉÉCRITURE</h2>
+<p style="color:var(--m);font-size:13px;margin:6px 0 14px">Chaque sous-fonction devient une application complète, générée par IA et sauvegardée sur ton appareil. L application réécrit son propre code.</p>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px">
+  <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+    <input id="facTarget" placeholder="Sous-fonction (ex: Factures, CV Pro, Staking, Stock, Devis...)" style="flex:1;min-width:220px;padding:10px 12px;border-radius:9px;border:1px solid var(--border);background:var(--card2);color:var(--t);font-size:13px">
+    <button onclick="facBuild()" style="background:#ffd700;color:#000;border:none;border-radius:9px;padding:10px 16px;font-weight:bold;cursor:pointer;font-size:13px">⚡ GÉNÉRER L'APPLICATION</button>
+  </div>
+  <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;align-items:center">
+    <select id="facSection" style="padding:10px;border-radius:9px;border:1px solid var(--border);background:var(--card2);color:var(--t);font-size:13px"></select>
+    <input id="facInstr" placeholder="Instruction de réécriture (ex: ajoute export PDF, rends plus rapide)" style="flex:1;min-width:180px;padding:10px 12px;border-radius:9px;border:1px solid var(--border);background:var(--card2);color:var(--t);font-size:13px">
+    <button onclick="facRewrite()" style="background:var(--card2);color:#ffd700;border:1px solid #ffd700;border-radius:9px;padding:10px 16px;font-weight:bold;cursor:pointer;font-size:13px">♻️ RÉÉCRIRE CETTE SECTION</button>
+  </div>
+  <div id="facStatus" style="color:var(--gold);font-size:12px;margin-top:10px;min-height:16px"></div>
+</div>
+<div id="facPreviewCard" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <h3 id="facAppName" style="color:var(--gold);margin:0;font-size:15px"></h3>
+    <div style="display:flex;gap:8px">
+      <button onclick="facOpen()" style="background:#ffd700;color:#000;border:none;border-radius:9px;padding:8px 14px;font-weight:bold;cursor:pointer;font-size:12px">⛶ PLEIN ÉCRAN</button>
+      <button onclick="facDelete()" style="background:var(--card2);color:#ff6b6b;border:1px solid #ff6b6b;border-radius:9px;padding:8px 14px;cursor:pointer;font-size:12px">🗑 SUPPRIMER</button>
+    </div>
+  </div>
+  <iframe id="facFrame" style="width:100%;height:440px;border:1px solid var(--border);border-radius:10px;margin-top:12px;background:#05060d"></iframe>
+  <div style="color:var(--m);font-size:11px;margin-top:8px">Application générée par IA, sauvegardée localement, fonctionne même hors ligne. Chaque app est un fichier HTML complet et autonome.</div>
+</div>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px">
+  <h3 style="color:var(--gold);margin:0 0 10px;font-size:15px">📱 MES APPLICATIONS GÉNÉRÉES</h3>
+  <div id="facList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px"></div>
+  <div id="facEmpty" style="color:var(--m);font-size:12px">Aucune application générée pour l'instant. Écris un nom ci-dessus et clique GÉNÉRER — chaque sous-fonction devient une app complète.</div>
+</div>
+<script>
+var FAC_URL='https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/appFactory';
+function facStatus(m){var e=document.getElementById('facStatus');if(e)e.textContent=m;}
+function facLoad(key){try{return JSON.parse(localStorage.getItem(key));}catch(e){return null;}}
+function facShow(key){var o=facLoad(key);if(!o)return;localStorage.setItem('at_app_last',key);document.getElementById('facPreviewCard').style.display='block';document.getElementById('facAppName').textContent=o.name;document.getElementById('facFrame').srcdoc=o.code;}
+function facOpen(){var key=localStorage.getItem('at_app_last');var o=facLoad(key);if(!o){facStatus('Aucune app sélectionnée.');return;}var w=window.open('','_blank');if(!w){facStatus('Popup bloquée — autorise les popups.');return;}w.document.write(o.code);w.document.close();}
+function facDelete(){var key=localStorage.getItem('at_app_last');if(!key){return;}localStorage.removeItem(key);localStorage.removeItem('at_app_last');document.getElementById('facPreviewCard').style.display='none';facRender();}
+function facRender(){var list=document.getElementById('facList');var empty=document.getElementById('facEmpty');if(!list)return;var keys=[];for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf('at_app_')===0&&k!=='at_app_last'){keys.push(k);}}
+list.innerHTML='';if(empty)empty.style.display=keys.length?'none':'block';
+keys.forEach(function(k){var o=facLoad(k);if(!o)return;var c=document.createElement('div');c.style.cssText='background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px;cursor:pointer;text-align:center';
+c.innerHTML='<div style="font-size:22px">📱</div><div style="color:var(--t);font-size:12px;font-weight:bold;margin-top:4px">'+o.name+'</div><div style="color:var(--m);font-size:10px;margin-top:3px">'+(o.created||'').slice(0,10)+'</div>';
+c.onclick=function(){facShow(k);window.scrollTo(0,0);};list.appendChild(c);});}
+async function facBuild(){
+var t=(document.getElementById('facTarget').value||'').trim()||'Gestion de factures';
+facStatus('⚡ GÉNÉRATION DE « '+t+' » EN COURS (10 à 40 secondes)...');
+try{
+var r=await fetch(FAC_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'build_app',target:t})});
+var d=await r.json();
+if(!d||!d.ok||!d.code){facStatus('❌ '+(d&&d.error||'échec de génération — réessaie'));return;}
+var key='at_app_'+Date.now();
+localStorage.setItem(key,JSON.stringify({name:d.name||t,code:d.code,created:new Date().toISOString()}));
+facShow(key);facStatus('✅ « '+(d.name||t)+' » générée, sauvegardée et ouverte ci-dessous. Elle apparaît aussi dans MES APPLICATIONS.');facRender();
+}catch(e){facStatus('❌ Erreur réseau: '+e.message);}}
+async function facRewrite(){
+var sel=document.getElementById('facSection');var s=sel.value||'';var ins=(document.getElementById('facInstr').value||'').trim()||'améliorer et compléter cette section';
+var el=document.getElementById(s);if(!el){facStatus('❌ Section introuvable.');return;}
+facStatus('♻️ RÉÉCRITURE DE « '+s+' » EN COURS (10 à 40 secondes)...');
+try{
+var r=await fetch(FAC_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'rewrite',target:s,current_code:el.outerHTML.slice(0,12000),instruction:ins})});
+var d=await r.json();
+if(!d||!d.ok||!d.code){facStatus('❌ '+(d&&d.error||'échec de réécriture — réessaie'));return;}
+var key='at_app_'+Date.now();
+localStorage.setItem(key,JSON.stringify({name:(d.name||s+' (réécrite)'),code:d.code,created:new Date().toISOString()}));
+facShow(key);facStatus('✅ Section « '+s+' » réécrite par l IA. Version améliorée ouverte ci-dessous — l originale reste intacte.');facRender();
+}catch(e){facStatus('❌ Erreur réseau: '+e.message);}}
+(function(){var sel=document.getElementById('facSection');if(sel){var bs=document.querySelectorAll('.nb');for(var i=0;i<bs.length;i++){var t=bs[i].getAttribute('data-t');if(t){var o=document.createElement('option');o.value=t;o.textContent=t;sel.appendChild(o);}}}facRender();})();
+</script>
+</div>
 <script>
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('./sw.js').catch(function(){});});}
 (function(){var THEMES=[{n:"OR OMNISCIENCE"},{n:"CYBER NOIR",v:{"--bg":"#050505","--card":"#0d1117","--card2":"#161b22","--border":"#30363d","--p":"#58c7ff","--g":"#7ee787","--t":"#e6edf3","--m":"#8b949e","--cosmos":"#a371f7","--cosmos2":"#f778ba"}},{n:"EMERAUDE",v:{"--bg":"#04120c","--card":"#0a1f15","--card2":"#0f2a1c","--border":"#1e4632","--p":"#2eff8b","--g":"#a3ff12","--t":"#e0ffe9","--m":"#7fae90","--cosmos":"#59f2d6","--cosmos2":"#ffd166"}},{n:"ROYAL",v:{"--bg":"#0a0714","--card":"#150f2b","--card2":"#1d1640","--border":"#3b2d6b","--p":"#b388ff","--g":"#00ffa3","--t":"#efe9ff","--m":"#9d8fc4","--cosmos":"#8f7bff","--cosmos2":"#ff6ec7"}}];var t=parseInt(localStorage.getItem("at_theme")||"0")||0;function apply(){var th=THEMES[t%THEMES.length];var names=["--bg","--card","--card2","--border","--p","--g","--t","--m","--cosmos","--cosmos2"];names.forEach(function(k){document.documentElement.style.removeProperty(k);});if(th.v){for(var k in th.v){document.documentElement.style.setProperty(k,th.v[k]);}}var b=document.getElementById("themeBtn");if(b){b.title=th.n;}}var b=document.createElement("button");b.id="themeBtn";b.textContent="\u{1F3A8}";b.style.cssText="position:fixed;bottom:14px;right:14px;z-index:99999;background:#ffd700;color:#000;border:none;border-radius:50%;width:46px;height:46px;font-size:20px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.6)";b.onclick=function(){t=(t+1)%THEMES.length;localStorage.setItem("at_theme",String(t));apply();};document.body.appendChild(b);apply();})();
