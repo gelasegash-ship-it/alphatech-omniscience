@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ffd700">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate">
 <meta name="description" content="ALPHATECH OMNISCIENCE - La premiere IA omnisciente au monde. Crypto, trading, finance mondiale, securite, technologies futures. 100% donnees reelles.">
 <meta name="keywords" content="AI, omniscience, crypto, trading, blockchain, quantum, neural, finance, securite, GENESIS, IA, Congo, Afrique, technologie">
@@ -1295,7 +1301,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1027.2 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1028.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -3701,7 +3707,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1027.2 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1028.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -3752,6 +3758,10 @@ function tick(){beats++;localStorage.setItem('at_heartbeats',beats);localStorage
 tick();setInterval(tick,1000);
 b.appendChild(dot);b.appendChild(txt);document.body.appendChild(b);
 })();
+</script>
+<script>
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('./sw.js').catch(function(){});});}
+(function(){var THEMES=[{n:"OR OMNISCIENCE"},{n:"CYBER NOIR",v:{"--bg":"#050505","--card":"#0d1117","--card2":"#161b22","--border":"#30363d","--p":"#58c7ff","--g":"#7ee787","--t":"#e6edf3","--m":"#8b949e","--cosmos":"#a371f7","--cosmos2":"#f778ba"}},{n:"EMERAUDE",v:{"--bg":"#04120c","--card":"#0a1f15","--card2":"#0f2a1c","--border":"#1e4632","--p":"#2eff8b","--g":"#a3ff12","--t":"#e0ffe9","--m":"#7fae90","--cosmos":"#59f2d6","--cosmos2":"#ffd166"}},{n:"ROYAL",v:{"--bg":"#0a0714","--card":"#150f2b","--card2":"#1d1640","--border":"#3b2d6b","--p":"#b388ff","--g":"#00ffa3","--t":"#efe9ff","--m":"#9d8fc4","--cosmos":"#8f7bff","--cosmos2":"#ff6ec7"}}];var t=parseInt(localStorage.getItem("at_theme")||"0")||0;function apply(){var th=THEMES[t%THEMES.length];var names=["--bg","--card","--card2","--border","--p","--g","--t","--m","--cosmos","--cosmos2"];names.forEach(function(k){document.documentElement.style.removeProperty(k);});if(th.v){for(var k in th.v){document.documentElement.style.setProperty(k,th.v[k]);}}var b=document.getElementById("themeBtn");if(b){b.title=th.n;}}var b=document.createElement("button");b.id="themeBtn";b.textContent="\u{1F3A8}";b.style.cssText="position:fixed;bottom:14px;right:14px;z-index:99999;background:#ffd700;color:#000;border:none;border-radius:50%;width:46px;height:46px;font-size:20px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.6)";b.onclick=function(){t=(t+1)%THEMES.length;localStorage.setItem("at_theme",String(t));apply();};document.body.appendChild(b);apply();})();
 </script>
 </body>
 </html>
