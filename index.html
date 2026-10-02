@@ -1301,7 +1301,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1032.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1032.1 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -3710,7 +3710,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1032.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1032.1 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4058,9 +4058,9 @@ async function swBrains(){
   if(!d||!d.ok){el.innerHTML='<span style="color:var(--r)">❌ '+(d&&d.error||'erreur')+'</span>';return;}
   el.innerHTML='';
   d.brains.forEach(function(b){
-   var actif=b.model.indexOf('groq.com')>-1||b.model.startsWith('qwen')||b.model.startsWith('openai/gpt-oss');
+   var actif=b.status==='actif';
    var c=document.createElement('div');c.style.cssText='display:flex;justify-content:space-between;padding:6px 10px;background:var(--card2);border:1px solid var(--border);border-radius:8px;margin-bottom:5px';
-   c.innerHTML='<span style="font-size:12px">'+(actif?'🟢':'🟡')+' <b>'+b.name+'</b> <span style="color:var(--m)">('+b.model+')</span></span><span style="font-size:11px;color:var(--m)">'+(actif?'actif':'clé OpenRouter requise')+'</span>';
+   c.innerHTML='<span style="font-size:12px">'+(actif?'🟢':'🟡')+' <b>'+b.name+'</b> <span style="color:var(--m)">('+b.model+')</span></span><span style="font-size:11px;color:var(--m)">'+(actif?'actif':(b.status||'indisponible'))+'</span>';
    el.appendChild(c);
   });
  }catch(e){el.innerHTML='<span style="color:var(--r)">❌ '+e.message+'</span>';}
