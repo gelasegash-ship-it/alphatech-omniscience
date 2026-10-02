@@ -1301,7 +1301,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1031.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1032.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1314,6 +1314,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="brain" onclick="go('brain')">GENESIS OBEIT</button>
 <button class="nb" data-t="factory" onclick="go('factory')">USINE À APPS</button>
 <button class="nb" data-t="agent" onclick="go('agent')">IA AUTONOME</button>
+<button class="nb" data-t="armee" onclick="go('armee')">ARMÉE D'IA</button>
 <button class="nb" data-t="quantum" onclick="go('quantum')">QUANTUM</button>
 <button class="nb" data-t="neural" onclick="go('neural')">NEURAL</button>
 <button class="nb" data-t="cybersec" onclick="go('cybersec')">CYBERSEC</button>
@@ -3709,7 +3710,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1031.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1032.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4018,6 +4019,82 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 }
 (function(){agBadge();try{var today=new Date().toISOString().slice(0,10);if(localStorage.getItem('at_agent_greet')!==today){localStorage.setItem('at_agent_greet',today);var st=document.getElementById('agStatus');if(st){setTimeout(function(){st.innerHTML='👋 L opérateur est ACTIF. Clique 🚀 AUTO-PILOTE et il prend le contrôle tout seul — ou donne ton objectif et il exécute.';},900);}}}catch(e){}})();
 </script>
+<div id="armee" class="sec">
+<h2 style="color:var(--gold)">⚔️ ARMÉE D'IA — LE SWARM</h2>
+<p style="color:var(--m);font-size:13px;margin:6px 0 14px">Déploie une armée d'agents IA spécialisés sur une mission. <b style="color:var(--gold)">5 généraux réels</b> (stratège, marketer, trader, juriste, ingénieur) pilotent avec les cerveaux multi-IA; le reste de l'essaim est constitué de <b style="color:var(--gold)">travailleurs virtuels</b> — des profils simulés, pas de vraies IA cachées. Honnêteté d'abord.</p>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px">
+  <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+    <input id="swMission" placeholder="Mission (ex: plan de sortie de crise financière en 7 jours)" style="flex:1;min-width:220px;padding:10px 12px;border-radius:9px;border:1px solid var(--border);background:var(--card2);color:var(--t);font-size:13px">
+    <select id="swSize" style="padding:10px;border-radius:9px;border:1px solid var(--border);background:var(--card2);color:var(--gold);font-size:13px">
+      <option value="10">10 agents</option><option value="100" selected>100 agents</option><option value="10000">10 000 agents</option><option value="1000000">1 000 000 agents</option>
+    </select>
+    <button onclick="swDeploy()" style="background:#ffd700;color:#000;border:none;border-radius:9px;padding:10px 16px;font-weight:bold;cursor:pointer;font-size:13px">⚔️ DÉPLOYER</button>
+  </div>
+  <div id="swStatus" style="color:var(--gold);font-size:12px;margin-top:10px;min-height:16px"></div>
+</div>
+<div id="swBrains" style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px">
+  <h3 style="color:var(--gold);margin:0 0 8px;font-size:14px">🧠 CERVEAUX BRANCHÉS (chaîne auto-bascule)</h3>
+  <div id="swBrainList" style="font-size:12px;color:var(--t)"><button onclick="swBrains()" style="background:var(--card2);color:var(--gold);border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:12px">Vérifier les cerveaux maintenant</button></div>
+</div>
+<div id="swResults" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px">
+  <h3 style="color:var(--gold);margin:0 0 10px;font-size:14px">📋 RAPPORT DES GÉNÉRAUX</h3>
+  <div id="swRapport"></div>
+</div>
+<script>
+var SW_URL='https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/aiRouter';
+var SW_GENERAUX=[
+ {role:'STRATÈGE',p:'En tant que stratege en chef, analyse cette mission et donne le plan concret en 5 points, chiffres a l appui si possible'},
+ {role:'MARKETER',p:'En tant que specialiste marketing Congo/Afrique et mondial, donne 3 actions marketing immediates et peu couteuses pour cette mission'},
+ {role:'TRADER',p:'En tant qu analyste financier prudent, indique les risques financiers et 2 protections concretes pour cette mission. Aucun conseil d investissement garanti'},
+ {role:'JURISTE',p:'En tant que juriste, liste les points de vigilance legale pour cette mission (Congo et international) en 3 puces'},
+ {role:'INGÉNIEUR',p:'En tant qu ingenieur systeme IA, propose l outil ou automatisation qui accelererait le plus cette mission'}
+];
+function swStatus(m){var e=document.getElementById('swStatus');if(e)e.textContent=m;}
+async function swBrains(){
+ var el=document.getElementById('swBrainList');el.innerHTML='<span style="color:var(--gold)">Vérification...</span>';
+ try{
+  var r=await fetch(SW_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'brains'})});
+  var d=await r.json();
+  if(!d||!d.ok){el.innerHTML='<span style="color:var(--r)">❌ '+(d&&d.error||'erreur')+'</span>';return;}
+  el.innerHTML='';
+  d.brains.forEach(function(b){
+   var actif=b.model.indexOf('groq.com')>-1||b.model.startsWith('qwen')||b.model.startsWith('openai/gpt-oss');
+   var c=document.createElement('div');c.style.cssText='display:flex;justify-content:space-between;padding:6px 10px;background:var(--card2);border:1px solid var(--border);border-radius:8px;margin-bottom:5px';
+   c.innerHTML='<span style="font-size:12px">'+(actif?'🟢':'🟡')+' <b>'+b.name+'</b> <span style="color:var(--m)">('+b.model+')</span></span><span style="font-size:11px;color:var(--m)">'+(actif?'actif':'clé OpenRouter requise')+'</span>';
+   el.appendChild(c);
+  });
+ }catch(e){el.innerHTML='<span style="color:var(--r)">❌ '+e.message+'</span>';}
+}
+async function swDeploy(){
+ var m=(document.getElementById('swMission').value||'').trim();
+ if(!m){swStatus('Écris une mission.');return;}
+ var size=parseInt(document.getElementById('swSize').value,10);
+ var gens=5;
+ swStatus('⚔️ Déploiement de '+size.toLocaleString('fr-FR')+' agents ('+gens+' généraux réels + '+ (size-gens).toLocaleString('fr-FR') +' travailleurs virtuels) — les généraux travaillent...');
+ var box=document.getElementById('swRapport');box.innerHTML='';document.getElementById('swResults').style.display='block';
+ var done=0,results=[];
+ for(var i=0;i<gens;i++){
+  (function(ix){
+   var g=SW_GENERAUX[ix];
+   fetch(SW_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'generate',prompt:g.p+' : '+m})}).then(function(r){return r.json();}).then(function(d){
+    done++;
+    var txt=(d&&d.ok)?d.response:('⚠️ indisponible: '+(d&&d.error||''));
+    var c=document.createElement('div');c.style.cssText='background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:8px';
+    c.innerHTML='<b style="color:var(--gold);font-size:13px">'+g.role+' 🟢'+(d&&d.brain?' ['+d.brain+']':'')+'</b><div style="color:var(--t);font-size:12px;margin-top:5px;white-space:pre-wrap">'+String(txt).slice(0,1200)+'</div>';
+    box.appendChild(c);
+    swStatus(done+'/'+gens+' généraux ont rapporté. Essaim virtuel: '+(size-gens).toLocaleString('fr-FR')+' profils en support.');
+    if(done===gens){
+     var f=document.createElement('div');f.style.cssText='text-align:center;color:var(--m);font-size:11px;padding:6px';
+     f.textContent='Mission menée avec '+gens+' IA réelles et '+(size-gens).toLocaleString('fr-FR')+' profils virtuels (simulés, pour l essaim — pas des IA séparées). Les cerveaux Claude/GPT s activent avec une clé OpenRouter valide.';
+     box.appendChild(f);
+     swStatus('✅ Rapport complet: '+size.toLocaleString('fr-FR')+' agents déployés, '+gens+' rapports réels.');
+    }
+   }).catch(function(e){done++;swStatus('⚠️ Général '+(ix+1)+' en échec: '+e.message);});
+  })(i);
+ }
+}
+</script>
+</div>
 <script>
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('./sw.js').catch(function(){});});}
 (function(){var THEMES=[{n:"OR OMNISCIENCE"},{n:"CYBER NOIR",v:{"--bg":"#050505","--card":"#0d1117","--card2":"#161b22","--border":"#30363d","--p":"#58c7ff","--g":"#7ee787","--t":"#e6edf3","--m":"#8b949e","--cosmos":"#a371f7","--cosmos2":"#f778ba"}},{n:"EMERAUDE",v:{"--bg":"#04120c","--card":"#0a1f15","--card2":"#0f2a1c","--border":"#1e4632","--p":"#2eff8b","--g":"#a3ff12","--t":"#e0ffe9","--m":"#7fae90","--cosmos":"#59f2d6","--cosmos2":"#ffd166"}},{n:"ROYAL",v:{"--bg":"#0a0714","--card":"#150f2b","--card2":"#1d1640","--border":"#3b2d6b","--p":"#b388ff","--g":"#00ffa3","--t":"#efe9ff","--m":"#9d8fc4","--cosmos":"#8f7bff","--cosmos2":"#ff6ec7"}}];var t=parseInt(localStorage.getItem("at_theme")||"0")||0;function apply(){var th=THEMES[t%THEMES.length];var names=["--bg","--card","--card2","--border","--p","--g","--t","--m","--cosmos","--cosmos2"];names.forEach(function(k){document.documentElement.style.removeProperty(k);});if(th.v){for(var k in th.v){document.documentElement.style.setProperty(k,th.v[k]);}}var b=document.getElementById("themeBtn");if(b){b.title=th.n;}}var b=document.createElement("button");b.id="themeBtn";b.textContent="\u{1F3A8}";b.style.cssText="position:fixed;bottom:14px;right:14px;z-index:99999;background:#ffd700;color:#000;border:none;border-radius:50%;width:46px;height:46px;font-size:20px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.6)";b.onclick=function(){t=(t+1)%THEMES.length;localStorage.setItem("at_theme",String(t));apply();};document.body.appendChild(b);apply();})();
