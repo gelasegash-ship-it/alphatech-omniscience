@@ -1301,7 +1301,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1032.1 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1033.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -3710,7 +3710,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1032.1 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1033.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4033,8 +4033,8 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
   <div id="swStatus" style="color:var(--gold);font-size:12px;margin-top:10px;min-height:16px"></div>
 </div>
 <div id="swBrains" style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px">
-  <h3 style="color:var(--gold);margin:0 0 8px;font-size:14px">🧠 CERVEAUX BRANCHÉS (chaîne auto-bascule)</h3>
-  <div id="swBrainList" style="font-size:12px;color:var(--t)"><button onclick="swBrains()" style="background:var(--card2);color:var(--gold);border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:12px">Vérifier les cerveaux maintenant</button></div>
+  <h3 style="color:var(--gold);margin:0 0 8px;font-size:14px">🧬 CAPACITÉS ULTIMES INTÉGRÉES (servies par les cerveaux actifs — aucune IA externe requise)</h3>
+  <div id="swBrainList" style="font-size:12px;color:var(--t)"><button onclick="swBrains()" style="background:var(--card2);color:var(--gold);border:1px solid var(--gold);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:12px">Voir les capacités maintenant</button></div>
 </div>
 <div id="swResults" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px">
   <h3 style="color:var(--gold);margin:0 0 10px;font-size:14px">📋 RAPPORT DES GÉNÉRAUX</h3>
@@ -4043,25 +4043,24 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 <script>
 var SW_URL='https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/aiRouter';
 var SW_GENERAUX=[
- {role:'STRATÈGE',p:'En tant que stratege en chef, analyse cette mission et donne le plan concret en 5 points, chiffres a l appui si possible'},
- {role:'MARKETER',p:'En tant que specialiste marketing Congo/Afrique et mondial, donne 3 actions marketing immediates et peu couteuses pour cette mission'},
- {role:'TRADER',p:'En tant qu analyste financier prudent, indique les risques financiers et 2 protections concretes pour cette mission. Aucun conseil d investissement garanti'},
- {role:'JURISTE',p:'En tant que juriste, liste les points de vigilance legale pour cette mission (Congo et international) en 3 puces'},
- {role:'INGÉNIEUR',p:'En tant qu ingenieur systeme IA, propose l outil ou automatisation qui accelererait le plus cette mission'}
+ {role:'STRATÈGE',cap:'raisonnement',p:'En tant que stratege en chef, analyse cette mission et donne le plan concret en 5 points, chiffres a l appui si possible'},
+ {role:'MARKETER',cap:'brainstorm',p:'En tant que specialiste marketing Congo/Afrique et mondial, donne 3 actions marketing immediates et peu couteuses pour cette mission'},
+ {role:'TRADER',cap:'analyse',p:'En tant qu analyste financier prudent, indique les risques financiers et 2 protections concretes pour cette mission. Aucun conseil d investissement garanti'},
+ {role:'JURISTE',cap:'conseil',p:'En tant que juriste, liste les points de vigilance legale pour cette mission (Congo et international) en 3 puces'},
+ {role:'INGÉNIEUR',cap:'code',p:'En tant qu ingenieur systeme IA, propose l outil ou automatisation qui accelererait le plus cette mission, avec un extrait de code si utile'}
 ];
 function swStatus(m){var e=document.getElementById('swStatus');if(e)e.textContent=m;}
 async function swBrains(){
- var el=document.getElementById('swBrainList');el.innerHTML='<span style="color:var(--gold)">Vérification...</span>';
+ var el=document.getElementById('swBrainList');el.innerHTML='<span style="color:var(--gold)">Chargement des capacités...</span>';
  try{
-  var r=await fetch(SW_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'brains'})});
+  var r=await fetch(SW_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'capabilities'})});
   var d=await r.json();
   if(!d||!d.ok){el.innerHTML='<span style="color:var(--r)">❌ '+(d&&d.error||'erreur')+'</span>';return;}
-  el.innerHTML='';
-  d.brains.forEach(function(b){
-   var actif=b.status==='actif';
-   var c=document.createElement('div');c.style.cssText='display:flex;justify-content:space-between;padding:6px 10px;background:var(--card2);border:1px solid var(--border);border-radius:8px;margin-bottom:5px';
-   c.innerHTML='<span style="font-size:12px">'+(actif?'🟢':'🟡')+' <b>'+b.name+'</b> <span style="color:var(--m)">('+b.model+')</span></span><span style="font-size:11px;color:var(--m)">'+(actif?'actif':(b.status||'indisponible'))+'</span>';
-   el.appendChild(c);
+  el.innerHTML='<div style="color:var(--m);font-size:11px;margin-bottom:6px">'+(d.note||'')+'</div>';
+  d.capacites.forEach(function(c){
+   var x=document.createElement('div');x.style.cssText='display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--card2);border:1px solid var(--border);border-radius:8px;margin-bottom:5px';
+   x.innerHTML='<span style="font-size:12px">🟢 <b style="color:var(--gold)">'+c.titre+'</b> <span style="color:var(--m)">(capability: '+c.id+')</span></span><span style="font-size:11px;color:var(--m)">prête</span>';
+   el.appendChild(x);
   });
  }catch(e){el.innerHTML='<span style="color:var(--r)">❌ '+e.message+'</span>';}
 }
@@ -4076,16 +4075,16 @@ async function swDeploy(){
  for(var i=0;i<gens;i++){
   (function(ix){
    var g=SW_GENERAUX[ix];
-   fetch(SW_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'generate',prompt:g.p+' : '+m})}).then(function(r){return r.json();}).then(function(d){
+   fetch(SW_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'generate',capability:g.cap,prompt:g.p+' : '+m})}).then(function(r){return r.json();}).then(function(d){
     done++;
     var txt=(d&&d.ok)?d.response:('⚠️ indisponible: '+(d&&d.error||''));
     var c=document.createElement('div');c.style.cssText='background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:8px';
-    c.innerHTML='<b style="color:var(--gold);font-size:13px">'+g.role+' 🟢'+(d&&d.brain?' ['+d.brain+']':'')+'</b><div style="color:var(--t);font-size:12px;margin-top:5px;white-space:pre-wrap">'+String(txt).slice(0,1200)+'</div>';
+    c.innerHTML='<b style="color:var(--gold);font-size:13px">'+g.role+' 🟢'+(d&&d.capabilite?' ['+d.capabilite+']':'')+(d&&d.cerveau?' ['+d.cerveau+']':'')+'</b><div style="color:var(--t);font-size:12px;margin-top:5px;white-space:pre-wrap">'+String(txt).slice(0,1200)+'</div>';
     box.appendChild(c);
     swStatus(done+'/'+gens+' généraux ont rapporté. Essaim virtuel: '+(size-gens).toLocaleString('fr-FR')+' profils en support.');
     if(done===gens){
      var f=document.createElement('div');f.style.cssText='text-align:center;color:var(--m);font-size:11px;padding:6px';
-     f.textContent='Mission menée avec '+gens+' IA réelles et '+(size-gens).toLocaleString('fr-FR')+' profils virtuels (simulés, pour l essaim — pas des IA séparées). Les cerveaux Claude/GPT s activent avec une clé OpenRouter valide.';
+     f.textContent='Mission menée avec '+gens+' IA réelles et '+(size-gens).toLocaleString('fr-FR')+' profils virtuels (simulés). Capacités de niveau Claude/GPT intégrées, servies par les cerveaux actifs.';
      box.appendChild(f);
      swStatus('✅ Rapport complet: '+size.toLocaleString('fr-FR')+' agents déployés, '+gens+' rapports réels.');
     }
