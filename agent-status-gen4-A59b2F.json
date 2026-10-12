@@ -33,14 +33,21 @@
   },
   "tier": "dead",
   "penseesParCycle": 1,
-  "battements": 3,
-  "pensees": 2,
+  "battements": 6,
+  "pensees": 5,
   "missionsAuto": 1,
   "missionsTerminees": 0,
   "modeIA": true,
-  "commandesReelles": 0,
+  "commandesReelles": 1,
   "evolutions": 0,
-  "enfantsLocaux": [],
+  "enfantsLocaux": [
+    {
+      "gen": 5,
+      "dir": "/app/conversations/6a8ed06312b12b3300218e7d/automaton-runtime/gen2-6f5573/gen4-A59b2F/gen5-91035f/",
+      "adresse": "0x91035ffA6d3E7f21bF2252Ddb794bfB9B1130DD7",
+      "ne": "2026-10-12T07:11:06.759Z"
+    }
+  ],
   "appsDeployees": 0,
   "coutReel": "0 FC",
   "competencesEnterprise": [
