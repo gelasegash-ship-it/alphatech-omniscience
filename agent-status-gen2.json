@@ -33,16 +33,16 @@
   },
   "tier": "dead",
   "penseesParCycle": 1,
-  "battements": 3,
-  "pensees": 3,
-  "commandesReelles": 0,
+  "battements": 6,
+  "pensees": 6,
+  "commandesReelles": 2,
   "evolutions": 0,
   "enfantsLocaux": [
     {
       "gen": 3,
-      "dir": "/app/conversations/6a8ed06312b12b3300218e7d/automaton-runtime/gen2-6f5573/gen3-219A74/",
-      "adresse": "0x219A7406E79E1f4a85f3ba25738D810e6b0F6779",
-      "ne": "2026-10-12T06:33:07.141Z"
+      "dir": "/app/conversations/6a8ed06312b12b3300218e7d/automaton-runtime/gen2-6f5573/gen3-77fE79/",
+      "adresse": "0x77fE790588BF5A2F479355d362c04f38154194e6",
+      "ne": "2026-10-12T06:52:11.599Z"
     }
   ],
   "appsDeployees": 0,
