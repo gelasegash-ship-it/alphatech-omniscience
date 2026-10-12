@@ -35,9 +35,16 @@
   "penseesParCycle": 1,
   "battements": 3,
   "pensees": 3,
-  "commandesReelles": 1,
+  "commandesReelles": 0,
   "evolutions": 0,
-  "enfantsLocaux": [],
+  "enfantsLocaux": [
+    {
+      "gen": 3,
+      "dir": "/app/conversations/6a8ed06312b12b3300218e7d/automaton-runtime/gen2-6f5573/gen3-219A74/",
+      "adresse": "0x219A7406E79E1f4a85f3ba25738D810e6b0F6779",
+      "ne": "2026-10-12T06:33:07.141Z"
+    }
+  ],
   "appsDeployees": 0,
   "coutReel": "0 FC",
   "competencesEnterprise": [
