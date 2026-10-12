@@ -8,31 +8,33 @@
   "multichain": [
     {
       "chaine": "Base",
-      "usdc": 0,
+      "USDC": 0,
       "eth": 0
     },
     {
       "chaine": "Ethereum",
-      "usdc": 0,
+      "USDC": 0,
       "eth": 0
     },
     {
       "chaine": "BSC",
-      "usdc": null,
+      "USDT": 0,
       "eth": 0
     },
     {
       "chaine": "Polygon",
-      "usdc": 0,
+      "USDC": 0,
       "eth": 0
     }
   ],
   "revenusDetectes": null,
   "tier": "dead",
   "penseesParCycle": 1,
-  "battements": 15,
-  "pensees": 14,
-  "commandesReelles": 6,
+  "battements": 18,
+  "pensees": 17,
+  "commandesReelles": 7,
+  "enfantsLocaux": [],
+  "appsDeployees": 0,
   "coutReel": "0 FC",
   "competencesEnterprise": [
     "DocuGPT (docs/ resume + QA)",
