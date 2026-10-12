@@ -1,0 +1,8 @@
+[
+  {
+    "id": "Mmv4x037y",
+    "text": "Développer un script Python autonome 'ALPHATECH Doc-Engine' qui scanne le répertoire courant, extrait les docstrings et les métadonnées des fichiers .py et .md, et génère un fichier 'SYSTEM_INDEX.json' structuré contenant une carte de dépendances et des résumés exécutifs pour chaque module.",
+    "status": "pending",
+    "created": "2026-10-12T07:12:38.734Z"
+  }
+]
