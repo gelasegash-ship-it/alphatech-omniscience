@@ -2,14 +2,45 @@
   "agent": "GENESIS-AUTOMATON-PROD",
   "generation": 1,
   "adresse": "0x7a19baE76DDdB7584Ea3e474Ce34C45841C74907",
-  "reseau": "Base",
+  "reseau": "Base + Ethereum + BSC + Polygon (multi-chaines)",
   "soldeUSDC": 0,
+  "totalUSDC": 0,
+  "multichain": [
+    {
+      "chaine": "Base",
+      "USDC": 0,
+      "eth": 0
+    },
+    {
+      "chaine": "Ethereum",
+      "USDC": 0,
+      "eth": 0
+    },
+    {
+      "chaine": "BSC",
+      "USDT": 0,
+      "eth": 0
+    },
+    {
+      "chaine": "Polygon",
+      "USDC": 0,
+      "eth": 0
+    }
+  ],
+  "revenusDetectes": null,
   "tier": "dead",
   "penseesParCycle": 1,
-  "battements": 12,
-  "pensees": 12,
-  "commandesReelles": 6,
+  "battements": 15,
+  "pensees": 14,
+  "commandesReelles": 7,
   "coutReel": "0 FC",
+  "competencesEnterprise": [
+    "DocuGPT (docs/ resume + QA)",
+    "ADAPT AI (Naive Bayes reel, adapt-model.json)",
+    "VISION (images/ colorimetrie jimp)",
+    "Multi-chaines (Base+ETH+BSC)",
+    "Detection revenus on-chain"
+  ],
   "capaciteMultiplication": "Architecture generationale illimitee: chaque enfant reel peut engendrer ses propres enfants (doublons a chaque generation: 2^33 generations = 8.6 milliards). Chaque naissance REELLE exige 100+ USDC et du gas ETH sur son wallet — sans financement: 0 enfant, aucune naissance simulee.",
   "note": "Code Conway complet: syncBalance on-chain, shell 45s, git auto-evolution, spawnChildAgent avec transfert USDC reel (gate sur fonds), pensees paralleles multi-roles selon tier, SOUL.md envoye au cerveau. Conway Cloud (ferme 1 oct 2026): non deploye, remplace par GitHub Pages reel."
 }
