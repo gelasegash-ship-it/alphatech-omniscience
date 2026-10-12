@@ -1302,7 +1302,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1043.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1044.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1311,7 +1311,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="gardien" onclick="go('gardien')">GARDIEN</button>
 <button class="nb" data-t="futur" onclick="go('futur')">FUTUR</button>
 <button class="nb" data-t="evolution" onclick="go('evolution')">AUTO-ÉVOLUTION</button>
-<button class="nb" data-t="automaton" onclick="go('automaton')">AUTOMATON</button><button class="nb" data-t="cockpit" onclick="go('cockpit')">⭐ COCKPIT</button>
+<button class="nb" data-t="automaton" onclick="go('automaton')">AUTOMATON</button><button class="nb" data-t="cockpit" onclick="go('cockpit')">⭐ COCKPIT</button><button class="nb" data-t="payhub" onclick="go('payhub')">💳 PAIEMENTS</button>
 <button class="nb" data-t="advit" onclick="go('advit')">AUTOMATON PRO</button>
 <button class="nb" data-t="studio" onclick="go('studio')">STUDIO VIDÉO</button>
 <button class="nb" data-t="brain" onclick="go('brain')">GENESIS OBEIT</button>
@@ -4014,7 +4014,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1043.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1044.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4329,6 +4329,22 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 <div id="cockpitBody"></div>
 <button onclick="cockpitRender()" style="background:#ffd700;color:#000;border:none;border-radius:9px;padding:9px 16px;font-weight:bold;cursor:pointer;font-size:12px;margin-top:10px">Rafraîchir le cockpit</button>
 </div>
+<div id="payhub" class="sec">
+<h2 style="color:var(--gold)">💳 DÉPÔT &amp; RETRAIT — Congo Brazzaville &amp; International</h2>
+<p style="color:var(--m);font-size:13px;margin:6px 0 14px">Tous les moyens locaux pour alimenter votre compte ou encaisser : MTN MoMo, Airtel Money, cartes bancaires, virement bancaire CG, crypto et PayPal. Les demandes génèrent une <b style="color:var(--gold)">référence unique</b> et sont suivies dans l historique.</p>
+<div class="card" style="max-width:760px">
+<h3 style="color:var(--gold);font-size:15px;margin:0 0 12px">NOUVELLE DEMANDE</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:12px">
+<select id="payDir" class="input" style="padding:10px"><option value="depot">DÉPÔT (je credite mon compte)</option><option value="retrait">RETRAIT (je encaisse)</option></select>
+<select id="payMethod" class="input" style="padding:10px"><option value="mtn">MTN MoMo (CG)</option><option value="airtel">Airtel Money (CG)</option><option value="carte">Carte Visa/Mastercard</option><option value="banque">Virement bancaire (CG)</option><option value="crypto">Crypto BTC/ETH/USDT</option><option value="paypal">PayPal</option></select>
+<input id="payAmount" class="input" style="padding:10px" type="number" placeholder="Montant (FCFA ou USD)">
+<button class="btn primary" style="padding:10px 16px;background:linear-gradient(100deg,#54e7ff,#9b7bff);color:#080b18;border:0;border-radius:10px;cursor:pointer;font-weight:800" onclick="paySave()">Générer la demande</button>
+</div>
+<div id="payResult"></div>
+<div id="payLogBox" style="margin-top:14px"></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:16px" id="payMethods"></div>
+</div>
 <div id="armee" class="sec">
 <h2 style="color:var(--gold)">⚔️ ARMÉE D'IA — LE SWARM</h2>
 <p style="color:var(--m);font-size:13px;margin:6px 0 14px">Déploie une armée sur une mission. <b style="color:var(--gold)">5 généraux</b> opèrent un <b style="color:var(--gold)">moteur réel 100% local</b> intégré (extraction réelle de votre mission — rien d inventé, aucun backend ni crédit requis). Les travailleurs sont de <b style="color:var(--gold)">vrais cycles de calcul</b>, pas des profils simulés. Honnêteté d abord.</p>
@@ -4460,6 +4476,55 @@ function cockpitRender(){
   a.innerHTML=apps.map(function(x){return "<div style=\"margin:5px 0;padding:8px;background:var(--card2);border:1px solid var(--border);border-radius:8px\"><a href=\""+x.url+"\" target=\"_blank\" style=\"color:var(--gold);font-weight:700\">\u2197 "+x.titre+"</a> <span style=\"color:var(--m);font-size:10px\">— construite par "+x.gen+" le "+x.date+", d\u00e9ploy\u00e9e automatiquement sur le site public</span></div>";}).join("");
  }).catch(function(){var a=document.getElementById("cockpitApps");if(a)a.innerHTML="Vitrine injoignable pour le moment.";});
 }
+</script>
+<script id="atPayhub">
+var PAYM={
+ mtn:{t:"MTN MoMo (Congo-Brazzaville)",d:"Depot et retrait via MTN MoMo. Marchand :",k:"at_mtn_merchant",ph:"Numero MoMo marchand"},
+ airtel:{t:"Airtel Money (Congo-Brazzaville)",d:"Depot via My Airtel app ou agent agree Airtel. Marchand :",k:"at_airtel_merchant",ph:"Numero Airtel marchand"},
+ carte:{t:"Cartes Visa / Mastercard",d:"Paiements cartes via PayPal (module PAYPAL de l app). Delais 1-3 jours pour les retraits vers carte liee."},
+ banque:{t:"Virement bancaire (CG)",d:"Banques Brazzaville : BGFIBank Congo, Ecobank Congo (SWIFT ECOCGHAC), BIC, Orabank Congo, Banque Postale du Congo."},
+ crypto:{t:"Crypto BTC / ETH / USDT",d:"Adresses de depot configurables. Retraits wallet-to-wallet sous 24h."},
+ paypal:{t:"PayPal",d:"Depot et retrait international via PayPal (module PAYPAL de l app)."}
+};
+function payCfg(k,v){localStorage.setItem(k,v);var el=document.getElementById(k+"_ok");if(el){el.textContent="Enregistre !";setTimeout(function(){el.textContent="";},1500);}}
+function payMethods(){
+ var h="";
+ for(var m in PAYM){
+  var p=PAYM[m];var val=localStorage.getItem(p.k||"x")||"";
+  h+="<div class='card' style='background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px'><h3 style='color:var(--gold);font-size:14px;margin:0 0 6px'>"+p.t+"</h3><div style='font-size:12px;color:var(--t)'>"+p.d+"</div>";
+  if(p.k){h+="<div style='display:flex;gap:6px;margin-top:10px'><input id='"+p.k+"_in' class='input' style='padding:8px;font-size:12px' placeholder='"+p.ph+"' value='"+val+"' oninput='payCfg(\""+p.k+"\",this.value)'><span id='"+p.k+"_ok' style='color:#70f0b0;font-size:10px;align-self:center'></span></div>";}
+  h+="</div>";
+ }
+ document.getElementById("payMethods").innerHTML=h;
+}
+function payRef(){return "REF-"+Date.now().toString(36).toUpperCase().slice(-5)+Math.floor(Math.random()*90+10);}
+function paySave(){
+ var num=String(document.getElementById("payAmount").value||"").trim();
+ var m=document.getElementById("payMethod").value;
+ var dir=document.getElementById("payDir").value;
+ if(!num){alert("Indiquez un montant.");return;}
+ var r=payRef();
+ var log=[];try{log=JSON.parse(localStorage.getItem("at_pay_log")||"[]");}catch(e){}
+ log.unshift({ref:r,type:dir,methode:m,montant:num,date:new Date().toLocaleString("fr-FR"),statut:"en attente"});
+ localStorage.setItem("at_pay_log",JSON.stringify(log.slice(0,60)));
+ var inst={
+  mtn:"1. Ouvrez votre MTN MoMo (app ou menu USSD MoMo). 2. Envoyez le montant au numero marchand ci-dessus. 3. Indiquez la reference "+r+" dans le motif. 4. Le request-to-pay automatique reprendra des le retour des credits plateforme — la procedure manuelle reste valable immediatement.",
+  airtel:"1. Ouvrez My Airtel ou passez par un agent Airtel Money agree. 2. Envoyez le montant au numero marchand ci-dessus. 3. Reference a indiquer : "+r+".",
+  carte:"Utilisez le module PAYPAL de l app (cartes Visa/Mastercard acceptees). Reference a rappeler : "+r+". Retraits vers carte liee : delais PayPal standards.",
+  banque:"Virement a l ordre du compte du titulaire dans l une des banques CG liste ci-dessus (coordonnees bancaires definitives communiquees a la validation). Reference virement : "+r+". Delai bancaire 1-3 jours ouvrables.",
+  crypto:"Envoyez l equivalent en BTC/ETH/USDT a l adresse de depot configuree. Reference "+r+" en memo si disponible. Confirmation apres 2 confirmations reseau.",
+  paypal:"Depuis votre compte PayPal, envoyez le montant a l adresse PayPal du titulaire (module PAYPAL). Reference : "+r+"."
+ };
+ var sens=dir==="depot"?"DÉPÔT":"RETRAIT";
+ document.getElementById("payResult").innerHTML="<div style='background:#153d35;border:1px solid #70f0b0;border-radius:12px;padding:14px;font-size:13px'><b style='color:#70f0b0'>"+sens+" — "+PAYM[m].t+" — "+num+"</b><br>Reference unique : <b style='color:var(--gold)'>"+r+"</b><br><br>"+(inst[m]||"")+"</div>";
+ payLog();
+}
+function payLog(){
+ var log=[];try{log=JSON.parse(localStorage.getItem("at_pay_log")||"[]");}catch(e){}
+ var h=log.length?"<h3 style='color:var(--gold);font-size:14px;margin:0 0 8px'>HISTORIQUE DES DEMANDES</h3>"+log.map(function(l){return "<div style='display:flex;justify-content:space-between;padding:8px;border:1px solid var(--border);border-radius:9px;margin:5px 0;font-size:12px'><span><b style='color:var(--gold)'>"+l.ref+"</b> "+(l.type==="depot"?"depot":"retrait")+" "+l.montant+" ("+l.methode+")</span><span style='color:var(--m)'>"+l.date+" — "+l.statut+"</span></div>";}).join(""):"";
+ document.getElementById("payLogBox").innerHTML=h;
+}
+payMethods();payLog();
 </script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
