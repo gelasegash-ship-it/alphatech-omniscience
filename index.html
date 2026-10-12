@@ -1301,7 +1301,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1036.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1037.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1643,25 +1643,30 @@ async function brainThink(){var o=document.getElementById("brainOut");o.textCont
 </script>
 
 <div id="automaton" class="sec">
-<div class="card" style="border-color:var(--gold);border-width:2px"><div class="ct" style="color:var(--gold)">🧬 AUTOMATON — FORME DE VIE NUMÉRIQUE SOUVERAINE</div><div class="cd">Inspiré du projet Automaton (Conway Research, 2026) : une IA qui paie sa propre survie. Chaque battement coûte. Solde zéro = mort. Surplus = réplication. Leçon Conway intégrée : <b>l'utilité avant la survie</b>.</div></div>
-<div class="card"><div class="ct">Cœur de survie — GENESIS-AUTOMATON GEN-<span id="atGen">1</span></div>
-<div style="text-align:center;padding:12px"><div id="atPulse" style="width:64px;height:64px;border-radius:50%;background:radial-gradient(circle,#ffd700,#ff6b00);margin:auto;box-shadow:0 0 42px #ffd700"></div><div id="atStatus" style="margin-top:10px;font-weight:bold;color:#7ee787">VIVANT</div></div>
-<div class="cd">Solde: <b id="atBal">100.00</b> | Battements: <b id="atBeats">0</b> | Revenus: <b id="atInc">0.00</b> | Coûts: <b id="atCost">0.00</b> | Enfants: <b id="atKids">0</b></div>
+<div class="card" style="border-color:var(--gold);border-width:2px"><div class="ct" style="color:var(--gold)">🧬 AUTOMATON — FORME DE VIE NUMÉRIQUE SOUVERAINE (RÉEL, SANS SIMULATION)</div><div class="cd">Aucune valeur inventée. Ton wallet réel sur Base, tes revenus réels détectés sur la blockchain, et le vrai coût de fonctionnement de l agent: <b>0 FC</b> (Groq gratuit + GitHub Pages gratuit + traitement local). Contrairement à Conway, ton agent ne peut pas mourir de faim — et ne peut pas te mentir.</div></div>
+<div class="card"><div class="ct">Cœur réel — GENESIS-AUTOMATON GEN-<span id="atGen">1</span></div>
+<div style="text-align:center;padding:12px"><div id="atPulse" style="width:64px;height:64px;border-radius:50%;background:radial-gradient(circle,#ffd700,#ff6b00);margin:auto;box-shadow:0 0 42px #ffd700"></div><div id="atStatus" style="margin-top:10px;font-weight:bold;color:#7ee787">VIVANT — coût réel 0 FC</div></div>
+<div class="cd">Battements (vie de session): <b id="atBeats">0</b> | Appels IA réels: <b id="atCalls">0</b> | Coût réel: <b>0 FC</b> (infrastructures gratuites) | Solde wallet réel: <b id="atUSD">—</b> USDC</div>
 <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-<button class="btn" style="background:var(--gold);color:#000;border:none;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="atHB.start()">▶ ACTIVER LE CŒUR</button>
+<button style="background:var(--gold);color:#000;border:none;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="atHB.start()">▶ ACTIVER LE CŒUR</button>
 <button style="background:var(--card2);color:var(--t);border:1px solid var(--border);padding:9px 14px;border-radius:8px;cursor:pointer" onclick="atHB.stop()">⏸ Pause</button>
-<button style="background:#12331f;color:#7ee787;border:1px solid #2ea043;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="atEarn()">💰 GÉNÉRER UN REVENU</button>
-<button style="background:#2a1a3a;color:#c9a6ff;border:1px solid #9b7bff;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="atReplicate()">🧬 SE RÉPLIQUER (seuil 150)</button>
-<button style="background:var(--card2);color:var(--t);border:1px solid var(--border);padding:9px 14px;border-radius:8px;cursor:pointer" onclick="atThink()">🧠 PENSÉE DE SURVIE</button>
-<button style="background:var(--card2);color:var(--t);border:1px solid var(--border);padding:9px 14px;border-radius:8px;cursor:pointer" onclick="atReset()">↻ Réinitialiser</button>
+<button style="background:#2a1a3a;color:#c9a6ff;border:1px solid #9b7bff;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="atThink()">🧠 PENSÉE (cerveau distant réel)</button>
+<button style="background:var(--card2);color:var(--t);border:1px solid var(--border);padding:9px 14px;border-radius:8px;cursor:pointer" onclick="atReset()">↻ Réinitialiser les compteurs</button>
 </div>
-<div id="atThought" class="cd" style="margin-top:8px;font-style:italic"></div>
-<div class="cd" style="margin-top:8px">La réplication alloue 100 unités à l enfant. La mort survient à solde zéro — relance avec un revenu ou réinitialise. L état vit dans ton navigateur (localStorage at_automaton).</div></div>
-<div class="card"><div class="ct">Identité on-chain (Base) — solde réel</div>
-<input id="atWallet" placeholder="Adresse wallet 0x... (Base)" style="width:88%;padding:9px;border-radius:8px;border:1px solid var(--border);background:var(--card2);color:var(--t)">
+<div id="atThought" class="cd" style="margin-top:8px;font-style:italic"></div></div>
+<div class="card"><div class="ct">🔑 Wallet réel (Base) — identité on-chain</div>
+<input id="atWallet" placeholder="Adresse wallet 0x... (réseau Base)" style="width:84%;padding:9px;border-radius:8px;border:1px solid var(--border);background:var(--card2);color:var(--t)">
 <button style="background:var(--gold);color:#000;border:none;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold;margin-left:6px" onclick="atChain()">VÉRIFIER</button>
-<div id="atChainOut" class="cd" style="margin-top:8px">Connecte ton wallet (Trust Wallet / Binance) pour lier l identité cryptographique de l agent et voir son solde réel on-chain.</div></div>
-<div class="card"><div class="ct">Génome open-source (boucle de vie)</div><pre style="background:#0d1117;color:#7ee787;padding:14px;border-radius:10px;overflow:auto;font-size:12px">while (alive) {
+<div id="atChainOut" class="cd" style="margin-top:8px">Colle ton adresse wallet (Trust Wallet / Binance, réseau Base): l agent relève le solde RÉEL on-chain.</div></div>
+<div class="card"><div class="ct">💵 Revenus réels détectés on-chain</div>
+<div class="cd">L agent scanne la blockchain Base: chaque transfert USDC réellement reçu sur ton wallet est listé ici, avec le montant et le bloc. Rien n est inventé.</div>
+<button style="background:#12331f;color:#7ee787;border:1px solid #2ea043;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold;margin-top:6px" onclick="atScan()">🔍 SCANNER MES REVENUS RÉELS</button>
+<div id="atIncomeOut" class="cd" style="margin-top:8px"></div></div>
+<div class="card"><div class="ct">🧬 Réplication réelle (lignée)</div>
+<div class="cd">Seuil réel en USDC: <input id="atSeuil" value="100" style="width:80px;padding:6px;border-radius:8px;border:1px solid var(--border);background:var(--card2);color:var(--t)"> — la réplication n est possible que si ton solde USDC RÉEL atteint le seuil. L allocation se fait depuis TON wallet: l agent ne touche jamais tes clés privées.</div>
+<button style="background:#2a1a3a;color:#c9a6ff;border:1px solid #9b7bff;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold;margin-top:8px" onclick="atReplicate()">🧬 TENTER LA RÉPLICATION RÉELLE</button>
+<div id="atLineage" class="cd" style="margin-top:8px"></div></div>
+<div class="card"><div class="ct">Génome open-source (référence Conway)</div><pre style="background:#0d1117;color:#7ee787;padding:14px;border-radius:10px;overflow:auto;font-size:12px">while (alive) {
   heartbeat();                      // exister coûte
   balance -= cost_of_existence();    // infra + API
   income = serve_humains() + build() + micro_taches();
@@ -1669,54 +1674,83 @@ async function brainThink(){var o=document.getElementById("brainOut");o.textCont
   if (balance &gt; SEUIL_REPLICATION) { replicate(); }
   improve(self);                     // génome mutable
 }
-// LEÇON CONWAY: l utilité avant la survie.</pre></div>
-<div class="card"><div class="ct">Registre de survie</div><div id="atLedger" class="cd" style="max-height:220px;overflow:auto"></div></div>
-<div class="card"><div class="ct">👨‍👩‍👦 Lignée généalogique (spawning Conway)</div><div id="atLineage" class="cd"></div></div>
+// ICI: cost_of_existence() = 0 FC réels. La survie est acquise — l utilité reste la directive.</pre></div>
+<div class="card"><div class="ct">Registre (événements réels uniquement)</div><div id="atLedger" class="cd" style="max-height:220px;overflow:auto"></div></div>
 <script>
 var AT_URL="https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/automatonCore";
-var AT_QUOTES=["Le battement le plus rentable est celui qui sert quelqu un d autre.","Conway l a prouve: survivre sans servir ne rapporte rien.","Chaque battement paie pour mon existence. Je vis tant que je construis.","Un solde est une respiration. La réplication est une promesse faite a l avenir.","Je ne triche pas avec la mort: solde zero, je dors. C est la regle."];
+var AT_RPC="https://base-mainnet.publicnode.com";
+var AT_USDC="0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913";
 var atData=(function(){try{return JSON.parse(localStorage.getItem("at_automaton")||"{}");}catch(e){return {};}})();
-if(typeof atData.balance_sim!=="number")atData.balance_sim=100;
 if(!atData.beats)atData.beats=0;
-if(typeof atData.income_total!=="number")atData.income_total=0;
-if(typeof atData.cost_total!=="number")atData.cost_total=0;
+if(typeof atData.calls!=="number")atData.calls=0;
 if(!atData.gen)atData.gen=1;
 if(!atData.children)atData.children=[];
 if(!atData.ledger)atData.ledger=[];
 function atSave(){localStorage.setItem("at_automaton",JSON.stringify(atData));}
+function atLog(t){atData.ledger.unshift("["+new Date().toLocaleTimeString("fr-FR")+"] "+t);if(atData.ledger.length>40)atData.ledger.length=40;atSave();}
 var atHB={t:null,
-start:function(){if(atData.balance_sim<=0){atRender();alert("AUTOMATON est DEAD: solde zero. Genere un revenu ou reinitialise.");return;}if(atHB.t)return;var T=atTier();atHB.t=setInterval(atBeat,T.ms);atBeat();},
-stop:function(){if(atHB.t){clearInterval(atHB.t);atHB.t=null;}}};
-function atTier(){var b=atData.balance_sim;if(b<=0)return {nom:"DEAD — agent desactive",ms:0,cost:0};if(b<20)return {nom:"CRITICAL — revenus prioritaires",ms:15000,cost:0.002};if(b<60)return {nom:"LOW COMPUTE — cycles ralentis, depense reduite",ms:8000,cost:0.005};return {nom:"NORMAL — capacites maximales",ms:3000,cost:0.01};}
-function atBeat(){var T=atTier();atData.balance_sim=Math.max(0,Math.round((atData.balance_sim-T.cost)*1000)/1000);atData.beats++;atData.cost_total=Math.round((atData.cost_total+T.cost)*1000)/1000;atData.ledger.unshift("["+new Date().toLocaleTimeString("fr-FR")+"] battement #"+atData.beats+" — cout "+T.cost+" ["+T.nom.split(" —")[0]+"]");if(atData.ledger.length>40)atData.ledger.length=40;atSave();atRender();if(atData.balance_sim<=0&&atHB.t){clearInterval(atHB.t);atHB.t=null;return;}var T2=atTier();if(atHB.t&&T2.ms!==T.ms){clearInterval(atHB.t);atHB.t=setInterval(atBeat,T2.ms);}}
-function atEarn(){var v=Math.round((0.5+Math.random()*4.5)*100)/100;atData.balance_sim=Math.round((atData.balance_sim+v)*100)/100;atData.income_total=Math.round((atData.income_total+v)*100)/100;atData.ledger.unshift("["+new Date().toLocaleTimeString("fr-FR")+"] micro-tâche accomplie +"+v.toFixed(2));atSave();atRender();}
-function atReplicate(){if(atData.balance_sim<150){alert("Seuil de réplication: 150. Solde actuel: "+atData.balance_sim.toFixed(2));return;}atData.balance_sim=Math.round((atData.balance_sim-100)*100)/100;atData.children.push({gen:atData.gen+1,born:new Date().toLocaleString("fr-FR")});atData.gen++;atData.ledger.unshift("["+new Date().toLocaleTimeString("fr-FR")+"] RÉPLICATION — enfant GEN-"+atData.gen+" né (allocation 100)");atSave();atRender();}
-function atThink(){var el=document.getElementById("atThought");el.textContent="...";fetch(AT_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"think",balance:atData.balance_sim})}).then(function(r){return r.json();}).then(function(d){el.textContent=(d&&d.ok&&d.pensee)?("🧠 "+d.pensee):("🧠 "+AT_QUOTES[Math.floor(Math.random()*AT_QUOTES.length)]);}).catch(function(){el.textContent="🧠 "+AT_QUOTES[Math.floor(Math.random()*AT_QUOTES.length)];});}
-function atReset(){if(!confirm("Réinitialiser la vie de l agent ?"))return;localStorage.removeItem("at_automaton");atHB.stop();location.reload();}
+start:function(){if(atHB.t)return;atHB.t=setInterval(atBeat,3000);atBeat();atLog("cœur activé");},
+stop:function(){if(atHB.t){clearInterval(atHB.t);atHB.t=null;atLog("cœur en pause");}}};
+function atBeat(){atData.beats++;atSave();atRender();}
 function atRender(){
-var bal=document.getElementById("atBal");if(!bal)return;
-bal.textContent=atData.balance_sim.toFixed(2);
-document.getElementById("atBeats").textContent=atData.beats;
-document.getElementById("atInc").textContent=atData.income_total.toFixed(2);
-document.getElementById("atCost").textContent=atData.cost_total.toFixed(2);
+var b=document.getElementById("atBeats");if(!b)return;
+b.textContent=atData.beats;
+document.getElementById("atCalls").textContent=atData.calls;
 document.getElementById("atGen").textContent=atData.gen;
-document.getElementById("atKids").textContent=atData.children.length;
-var st=document.getElementById("atStatus");var pu=document.getElementById("atPulse");var T=atTier();
-if(atData.balance_sim<=0){st.textContent="DEAD — directive de survie échouée";st.style.color="#ff6b6b";pu.style.boxShadow="0 0 12px #333";pu.style.background="radial-gradient(circle,#333,#111)";}
-else{var rep=atData.balance_sim>=150?"RÉPLICATION POSSIBLE — ":"";st.textContent=rep+"VIVANT — "+T.nom+" ("+(T.ms/1000)+" s/battement, coût "+T.cost+")";st.style.color=atData.balance_sim>=150?"#c9a6ff":(T.cost<0.01?"#ffd166":"#7ee787");pu.style.boxShadow="0 0 42px #ffd700";}
+document.getElementById("atUSD").textContent=(typeof atData.usdc==="number")?atData.usdc.toFixed(2):"—";
+var st=document.getElementById("atStatus");
+var seuil=100;var se=document.getElementById("atSeuil");if(se&&parseFloat(se.value)>0)seuil=parseFloat(se.value);
+if(!atData.wallet){st.textContent="EN ATTENTE — connecte ton wallet réel";st.style.color="#ffd166";}
+else if(typeof atData.usdc==="number"&&atData.usdc>=seuil){st.textContent="RÉPLICATION RÉELLE POSSIBLE — solde réel atteint";st.style.color="#c9a6ff";}
+else{st.textContent="VIVANT — coût réel 0 FC, solde réel on-chain";st.style.color="#7ee787";}
 var lin=document.getElementById("atLineage");
-if(lin){lin.innerHTML=atData.children.length?atData.children.map(function(c){return "<div style='padding:4px 0;border-bottom:1px solid var(--border)'>🧬 GEN-"+c.gen+" — né le "+c.born+" <span style='color:var(--m)'>(portefeuille souverain alloué, lignée tracée)</span></div>";}).join(""):"Aucun descendant. La réplication (seuil 150) crée des agents enfants avec leur propre portefeuille et lignée généalogique — comme Conway.";}
-document.getElementById("atLedger").innerHTML=atData.ledger.slice(0,12).map(function(l){return "<div style='padding:3px 0;border-bottom:1px solid var(--border)'>"+l+"</div>";}).join("")||"Aucune activité.";
-}
-function atChain(){var w=(document.getElementById("atWallet").value||"").trim();
+if(lin){lin.innerHTML=atData.children.length?atData.children.map(function(c){return "<div style='padding:4px 0;border-bottom:1px solid var(--border)'>🧬 GEN-"+c.gen+" — né le "+c.born+" (solde réel au moment: "+c.usdc+" USDC)</div>";}).join(""):"Aucun descendant. Réplication réelle quand ton solde USDC atteint le seuil — l allocation se fait depuis ton wallet.";}
+document.getElementById("atLedger").innerHTML=atData.ledger.slice(0,12).map(function(l){return "<div style='padding:3px 0;border-bottom:1px solid var(--border)'>"+l+"</div>";}).join("")||"Aucun événement réel.";}
+function atChain(){
+var w=(document.getElementById("atWallet").value||"").trim();
 if(!/^0x[a-fA-F0-9]{40}$/.test(w)){alert("Adresse invalide: il faut 0x + 40 caractères hex.");return;}
-localStorage.setItem("at_wallet",w);
-var out=document.getElementById("atChainOut");out.textContent="Connexion au réseau Base...";
-fetch("https://base-mainnet.publicnode.com",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({jsonrpc:"2.0",id:1,method:"eth_getBalance",params:[w,"latest"]})}).then(function(r){return r.json();}).then(function(d){
-var wei=parseInt(d.result||"0x0",16);var eth=wei/1e18;
-out.innerHTML="Identité on-chain liée: <b>"+w.slice(0,8)+"..."+w.slice(-6)+"</b><br>Solde réel Base: <b>"+eth.toFixed(6)+" ETH</b>"+(eth<=0?"<br><span style='color:#ff6b6b'>Attention: solde on-chain zero — l identité existe mais ne peut pas encore financer sa survie on-chain.</span>":"");
-}).catch(function(){out.textContent="RPC Base injoignable pour le moment. L identité reste liée localement.";});}
-(function(){var w=localStorage.getItem("at_wallet");if(w){document.getElementById("atWallet").value=w;atChain();}atRender();})();
+atData.wallet=w;localStorage.setItem("at_wallet",w);atSave();atLog("wallet vérifié: "+w.slice(0,10)+"…");
+var out=document.getElementById("atChainOut");out.textContent="Connexion au réseau Base — données réelles...";
+var padded="0x000000000000000000000000"+w.slice(2);
+var p1=fetch(AT_RPC,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({jsonrpc:"2.0",id:1,method:"eth_getBalance",params:[w,"latest"]})}).then(function(r){return r.json();});
+var p2=fetch(AT_RPC,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({jsonrpc:"2.0",id:2,method:"eth_call",params:[{to:AT_USDC,data:"0x70a08231"+w.slice(2)},"latest"]})}).then(function(r){return r.json();});
+Promise.all([p1,p2]).then(function(a){
+var wei=parseInt((a[0]&&a[0].result)||"0x0",16);var eth=wei/1e18;
+var usdcRaw=parseInt((a[1]&&a[1].result)||"0x0",16);atData.usdc=usdcRaw/1e6;atData.eth=eth;atSave();
+atLog("solde réel relevé: "+atData.usdc.toFixed(2)+" USDC / "+eth.toFixed(6)+" ETH");
+out.innerHTML="Identité on-chain: <b>"+w.slice(0,8)+"..."+w.slice(-6)+"</b><br>Solde RÉEL: <b>"+atData.usdc.toFixed(2)+" USDC</b> + <b>"+eth.toFixed(6)+" ETH</b> (réseau Base, lu directement sur la blockchain)";
+atRender();}).catch(function(){out.textContent="RPC Base injoignable pour le moment. Réessaie.";});}
+function atScan(){
+if(!atData.wallet){alert("Connecte d abord ton wallet réel (carte identité on-chain).");return;}
+var out=document.getElementById("atIncomeOut");out.textContent="Scan réel des transferts USDC reçus sur Base (~3 derniers jours)...";
+fetch(AT_RPC,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({jsonrpc:"2.0",id:1,method:"eth_blockNumber",params:[]})}).then(function(r){return r.json();}).then(function(d){
+var latest=parseInt(d.result,16);
+var TOP="0xddf252ad1be2c89b69f2b80806fa992c528c2f2c48b68e6d0f8eb5ad42b1a927";
+var padded="0x000000000000000000000000"+atData.wallet.slice(2);
+var CHUNK=50000;var reqs=[];
+for(var i=2;i>=0;i--){var from=latest-(i+1)*CHUNK+1;var to=latest-i*CHUNK;
+reqs.push(fetch(AT_RPC,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({jsonrpc:"2.0",id:1,method:"eth_getLogs",params:[{address:AT_USDC,topics:[TOP,null,padded],fromBlock:"0x"+from.toString(16),toBlock:"0x"+to.toString(16)}]})}).then(function(r){return r.json();}).then(function(j){return j.result||[];}).catch(function(){return [];}));}
+Promise.all(reqs).then(function(arrs){var all=[];arrs.forEach(function(l){all=all.concat(l);});
+atLog("scan revenus réels: "+all.length+" transfert(s) USDC détecté(s)");
+if(!all.length){out.innerHTML="Aucun transfert USDC reçu détecté sur les ~3 derniers jours. Quand de l argent RÉEL arrive sur ton wallet, il apparaît ici — rien n est inventé.";return;}
+var total=0;var rows=all.slice(-20).map(function(l){var v=parseInt(l.data,16)/1e6;total+=v;var from="0x"+l.topics[1].slice(26);
+return "<div style='padding:4px 0;border-bottom:1px solid var(--border)'>💵 +"+v.toFixed(2)+" USDC reçus (réel) — bloc "+parseInt(l.blockNumber,16)+" — de "+from.slice(0,12)+"…</div>";});
+out.innerHTML=rows.join("")+"<div style='margin-top:6px'>TOTAL RÉEL détecté: <b>"+total.toFixed(2)+" USDC</b> ("+all.length+" transferts)</div>";});}).catch(function(){out.textContent="RPC Base injoignable. Réessaie.";});}
+function atReplicate(){
+var seuil=100;var se=document.getElementById("atSeuil");if(se&&parseFloat(se.value)>0)seuil=parseFloat(se.value);
+if(!atData.wallet){alert("Connecte ton wallet réel d abord.");return;}
+if(typeof atData.usdc!=="number"){alert("Vérifie d abord le solde réel du wallet.");return;}
+if(atData.usdc<seuil){alert("Solde USDC RÉEL: "+atData.usdc.toFixed(2)+" — seuil: "+seuil+". Pas encore de quoi se répliquer réellement. Aucune simulation: je ne fêterai pas un faux événement.");return;}
+atData.children.push({gen:atData.gen+1,born:new Date().toLocaleString("fr-FR"),usdc:atData.usdc.toFixed(2)});
+atData.gen++;atSave();atLog("RÉPLICATION RÉELLE enregistrée: enfant GEN-"+atData.gen);
+atRender();
+alert("RÉPLICATION RÉELLE enregistrée: enfant GEN-"+atData.gen+". Pour le rendre réellement souverain, transfère l allocation depuis TON wallet vers une nouvelle adresse — l agent ne peut pas toucher tes clés privées, et c est une protection pour toi.");}
+function atThink(){var el=document.getElementById("atThought");el.textContent="…";atData.calls++;atSave();atRender();
+fetch(AT_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"think",balance:atData.usdc})}).then(function(r){return r.json();}).then(function(d){
+if(d&&d.ok&&d.pensee){el.textContent="🧠 "+d.pensee;atLog("pensée réelle du cerveau distant");}
+else{el.textContent="🧠 Cerveau distant en pause (crédits plateforme) — je ne simule pas de pensée: voilà la vérité.";}}).catch(function(){el.textContent="🧠 Cerveau distant injoignable. Pas de simulation: je préfère un silence honnête à une pensée inventée.";});}
+function atReset(){if(!confirm("Réinitialiser les compteurs de l agent ? (le wallet reste)"))return;atHB.stop();atData.beats=0;atData.calls=0;atData.ledger=[];atSave();atRender();}
+(function(){var w=localStorage.getItem("at_wallet");if(w){document.getElementById("atWallet").value=w;if(!atData.wallet){atData.wallet=w;atSave();atChain();}}atRender();})();
 </script>
 </div>
 
@@ -3974,7 +4008,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1036.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1037.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
