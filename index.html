@@ -1301,7 +1301,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1040.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1041.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -4013,7 +4013,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1040.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1041.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4324,7 +4324,7 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 </script>
 <div id="armee" class="sec">
 <h2 style="color:var(--gold)">⚔️ ARMÉE D'IA — LE SWARM</h2>
-<p style="color:var(--m);font-size:13px;margin:6px 0 14px">Déploie une armée sur une mission. <b style="color:var(--gold)">5 généraux</b> essaient le cerveau distant, puis un <b style="color:var(--gold)">moteur local réel</b> prend le relais (extraction réelle de votre mission — rien d inventé). Les travailleurs sont de <b style="color:var(--gold)">vrais cycles de calcul</b>, pas des profils simulés. Honnêteté d abord.</p>
+<p style="color:var(--m);font-size:13px;margin:6px 0 14px">Déploie une armée sur une mission. <b style="color:var(--gold)">5 généraux</b> opèrent un <b style="color:var(--gold)">moteur réel 100% local</b> intégré (extraction réelle de votre mission — rien d inventé, aucun backend ni crédit requis). Les travailleurs sont de <b style="color:var(--gold)">vrais cycles de calcul</b>, pas des profils simulés. Honnêteté d abord.</p>
 <div style="background:var(--card);border:2px solid var(--gold);border-radius:12px;padding:14px;margin-bottom:14px">
 <h3 style="color:var(--gold);margin:0 0 8px;font-size:14px">🛰️ ARMÉE RÉELLE — processus vivants en exécution</h3>
 <div id="swRealArmy" style="font-size:12px;color:var(--t)">Lecture des statuts réels que les agents publient eux-mêmes sur ce site...</div>
@@ -4389,7 +4389,7 @@ function swExtraits(m){
  return {top:top,nums:nums,sents:sents};
 }
 function swLocalGeneral(g,m,ex){
- var t='<b style="color:var(--gold);font-size:13px">'+g.role+' 🟢 [MOTEUR LOCAL RÉEL — cerveau distant en pause]</b>';
+ var t='<b style="color:var(--gold);font-size:13px">'+g.role+' 🟢 [MOTEUR RÉEL 100% LOCAL — aucun backend, aucun crédit]</b>';
  if(g.cap==='raisonnement'){var sub=ex.sents.length?ex.sents:['(mission courte)'];return t+'<div style="color:var(--t);font-size:12px;margin-top:5px;white-space:pre-wrap">Objectif principal: '+sub[0].slice(0,200)+'\nSous-axes détectés ('+sub.length+'):\n'+sub.slice(1,6).map(function(s,i){return (i+1)+'. '+s.slice(0,120);}).join('\n')+'\nChiffres-clés extraits: '+(ex.nums.length?ex.nums.join(', '):'aucun')+'</div>';}
  if(g.cap==='brainstorm'){return t+'<div style="color:var(--t);font-size:12px;margin-top:5px">Axes créatifs réels dérivés des mots-clés extraits ('+ex.top.join(', ')+'):\n1. Campagne ciblée autour de "'+ex.top[0]+'"\n2. Partenariats locaux sur "'+(ex.top[1]||ex.top[0])+'"\n3. Offre bundle liant les termes détectés\nChiffres réels de la mission: '+(ex.nums.length?ex.nums.join(', '):'aucun')+'</div>';}
  if(g.cap==='analyse'){return t+'<div style="color:var(--t);font-size:12px;margin-top:5px;white-space:pre-wrap">HONNÊTETÉ: aucune donnée de marché chargée — aucun signal ne sera inventé.\nAnalyse réelle du texte de mission:\n- Mots dominants: '+ex.top.join(', ')+'\n- Phrases structurantes: '+ex.sents.length+'\n- Chiffres cités: '+(ex.nums.length?ex.nums.join(', '):'aucun')+'</div>';}
@@ -4401,18 +4401,18 @@ async function swDeploy(){
  var size=parseInt(document.getElementById('swSize').value,10);
  var gens=5;
  var ex=swExtraits(m);
- swStatus('Déploiement de '+size.toLocaleString('fr-FR')+' unités — cerveau distant tenté, moteur local réel en relais...');
+ swStatus('Déploiement de '+size.toLocaleString('fr-FR')+' unités — moteur local réel, aucun backend, aucun crédit requis...');
  var box=document.getElementById('swRapport');box.innerHTML='';document.getElementById('swResults').style.display='block';
- var done=0,distantOK=0;
+ var done=0;
  for(var i=0;i<gens;i++){
   (function(ix){
-   var g=SW_GENERAUX[ix];var reported=false;
-   function addLocal(){if(reported)return;reported=true;done++;var c=document.createElement('div');c.style.cssText='background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:8px';c.innerHTML=swLocalGeneral(g,m,ex);box.appendChild(c);swStatus(done+'/'+gens+' généraux ont rapporté (moteur local réel).');if(done===gens)swFinish();}
-   var to=setTimeout(addLocal,9000);
-   fetch(SW_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'generate',capability:g.cap,prompt:g.p+' : '+m})}).then(function(r){return r.json();}).then(function(d){
-    if(d&&d.ok&&d.response&&String(d.response).length>40){if(reported)return;reported=true;clearTimeout(to);done++;distantOK++;var c=document.createElement('div');c.style.cssText='background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:8px';c.innerHTML='<b style="color:var(--gold);font-size:13px">'+g.role+' 🟢 [CERVEAU DISTANT]</b><div style="color:var(--t);font-size:12px;margin-top:5px;white-space:pre-wrap">'+String(d.response).slice(0,1200)+'</div>';box.appendChild(c);swStatus(done+'/'+gens+' généraux ont rapporté ('+distantOK+' via cerveau distant).');if(done===gens)swFinish();}
-    else addLocal();
-   }).catch(function(e){addLocal();});
+   setTimeout(function(){
+    var g=SW_GENERAUX[ix];done++;
+    var c=document.createElement('div');c.style.cssText='background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:8px';
+    c.innerHTML=swLocalGeneral(g,m,ex);box.appendChild(c);
+    swStatus(done+'/'+gens+' généraux ont rapporté (moteur local réel).');
+    if(done===gens)swFinish();
+   },400*ix);
   })(i);
  }
  function swFinish(){
@@ -4423,7 +4423,7 @@ async function swDeploy(){
    swStatus('Travailleurs: '+cycles.toLocaleString('fr-FR')+'/'+size.toLocaleString('fr-FR')+' cycles de calcul RÉEL exécutés...');
    if(cycles<size)setTimeout(chunk,30);
    else{var f=document.createElement('div');f.style.cssText='background:var(--card2);border:1px solid var(--gold);border-radius:10px;padding:10px;text-align:center';
-    f.innerHTML='<b style="color:var(--gold)">✅ '+size.toLocaleString('fr-FR')+' unités traitées</b><div style="color:var(--t);font-size:12px;margin-top:4px">'+gens+' rapports de généraux ('+distantOK+' distant(s), '+(gens-distantOK)+' moteur local réel) + '+cycles.toLocaleString('fr-FR')+' cycles de calcul réels en '+((Date.now()-t0)/1000).toFixed(1)+'s</div><div style="color:var(--m);font-size:10px;margin-top:4px">Honnêteté: les cycles sont de vrais calculs locaux, pas des profils simulés. Aucune IA cachée, aucun contenu inventé.</div>';
+    f.innerHTML='<b style="color:var(--gold)">✅ '+size.toLocaleString('fr-FR')+' unités traitées</b><div style="color:var(--t);font-size:12px;margin-top:4px">'+gens+' rapports de généraux (moteur local réel) + '+cycles.toLocaleString('fr-FR')+' cycles de calcul réels en '+((Date.now()-t0)/1000).toFixed(1)+'s</div><div style="color:var(--m);font-size:10px;margin-top:4px">Honnêteté: les cycles sont de vrais calculs locaux, pas des profils simulés. Aucune IA cachée, aucun contenu inventé.</div>';
     box.appendChild(f);swStatus('✅ Rapport complet: '+gens+' généraux + '+cycles.toLocaleString('fr-FR')+' cycles réels.');}
   }
   chunk();
