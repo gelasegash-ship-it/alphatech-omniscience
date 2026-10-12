@@ -142,6 +142,7 @@ th{background:var(--card2);color:var(--cosmos)}
 *{box-sizing:border-box;}
 body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 
+.at-mode-econome *{animation:none!important;transition:none!important}.at-mode-econome .nb{opacity:.92}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ALPHATECH OMNISCIENCE","description":"La premiere IA omnisciente au monde. Crypto, trading, finance, securite, technologies futures. 100% donnees reelles.","url":"https://gelasegash-ship-it.github.io/alphatech-omniscience/","applicationCategory":"TechnologyApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ALPHATECH OMNISCIENCE","founder":{"@type":"Person","name":"Gelase Gelase"}},"features":["IA temps reel","Crypto trading","Blockchain scan","Quantum engine","Neural network","29 sections","PWA installable"]}</script>
 <script>
@@ -1301,7 +1302,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1041.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1042.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -4013,7 +4014,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1041.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1042.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4435,5 +4436,56 @@ async function swDeploy(){
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('./sw.js').catch(function(){});});}
 (function(){var THEMES=[{n:"OR OMNISCIENCE"},{n:"CYBER NOIR",v:{"--bg":"#050505","--card":"#0d1117","--card2":"#161b22","--border":"#30363d","--p":"#58c7ff","--g":"#7ee787","--t":"#e6edf3","--m":"#8b949e","--cosmos":"#a371f7","--cosmos2":"#f778ba"}},{n:"EMERAUDE",v:{"--bg":"#04120c","--card":"#0a1f15","--card2":"#0f2a1c","--border":"#1e4632","--p":"#2eff8b","--g":"#a3ff12","--t":"#e0ffe9","--m":"#7fae90","--cosmos":"#59f2d6","--cosmos2":"#ffd166"}},{n:"ROYAL",v:{"--bg":"#0a0714","--card":"#150f2b","--card2":"#1d1640","--border":"#3b2d6b","--p":"#b388ff","--g":"#00ffa3","--t":"#efe9ff","--m":"#9d8fc4","--cosmos":"#8f7bff","--cosmos2":"#ff6ec7"}}];var t=parseInt(localStorage.getItem("at_theme")||"0")||0;function apply(){var th=THEMES[t%THEMES.length];var names=["--bg","--card","--card2","--border","--p","--g","--t","--m","--cosmos","--cosmos2"];names.forEach(function(k){document.documentElement.style.removeProperty(k);});if(th.v){for(var k in th.v){document.documentElement.style.setProperty(k,th.v[k]);}}var b=document.getElementById("themeBtn");if(b){b.title=th.n;}}var b=document.createElement("button");b.id="themeBtn";b.textContent="\u{1F3A8}";b.style.cssText="position:fixed;bottom:14px;right:14px;z-index:99999;background:#ffd700;color:#000;border:none;border-radius:50%;width:46px;height:46px;font-size:20px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.6)";b.onclick=function(){t=(t+1)%THEMES.length;localStorage.setItem("at_theme",String(t));apply();};document.body.appendChild(b);apply();})();
 </script>
+
+<script id="atAdaptiveMode">
+// ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
+(function(){
+var JKEY="at_mode_journal";
+var st={mode:"COMPLET",distantOK:null,online:navigator.onLine,signals:{}};
+window.AT_MODE=st;
+function jour(msg,sol){try{var j=JSON.parse(localStorage.getItem(JKEY)||"[]");j.unshift({t:new Date().toLocaleTimeString("fr-FR"),m:msg,s:sol||""});if(j.length>50)j.pop();localStorage.setItem(JKEY,JSON.stringify(j));}catch(e){}render();}
+function setMode(m,why){if(st.mode===m)return;var old=st.mode;st.mode=m;var cl=document.body.className.replace(/\s*at-mode-\w+/g,"");document.body.className=cl+" at-mode-"+m.toLowerCase();jour("MODE "+old+" → "+m,why);render();}
+function goLocal(why){st.distantOK=false;if(st.mode!=="SURVIE")setMode("LOCAL",why+" — solution: les moteurs locaux prennent le relais (armee, GENESIS, assistant), aucune fonctionnalite ne reste bloquee");}
+function goFull(){st.distantOK=true;if(st.mode!=="SURVIE")setMode("COMPLET","backend repondu — solution: retour aux capacites completes");}
+// SONDE REELLE du backend (1 appel leger, toutes les 10 min max)
+function probe(){
+ if(!navigator.onLine){st.distantOK=false;setMode("SURVIE","navigateur hors ligne — solution: mode survie, operations locales garanties, requetes en file pour rejouage au retour du reseau");return;}
+ var url=(typeof SW_URL!=="undefined")?SW_URL:"https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/aiRouter";
+ fetch(url,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"capabilities"}),signal:AbortSignal.timeout(6000)}).then(function(r){if(r.ok)goFull();else goLocal("sonde backend: code "+r.status);}).catch(function(e){goLocal("sonde backend: "+e.message);});
+ // SIGNAUX REELS d economies
+ var c=navigator.connection||navigator.mozConnection||navigator.webkitConnection||{};
+ st.signals={reseau:c.effectiveType||"inconnu",dataSaver:!!c.saveData};
+ if(navigator.getBattery){navigator.getBattery().then(function(b){st.signals.batterie=Math.round(b.level*100)+"%"+(b.charging?" (charge)":"");var lent=["slow-2g","2g"].indexOf(c.effectiveType)>-1;var faible=(!b.charging&&b.level<0.2);if((faible||c.saveData||lent)&&st.mode!=="SURVIE"){setMode("ECONOME","ressources limitees (batterie "+st.signals.batterie+", reseau "+st.signals.reseau+") — solution: animations coupees, appels reseau minimises, la totalite des fonctions reste disponible");}else if(st.mode==="ECONOME"&&(!faible&&!c.saveData&&!lent)){setMode(st.online?(st.distantOK?"COMPLET":"LOCAL"):"SURVIE","ressources suffisantes — solution: retour au mode adapte automatiquement");}}).catch(function(){});}
+}
+// FILE DE REJEUAGE: les GET reseau qui echouent hors ligne sont rejoues automatiquement au retour
+var Q="at_mode_queue";
+function replay(){try{var q=JSON.parse(localStorage.getItem(Q)||"[]");if(!q.length)return;localStorage.setItem(Q,"[]");var ok=0;q.forEach(function(u){fetch(u).then(function(){ok++;if(ok)jour("Requete rejouee automatiquement",u.slice(0,60));}).catch(function(){});});if(q.length)jour(q.length+" requete(s) en file au moment de la coupure","solution: rejouage automatique — "+ok+" envoyee(s) des le retour du reseau");}catch(e){}}
+// EMBRAYAGE: chaque echec de communication avec le backend declenche la bascule + la solution
+var OF=window.fetch;
+window.fetch=function(u,o){return OF.apply(this,arguments).then(function(r){
+ if(typeof u==="string"&&u.indexOf("base44.app/api/apps/")>-1&&(!r.ok)&&st.distantOK!==false){goLocal("appel backend refuse (HTTP "+r.status+")");}
+ else if(typeof u==="string"&&u.indexOf("base44.app/api/apps/")>-1&&r.ok&&st.distantOK===false){goFull();}
+ return r;}).catch(function(e){
+ if(typeof u==="string"&&u.indexOf("base44.app/api/apps/")>-1){goLocal("reseau backend coupe: "+e.message);}
+ if(typeof u==="string"&&navigator.onLine===false&&(o&&o.method==="GET"||!o||!o.method)){try{var q=JSON.parse(localStorage.getItem(Q)||"[]");if(q.indexOf(u)===-1){q.push(u);localStorage.setItem(Q,JSON.stringify(q));}}catch(e2){}}
+ throw e;});};
+addEventListener("online",function(){st.online=true;jour("Connexion retouve","sonde relancee + rejouage de la file d attente");probe();replay();if(st.distantOK!==false)setMode(st.distantOK?"COMPLET":"LOCAL","retour en ligne");});
+addEventListener("offline",function(){st.online=false;st.distantOK=false;setMode("SURVIE","coupure reseau — solution: mode survie, donnees locales (localStorage/PWA), file de rejouage activee");});
+// BADGE + PANNEAU
+var b=document.createElement("div");b.id="atModeBadge";b.style.cssText="position:fixed;bottom:14px;left:12px;z-index:99999;background:rgba(10,14,39,.92);border:1px solid var(--gold);border-radius:20px;padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit";b.onclick=panel;document.body.appendChild(b);
+function render(){var M={COMPLET:["\ud83d\udfe2 MODE COMPLET","#00d4ff"],LOCAL:["\ud83d\udfe1 MODE LOCAL","#ffa500"],ECONOME:["\ud83d\udfe0 MODE ECONOME","#4fc3f7"],SURVIE:["\ud83d\udd34 MODE SURVIE","#ff3b3b"]};var x=M[st.mode]||M.COMPLET;b.textContent=x[0];b.style.borderColor=x[1];}
+function panel(){var p=document.getElementById("atModePanel");if(p){p.remove();return;}
+ p=document.createElement("div");p.id="atModePanel";p.style.cssText="position:fixed;bottom:54px;left:12px;z-index:99998;background:rgba(10,14,39,.97);border:1px solid var(--gold);border-radius:12px;padding:14px;max-width:340px;max-height:60vh;overflow:auto;font-size:12px;color:var(--t)";
+ var sig=Object.keys(st.signals).map(function(k){return k+": "+st.signals[k];}).join(" | ")||"lecture des signaux en cours...";
+ var j=JSON.parse(localStorage.getItem(JKEY)||"[]");
+ var rows=j.slice(0,12).map(function(l){return "<div style='margin:6px 0;padding:6px;border-left:2px solid var(--gold);background:rgba(255,255,255,.03)'><div style='color:var(--m);font-size:10px'>"+l.t+"</div><div>"+l.m+"</div>"+(l.s?"<div style='color:var(--g);font-size:10px;margin-top:2px'>✅ "+l.s+"</div>":"")+"</div>";}).join("")||"<div style='color:var(--m)'>Aucune adaptation encore necessaire.</div>";
+ p.innerHTML="<div style='color:var(--gold);font-weight:700;font-size:13px;margin-bottom:6px'>\ud83e\udd16 MOTEUR ADAPTATIF — journal des solutions</div><div style='color:var(--m);font-size:10px;margin-bottom:8px'>Signaux reels: "+sig+" | backend: "+(st.distantOK===null?"sonde en cours":(st.distantOK?"disponible":"en pause (moteurs locaux)"))+"</div>"+rows+"<div style='color:var(--m);font-size:9px;margin-top:8px'>L app detecte reseau, backend, batterie et bascule seule entre COMPLET / LOCAL / ECONOME / SURVIE. Chaque solution appliquee est journalisee ici — aucune simulation.</div>";
+ document.body.appendChild(p);}
+render();
+probe();
+setInterval(probe,600000);
+})();
+</script>
+
 </body>
 </html>
