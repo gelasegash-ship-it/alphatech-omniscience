@@ -1301,7 +1301,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1037.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1038.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1644,6 +1644,7 @@ async function brainThink(){var o=document.getElementById("brainOut");o.textCont
 
 <div id="automaton" class="sec">
 <div class="card" style="border-color:var(--gold);border-width:2px"><div class="ct" style="color:var(--gold)">🧬 AUTOMATON — FORME DE VIE NUMÉRIQUE SOUVERAINE (RÉEL, SANS SIMULATION)</div><div class="cd">Aucune valeur inventée. Ton wallet réel sur Base, tes revenus réels détectés sur la blockchain, et le vrai coût de fonctionnement de l agent: <b>0 FC</b> (Groq gratuit + GitHub Pages gratuit + traitement local). Contrairement à Conway, ton agent ne peut pas mourir de faim — et ne peut pas te mentir.</div></div>
+<div class="card"><div class="ct">🛰️ RUNTIME PROD RÉEL — boucle de vie en exécution autonome</div><div id="atProd" class="cd">Chargement du statut réel du runtime autonome (publié par l agent lui-même sur GitHub)...</div></div>
 <div class="card"><div class="ct">Cœur réel — GENESIS-AUTOMATON GEN-<span id="atGen">1</span></div>
 <div style="text-align:center;padding:12px"><div id="atPulse" style="width:64px;height:64px;border-radius:50%;background:radial-gradient(circle,#ffd700,#ff6b00);margin:auto;box-shadow:0 0 42px #ffd700"></div><div id="atStatus" style="margin-top:10px;font-weight:bold;color:#7ee787">VIVANT — coût réel 0 FC</div></div>
 <div class="cd">Battements (vie de session): <b id="atBeats">0</b> | Appels IA réels: <b id="atCalls">0</b> | Coût réel: <b>0 FC</b> (infrastructures gratuites) | Solde wallet réel: <b id="atUSD">—</b> USDC</div>
@@ -1750,6 +1751,10 @@ fetch(AT_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSO
 if(d&&d.ok&&d.pensee){el.textContent="🧠 "+d.pensee;atLog("pensée réelle du cerveau distant");}
 else{el.textContent="🧠 Cerveau distant en pause (crédits plateforme) — je ne simule pas de pensée: voilà la vérité.";}}).catch(function(){el.textContent="🧠 Cerveau distant injoignable. Pas de simulation: je préfère un silence honnête à une pensée inventée.";});}
 function atReset(){if(!confirm("Réinitialiser les compteurs de l agent ? (le wallet reste)"))return;atHB.stop();atData.beats=0;atData.calls=0;atData.ledger=[];atSave();atRender();}
+(function(){var el=document.getElementById("atProd");if(!el)return;
+fetch("./agent-status.json?v="+Date.now()).then(function(r){return r.json();}).then(function(s){
+if(!s||!s.agent){el.textContent="Statut du runtime pas encore publié.";return;}
+el.innerHTML="Agent: <b>"+s.agent+"</b> (GEN-"+s.generation+")<br>Adresse souveraine (Base): <b>"+s.adresse+"</b><br>Solde réel: <b>"+(s.soldeUSDC===null||s.soldeUSDC===undefined?"RPC en attente":s.soldeUSDC+" USDC")+"</b> | Tier: <b>"+s.tier+"</b><br>Battements: <b>"+s.battements+"</b> | Pensées réelles: <b>"+s.pensees+"</b> | Commandes réelles: <b>"+s.commandesReelles+"</b> | Coût réel: <b>"+s.coutReel+"</b><br>Dernière pensée: <i>"+(s.dernierePensee||"—")+"</i><br><span style='color:var(--m)'>Publié par l agent lui-même — MAJ "+s.maj+"</span>";}).catch(function(){el.textContent="Runtime non joignable — il continue de battre en local, publiera au prochain cycle.";});})();
 (function(){var w=localStorage.getItem("at_wallet");if(w){document.getElementById("atWallet").value=w;if(!atData.wallet){atData.wallet=w;atSave();atChain();}}atRender();})();
 </script>
 </div>
@@ -4008,7 +4013,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1037.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1038.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
