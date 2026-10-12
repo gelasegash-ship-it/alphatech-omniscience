@@ -1301,7 +1301,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1034.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1035.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1311,6 +1311,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="futur" onclick="go('futur')">FUTUR</button>
 <button class="nb" data-t="evolution" onclick="go('evolution')">AUTO-ÉVOLUTION</button>
 <button class="nb" data-t="automaton" onclick="go('automaton')">AUTOMATON</button>
+<button class="nb" data-t="advit" onclick="go('advit')">AUTOMATON PRO</button>
 <button class="nb" data-t="studio" onclick="go('studio')">STUDIO VIDÉO</button>
 <button class="nb" data-t="brain" onclick="go('brain')">GENESIS OBEIT</button>
 <button class="nb" data-t="factory" onclick="go('factory')">USINE À APPS</button>
@@ -1713,6 +1714,131 @@ var wei=parseInt(d.result||"0x0",16);var eth=wei/1e18;
 out.innerHTML="Identité on-chain liée: <b>"+w.slice(0,8)+"..."+w.slice(-6)+"</b><br>Solde réel Base: <b>"+eth.toFixed(6)+" ETH</b>"+(eth<=0?"<br><span style='color:#ff6b6b'>Attention: solde on-chain zero — l identité existe mais ne peut pas encore financer sa survie on-chain.</span>":"");
 }).catch(function(){out.textContent="RPC Base injoignable pour le moment. L identité reste liée localement.";});}
 (function(){var w=localStorage.getItem("at_wallet");if(w){document.getElementById("atWallet").value=w;atChain();}atRender();})();
+</script>
+</div>
+
+<div id="advit" class="sec">
+<div class="card" style="border-color:var(--gold);border-width:2px"><div class="ct" style="color:var(--gold)">🏢 AUTOMATON PRO — Capacités enterprise (style Automaton AI Infosystem)</div><div class="cd">MLOps, DocuGPT, ADAPT AI (AutoML sans code), ADVIT Studio, vision par ordinateur. Déploiement <b>on-premise et air-gapped</b> : tout tourne dans TON navigateur, tes données ne quittent jamais ton appareil. Le cerveau distant (Groq) s'ajoute automatiquement au retour des crédits.</div></div>
+<div class="card"><div class="ct">📄 DocuGPT — IA documentaire</div>
+<textarea id="dgDoc" placeholder="Colle ton document (ou charge un fichier .txt/.md/.csv/.json)... ouvre une demande, un contrat, un rapport" style="width:92%;height:110px;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--card2);color:var(--t);font:inherit"></textarea><br>
+<input type="file" id="dgFile" accept=".txt,.md,.csv,.json" style="margin-top:6px">
+<div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+<button style="background:var(--gold);color:#000;border:none;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="dgSummary()">RÉSUMER</button>
+<button style="background:var(--card2);color:var(--t);border:1px solid var(--border);padding:9px 14px;border-radius:8px;cursor:pointer" onclick="dgKeywords()">MOTS-CLÉS</button>
+<button style="background:var(--card2);color:var(--t);border:1px solid var(--border);padding:9px 14px;border-radius:8px;cursor:pointer" onclick="dgStats()">STATS</button>
+</div>
+<input id="dgQ" placeholder="Pose une question sur le document..." style="width:70%;padding:9px;border-radius:8px;border:1px solid var(--border);background:var(--card2);color:var(--t);margin-top:8px">
+<button style="background:#12331f;color:#7ee787;border:1px solid #2ea043;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="dgAsk()">INTERROGER</button>
+<div id="dgOut" class="cd" style="margin-top:10px;white-space:pre-wrap"></div></div>
+<div class="card"><div class="ct">🧠 ADAPT AI — AutoML sans code (Naive Bayes réel, entraîné chez toi)</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+<input id="adExample" placeholder="Exemple de texte (ex: livraison rapide et soignée)" style="flex:2;min-width:180px;padding:9px;border-radius:8px;border:1px solid var(--border);background:var(--card2);color:var(--t)">
+<input id="adLabel" placeholder="Étiquette (ex: positif)" style="flex:1;min-width:100px;padding:9px;border-radius:8px;border:1px solid var(--border);background:var(--card2);color:var(--t)">
+<button style="background:var(--gold);color:#000;border:none;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="adAdd()">AJOUTER</button>
+</div>
+<div class="cd" id="adData" style="margin-top:8px">Aucun exemple. Ajoute des textes avec leur étiquette (2 étiquettes minimum, 3+ exemples chacune recommandés).</div>
+<div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+<button style="background:#12331f;color:#7ee787;border:1px solid #2ea043;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="adTrain()">ENTRAÎNER LE MODÈLE</button>
+<input id="adTest" placeholder="Texte à classifier..." style="flex:2;min-width:160px;padding:9px;border-radius:8px;border:1px solid var(--border);background:var(--card2);color:var(--t)">
+<button style="background:#2a1a3a;color:#c9a6ff;border:1px solid #9b7bff;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="adPredict()">CLASSIFIER</button>
+<button style="background:var(--card2);color:var(--t);border:1px solid var(--border);padding:9px 14px;border-radius:8px;cursor:pointer" onclick="adClear()">EFFACER</button>
+</div>
+<div id="adOut" class="cd" style="margin-top:10px"></div></div>
+<div class="card"><div class="ct">👁️ VISION — analyse d'image locale</div>
+<input type="file" id="cvFile" accept="image/*" style="margin-top:4px">
+<div id="cvOut" class="cd" style="margin-top:8px"></div></div>
+<div class="card"><div class="ct">🎨 ADVIT Studio — génération d'images</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+<input id="avPrompt" placeholder="Décris l image à créer (anglais idéal: a golden robot over Brazzaville skyline, cinematic)" style="flex:2;min-width:180px;padding:9px;border-radius:8px;border:1px solid var(--border);background:var(--card2);color:var(--t)">
+<button style="background:var(--gold);color:#000;border:none;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="avGen()">GÉNÉRER</button>
+</div>
+<div id="avOut" style="margin-top:10px;text-align:center"></div>
+<div class="cd" style="margin-top:8px">Pour la vidéo, utilise STUDIO VIDÉO (montage 9:16 TikTok). Pour les documents, DocuGPT ci-dessus. Le tout multimodal, comme ADVIT Studio.</div></div>
+<script>
+var PRO_URL="https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/automatonPro";
+var DG_STOP=["le","la","les","un","une","des","du","de","et","ou","en","dans","pour","par","sur","au","aux","avec","que","qui","quoi","est","sont","sont","ce","cet","cette","ces","il","elle","ils","elles","nous","vous","je","tu","on","ne","pas","plus","moins","son","sa","ses","leur","leurs","the","and","for","with","that","this","from","are","was","has","have"];
+function dgDoc(){return document.getElementById("dgDoc").value||"";}
+function dgTokens(t){return (t.toLowerCase().match(/[a-zàâäéèêëîïôöùûüç]{3,}/g)||[]).filter(function(w){return DG_STOP.indexOf(w)<0;});}
+function dgSentences(t){return t.replace(/\s+/g," ").split(/(?<=[.!?…])\s+/).filter(function(s){return s.length>25;});}
+function dgOut(s){document.getElementById("dgOut").textContent=s;}
+function dgSummary(){
+var t=dgDoc();if(t.length<80){dgOut("Colle ou charge un document plus long (80+ caractères).");return;}
+var sents=dgSentences(t),toks=dgTokens(t),freq={};
+toks.forEach(function(w){freq[w]=(freq[w]||0)+1;});
+var scored=sents.map(function(s,i){var st=dgTokens(s);var sc=0;st.forEach(function(w){sc+=freq[w]||0;});return {i:i,s:s,sc:sc/Math.sqrt(st.length+1)};});
+var top=scored.sort(function(a,b){return b.sc-a.sc;}).slice(0,Math.min(5,Math.ceil(sents.length/3))).sort(function(a,b){return a.i-b.i;});
+dgOut("RÉSUMÉ (extrait local, cerveau distant se joindra au retour des crédits):\n\n"+top.map(function(x){return "• "+x.s;}).join("\n"));}
+function dgKeywords(){var t=dgDoc();if(!t){dgOut("Aucun document.");return;}var toks=dgTokens(t),freq={};toks.forEach(function(w){freq[w]=(freq[w]||0)+1;});
+var top=Object.keys(freq).sort(function(a,b){return freq[b]-freq[a];}).slice(0,10);
+dgOut("MOTS-CLÉS: "+top.join(", ")+"\n("+toks.length+" mots utiles)");}
+function dgStats(){var t=dgDoc();if(!t){dgOut("Aucun document.");return;}
+var words=(t.match(/\S+/g)||[]).length,sents=dgSentences(t).length;
+dgOut("STATISTIQUES: "+words+" mots | "+sents+" phrases | temps de lecture ~"+Math.max(1,Math.round(words/200))+" min | "+t.length+" caractères");}
+function dgAsk(){
+var t=dgDoc(),q=(document.getElementById("dgQ").value||"").trim();
+if(!t||!q){dgOut("Il faut un document ET une question.");return;}
+dgOut("Recherche...");
+fetch(PRO_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"qa",text:t.slice(0,5000),question:q})}).then(function(r){return r.json();}).then(function(d){
+if(d&&d.ok&&d.reponse){dgOut("🧠 CERVEAU DISTANT: "+d.reponse);return;}throw new Error("distant");
+}).catch(function(){
+var qs=dgTokens(q),sents=dgSentences(t);
+if(!sents.length){dgOut("Document trop court pour une recherche locale. Cerveau distant reviendra avec les crédits.");return;}
+var best=null,bs=-1;
+sents.forEach(function(s){var st=dgTokens(s),sc=0;qs.forEach(function(w){if(st.indexOf(w)>-1)sc++;});if(sc>bs){bs=sc;best=s;}});
+dgOut(bs>0?("📄 CERVEAU LOCAL, passage le plus pertinent:\n\n« "+best+" »"):"Pas de passage local correspondant. Reformule ou attends le cerveau distant (retour des crédits).");});}
+document.getElementById("dgFile").addEventListener("change",function(e){var f=e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(){document.getElementById("dgDoc").value=r.result;dgStats();};r.readAsText(f);});
+var adData=(function(){try{return JSON.parse(localStorage.getItem("adv_model_data")||"[]");}catch(e){return [];}})();
+var adModel=null;
+function adSave(){localStorage.setItem("adv_model_data",JSON.stringify(adData));adRender();}
+function adRender(){
+var counts={};adData.forEach(function(x){counts[x.label]=(counts[x.label]||0)+1;});
+var c=Object.keys(counts).map(function(k){return k+": "+counts[k];}).join(" | ");
+document.getElementById("adData").textContent=adData.length?("Exemples: "+adData.length+" ("+c+")"):"Aucun exemple. Ajoute des textes avec leur étiquette (2 étiquettes minimum, 3+ exemples chacune recommandés).";}
+function adAdd(){var ex=(document.getElementById("adExample").value||"").trim(),lb=(document.getElementById("adLabel").value||"").trim();
+if(!ex||!lb){alert("Texte et étiquette requis.");return;}adData.push({ex:ex,label:lb.toLowerCase()});document.getElementById("adExample").value="";adSave();}
+function adTokens(t){return (t.toLowerCase().match(/[a-zàâäéèêëîïôöùûüç]{2,}/g)||[]);}
+function adTrain(){
+if(adData.length<4){alert("Il faut au moins 4 exemples (idéalement 3+ par étiquette).");return;}
+var labels={},vocab={};
+adData.forEach(function(x){var lb=x.label;if(!labels[lb])labels[lb]={n:0,counts:{},total:0};labels[lb].n++;var toks=adTokens(x.ex);toks.forEach(function(w){labels[lb].counts[w]=(labels[lb].counts[w]||0)+1;labels[lb].total++;vocab[w]=1;});});
+var keys=Object.keys(labels);if(keys.length<2){alert("Il faut au moins 2 étiquettes différentes.");return;}
+adModel={labels:labels,V:Object.keys(vocab).length,total:adData.length};
+localStorage.setItem("adv_model",JSON.stringify(adModel));
+var acc=0;adData.forEach(function(x){if(adPredictText(x.ex).label===x.label)acc++;});
+document.getElementById("adOut").innerHTML="✅ MODÈLE ENTRAÎNÉ (Naive Bayes, "+adModel.V+" mots de vocabulaire, "+keys.length+" classes).<br>Exactitude sur les exemples: <b>"+Math.round(100*acc/adData.length)+"%</b>. Teste-le à droite.";}
+function adPredictText(t){
+if(!adModel)return {label:"?",conf:0};
+var toks=adTokens(t),best=null,bs=-Infinity,totals=[];
+for(var lb in adModel.labels){var L=adModel.labels[lb];var lp=Math.log(L.n/adModel.total);
+toks.forEach(function(w){lp+=Math.log(((L.counts[w]||0)+1)/(L.total+adModel.V));});
+totals.push({lb:lb,lp:lp});if(lp>bs){bs=lp;best=lb;}}
+var sum=0;totals.forEach(function(x){sum+=Math.exp(x.lp-bs);});
+return {label:best,conf:Math.round(100*(1/sum))};}
+function adPredict(){if(!adModel){alert("Entraîne d abord le modèle.");return;}
+var t=(document.getElementById("adTest").value||"").trim();if(!t)return;
+var p=adPredictText(t);
+document.getElementById("adOut").innerHTML="Classé: <b style='color:var(--gold)'>"+p.label+"</b> — confiance ~<b>"+p.conf+"%</b>";}
+function adClear(){if(!confirm("Effacer exemples et modèle ?"))return;adData=[];adModel=null;localStorage.removeItem("adv_model_data");localStorage.removeItem("adv_model");adRender();document.getElementById("adOut").textContent="";}
+adRender();
+(function(){try{var m=localStorage.getItem("adv_model");if(m){adModel=JSON.parse(m);document.getElementById("adOut").innerHTML="Modèle précédent chargé ("+Object.keys(adModel.labels).join(", ")+").";} }catch(e){}})();
+document.getElementById("cvFile").addEventListener("change",function(e){var f=e.target.files[0];if(!f)return;var r=new FileReader();
+r.onload=function(){var img=new Image();img.onload=function(){
+var c=document.createElement("canvas");c.width=64;c.height=64;var ctx=c.getContext("2d");ctx.drawImage(img,0,0,64,64);
+var d=ctx.getImageData(0,0,64,64).data,bins={},bright=0,edges=0;
+for(var i=0;i<d.length;i+=4){var rr=d[i],gg=d[i+1],bb=d[i+2];bright+=(rr+gg+bb)/3;
+var key=(Math.round(rr/32)*32)+","+(Math.round(gg/32)*32)+","+(Math.round(bb/32)*32);bins[key]=(bins[key]||0)+1;}
+for(var y=0;y<63;y++){for(var x=0;x<63;x++){var j=(y*64+x)*4,j2=(y*64+x+1)*4;
+if(Math.abs(d[j]-d[j2])+Math.abs(d[j+1]-d[j2+1])+Math.abs(d[j+2]-d[j2+2])>120)edges++;}}
+var top=Object.keys(bins).sort(function(a,b){return bins[b]-bins[a];}).slice(0,5);
+var pal=top.map(function(k){var p=k.split(",");var hex="#"+p.map(function(v){return Math.min(255,Math.max(0,parseInt(v)+16)).toString(16).padStart(2,"0");}).join("");var nb=Math.round(100*bins[k]/4096);return {hex:hex,nb:nb};});
+var avg=Math.round(bright/4096);
+var sw=pal.map(function(x2){return "<div style='display:inline-block;margin:2px'><div style='width:44px;height:26px;border-radius:6px;background:"+x2.hex+";border:1px solid #888'></div><div style='font-size:10px;color:var(--m)'>"+x2.nb+"%</div></div>";}).join("");
+document.getElementById("cvOut").innerHTML="<div>"+sw+"</div><div class='cd' style='margin-top:6px'>Dimensions: "+img.width+"×"+img.height+" | Luminosité moyenne: "+(avg<60?"sombre":(avg>180?"très clair":"moyenne")+" ("+avg+"/255)")+" | Contours détectés: "+Math.round(1000*edges/4096)/10+"‰ (densité de détails). Analyse 100% locale, l image n a jamais été envoyée.</div>";
+};img.src=r.result;};r.readAsDataURL(f);});
+function avGen(){var p=(document.getElementById("avPrompt").value||"").trim();if(!p){alert("Décris une image.");return;}
+var out=document.getElementById("avOut");out.innerHTML="Génération...";
+var img=new Image();img.crossOrigin="anonymous";img.onload=function(){out.innerHTML="";out.appendChild(img);img.style.cssText="max-width:100%;border-radius:12px;border:1px solid var(--gold)";};img.onerror=function(){out.textContent="Génération échouée, réessaie (le service gratuit est parfois chargé).";};
+img.src="https://image.pollinations.ai/prompt/"+encodeURIComponent(p.slice(0,900))+"?width=540&height=540&nologo=true&seed="+Math.floor(Math.random()*99999);}
 </script>
 </div>
 
@@ -3786,7 +3912,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1034.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1035.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
