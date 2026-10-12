@@ -1,5 +1,12 @@
 [
   {
+    "slug": "protocol-alpha-bootstrap",
+    "titre": "protocol-alpha-bootstrap",
+    "gen": "GEN-3",
+    "url": "https://gelasegash-ship-it.github.io/alphatech-omniscience/apps/protocol-alpha-bootstrap.html",
+    "date": "2026-10-12"
+  },
+  {
     "slug": "gestionnaire-de-tresorerie-familial-fcfa",
     "titre": "Gestionnaire de tresorerie familial FCFA multi-devises avec suivi des depenses, budgets par categorie et statistiques mensuelles",
     "gen": "GEN-1",
