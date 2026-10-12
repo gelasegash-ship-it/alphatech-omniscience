@@ -33,8 +33,8 @@
   },
   "tier": "dead",
   "penseesParCycle": 1,
-  "battements": 15,
-  "pensees": 11,
+  "battements": 18,
+  "pensees": 14,
   "missionsAuto": 1,
   "missionsTerminees": 0,
   "modeIA": true,
@@ -60,7 +60,7 @@
       "ne": "2026-10-12T07:11:56.918Z"
     }
   ],
-  "appsDeployees": 0,
+  "appsDeployees": 1,
   "coutReel": "0 FC",
   "competencesEnterprise": [
     "DocuGPT (docs/ resume + QA)",
