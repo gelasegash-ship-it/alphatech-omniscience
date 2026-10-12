@@ -33,14 +33,33 @@
   },
   "tier": "dead",
   "penseesParCycle": 1,
-  "battements": 21,
-  "pensees": 19,
+  "battements": 24,
+  "pensees": 22,
   "missionsAuto": 3,
   "missionsTerminees": 0,
-  "modeIA": false,
+  "modeIA": true,
   "commandesReelles": 7,
   "evolutions": null,
-  "enfantsLocaux": [],
+  "enfantsLocaux": [
+    {
+      "gen": 2,
+      "dir": "/app/conversations/6a8ed06312b12b3300218e7d/automaton-runtime/gen2-6f5573/",
+      "adresse": "0x6f5573E87250652A54d23fB43bE77e162a32cCE1",
+      "ne": "2026-10-12T06:23:05.000Z"
+    },
+    {
+      "gen": 3,
+      "dir": "/app/conversations/6a8ed06312b12b3300218e7d/automaton-runtime/gen3-0fBd55/",
+      "adresse": "0x0fBd559DA745dd38dD403a2a32eDa34d44adb3f5",
+      "ne": "2026-10-12T06:55:56.000Z"
+    },
+    {
+      "gen": 3,
+      "dir": "/app/conversations/6a8ed06312b12b3300218e7d/automaton-runtime/gen3-336e61/",
+      "adresse": "0x336e61cAD9B3bA7bbE96203bbf119B7bE57BC0c5",
+      "ne": "2026-10-12T07:09:09.164Z"
+    }
+  ],
   "appsDeployees": 0,
   "coutReel": "0 FC",
   "competencesEnterprise": [
