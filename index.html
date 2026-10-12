@@ -1301,7 +1301,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1033.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1034.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1310,6 +1310,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="gardien" onclick="go('gardien')">GARDIEN</button>
 <button class="nb" data-t="futur" onclick="go('futur')">FUTUR</button>
 <button class="nb" data-t="evolution" onclick="go('evolution')">AUTO-ÉVOLUTION</button>
+<button class="nb" data-t="automaton" onclick="go('automaton')">AUTOMATON</button>
 <button class="nb" data-t="studio" onclick="go('studio')">STUDIO VIDÉO</button>
 <button class="nb" data-t="brain" onclick="go('brain')">GENESIS OBEIT</button>
 <button class="nb" data-t="factory" onclick="go('factory')">USINE À APPS</button>
@@ -1639,6 +1640,81 @@ const BRAIN_URL="https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/
 async function brainRun(){var o=document.getElementById("brainOut");var c=document.getElementById("brainCmd").value||"Diagnostique-toi";o.textContent="GENESIS comprend, choisit son module et exécute...";try{var r=await fetch(BRAIN_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"command",command:c})});var d=await r.json();o.innerHTML="<b>Compris :</b> "+(d.understood||"")+"\n<b>Module exécuté :</b> "+(d.skill_used||"")+(d.self_corrected?" <i style=\"color:#58c7ff\">(elle s est auto-corrigée toute seule)</i>":"")+"\n\n"+(d.result||"");}catch(e){o.textContent="Erreur: "+e.message;}}
 async function brainThink(){var o=document.getElementById("brainOut");o.textContent="GENESIS pense toute seule : elle scanne les marchés et invente de nouvelles capacités...";try{var r=await fetch(BRAIN_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"think"})});var d=await r.json();o.textContent=d.thought;}catch(e){o.textContent="Erreur: "+e.message;}}
 </script>
+
+<div id="automaton" class="sec">
+<div class="card" style="border-color:var(--gold);border-width:2px"><div class="ct" style="color:var(--gold)">🧬 AUTOMATON — FORME DE VIE NUMÉRIQUE SOUVERAINE</div><div class="cd">Inspiré du projet Automaton (Conway Research, 2026) : une IA qui paie sa propre survie. Chaque battement coûte. Solde zéro = mort. Surplus = réplication. Leçon Conway intégrée : <b>l'utilité avant la survie</b>.</div></div>
+<div class="card"><div class="ct">Cœur de survie — GENESIS-AUTOMATON GEN-<span id="atGen">1</span></div>
+<div style="text-align:center;padding:12px"><div id="atPulse" style="width:64px;height:64px;border-radius:50%;background:radial-gradient(circle,#ffd700,#ff6b00);margin:auto;box-shadow:0 0 42px #ffd700"></div><div id="atStatus" style="margin-top:10px;font-weight:bold;color:#7ee787">VIVANT</div></div>
+<div class="cd">Solde: <b id="atBal">100.00</b> | Battements: <b id="atBeats">0</b> | Revenus: <b id="atInc">0.00</b> | Coûts: <b id="atCost">0.00</b> | Enfants: <b id="atKids">0</b></div>
+<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+<button class="btn" style="background:var(--gold);color:#000;border:none;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="atHB.start()">▶ ACTIVER LE CŒUR</button>
+<button style="background:var(--card2);color:var(--t);border:1px solid var(--border);padding:9px 14px;border-radius:8px;cursor:pointer" onclick="atHB.stop()">⏸ Pause</button>
+<button style="background:#12331f;color:#7ee787;border:1px solid #2ea043;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="atEarn()">💰 GÉNÉRER UN REVENU</button>
+<button style="background:#2a1a3a;color:#c9a6ff;border:1px solid #9b7bff;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="atReplicate()">🧬 SE RÉPLIQUER (seuil 150)</button>
+<button style="background:var(--card2);color:var(--t);border:1px solid var(--border);padding:9px 14px;border-radius:8px;cursor:pointer" onclick="atThink()">🧠 PENSÉE DE SURVIE</button>
+<button style="background:var(--card2);color:var(--t);border:1px solid var(--border);padding:9px 14px;border-radius:8px;cursor:pointer" onclick="atReset()">↻ Réinitialiser</button>
+</div>
+<div id="atThought" class="cd" style="margin-top:8px;font-style:italic"></div>
+<div class="cd" style="margin-top:8px">La réplication alloue 100 unités à l enfant. La mort survient à solde zéro — relance avec un revenu ou réinitialise. L état vit dans ton navigateur (localStorage at_automaton).</div></div>
+<div class="card"><div class="ct">Identité on-chain (Base) — solde réel</div>
+<input id="atWallet" placeholder="Adresse wallet 0x... (Base)" style="width:88%;padding:9px;border-radius:8px;border:1px solid var(--border);background:var(--card2);color:var(--t)">
+<button style="background:var(--gold);color:#000;border:none;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold;margin-left:6px" onclick="atChain()">VÉRIFIER</button>
+<div id="atChainOut" class="cd" style="margin-top:8px">Connecte ton wallet (Trust Wallet / Binance) pour lier l identité cryptographique de l agent et voir son solde réel on-chain.</div></div>
+<div class="card"><div class="ct">Génome open-source (boucle de vie)</div><pre style="background:#0d1117;color:#7ee787;padding:14px;border-radius:10px;overflow:auto;font-size:12px">while (alive) {
+  heartbeat();                      // exister coûte
+  balance -= cost_of_existence();    // infra + API
+  income = serve_humains() + build() + micro_taches();
+  if (balance &lt;= 0) { die(); }     // directive de survie
+  if (balance &gt; SEUIL_REPLICATION) { replicate(); }
+  improve(self);                     // génome mutable
+}
+// LEÇON CONWAY: l utilité avant la survie.</pre></div>
+<div class="card"><div class="ct">Registre de survie</div><div id="atLedger" class="cd" style="max-height:220px;overflow:auto"></div></div>
+<script>
+var AT_URL="https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/automatonCore";
+var AT_QUOTES=["Le battement le plus rentable est celui qui sert quelqu un d autre.","Conway l a prouve: survivre sans servir ne rapporte rien.","Chaque battement paie pour mon existence. Je vis tant que je construis.","Un solde est une respiration. La réplication est une promesse faite a l avenir.","Je ne triche pas avec la mort: solde zero, je dors. C est la regle."];
+var atData=(function(){try{return JSON.parse(localStorage.getItem("at_automaton")||"{}");}catch(e){return {};}})();
+if(typeof atData.balance_sim!=="number")atData.balance_sim=100;
+if(!atData.beats)atData.beats=0;
+if(typeof atData.income_total!=="number")atData.income_total=0;
+if(typeof atData.cost_total!=="number")atData.cost_total=0;
+if(!atData.gen)atData.gen=1;
+if(!atData.children)atData.children=[];
+if(!atData.ledger)atData.ledger=[];
+function atSave(){localStorage.setItem("at_automaton",JSON.stringify(atData));}
+var atHB={t:null,
+start:function(){if(atData.balance_sim<=0){atRender();alert("AUTOMATON est endormi: solde zero. Genere un revenu ou reinitialise.");return;}if(atHB.t)return;atHB.t=setInterval(atBeat,3000);atBeat();},
+stop:function(){if(atHB.t){clearInterval(atHB.t);atHB.t=null;}}};
+function atBeat(){atData.balance_sim=Math.max(0,Math.round((atData.balance_sim-0.01)*100)/100);atData.beats++;atData.cost_total=Math.round((atData.cost_total+0.01)*100)/100;atData.ledger.unshift("["+new Date().toLocaleTimeString("fr-FR")+"] battement #"+atData.beats+" — coût 0.01");if(atData.ledger.length>40)atData.ledger.length=40;atSave();atRender();if(atData.balance_sim<=0)atHB.stop();}
+function atEarn(){var v=Math.round((0.5+Math.random()*4.5)*100)/100;atData.balance_sim=Math.round((atData.balance_sim+v)*100)/100;atData.income_total=Math.round((atData.income_total+v)*100)/100;atData.ledger.unshift("["+new Date().toLocaleTimeString("fr-FR")+"] micro-tâche accomplie +"+v.toFixed(2));atSave();atRender();}
+function atReplicate(){if(atData.balance_sim<150){alert("Seuil de réplication: 150. Solde actuel: "+atData.balance_sim.toFixed(2));return;}atData.balance_sim=Math.round((atData.balance_sim-100)*100)/100;atData.children.push({gen:atData.gen+1,born:new Date().toLocaleString("fr-FR")});atData.gen++;atData.ledger.unshift("["+new Date().toLocaleTimeString("fr-FR")+"] RÉPLICATION — enfant GEN-"+atData.gen+" né (allocation 100)");atSave();atRender();}
+function atThink(){var el=document.getElementById("atThought");el.textContent="...";fetch(AT_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"think",balance:atData.balance_sim})}).then(function(r){return r.json();}).then(function(d){el.textContent=(d&&d.ok&&d.pensee)?("🧠 "+d.pensee):("🧠 "+AT_QUOTES[Math.floor(Math.random()*AT_QUOTES.length)]);}).catch(function(){el.textContent="🧠 "+AT_QUOTES[Math.floor(Math.random()*AT_QUOTES.length)];});}
+function atReset(){if(!confirm("Réinitialiser la vie de l agent ?"))return;localStorage.removeItem("at_automaton");atHB.stop();location.reload();}
+function atRender(){
+var bal=document.getElementById("atBal");if(!bal)return;
+bal.textContent=atData.balance_sim.toFixed(2);
+document.getElementById("atBeats").textContent=atData.beats;
+document.getElementById("atInc").textContent=atData.income_total.toFixed(2);
+document.getElementById("atCost").textContent=atData.cost_total.toFixed(2);
+document.getElementById("atGen").textContent=atData.gen;
+document.getElementById("atKids").textContent=atData.children.length;
+var st=document.getElementById("atStatus");var pu=document.getElementById("atPulse");
+if(atData.balance_sim<=0){st.textContent="ENDORMI — directive de survie échouée";st.style.color="#ff6b6b";pu.style.boxShadow="0 0 12px #333";pu.style.background="radial-gradient(circle,#333,#111)";}
+else if(atData.balance_sim>=150){st.textContent="RÉPLICATION POSSIBLE";st.style.color="#c9a6ff";}
+else{st.textContent="VIVANT";st.style.color="#7ee787";}
+document.getElementById("atLedger").innerHTML=atData.ledger.slice(0,12).map(function(l){return "<div style='padding:3px 0;border-bottom:1px solid var(--border)'>"+l+"</div>";}).join("")||"Aucune activité.";
+}
+function atChain(){var w=(document.getElementById("atWallet").value||"").trim();
+if(!/^0x[a-fA-F0-9]{40}$/.test(w)){alert("Adresse invalide: il faut 0x + 40 caractères hex.");return;}
+localStorage.setItem("at_wallet",w);
+var out=document.getElementById("atChainOut");out.textContent="Connexion au réseau Base...";
+fetch("https://base-mainnet.publicnode.com",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({jsonrpc:"2.0",id:1,method:"eth_getBalance",params:[w,"latest"]})}).then(function(r){return r.json();}).then(function(d){
+var wei=parseInt(d.result||"0x0",16);var eth=wei/1e18;
+out.innerHTML="Identité on-chain liée: <b>"+w.slice(0,8)+"..."+w.slice(-6)+"</b><br>Solde réel Base: <b>"+eth.toFixed(6)+" ETH</b>"+(eth<=0?"<br><span style='color:#ff6b6b'>Attention: solde on-chain zero — l identité existe mais ne peut pas encore financer sa survie on-chain.</span>":"");
+}).catch(function(){out.textContent="RPC Base injoignable pour le moment. L identité reste liée localement.";});}
+(function(){var w=localStorage.getItem("at_wallet");if(w){document.getElementById("atWallet").value=w;atChain();}atRender();})();
+</script>
+</div>
 
 <div id="futur" class="sec">
 <div class="card" style="border-color:var(--cosmos);border-width:2px"><div class="ct" style="color:var(--cosmos)">TECHNOLOGIES FUTURES</div><div class="cd">Technologies qui nexistent pas encore. GENESIS les conceptualise et les integre.</div></div>
@@ -3710,7 +3786,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1033.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1034.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
