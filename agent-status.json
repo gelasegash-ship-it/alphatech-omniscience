@@ -32,7 +32,9 @@
   "penseesParCycle": 1,
   "battements": 15,
   "pensees": 14,
-  "commandesReelles": 7,
+  "commandesReelles": 6,
+  "enfantsLocaux": [],
+  "appsDeployees": 0,
   "coutReel": "0 FC",
   "competencesEnterprise": [
     "DocuGPT (docs/ resume + QA)",
