@@ -1,0 +1,20 @@
+[
+  {
+    "id": "Mmv4wc4kf",
+    "text": "Te cloner en GEN-3 avec pour role l analyse documentaire de docs/",
+    "status": "pending",
+    "created": "2026-10-12T06:54:00.735Z"
+  },
+  {
+    "id": "Mmv4wc43s",
+    "text": "Ecrire docs/PROTOCOLE-MODE-IA.md documentant le fonctionnement autonome du runtime",
+    "status": "pending",
+    "created": "2026-10-12T06:54:00.136Z"
+  },
+  {
+    "id": "Mmv4wc3m8",
+    "text": "Construire et deployer une app de suivi de portfolio crypto temps reel avec alertes",
+    "status": "pending",
+    "created": "2026-10-12T06:53:59.504Z"
+  }
+]

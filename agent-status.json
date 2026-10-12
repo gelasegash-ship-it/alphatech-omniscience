@@ -27,15 +27,19 @@
       "eth": 0
     }
   ],
-  "revenusDetectes": null,
+  "revenusDetectes": {
+    "nb": 0,
+    "totalUSDC": 0
+  },
   "tier": "dead",
   "penseesParCycle": 1,
-  "battements": 18,
-  "pensees": 17,
+  "battements": 21,
+  "pensees": 19,
   "missionsAuto": 3,
   "missionsTerminees": 0,
   "modeIA": false,
   "commandesReelles": 7,
+  "evolutions": null,
   "enfantsLocaux": [],
   "appsDeployees": 0,
   "coutReel": "0 FC",
