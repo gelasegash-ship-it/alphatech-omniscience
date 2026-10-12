@@ -1900,9 +1900,7 @@ var phones=t.match(/\+\d{1,4}[\s.-]?\d{2,4}(?:[\s.-]?\d{2,4}){1,4}/g)||[];
 var urls=t.match(/https?:\/\/[^\s)]+/g)||[];
 var pcts=t.match(/\d+(?:[.,]\d+)?\s?%/g)||[];
 var j={dates:dgUniq(dates),montants:dgUniq(amounts),emails:dgUniq(emails),telephones:dgUniq(phones),urls:dgUniq(urls),pourcentages:dgUniq(pcts)};
-dgOut("EXTRACTION STRUCTURÉE (DocuGPT local — chaque valeur est citée exactement du document):
-
-"+JSON.stringify(j,null,2));}
+dgOut("EXTRACTION STRUCTURÉE (DocuGPT local — chaque valeur est citée exactement du document):\n\n"+JSON.stringify(j,null,2));}
 </script>
 </div>
 
