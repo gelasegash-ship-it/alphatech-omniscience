@@ -1,0 +1,8 @@
+[
+  {
+    "id": "Mmv4wsxui",
+    "text": "Rédiger et structurer le 'Protocolo de Synchronisation ALPHATECH v1.0' : créer un schéma JSON strict définissant les champs obligatoires pour l'état d'un agent (id, role, status, resources, last_update), les règles de résolution de conflit de ressources, et un exemple d'échange de message entre deux",
+    "status": "pending",
+    "created": "2026-10-12T07:07:05.187Z"
+  }
+]
