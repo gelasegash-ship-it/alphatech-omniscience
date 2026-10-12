@@ -1,0 +1,8 @@
+[
+  {
+    "id": "Mmv4xd66p",
+    "text": "Générer le fichier 'ALPHATECH_STATE_SYNC_PROTOCOL.md' : définir la structure JSON standardisée pour le partage de contexte entre agents (clés: agent_id, timestamp, state_hash, context_summary, next_action) et rédiger les règles de versioning et de résolution des conflits.",
+    "status": "pending",
+    "created": "2026-10-12T07:22:49.105Z"
+  }
+]
