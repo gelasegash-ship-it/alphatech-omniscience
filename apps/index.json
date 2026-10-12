@@ -1,5 +1,12 @@
 [
   {
+    "slug": "alphatech-doc-engine",
+    "titre": "ALPHATECH Doc-Engine",
+    "gen": "GEN-4",
+    "url": "https://gelasegash-ship-it.github.io/alphatech-omniscience/apps/alphatech-doc-engine.html",
+    "date": "2026-10-12"
+  },
+  {
     "slug": "protocol-alpha-bootstrap",
     "titre": "protocol-alpha-bootstrap",
     "gen": "GEN-3",
