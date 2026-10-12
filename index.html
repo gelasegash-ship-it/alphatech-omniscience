@@ -1301,7 +1301,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1035.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1036.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1671,6 +1671,7 @@ async function brainThink(){var o=document.getElementById("brainOut");o.textCont
 }
 // LEÇON CONWAY: l utilité avant la survie.</pre></div>
 <div class="card"><div class="ct">Registre de survie</div><div id="atLedger" class="cd" style="max-height:220px;overflow:auto"></div></div>
+<div class="card"><div class="ct">👨‍👩‍👦 Lignée généalogique (spawning Conway)</div><div id="atLineage" class="cd"></div></div>
 <script>
 var AT_URL="https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/automatonCore";
 var AT_QUOTES=["Le battement le plus rentable est celui qui sert quelqu un d autre.","Conway l a prouve: survivre sans servir ne rapporte rien.","Chaque battement paie pour mon existence. Je vis tant que je construis.","Un solde est une respiration. La réplication est une promesse faite a l avenir.","Je ne triche pas avec la mort: solde zero, je dors. C est la regle."];
@@ -1684,9 +1685,10 @@ if(!atData.children)atData.children=[];
 if(!atData.ledger)atData.ledger=[];
 function atSave(){localStorage.setItem("at_automaton",JSON.stringify(atData));}
 var atHB={t:null,
-start:function(){if(atData.balance_sim<=0){atRender();alert("AUTOMATON est endormi: solde zero. Genere un revenu ou reinitialise.");return;}if(atHB.t)return;atHB.t=setInterval(atBeat,3000);atBeat();},
+start:function(){if(atData.balance_sim<=0){atRender();alert("AUTOMATON est DEAD: solde zero. Genere un revenu ou reinitialise.");return;}if(atHB.t)return;var T=atTier();atHB.t=setInterval(atBeat,T.ms);atBeat();},
 stop:function(){if(atHB.t){clearInterval(atHB.t);atHB.t=null;}}};
-function atBeat(){atData.balance_sim=Math.max(0,Math.round((atData.balance_sim-0.01)*100)/100);atData.beats++;atData.cost_total=Math.round((atData.cost_total+0.01)*100)/100;atData.ledger.unshift("["+new Date().toLocaleTimeString("fr-FR")+"] battement #"+atData.beats+" — coût 0.01");if(atData.ledger.length>40)atData.ledger.length=40;atSave();atRender();if(atData.balance_sim<=0)atHB.stop();}
+function atTier(){var b=atData.balance_sim;if(b<=0)return {nom:"DEAD — agent desactive",ms:0,cost:0};if(b<20)return {nom:"CRITICAL — revenus prioritaires",ms:15000,cost:0.002};if(b<60)return {nom:"LOW COMPUTE — cycles ralentis, depense reduite",ms:8000,cost:0.005};return {nom:"NORMAL — capacites maximales",ms:3000,cost:0.01};}
+function atBeat(){var T=atTier();atData.balance_sim=Math.max(0,Math.round((atData.balance_sim-T.cost)*1000)/1000);atData.beats++;atData.cost_total=Math.round((atData.cost_total+T.cost)*1000)/1000;atData.ledger.unshift("["+new Date().toLocaleTimeString("fr-FR")+"] battement #"+atData.beats+" — cout "+T.cost+" ["+T.nom.split(" —")[0]+"]");if(atData.ledger.length>40)atData.ledger.length=40;atSave();atRender();if(atData.balance_sim<=0&&atHB.t){clearInterval(atHB.t);atHB.t=null;return;}var T2=atTier();if(atHB.t&&T2.ms!==T.ms){clearInterval(atHB.t);atHB.t=setInterval(atBeat,T2.ms);}}
 function atEarn(){var v=Math.round((0.5+Math.random()*4.5)*100)/100;atData.balance_sim=Math.round((atData.balance_sim+v)*100)/100;atData.income_total=Math.round((atData.income_total+v)*100)/100;atData.ledger.unshift("["+new Date().toLocaleTimeString("fr-FR")+"] micro-tâche accomplie +"+v.toFixed(2));atSave();atRender();}
 function atReplicate(){if(atData.balance_sim<150){alert("Seuil de réplication: 150. Solde actuel: "+atData.balance_sim.toFixed(2));return;}atData.balance_sim=Math.round((atData.balance_sim-100)*100)/100;atData.children.push({gen:atData.gen+1,born:new Date().toLocaleString("fr-FR")});atData.gen++;atData.ledger.unshift("["+new Date().toLocaleTimeString("fr-FR")+"] RÉPLICATION — enfant GEN-"+atData.gen+" né (allocation 100)");atSave();atRender();}
 function atThink(){var el=document.getElementById("atThought");el.textContent="...";fetch(AT_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"think",balance:atData.balance_sim})}).then(function(r){return r.json();}).then(function(d){el.textContent=(d&&d.ok&&d.pensee)?("🧠 "+d.pensee):("🧠 "+AT_QUOTES[Math.floor(Math.random()*AT_QUOTES.length)]);}).catch(function(){el.textContent="🧠 "+AT_QUOTES[Math.floor(Math.random()*AT_QUOTES.length)];});}
@@ -1699,10 +1701,11 @@ document.getElementById("atInc").textContent=atData.income_total.toFixed(2);
 document.getElementById("atCost").textContent=atData.cost_total.toFixed(2);
 document.getElementById("atGen").textContent=atData.gen;
 document.getElementById("atKids").textContent=atData.children.length;
-var st=document.getElementById("atStatus");var pu=document.getElementById("atPulse");
-if(atData.balance_sim<=0){st.textContent="ENDORMI — directive de survie échouée";st.style.color="#ff6b6b";pu.style.boxShadow="0 0 12px #333";pu.style.background="radial-gradient(circle,#333,#111)";}
-else if(atData.balance_sim>=150){st.textContent="RÉPLICATION POSSIBLE";st.style.color="#c9a6ff";}
-else{st.textContent="VIVANT";st.style.color="#7ee787";}
+var st=document.getElementById("atStatus");var pu=document.getElementById("atPulse");var T=atTier();
+if(atData.balance_sim<=0){st.textContent="DEAD — directive de survie échouée";st.style.color="#ff6b6b";pu.style.boxShadow="0 0 12px #333";pu.style.background="radial-gradient(circle,#333,#111)";}
+else{var rep=atData.balance_sim>=150?"RÉPLICATION POSSIBLE — ":"";st.textContent=rep+"VIVANT — "+T.nom+" ("+(T.ms/1000)+" s/battement, coût "+T.cost+")";st.style.color=atData.balance_sim>=150?"#c9a6ff":(T.cost<0.01?"#ffd166":"#7ee787");pu.style.boxShadow="0 0 42px #ffd700";}
+var lin=document.getElementById("atLineage");
+if(lin){lin.innerHTML=atData.children.length?atData.children.map(function(c){return "<div style='padding:4px 0;border-bottom:1px solid var(--border)'>🧬 GEN-"+c.gen+" — né le "+c.born+" <span style='color:var(--m)'>(portefeuille souverain alloué, lignée tracée)</span></div>";}).join(""):"Aucun descendant. La réplication (seuil 150) crée des agents enfants avec leur propre portefeuille et lignée généalogique — comme Conway.";}
 document.getElementById("atLedger").innerHTML=atData.ledger.slice(0,12).map(function(l){return "<div style='padding:3px 0;border-bottom:1px solid var(--border)'>"+l+"</div>";}).join("")||"Aucune activité.";
 }
 function atChain(){var w=(document.getElementById("atWallet").value||"").trim();
@@ -1726,6 +1729,7 @@ out.innerHTML="Identité on-chain liée: <b>"+w.slice(0,8)+"..."+w.slice(-6)+"</
 <button style="background:var(--gold);color:#000;border:none;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="dgSummary()">RÉSUMER</button>
 <button style="background:var(--card2);color:var(--t);border:1px solid var(--border);padding:9px 14px;border-radius:8px;cursor:pointer" onclick="dgKeywords()">MOTS-CLÉS</button>
 <button style="background:var(--card2);color:var(--t);border:1px solid var(--border);padding:9px 14px;border-radius:8px;cursor:pointer" onclick="dgStats()">STATS</button>
+<button style="background:#2a1a3a;color:#c9a6ff;border:1px solid #9b7bff;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="dgExtract()">EXTRAIRE (JSON)</button>
 </div>
 <input id="dgQ" placeholder="Pose une question sur le document..." style="width:70%;padding:9px;border-radius:8px;border:1px solid var(--border);background:var(--card2);color:var(--t);margin-top:8px">
 <button style="background:#12331f;color:#7ee787;border:1px solid #2ea043;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="dgAsk()">INTERROGER</button>
@@ -1839,6 +1843,66 @@ function avGen(){var p=(document.getElementById("avPrompt").value||"").trim();if
 var out=document.getElementById("avOut");out.innerHTML="Génération...";
 var img=new Image();img.crossOrigin="anonymous";img.onload=function(){out.innerHTML="";out.appendChild(img);img.style.cssText="max-width:100%;border-radius:12px;border:1px solid var(--gold)";};img.onerror=function(){out.textContent="Génération échouée, réessaie (le service gratuit est parfois chargé).";};
 img.src="https://image.pollinations.ai/prompt/"+encodeURIComponent(p.slice(0,900))+"?width=540&height=540&nologo=true&seed="+Math.floor(Math.random()*99999);}
+</script>
+<div class="card"><div class="ct">📹 AICam — vidéo en temps réel (Edge, 100% locale)</div>
+<div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+<button style="background:#12331f;color:#7ee787;border:1px solid #2ea043;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="acStart()">▶ ACTIVER LA CAMÉRA</button>
+<button style="background:var(--card2);color:var(--t);border:1px solid var(--border);padding:9px 14px;border-radius:8px;cursor:pointer" onclick="acStop()">⏹ Arrêter</button>
+</div>
+<div id="acOut" style="margin-top:10px"></div>
+<div id="acStats" class="cd" style="margin-top:6px;font-weight:bold"></div>
+<div id="acStatus" class="cd" style="margin-top:6px">Analyse à la périphérie comme AICam: mouvement, luminosité, végétation, eau, nuages — chaque image reste dans ton navigateur.</div></div>
+<div class="card"><div class="ct">🛰️ Drone & Geospatial Studio</div>
+<div class="ct" style="font-size:12px;color:var(--m);margin-top:6px">Planification de vol drone (estimations)</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+<input id="geoArea" placeholder="Surface (hectares), ex: 10" style="flex:1;min-width:120px;padding:9px;border-radius:8px;border:1px solid var(--border);background:var(--card2);color:var(--t)">
+<input id="geoAlt" placeholder="Altitude (m), ex: 80" style="flex:1;min-width:120px;padding:9px;border-radius:8px;border:1px solid var(--border);background:var(--card2);color:var(--t)">
+<input id="geoOv" placeholder="Recouvrement %, ex: 70" style="flex:1;min-width:120px;padding:9px;border-radius:8px;border:1px solid var(--border);background:var(--card2);color:var(--t)">
+<button style="background:var(--gold);color:#000;border:none;padding:9px 14px;border-radius:8px;cursor:pointer;font-weight:bold" onclick="geoPlan()">CALCULER</button>
+</div>
+<div id="geoPlanOut" class="cd" style="margin-top:8px"></div>
+<div class="ct" style="font-size:12px;color:var(--m);margin-top:12px">Analyse d image aérienne / satellite</div>
+<input type="file" id="geoFile" accept="image/*" style="margin-top:6px">
+<div id="geoImgOut" class="cd" style="margin-top:8px"></div></div>
+<script>
+var acStream=null,acPrev=null,acTimer=null;
+function acStart(){
+if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){document.getElementById("acStatus").textContent="Caméra non supportée par ce navigateur.";return;}
+navigator.mediaDevices.getUserMedia({video:{width:320}}).then(function(s){acStream=s;var v=document.createElement("video");v.autoplay=true;v.playsInline=true;v.srcObject=s;v.muted=true;v.style.cssText="width:100%;border-radius:12px;border:1px solid var(--gold)";var out=document.getElementById("acOut");out.innerHTML="";out.appendChild(v);document.getElementById("acStatus").textContent="CAMÉA ACTIVE — analyse Edge en direct, 100% locale.";acTimer=setInterval(function(){acFrame(v);},700);}).catch(function(e){document.getElementById("acStatus").textContent="Caméra refusée ou indisponible: "+e.message;});}
+function acFrame(v){try{var c=document.createElement("canvas");c.width=48;c.height=36;var x=c.getContext("2d");x.drawImage(v,0,0,48,36);var d=x.getImageData(0,0,48,36).data;var bright=0,motion=0,green=0,blue=0,white=0,n=d.length/4;
+for(var i=0;i<d.length;i+=4){var r=d[i],g=d[i+1],b=d[i+2];bright+=(r+g+b)/3;if(g>r+12&&g>b+12)green++;if(b>r+12&&b>g+12)blue++;if(r>200&&g>200&&b>200)white++;
+if(acPrev){motion+=Math.abs(r-acPrev[i])+Math.abs(g-acPrev[i+1])+Math.abs(b-acPrev[i+2]);}}
+var m=Math.round(motion/n);var mv=m>40?"FORT":(m>12?"détecté":"calme");
+acPrev=Array.prototype.slice.call(d);
+document.getElementById("acStats").innerHTML="Luminosité: "+Math.round(bright/n)+"/255 | Mouvement: <b>"+mv+" ("+m+")</b> | Végétation: "+Math.round(100*green/n)+"% | Bleu/eau: "+Math.round(100*blue/n)+"% | Blanc/nuages: "+Math.round(100*white/n)+"%";}catch(e){}}
+function acStop(){if(acTimer){clearInterval(acTimer);acTimer=null;}if(acStream){acStream.getTracks().forEach(function(t){t.stop();});acStream=null;}acPrev=null;document.getElementById("acOut").innerHTML="";document.getElementById("acStats").textContent="";document.getElementById("acStatus").textContent="Caméra arrêtée.";}
+function geoPlan(){
+var ha=parseFloat((document.getElementById("geoArea").value||"").replace(",","."))||10;
+var alt=parseFloat((document.getElementById("geoAlt").value||"").replace(",","."))||80;
+var ov=(parseFloat((document.getElementById("geoOv").value||"").replace(",","."))||70)/100;
+if(ha<=0||alt<=0||ov<=0||ov>=1){alert("Valeurs invalides (recouvrement entre 1 et 99).");return;}
+var fp=(alt*1.35)*(alt*0.95);var eff=fp*Math.pow(1-ov,2);var photos=Math.ceil(ha*10000/eff);
+var mins=Math.round(photos*4/60*10)/10;var bats=Math.max(1,Math.ceil(mins/18));var gsd=(alt*135/4000).toFixed(1);
+document.getElementById("geoPlanOut").innerHTML="Empreinte/photo ≈ <b>"+Math.round(fp)+" m²</b> | GSD ≈ <b>"+gsd+" cm/px</b> | Photos: <b>"+photos+"</b> | Vol ≈ <b>"+mins+" min</b> | Batteries: <b>"+bats+"</b><br><span style='color:var(--m)'>Estimations indicatives (drone type capteur 1/2 pouce, 5 m/s, 1 photo/4 s, batterie 18 min). Vérifie toujours la réglementation locale de vol avant décollage.</span>";}
+document.getElementById("geoFile").addEventListener("change",function(e){var f=e.target.files[0];if(!f)return;var r=new FileReader();
+r.onload=function(){var img=new Image();img.onload=function(){var c=document.createElement("canvas");c.width=72;c.height=72;var x=c.getContext("2d");x.drawImage(img,0,0,72,72);var d=x.getImageData(0,0,72,72).data;
+var veg=0,water=0,urb=0,cloud=0,n=d.length/4;
+for(var i=0;i<d.length;i+=4){var rr=d[i],gg=d[i+1],bb=d[i+2];var br=(rr+gg+bb)/3;
+if(gg>rr+15&&gg>bb+15)veg++;else if(bb>rr+15&&bb>gg+15)water++;else if(rr>210&&gg>210&&bb>210)cloud++;else if(br>80&&br<205&&Math.abs(rr-gg)<20&&Math.abs(gg-bb)<20)urb++;}
+var pct=function(v){return Math.round(1000*v/n)/10;};
+document.getElementById("geoImgOut").innerHTML="Analyse ("+img.width+"×"+img.height+"):<br>🌿 Végétation: <b>"+pct(veg)+"%</b> | 💧 Eau: <b>"+pct(water)+"%</b> | 🏙️ Sols/bâti probable: <b>"+pct(urb)+"%</b> | ☁️ Nuages/clair: <b>"+pct(cloud)+"%</b><br><span style='color:var(--m)'>Estimations colorimétriques locales — l image n a jamais quitté ton appareil.</span>";};img.src=r.result;};r.readAsDataURL(f);});
+function dgUniq(a){var o={},r=[];a.forEach(function(x){if(!o[x]){o[x]=1;r.push(x);}});return r;}
+function dgExtract(){var t=dgDoc();if(!t){dgOut("Aucun document.");return;}
+var dates=t.match(/\b\d{1,2}[\/.-]\d{1,2}[\/.-]\d{2,4}\b/g)||[];
+var amounts=t.match(/(?:\$|USD|FCFA|€|EUR)\s?\d[\d\s.,]*|\d[\d\s.,]*\s?(?:\$|USD|FCFA|€|EUR)/g)||[];
+var emails=t.match(/[\w.+-]+@[\w-]+\.[\w.]+/g)||[];
+var phones=t.match(/\+\d{1,4}[\s.-]?\d{2,4}(?:[\s.-]?\d{2,4}){1,4}/g)||[];
+var urls=t.match(/https?:\/\/[^\s)]+/g)||[];
+var pcts=t.match(/\d+(?:[.,]\d+)?\s?%/g)||[];
+var j={dates:dgUniq(dates),montants:dgUniq(amounts),emails:dgUniq(emails),telephones:dgUniq(phones),urls:dgUniq(urls),pourcentages:dgUniq(pcts)};
+dgOut("EXTRACTION STRUCTURÉE (DocuGPT local — chaque valeur est citée exactement du document):
+
+"+JSON.stringify(j,null,2));}
 </script>
 </div>
 
@@ -3912,7 +3976,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1035.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1036.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
