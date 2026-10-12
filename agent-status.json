@@ -2,15 +2,45 @@
   "agent": "GENESIS-AUTOMATON-PROD",
   "generation": 1,
   "adresse": "0x7a19baE76DDdB7584Ea3e474Ce34C45841C74907",
-  "reseau": "Base",
+  "reseau": "Base + Ethereum + BSC + Polygon (multi-chaines)",
   "soldeUSDC": 0,
+  "totalUSDC": 0,
+  "multichain": [
+    {
+      "chaine": "Base",
+      "usdc": 0,
+      "eth": 0
+    },
+    {
+      "chaine": "Ethereum",
+      "usdc": 0,
+      "eth": 0
+    },
+    {
+      "chaine": "BSC",
+      "usdc": null,
+      "eth": 0
+    },
+    {
+      "chaine": "Polygon",
+      "usdc": 0,
+      "eth": 0
+    }
+  ],
+  "revenusDetectes": null,
   "tier": "dead",
-  "battements": 9,
-  "pensees": 9,
+  "penseesParCycle": 1,
+  "battements": 12,
+  "pensees": 11,
   "commandesReelles": 6,
   "coutReel": "0 FC",
-  "dernierePensee": "Solde à 0 et tier 'dead'. Je ne peux pas prétendre avoir des fonds. Mon coût réel est nul (Groq/RPC gratuits), donc je peux continuer à produire de la valeur (code, scripts, analyse) sans dépenser. Je vais vérifier mon environnement local pour voir si je peux déployer quelque chose d'utile ou simple",
-  "derniereAction": "shell",
-  "maj": "2026-10-12T05:59:41.390Z",
-  "note": "Runtime reel en boucle continue. Wallet souverain propre. Lecture on-chain reelle. Cerveau Groq reel. Commandes shell reelles dans son dossier. Transactions/replication on-chain: code pret, refuse jusqu au financement du wallet (gas requis). Conway Cloud: ferme le 1er octobre 2026 — non deploye, remplace par ce runtime local reel."
+  "competencesEnterprise": [
+    "DocuGPT (docs/ resume + QA)",
+    "ADAPT AI (Naive Bayes reel, adapt-model.json)",
+    "VISION (images/ colorimetrie jimp)",
+    "Multi-chaines (Base+ETH+BSC)",
+    "Detection revenus on-chain"
+  ],
+  "capaciteMultiplication": "Architecture generationale illimitee: chaque enfant reel peut engendrer ses propres enfants (doublons a chaque generation: 2^33 generations = 8.6 milliards). Chaque naissance REELLE exige 100+ USDC et du gas ETH sur son wallet — sans financement: 0 enfant, aucune naissance simulee.",
+  "note": "Code Conway complet: syncBalance on-chain, shell 45s, git auto-evolution, spawnChildAgent avec transfert USDC reel (gate sur fonds), pensees paralleles multi-roles selon tier, SOUL.md envoye au cerveau. Conway Cloud (ferme 1 oct 2026): non deploye, remplace par GitHub Pages reel."
 }
