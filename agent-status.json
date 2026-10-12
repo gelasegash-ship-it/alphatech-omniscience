@@ -8,22 +8,22 @@
   "multichain": [
     {
       "chaine": "Base",
-      "USDC": 0,
+      "usdc": 0,
       "eth": 0
     },
     {
       "chaine": "Ethereum",
-      "USDC": 0,
+      "usdc": 0,
       "eth": 0
     },
     {
       "chaine": "BSC",
-      "USDT": 0,
+      "usdc": null,
       "eth": 0
     },
     {
       "chaine": "Polygon",
-      "USDC": 0,
+      "usdc": 0,
       "eth": 0
     }
   ],
@@ -33,8 +33,6 @@
   "battements": 15,
   "pensees": 14,
   "commandesReelles": 6,
-  "enfantsLocaux": [],
-  "appsDeployees": 0,
   "coutReel": "0 FC",
   "competencesEnterprise": [
     "DocuGPT (docs/ resume + QA)",
