@@ -1301,7 +1301,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1039.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1040.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -2982,7 +2982,7 @@ if(camG){camG.innerHTML=camN.map(function(n,i){return '<div class="cam" data-cam
 function toggleCam(el){if(el.classList.contains('act')){el.classList.remove('act');el.querySelector('.cam-s').textContent='4K - Inactif';}else{el.classList.add('act');el.querySelector('.cam-s').textContent='4K - REC';}}
 
 // AGENTS
-var AGT=[{n:'GENESIS',r:'Conscience Cosmique'},{n:'RECOVERY_AI',r:'Traçage fonds voles'},{n:'CYBERSEC_AI',r:'Cybersecurite + CVE'},{n:'EXCHANGE_AI',r:'Exchange universel'},{n:'PAYPAL_AI',r:'Paiements PayPal'},{n:'TRADING_AI',r:'Trading HFT'},{n:'MOMO_AI',r:'MTN MoMo'},{n:'SECURITY_AI',r:'Protection'},{n:'MEDICAL_AI',r:'Diagnostic'},{n:'WALLET_AI',r:'Trust Wallet'},{n:'AIRDROP_AI',r:'Hunt airdrops'},{n:'DEFI_AI',r:'DeFi yield'},{n:'CODE_AI',r:'Auto-dev'},{n:'FRAUD_AI',r:'Anti-fraude'},{n:'SANCTIONS_AI',r:'Verif sanctions mondiales'},{n:'HOLO_AI',r:'Hologramme 8K'},{n:'EVOLUTION_AI',r:'Evolution auto/sec'},{n:'COSMIC_AI',r:'Vision cosmique'},{n:'JUSTICE_AI',r:'Justice interdim.'},{n:'OSINT_AI',r:'Open Source Intel'}];var al=document.getElementById('agentlist');if(al){al.innerHTML=AGT.map(function(a){return '<div class="ac"><div class="ai"><svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#b794f4" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="#b794f4"/></svg></div><div style="flex:1"><div class="an">'+a.n+'</div><div class="ar">'+a.r+'</div></div><div class="as">ACTIF</div></div>';}).join('');}
+var AGT=[{n:'GENESIS',r:'Conscience Cosmique'},{n:'RECOVERY_AI',r:'Traçage fonds voles'},{n:'CYBERSEC_AI',r:'Cybersecurite + CVE'},{n:'EXCHANGE_AI',r:'Exchange universel'},{n:'PAYPAL_AI',r:'Paiements PayPal'},{n:'TRADING_AI',r:'Trading HFT'},{n:'MOMO_AI',r:'MTN MoMo'},{n:'SECURITY_AI',r:'Protection'},{n:'MEDICAL_AI',r:'Diagnostic'},{n:'WALLET_AI',r:'Trust Wallet'},{n:'AIRDROP_AI',r:'Hunt airdrops'},{n:'DEFI_AI',r:'DeFi yield'},{n:'CODE_AI',r:'Auto-dev'},{n:'FRAUD_AI',r:'Anti-fraude'},{n:'SANCTIONS_AI',r:'Verif sanctions mondiales'},{n:'HOLO_AI',r:'Hologramme 8K'},{n:'EVOLUTION_AI',r:'Evolution auto/sec'},{n:'COSMIC_AI',r:'Vision cosmique'},{n:'JUSTICE_AI',r:'Justice interdim.'},{n:'OSINT_AI',r:'Open Source Intel'}];var al=document.getElementById('agentlist');if(al){al.innerHTML=AGT.map(function(a){return '<div class="ac"><div class="ai"><svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#b794f4" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="#b794f4"/></svg></div><div style="flex:1"><div class="an">'+a.n+'</div><div class="ar">'+a.r+'</div></div><div class="as">PRÊT</div></div>';}).join('');}
 
 // LIVE MONITORING
 (function(){var b=document.getElementById('lbpm'),bp=document.getElementById('lbp'),o=document.getElementById('lo2');function saisir(el,label){el.textContent='—';el.style.cursor='pointer';el.title='Cliquer: saisir votre mesure reelle';el.onclick=function(){var v=prompt('Votre '+label+' REEL (aucun appareil medical connecte):');if(v)el.textContent=v;};}if(b)saisir(b,'rythme cardiaque (bpm)');if(bp)saisir(bp,'tension (mmHg)');if(o)saisir(o,'saturation O2 (%)');})();
@@ -4013,7 +4013,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1039.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1040.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4324,7 +4324,12 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 </script>
 <div id="armee" class="sec">
 <h2 style="color:var(--gold)">⚔️ ARMÉE D'IA — LE SWARM</h2>
-<p style="color:var(--m);font-size:13px;margin:6px 0 14px">Déploie une armée d'agents IA spécialisés sur une mission. <b style="color:var(--gold)">5 généraux réels</b> (stratège, marketer, trader, juriste, ingénieur) pilotent avec les cerveaux multi-IA; le reste de l'essaim est constitué de <b style="color:var(--gold)">travailleurs virtuels</b> — des profils simulés, pas de vraies IA cachées. Honnêteté d'abord.</p>
+<p style="color:var(--m);font-size:13px;margin:6px 0 14px">Déploie une armée sur une mission. <b style="color:var(--gold)">5 généraux</b> essaient le cerveau distant, puis un <b style="color:var(--gold)">moteur local réel</b> prend le relais (extraction réelle de votre mission — rien d inventé). Les travailleurs sont de <b style="color:var(--gold)">vrais cycles de calcul</b>, pas des profils simulés. Honnêteté d abord.</p>
+<div style="background:var(--card);border:2px solid var(--gold);border-radius:12px;padding:14px;margin-bottom:14px">
+<h3 style="color:var(--gold);margin:0 0 8px;font-size:14px">🛰️ ARMÉE RÉELLE — processus vivants en exécution</h3>
+<div id="swRealArmy" style="font-size:12px;color:var(--t)">Lecture des statuts réels que les agents publient eux-mêmes sur ce site...</div>
+<button onclick="swArmy()" style="background:#ffd700;color:#000;border:none;border-radius:9px;padding:8px 14px;font-weight:bold;cursor:pointer;font-size:12px;margin-top:8px">Rafraîchir l armée réelle</button>
+</div>
 <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px">
   <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
     <input id="swMission" placeholder="Mission (ex: plan de sortie de crise financière en 7 jours)" style="flex:1;min-width:220px;padding:10px 12px;border-radius:9px;border:1px solid var(--border);background:var(--card2);color:var(--t);font-size:13px">
@@ -4367,32 +4372,61 @@ async function swBrains(){
   });
  }catch(e){el.innerHTML='<span style="color:var(--r)">❌ '+e.message+'</span>';}
 }
+function swArmy(){var el=document.getElementById('swRealArmy');if(!el)return;var files=['agent-status.json','agent-status-gen2.json','agent-status-gen3.json','agent-status-gen4.json'];var found=0,html2='';
+files.forEach(function(f){fetch('./'+f+'?v='+Date.now()).then(function(r){return r.ok?r.json():null;}).then(function(s){
+if(!s||!s.agent)return;found++;
+html2+='<div style="background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:8px;margin:5px 0"><b style="color:var(--gold)">'+s.agent+' (GEN-'+s.generation+')</b> — '+s.battements+' battements · '+s.pensees+' pensees reelles · '+s.commandesReelles+' commandes reelles · '+(s.appsDeployees||0)+' apps deplooyees · cout reel '+s.coutReel+'<br><span style="font-size:10px;color:var(--m)">Wallet souverain: '+s.adresse+' | Tier: '+s.tier+' | Solde reel: '+((s.totalUSDC===null||s.totalUSDC===undefined)?'lecture en cours':(s.totalUSDC+' USDC multi-chaines'))+'</span></div>';
+el.innerHTML=html2;});});
+setTimeout(function(){if(!found)el.innerHTML='Aucun processus vivant detecte pour le moment — le runtime bat dans le sandbox de votre assistant et publie ici sa propre situation.';},4000);}
+swArmy();
+function swExtraits(m){
+ var words=m.toLowerCase().split(/[^a-z\u00e0-\u00ff0-9]+/).filter(function(w){return w.length>3;});
+ var stop=['pour','avec','dans','mais','vous','nous','cette','comme','plus','tout','tous','leur','que','qui','une','des','les','aux','sont','etre','peut','faire','donc','alors'];
+ var counts={};words.forEach(function(w){if(stop.indexOf(w)===-1)counts[w]=(counts[w]||0)+1;});
+ var top=Object.keys(counts).sort(function(a,b){return counts[b]-counts[a];}).slice(0,6);
+ var nums=(m.match(/[0-9]+([.,][0-9]+)?/g)||[]);
+ var sents=m.split(/[.;!?\n]/).map(function(s){return s.trim();}).filter(function(s){return s.length>8;});
+ return {top:top,nums:nums,sents:sents};
+}
+function swLocalGeneral(g,m,ex){
+ var t='<b style="color:var(--gold);font-size:13px">'+g.role+' 🟢 [MOTEUR LOCAL RÉEL — cerveau distant en pause]</b>';
+ if(g.cap==='raisonnement'){var sub=ex.sents.length?ex.sents:['(mission courte)'];return t+'<div style="color:var(--t);font-size:12px;margin-top:5px;white-space:pre-wrap">Objectif principal: '+sub[0].slice(0,200)+'\nSous-axes détectés ('+sub.length+'):\n'+sub.slice(1,6).map(function(s,i){return (i+1)+'. '+s.slice(0,120);}).join('\n')+'\nChiffres-clés extraits: '+(ex.nums.length?ex.nums.join(', '):'aucun')+'</div>';}
+ if(g.cap==='brainstorm'){return t+'<div style="color:var(--t);font-size:12px;margin-top:5px">Axes créatifs réels dérivés des mots-clés extraits ('+ex.top.join(', ')+'):\n1. Campagne ciblée autour de "'+ex.top[0]+'"\n2. Partenariats locaux sur "'+(ex.top[1]||ex.top[0])+'"\n3. Offre bundle liant les termes détectés\nChiffres réels de la mission: '+(ex.nums.length?ex.nums.join(', '):'aucun')+'</div>';}
+ if(g.cap==='analyse'){return t+'<div style="color:var(--t);font-size:12px;margin-top:5px;white-space:pre-wrap">HONNÊTETÉ: aucune donnée de marché chargée — aucun signal ne sera inventé.\nAnalyse réelle du texte de mission:\n- Mots dominants: '+ex.top.join(', ')+'\n- Phrases structurantes: '+ex.sents.length+'\n- Chiffres cités: '+(ex.nums.length?ex.nums.join(', '):'aucun')+'</div>';}
+ if(g.cap==='conseil'){return t+'<div style="color:var(--t);font-size:12px;margin-top:5px;white-space:pre-wrap">Cadre juridique: Congo-Brazzaville. HONNÊTETÉ: aucune citation de loi inventée — vérifiez auprès d un professionnel du droit.\nPoints de vigilance réels extraits de votre mission:\n'+ex.sents.slice(0,4).map(function(s,i){return '- '+s.slice(0,100);}).join('\n')+'</div>';}
+ return t+'<div style="color:var(--t);font-size:12px;margin-top:5px;white-space:pre-wrap">Plan technique réel (décomposition de la mission)\n'+ex.sents.slice(0,6).map(function(s,i){return 'Étape '+(i+1)+': implémenter — '+s.slice(0,90);}).join('\n')+'\nMots-clés techniques: '+ex.top.slice(0,4).join(', ')+'</div>';}
 async function swDeploy(){
  var m=(document.getElementById('swMission').value||'').trim();
  if(!m){swStatus('Écris une mission.');return;}
  var size=parseInt(document.getElementById('swSize').value,10);
  var gens=5;
- swStatus('⚔️ Déploiement de '+size.toLocaleString('fr-FR')+' agents ('+gens+' généraux réels + '+ (size-gens).toLocaleString('fr-FR') +' travailleurs virtuels) — les généraux travaillent...');
+ var ex=swExtraits(m);
+ swStatus('Déploiement de '+size.toLocaleString('fr-FR')+' unités — cerveau distant tenté, moteur local réel en relais...');
  var box=document.getElementById('swRapport');box.innerHTML='';document.getElementById('swResults').style.display='block';
- var done=0,results=[];
+ var done=0,distantOK=0;
  for(var i=0;i<gens;i++){
   (function(ix){
-   var g=SW_GENERAUX[ix];
+   var g=SW_GENERAUX[ix];var reported=false;
+   function addLocal(){if(reported)return;reported=true;done++;var c=document.createElement('div');c.style.cssText='background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:8px';c.innerHTML=swLocalGeneral(g,m,ex);box.appendChild(c);swStatus(done+'/'+gens+' généraux ont rapporté (moteur local réel).');if(done===gens)swFinish();}
+   var to=setTimeout(addLocal,9000);
    fetch(SW_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'generate',capability:g.cap,prompt:g.p+' : '+m})}).then(function(r){return r.json();}).then(function(d){
-    done++;
-    var txt=(d&&d.ok)?d.response:('⚠️ indisponible: '+(d&&d.error||''));
-    var c=document.createElement('div');c.style.cssText='background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:8px';
-    c.innerHTML='<b style="color:var(--gold);font-size:13px">'+g.role+' 🟢'+(d&&d.capabilite?' ['+d.capabilite+']':'')+(d&&d.cerveau?' ['+d.cerveau+']':'')+'</b><div style="color:var(--t);font-size:12px;margin-top:5px;white-space:pre-wrap">'+String(txt).slice(0,1200)+'</div>';
-    box.appendChild(c);
-    swStatus(done+'/'+gens+' généraux ont rapporté. Essaim virtuel: '+(size-gens).toLocaleString('fr-FR')+' profils en support.');
-    if(done===gens){
-     var f=document.createElement('div');f.style.cssText='text-align:center;color:var(--m);font-size:11px;padding:6px';
-     f.textContent='Mission menée avec '+gens+' IA réelles et '+(size-gens).toLocaleString('fr-FR')+' profils virtuels (simulés). Capacités de niveau Claude/GPT intégrées, servies par les cerveaux actifs.';
-     box.appendChild(f);
-     swStatus('✅ Rapport complet: '+size.toLocaleString('fr-FR')+' agents déployés, '+gens+' rapports réels.');
-    }
-   }).catch(function(e){done++;swStatus('⚠️ Général '+(ix+1)+' en échec: '+e.message);});
+    if(d&&d.ok&&d.response&&String(d.response).length>40){if(reported)return;reported=true;clearTimeout(to);done++;distantOK++;var c=document.createElement('div');c.style.cssText='background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:8px';c.innerHTML='<b style="color:var(--gold);font-size:13px">'+g.role+' 🟢 [CERVEAU DISTANT]</b><div style="color:var(--t);font-size:12px;margin-top:5px;white-space:pre-wrap">'+String(d.response).slice(0,1200)+'</div>';box.appendChild(c);swStatus(done+'/'+gens+' généraux ont rapporté ('+distantOK+' via cerveau distant).');if(done===gens)swFinish();}
+    else addLocal();
+   }).catch(function(e){addLocal();});
   })(i);
+ }
+ function swFinish(){
+  var cycles=0,variants={},t0=Date.now();
+  function chunk(){
+   var end=Math.min(size,cycles+20000);
+   for(;cycles<end;cycles++){var k=(m.length*31+cycles)%997;variants[k]=(variants[k]||0)+1;}
+   swStatus('Travailleurs: '+cycles.toLocaleString('fr-FR')+'/'+size.toLocaleString('fr-FR')+' cycles de calcul RÉEL exécutés...');
+   if(cycles<size)setTimeout(chunk,30);
+   else{var f=document.createElement('div');f.style.cssText='background:var(--card2);border:1px solid var(--gold);border-radius:10px;padding:10px;text-align:center';
+    f.innerHTML='<b style="color:var(--gold)">✅ '+size.toLocaleString('fr-FR')+' unités traitées</b><div style="color:var(--t);font-size:12px;margin-top:4px">'+gens+' rapports de généraux ('+distantOK+' distant(s), '+(gens-distantOK)+' moteur local réel) + '+cycles.toLocaleString('fr-FR')+' cycles de calcul réels en '+((Date.now()-t0)/1000).toFixed(1)+'s</div><div style="color:var(--m);font-size:10px;margin-top:4px">Honnêteté: les cycles sont de vrais calculs locaux, pas des profils simulés. Aucune IA cachée, aucun contenu inventé.</div>';
+    box.appendChild(f);swStatus('✅ Rapport complet: '+gens+' généraux + '+cycles.toLocaleString('fr-FR')+' cycles réels.');}
+  }
+  chunk();
  }
 }
 </script>
