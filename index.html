@@ -1302,7 +1302,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1042.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1043.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1311,7 +1311,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="gardien" onclick="go('gardien')">GARDIEN</button>
 <button class="nb" data-t="futur" onclick="go('futur')">FUTUR</button>
 <button class="nb" data-t="evolution" onclick="go('evolution')">AUTO-ÉVOLUTION</button>
-<button class="nb" data-t="automaton" onclick="go('automaton')">AUTOMATON</button>
+<button class="nb" data-t="automaton" onclick="go('automaton')">AUTOMATON</button><button class="nb" data-t="cockpit" onclick="go('cockpit')">⭐ COCKPIT</button>
 <button class="nb" data-t="advit" onclick="go('advit')">AUTOMATON PRO</button>
 <button class="nb" data-t="studio" onclick="go('studio')">STUDIO VIDÉO</button>
 <button class="nb" data-t="brain" onclick="go('brain')">GENESIS OBEIT</button>
@@ -4014,7 +4014,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1042.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1043.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4323,6 +4323,12 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 }
 (function(){agBadge();try{var today=new Date().toISOString().slice(0,10);if(localStorage.getItem('at_agent_greet')!==today){localStorage.setItem('at_agent_greet',today);var st=document.getElementById('agStatus');if(st){setTimeout(function(){st.innerHTML='👋 L opérateur est ACTIF. Clique 🚀 AUTO-PILOTE et il prend le contrôle tout seul — ou donne ton objectif et il exécute.';},900);}}}catch(e){}})();
 </script>
+<div id="cockpit" class="sec">
+<h2 style="color:var(--gold)">⭐ COCKPIT TOTAL — tout ALPHATECH réuni ici</h2>
+<p style="color:var(--m);font-size:13px;margin:6px 0 14px">Le centre de commande unique: état adaptatif de l app, journal de ses solutions, armée réelle en exécution, applications que les agents construisent et déploient eux-mêmes, écosystème complet. <b style="color:var(--gold)">100% données réelles, aucune simulation.</b></p>
+<div id="cockpitBody"></div>
+<button onclick="cockpitRender()" style="background:#ffd700;color:#000;border:none;border-radius:9px;padding:9px 16px;font-weight:bold;cursor:pointer;font-size:12px;margin-top:10px">Rafraîchir le cockpit</button>
+</div>
 <div id="armee" class="sec">
 <h2 style="color:var(--gold)">⚔️ ARMÉE D'IA — LE SWARM</h2>
 <p style="color:var(--m);font-size:13px;margin:6px 0 14px">Déploie une armée sur une mission. <b style="color:var(--gold)">5 généraux</b> opèrent un <b style="color:var(--gold)">moteur réel 100% local</b> intégré (extraction réelle de votre mission — rien d inventé, aucun backend ni crédit requis). Les travailleurs sont de <b style="color:var(--gold)">vrais cycles de calcul</b>, pas des profils simulés. Honnêteté d abord.</p>
@@ -4437,6 +4443,24 @@ if('serviceWorker' in navigator){window.addEventListener('load',function(){navig
 (function(){var THEMES=[{n:"OR OMNISCIENCE"},{n:"CYBER NOIR",v:{"--bg":"#050505","--card":"#0d1117","--card2":"#161b22","--border":"#30363d","--p":"#58c7ff","--g":"#7ee787","--t":"#e6edf3","--m":"#8b949e","--cosmos":"#a371f7","--cosmos2":"#f778ba"}},{n:"EMERAUDE",v:{"--bg":"#04120c","--card":"#0a1f15","--card2":"#0f2a1c","--border":"#1e4632","--p":"#2eff8b","--g":"#a3ff12","--t":"#e0ffe9","--m":"#7fae90","--cosmos":"#59f2d6","--cosmos2":"#ffd166"}},{n:"ROYAL",v:{"--bg":"#0a0714","--card":"#150f2b","--card2":"#1d1640","--border":"#3b2d6b","--p":"#b388ff","--g":"#00ffa3","--t":"#efe9ff","--m":"#9d8fc4","--cosmos":"#8f7bff","--cosmos2":"#ff6ec7"}}];var t=parseInt(localStorage.getItem("at_theme")||"0")||0;function apply(){var th=THEMES[t%THEMES.length];var names=["--bg","--card","--card2","--border","--p","--g","--t","--m","--cosmos","--cosmos2"];names.forEach(function(k){document.documentElement.style.removeProperty(k);});if(th.v){for(var k in th.v){document.documentElement.style.setProperty(k,th.v[k]);}}var b=document.getElementById("themeBtn");if(b){b.title=th.n;}}var b=document.createElement("button");b.id="themeBtn";b.textContent="\u{1F3A8}";b.style.cssText="position:fixed;bottom:14px;right:14px;z-index:99999;background:#ffd700;color:#000;border:none;border-radius:50%;width:46px;height:46px;font-size:20px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.6)";b.onclick=function(){t=(t+1)%THEMES.length;localStorage.setItem("at_theme",String(t));apply();};document.body.appendChild(b);apply();})();
 </script>
 
+<script id="atCockpit">
+function cockpitRender(){
+ var el=document.getElementById("cockpitBody");if(!el)return;
+ var m=window.AT_MODE||{mode:"...",signals:{}};
+ var sig=Object.keys(m.signals||{}).map(function(k){return k+": "+m.signals[k];}).join(" | ")||"lecture en cours";
+ var h="<div style=\"background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px\"><h3 style=\"color:var(--gold);margin:0 0 8px;font-size:14px\">\ud83e\udd16 \u00c9TAT ADAPTATIF</h3><div style=\"font-size:13px;color:var(--t)\"><b style=\"color:var(--gold)\">MODE "+m.mode+"</b> — signaux r\u00e9els: "+sig+"</div><div style=\"font-size:11px;color:var(--m);margin-top:4px\">L app bascule seule entre COMPLET / LOCAL / \u00c9CONOME / SURVIE selon les circonstances. Journal complet: badge en bas \u00e0 gauche.</div></div>";
+ var j=[];try{j=JSON.parse(localStorage.getItem("at_mode_journal")||"[]");}catch(e){}
+ h+="<div style=\"background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px\"><h3 style=\"color:var(--gold);margin:0 0 8px;font-size:14px\">\ud83d\udcdd DERNI\u00c8RES SOLUTIONS TROUV\u00c9ES</h3>"+(j.slice(0,5).map(function(l){return "<div style=\"margin:5px 0;padding:6px;border-left:2px solid var(--gold);background:rgba(255,255,255,.03);font-size:12px\"><span style=\"color:var(--m);font-size:10px\">"+l.t+"</span> "+l.m+(l.s?"<div style=\"color:#00d4ff;font-size:10px\">\u2705 "+l.s+"</div>":"")+"</div>";}).join("")||"<div style=\"color:var(--m);font-size:12px\">Aucune adaptation n\u00e9cessaire pour le moment.</div>")+"</div>";
+ h+="<div style=\"background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px\"><h3 style=\"color:var(--gold);margin:0 0 8px;font-size:14px\">\ud83d\ude80 APPS AUTO-CONSTRUITES PAR LES AGENTS</h3><div id=\"cockpitApps\" style=\"font-size:12px;color:var(--t)\">Lecture de la vitrine d\u00e9ploy\u00e9e par les agents...</div></div>";
+ h+="<div style=\"background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:14px\"><h3 style=\"color:var(--gold);margin:0 0 8px;font-size:14px\">\ud83c\udf10 \u00c9COSYST\u00c8ME</h3><div style=\"font-size:12px;color:var(--t);line-height:1.9\"><a href=\"https://gelasegash-ship-it.github.io/gelasehouse-publications/\" target=\"_blank\" style=\"color:var(--gold)\">GELASETECH Publications</a> — plateforme de publications avec cerveau local de secours<br><a href=\"https://www.instagram.com/gelasehouse/\" target=\"_blank\" style=\"color:var(--gold)\">Instagram @gelasehouse</a> — films ALPHA TECH en Reels<br><a href=\"https://www.tiktok.com/@gelasehouse1\" target=\"_blank\" style=\"color:var(--gold)\">TikTok @gelasehouse1</a><br>Agents: ARM\u00c9E D IA section — processus vivants GEN-1/GEN-2, statuts auto-publi\u00e9s</div></div>";
+ el.innerHTML=h;
+ fetch("./apps/index.json?v="+Date.now()).then(function(r){return r.ok?r.json():null;}).then(function(apps){
+  var a=document.getElementById("cockpitApps");if(!a)return;
+  if(!apps||!apps.length){a.innerHTML="Aucune app encore — les agents en construisent selon leurs missions. La premi\u00e8re arrive d\u00e8s qu un agent d\u00e9cide de b\u00e2tir.";return;}
+  a.innerHTML=apps.map(function(x){return "<div style=\"margin:5px 0;padding:8px;background:var(--card2);border:1px solid var(--border);border-radius:8px\"><a href=\""+x.url+"\" target=\"_blank\" style=\"color:var(--gold);font-weight:700\">\u2197 "+x.titre+"</a> <span style=\"color:var(--m);font-size:10px\">— construite par "+x.gen+" le "+x.date+", d\u00e9ploy\u00e9e automatiquement sur le site public</span></div>";}).join("");
+ }).catch(function(){var a=document.getElementById("cockpitApps");if(a)a.innerHTML="Vitrine injoignable pour le moment.";});
+}
+</script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
 (function(){
