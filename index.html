@@ -1302,7 +1302,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1046.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1047.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -4014,7 +4014,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1046.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1047.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4380,6 +4380,16 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 </div>
 </div>
 <div class="card" style="margin-top:14px">
+<h3 style="color:var(--gold);font-size:15px;margin:0 0 10px">📳 ORDRE TÉLÉPHONE — ton ordre pilote le téléphone</h3>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<input id="ordInput" class="input" style="flex:1;min-width:220px;padding:12px" placeholder="Ex : appelle — ou parle avec le micro">
+<button class="btn bp" style="padding:12px" onclick="orderVoice()">🎤 MICRO</button>
+<button class="btn primary" style="padding:12px 16px;background:linear-gradient(100deg,#54e7ff,#9b7bff);color:#080b18;border:0;border-radius:10px;cursor:pointer;font-weight:800" onclick="orderPhone()">EXÉCUTER L ORDRE</button>
+</div>
+<div id="ordResult" style="font-size:13px;margin-top:10px"></div>
+<div style="font-size:11px;color:var(--m);margin-top:8px">Ordres compris : <b>appeler</b> · <b>whatsapp</b> · <b>sms</b> · <b>partager</b> · <b>copier</b> · <b>vibrer</b> · <b>notifier</b> · <b>localiser</b> — en tapant ou à la voix. Le navigateur ne permet pas le contrôle complet de l OS du téléphone : ce sont les ponts réels autorisés, exécutés sur ton ordre.</div>
+</div>
+<div class="card" style="margin-top:14px">
 <h3 style="color:var(--gold);font-size:15px;margin:0 0 8px">✅ TOUT EST ACTIF</h3>
 <div style="font-size:12px;color:var(--t)" id="mobStatus"></div>
 </div>
@@ -4639,6 +4649,43 @@ function mobShare(){
  var pwa="serviceWorker" in navigator;
  document.getElementById("mobStatus").innerHTML="Sections actives : <b style='color:var(--gold)'>"+n+"</b> — navigations, IA, paiements (MTN/BGFI/Airtel/cartes/crypto/PayPal), studio vidéo, usine à apps, cockpit, autonome.<br>PWA : "+(pwa?"<b style='color:#70f0b0'>active</b> (hors ligne après installation)":"non supportee par ce navigateur")+" — tes données restent stockees localement sur ton telephone.";
 })();
+</script>
+<script id="atOrderPhone">
+function ordDone(msg){document.getElementById("ordResult").innerHTML="<b style='color:#70f0b0'>"+msg+"</b>";if(navigator.vibrate){navigator.vibrate(60);}}
+function orderPhone(){
+ var t=String(document.getElementById("ordInput").value||"").toLowerCase().trim();
+ var el=document.getElementById("ordResult");
+ if(!t){el.innerHTML="<span style='color:var(--r)'>Donne ton ordre (texte ou micro).</span>";return;}
+ var num=mobNum("t"),wa=mobNum("w");
+ if(/(appel|appeler|telephone|telephone-moi)/.test(t)){
+  if(!num){el.innerHTML="<span style='color:var(--r)'>Renseigne ton numero dans ACTIONS TELEPHONE.</span>";return;}
+  ordDone("APPEL LANCE SUR TON TELEPHONE");location.href="tel:"+num.replace(/[^+0-9]/g,"");
+ }else if(/(whatsapp|wa )/.test(t)){
+  if(!wa){el.innerHTML="<span style='color:var(--r)'>Renseigne le numero WhatsApp dans ACTIONS TELEPHONE.</span>";return;}
+  ordDone("WHATSAPP OUVERT AVEC TON CONTACT");location.href="https://wa.me/"+wa.replace(/[^0-9]/g,"");
+ }else if(/(sms|texto)/.test(t)){
+  if(!num){el.innerHTML="<span style='color:var(--r)'>Renseigne ton numero.</span>";return;}
+  ordDone("SMS OUVERT");location.href="sms:"+num.replace(/[^+0-9]/g,"");
+ }else if(/(partage)/.test(t)){ordDone("PARTAGE NATIF OUVERT");mobShare();}
+ else if(/(copie)/.test(t)){navigator.clipboard.writeText(location.href).then(function(){ordDone("LIEN COPIE DANS LE TELEPHONE");});}
+ else if(/(vibre|vibration)/.test(t)){if(navigator.vibrate){navigator.vibrate([300,100,300]);ordDone("LE TELEPHONE VIBRE — ORDRE EXECUTE");}else{el.innerHTML="Vibration non supportee par ce navigateur.";}}
+ else if(/(notif)/.test(t)){
+  if(!("Notification" in window)){el.innerHTML="Notifications non supportees.";return;}
+  Notification.requestPermission().then(function(p){if(p==="granted"){new Notification("ALPHATECH",{body:"Ordre execute : notification sur ton telephone."});ordDone("NOTIFICATION AFFICHEE SUR TON TELEPHONE");}else{el.innerHTML="Permission de notification refusee.";}});
+ }else if(/(ou suis|position|localis|gps)/.test(t)){
+  if(!navigator.geolocation){el.innerHTML="Geolocalisation non supportee.";return;}
+  navigator.geolocation.getCurrentPosition(function(p){ordDone("POSITION TROUVEE : "+p.coords.latitude.toFixed(4)+", "+p.coords.longitude.toFixed(4));},function(){el.innerHTML="Position refusee.";});
+ }else{el.innerHTML="Ordre non reconnu. Essaie : appeler, whatsapp, sms, partager, copier, vibrer, notifier, localiser.";}
+}
+function orderVoice(){
+ var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(!SR){alert("Voix non supportee par ce navigateur.");return;}
+ var r=new SR();r.lang="fr-FR";r.interimResults=false;
+ document.getElementById("ordResult").innerHTML="<span class='ld'>Micro ouvert — donne ton ordre...</span>";
+ r.onresult=function(e){var t=e.results[0][0].transcript;document.getElementById("ordInput").value=t;orderPhone();};
+ r.onerror=function(){document.getElementById("ordResult").innerHTML="Micro indisponible ou refuse."};
+ r.start();
+}
 </script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
