@@ -1302,7 +1302,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1045.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1046.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1311,7 +1311,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="gardien" onclick="go('gardien')">GARDIEN</button>
 <button class="nb" data-t="futur" onclick="go('futur')">FUTUR</button>
 <button class="nb" data-t="evolution" onclick="go('evolution')">AUTO-ÉVOLUTION</button>
-<button class="nb" data-t="automaton" onclick="go('automaton')">AUTOMATON</button><button class="nb" data-t="cockpit" onclick="go('cockpit')">⭐ COCKPIT</button><button class="nb" data-t="payhub" onclick="go('payhub')">💳 PAIEMENTS</button>
+<button class="nb" data-t="automaton" onclick="go('automaton')">AUTOMATON</button><button class="nb" data-t="cockpit" onclick="go('cockpit')">⭐ COCKPIT</button><button class="nb" data-t="payhub" onclick="go('payhub')">💳 PAIEMENTS</button><button class="nb" data-t="mobile" onclick="go('mobile')">📲 MOBILE</button>
 <button class="nb" data-t="advit" onclick="go('advit')">AUTOMATON PRO</button>
 <button class="nb" data-t="studio" onclick="go('studio')">STUDIO VIDÉO</button>
 <button class="nb" data-t="brain" onclick="go('brain')">GENESIS OBEIT</button>
@@ -4014,7 +4014,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1045.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1046.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4355,6 +4355,35 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 <div id="bgfiSlip"></div>
 </div>
 </div>
+<div id="mobile" class="sec">
+<h2 style="color:var(--gold)">📲 MOBILE — ALPHATECH DIRECTEMENT SUR TON TÉLÉPHONE</h2>
+<p style="color:var(--m);font-size:13px;margin:6px 0 14px">L app est une PWA complète : installée, elle vit sur ton écran d accueil, fonctionne <b style="color:var(--gold)">hors ligne</b> et garde tes données en stockage local. Tout est déjà actif : 45+ sections, IA, paiements, hub dépôt/retrait, studio vidéo, usine à apps.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
+<div class="card">
+<h3 style="color:var(--gold);font-size:15px;margin:0 0 10px">INSTALLER SUR TON TÉLÉPHONE</h3>
+<button id="mobInstallBtn" class="btn primary" style="display:none;padding:12px 18px;background:linear-gradient(100deg,#54e7ff,#9b7bff);color:#080b18;border:0;border-radius:10px;cursor:pointer;font-weight:800;width:100%" onclick="mobInstall()">📥 INSTALLER MAINTENANT (Android)</button>
+<div id="mobIosHint" style="font-size:12px;margin-top:10px;color:var(--t)"><b>iPhone :</b> bouton Partager (carré avec flèche) → « Sur l écran d accueil ».<br><b>Android :</b> menu Chrome (⋮) → « Ajouter à l écran d accueil ».</div>
+<div style="font-size:11px;color:var(--m);margin-top:8px">Une fois installée : aucune boutique, aucun Google Play — ouvre directement comme une vraie app.</div>
+</div>
+<div class="card">
+<h3 style="color:var(--gold);font-size:15px;margin:0 0 10px">ACTIONS TÉLÉPHONE DIRECTES</h3>
+<div style="display:grid;gap:8px">
+<input id="mob_tel" class="input" style="padding:10px" placeholder="Ton numéro (ex: +24206XXXXXXXX)" oninput="mobCfg()">
+<input id="mob_wa" class="input" style="padding:10px" placeholder="Numéro WhatsApp (ex: 24206XXXXXXXX)" oninput="mobCfg()">
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+<button class="btn bp" style="padding:10px 14px" onclick="mobCall()">📞 APPELER</button>
+<button class="btn bp" style="padding:10px 14px" onclick="mobWa()">💬 WHATSAPP</button>
+<button class="btn bp" style="padding:10px 14px" onclick="mobSms()">✉️ SMS</button>
+<button class="btn bp" style="padding:10px 14px" onclick="mobShare()">📤 PARTAGER L APP</button>
+</div>
+</div>
+</div>
+<div class="card" style="margin-top:14px">
+<h3 style="color:var(--gold);font-size:15px;margin:0 0 8px">✅ TOUT EST ACTIF</h3>
+<div style="font-size:12px;color:var(--t)" id="mobStatus"></div>
+</div>
+</div>
 <div id="armee" class="sec">
 <h2 style="color:var(--gold)">⚔️ ARMÉE D'IA — LE SWARM</h2>
 <p style="color:var(--m);font-size:13px;margin:6px 0 14px">Déploie une armée sur une mission. <b style="color:var(--gold)">5 généraux</b> opèrent un <b style="color:var(--gold)">moteur réel 100% local</b> intégré (extraction réelle de votre mission — rien d inventé, aucun backend ni crédit requis). Les travailleurs sont de <b style="color:var(--gold)">vrais cycles de calcul</b>, pas des profils simulés. Honnêteté d abord.</p>
@@ -4583,6 +4612,33 @@ function bgfiSlip(){
  var t=document.getElementById("bgfi_t"),r=document.getElementById("bgfi_r"),a=document.getElementById("bgfi_a");
  if(t&&c.t)t.value=c.t;if(r&&c.r)r.value=c.r;if(a&&c.a)a.value=c.a;})();
 payMethods();payLog();bgfiSlip();
+</script>
+<script id="atMobile">
+var mobDeferred=null;
+window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();mobDeferred=e;var b=document.getElementById("mobInstallBtn");if(b)b.style.display="block";});
+window.addEventListener("appinstalled",function(){var b=document.getElementById("mobInstallBtn");if(b){b.textContent="INSTALLEE SUR CE TELEPHONE !";b.disabled=true;}});
+function mobInstall(){
+ if(mobDeferred){mobDeferred.prompt();mobDeferred.userChoice.then(function(){mobDeferred=null;});}
+ else{alert("iPhone : bouton Partager puis Sur l ecran d accueil. Android : menu Chrome puis Ajouter a l ecran d accueil.");}
+}
+function mobCfg(){localStorage.setItem("at_phone",JSON.stringify({t:document.getElementById("mob_tel").value,w:document.getElementById("mob_wa").value}));}
+function mobNum(k){var c={};try{c=JSON.parse(localStorage.getItem("at_phone")||"{}");}catch(e){}return String(c[k]||"");}
+function mobCall(){var t=mobNum("t");if(t){location.href="tel:"+t.replace(/[^+0-9]/g,"");}else{alert("Renseigne ton numero dans la carte ACTIONS TELEPHONE.");}}
+function mobWa(){var w=mobNum("w");if(w){location.href="https://wa.me/"+w.replace(/[^0-9]/g,"");}else{alert("Renseigne le numero WhatsApp dans la carte ACTIONS TELEPHONE.");}}
+function mobSms(){var t=mobNum("t");if(t){location.href="sms:"+t.replace(/[^+0-9]/g,"");}else{alert("Renseigne ton numero.");}}
+function mobShare(){
+ var url="https://gelasegash-ship-it.github.io/alphatech-omniscience/";
+ if(navigator.share){navigator.share({title:"ALPHATECH OMNISCIENCE",text:"La super-app IA du Congo — installee la sur ton telephone",url:url}).catch(function(){});}
+ else{navigator.clipboard.writeText(url).then(function(){alert("Lien de l app copie : "+url);}).catch(function(){alert(url);});}
+}
+(function(){var c={};try{c=JSON.parse(localStorage.getItem("at_phone")||"{}");}catch(e){}
+ if(c.t)document.getElementById("mob_tel").value=c.t;
+ if(c.w)document.getElementById("mob_wa").value=c.w;})();
+(function(){
+ var n=document.querySelectorAll(".nb").length;
+ var pwa="serviceWorker" in navigator;
+ document.getElementById("mobStatus").innerHTML="Sections actives : <b style='color:var(--gold)'>"+n+"</b> — navigations, IA, paiements (MTN/BGFI/Airtel/cartes/crypto/PayPal), studio vidéo, usine à apps, cockpit, autonome.<br>PWA : "+(pwa?"<b style='color:#70f0b0'>active</b> (hors ligne après installation)":"non supportee par ce navigateur")+" — tes données restent stockees localement sur ton telephone.";
+})();
 </script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
