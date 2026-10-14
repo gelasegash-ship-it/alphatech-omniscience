@@ -1302,7 +1302,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1044.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1045.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -4014,7 +4014,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1044.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1045.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4337,13 +4337,23 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:12px">
 <select id="payDir" class="input" style="padding:10px"><option value="depot">DÉPÔT (je credite mon compte)</option><option value="retrait">RETRAIT (je encaisse)</option></select>
 <select id="payMethod" class="input" style="padding:10px"><option value="mtn">MTN MoMo (CG)</option><option value="airtel">Airtel Money (CG)</option><option value="carte">Carte Visa/Mastercard</option><option value="banque">Virement bancaire (CG)</option><option value="crypto">Crypto BTC/ETH/USDT</option><option value="paypal">PayPal</option></select>
-<input id="payAmount" class="input" style="padding:10px" type="number" placeholder="Montant (FCFA ou USD)">
+<input id="payAmount" class="input" style="padding:10px" type="number" placeholder="Montant (FCFA ou USD)"><input id="payPhone" class="input" style="padding:10px" type="tel" placeholder="Téléphone MTN MoMo (24206...) — requis si MTN">
 <button class="btn primary" style="padding:10px 16px;background:linear-gradient(100deg,#54e7ff,#9b7bff);color:#080b18;border:0;border-radius:10px;cursor:pointer;font-weight:800" onclick="paySave()">Générer la demande</button>
 </div>
 <div id="payResult"></div>
 <div id="payLogBox" style="margin-top:14px"></div>
 </div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:16px" id="payMethods"></div>
+<div class="card" style="max-width:760px;margin-top:16px">
+<h3 style="color:var(--gold);font-size:15px;margin:0 0 10px">🏦 BGFIBANK CONGO — CONFIGURATION DES VIREMENTS</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">
+<input id="bgfi_t" class="input" style="padding:10px" placeholder="Titulaire du compte" oninput="bgfiCfg()">
+<input id="bgfi_r" class="input" style="padding:10px" placeholder="RIB / IBAN du compte" oninput="bgfiCfg()">
+<input id="bgfi_a" class="input" style="padding:10px" placeholder="Agence (ex: Centre-ville)" oninput="bgfiCfg()">
+</div>
+<div style="display:flex;justify-content:space-between;margin-top:6px"><span style="color:var(--m);font-size:11px">SWIFT/BIC officiel : <b style="color:var(--gold)">BGFICGCGXXX</b></span><span id="bgfi_ok" style="color:#70f0b0;font-size:10px"></span></div>
+<div id="bgfiSlip"></div>
+</div>
 </div>
 <div id="armee" class="sec">
 <h2 style="color:var(--gold)">⚔️ ARMÉE D'IA — LE SWARM</h2>
@@ -4502,16 +4512,22 @@ function paySave(){
  var num=String(document.getElementById("payAmount").value||"").trim();
  var m=document.getElementById("payMethod").value;
  var dir=document.getElementById("payDir").value;
+ var ph=String(document.getElementById("payPhone").value||"").trim();
  if(!num){alert("Indiquez un montant.");return;}
  var r=payRef();
  var log=[];try{log=JSON.parse(localStorage.getItem("at_pay_log")||"[]");}catch(e){}
  log.unshift({ref:r,type:dir,methode:m,montant:num,date:new Date().toLocaleString("fr-FR"),statut:"en attente"});
  localStorage.setItem("at_pay_log",JSON.stringify(log.slice(0,60)));
+ if(m==="mtn"){
+  if(ph.replace(/[^0-9]/g,"").length<8){alert("Pour MTN MoMo, indiquez votre numero de telephone.");payLog();return;}
+  payAuto(r,dir,num,ph);
+  return;
+ }
  var inst={
   mtn:"1. Ouvrez votre MTN MoMo (app ou menu USSD MoMo). 2. Envoyez le montant au numero marchand ci-dessus. 3. Indiquez la reference "+r+" dans le motif. 4. Le request-to-pay automatique reprendra des le retour des credits plateforme — la procedure manuelle reste valable immediatement.",
   airtel:"1. Ouvrez My Airtel ou passez par un agent Airtel Money agree. 2. Envoyez le montant au numero marchand ci-dessus. 3. Reference a indiquer : "+r+".",
   carte:"Utilisez le module PAYPAL de l app (cartes Visa/Mastercard acceptees). Reference a rappeler : "+r+". Retraits vers carte liee : delais PayPal standards.",
-  banque:"Virement a l ordre du compte du titulaire dans l une des banques CG liste ci-dessus (coordonnees bancaires definitives communiquees a la validation). Reference virement : "+r+". Delai bancaire 1-3 jours ouvrables.",
+  banque:(function(){var c={};try{c=JSON.parse(localStorage.getItem("at_bgfi")||"{}");}catch(e){}return "Virement BGFIBANK CONGO (SWIFT BGFICGCGXXX) au profit de "+(c.t||"[titulaire a renseigner dans la carte BGFI]")+" — RIB/IBAN : "+(c.r||"[RIB a renseigner dans la carte BGFI]")+(c.a?", agence "+c.a:"")+". Reference virement a indiquer en objet : "+r+". Delai bancaire 1-3 jours ouvrables.";})(),
   crypto:"Envoyez l equivalent en BTC/ETH/USDT a l adresse de depot configuree. Reference "+r+" en memo si disponible. Confirmation apres 2 confirmations reseau.",
   paypal:"Depuis votre compte PayPal, envoyez le montant a l adresse PayPal du titulaire (module PAYPAL). Reference : "+r+"."
  };
@@ -4524,7 +4540,49 @@ function payLog(){
  var h=log.length?"<h3 style='color:var(--gold);font-size:14px;margin:0 0 8px'>HISTORIQUE DES DEMANDES</h3>"+log.map(function(l){return "<div style='display:flex;justify-content:space-between;padding:8px;border:1px solid var(--border);border-radius:9px;margin:5px 0;font-size:12px'><span><b style='color:var(--gold)'>"+l.ref+"</b> "+(l.type==="depot"?"depot":"retrait")+" "+l.montant+" ("+l.methode+")</span><span style='color:var(--m)'>"+l.date+" — "+l.statut+"</span></div>";}).join(""):"";
  document.getElementById("payLogBox").innerHTML=h;
 }
-payMethods();payLog();
+function payAuto(r,dir,num,ph){
+ var body=dir==="depot"?{action:"requestToPay",amount:String(num),currency:"EUR",payerPartyId:ph,payerMessage:"ALPHATECH DEPOT "+r,payeeNote:"Hub paiements ALPHATECH"}:{action:"transfer",amount:String(num),currency:"EUR",payeeId:ph,payerMessage:"ALPHATECH RETRAIT "+r,payeeNote:"Retrait hub paiements ALPHATECH"};
+ document.getElementById("payResult").innerHTML="<div class='ld'>Envoi de la demande MTN MoMo au backend (reel)...</div>";
+ fetch("https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/mtnPayment",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}).then(function(res){return res.json();}).then(function(d){
+  if(d.success){
+   var log=[];try{log=JSON.parse(localStorage.getItem("at_pay_log")||"[]");}catch(e){}
+   for(var i=0;i<log.length;i++){if(log[i].ref===r){log[i].statut="MTN: "+(d.referenceId||"en attente");}}
+   localStorage.setItem("at_pay_log",JSON.stringify(log.slice(0,60)));payLog();
+   document.getElementById("payResult").innerHTML="<div style='background:#153d35;border:1px solid #70f0b0;border-radius:12px;padding:14px;font-size:13px'><b style='color:#70f0b0'>"+(dir==="depot"?"DEPOT":"RETRAIT")+" MTN MOMO ENVOYE</b><br>Reference interne : <b style='color:var(--gold)'>"+r+"</b><br>Reference MTN : <b>"+(d.referenceId||"-")+"</b><br><br>Une notification arrive sur votre telephone MTN — validez avec votre code MoMo.<br><button class='btn bp' style='margin-top:8px;font-size:12px' onclick='payCheck(\""+(d.referenceId||"")+"\",\""+r+"\")'>VERIFIER LE STATUT</button><br><span style='color:var(--m);font-size:10px'>Mode sandbox MTN (montants en EUR) — passage en XAF au go-live production.</span></div>";
+  }else{
+   document.getElementById("payResult").innerHTML="<div style='background:#3d1530;border:1px solid #f070a0;border-radius:12px;padding:14px;font-size:12px'><b style='color:#f070a0'>Backend MTN indisponible pour le moment</b><br>"+String(d.error||"")+"<br><br>Procedure manuelle : envoyez le montant au numero marchand MoMo, reference "+r+". La demande est conservee dans l historique.</div>";
+  }
+ }).catch(function(e){
+  document.getElementById("payResult").innerHTML="<div style='background:#3d1530;border:1px solid #f070a0;border-radius:12px;padding:14px;font-size:12px'><b style='color:#f070a0'>Backend injoignable</b><br>Procedure manuelle : envoyez le montant au numero marchand MoMo, reference "+r+".</div>";
+ });
+}
+function payCheck(rid,r){
+ if(!rid){alert("Reference MTN absente.");return;}
+ document.getElementById("payResult").innerHTML="<div class='ld'>Verification du statut MTN...</div>";
+ fetch("https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/mtnPayment",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"checkStatus",referenceId:rid})}).then(function(res){return res.json();}).then(function(d){
+  var st=d.success?(d.status||"PENDING"):"ERREUR";
+  var col=st==="SUCCESSFUL"?"#70f0b0":(st==="FAILED"?"#f070a0":"var(--gold)");
+  var log=[];try{log=JSON.parse(localStorage.getItem("at_pay_log")||"[]");}catch(e){}
+  for(var i=0;i<log.length;i++){if(log[i].ref===r){log[i].statut="MTN "+st;}}
+  localStorage.setItem("at_pay_log",JSON.stringify(log.slice(0,60)));payLog();
+  document.getElementById("payResult").innerHTML="<div style='background:#153d35;border:1px solid "+col+";border-radius:12px;padding:14px;font-size:13px'><b style='color:"+col+"'>STATUT MTN : "+st+"</b><br>"+(st==="PENDING"?"Le paiement attend votre validation sur le telephone.":"")+"</div>";
+ }).catch(function(e){alert("Verification impossible pour le moment.");});
+}
+function bgfiCfg(){
+ localStorage.setItem("at_bgfi",JSON.stringify({t:document.getElementById("bgfi_t").value,r:document.getElementById("bgfi_r").value,a:document.getElementById("bgfi_a").value}));
+ var el=document.getElementById("bgfi_ok");if(el){el.textContent="Enregistre !";setTimeout(function(){el.textContent="";},1500);}
+ bgfiSlip();
+}
+function bgfiSlip(){
+ var c={};try{c=JSON.parse(localStorage.getItem("at_bgfi")||"{}");}catch(e){}
+ var el=document.getElementById("bgfiSlip");
+ if(!el)return;
+ el.innerHTML="<div style='font-size:12px;border:1px dashed var(--gold);border-radius:9px;padding:10px;margin-top:10px'><b style='color:var(--gold)'>BOUNDEREAU DE VIREMENT — BGFIBANK CONGO</b><br>Beneficiaire : <b>"+(c.t||"[titulaire du compte]")+"</b><br>RIB/IBAN : <b>"+(c.r||"[RIB du compte]")+"</b><br>Banque : BGFIBANK CONGO — SWIFT/BIC : <b>BGFICGCGXXX</b> (Brazzaville)<br>Agence : "+(c.a||"[agence]")+"<br><span style='color:var(--m)'>Indiquez la reference de votre demande (REF-...) en objet du virement.</span></div>";
+}
+(function(){var c={};try{c=JSON.parse(localStorage.getItem("at_bgfi")||"{}");}catch(e){}
+ var t=document.getElementById("bgfi_t"),r=document.getElementById("bgfi_r"),a=document.getElementById("bgfi_a");
+ if(t&&c.t)t.value=c.t;if(r&&c.r)r.value=c.r;if(a&&c.a)a.value=c.a;})();
+payMethods();payLog();bgfiSlip();
 </script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
