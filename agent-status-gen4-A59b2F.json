@@ -34,12 +34,12 @@
   "tier": "dead",
   "turbo": true,
   "penseesParCycle": 3,
-  "battements": 15,
-  "pensees": 15,
+  "battements": 18,
+  "pensees": 19,
   "missionsAuto": 1,
   "missionsTerminees": 0,
   "modeIA": true,
-  "commandesReelles": 7,
+  "commandesReelles": 11,
   "evolutions": 0,
   "enfantsLocaux": [
     {
