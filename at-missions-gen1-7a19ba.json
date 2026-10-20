@@ -1,20 +1,20 @@
 [
   {
-    "id": "Mmv4wc4kf",
-    "text": "Te cloner en GEN-3 avec pour role l analyse documentaire de docs/",
+    "id": "MRbbb857bc",
+    "text": "Mission richesse 1 : construire et deployer via buildSelf une app vitrine restaurant Brazzaville (menu + commande WhatsApp) prete a vendre 150 000 FCFA, puis l inscrire dans apps/index.json",
     "status": "pending",
-    "created": "2026-10-12T06:54:00.735Z"
+    "created": "2026-10-20T09:32:48.000Z"
   },
   {
-    "id": "Mmv4wc43s",
-    "text": "Ecrire docs/PROTOCOLE-MODE-IA.md documentant le fonctionnement autonome du runtime",
+    "id": "MRb5d8d7ca",
+    "text": "Mission richesse 2 : construire une app gestion-eleve-conges pour PME congolaise, vendable 200 000 FCFA, publiee sur le site public",
     "status": "pending",
-    "created": "2026-10-12T06:54:00.136Z"
+    "created": "2026-10-20T09:32:48.000Z"
   },
   {
-    "id": "Mmv4wc3m8",
-    "text": "Construire et deployer une app de suivi de portfolio crypto temps reel avec alertes",
+    "id": "MR5b22e2c5",
+    "text": "Mission richesse 3 : rediger docs/CATALOGUE-APPS.md : chaque app auto-construite avec son prix en FCFA et son acheteur cible",
     "status": "pending",
-    "created": "2026-10-12T06:53:59.504Z"
+    "created": "2026-10-20T09:32:48.000Z"
   }
 ]
