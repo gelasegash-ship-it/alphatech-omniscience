@@ -1,8 +1,14 @@
 [
   {
-    "id": "Mmv4x037y",
-    "text": "Développer un script Python autonome 'ALPHATECH Doc-Engine' qui scanne le répertoire courant, extrait les docstrings et les métadonnées des fichiers .py et .md, et génère un fichier 'SYSTEM_INDEX.json' structuré contenant une carte de dépendances et des résumés exécutifs pour chaque module.",
+    "id": "MRd8c74466",
+    "text": "Mission richesse : rediger docs/DEVIS-MODELE.md et docs/FACTURE-MODELE.md : devis et facture professionnels en FCFA prets a remplir (MTN MoMo + BGFI comme moyens de paiement)",
     "status": "pending",
-    "created": "2026-10-12T07:12:38.734Z"
+    "created": "2026-10-20T09:32:48.000Z"
+  },
+  {
+    "id": "MR1da20143",
+    "text": "Mission richesse : rediger docs/TARIFS-SERVICES.md : grille tarifaire complete des services GELASETECH (site, chatbot, community management 120 USD/mois, formation) avec 3 gammes par service",
+    "status": "pending",
+    "created": "2026-10-20T09:32:48.000Z"
   }
 ]
