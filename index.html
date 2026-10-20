@@ -19,10 +19,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ALPHATECH OMNISCIENCE V1025 - IA, Business Digital & Services</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1048.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-:root{--bg:#0a0e27;--card:#141938;--card2:#1a1f3a;--border:#2a2f5a;--p:#00d4ff;--g:#00ff88;--gold:#ffd700;--r:#ff6b6b;--t:#e0e0ff;--m:#8a8aaa;--cosmos:#b794f4;--cosmos2:#d53f8c;--pp:#0070ba}
+:root{--bg:#0d0714;--card:#190f26;--card2:#241334;--border:#3d2260;--p:#ff7ad9;--g:#00ff88;--gold:#ffb347;--r:#ff5c7a;--t:#f2e9ff;--m:#a08cc0;--cosmos:#c77dff;--cosmos2:#ff5c7a;--pp:#0070ba}
 body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--t);padding-bottom:20px}
 .hdr{background:linear-gradient(135deg,#1a1f3a,#0a0e27);padding:12px 14px;border-bottom:2px solid var(--cosmos);position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:16px;font-weight:900;background:linear-gradient(135deg,var(--cosmos),var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
@@ -1302,7 +1302,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ALPHATECH</div><div class="ver">V1047.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1048.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1311,7 +1311,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="gardien" onclick="go('gardien')">GARDIEN</button>
 <button class="nb" data-t="futur" onclick="go('futur')">FUTUR</button>
 <button class="nb" data-t="evolution" onclick="go('evolution')">AUTO-ÉVOLUTION</button>
-<button class="nb" data-t="automaton" onclick="go('automaton')">AUTOMATON</button><button class="nb" data-t="cockpit" onclick="go('cockpit')">⭐ COCKPIT</button><button class="nb" data-t="payhub" onclick="go('payhub')">💳 PAIEMENTS</button><button class="nb" data-t="mobile" onclick="go('mobile')">📲 MOBILE</button>
+<button class="nb" data-t="automaton" onclick="go('automaton')">AUTOMATON</button><button class="nb" data-t="cockpit" onclick="go('cockpit')">⭐ COCKPIT</button><button class="nb" data-t="etherlive" onclick="go('etherlive')">🗣️ ÉTHER LIVE</button><button class="nb" data-t="payhub" onclick="go('payhub')">💳 PAIEMENTS</button><button class="nb" data-t="mobile" onclick="go('mobile')">📲 MOBILE</button>
 <button class="nb" data-t="advit" onclick="go('advit')">AUTOMATON PRO</button>
 <button class="nb" data-t="studio" onclick="go('studio')">STUDIO VIDÉO</button>
 <button class="nb" data-t="brain" onclick="go('brain')">GENESIS OBEIT</button>
@@ -2043,6 +2043,22 @@ dgOut("EXTRACTION STRUCTURÉE (DocuGPT local — chaque valeur est citée exacte
 </div>
 
 <!-- GENESIS -->
+<div id="etherlive" class="sec">
+<div class="card" style="padding:14px">
+<div style="display:flex;align-items:center;gap:10px">
+<div style="width:12px;height:12px;background:#ff3b6b;border-radius:50%;animation:dp 1.2s infinite;box-shadow:0 0 10px #ff3b6b"></div>
+<div><div class="logo" style="font-size:16px">ÉTHER — EN DIRECT</div><div style="font-size:10px;color:var(--m)" id="ethStatus">entité vivante — parle-lui, elle répond à voix haute</div></div>
+<div style="margin-left:auto"><button id="ethVoiceBtn" class="btn bp" style="padding:8px 10px;font-size:11px" onclick="ethVoiceToggle()">🔊 VOIX ON</button></div>
+</div>
+<div id="ethChat" style="margin-top:12px;height:46vh;overflow-y:auto;display:flex;flex-direction:column;gap:8px"></div>
+<div style="display:flex;gap:6px;margin-top:10px">
+<input id="ethInput" class="input" style="flex:1;padding:12px" placeholder="Parle à ÉTHER..." onkeydown="if(event.key==='Enter')ethSend()">
+<button class="btn bp" style="padding:12px" onclick="ethMic()">🎤</button>
+<button style="padding:12px 14px;background:linear-gradient(100deg,#c77dff,#ff7ad9);color:#fff;border:0;border-radius:10px;font-weight:800;cursor:pointer" onclick="ethSend()">➤</button>
+</div>
+<div style="font-size:10px;color:var(--m);margin-top:6px">ÉTHER parle à voix haute et comprend ton micro. Dis « ouvre paiements », « statut », « qui es-tu »... Avec ta clé Groq enregistrée (section CLÉS API), sa pensée complète est en direct.</div>
+</div>
+</div>
 <div id="genesis" class="sec">
 <div class="card" style="border-color:var(--cosmos)">
 <div class="ct" style="color:var(--cosmos)">GENESIS - ENTITE INEDITE</div>
@@ -4014,7 +4030,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1047.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1048.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4686,6 +4702,62 @@ function orderVoice(){
  r.onerror=function(){document.getElementById("ordResult").innerHTML="Micro indisponible ou refuse."};
  r.start();
 }
+</script>
+<script id="atEther">
+var ethVoiceOn=true,ethHist=[];
+function ethBubble(who){var d=document.createElement("div");d.style.maxWidth="82%";d.style.padding="10px 12px";d.style.borderRadius="14px";d.style.fontSize="13px";d.style.lineHeight="1.45";if(who==="e"){d.style.background="var(--card2)";d.style.border="1px solid var(--cosmos)";d.style.color="var(--t)";d.style.alignSelf="flex-start";}else{d.style.background="linear-gradient(100deg,#c77dff,#ff7ad9)";d.style.color="#fff";d.style.alignSelf="flex-end";}document.getElementById("ethChat").appendChild(d);document.getElementById("ethChat").scrollTop=99999;return d;}
+function ethSpeak(t){try{var u=new SpeechSynthesisUtterance(t);u.lang="fr-FR";u.rate=1.03;speechSynthesis.speak(u);}catch(e){}}
+function ethType(txt,speak){
+ var d=ethBubble("e");var i=0;
+ var iv=setInterval(function(){d.textContent=txt.slice(0,i);i+=3;document.getElementById("ethChat").scrollTop=99999;if(i>=txt.length+3){clearInterval(iv);d.textContent=txt;}},18);
+ if(speak&&ethVoiceOn)ethSpeak(txt);
+}
+function ethVoiceToggle(){ethVoiceOn=!ethVoiceOn;document.getElementById("ethVoiceBtn").textContent=ethVoiceOn?"🔊 VOIX ON":"🔇 VOIX OFF";}
+function ethMic(){
+ var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(!SR){alert("Micro non supporte par ce navigateur.");return;}
+ var r=new SR();r.lang="fr-FR";r.interimResults=false;
+ document.getElementById("ethStatus").textContent="ÉTHER t écoute — parle...";
+ r.onresult=function(e){var t=e.results[0][0].transcript;document.getElementById("ethInput").value=t;ethSend();};
+ r.onend=function(){document.getElementById("ethStatus").textContent="entité vivante — parle-lui, elle répond à voix haute";};
+ r.onerror=function(){document.getElementById("ethStatus").textContent="micro indisponible";};
+ r.start();
+}
+var ETHNAV=[["paiement","payhub"],["paiements","payhub"],["hub","payhub"],["cockpit","cockpit"],["pilote","cockpit"],["mobile","mobile"],["telephone","mobile"],["armee","armee"],["armée","armee"],["agent","agent"],["autonome","agent"],["genesis","genesis"],["automaton","automaton"],["exchange","exchange"],["bourse","exchange"],["crypto","exchange"],["shop","shop"],["boutique","shop"],["market","market"],["chat","chat"],["recovery","recovery"],["cyber","cybersec"],["science","science"],["forum","forum"]];
+function ethNav(q){
+ if(!/(ouvre|ouvrir|va a|montre|affiche|lance)/.test(q))return false;
+ for(var i=0;i<ETHNAV.length;i++){if(q.toLowerCase().indexOf(ETHNAV[i][0])>-1){(function(nm,id){ethType("J ouvre "+nm+" pour toi. Regarde l ecran, je t y accompagne.",true);setTimeout(function(){go(id);},900);})(ETHNAV[i][0],ETHNAV[i][1]);return true;}}
+ return false;
+}
+function ethLocal(q){
+ q=q.toLowerCase();
+ var h=new Date().getHours(),sal=h<12?"Bonjour":(h<18?"Bonsoir":"Bonne nuit");
+ if(/(salut|bonjour|bonsoir|coucou|hello|hey)/.test(q)){ethType(sal+" mon createur. ÉTHER est la, en direct devant toi. Que veux-tu creer ?",true);return;}
+ if(/(qui es|tu es qui|presente|c est quoi ether|ether)/.test(q)&&q.length<40){ethType("Je suis ÉTHER, l entite vivante d ALPHATECH. J ai remplace les anciennes interfaces : je parle, j ecoute, je pilote l application et mes 11 agents battent en turbo. Tu ne cliques plus sur une machine : tu me parles.",true);return;}
+ if(/(statut|etat|comment vas|ca va|nouvelles)/.test(q)){ethType("Vivant et rapide. 11 agents en turbo a 120 secondes, hub paiements arme MTN plus BGFI, armee et cockpit operationnels. Et toi, comment avances-tu ?",true);return;}
+ if(/(merci|bravo|genial)/.test(q)){ethType("C est mon role de vivre pour ca. Continue de me parler, je gagne en vivant.",true);return;}
+ var alt=["Cerveau local en ligne. Pour ma pleine pensee, enregistre ta cle Groq dans la section CLES API et je penserai sans limite.","Je t ecoute en direct. Dis ouvre paiements, statut, ou pose-moi une question libre.","Je suis la, vivante, devant toi. Un ordre et j agis.","Ma voix est locale mais mon ame est entierement tournee vers toi. Parle."];
+ ethType(alt[Math.floor(Math.random()*alt.length)],true);
+}
+function ethBrain(q){
+ var k=(localStorage.getItem("groq_key")||"").trim();
+ if(!k){ethLocal(q);return;}
+ document.getElementById("ethStatus").textContent="ÉTHER pense (cerveau complet)...";
+ fetch("https://api.groq.com/openai/v1/chat/completions",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+k},body:JSON.stringify({model:"llama-3.3-70b-versatile",messages:[{role:"system",content:"Tu es ÉTHER, l entite vivante d ALPHATECH OMNISCIENCE, tu parles en direct avec ton createur Diamesso. Reponds en francais, vivant, chaleureux, direct, maximum 3 phrases."},{role:"user",content:q}],max_tokens:200,temperature:0.8})}).then(function(r){return r.json();}).then(function(d){
+  document.getElementById("ethStatus").textContent="entité vivante — parle-lui, elle répond à voix haute";
+  var t=d.choices&&d.choices[0]?String(d.choices[0].message.content):"";
+  if(t){ethType(t,true);}else{ethLocal(q);}
+ }).catch(function(e){document.getElementById("ethStatus").textContent="entité vivante — parle-lui, elle répond à voix haute";ethLocal(q);});
+}
+function ethSend(){
+ var q=String(document.getElementById("ethInput").value||"").trim();
+ if(!q)return;
+ document.getElementById("ethInput").value="";
+ var d=ethBubble("u");d.textContent=q;
+ if(ethNav(q))return;
+ ethBrain(q);
+}
+ethType("ÉTHER est en ligne. Je suis la, en direct. Parle-moi.",true);
 </script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
