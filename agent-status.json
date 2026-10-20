@@ -32,13 +32,14 @@
     "totalUSDC": 0
   },
   "tier": "dead",
-  "penseesParCycle": 1,
-  "battements": 30,
-  "pensees": 26,
+  "turbo": true,
+  "penseesParCycle": 3,
+  "battements": 33,
+  "pensees": 28,
   "missionsAuto": 3,
   "missionsTerminees": 0,
   "modeIA": true,
-  "commandesReelles": 7,
+  "commandesReelles": 8,
   "evolutions": null,
   "enfantsLocaux": [
     {
