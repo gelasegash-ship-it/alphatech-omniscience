@@ -1,0 +1,14 @@
+[
+  {
+    "id": "MR1435f73e",
+    "text": "Mission richesse : construire et deployer via buildSelf une app gestion-de-stock-boutique (entrees, sorties, alerte rupture) vendable 180 000 FCFA aux boutiques du marche Total",
+    "status": "pending",
+    "created": "2026-10-20T09:32:48.000Z"
+  },
+  {
+    "id": "MRf74f4649",
+    "text": "Mission richesse : construire une app reservation-salon-coiffure avec agenda et confirmation WhatsApp, vendable 120 000 FCFA",
+    "status": "pending",
+    "created": "2026-10-20T09:32:48.000Z"
+  }
+]
