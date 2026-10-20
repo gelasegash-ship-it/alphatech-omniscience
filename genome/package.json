@@ -1,0 +1,10 @@
+{
+  "name": "automaton-runtime",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ProductionAutomaton — boucle de vie reelle, sans simulation",
+  "dependencies": {
+    "jimp": "^0.22.12",
+    "viem": "^2.57.4"
+  }
+}
