@@ -1,8 +1,14 @@
 [
   {
-    "id": "Mmv4wfofp",
-    "text": "Rédiger le 'Runbook d'Initialisation Autonome v1.0' : documenter les 5 étapes critiques de bootstrapping (vérification des clés API, calibration des prompts de sécurité, test de latence réseau, journalisation des métriques de performance, et handshake de synchronisation) au format Markdown structuré",
+    "id": "MR1171a8f0",
+    "text": "Mission richesse : rediger docs/PROPOSITION-COMMERCIALE-SITE-WEB.md : pack site web professionnel 250 000 FCFA livre en 7 jours (offre reelle de Diamesso) - benefices, garantie, exemples, appel a l action",
     "status": "pending",
-    "created": "2026-10-12T06:56:46.453Z"
+    "created": "2026-10-20T09:32:48.000Z"
+  },
+  {
+    "id": "MRecad7998",
+    "text": "Mission richesse : rediger docs/OBJECTIONS-VENTE.md : les 10 objections classiques d un client congolais face au prix + la reponse gagnante pour chacune",
+    "status": "pending",
+    "created": "2026-10-20T09:32:48.000Z"
   }
 ]
