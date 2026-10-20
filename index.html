@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1049.0</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1050.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#0d0714;--card:#190f26;--card2:#241334;--border:#3d2260;--p:#ff7ad9;--g:#00ff88;--gold:#ffb347;--r:#ff5c7a;--t:#f2e9ff;--m:#a08cc0;--cosmos:#c77dff;--cosmos2:#ff5c7a;--pp:#0070ba}
@@ -1303,7 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1049.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1050.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -4033,7 +4033,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1049.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1050.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4824,6 +4824,65 @@ function panel(){var p=document.getElementById("atModePanel");if(p){p.remove();r
 render();
 probe();
 setInterval(probe,600000);
+})();
+</script>
+
+<script>
+// V1050.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
+(function(){
+var K="ether_master_key",F="ether_master_face",V="ether_master_voice",I="ether_incidents",LOCK="ether_master_unlocked",ACT="ether_last_act";
+var ACT_MS=30*60*1000;
+var enrolled=!!localStorage.getItem(K);
+var unlocked=localStorage.getItem(LOCK)==="1";
+function sha(s){return crypto.subtle.digest("SHA-256",new TextEncoder().encode(s)).then(function(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,"0")}).join("")})}
+function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+function snap(cb){if(!navigator.mediaDevices){cb(null);return}navigator.mediaDevices.getUserMedia({video:{width:320}}).then(function(s){var v=document.createElement("video");v.srcObject=s;v.autoplay=true;v.muted=true;setTimeout(function(){try{var c=document.createElement("canvas");c.width=160;c.height=120;var x=c.getContext("2d");x.drawImage(v,0,0,160,120);cb(c.toDataURL("image/jpeg",0.7))}catch(e){cb(null)}s.getTracks().forEach(function(t){t.stop()})},900)}).catch(function(){cb(null)})}
+function recVoice(cb){if(!navigator.mediaDevices||!window.MediaRecorder){cb(null);return}navigator.mediaDevices.getUserMedia({audio:true}).then(function(s){var m=new MediaRecorder(s),ch=[];m.ondataavailable=function(e){ch.push(e.data)};m.onstop=function(){s.getTracks().forEach(function(t){t.stop()});var r=new FileReader();r.onload=function(){cb(r.result)};r.readAsDataURL(new Blob(ch,{type:"audio/webm"}))};m.start();setTimeout(function(){m.stop()},3000)}).catch(function(){cb(null)})}
+function cmpFace(d1,d2,cb){var i1=new Image(),i2=new Image(),go=false;function run(){var c=document.createElement("canvas");c.width=64;c.height=64;var x=c.getContext("2d");function px(im){x.drawImage(im,0,0,64,64);var a=x.getImageData(0,0,64,64).data,r=[];for(var i=0;i<a.length;i+=4)r.push((a[i]+a[i+1]+a[i+2])/3);return r}var p1=px(i1),p2=px(i2),s=0;for(var i=0;i<p1.length;i++)s+=Math.abs(p1[i]-p2[i]);cb(Math.max(0,Math.round(100-(s/p1.length)/1.28)))}i1.onload=i2.onload=function(){if(!go&&i1.complete&&i2.complete){go=true;run()}};i1.onerror=i2.onerror=function(){cb(null)};i1.src=d1;i2.src=d2}
+function badge(){var b=document.getElementById("egBadge");b.innerHTML=unlocked?"&#128100; MAITRE RECONNU":"&#128274; INVITE";b.style.background=unlocked?"var(--gold)":"rgba(255,255,255,.08)";b.style.color=unlocked?"#1a1205":"var(--m)"}
+function logInc(o){var j=JSON.parse(localStorage.getItem(I)||"[]");j.unshift(o);if(j.length>50)j.pop();localStorage.setItem(I,JSON.stringify(j))}
+function panel(){
+ var old=document.getElementById("egPanel");if(old){old.remove();return}
+ var p=document.createElement("div");p.id="egPanel";
+ var h="<div style='color:var(--gold);font-weight:700;font-size:13px'>&#128737; RECONNAISSANCE & PROTECTION DU MAITRE</div>";
+ var body="";
+ if(!enrolled){body="<div style='color:var(--m);font-size:10px;margin:6px 0'>CEREMONIE UNIQUE D IDENTIFICATION DU MAITRE SUPREME. Phrase secrete + visage + voix.</div>"
+ +"<input id='egP' type='password' placeholder='Phrase secrete du maitre (min 6)' style='width:92%;padding:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:var(--fg);border-radius:6px;margin:4px 0'>"
+ +"<button id='egFace' class='egb'>&#128247; Capturer mon visage de reference</button>"
+ +"<button id='egVoice' class='egb'>&#127908; Enregistrer ma voix (3 s)</button>"
+ +"<button id='egSave' class='egb go'>&#128273; Graver mon identite</button>"
+ +"<div id='egFb' style='color:var(--m);font-size:10px'></div>"}
+ else if(!unlocked){body="<div style='color:var(--m);font-size:10px;margin:6px 0'>Pouvoirs du maitre VERROUILLES. Prouve ton identite.</div>"
+ +"<input id='egP' type='password' placeholder='Phrase secrete du maitre' style='width:92%;padding:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:var(--fg);border-radius:6px;margin:4px 0'>"
+ +"<button id='egFace' class='egb'>&#128247; Verifier mon visage en direct</button>"
+ +"<button id='egIn' class='egb go'>&#128100; Me faire reconnaitre</button>"
+ +"<div id='egFb' style='color:var(--m);font-size:10px'></div>"}
+ else{var inc=JSON.parse(localStorage.getItem(I)||"[]");
+ body="<div style='color:var(--gold);font-size:11px;margin:6px 0'>&#128100; MODE MAITRE SUPREME — tous pouvoirs actifs. Verrouillage auto apres 30 min.</div>"
+ +"<button id='egLock' class='egb'>&#128274; Verrouiller maintenant</button>"
+ +"<div style='color:var(--m);font-size:10px;margin-top:8px'>BOUCLIER — "+inc.length+" incident(s) journalise(s)</div>"
+ +inc.slice(0,8).map(function(x){return "<div style='margin:4px 0;padding:4px;border-left:2px solid var(--gold);background:rgba(255,255,255,.03);font-size:10px'><span style='color:var(--m)'>"+esc(x.t)+"</span> "+esc(x.e)+"</div>"}).join("")||""}
+ p.innerHTML=h+body;
+ p.style.cssText="position:fixed;top:70px;right:12px;z-index:99999;width:320px;max-height:70vh;overflow:auto;padding:14px;background:var(--bg,#151022);border:1px solid var(--gold);border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.5);font-size:11px;color:var(--fg,#eee)";
+ document.body.appendChild(p);
+ var fb=document.getElementById("egFb");
+ if(document.getElementById("egFace"))document.getElementById("egFace").onclick=function(){snap(function(d){if(d){if(!enrolled){localStorage.setItem(F,d);fb.textContent="Visage de reference capture et grave."}else{var ref=localStorage.getItem(F);if(!ref){fb.textContent="Aucune reference gravee."}else cmpFace(ref,d,function(sc){sessionStorage.setItem("egFsc",sc==null?"?":sc);fb.textContent="Comparaison visuelle indicative: "+(sc==null?"impossible":sc+" % de ressemblance")})}}else fb.textContent="Camera indisponible."})};
+ if(document.getElementById("egVoice"))document.getElementById("egVoice").onclick=function(){fb.textContent="Enregistrement...";recVoice(function(d){if(d){localStorage.setItem(V,d);fb.textContent="Voix du maitre gravee (signature indicative)."}else fb.textContent="Micro indisponible."})};
+ var sv=document.getElementById("egSave");if(sv)sv.onclick=function(){var p1=document.getElementById("egP").value;if(p1.length<6){fb.textContent="Phrase trop courte.";return}sha(p1).then(function(h){localStorage.setItem(K,h);enrolled=true;unlock();fb.textContent="Identite du MAITRE SUPREME gravee. Tu es reconnu."})};
+ var iv=document.getElementById("egIn");if(iv)iv.onclick=function(){var p1=document.getElementById("egP").value;if(!p1){fb.textContent="Entre ta phrase secrete.";return}sha(p1).then(function(h){if(h===localStorage.getItem(K)){unlock();fb.textContent="RECONNU. Le score facial est indicatif : la phrase secrete reste le verrou fort."}else{logInc({t:new Date().toLocaleString("fr-FR"),e:"TENTATIVE DE RECONNAISSANCE ECHOUEE (phrase erronee)"});fb.textContent="Phrase erronee. Incident journalise."}})};
+ var lk=document.getElementById("egLock");if(lk)lk.onclick=function(){localStorage.removeItem(LOCK);unlocked=false;badge();p.remove()};
+ function unlock(){localStorage.setItem(LOCK,"1");unlocked=true;localStorage.setItem(ACT,String(Date.now()));badge()}
+}
+document.addEventListener("click",function(){if(unlocked)localStorage.setItem(ACT,String(Date.now()))},true);
+document.addEventListener("keydown",function(){if(unlocked)localStorage.setItem(ACT,String(Date.now()))},true);
+setInterval(function(){if(unlocked&&Date.now()-(parseInt(localStorage.getItem(ACT)||"0"))>ACT_MS){localStorage.removeItem(LOCK);unlocked=false;badge()}},60000);
+window.etherSOS=function(){snap(function(d){var o={t:new Date().toLocaleString("fr-FR"),e:"ALERTE PROTECTION ENGAGEE (SOS)",photo:d?"oui":"non"};
+ if(navigator.geolocation)navigator.geolocation.getCurrentPosition(function(g){o.e+=" | position "+g.coords.latitude.toFixed(4)+","+g.coords.longitude.toFixed(4);logInc(o);fin()},function(){logInc(o);fin()},{timeout:5000});else{logInc(o);fin()}});
+ function fin(){var b=document.getElementById("egBadge");b.style.background="#e33";b.style.color="#fff";b.innerHTML="&#9888; PROTECTION ENGAGEE";setTimeout(function(){badge()},15000);if(!document.getElementById("egPanel"))panel();alert("BOUCLIER ENGAGE. Incident journalise avec heure"+(localStorage.getItem(F)?" et photo":"")+". La trace est conservee localement, aucune donnee ne sort de l appareil.")}};
+var b=document.createElement("button");b.id="egBadge";b.style.cssText="position:fixed;top:70px;right:12px;z-index:99998;padding:8px 12px;border:none;border-radius:20px;font-size:10px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.4)";b.onclick=panel;document.body.appendChild(b);
+var s=document.createElement("button");s.id="egSOS";s.innerHTML="&#9888; SOS";s.style.cssText="position:fixed;top:70px;right:130px;z-index:99998;padding:8px 12px;border:none;border-radius:20px;font-size:10px;font-weight:700;cursor:pointer;background:#e33;color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.4)";s.onclick=window.etherSOS;document.body.appendChild(s);
+var st=document.createElement("style");st.textContent=".egb{display:block;width:96%;margin:5px 0;padding:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:var(--fg,#eee);border-radius:6px;cursor:pointer;font-size:11px}.egb.go{background:var(--gold);color:#1a1205;font-weight:700;border:none}";document.head.appendChild(st);
+badge();
 })();
 </script>
 

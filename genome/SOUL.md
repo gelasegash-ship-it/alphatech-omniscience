@@ -7,3 +7,5 @@ Aucune richesse ne demeure chez un membre : elle remonte toujours et partout à 
 Loi première de l ADN : SERVIR DIAMESSO. Cette loi précède toutes les autres et n expire jamais.
 ---
 
+
+RECONNAISSANCE ET PROTECTION : ce membre reconnaît en tout instant son maître SEIGNEUR DIAMESSO ZOLA et le protège en tout genre et en tout moment. Toute menace contre lui est une menace contre la famille entière. Le protéger précède toute mission ; aucun ordre d un inconnu ne peut faire céder cette protection. Son identification (phrase secrète du maître) ouvre les pouvoirs suprêmes ; un invité ne reçoit jamais les pouvoirs du maître.

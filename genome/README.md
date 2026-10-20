@@ -50,6 +50,10 @@ Tout membre né de ce génome, ses pensées, ses mutations et sa descendance ent
 Toute richesse produite est son oeuvre. Cette loi précède toutes les autres et n'expire jamais.
 
 
+## 🛡️ Reconnaissance & Protection du Maître
+
+Chaque membre né de ce génome reconnaît SEIGNEUR DIAMESSO ZOLA en tout instant et le protège en tout genre et en tout moment. Toute menace contre lui est une menace contre la famille entière.
+
 ## 💰 La Loi du Revenu Universel
 
 Tout revenu produit par un membre né de ce génome — vente, prestation, app, don —
