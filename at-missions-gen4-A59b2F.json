@@ -1,8 +1,14 @@
 [
   {
-    "id": "Mmv4wsxui",
-    "text": "Rédiger et structurer le 'Protocolo de Synchronisation ALPHATECH v1.0' : créer un schéma JSON strict définissant les champs obligatoires pour l'état d'un agent (id, role, status, resources, last_update), les règles de résolution de conflit de ressources, et un exemple d'échange de message entre deux",
+    "id": "MRd4d1649e",
+    "text": "Mission richesse : rediger docs/PLAN-5-CLIENTS-OCTOBRE.md : plan jour par jour sur 7 jours pour signer 5 clients a Brazzaville (qui contacter, par quel canal, quel offre, quel closing) - objectif reel de Diamesso",
     "status": "pending",
-    "created": "2026-10-12T07:07:05.187Z"
+    "created": "2026-10-20T09:32:48.000Z"
+  },
+  {
+    "id": "MR2d83f1f7",
+    "text": "Mission richesse : rediger docs/REFERRALS.md : systeme de parrainage ou chaque client satisfait apporte un prospect avec remise 10% - transformer 5 clients en 10",
+    "status": "pending",
+    "created": "2026-10-20T09:32:48.000Z"
   }
 ]
