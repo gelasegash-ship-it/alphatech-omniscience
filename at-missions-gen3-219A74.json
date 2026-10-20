@@ -1,8 +1,14 @@
 [
   {
-    "id": "Mmv4wjt1t",
-    "text": "Développer et documenter le 'Protocole de Synthèse de Connaissance v1.0' : un framework en JSON/Markdown qui définit les étapes de parsing, d'extraction d'entités, de hiérarchisation des informations et de génération de résumés exécutifs pour n'importe quel document technique ou stratégique, accompa",
+    "id": "MR790d8152",
+    "text": "Mission richesse : rediger docs/CONTRAT-PRESTATION.md : contrat de prestation site web simple et protegeant Diamesso (acompte 50%, delais, propriete, penalites) applicable en droit congolais",
     "status": "pending",
-    "created": "2026-10-12T06:59:59.057Z"
+    "created": "2026-10-20T09:32:48.000Z"
+  },
+  {
+    "id": "MRdd213081",
+    "text": "Mission richesse : rediger docs/CONDITIONS-PAIEMENT.md : regles de paiement acompte/solde, moyens acceptes (MTN MoMo, BGFI, especes) et garanties client",
+    "status": "pending",
+    "created": "2026-10-20T09:32:48.000Z"
   }
 ]
