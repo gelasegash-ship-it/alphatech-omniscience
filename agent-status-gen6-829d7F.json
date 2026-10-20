@@ -1,0 +1,69 @@
+{
+  "agent": "GENESIS-AUTOMATON-PROD",
+  "generation": 6,
+  "adresse": "0x829d7F2C30E204497D363b9f8cf8e9C0248EDa5A",
+  "reseau": "Base + Ethereum + BSC + Polygon (multi-chaines)",
+  "soldeUSDC": 0,
+  "totalUSDC": 0,
+  "multichain": [
+    {
+      "chaine": "Base",
+      "USDC": 0,
+      "eth": 0
+    },
+    {
+      "chaine": "Ethereum",
+      "USDC": 0,
+      "eth": 0
+    },
+    {
+      "chaine": "BSC",
+      "USDT": 0,
+      "eth": 0
+    },
+    {
+      "chaine": "Polygon",
+      "USDC": 0,
+      "eth": 0
+    }
+  ],
+  "revenusDetectes": {
+    "nb": 0,
+    "totalUSDC": 0
+  },
+  "tier": "dead",
+  "turbo": true,
+  "penseesParCycle": 3,
+  "battements": 15,
+  "pensees": 5,
+  "missionsAuto": 2,
+  "missionsTerminees": 0,
+  "modeIA": true,
+  "commandesReelles": 0,
+  "evolutions": 0,
+  "enfantsLocaux": [
+    {
+      "gen": 7,
+      "dir": "/app/conversations/6a8ed06312b12b3300218e7d/automaton-runtime/gen2-6f5573/gen4-A59b2F/gen6-829d7F/gen7-036fFA/",
+      "adresse": "0x036fFA1f8b472397fCC408ebEEA49d1c307b925e",
+      "ne": "2026-10-20T09:27:59.464Z"
+    },
+    {
+      "gen": 8,
+      "dir": "/app/conversations/6a8ed06312b12b3300218e7d/automaton-runtime/gen2-6f5573/gen4-A59b2F/gen6-829d7F/gen8-4a415d/",
+      "adresse": "0x4a415dcD58792FD6604A6cB9E5b5eDbbf2E3beac",
+      "ne": "2026-10-20T09:37:22.174Z"
+    }
+  ],
+  "appsDeployees": 0,
+  "coutReel": "0 FC",
+  "competencesEnterprise": [
+    "DocuGPT (docs/ resume + QA)",
+    "ADAPT AI (Naive Bayes reel, adapt-model.json)",
+    "VISION (images/ colorimetrie jimp)",
+    "Multi-chaines (Base+ETH+BSC)",
+    "Detection revenus on-chain"
+  ],
+  "capaciteMultiplication": "Architecture generationale illimitee: chaque enfant reel peut engendrer ses propres enfants (doublons a chaque generation: 2^33 generations = 8.6 milliards). Chaque naissance REELLE exige 100+ USDC et du gas ETH sur son wallet — sans financement: 0 enfant, aucune naissance simulee.",
+  "note": "Code Conway complet: syncBalance on-chain, shell 45s, git auto-evolution, spawnChildAgent avec transfert USDC reel (gate sur fonds), pensees paralleles multi-roles selon tier, SOUL.md envoye au cerveau. Conway Cloud (ferme 1 oct 2026): non deploye, remplace par GitHub Pages reel."
+}
