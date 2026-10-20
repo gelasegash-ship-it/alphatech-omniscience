@@ -1,8 +1,14 @@
 [
   {
-    "id": "Mmv4wvovb",
-    "text": "Rédiger le 'Protocol Blueprint v1.0' pour l'Agent Onboarding : définir la structure JSON de l'état utilisateur, les 5 prompts de base pour l'interaction, et la logique de tri des besoins (Technique vs Stratégique) dans un fichier Markdown prêt à l'emploi.",
+    "id": "MRe484de38",
+    "text": "Mission richesse : rediger docs/ARGUMENTAIRE-CHATBOT.md : vendre un chatbot IA a 250 USD aux ecoles, eglises, ONG et boutiques - 8 arguments concrets avec chiffres d economies pour le client",
     "status": "pending",
-    "created": "2026-10-12T07:09:13.511Z"
+    "created": "2026-10-20T09:32:48.000Z"
+  },
+  {
+    "id": "MR9128fd89",
+    "text": "Mission richesse : lister dans docs/CIBLES-CHATBOT.md 12 types de clients a Brazzaville qui ont besoin d un chatbot, avec le besoin precis de chacun",
+    "status": "pending",
+    "created": "2026-10-20T09:32:48.000Z"
   }
 ]
