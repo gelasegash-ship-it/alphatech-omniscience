@@ -32,9 +32,10 @@
     "totalUSDC": 0
   },
   "tier": "dead",
-  "penseesParCycle": 1,
-  "battements": 15,
-  "pensees": 13,
+  "turbo": true,
+  "penseesParCycle": 3,
+  "battements": 18,
+  "pensees": 18,
   "missionsAuto": 1,
   "missionsTerminees": 0,
   "modeIA": true,
