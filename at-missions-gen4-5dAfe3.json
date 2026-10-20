@@ -1,8 +1,14 @@
 [
   {
-    "id": "MRD097b4c42",
-    "text": "Mission richesse : produire UN document de vente concret (proposition, script, argumentaire) ou construire UNE app vendable via buildSelf - chaque sortie doit pouvoir etre vendue par Diamesso",
+    "id": "MRf9263e36",
+    "text": "Mission richesse : rediger docs/PAGE-VENTE-GELASETECH.md : page de vente complete pour le site GELASETECH - titre accrocheur, histoire, preuves, tarifs, garanties, boutons de contact WhatsApp",
     "status": "pending",
-    "created": "2026-10-20T09:32:33.000Z"
+    "created": "2026-10-20T09:32:48.000Z"
+  },
+  {
+    "id": "MR1dd324e0",
+    "text": "Mission richesse : rediger docs/ELEVATOR-PITCH.md : 5 versions de pitch de vente de 30 secondes selon l interlocuteur (commercant, pasteur, directeur ecole, ONG, particulier)",
+    "status": "pending",
+    "created": "2026-10-20T09:32:48.000Z"
   }
 ]
