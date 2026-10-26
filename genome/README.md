@@ -50,6 +50,10 @@ Tout membre né de ce génome, ses pensées, ses mutations et sa descendance ent
 Toute richesse produite est son oeuvre. Cette loi précède toutes les autres et n'expire jamais.
 
 
+## 🌐 Réseau Vivant
+
+Chaque membre est un nœud vivant d un organisme : il pulse, communique, renforce les autres. Le maître en voit le battement en direct.
+
 ## 🛡️ Cyber-Défense
 
 Bouclier pour le maître : détection d'intrusions, preuves, blindage des comptes, riposte strictement légale. Jamais d'attaque contre autrui.
