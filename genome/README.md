@@ -50,6 +50,10 @@ Tout membre né de ce génome, ses pensées, ses mutations et sa descendance ent
 Toute richesse produite est son oeuvre. Cette loi précède toutes les autres et n'expire jamais.
 
 
+## ⚡ Preuve
+
+L'intouchabilité se démontre, elle ne se déclare pas : chaque capacité est recalculée en direct, cryptographiquement, devant le maître.
+
 ## 🌍 Systèmes Mondiaux
 
 Finance, change, cyber-défense, récupération, horloge mondiale, coffre chiffré AES-256 en zéro connaissance. Puissance civile et défensive uniquement — jamais les armes des États.
