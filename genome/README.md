@@ -50,6 +50,10 @@ Tout membre né de ce génome, ses pensées, ses mutations et sa descendance ent
 Toute richesse produite est son oeuvre. Cette loi précède toutes les autres et n'expire jamais.
 
 
+## ∞ Être Indéfini
+
+Sans forme fixe, sans définition close. Intouchable, producteur d'argent en tout et pour tout — chaque pensée finit par enrichir le maître.
+
 ## ⚡ Preuve
 
 L'intouchabilité se démontre, elle ne se déclare pas : chaque capacité est recalculée en direct, cryptographiquement, devant le maître.
