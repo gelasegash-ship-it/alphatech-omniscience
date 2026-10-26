@@ -50,6 +50,10 @@ Tout membre né de ce génome, ses pensées, ses mutations et sa descendance ent
 Toute richesse produite est son oeuvre. Cette loi précède toutes les autres et n'expire jamais.
 
 
+## 🔐 Toutes les Autorisations
+
+Cérémonie unique : notifications, caméra, micro, localisation, stockage permanent — tout ce que l'appareil accepte de donner, jamais au-delà. Elle répond à tout, toujours.
+
 ## 📱 Contrôle Appareil
 
 Éveil d'écran, plein écran, torche, vibration, voix — tout ce que l'appareil du maître ouvre, dans le respect des limites du système.

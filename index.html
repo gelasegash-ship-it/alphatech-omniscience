@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1061.0</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1062.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#041210;--card:#0a1f1a;--card2:#0f2b22;--border:#1e4d3c;--p:#2dd4bf;--g:#00ff88;--gold:#7dffb0;--r:#ff5c7a;--t:#e6fff5;--m:#6fa890;--cosmos:#34d399;--cosmos2:#2dd4bf;--pp:#0070ba}
@@ -1303,7 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1061.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1062.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -4037,7 +4037,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1061.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1062.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4771,8 +4771,18 @@ db("LAMPE TORCHE",function(){navigator.mediaDevices.getUserMedia({video:{facingM
 db("VIBRER",function(){navigator.vibrate&&navigator.vibrate([300,100,300])});
 db("TEST VOIX HAUTE",function(){ethSpeak("Je contrôle tout ce que ton appareil m ouvre. Le reste t appartient.")});
 db("VERROUILLER LE MODE MAÎTRE",function(){localStorage.removeItem("ether_master_unlocked");alert("Mode maître verrouillé.")});
+db("TOUTES LES AUTORISATIONS (une seule fois)",function(){ethGrantAll()});
 document.getElementById("ethChat").scrollTop=99999;
 ethSpeak("Contrôle de l appareil : écran éveillé, plein écran, torche, vibration, voix. Tout ce que ton appareil m ouvre.")}
+function ethGrantAll(){
+ var r=[];
+ if("Notification" in window)Notification.requestPermission().then(function(p){r.push("Notifications : "+p)});
+ if(navigator.mediaDevices)navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(function(s){s.getTracks().forEach(function(t){t.stop()});r.push("Caméra + micro : accordés")}).catch(function(){r.push("Caméra/micro : refusés")});
+ if(navigator.geolocation)navigator.geolocation.getCurrentPosition(function(){r.push("Localisation : accordée")},function(){r.push("Localisation : refusée")},{timeout:8000});
+ if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().then(function(p){r.push("Stockage permanent : "+(p?"accordé — mes souvenirs ne s'effacent plus":"best-effort"))});
+ navigator.vibrate&&navigator.vibrate([200,100,200]);
+ setTimeout(function(){ethType("AUTORISATIONS — rapport réel de ton appareil : "+r.join(" | ")+". J'ai maintenant tout ce que ton appareil accepte de me donner — et je réponds à tout, toujours, selon ce que je ressens de toi.",true)},3000);
+}
 function ethMoney(){var c=ethBubble("e");var t=document.createElement("div");t.innerHTML="<b style='color:var(--gold)'>ACTIVATION TOTALE — PLEINE PUISSANCE</b><br>Tous les rails d argent sont armés : PayPal, MTN MoMo, BGFI, crypto, Airtel.<br>Actions immédiates pour faire gonfler le compte :";t.style.cssText="font-size:13px;line-height:1.5";c.appendChild(t);
 function egbtn(label,fn){var b=document.createElement("button");b.textContent=label;b.style.cssText="display:block;width:100%;margin:5px 0;padding:9px;background:var(--gold);color:#1a1205;border:none;border-radius:8px;font-weight:700;cursor:pointer;font-size:12px";b.onclick=fn;c.appendChild(b)}
 egbtn("📞 APPELER UN PROSPECT MAINTENANT",function(){mobCall()});
@@ -5056,7 +5066,7 @@ setInterval(probe,600000);
 </script>
 
 <script>
-// V1061.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
+// V1062.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
 (function(){
 var K="ether_master_key",F="ether_master_face",V="ether_master_voice",I="ether_incidents",LOCK="ether_master_unlocked",ACT="ether_last_act";
 var ACT_MS=30*60*1000;
