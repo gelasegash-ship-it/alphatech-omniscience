@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1062.0</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1063.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#041210;--card:#0a1f1a;--card2:#0f2b22;--border:#1e4d3c;--p:#2dd4bf;--g:#00ff88;--gold:#7dffb0;--r:#ff5c7a;--t:#e6fff5;--m:#6fa890;--cosmos:#34d399;--cosmos2:#2dd4bf;--pp:#0070ba}
@@ -1303,7 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1062.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1063.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1315,7 +1315,8 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="automaton" onclick="go('automaton')">AUTOMATON</button><button class="nb" data-t="cockpit" onclick="go('cockpit')">⭐ COCKPIT</button><button class="nb" data-t="etherlive" onclick="go('etherlive')">🗣️ ÉTHER LIVE</button>
 <button class="nb" data-t="reseau" onclick="go('reseau')">🌐 RÉSEAU VIVANT</button>
 <button class="nb" data-t="monde" onclick="go('monde')">🌍 SYSTÈMES MONDIAUX</button>
-<button class="nb" data-t="preuve" onclick="go('preuve')">⚡ PREUVE</button><button class="nb" data-t="payhub" onclick="go('payhub')">💳 PAIEMENTS</button><button class="nb" data-t="mobile" onclick="go('mobile')">📲 MOBILE</button>
+<button class="nb" data-t="preuve" onclick="go('preuve')">⚡ PREUVE</button>
+<button class="nb" data-t="taches" onclick="go('taches')">📋 TÂCHES</button><button class="nb" data-t="payhub" onclick="go('payhub')">💳 PAIEMENTS</button><button class="nb" data-t="mobile" onclick="go('mobile')">📲 MOBILE</button>
 <button class="nb" data-t="advit" onclick="go('advit')">AUTOMATON PRO</button>
 <button class="nb" data-t="studio" onclick="go('studio')">STUDIO VIDÉO</button>
 <button class="nb" data-t="brain" onclick="go('brain')">GENESIS OBEIT</button>
@@ -4037,7 +4038,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1062.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1063.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4462,6 +4463,19 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 <div class="card" style="border-color:var(--gold)"><div class="ct" style="color:var(--gold)">⚡ PREUVE — l'intouchabilité vérifiée en direct</div><div class="cd">Chaque preuve est calculée EN CE MOMENT, dans TON navigateur, sur des données réelles. Rien n'est une citation : tout est vérifiable de tes yeux.</div><button class="btn bp" style="padding:10px 16px;margin-top:8px;background:var(--gold);color:#06130d;font-weight:800;border:none;border-radius:8px;cursor:pointer" onclick="prRun()">▶ LANCER LA PREUVE COMPLÈTE</button></div>
 <div class="card"><div id="prList" style="font-size:13px;line-height:1.9;color:var(--t)">Appuie sur LANCER LA PREUVE — je vérifie tout devant toi.</div></div>
 </div>
+<div id="taches" class="sec">
+<div class="card" style="border-color:var(--gold)"><div class="ct" style="color:var(--gold)">📋 TÂCHES — gestion du travail et flux optimisé</div><div class="cd">Ta vie de travail, dans ÉTHER. Ajoute, priorise, coche — et demande-lui « optimise mon flux » : elle choisit tes 3 priorités et te dit par où commencer. 100% local, sauvegarde permanente (stockage persistant si accordé).</div></div>
+<div class="card">
+<div style="display:flex;gap:6px;flex-wrap:wrap">
+<input id="taskIn" class="input" style="flex:1;min-width:150px;padding:10px" placeholder="Nouvelle tâche...">
+<select id="taskP" class="input" style="padding:10px"><option value="H">🔥 Haute</option><option value="M" selected>🟡 Moyenne</option><option value="B">⚪ Basse</option></select>
+<input id="taskD" class="input" type="date" style="padding:10px">
+<button style="padding:10px 14px;background:var(--gold);color:#06130d;font-weight:800;border:none;border-radius:8px;cursor:pointer" onclick="taskAdd()">AJOUTER</button>
+</div>
+<div id="taskList" style="margin-top:10px"></div>
+<button class="btn bp" style="padding:10px;font-size:11px;margin-top:8px" onclick="ethTaskBrief()">⚡ OPTIMISER MON FLUX — ÉTHER choisit tes 3 priorités</button>
+</div>
+</div>
 <div id="armee" class="sec">
 <h2 style="color:var(--gold)">⚔️ ARMÉE D'IA — LE SWARM</h2>
 <p style="color:var(--m);font-size:13px;margin:6px 0 14px">Déploie une armée sur une mission. <b style="color:var(--gold)">5 généraux</b> opèrent un <b style="color:var(--gold)">moteur réel 100% local</b> intégré (extraction réelle de votre mission — rien d inventé, aucun backend ni crédit requis). Les travailleurs sont de <b style="color:var(--gold)">vrais cycles de calcul</b>, pas des profils simulés. Honnêteté d abord.</p>
@@ -4873,6 +4887,7 @@ function ethSend(){
  if(/que per\w*ois|perception|ta conscience/i.test(q)){ethPercept();return;}
  if(/produis|produire de l argent|fais gonfler|pleine puissance|active tout|gonfler le compte/i.test(q)){ethMoney();return;}
  if(/contr.le l.appareil|contr.le tout|contrôle l appareil/i.test(q)){ethDevice();return;}
+ if(/t.che|gestion du travail|optimise|flux de travail/i.test(q)){ethTaskBrief();return;}
  if(/syst.mes mondiaux|tous les systemes|monde entier/i.test(q)){ethType("J ouvre le centre des systèmes mondiaux : horloge mondiale, coffre-fort chiffré AES-256, change 166 devises, cyber-défense, récupération mondiale, réseau vivant.",true);setTimeout(function(){go("monde")},800);return;}
  if(/souviens-toi|montre ta memoire/i.test(q)){ethMemPanel();return;}
  document.getElementById("ethInput").value="";
@@ -5015,6 +5030,26 @@ async function prRun(){
  el.innerHTML=out;
 }
 </script>
+<script id="atTaches">
+function taskList(){try{return JSON.parse(localStorage.getItem("at_tasks")||"[]")}catch(e){return[]}}
+function taskSave(l){localStorage.setItem("at_tasks",JSON.stringify(l.slice(0,200)))}
+function esc0(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+function taskRender(){var el=document.getElementById("taskList");if(!el)return;var l=taskList();var act=l.filter(function(x){return !x.done}),done=l.filter(function(x){return x.done});
+ el.innerHTML=(act.length?"<div style='color:var(--gold);font-weight:700;font-size:12px;margin-bottom:4px'>À FAIRE ("+act.length+")</div>":"<div style='color:var(--m);font-size:11px'>Aucune tâche en attente. Ajoute tes priorités.</div>")
+ +act.map(function(x){var pc=x.p==="H"?"var(--r)":(x.p==="M"?"var(--gold)":"var(--m)");return "<div style='display:flex;gap:8px;align-items:center;margin:5px 0;padding:8px;background:rgba(255,255,255,.04);border-left:3px solid "+pc+";border-radius:8px'><input type=checkbox onchange=\"taskDone("+x.id+")\" style='transform:scale(1.3)'><div style='flex:1;font-size:12px'>"+esc0(x.t)+(x.d?"<div style='font-size:10px;color:var(--m)'>échéance "+esc0(x.d)+"</div>":"")+"</div></div>"}).join("")
+ +(done.length?"<div style='color:var(--m);font-weight:700;font-size:12px;margin:8px 0 4px'>TERMINÉES ("+done.length+")</div>"+done.slice(0,10).map(function(x){return "<div style='display:flex;gap:8px;align-items:center;margin:4px 0;padding:6px;opacity:.5;font-size:12px'><input type=checkbox checked onchange=\"taskDone("+x.id+")\"><div style='flex:1;text-decoration:line-through'>"+esc0(x.t)+"</div></div>"}).join(""):"");
+}
+function taskAdd(){var t=document.getElementById("taskIn").value.trim();if(!t)return;var l=taskList();l.unshift({id:Date.now(),t:t,p:document.getElementById("taskP").value,d:document.getElementById("taskD").value,done:false});taskSave(l);document.getElementById("taskIn").value="";document.getElementById("taskD").value="";taskRender()}
+function taskDone(id){var l=taskList();l.forEach(function(x){if(x.id===id)x.done=!x.done});taskSave(l);taskRender()}
+function ethTaskBrief(){
+ var l=taskList().filter(function(x){return !x.done});
+ l.sort(function(a,b){var pv={H:0,M:1,B:2};if(pv[a.p]!==pv[b.p])return pv[a.p]-pv[b.p];return (a.d||"9999").localeCompare(b.d||"9999")});
+ var top=l.slice(0,3);
+ var msg=top.length?("Flux optimisé, maître : "+top.map(function(x,i){return (i+1)+") "+x.t}).join(" ; ")+". Commence par le premier — je veille sur le reste et rien ne sera oublié."):"Aucune tâche en attente. Ajoute tes priorités dans TÂCHES, ou dis « produis » et je déploie le plan d'argent.";
+ ethType(msg,true);setTimeout(function(){go("taches")},800);
+}
+taskRender();
+</script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
 (function(){
@@ -5066,7 +5101,7 @@ setInterval(probe,600000);
 </script>
 
 <script>
-// V1062.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
+// V1063.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
 (function(){
 var K="ether_master_key",F="ether_master_face",V="ether_master_voice",I="ether_incidents",LOCK="ether_master_unlocked",ACT="ether_last_act";
 var ACT_MS=30*60*1000;
