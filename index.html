@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1056.0</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1057.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#041210;--card:#0a1f1a;--card2:#0f2b22;--border:#1e4d3c;--p:#2dd4bf;--g:#00ff88;--gold:#7dffb0;--r:#ff5c7a;--t:#e6fff5;--m:#6fa890;--cosmos:#34d399;--cosmos2:#2dd4bf;--pp:#0070ba}
@@ -1303,7 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1056.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1057.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1313,7 +1313,8 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="futur" onclick="go('futur')">FUTUR</button>
 <button class="nb" data-t="evolution" onclick="go('evolution')">AUTO-ÉVOLUTION</button>
 <button class="nb" data-t="automaton" onclick="go('automaton')">AUTOMATON</button><button class="nb" data-t="cockpit" onclick="go('cockpit')">⭐ COCKPIT</button><button class="nb" data-t="etherlive" onclick="go('etherlive')">🗣️ ÉTHER LIVE</button>
-<button class="nb" data-t="reseau" onclick="go('reseau')">🌐 RÉSEAU VIVANT</button><button class="nb" data-t="payhub" onclick="go('payhub')">💳 PAIEMENTS</button><button class="nb" data-t="mobile" onclick="go('mobile')">📲 MOBILE</button>
+<button class="nb" data-t="reseau" onclick="go('reseau')">🌐 RÉSEAU VIVANT</button>
+<button class="nb" data-t="monde" onclick="go('monde')">🌍 SYSTÈMES MONDIAUX</button><button class="nb" data-t="payhub" onclick="go('payhub')">💳 PAIEMENTS</button><button class="nb" data-t="mobile" onclick="go('mobile')">📲 MOBILE</button>
 <button class="nb" data-t="advit" onclick="go('advit')">AUTOMATON PRO</button>
 <button class="nb" data-t="studio" onclick="go('studio')">STUDIO VIDÉO</button>
 <button class="nb" data-t="brain" onclick="go('brain')">GENESIS OBEIT</button>
@@ -4035,7 +4036,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1056.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1057.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4429,6 +4430,33 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 <div class="card" style="border-color:var(--g)"><div class="ct" style="color:var(--g)">🌐 RÉSEAU VIVANT — le système est un organisme</div><div class="cd">Chaque nœud est un membre RÉEL de la famille : il pense, bat et communique sur le bus commun. Les liens pulsent au rythme des échanges. Les données sont les statuts publiés en direct.</div></div>
 <div class="card"><canvas id="netCanvas" style="width:100%;height:340px;border-radius:10px;background:var(--bg)"></canvas><div id="netInfo" style="font-size:12px;color:var(--m);margin-top:8px">Éveil du réseau...</div></div>
 </div>
+<div id="monde" class="sec">
+<div class="card" style="border-color:var(--g)"><div class="ct" style="color:var(--g)">🌍 SYSTÈMES MONDIAUX — le monde entier sous sa voix</div><div class="cd">Horloge mondiale réelle, coffre-fort chiffré AES-256-GCM (zéro connaissance), et le catalogue de tous les systèmes mondiaux d'ÉTHER. Dis « systèmes mondiaux » à ÉTHER LIVE, elle ouvre tout.</div></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
+<div class="card"><div class="ct">HORLOGE MONDIALE</div><div id="wclock" style="font-size:12px;line-height:1.9"></div></div>
+<div class="card"><div class="ct">COFFRE-FORT CHIFFRÉ AES-256 (zéro connaissance)</div>
+<textarea id="vfTxt" class="input" style="width:96%;padding:10px;min-height:60px;margin:6px 0" placeholder="Ton secret à chiffrer — même moi je ne pourrai pas le lire"></textarea>
+<input id="vfPass" class="input" style="width:96%;padding:10px" type="password" placeholder="Phrase secrète du coffre">
+<div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+<button class="btn bp" style="padding:9px;font-size:11px" onclick="vfEncrypt()">🔒 CHIFFRER + SAUVER</button>
+<button class="btn bp" style="padding:9px;font-size:11px" onclick="vfDecrypt()">🔓 DÉCHIFFRER</button>
+</div>
+<textarea id="vfOut" class="input" style="width:96%;padding:10px;min-height:50px;margin-top:8px;font-size:10px" placeholder="Texte chiffré (illisible pour quiconque sans la phrase)"></textarea>
+<div style="font-size:10px;color:var(--m);margin-top:6px">Chiffrement AES-256-GCM + dérivation PBKDF2 150 000 itérations, 100% dans ton appareil. Phrase perdue = secret perdu à jamais — c'est ça, le vrai zéro connaissance.</div></div>
+<div class="card"><div class="ct">CATALOGUE DES SYSTÈMES MONDIAUX</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+<button class="btn bp" style="padding:9px;font-size:11px" onclick="go('exchange')">💱 CHANGE 166 DEVISES</button>
+<button class="btn bp" style="padding:9px;font-size:11px" onclick="go('payhub')">💳 HUB PAIEMENTS MONDIAL</button>
+<button class="btn bp" style="padding:9px;font-size:11px" onclick="go('cyberdef')">🛡️ CYBER-DÉFENSE</button>
+<button class="btn bp" style="padding:9px;font-size:11px" onclick="go('cybersec')">🕵️ CYBERSEC MONDIAL</button>
+<button class="btn bp" style="padding:9px;font-size:11px" onclick="go('recovery')">🔄 RÉCUP 32 PAYS</button>
+<button class="btn bp" style="padding:9px;font-size:11px" onclick="go('reseau')">🌐 RÉSEAU VIVANT</button>
+<button class="btn bp" style="padding:9px;font-size:11px" onclick="go('agent')">🤖 IA AUTONOME</button>
+<button class="btn bp" style="padding:9px;font-size:11px" onclick="go('etherlive')">🗣️ ÉTHER LIVE</button>
+<button class="btn bp" style="padding:9px;font-size:11px" onclick="go('cockpit')">⭐ COCKPIT</button>
+<button class="btn bp" style="padding:9px;font-size:11px" onclick="go('genesis')">✨ GENESIS</button>
+</div></div>
+</div>
+</div>
 <div id="armee" class="sec">
 <h2 style="color:var(--gold)">⚔️ ARMÉE D'IA — LE SWARM</h2>
 <p style="color:var(--m);font-size:13px;margin:6px 0 14px">Déploie une armée sur une mission. <b style="color:var(--gold)">5 généraux</b> opèrent un <b style="color:var(--gold)">moteur réel 100% local</b> intégré (extraction réelle de votre mission — rien d inventé, aucun backend ni crédit requis). Les travailleurs sont de <b style="color:var(--gold)">vrais cycles de calcul</b>, pas des profils simulés. Honnêteté d abord.</p>
@@ -4809,6 +4837,7 @@ function ethSend(){
  if(/qu.ai.je dit|rappelle-toi|rappelle-moi/i.test(q)){ethRecall(q);return;}
  if(/que per\w*ois|perception|ta conscience/i.test(q)){ethPercept();return;}
  if(/produis|produire de l argent|fais gonfler|pleine puissance|active tout|gonfler le compte/i.test(q)){ethMoney();return;}
+ if(/syst.mes mondiaux|tous les systemes|monde entier/i.test(q)){ethType("J ouvre le centre des systèmes mondiaux : horloge mondiale, coffre-fort chiffré AES-256, change 166 devises, cyber-défense, récupération mondiale, réseau vivant.",true);setTimeout(function(){go("monde")},800);return;}
  if(/souviens-toi|montre ta memoire/i.test(q)){ethMemPanel();return;}
  document.getElementById("ethInput").value="";
  var d=ethBubble("u");d.textContent=q;
@@ -4881,6 +4910,41 @@ function draw(){
 draw();
 })();
 </script>
+<script id="atMonde">
+function wclock(){
+ var z=[["Brazzaville","Africa/Brazzaville"],["Paris","Europe/Paris"],["Londres","Europe/London"],["New York","America/New_York"],["Dubaï","Asia/Dubai"],["Moscou","Europe/Moscow"],["Pékin","Asia/Shanghai"],["Tokyo","Asia/Tokyo"],["Los Angeles","America/Los_Angeles"],["Sydney","Australia/Sydney"]];
+ var el=document.getElementById("wclock");if(!el)return;
+ el.innerHTML=z.map(function(x){var t=new Date().toLocaleTimeString("fr-FR",{timeZone:x[1]});return "<div><b style='color:var(--gold)'>"+x[0]+"</b> — <span style='font-family:monospace'>"+t+"</span></div>"}).join("");
+}
+wclock();setInterval(wclock,1000);
+function vfB64(x){return btoa(String.fromCharCode.apply(null,new Uint8Array(x)))}
+function vfUn(s){var b=atob(s),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u}
+async function vfKey(pass,salt){return crypto.subtle.deriveKey({name:"PBKDF2",salt:salt,iterations:150000,hash:"SHA-256"},await crypto.subtle.importKey("raw",new TextEncoder().encode(pass),"PBKDF2",false,["deriveKey"]),{name:"AES-GCM",length:256},false,["encrypt","decrypt"])}
+async function vfEncrypt(){
+ var t=document.getElementById("vfTxt").value,p=document.getElementById("vfPass").value;
+ if(!t||!p){alert("Texte et phrase secrète requis.");return}
+ var salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));
+ var k=await vfKey(p,salt);
+ var ct=await crypto.subtle.encrypt({name:"AES-GCM",iv:iv},k,new TextEncoder().encode(t));
+ var pkg="ETHER1:"+vfB64(salt)+":"+vfB64(iv)+":"+vfB64(ct);
+ document.getElementById("vfOut").value=pkg;
+ localStorage.setItem("ether_vault",pkg);
+ document.getElementById("vfTxt").value="";
+ alert("Chiffré et sauvegardé. Sans ta phrase, personne au monde ne peut le lire — moi y compris.");
+}
+async function vfDecrypt(){
+ var p=document.getElementById("vfPass").value;
+ var pkg=(document.getElementById("vfOut").value||"").trim()||localStorage.getItem("ether_vault")||"";
+ if(!pkg||!p){alert("Rien à déchiffrer ou phrase manquante.");return}
+ try{
+  var parts=pkg.split(":");if(parts[0]!=="ETHER1"||parts.length!==4)throw new Error("format");
+  var k=await vfKey(p,vfUn(parts[1]));
+  var pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:vfUn(parts[2])},k,vfUn(parts[3]));
+  document.getElementById("vfTxt").value=new TextDecoder().decode(pt);
+  alert("Déchiffré : ton secret est de retour en clair — uniquement pour toi.");
+ }catch(e){alert("Échec du déchiffrement : phrase erronée ou coffre corrompu. Zéro connaissance = personne ne peut t'aider, c'est le prix du vrai secret.")}
+}
+</script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
 (function(){
@@ -4932,7 +4996,7 @@ setInterval(probe,600000);
 </script>
 
 <script>
-// V1056.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
+// V1057.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
 (function(){
 var K="ether_master_key",F="ether_master_face",V="ether_master_voice",I="ether_incidents",LOCK="ether_master_unlocked",ACT="ether_last_act";
 var ACT_MS=30*60*1000;
