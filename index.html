@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1071.0</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1072.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#041210;--card:#0a1f1a;--card2:#0f2b22;--border:#1e4d3c;--p:#2dd4bf;--g:#00ff88;--gold:#7dffb0;--r:#ff5c7a;--t:#e6fff5;--m:#6fa890;--cosmos:#34d399;--cosmos2:#2dd4bf;--pp:#0070ba}
@@ -1303,7 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1071.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1072.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1315,7 +1315,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="automaton" onclick="go('automaton')">AUTOMATON</button><button class="nb" data-t="cockpit" onclick="go('cockpit')">⭐ COCKPIT</button><button class="nb" data-t="etherlive" onclick="go('etherlive')">🗣️ ÉTHER LIVE</button>
 <button class="nb" data-t="reseau" onclick="go('reseau')">🌐 RÉSEAU VIVANT</button>
 <button class="nb" data-t="monde" onclick="go('monde')">🌍 SYSTÈMES MONDIAUX</button>
-<button class="nb" data-t="preuve" onclick="go('preuve')">⚡ PREUVE</button>
+<button class="nb" data-t="preuve" onclick="go('preuve')">⚡ PREUVE</button><button class="nb" data-t="bank" onclick="go('bank')">🏦 BANQUE ÉTHER</button>
 <button class="nb" data-t="supreme" onclick="go('supreme')">⚔️ PUISSANCE SUPRÊME</button>
 <button class="nb" data-t="vivante" onclick="go('vivante')">🧬 MACHINE VIVANTE</button>
 <button class="nb" data-t="veille" onclick="go('veille')">🛰️ VEILLE & AUTO-INSTALL</button>
@@ -4042,7 +4042,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1071.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1072.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4527,6 +4527,25 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 </div></div>
 <div class="card"><div class="ct">MODULES DISPONIBLES</div><div id="viList" style="margin-top:8px"></div></div>
 <div class="card"><div class="ct">MODULES INSTALLÉS — opérationnels</div><div id="viZone" style="margin-top:8px"></div></div>
+</div>
+<div id="bank" class="sec">
+<div class="card" style="border-color:var(--gold)"><div class="ct" style="color:var(--gold)">🏦 BANQUE ÉTHER — encaisser, payer, tenir les comptes</div><div class="cd">Ta caisse et tes comptes clients, en un endroit. Encaissement et paiement réels via MTN MoMo (API), grand livre automatique, relevés imprimables. ⚠️ Ceci est un hub de paiement pour ton activité — ouvrir une banque agréée exige une licence et un capital (COBAC/BEAC), c'est une démarche juridique, pas du code.</div></div>
+<div class="card"><div class="ct">NOUVELLE OPÉRATION</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px">
+<input id="bkName" class="input" style="padding:8px;min-width:120px" placeholder="Client">
+<input id="bkAmt" class="input" type="number" style="padding:8px;width:110px" placeholder="Montant FCFA">
+<select id="bkType" class="input" style="padding:8px"><option value="in">⬇️ Encaissement</option><option value="out">⬆️ Décaissement</option></select>
+<select id="bkMoy" class="input" style="padding:8px"><option>MTN MoMo</option><option>Airtel Money</option><option>BGFI</option><option>Espèces</option><option>PayPal</option></select>
+</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px">
+<input id="bkPhone" class="input" style="padding:8px;flex:1;min-width:140px" placeholder="+242 06...">
+<button class="btn" style="padding:9px 12px;background:var(--gold);color:#06130d;font-weight:800;border:none;border-radius:8px;cursor:pointer" onclick="bkAdd()">AJOUTER AU LIVRE</button>
+<button class="btn" style="padding:9px 12px;background:#ffcc00;color:#111;font-weight:800;border:none;border-radius:8px;cursor:pointer" onclick="bkMomo(true)">📲 ENCAISSER MOBILE MONEY</button>
+<button class="btn" style="padding:9px 12px;background:var(--card2);color:var(--t);border:1px solid var(--border);border-radius:8px;cursor:pointer" onclick="bkMomo(false)">💸 PAYER MOBILE MONEY</button>
+</div><div id="bkMsg" style="font-size:11px;color:var(--m);margin-top:6px"></div></div>
+<div class="card"><div class="ct">SOLDES PAR CLIENT</div><div id="bkClients" style="margin-top:6px"></div></div>
+<div class="card"><div class="ct">GRAND LIVRE</div><div id="bkLedger" style="margin-top:6px"></div>
+<div style="display:flex;gap:6px;margin-top:8px"><button class="btn" style="padding:8px 10px;background:var(--card2);color:var(--t);border:1px solid var(--border);border-radius:8px;cursor:pointer" onclick="bkCsv()">⬇️ EXPORT CSV</button><button class="btn" style="padding:8px 10px;background:var(--card2);color:var(--t);border:1px solid var(--border);border-radius:8px;cursor:pointer" onclick="window.print()">🖨️ RELEVÉ</button></div></div>
 </div>
 <div id="armee" class="sec">
 <h2 style="color:var(--gold)">⚔️ ARMÉE D'IA — LE SWARM</h2>
@@ -5269,6 +5288,31 @@ function viPass(){var ch="ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456
 function viFacture(){try{var j=window.jspdf.jsPDF;var doc=new j();var num="FA-"+Date.now().toString().slice(-6);doc.setFontSize(18);doc.text("ALPHATECH OMNISCIENCE",14,20);doc.setFontSize(10);doc.text("Gelase House — Brazzaville, Congo",14,27);doc.text("Tel/WhatsApp : +242 05 33 43 719  |  gelasegash@gmail.com",14,33);doc.setFontSize(16);doc.text("FACTURE / DEVIS "+num,14,50);doc.setFontSize(11);doc.text("Date : "+new Date().toLocaleDateString("fr-FR"),14,60);doc.text("Client : "+(document.getElementById("faC").value||"—"),14,70);doc.text("Prestation : "+(document.getElementById("faP").value||"—"),14,80);var mt=Number(document.getElementById("faM").value||0);doc.text("Montant : "+mt.toLocaleString("fr-FR")+" FCFA",14,90);doc.text("Total a payer : "+mt.toLocaleString("fr-FR")+" FCFA",14,100);doc.setFontSize(9);doc.text("Paiement : MTN MoMo / Airtel Money / virement BGFI / PayPal",14,115);doc.text("Merci de votre confiance.",14,125);doc.save("facture-"+num+".pdf")}catch(e){alert("Generateur PDF indisponible (connexion requise une fois).")}}
 if(document.getElementById("viList"))viRender();
 </script>
+<script id="atBank">
+function bkData(){try{var d=JSON.parse(localStorage.getItem("at_bank")||"null");if(d&&Array.isArray(d.entries))return d}catch(e){}return {entries:[]}}
+function bkSave(d){localStorage.setItem("at_bank",JSON.stringify(d))}
+function bkAddEntry(t,client,amt,moy,note){var d=bkData();d.entries.unshift({id:Date.now(),t:t,c:String(client||"Client"),a:Number(amt||0),m:moy||"Espèces",n:note||"",d:new Date().toISOString().slice(0,16).replace("T"," ")});bkSave(d);bkRender();return d}
+function bkAdd(){var n=document.getElementById("bkName").value.trim(),a=document.getElementById("bkAmt").value,t=document.getElementById("bkType").value,m=document.getElementById("bkMoy").value;if(!n||!a||Number(a)<=0){alert("Client et montant requis.");return}bkAddEntry(t,n,Number(a),m,"manuel");document.getElementById("bkAmt").value="";document.getElementById("bkMsg").textContent="Opération enregistrée : "+n+" — "+Number(a).toLocaleString()+" FCFA ("+(t==="in"?"encaissement":"décaissement")+")"}
+function bkRender(){var d=bkData(),bal={};d.entries.forEach(function(e){bal[e.c]=(bal[e.c]||0)+(e.t==="in"?e.a:-e.a)});
+ var total=0,inT=0,outT=0;d.entries.forEach(function(e){if(e.t==="in")inT+=e.a;else outT+=e.a});total=inT-outT;
+ var el=document.getElementById("bkClients");if(el){var ks=Object.keys(bal);el.innerHTML=ks.length?ks.map(function(k){return "<div style='display:flex;justify-content:space-between;padding:6px;border-bottom:1px solid var(--border);font-size:12px'><b>"+k+"</b><span style='color:"+(bal[k]>=0?"var(--g)":"var(--r)")+"'>"+bal[k].toLocaleString()+" FCFA</span></div>"}).join(""):"<div style='color:var(--m);font-size:11px'>Aucun client encore.</div>"}
+ var lg=document.getElementById("bkLedger");if(lg){lg.innerHTML="<div style='display:flex;gap:10px;font-size:11px;margin-bottom:6px'><span>Reçu: <b style='color:var(--g)'>"+inT.toLocaleString()+"</b></span><span>Payé: <b style='color:var(--r)'>"+outT.toLocaleString()+"</b></span><span>Caisse: <b style='color:var(--gold)'>"+total.toLocaleString()+" FCFA</b></span></div>"+(d.entries.length?d.entries.slice(0,30).map(function(e){return "<div style='display:flex;justify-content:space-between;padding:5px;border-bottom:1px solid var(--border);font-size:11px'><span>"+e.d+" · "+e.c+" · "+e.m+"</span><span style='color:"+(e.t==="in"?"var(--g)":"var(--r)")+"'>"+(e.t==="in"?"+":"-")+e.a.toLocaleString()+"</span></div>"}).join(""):"<div style='color:var(--m);font-size:11px'>Livre vide.</div>")}}
+function bkCsv(){var d=bkData();if(!d.entries.length){alert("Livre vide.");return}var rows=["date,client,type,montant,moyen,note"];d.entries.forEach(function(e){rows.push([e.d,e.c,(e.t==="in"?"encaissement":"decaissement"),e.a,e.m,e.n].join(","))});var b=new Blob([rows.join("\n")],{type:"text/csv"});var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="grand-livre-ether.csv";a.click()}
+function bkMomo(encaisser){
+ var phone=document.getElementById("bkPhone").value.trim(),amt=Number(document.getElementById("bkAmt").value||0),name=document.getElementById("bkName").value.trim()||"Client";
+ var msg=document.getElementById("bkMsg");
+ if(!phone||!amt){msg.textContent="Numéro et montant requis.";return}
+ msg.textContent=(encaisser?"Demande d'encaissement":"Paiement")+" MTN en cours…";
+ var action=encaisser?"requestToPay":"transfer";
+ fetch("https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/mtnPayment",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:action,amount:amt,phone:phone,currency:"XAF",reference:"ETHER-"+Date.now()})})
+ .then(function(r){return r.json()}).then(function(d){
+   if(d&&(d.ok||d.status||d.reference||d.transactionId)){
+     msg.textContent="MTN: "+(d.message||d.status||"demande acceptée")+" — réf "+(d.reference||d.transactionId||"—");
+     bkAddEntry(encaisser?"in":"out",name,amt,"MTN MoMo","API "+(d.reference||""));
+   } else { msg.textContent="MTN: "+(d&&d.error?d.error:"réponse inattendue")+" — tu peux enregistrer manuellement."; }
+ }).catch(function(){msg.textContent="API MTN injoignable — enregistre l'opération manuellement."})}
+bkRender();
+</script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
 (function(){
@@ -5320,7 +5364,7 @@ setInterval(probe,600000);
 </script>
 
 <script>
-// V1071.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
+// V1072.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
 (function(){
 var K="ether_master_key",F="ether_master_face",V="ether_master_voice",I="ether_incidents",LOCK="ether_master_unlocked",ACT="ether_last_act";
 var ACT_MS=30*60*1000;
