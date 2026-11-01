@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1068.0</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1069.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#041210;--card:#0a1f1a;--card2:#0f2b22;--border:#1e4d3c;--p:#2dd4bf;--g:#00ff88;--gold:#7dffb0;--r:#ff5c7a;--t:#e6fff5;--m:#6fa890;--cosmos:#34d399;--cosmos2:#2dd4bf;--pp:#0070ba}
@@ -1303,7 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1068.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1069.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1318,6 +1318,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="preuve" onclick="go('preuve')">⚡ PREUVE</button>
 <button class="nb" data-t="supreme" onclick="go('supreme')">⚔️ PUISSANCE SUPRÊME</button>
 <button class="nb" data-t="vivante" onclick="go('vivante')">🧬 MACHINE VIVANTE</button>
+<button class="nb" data-t="veille" onclick="go('veille')">🛰️ VEILLE & AUTO-INSTALL</button>
 <button class="nb" data-t="taches" onclick="go('taches')">📋 TÂCHES</button>
 <button class="nb" data-t="contacts" onclick="go('contacts')">📇 CONTACTS</button><button class="nb" data-t="payhub" onclick="go('payhub')">💳 PAIEMENTS</button><button class="nb" data-t="mobile" onclick="go('mobile')">📲 MOBILE</button>
 <button class="nb" data-t="advit" onclick="go('advit')">AUTOMATON PRO</button>
@@ -4041,7 +4042,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1068.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1069.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4517,6 +4518,15 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 <div id="vivante" class="sec">
 <div class="card" style="border-color:var(--g)"><div class="ct" style="color:var(--g)">🧬 MACHINE VIVANTE — l'organisme défensif, dans tous les domaines</div><div class="cd">Elle pulse toutes les 30 secondes : vérifie son noyau, répare ses corpus, surveille tous ses domaines et journalise chaque battement. <b>Défensive uniquement</b> : les outils des hackers ne sont pas ici et n'y seront jamais — un système qui attaque finit par être attaqué, un système qui répare est intouchable.</div><div id="mvStats" style="font-size:11px;color:var(--m);margin-top:6px"></div><div id="mvDom" style="font-size:12px;color:var(--t);margin-top:6px;font-weight:700"></div></div>
 <div class="card"><div class="ct">JOURNAL VIVANT — derniers battements réels</div><div id="mvLog" style="margin-top:8px"></div></div>
+</div>
+<div id="veille" class="sec">
+<div class="card" style="border-color:var(--gold)"><div class="ct" style="color:var(--gold)">🛰️ VEILLE & AUTO-INSTALL — elle scanne, elle installe</div><div class="cd">Catalogue de capacités vérifiées, installables en un clic et opérationnelles immédiatement. L'auto-installation ne charge que des modules approuvés — jamais du code arbitraire trouvé au hasard sur Internet : c'est ta sécurité, pas une limite.</div>
+<div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+<button style="padding:10px 14px;background:var(--gold);color:#06130d;font-weight:800;border:none;border-radius:8px;cursor:pointer;font-size:11px" onclick="viAuto()">⚡ TOUT AUTO-INSTALLER</button>
+<button style="padding:10px 14px;background:var(--card2);border:1px solid var(--border);color:var(--t);border-radius:8px;cursor:pointer;font-size:11px" onclick="viReset()">♻️ RÉINITIALISER</button>
+</div></div>
+<div class="card"><div class="ct">MODULES DISPONIBLES</div><div id="viList" style="margin-top:8px"></div></div>
+<div class="card"><div class="ct">MODULES INSTALLÉS — opérationnels</div><div id="viZone" style="margin-top:8px"></div></div>
 </div>
 <div id="armee" class="sec">
 <h2 style="color:var(--gold)">⚔️ ARMÉE D'IA — LE SWARM</h2>
@@ -5228,6 +5238,27 @@ var mvTimer=null;
 function mvStart(){if(mvTimer)return;mvPulse();mvTimer=setInterval(function(){if(document.visibilityState==="visible")mvPulse()},30000)}
 if(document.getElementById("mvLog"))mvStart();
 </script>
+<script id="atVeille">
+var VI_MODS=[
+ {id:"qr",name:"Générateur QR — librairie CDN",desc:"Installe qrcodejs depuis jsDelivr et génère de vrais QR codes.",run:function(z){viLoadScript("https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js",function(){z.innerHTML="<div style='font-size:11px;color:var(--m);margin-bottom:6px'>QR installé — entre ton texte :</div><input id='qrIn' class='input' style='width:96%;padding:9px' value='https://gelasegash-ship-it.github.io/alphatech-omniscience/'><div id='qrOut' style='margin-top:8px;background:#fff;display:inline-block;padding:8px;border-radius:8px'></div>";try{new QRCode(document.getElementById("qrOut"),{text:document.getElementById("qrIn").value,width:150,height:150});document.getElementById("qrIn").oninput=function(){document.getElementById("qrOut").innerHTML="";new QRCode(document.getElementById("qrOut"),{text:this.value||" ",width:150,height:150})}}catch(e){z.innerHTML+="<div style='color:var(--r)'>QR indisponible.</div>"}})},
+ {id:"meteo",name:"Météo Brazzaville — Open-Meteo",desc:"Température actuelle et prévision 3 jours, API publique sans clé.",run:function(z){z.innerHTML="<div style='color:var(--m);font-size:11px'>Lecture météo...</div>";fetch("https://api.open-meteo.com/v1/forecast?latitude=-4.2634&longitude=15.2429&current=temperature_2m,relative_humidity_2m,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&timezone=Africa%2FBrazzaville&forecast_days=3").then(function(r){return r.json()}).then(function(d){var cu=d.current,dl=d.daily;z.innerHTML="<div style='font-size:13px'><b style='color:var(--gold)'>"+cu.temperature_2m+"°C</b> — humidité "+cu.relative_humidity_2m+"% · vent "+cu.wind_speed_10m+" km/h</div>"+dl.time.map(function(t,i){return "<div style='font-size:11px;color:var(--m)'>"+t+" : max "+dl.temperature_2m_max[i]+"° / min "+dl.temperature_2m_min[i]+"°</div>"}).join("")}).catch(function(){z.innerHTML="<div style='color:var(--r)'>API météo injoignable.</div>"})}},
+ {id:"devises",name:"Convertisseur devises live",desc:"Taux XAF/USD/EUR en direct (API publique, sans clé).",run:function(z){z.innerHTML="<div style='font-size:11px;color:var(--m)'>Taux en direct...</div>";fetch("https://open.er-api.com/v6/latest/EUR").then(function(r){return r.json()}).then(function(d){var r=d.rates;var usd=(1/r.USD).toFixed(4),xaf=r.XAF.toFixed(2);z.innerHTML="<div style='font-size:12px'>1 EUR = <b style='color:var(--gold)'>"+xaf+" FCFA</b> = <b style='color:var(--gold)'>"+r.USD+" USD</b><br>1 USD = <b style='color:var(--gold)'>"+usd+" EUR</b><br><span style='font-size:10px;color:var(--m)'>Source open.er-api.com — "+(d.time_last_update_utc||"")+"</span></div>"}).catch(function(){z.innerHTML="<div style='color:var(--r)'>API devises injoignable.</div>"})}},
+ {id:"pomodoro",name:"Chrono Pomodoro 25/5",desc:"Minuteur de travail avec alerte sonore et vibration.",run:function(z){z.innerHTML="<div id='pmT' style='font-size:28px;font-weight:800;color:var(--gold)'>25:00</div><button id='pmB' style='padding:9px 14px;background:var(--gold);color:#06130d;font-weight:700;border:none;border-radius:8px;cursor:pointer;margin-top:6px'>DÉMARRER</button>";var left=1500,t=null;document.getElementById("pmB").onclick=function(){var b=this;if(t){clearInterval(t);t=null;b.textContent="DÉMARRER";return}b.textContent="PAUSE";t=setInterval(function(){left--;var m=Math.floor(left/60),s=left%60;document.getElementById("pmT").textContent=(m<10?"0":"")+m+":"+(s<10?"0":"")+s;if(left<=0){clearInterval(t);t=null;document.getElementById("pmT").textContent="TERMINÉ";navigator.vibrate&&navigator.vibrate([400,150,400]);try{ethSpeak("Pomodoro terminé, maître. Pause de cinq minutes.")}catch(e){}}},1000)}}}
+];
+function viLoadScript(src,cb){if(document.querySelector("script[src='"+src+"']")){cb();return}var s=document.createElement("script");s.src=src;s.onload=cb;document.head.appendChild(s)}
+function viInstalled(){try{return JSON.parse(localStorage.getItem("at_mods")||"[]")}catch(e){return[]}}
+function viRender(){
+ var ins=viInstalled(),el=document.getElementById("viList");if(!el)return;
+ el.innerHTML=VI_MODS.map(function(m){var on=ins.indexOf(m.id)>-1;return "<div style='display:flex;align-items:center;gap:8px;margin:6px 0;padding:9px;background:rgba(255,255,255,.04);border-radius:8px'><div style='flex:1;font-size:12px'><b>"+m.name+"</b><div style='font-size:10px;color:var(--m)'>"+m.desc+"</div></div><button style='padding:8px 12px;background:"+(on?"var(--card2)":"var(--gold)")+";border:"+(on?"1px solid var(--border)":"none")+";color:"+(on?"var(--t)":"#06130d")+";font-weight:700;border-radius:8px;cursor:pointer;font-size:11px' onclick=\"viInstall('"+m.id+"')\">"+(on?"INSTALLÉ":"INSTALLER")+"</button></div>"}).join("");
+ var z=document.getElementById("viZone");
+ z.innerHTML=ins.length?"":"<div style='color:var(--m);font-size:11px'>Aucun module installé. Un clic suffit.</div>";
+ ins.forEach(function(id){var m=VI_MODS.filter(function(x){return x.id===id})[0];if(!m)return;var box=document.createElement("div");box.style.cssText="margin:8px 0;padding:10px;border:1px solid var(--border);border-radius:8px";box.innerHTML="<div style='font-size:11px;color:var(--gold);font-weight:700;margin-bottom:6px'>"+m.name+"</div>";var inner=document.createElement("div");box.appendChild(inner);z.appendChild(box);try{m.run(inner)}catch(e){inner.innerHTML="<div style='color:var(--r);font-size:11px'>Erreur module.</div>"}});
+}
+function viInstall(id){var ins=viInstalled();if(ins.indexOf(id)<0){ins.push(id);localStorage.setItem("at_mods",JSON.stringify(ins))}viRender()}
+function viAuto(){localStorage.setItem("at_mods",JSON.stringify(VI_MODS.map(function(m){return m.id})));viRender()}
+function viReset(){localStorage.removeItem("at_mods");viRender()}
+if(document.getElementById("viList"))viRender();
+</script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
 (function(){
@@ -5279,7 +5310,7 @@ setInterval(probe,600000);
 </script>
 
 <script>
-// V1068.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
+// V1069.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
 (function(){
 var K="ether_master_key",F="ether_master_face",V="ether_master_voice",I="ether_incidents",LOCK="ether_master_unlocked",ACT="ether_last_act";
 var ACT_MS=30*60*1000;
