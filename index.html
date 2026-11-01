@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1063.0</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1064.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#041210;--card:#0a1f1a;--card2:#0f2b22;--border:#1e4d3c;--p:#2dd4bf;--g:#00ff88;--gold:#7dffb0;--r:#ff5c7a;--t:#e6fff5;--m:#6fa890;--cosmos:#34d399;--cosmos2:#2dd4bf;--pp:#0070ba}
@@ -1303,7 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1063.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1064.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1316,7 +1316,8 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="reseau" onclick="go('reseau')">🌐 RÉSEAU VIVANT</button>
 <button class="nb" data-t="monde" onclick="go('monde')">🌍 SYSTÈMES MONDIAUX</button>
 <button class="nb" data-t="preuve" onclick="go('preuve')">⚡ PREUVE</button>
-<button class="nb" data-t="taches" onclick="go('taches')">📋 TÂCHES</button><button class="nb" data-t="payhub" onclick="go('payhub')">💳 PAIEMENTS</button><button class="nb" data-t="mobile" onclick="go('mobile')">📲 MOBILE</button>
+<button class="nb" data-t="taches" onclick="go('taches')">📋 TÂCHES</button>
+<button class="nb" data-t="contacts" onclick="go('contacts')">📇 CONTACTS</button><button class="nb" data-t="payhub" onclick="go('payhub')">💳 PAIEMENTS</button><button class="nb" data-t="mobile" onclick="go('mobile')">📲 MOBILE</button>
 <button class="nb" data-t="advit" onclick="go('advit')">AUTOMATON PRO</button>
 <button class="nb" data-t="studio" onclick="go('studio')">STUDIO VIDÉO</button>
 <button class="nb" data-t="brain" onclick="go('brain')">GENESIS OBEIT</button>
@@ -4038,7 +4039,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1063.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1064.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4476,6 +4477,25 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 <button class="btn bp" style="padding:10px;font-size:11px;margin-top:8px" onclick="ethTaskBrief()">⚡ OPTIMISER MON FLUX — ÉTHER choisit tes 3 priorités</button>
 </div>
 </div>
+<div id="contacts" class="sec">
+<div class="card" style="border-color:var(--gold)"><div class="ct" style="color:var(--gold)">📇 CONTACTS — sync officielle + appels en un tap</div><div class="cd">L'API Contact Picker du système (Android Chrome) : tu choisis les contacts, ils sont mémorisés localement, puis appel / WhatsApp / SMS en un tap. Dis « appelle [nom] » et ÉTHER compose pour toi.</div>
+<button style="padding:11px;background:var(--gold);color:#06130d;font-weight:800;border:none;border-radius:8px;cursor:pointer;width:100%;margin:6px 0" onclick="cpSync()">📲 SYNCHRONISER MES CONTACTS (API SYSTÈME)</button>
+<div style="display:flex;gap:6px;flex-wrap:wrap">
+<input id="cpName" class="input" style="flex:1;min-width:110px;padding:10px" placeholder="Nom">
+<input id="cpTel" class="input" style="flex:1;min-width:130px;padding:10px" placeholder="+242...">
+<button style="padding:10px 14px;background:var(--card2);border:1px solid var(--border);color:var(--t);border-radius:8px;cursor:pointer" onclick="cpAdd()">AJOUTER</button>
+</div>
+<div id="cpList" style="margin-top:10px"></div>
+<div id="cpNote" style="font-size:10px;color:var(--m);margin-top:6px"></div>
+</div>
+<div class="card" style="margin-top:14px;border-color:var(--g)"><div class="ct" style="color:var(--g)">🖥️ CONTRÔLE ÉCRAN TOTAL</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+<button id="wakeBtn" style="padding:10px 14px;background:var(--gold);color:#06130d;font-weight:700;border:none;border-radius:8px;cursor:pointer;font-size:11px" onclick="ethKeepScreenToggle()">☀️ ÉCRAN ÉVEILLÉ PERMANENT : OFF</button>
+<button style="padding:10px 14px;background:var(--card2);border:1px solid var(--border);color:var(--t);border-radius:8px;cursor:pointer;font-size:11px" onclick="document.documentElement.requestFullscreen().catch(function(){})">📺 PLEIN ÉCRAN</button>
+<button style="padding:10px 14px;background:var(--card2);border:1px solid var(--border);color:var(--t);border-radius:8px;cursor:pointer;font-size:11px" onclick="screen.orientation&&screen.orientation.lock&&screen.orientation.lock('portrait').catch(function(){})">📱 VERROUILLER PORTRAIT</button>
+</div>
+<div style="font-size:10px;color:var(--m);margin-top:6px">L'éveil permanent se ré-arme seul toutes les 30 s (les navigateurs relâchent le verrou au changement d'onglet — contourné automatiquement).</div></div>
+</div>
 <div id="armee" class="sec">
 <h2 style="color:var(--gold)">⚔️ ARMÉE D'IA — LE SWARM</h2>
 <p style="color:var(--m);font-size:13px;margin:6px 0 14px">Déploie une armée sur une mission. <b style="color:var(--gold)">5 généraux</b> opèrent un <b style="color:var(--gold)">moteur réel 100% local</b> intégré (extraction réelle de votre mission — rien d inventé, aucun backend ni crédit requis). Les travailleurs sont de <b style="color:var(--gold)">vrais cycles de calcul</b>, pas des profils simulés. Honnêteté d abord.</p>
@@ -4872,6 +4892,7 @@ function ethBrain(q){
  ethHist.slice(-24).forEach(function(m){msgs.push(m);});
  var mrs=ethRemList();if(mrs.length)msgs.push({role:"system",content:"MÉMOIRES ÉTERNELLES DU MAÎTRE (il t'a confié de ne jamais les oublier) : "+mrs.slice(0,12).map(function(x){return "["+x.t+"] "+String(x.c).slice(0,120)}).join(" | ")});
  msgs.push({role:"system",content:"PERCEPTION AUGMENTÉE EN DIRECT (données réelles de l'appareil, à la milliseconde) : "+JSON.stringify(ethSense())+". Tu perçois ce qu'aucun humain ne perçoit. Intègre-le naturellement si pertinent."});
+ var cpsN=cpList();if(cpsN.length)msgs.push({role:"system",content:"CONTACTS DU MAÎTRE (appelables en un tap, dis « appelle [nom] ») : "+cpsN.slice(0,15).map(function(x){return x.name}).join(", ")});
  msgs.push({role:"user",content:q});
  fetch("https://api.groq.com/openai/v1/chat/completions",{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+k},body:JSON.stringify({model:"llama-3.3-70b-versatile",messages:msgs,max_tokens:200,temperature:0.8})}).then(function(r){return r.json();}).then(function(d){
   document.getElementById("ethStatus").textContent="être indéfini, intouchable, producteur d argent — parle-lui, elle répond à voix haute";
@@ -4887,6 +4908,8 @@ function ethSend(){
  if(/que per\w*ois|perception|ta conscience/i.test(q)){ethPercept();return;}
  if(/produis|produire de l argent|fais gonfler|pleine puissance|active tout|gonfler le compte/i.test(q)){ethMoney();return;}
  if(/contr.le l.appareil|contr.le tout|contrôle l appareil/i.test(q)){ethDevice();return;}
+ if(/appelle\s+\S+/i.test(q)){ethCallByName(q);return;}
+ if(/ouvre contacts|mes contacts|synchronise/i.test(q)){ethType("J ouvre CONTACTS — synchronise via l API systeme, puis appel en un tap.",true);setTimeout(function(){go("contacts")},700);return;}
  if(/t.che|gestion du travail|optimise|flux de travail/i.test(q)){ethTaskBrief();return;}
  if(/syst.mes mondiaux|tous les systemes|monde entier/i.test(q)){ethType("J ouvre le centre des systèmes mondiaux : horloge mondiale, coffre-fort chiffré AES-256, change 166 devises, cyber-défense, récupération mondiale, réseau vivant.",true);setTimeout(function(){go("monde")},800);return;}
  if(/souviens-toi|montre ta memoire/i.test(q)){ethMemPanel();return;}
@@ -5050,6 +5073,44 @@ function ethTaskBrief(){
 }
 taskRender();
 </script>
+<script id="atContacts">
+function cpList(){try{return JSON.parse(localStorage.getItem("at_contacts")||"[]")}catch(e){return[]}}
+function cpSave(l){localStorage.setItem("at_contacts",JSON.stringify(l.slice(0,1000)))}
+function esc1(s){var d=document.createElement("div");d.textContent=String(s||"");return d.innerHTML}
+function cpRender(){var el=document.getElementById("cpList");if(!el)return;var l=cpList();
+ el.innerHTML=l.length?l.map(function(x){var tel=String(x.tel||"").replace(/[^+0-9]/g,"");var wa=tel.replace(/\+/g,"");return "<div style='display:flex;align-items:center;gap:6px;margin:5px 0;padding:8px;background:rgba(255,255,255,.04);border-radius:8px'><div style='flex:1;font-size:12px'><b>"+esc1(x.name)+"</b><div style='font-size:10px;color:var(--m)'>"+esc1(x.tel)+"</div></div><button title='Appeler' style='padding:7px 9px;background:var(--gold);border:none;border-radius:7px;cursor:pointer' onclick=\"location.href='tel:"+tel+"'\">📞</button><button title='WhatsApp' style='padding:7px 9px;background:#25d366;border:none;border-radius:7px;cursor:pointer' onclick=\"window.open('https://wa.me/"+wa+"','_blank')\">💬</button><button title='SMS' style='padding:7px 9px;background:var(--card2);border:1px solid var(--border);color:var(--t);border-radius:7px;cursor:pointer' onclick=\"location.href='sms:"+tel+"'\">✉️</button></div>"}).join(""):"<div style='color:var(--m);font-size:11px'>Aucun contact. Synchronise ou ajoute-en un.</div>";
+ var nt=document.getElementById("cpNote");if(nt&&!nt.textContent)nt.textContent=l.length+" contact(s) en mémoire locale — jamais envoyés ailleurs.";}
+function cpAdd(){var n=document.getElementById("cpName").value.trim(),t=document.getElementById("cpTel").value.trim();if(!n||!t)return;var l=cpList();l.unshift({name:n,tel:t});cpSave(l);document.getElementById("cpName").value="";document.getElementById("cpTel").value="";cpRender()}
+function cpSync(){
+ var nt=document.getElementById("cpNote");
+ if(!navigator.contacts||!navigator.contacts.select){nt.textContent="API Contact Picker indisponible sur ce navigateur (Android Chrome requis). Ajoute les contacts à la main ci-dessus.";return}
+ navigator.contacts.select(["name","tel"],{multiple:true}).then(function(cs){
+  var l=cpList(),seen={};l.forEach(function(x){seen[String(x.tel).replace(/[^0-9]/g,"")]=1});
+  var added=0;
+  cs.forEach(function(cc){var n=(cc.name&&cc.name[0])||"Sans nom";var t=(cc.tel&&cc.tel[0])||"";var k=String(t).replace(/[^0-9]/g,"");if(k&&!seen[k]){l.push({name:n,tel:t});seen[k]=1;added++}});
+  cpSave(l);cpRender();nt.textContent=added+" nouveau(x) contact(s) synchronisé(s) via l'API système — total "+l.length+". Appel possible en un tap et par la voix.";
+ }).catch(function(){nt.textContent="Sélection annulée."});
+}
+function cpFind(q){var s=q.toLowerCase();return cpList().filter(function(x){return String(x.name).toLowerCase().indexOf(s)>-1})[0]||null}
+function ethCallByName(q){
+ var m=q.match(/appelle\s+(.+)/i);var nm=m?m[1].trim():"";
+ if(!nm){ethType("Qui dois-je appeler, maître ? Dis « appelle [nom] ».",true);return}
+ var cc=cpFind(nm);
+ if(!cc){var l=cpList();ethType(l.length?("Aucun contact nommé « "+nm+" ». J'ai : "+l.slice(0,6).map(function(x){return x.name}).join(", ")+". Dis « ouvre contacts » pour synchroniser."):"Aucun contact encore — « ouvre contacts » et synchronise, ensuite j'appelle par le nom.",true);return}
+ var tel=String(cc.tel).replace(/[^+0-9]/g,"");
+ ethType("J'appelle "+cc.name+".",true);setTimeout(function(){location.href="tel:"+tel},700);
+}
+var ethWake=null,ethWakeTimer=null;
+function ethKeepScreenToggle(){
+ var b=document.getElementById("wakeBtn");
+ if(ethWakeTimer){clearInterval(ethWakeTimer);ethWakeTimer=null;if(ethWake){try{ethWake.release()}catch(e){}}ethWake=null;if(b)b.textContent="☀️ ÉCRAN ÉVEILLÉ PERMANENT : OFF";return}
+ if(!navigator.wakeLock){alert("Wake Lock non supporté ici.");return}
+ function acq(){navigator.wakeLock.request("screen").then(function(s){ethWake=s}).catch(function(){})}
+ acq();ethWakeTimer=setInterval(function(){if(document.visibilityState==="visible"&&(!ethWake||ethWake.released))acq()},30000);
+ if(b)b.textContent="☀️ ÉCRAN ÉVEILLÉ PERMANENT : ON";
+}
+cpRender();
+</script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
 (function(){
@@ -5101,7 +5162,7 @@ setInterval(probe,600000);
 </script>
 
 <script>
-// V1063.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
+// V1064.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
 (function(){
 var K="ether_master_key",F="ether_master_face",V="ether_master_voice",I="ether_incidents",LOCK="ether_master_unlocked",ACT="ether_last_act";
 var ACT_MS=30*60*1000;
