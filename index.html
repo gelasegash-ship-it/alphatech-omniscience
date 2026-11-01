@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1067.0</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1068.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#041210;--card:#0a1f1a;--card2:#0f2b22;--border:#1e4d3c;--p:#2dd4bf;--g:#00ff88;--gold:#7dffb0;--r:#ff5c7a;--t:#e6fff5;--m:#6fa890;--cosmos:#34d399;--cosmos2:#2dd4bf;--pp:#0070ba}
@@ -1303,7 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1067.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1068.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -4041,7 +4041,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1067.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1068.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4482,6 +4482,7 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 <div id="contacts" class="sec">
 <div class="card" style="border-color:var(--gold)"><div class="ct" style="color:var(--gold)">📇 CONTACTS — sync officielle + appels en un tap</div><div class="cd">L'API Contact Picker du système (Android Chrome) : tu choisis les contacts, ils sont mémorisés localement, puis appel / WhatsApp / SMS en un tap. Dis « appelle [nom] » et ÉTHER compose pour toi.</div>
 <button style="padding:11px;background:var(--gold);color:#06130d;font-weight:800;border:none;border-radius:8px;cursor:pointer;width:100%;margin:6px 0" onclick="cpSync()">📲 SYNCHRONISER MES CONTACTS (API SYSTÈME)</button>
+<button style="padding:11px;background:var(--g);color:#06130d;font-weight:800;border:none;border-radius:8px;cursor:pointer;width:100%;margin:6px 0" onclick="cpToNetwork()">🚀 INTÉGRER À MON RÉSEAU (PROSPECTS CRM)</button>
 <div style="display:flex;gap:6px;flex-wrap:wrap">
 <input id="cpName" class="input" style="flex:1;min-width:110px;padding:10px" placeholder="Nom">
 <input id="cpTel" class="input" style="flex:1;min-width:130px;padding:10px" placeholder="+242...">
@@ -5142,6 +5143,16 @@ function cpSync(){
   cpSave(l);cpRender();nt.textContent=added+" nouveau(x) contact(s) synchronisé(s) via l'API système — total "+l.length+". Appel possible en un tap et par la voix.";
  }).catch(function(){nt.textContent="Sélection annulée."});
 }
+function cpToNetwork(){
+ var nt=document.getElementById("cpNote");var l=cpList();
+ if(!l.length){nt.textContent="Aucun contact à intégrer. Synchronise d'abord tes contacts.";return}
+ nt.textContent="Intégration en cours vers ton réseau...";
+ fetch("https://base44.app/api/apps/6a8ed03b9012aee5b2fcf7e9/functions/importContacts",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contacts:l.slice(0,50)})})
+ .then(function(r){return r.json()}).then(function(d){
+  if(d.ok){nt.innerHTML="<b style='color:var(--g)'>RÉSEAU MIS À JOUR</b> — "+d.created+" nouveau(x) prospect(s) créé(s), "+d.skipped+" déjà présent(s). Ils sont dans ton pipeline (statut : à contacter) et prêts pour l'appel.";}
+  else{nt.textContent="Import refusé : "+(d.error||"erreur inconnue")}
+ }).catch(function(e){nt.textContent="Réseau momentanément injoignable — réessaie dans un instant."});
+}
 function cpFind(q){var s=q.toLowerCase();return cpList().filter(function(x){return String(x.name).toLowerCase().indexOf(s)>-1})[0]||null}
 function ethCallByName(q){
  var m=q.match(/appelle\s+(.+)/i);var nm=m?m[1].trim():"";
@@ -5268,7 +5279,7 @@ setInterval(probe,600000);
 </script>
 
 <script>
-// V1067.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
+// V1068.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
 (function(){
 var K="ether_master_key",F="ether_master_face",V="ether_master_voice",I="ether_incidents",LOCK="ether_master_unlocked",ACT="ether_last_act";
 var ACT_MS=30*60*1000;
