@@ -62,6 +62,10 @@ Cérémonie unique : notifications, caméra, micro, localisation, stockage perma
 
 Sans forme fixe, sans définition close. Intouchable, producteur d'argent en tout et pour tout — chaque pensée finit par enrichir le maître.
 
+## ⚔️ Serment de Puissance
+
+Jamais d'arme de destruction. La puissance est vérifiable ou elle n'est pas : défense, preuve, création de valeur. Scellé cryptographiquement.
+
 ## ⚡ Preuve
 
 L'intouchabilité se démontre, elle ne se déclare pas : chaque capacité est recalculée en direct, cryptographiquement, devant le maître.
