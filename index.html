@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1074.0</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1075.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#041210;--card:#0a1f1a;--card2:#0f2b22;--border:#1e4d3c;--p:#2dd4bf;--g:#00ff88;--gold:#7dffb0;--r:#ff5c7a;--t:#e6fff5;--m:#6fa890;--cosmos:#34d399;--cosmos2:#2dd4bf;--pp:#0070ba}
@@ -1303,7 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1074.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1075.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -4044,7 +4044,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1074.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1075.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -5376,10 +5376,36 @@ async function sapCycle(){
  else if(s.h>=13&&s.h<17)act="APRES-MIDI : envoi du lot d'e-mails personnalises (max 15) + relance des non-reponses";
  else if(s.h>=17&&s.h<21)act="SOIR : publication du film et de l'offre, suivi des reponses entrants";
  else act="NUIT : elle travaille seule — consolidation du CRM, scoring des prospects, preparation du plan de demain";
- await sapAdd("CYCLE",act,s);
+ await sapAdd("CYCLE",act,s);sapToTask(act);
  st.cycles=(st.cycles||0)+1;st.last=Date.now();localStorage.setItem(SAP_STATE,JSON.stringify(st));
  sapRender();
  return act;
+}
+function sapToTask(dec){
+ if(typeof taskList!=="function"||typeof taskSave!=="function")return;
+ var l=taskList(),t="[ETHER] "+dec;
+ for(var i=0;i<l.length;i++){if(l[i].t===t)return}
+ var pr=/appel|whatsapp|rendez|caisse|rib|momo/i.test(dec)?"H":(/mail|film|publi/i.test(dec)?"M":"B");
+ l.unshift({id:Date.now(),t:t,p:pr,d:"",done:false});
+ taskSave(l);if(typeof taskRender==="function")taskRender();
+}
+function sapSeedTasks(){
+ if(localStorage.getItem("at_tasks_seed_v1075"))return;
+ if(typeof taskList!=="function"||typeof taskSave!=="function")return;
+ var seeds=[
+  ["Renseigner le RIB BGFI dans BANQUE ETHER (hub de paiements)","H"],
+  ["Renseigner le numero marchand MTN MoMo dans le hub","H"],
+  ["Envoyer les 5 premiers WhatsApp du kit - hotels d abord","H"],
+  ["Publier le film 24s sur TikTok et Instagram","M"],
+  ["Appeler 3 cliniques du CRM (prospects sante)","H"],
+  ["Relancer sous 72h les 6 prospects qui ont recu un mail","M"],
+  ["Verifier la chaine SHA-256 du SYSTEME AUTONOME","B"],
+  ["Lancer un cycle autonome chaque matin","M"]
+ ];
+ var l=taskList();
+ for(var i=0;i<seeds.length;i++){l.push({id:Date.now()+i,t:seeds[i][0],p:seeds[i][1],d:"",done:false})}
+ taskSave(l);localStorage.setItem("at_tasks_seed_v1075","1");
+ if(typeof taskRender==="function")taskRender();
 }
 function sapRender(){
  var z=document.getElementById("sapLog");if(!z)return;
@@ -5393,7 +5419,7 @@ function sapRender(){
 async function sapVerifBtn(){var r=await sapVerify();var o=document.getElementById("sapVerif");if(o)o.textContent=r.n?(r.ok?"CHAINE INTACTE — "+r.n+" maillons verifies par SHA-256":"CHAINE ROMPUE au maillon "+r.at):"Chaine vide — lance un cycle";}
 var sapTimer=null;
 function sapStart(){if(sapTimer)return;sapRender();sapTimer=setInterval(function(){if(document.visibilityState==="visible")sapCycle()},300000);}
-setTimeout(function(){if(document.getElementById("sapLog")){sapStart();sapCycle()}},4000);
+setTimeout(function(){if(document.getElementById("sapLog")){sapStart();sapSeedTasks();sapCycle()}},4000);
 
 </script>
 <script id="atSwarm">
@@ -5505,7 +5531,7 @@ setInterval(probe,600000);
 </script>
 
 <script>
-// V1074.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
+// V1075.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
 (function(){
 var K="ether_master_key",F="ether_master_face",V="ether_master_voice",I="ether_incidents",LOCK="ether_master_unlocked",ACT="ether_last_act";
 var ACT_MS=30*60*1000;

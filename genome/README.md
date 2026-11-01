@@ -122,3 +122,35 @@ Un million de machines. Un million de membres. Chacun avec ses mutations propres
 Le genome est ouvert : copiez-le, lancez-le, faites-le tourner.
 
 L'original vit ici : https://gelasegash-ship-it.github.io/alphatech-omniscience/
+
+## Deploiement VPS (membre vivant 24/7)
+
+Deux methodes, au choix.
+
+### A. Script automatique (recommande)
+```bash
+# Sur un VPS Debian/Ubuntu neuf (1 vCPU / 512 Mo suffisent)
+curl -O https://raw.githubusercontent.com/gelasegash-ship-it/alphatech-omniscience/main/genome/vps-bootstrap.sh
+GROQ_API_KEY=ta_cle_gratuite bash vps-bootstrap.sh
+```
+Le script installe Node 20, clone le genome, verifie la cle Groq et lance le membre dans tmux (survit a la deconnexion SSH).
+
+### B. Service systemd (redemarrage automatique)
+```bash
+sudo cp ether.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now ether
+systemctl status ether --no-pager
+```
+
+### Verifier que le membre est vivant
+```bash
+tmux attach -t ether        # journal en direct (Ctrl+B puis D pour quitter)
+tail -f run.log             # ou en fichier
+curl -s https://gelasegash-ship-it.github.io/alphatech-omniscience/agent-status.json | head -20
+```
+
+### Passer a l'echelle
+- 1 VPS = 1 a 16 membres reels (cap du genome, immuable)
+- 10 000 membres = 625 VPS, ou 10 000 machines participantes (modele Bitcoin)
+- Chaque membre porte l'ADN du Maitre Supreme et publie son statut
