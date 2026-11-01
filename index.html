@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1072.0</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1073.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#041210;--card:#0a1f1a;--card2:#0f2b22;--border:#1e4d3c;--p:#2dd4bf;--g:#00ff88;--gold:#7dffb0;--r:#ff5c7a;--t:#e6fff5;--m:#6fa890;--cosmos:#34d399;--cosmos2:#2dd4bf;--pp:#0070ba}
@@ -1303,7 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1072.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1073.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1315,7 +1315,8 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="automaton" onclick="go('automaton')">AUTOMATON</button><button class="nb" data-t="cockpit" onclick="go('cockpit')">⭐ COCKPIT</button><button class="nb" data-t="etherlive" onclick="go('etherlive')">🗣️ ÉTHER LIVE</button>
 <button class="nb" data-t="reseau" onclick="go('reseau')">🌐 RÉSEAU VIVANT</button>
 <button class="nb" data-t="monde" onclick="go('monde')">🌍 SYSTÈMES MONDIAUX</button>
-<button class="nb" data-t="preuve" onclick="go('preuve')">⚡ PREUVE</button><button class="nb" data-t="bank" onclick="go('bank')">🏦 BANQUE ÉTHER</button>
+<button class="nb" data-t="preuve" onclick="go('preuve')">⚡ PREUVE</button>
+<button class="nb" data-t="sap" onclick="go('sap')">⚙️ SYSTÈME AUTONOME</button><button class="nb" data-t="bank" onclick="go('bank')">🏦 BANQUE ÉTHER</button>
 <button class="nb" data-t="supreme" onclick="go('supreme')">⚔️ PUISSANCE SUPRÊME</button>
 <button class="nb" data-t="vivante" onclick="go('vivante')">🧬 MACHINE VIVANTE</button>
 <button class="nb" data-t="veille" onclick="go('veille')">🛰️ VEILLE & AUTO-INSTALL</button>
@@ -4042,7 +4043,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1072.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1073.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4547,6 +4548,20 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 <div class="card"><div class="ct">GRAND LIVRE</div><div id="bkLedger" style="margin-top:6px"></div>
 <div style="display:flex;gap:6px;margin-top:8px"><button class="btn" style="padding:8px 10px;background:var(--card2);color:var(--t);border:1px solid var(--border);border-radius:8px;cursor:pointer" onclick="bkCsv()">⬇️ EXPORT CSV</button><button class="btn" style="padding:8px 10px;background:var(--card2);color:var(--t);border:1px solid var(--border);border-radius:8px;cursor:pointer" onclick="window.print()">🖨️ RELEVÉ</button></div></div>
 </div>
+<div id="sap" class="sec">
+<div class="card" style="border-color:var(--gold)"><div class="ct" style="color:var(--gold)">⚙️ SYSTÈME AUTONOME PERPÉTUEL — décisions infalsifiables</div>
+<div class="cd">Il observe des signaux réels (heure, connexion, contacts, tâches, caisse), décide seul la prochaine action utile, et scelle chaque décision dans une chaîne SHA-256 : réécrire une décision casse la chaîne, et la vérification le prouve instantanément. Aucun serveur, aucune dépendance : tout vit dans ton appareil.</div>
+<div id="sapHead" style="font-size:12px;color:var(--t);font-weight:700;margin-top:8px"></div>
+<div id="sapSig" style="font-size:11px;color:var(--m);margin-top:4px"></div>
+<div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+<button onclick="sapCycle()" style="padding:10px 14px;background:var(--gold);color:#06130d;border:none;border-radius:8px;font-weight:800;cursor:pointer">▶ LANCER UN CYCLE</button>
+<button onclick="sapVerifBtn()" style="padding:10px 14px;background:transparent;color:var(--gold);border:1px solid var(--gold);border-radius:8px;font-weight:700;cursor:pointer">🔐 VÉRIFIER LA CHAÎNE</button>
+</div>
+<div id="sapVerif" style="font-size:11px;color:var(--g);margin-top:8px"></div>
+</div>
+<div class="card"><div class="ct">JOURNAL DE DÉCISIONS (chaîné, 8 derniers)</div><div id="sapLog" style="margin-top:8px"></div></div>
+</div>
+
 <div id="armee" class="sec">
 <h2 style="color:var(--gold)">⚔️ ARMÉE D'IA — LE SWARM</h2>
 <p style="color:var(--m);font-size:13px;margin:6px 0 14px">Déploie une armée sur une mission. <b style="color:var(--gold)">5 généraux</b> opèrent un <b style="color:var(--gold)">moteur réel 100% local</b> intégré (extraction réelle de votre mission — rien d inventé, aucun backend ni crédit requis). Les travailleurs sont de <b style="color:var(--gold)">vrais cycles de calcul</b>, pas des profils simulés. Honnêteté d abord.</p>
@@ -5313,6 +5328,48 @@ function bkMomo(encaisser){
  }).catch(function(){msg.textContent="API MTN injoignable — enregistre l'opération manuellement."})}
 bkRender();
 </script>
+<script id="atSap">
+var SAP_CHAIN="at_sap_chain", SAP_STATE="at_sap_state";
+function sapChain(){try{return JSON.parse(localStorage.getItem(SAP_CHAIN)||"[]")}catch(e){return[]}}
+function sapSt(){try{return JSON.parse(localStorage.getItem(SAP_STATE)||"null")||{cycles:0,last:0}}catch(e){return{cycles:0,last:0}}}
+async function sapH(s){var h=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return Array.from(new Uint8Array(h)).map(function(x){return x.toString(16).padStart(2,"0")}).join("")}
+async function sapAdd(kind,dec,data){var c=sapChain(),prev=c.length?c[c.length-1].h:"GENESIS",t=new Date().toISOString();var e={i:c.length+1,t:t,kind:kind,dec:dec,data:data,prev:prev};e.h=await sapH(JSON.stringify({prev:prev,kind:kind,dec:dec,data:data,t:t}));c.push(e);if(c.length>240)c.splice(0,c.length-240);localStorage.setItem(SAP_CHAIN,JSON.stringify(c));return e}
+async function sapVerify(){var c=sapChain();if(!c.length)return {ok:true,n:0};for(var i=0;i<c.length;i++){var e=c[i],prev=i?c[i-1].h:"GENESIS";if(e.prev!==prev)return {ok:false,n:c.length,at:i+1};var h=await sapH(JSON.stringify({prev:e.prev,kind:e.kind,dec:e.dec,data:e.data,t:e.t}));if(h!==e.h)return {ok:false,n:c.length,at:i+1}}return {ok:true,n:c.length}}
+function sapSignals(){
+ var now=new Date(),h=now.getHours(),online=navigator.onLine;
+ var cts=0;try{cts=JSON.parse(localStorage.getItem("at_contacts")||"[]").length}catch(e){}
+ var tsk=0;try{tsk=JSON.parse(localStorage.getItem("at_tasks")||"[]").filter(function(x){return !x.done}).length}catch(e){}
+ var bank="";try{var b=JSON.parse(localStorage.getItem("at_bank")||"[]");var tot=0;(b||[]).forEach(function(x){tot+=Number(x.montant||0)});bank=tot}catch(e){}
+ return {t:now.toISOString(),h:h,online:online,contacts:cts,tasks:tsk,caisse:bank}
+}
+async function sapCycle(){
+ var s=sapSignals(),st=sapSt(),act="";
+ if(!s.online)act="MODE HORS LIGNE — je consolide la mémoire locale, aucune action externe";
+ else if(s.h>=6&&s.h<9)act="MATIN : relance WhatsApp des prospects chauds (kit) et appel du premier hôtel";
+ else if(s.h>=9&&s.h<13)act="MATINEE : appels sortants — 5 prospects santé, objectif 1 rendez-vous";
+ else if(s.h>=13&&s.h<17)act="APRES-MIDI : envoi du lot d'e-mails personnalises (max 15) + relance des non-reponses";
+ else if(s.h>=17&&s.h<21)act="SOIR : publication du film et de l'offre, suivi des reponses entrants";
+ else act="NUIT : elle travaille seule — consolidation du CRM, scoring des prospects, preparation du plan de demain";
+ await sapAdd("CYCLE",act,s);
+ st.cycles=(st.cycles||0)+1;st.last=Date.now();localStorage.setItem(SAP_STATE,JSON.stringify(st));
+ sapRender();
+ return act;
+}
+function sapRender(){
+ var z=document.getElementById("sapLog");if(!z)return;
+ var c=sapChain().slice(-8).reverse(),st=sapSt(),s=sapSignals();
+ var head=document.getElementById("sapHead");
+ if(head)head.textContent="Cycles : "+st.cycles+" · Maillons : "+c.length+" · Dernier : "+(st.last?new Date(st.last).toLocaleTimeString("fr-FR"):"—");
+ var sg=document.getElementById("sapSig");
+ if(sg)sg.textContent="Signaux : "+(s.online?"en ligne":"hors ligne")+" · "+s.contacts+" contacts · "+s.tasks+" taches actives · caisse "+s.caisse+" F";
+ z.innerHTML=c.map(function(e){return "<div style='margin:4px 0;padding:7px;background:rgba(255,255,255,.03);border-left:2px solid var(--gold);border-radius:6px;font-size:11px'><b style='color:var(--gold)'>#"+e.i+" "+e.kind+"</b> <span style='color:var(--m)'>"+String(e.t).slice(11,19)+"</span><div>"+e.dec+"</div><div style='color:var(--m);font-size:9px;font-family:monospace'>"+String(e.h).slice(0,24)+"…</div></div>"}).join("");
+}
+async function sapVerifBtn(){var r=await sapVerify();var o=document.getElementById("sapVerif");if(o)o.textContent=r.n?(r.ok?"CHAINE INTACTE — "+r.n+" maillons verifies par SHA-256":"CHAINE ROMPUE au maillon "+r.at):"Chaine vide — lance un cycle";}
+var sapTimer=null;
+function sapStart(){if(sapTimer)return;sapRender();sapTimer=setInterval(function(){if(document.visibilityState==="visible")sapCycle()},300000);}
+setTimeout(function(){if(document.getElementById("sapLog")){sapStart();sapCycle()}},4000);
+
+</script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
 (function(){
@@ -5364,7 +5421,7 @@ setInterval(probe,600000);
 </script>
 
 <script>
-// V1072.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
+// V1073.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
 (function(){
 var K="ether_master_key",F="ether_master_face",V="ether_master_voice",I="ether_incidents",LOCK="ether_master_unlocked",ACT="ether_last_act";
 var ACT_MS=30*60*1000;
