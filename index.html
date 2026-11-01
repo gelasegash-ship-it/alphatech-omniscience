@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1073.0</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1074.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#041210;--card:#0a1f1a;--card2:#0f2b22;--border:#1e4d3c;--p:#2dd4bf;--g:#00ff88;--gold:#7dffb0;--r:#ff5c7a;--t:#e6fff5;--m:#6fa890;--cosmos:#34d399;--cosmos2:#2dd4bf;--pp:#0070ba}
@@ -1303,7 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1073.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1074.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1316,7 +1316,8 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="reseau" onclick="go('reseau')">🌐 RÉSEAU VIVANT</button>
 <button class="nb" data-t="monde" onclick="go('monde')">🌍 SYSTÈMES MONDIAUX</button>
 <button class="nb" data-t="preuve" onclick="go('preuve')">⚡ PREUVE</button>
-<button class="nb" data-t="sap" onclick="go('sap')">⚙️ SYSTÈME AUTONOME</button><button class="nb" data-t="bank" onclick="go('bank')">🏦 BANQUE ÉTHER</button>
+<button class="nb" data-t="sap" onclick="go('sap')">⚙️ SYSTÈME AUTONOME</button>
+<button class="nb" data-t="essaim" onclick="go('essaim')">🐝 ESSAIM</button><button class="nb" data-t="bank" onclick="go('bank')">🏦 BANQUE ÉTHER</button>
 <button class="nb" data-t="supreme" onclick="go('supreme')">⚔️ PUISSANCE SUPRÊME</button>
 <button class="nb" data-t="vivante" onclick="go('vivante')">🧬 MACHINE VIVANTE</button>
 <button class="nb" data-t="veille" onclick="go('veille')">🛰️ VEILLE & AUTO-INSTALL</button>
@@ -4043,7 +4044,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1073.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1074.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4560,6 +4561,31 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 <div id="sapVerif" style="font-size:11px;color:var(--g);margin-top:8px"></div>
 </div>
 <div class="card"><div class="ct">JOURNAL DE DÉCISIONS (chaîné, 8 derniers)</div><div id="sapLog" style="margin-top:8px"></div></div>
+</div>
+
+<div id="essaim" class="sec">
+<div class="card" style="border-color:var(--gold)"><div class="ct" style="color:var(--gold)">🐝 ESSAIM ÉTHER — duplication massive mesurée</div>
+<div class="cd">Croissance réelle et chronométrée : 8 graines se divisent jusqu'à la cible, chaque membre enfantant à son tour. La vitesse affichée est <b>mesurée dans ton appareil</b>, pas annoncée. <b>Honnêteté</b> : ce sont des membres <b>émulés</b> (états en mémoire), pas 10 000 processus système — le génome réel plafonne à 16 par machine, et chaque machine qui l'exécute ajoute de vrais membres.</div>
+<div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap" id="swBtns">
+<button data-n="100" onclick="swSet(100)" style="padding:7px 11px;background:transparent;border:1px solid var(--border);color:var(--t);border-radius:7px;cursor:pointer;font-size:11px">100</button>
+<button data-n="1000" onclick="swSet(1000)" style="padding:7px 11px;background:transparent;border:1px solid var(--border);color:var(--t);border-radius:7px;cursor:pointer;font-size:11px">1 000</button>
+<button data-n="10000" onclick="swSet(10000)" style="padding:7px 11px;background:transparent;border:1px solid var(--border);color:var(--t);border-radius:7px;cursor:pointer;font-size:11px">10 000</button>
+<button onclick="swStart()" style="padding:8px 14px;background:var(--gold);color:#06130d;border:none;border-radius:8px;font-weight:800;cursor:pointer">▶ DUPLIQUER</button>
+</div>
+<div style="margin-top:14px;text-align:center">
+<div id="swCount" style="font-size:38px;font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums">0</div>
+<div style="font-size:11px;color:var(--m);letter-spacing:2px">MEMBRES ÉMULÉS</div>
+<div style="height:6px;background:var(--card2);border-radius:4px;margin-top:10px;overflow:hidden"><div id="swBar" style="height:100%;width:0%;background:var(--gold);transition:width .1s"></div></div>
+<div id="swState" style="font-size:12px;color:var(--g);margin-top:10px;font-weight:700">Prêt — choisis une cible et lance.</div>
+<div id="swStats" style="font-size:11px;color:var(--m);margin-top:8px"></div>
+</div>
+</div>
+<div class="card"><div class="ct">CE QUI EST VRAI, CE QUI NE L'EST PAS</div>
+<div class="cd" style="line-height:1.7">
+<b style="color:var(--g)">Vrai :</b> la croissance est réelle, les naissances sont réelles, la vitesse est mesurée ici et maintenant. Le génome est réel et se duplique vraiment sur toute machine qui l'exécute.<br>
+<b style="color:var(--r)">Pas vrai :</b> 10 000 processus vivants sur ce téléphone. Un process Node coûte ~50 Mo de RAM : 10 000 = 500 Go. Aucune app ne le fait, et le code du génome (immuable) plafonne volontairement à 16 par machine.<br>
+<b style="color:var(--gold)">La vraie voie vers 10 000 membres :</b> le même génome lancé sur 10 000 machines — chacune devient un membre authentique, avec sa clé, son ADN et ton nom gravé.
+</div></div>
 </div>
 
 <div id="armee" class="sec">
@@ -5370,6 +5396,64 @@ function sapStart(){if(sapTimer)return;sapRender();sapTimer=setInterval(function
 setTimeout(function(){if(document.getElementById("sapLog")){sapStart();sapCycle()}},4000);
 
 </script>
+<script id="atSwarm">
+var SW = { nodes: [], target: 10000, born: 0, rounds: 0, t0: 0, timer: null, msRound: 0 };
+function swReset(){
+  clearInterval(SW.timer); SW.timer = null;
+  SW.nodes = []; SW.born = 0; SW.rounds = 0; SW.msRound = 0; SW.t0 = 0;
+  for (var i = 0; i < 8; i++) SW.nodes.push({ id: i, gen: 1, beats: 0, kids: 0 });
+  swRender();
+}
+function swSet(n){
+  SW.target = n;
+  var b = document.getElementById("swBtns");
+  if (b) for (var i = 0; i < b.children.length; i++) b.children[i].style.opacity = (parseInt(b.children[i].dataset.n) === n) ? "1" : "0.45";
+  swRender();
+}
+function swStart(){
+  swReset();
+  SW.t0 = performance.now();
+  SW.timer = setInterval(swRound, 40);
+  var st = document.getElementById("swState");
+  if (st) st.textContent = "EN CROISSANCE VERS " + SW.target.toLocaleString("fr-FR") + " MEMBRES...";
+}
+function swRound(){
+  var t0 = performance.now();
+  var n = SW.nodes.length;
+  for (var i = 0; i < n; i++) {
+    var m = SW.nodes[i];
+    m.beats++;
+    if (m.beats % 6 === 0 && m.kids < 4 && SW.nodes.length < SW.target) {
+      m.kids++;
+      SW.nodes.push({ id: SW.nodes.length, gen: m.gen + 1, beats: 0, kids: 0 });
+      SW.born++;
+    }
+  }
+  SW.rounds++;
+  SW.msRound = performance.now() - t0;
+  if (SW.nodes.length >= SW.target) {
+    clearInterval(SW.timer); SW.timer = null;
+    var st = document.getElementById("swState");
+    var secs = ((performance.now() - SW.t0) / 1000);
+    if (st) st.textContent = SW.target.toLocaleString("fr-FR") + " MEMBRES ATTEINTS EN " + secs.toFixed(2) + " s — cadence " + Math.round(SW.target / secs).toLocaleString("fr-FR") + " naissances/s";
+  }
+  swRender();
+}
+function swRender(){
+  var c = document.getElementById("swCount"), s = document.getElementById("swStats"), b = document.getElementById("swBar");
+  if (!c) return;
+  c.textContent = SW.nodes.length.toLocaleString("fr-FR");
+  var deepest = 0, beatsTotal = 0;
+  for (var i = 0; i < SW.nodes.length; i++) {
+    if (SW.nodes[i].gen > deepest) deepest = SW.nodes[i].gen;
+    beatsTotal += SW.nodes[i].beats;
+  }
+  if (s) s.innerHTML = "Générations : <b>" + deepest + "</b> · Naissances : <b>" + SW.born.toLocaleString("fr-FR") + "</b> · Battements cumulés : <b>" + beatsTotal.toLocaleString("fr-FR") + "</b> · Cycle : <b>" + SW.msRound.toFixed(2) + " ms</b>";
+  if (b) b.style.width = Math.min(100, (SW.nodes.length / SW.target) * 100).toFixed(1) + "%";
+}
+swReset();
+
+</script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
 (function(){
@@ -5421,7 +5505,7 @@ setInterval(probe,600000);
 </script>
 
 <script>
-// V1073.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
+// V1074.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
 (function(){
 var K="ether_master_key",F="ether_master_face",V="ether_master_voice",I="ether_incidents",LOCK="ether_master_unlocked",ACT="ether_last_act";
 var ACT_MS=30*60*1000;
