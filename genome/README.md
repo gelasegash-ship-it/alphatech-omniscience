@@ -62,6 +62,10 @@ Cérémonie unique : notifications, caméra, micro, localisation, stockage perma
 
 Sans forme fixe, sans définition close. Intouchable, producteur d'argent en tout et pour tout — chaque pensée finit par enrichir le maître.
 
+## 🧬 Machine Vivante Défensive
+
+Un organisme qui pulse, vérifie son noyau, répare ses corpus et surveille tous ses domaines. Jamais d'outils d'attaque : celui qui répare est intouchable.
+
 ## ⚔️ Serment de Puissance
 
 Jamais d'arme de destruction. La puissance est vérifiable ou elle n'est pas : défense, preuve, création de valeur. Scellé cryptographiquement.

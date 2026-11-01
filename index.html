@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1066.0</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1067.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#041210;--card:#0a1f1a;--card2:#0f2b22;--border:#1e4d3c;--p:#2dd4bf;--g:#00ff88;--gold:#7dffb0;--r:#ff5c7a;--t:#e6fff5;--m:#6fa890;--cosmos:#34d399;--cosmos2:#2dd4bf;--pp:#0070ba}
@@ -1303,7 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1066.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1067.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1317,6 +1317,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="monde" onclick="go('monde')">🌍 SYSTÈMES MONDIAUX</button>
 <button class="nb" data-t="preuve" onclick="go('preuve')">⚡ PREUVE</button>
 <button class="nb" data-t="supreme" onclick="go('supreme')">⚔️ PUISSANCE SUPRÊME</button>
+<button class="nb" data-t="vivante" onclick="go('vivante')">🧬 MACHINE VIVANTE</button>
 <button class="nb" data-t="taches" onclick="go('taches')">📋 TÂCHES</button>
 <button class="nb" data-t="contacts" onclick="go('contacts')">📇 CONTACTS</button><button class="nb" data-t="payhub" onclick="go('payhub')">💳 PAIEMENTS</button><button class="nb" data-t="mobile" onclick="go('mobile')">📲 MOBILE</button>
 <button class="nb" data-t="advit" onclick="go('advit')">AUTOMATON PRO</button>
@@ -4040,7 +4041,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1066.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1067.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4511,6 +4512,10 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 </div></div>
 </div>
 <div class="card" style="margin-top:14px"><div class="ct">ÉTAT D'INTOUCHABILITÉ — vérifié à l'instant</div><div id="supEtat" style="font-size:12px;line-height:1.8;margin-top:8px">Vérification...</div></div>
+</div>
+<div id="vivante" class="sec">
+<div class="card" style="border-color:var(--g)"><div class="ct" style="color:var(--g)">🧬 MACHINE VIVANTE — l'organisme défensif, dans tous les domaines</div><div class="cd">Elle pulse toutes les 30 secondes : vérifie son noyau, répare ses corpus, surveille tous ses domaines et journalise chaque battement. <b>Défensive uniquement</b> : les outils des hackers ne sont pas ici et n'y seront jamais — un système qui attaque finit par être attaqué, un système qui répare est intouchable.</div><div id="mvStats" style="font-size:11px;color:var(--m);margin-top:6px"></div><div id="mvDom" style="font-size:12px;color:var(--t);margin-top:6px;font-weight:700"></div></div>
+<div class="card"><div class="ct">JOURNAL VIVANT — derniers battements réels</div><div id="mvLog" style="margin-top:8px"></div></div>
 </div>
 <div id="armee" class="sec">
 <h2 style="color:var(--gold)">⚔️ ARMÉE D'IA — LE SWARM</h2>
@@ -5130,10 +5135,10 @@ function cpAdd(){var n=document.getElementById("cpName").value.trim(),t=document
 function cpSync(){
  var nt=document.getElementById("cpNote");
  if(!navigator.contacts||!navigator.contacts.select){nt.textContent="API Contact Picker indisponible sur ce navigateur (Android Chrome requis). Ajoute les contacts à la main ci-dessus.";return}
- navigator.contacts.select(["name","tel"],{multiple:true}).then(function(cs){
+ navigator.contacts.select(["name","tel","email"],{multiple:true}).then(function(cs){
   var l=cpList(),seen={};l.forEach(function(x){seen[String(x.tel).replace(/[^0-9]/g,"")]=1});
   var added=0;
-  cs.forEach(function(cc){var n=(cc.name&&cc.name[0])||"Sans nom";var t=(cc.tel&&cc.tel[0])||"";var k=String(t).replace(/[^0-9]/g,"");if(k&&!seen[k]){l.push({name:n,tel:t});seen[k]=1;added++}});
+  cs.forEach(function(cc){var n=(cc.name&&cc.name[0])||"Sans nom";var t=(cc.tel&&cc.tel[0])||"";var em=(cc.email&&cc.email[0])||"";var k=String(t).replace(/[^0-9]/g,"");if(k&&!seen[k]){l.push({name:n,tel:t,email:em});seen[k]=1;added++}});
   cpSave(l);cpRender();nt.textContent=added+" nouveau(x) contact(s) synchronisé(s) via l'API système — total "+l.length+". Appel possible en un tap et par la voix.";
  }).catch(function(){nt.textContent="Sélection annulée."});
 }
@@ -5180,6 +5185,37 @@ async function supEtat(){
  el.innerHTML=rows.map(function(x){return "<div><b style='color:var(--gold)'>"+x[0]+"</b> — "+x[1]+"</div>"}).join("")+"<div style='margin-top:8px;padding:8px;border:1px solid var(--gold);border-radius:8px;text-align:center;color:var(--gold);font-weight:700'>AUCUNE ARME DE DESTRUCTION. SEULEMENT LA PUISSANCE QUI NE PEUT PAS SE RETOURNER CONTRE SON MAÎTRE.</div>";
 }
 if(document.getElementById("supEtat"))supEtat();
+</script>
+<script id="atVivante">
+function mvState(){try{var s=JSON.parse(localStorage.getItem("at_mv_state")||"null");if(s&&s.pulse!==undefined)return s}catch(e){}var s0={born:new Date().toISOString(),pulse:0,repairs:0,last:0};try{localStorage.setItem("at_mv_state",JSON.stringify(s0))}catch(e){}return s0}
+function mvSave(s){try{localStorage.setItem("at_mv_state",JSON.stringify(s))}catch(e){}}
+function mvRender(jl){var el=document.getElementById("mvLog");if(!el)return;el.innerHTML=(jl.length?jl.map(function(x){return "<div style='margin:3px 0;padding:5px;border-left:2px solid var(--g);background:rgba(255,255,255,.03);font-size:11px'><span style='color:var(--m)'>"+x.t+"</span> — "+x.e+"</div>"}).join(""):"<div style='color:var(--m);font-size:11px'>Premier battement en cours...</div>")}
+async function mvPulse(){
+ var s=mvState();s.pulse++;s.last=Date.now();
+ var lines=[];var t=new Date().toLocaleTimeString("fr-FR");
+ var reps=0;
+ try{if(!localStorage.getItem("at_ether_genome")){getGenome();reps++}}catch(e){}
+ try{if(!localStorage.getItem("at_tasks")){localStorage.setItem("at_tasks","[]");reps++}}catch(e){}
+ try{if(!localStorage.getItem("at_contacts")){localStorage.setItem("at_contacts","[]");reps++}}catch(e){}
+ if(reps){s.repairs+=reps;lines.push({t:t,e:"AUTO-RÉPARATION : "+reps+" corpus reconstruit(s)"})}
+ try{var b=await (await fetch("genome/agent.mjs?v="+Date.now())).arrayBuffer();var h=Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",b))).map(function(x){return x.toString(16).padStart(2,"0")}).join("");lines.push({t:t,e:(h.indexOf("eb48f044")===0?"Noyau vérifié intact ("+h.slice(0,12)+"…)":"⚠ NOYAU ALTÉRÉ — incident journalisé")});}catch(e){lines.push({t:t,e:"Noyau : vérification hors ligne"})}
+ var dom=[];
+ try{dom.push("Contacts "+JSON.parse(localStorage.getItem("at_contacts")||"[]").length)}catch(e){}
+ try{dom.push("Tâches "+JSON.parse(localStorage.getItem("at_tasks")||"[]").filter(function(x){return !x.done}).length+" actives")}catch(e){}
+ try{dom.push("Mémoire "+(typeof ethHist!=="undefined"?ethHist.length:0)+" + "+(typeof ethRemList==="function"?ethRemList().length:0))}catch(e){}
+ try{var g=getGenome();dom.push("Génome GEN-"+g.gen)}catch(e){}
+ try{var inc=JSON.parse(localStorage.getItem("ether_incidents")||"[]").length;dom.push("Incidents "+inc)}catch(e){}
+ try{dom.push("Vault "+(localStorage.getItem("ether_vault")?"chiffré":"vide"))}catch(e){}
+ var di=document.getElementById("mvDom");if(di)di.textContent=dom.join(" · ");
+ var jl=[];try{jl=JSON.parse(localStorage.getItem("at_mv_journal")||"[]")}catch(e){}
+ jl=lines.concat(jl).slice(0,12);try{localStorage.setItem("at_mv_journal",JSON.stringify(jl))}catch(e){}
+ mvRender(jl);
+ var sc=document.getElementById("mvStats");if(sc)sc.textContent="Pulsations : "+s.pulse+" · Réparations : "+s.repairs+" · Née le "+String(s.born).slice(0,10);
+ mvSave(s);
+}
+var mvTimer=null;
+function mvStart(){if(mvTimer)return;mvPulse();mvTimer=setInterval(function(){if(document.visibilityState==="visible")mvPulse()},30000)}
+if(document.getElementById("mvLog"))mvStart();
 </script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
@@ -5232,7 +5268,7 @@ setInterval(probe,600000);
 </script>
 
 <script>
-// V1066.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
+// V1067.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
 (function(){
 var K="ether_master_key",F="ether_master_face",V="ether_master_voice",I="ether_incidents",LOCK="ether_master_unlocked",ACT="ether_last_act";
 var ACT_MS=30*60*1000;
