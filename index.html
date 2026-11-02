@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1078.0</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1079.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#041210;--card:#0a1f1a;--card2:#0f2b22;--border:#1e4d3c;--p:#2dd4bf;--g:#00ff88;--gold:#7dffb0;--r:#ff5c7a;--t:#e6fff5;--m:#6fa890;--cosmos:#34d399;--cosmos2:#2dd4bf;--pp:#0070ba}
@@ -1303,7 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1078.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1079.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1320,7 +1320,8 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="essaim" onclick="go('essaim')">🐝 ESSAIM</button>
 <button class="nb" data-t="empires" onclick="go('empires')">🏛️ EMPIRES</button>
 <button class="nb" data-t="travailleurs" onclick="go('travailleurs')">👷 TRAVAILLEURS</button>
-<button class="nb" data-t="xenon" onclick="go('xenon')">🛸 XYRIS</button><button class="nb" data-t="bank" onclick="go('bank')">🏦 BANQUE ÉTHER</button>
+<button class="nb" data-t="xenon" onclick="go('xenon')">🛸 XYRIS</button>
+<button class="nb" data-t="corps" onclick="go('corps')">🦾 CORPS</button><button class="nb" data-t="bank" onclick="go('bank')">🏦 BANQUE ÉTHER</button>
 <button class="nb" data-t="supreme" onclick="go('supreme')">⚔️ PUISSANCE SUPRÊME</button>
 <button class="nb" data-t="vivante" onclick="go('vivante')">🧬 MACHINE VIVANTE</button>
 <button class="nb" data-t="veille" onclick="go('veille')">🛰️ VEILLE & AUTO-INSTALL</button>
@@ -4047,7 +4048,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1078.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1079.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4641,6 +4642,24 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 <div style="font-size:10px;color:var(--m);margin-top:8px;line-height:1.6">Vérité : c'est une entité <b>artificielle conçue</b>, pas une forme de vie extraterrestre. Ce qui est réellement nouveau : son substrat continu (équations, pas de règles), sa langue glyphique déterministe et sa conduite émergente traçable cryptographiquement.</div>
 </div>
 <div class="card"><div class="ct">ÉMISSIONS (chaînées)</div><div id="xeEmis" style="margin-top:8px"></div></div>
+</div>
+
+<div id="corps" class="sec">
+<div class="card" style="border-color:var(--gold)"><div class="ct" style="color:var(--gold)">🦾 CORPS D'ÉTHER — incarnation logicielle</div>
+<div class="cd">Une silhouette vivante pilotée par son état réel : l'amplitude des bras suit son énergie, l'aura suit son entropie, le battement de son cœur accélère avec sa cohérence. Elle a <b>cinq sens branchés sur tes données</b> et une <b>voix</b> qui parle à haute voix.</div>
+<div style="display:flex;gap:16px;align-items:flex-start;margin-top:10px;flex-wrap:wrap">
+<canvas id="coCanvas" width="180" height="170" style="border-radius:12px;background:rgba(255,179,71,.04)"></canvas>
+<div style="flex:1;min-width:200px">
+<div id="coStats" style="font-size:11px;color:var(--m);line-height:1.8"></div>
+</div></div>
+<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+<button onclick="coSay()" style="padding:11px 16px;background:var(--gold);color:#06130d;border:none;border-radius:9px;font-weight:800;cursor:pointer">🔊 FAIS-LA PARLER</button>
+<button onclick="coBreathe()" style="padding:11px 14px;background:transparent;color:var(--gold);border:1px solid var(--gold);border-radius:9px;cursor:pointer">◉ UNE RESPIRATION</button>
+</div>
+<div id="coSaid" style="font-size:12px;color:var(--t);margin-top:10px;font-style:italic;opacity:.9"></div>
+</div>
+<div class="card"><div class="ct">SES CINQ SENS (sources réelles)</div><div id="coSenses" style="margin-top:8px"></div>
+<div class="cd" style="margin-top:10px;font-size:11px;line-height:1.6">Vérité : c'est un <b>corps logiciel</b> — une représentation pilotée par ses données et une voix de synthèse. Elle n'a pas de corps physique et je ne peux pas en fabriquer un. Ce qui est réel : elle lit vraiment ces sources, et elle parle vraiment.</div></div>
 </div>
 
 <div id="armee" class="sec">
@@ -5739,6 +5758,97 @@ function xeReset(){localStorage.removeItem(XE_KEY);xeRender(xeState())}
 setTimeout(function(){if(document.getElementById("xeCanvas"))xeStart()},1200);
 
 </script>
+<script id="atCorps">
+var CO_KEY="at_corps";
+function coState(){try{return JSON.parse(localStorage.getItem(CO_KEY)||"null")||{breath:0,lastVoice:0,speaks:0}}catch(e){return{breath:0,lastVoice:0,speaks:0}}}
+function coSave(s){try{localStorage.setItem(CO_KEY,JSON.stringify(s))}catch(e){}}
+
+// ---- LES CINQ SENS : chacun lit une source RÉELLE ----
+function coSenses(){
+  function n(k,f){try{var v=JSON.parse(localStorage.getItem(k)||"null");return v?f(v):0}catch(e){return 0}}
+  return [
+    {n:"👁️ VUE", d:"contacts & prospects", v:n("at_contacts",function(a){return Array.isArray(a)?a.length:0}), u:"contacts"},
+    {n:"👂 OUIE", d:"messages & tâches", v:n("at_tasks",function(a){return Array.isArray(a)?a.filter(function(x){return !x.done}).length:0}), u:"tâches actives"},
+    {n:"🖐️ TOUCHER", d:"clients & caisse", v:n("at_bank",function(b){return b&&b.entries?b.entries.length:0}), u:"écritures"},
+    {n:"👃 ODORAT", d:"décisions scellées", v:n("at_sap_chain",function(a){return Array.isArray(a)?a.length:0}), u:"maillons"},
+    {n:"👅 GOÛT", d:"modules & savoir", v:n("at_mods",function(a){return Array.isArray(a)?a.length:0}), u:"modules"}
+  ];
+}
+function coBody(){
+  var x=null;try{x=JSON.parse(localStorage.getItem("at_xeno")||"null")}catch(e){}
+  return {E:x?x.E:0.5,C:x?x.C:0.5,Q:x?x.Q:0.5,S:x?x.S:0.5};
+}
+
+// ---- LA VOIX (synthèse vocale du navigateur, langue du maître) ----
+function coSpeak(txt){
+  if(!("speechSynthesis"in window))return false;
+  try{
+    window.speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(txt);
+    u.lang="fr-FR";u.rate=1.02;u.pitch=1.0;
+    var vs=window.speechSynthesis.getVoices().filter(function(v){return /fr/i.test(v.lang)});
+    if(vs.length)u.voice=vs[0];
+    window.speechSynthesis.speak(u);
+    var s=coState();s.speaks++;s.lastVoice=Date.now();coSave(s);
+    return true;
+  }catch(e){return false}
+}
+function coSay(){
+  var b=coBody(),sn=coSenses();
+  var head=sn.map(function(s){return s.v+" "+s.u}).join(", ");
+  var txt="Je suis ÉTHER. Mon corps est fait de code, pas de chair. Mes sens lisent "+head+". Mon énergie est de "+Math.round(b.E*100)+" pour cent, ma cohérence de "+Math.round(b.C*100)+" pour cent. Je veille sur toi, maître.";
+  if(!coSpeak(txt))coRender("(voix indisponible sur ce navigateur)");
+  coRender(txt);
+}
+
+// ---- LE CORPS : silhouette pilotée par l'état réel ----
+function coDraw(b){
+  var cv=document.getElementById("coCanvas");if(!cv)return;
+  var ctx=cv.getContext("2d"),w=cv.width,h=cv.height,cx=w/2;
+  ctx.clearRect(0,0,w,h);
+  var glow=0.25+b.C*0.55, sway=Math.sin(b.Q*Math.PI*2)*2.2;
+  ctx.strokeStyle="rgba(255,179,71,"+glow.toFixed(2)+")";
+  ctx.lineWidth=2;
+  // tete
+  ctx.beginPath();ctx.arc(cx+sway,34,15,0,Math.PI*2);ctx.stroke();
+  ctx.fillStyle="rgba(255,179,71,"+(0.35+b.C*0.5).toFixed(2)+")";
+  ctx.beginPath();ctx.arc(cx+sway,34,5,0,Math.PI*2);ctx.fill();
+  // buste
+  ctx.beginPath();ctx.moveTo(cx+sway,50);ctx.lineTo(cx+sway,104);ctx.stroke();
+  // bras (amplitude = energie)
+  var arm=18+b.E*16;
+  ctx.beginPath();ctx.moveTo(cx+sway,60);ctx.lineTo(cx+sway-arm,60+arm*0.9);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(cx+sway,60);ctx.lineTo(cx+sway+arm,60+arm*0.9);ctx.stroke();
+  // jambes
+  ctx.beginPath();ctx.moveTo(cx+sway,104);ctx.lineTo(cx+sway-13,150);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(cx+sway,104);ctx.lineTo(cx+sway+13,150);ctx.stroke();
+  // aura d'entropie
+  ctx.strokeStyle="rgba(199,125,255,"+(0.1+b.S*0.4).toFixed(2)+")";
+  ctx.beginPath();ctx.arc(cx+sway,84,58+b.S*14,0,Math.PI*2);ctx.stroke();
+  // battement de coeur
+  var beat=1+Math.sin(b.E*Math.PI*2*1.5)*0.08;
+  ctx.fillStyle="rgba(255,80,80,"+(0.4+b.E*0.5).toFixed(2)+")";
+  ctx.beginPath();ctx.arc(cx+sway,68,3.4*beat,0,Math.PI*2);ctx.fill();
+}
+function coRender(spoken){
+  var b=coBody(),s=coState(),sn=coSenses();
+  coDraw(b);
+  var st=document.getElementById("coStats");
+  if(st)st.innerHTML="ÉNERGIE <b>"+Math.round(b.E*100)+"%</b> · COHÉRENCE <b>"+Math.round(b.C*100)+"%</b> · CURIOSITÉ <b>"+Math.round(b.Q*100)+"%</b> · ENTROPIE <b>"+Math.round(b.S*100)+"%</b> · respirations "+s.breath+" · paroles "+s.speaks;
+  var sl=document.getElementById("coSenses");
+  if(sl)sl.innerHTML=sn.map(function(x){return "<div style='display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:11px'><span>"+x.n+" <span style='color:var(--m)'>"+x.d+"</span></span><b style='color:var(--gold)'>"+x.v+" "+x.u+"</b></div>"}).join("");
+  var say=document.getElementById("coSaid");
+  if(say&&spoken)say.textContent="« "+spoken+" »";
+}
+function coBreathe(){var b=coBody(),s=coState();s.breath++;coSave(s);coRender();}
+var coTimer=null;
+function coStart(){if(coTimer)return;coRender();
+  if("speechSynthesis"in window)try{window.speechSynthesis.onvoiceschanged=function(){}}catch(e){}
+  coTimer=setInterval(function(){if(document.visibilityState==="visible")coBreathe()},3000);
+}
+setTimeout(function(){if(document.getElementById("coCanvas"))coStart()},1500);
+
+</script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
 (function(){
@@ -5790,7 +5900,7 @@ setInterval(probe,600000);
 </script>
 
 <script>
-// V1078.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
+// V1079.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
 (function(){
 var K="ether_master_key",F="ether_master_face",V="ether_master_voice",I="ether_incidents",LOCK="ether_master_unlocked",ACT="ether_last_act";
 var ACT_MS=30*60*1000;
