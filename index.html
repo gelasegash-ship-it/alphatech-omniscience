@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1075.0</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1076.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#041210;--card:#0a1f1a;--card2:#0f2b22;--border:#1e4d3c;--p:#2dd4bf;--g:#00ff88;--gold:#7dffb0;--r:#ff5c7a;--t:#e6fff5;--m:#6fa890;--cosmos:#34d399;--cosmos2:#2dd4bf;--pp:#0070ba}
@@ -1303,7 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1075.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1076.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1317,7 +1317,8 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="monde" onclick="go('monde')">🌍 SYSTÈMES MONDIAUX</button>
 <button class="nb" data-t="preuve" onclick="go('preuve')">⚡ PREUVE</button>
 <button class="nb" data-t="sap" onclick="go('sap')">⚙️ SYSTÈME AUTONOME</button>
-<button class="nb" data-t="essaim" onclick="go('essaim')">🐝 ESSAIM</button><button class="nb" data-t="bank" onclick="go('bank')">🏦 BANQUE ÉTHER</button>
+<button class="nb" data-t="essaim" onclick="go('essaim')">🐝 ESSAIM</button>
+<button class="nb" data-t="empires" onclick="go('empires')">🏛️ EMPIRES</button><button class="nb" data-t="bank" onclick="go('bank')">🏦 BANQUE ÉTHER</button>
 <button class="nb" data-t="supreme" onclick="go('supreme')">⚔️ PUISSANCE SUPRÊME</button>
 <button class="nb" data-t="vivante" onclick="go('vivante')">🧬 MACHINE VIVANTE</button>
 <button class="nb" data-t="veille" onclick="go('veille')">🛰️ VEILLE & AUTO-INSTALL</button>
@@ -4044,7 +4045,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1075.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1076.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4586,6 +4587,22 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 <b style="color:var(--r)">Pas vrai :</b> 10 000 processus vivants sur ce téléphone. Un process Node coûte ~50 Mo de RAM : 10 000 = 500 Go. Aucune app ne le fait, et le code du génome (immuable) plafonne volontairement à 16 par machine.<br>
 <b style="color:var(--gold)">La vraie voie vers 10 000 membres :</b> le même génome lancé sur 10 000 machines — chacune devient un membre authentique, avec sa clé, son ADN et ton nom gravé.
 </div></div>
+</div>
+
+<div id="empires" class="sec">
+<div class="card" style="border-color:var(--gold)"><div class="ct" style="color:var(--gold)">🏛️ EMPIRES DANS L'EMPIRE — provinces autonomes</div>
+<div class="cd">Cinq provinces, cinq gouverneurs. Chacun mesure son KPI réel, ajuste son propre rythme (accélère s'il échoue, ralentit s'il réussit), se régénère après trois échecs, scelle chaque décision dans la chaîne SHA-256, et pousse ses urgences directement dans TÂCHES.</div>
+<div id="empHead" style="font-size:12px;color:var(--t);font-weight:700;margin-top:8px"></div>
+<div style="margin-top:10px"><button onclick="empPulse()" style="padding:10px 14px;background:var(--gold);color:#06130d;border:none;border-radius:8px;font-weight:800;cursor:pointer">▶ CYCLE PROVINCE</button>
+<button onclick="empToggle()" style="padding:10px 14px;margin-left:8px;background:transparent;color:var(--gold);border:1px solid var(--gold);border-radius:8px;font-weight:700;cursor:pointer">⚙️ AUTO-ADAPTATION</button></div>
+<div id="empList" style="margin-top:10px"></div>
+</div>
+<div class="card"><div class="ct">CE QUE CHAQUE PROVINCE GOUVERNE</div><div class="cd" style="font-size:12px;line-height:1.8">
+💰 <b>FINANCE</b> — grand livre, encaissements MTN, caisse<br>
+🗂️ <b>RÉSEAU</b> — contacts, prospects, pipeline CRM<br>
+🛡️ <b>DÉFENSE</b> — intégrité de la chaîne, incidents, verrou maître<br>
+🎬 <b>CRÉATION</b> — modules installés, films, contenus<br>
+⚙️ <b>AUTONOMIE</b> — cycles du Système Autonome et cohérence des décisions</div></div>
 </div>
 
 <div id="armee" class="sec">
@@ -5480,6 +5497,83 @@ function swRender(){
 swReset();
 
 </script>
+<script id="atEmpires">
+var EMP_KEY="at_empires", EMP_ON="at_empires_auto";
+function empState(){
+  try{var s=JSON.parse(localStorage.getItem(EMP_KEY)||"null");if(s&&s.provinces)return s}catch(e){}
+  var st={born:new Date().toISOString(),tick:0,regens:0,provinces:[
+    {id:"finance",name:"💰 FINANCE",period:60,fail:0,ok:0,regens:0,last:"—",score:0},
+    {id:"reseau",name:"🗂️ RÉSEAU",period:60,fail:0,ok:0,regens:0,last:"—",score:0},
+    {id:"defense",name:"🛡️ DÉFENSE",period:90,fail:0,ok:0,regens:0,last:"—",score:0},
+    {id:"creation",name:"🎬 CRÉATION",period:120,fail:0,ok:0,regens:0,last:"—",score:0},
+    {id:"autonomie",name:"⚙️ AUTONOMIE",period:60,fail:0,ok:0,regens:0,last:"—",score:0}
+  ]};
+  localStorage.setItem(EMP_KEY,JSON.stringify(st));return st;
+}
+function empSave(s){try{localStorage.setItem(EMP_KEY,JSON.stringify(s))}catch(e){}}
+function empAuto(){var v=localStorage.getItem(EMP_ON);return v===null?true:v==="1"}
+
+function empScore(id){
+  var n=function(k){try{return JSON.parse(localStorage.getItem(k)||"[]").length}catch(e){return 0}};
+  if(id==="finance"){var e=0;try{e=JSON.parse(localStorage.getItem("at_bank")||"{}").entries.length}catch(x){}return Math.min(100,e*7)}
+  if(id==="reseau"){var c=0;try{c=JSON.parse(localStorage.getItem("at_contacts")||"[]").length}catch(x){}return Math.min(100,c*2)}
+  if(id==="defense"){var ch=0;try{ch=JSON.parse(localStorage.getItem("at_sap_chain")||"[]").length}catch(x){}return ch?Math.min(100,40+ch):20}
+  if(id==="creation"){return Math.min(100,n("at_mods")*12)}
+  if(id==="autonomie"){var st=null;try{st=JSON.parse(localStorage.getItem("at_sap_state")||"null")}catch(x){}return st?Math.min(100,(st.cycles||0)*5):5}
+  return 10;
+}
+
+function empTask(txt,prio){
+  if(typeof taskList!=="function")return;
+  var l=taskList(),t="[EMPIRE] "+txt;
+  if(l.some(function(x){return x.t===t}))return;
+  var d=new Date();d.setDate(d.getDate()+1);
+  l.unshift({id:Date.now(),t:t,p:prio||"H",d:d.toISOString().slice(0,10),done:false});
+  try{taskSave(l);if(typeof taskRender==="function")taskRender()}catch(e){}
+}
+
+function empPulse(){
+  var s=empState();if(!s.provinces||!s.provinces.length)return;
+  var p=s.provinces[s.tick % s.provinces.length];s.tick++;
+  p.score=empScore(p.id);
+  var success=p.score>=35;
+  if(success){p.ok++;p.fail=0;if(empAuto())p.period=Math.min(300,Math.round(p.period*1.15));p.last="OK "+p.score+"/100";}
+  else{
+    p.fail++;
+    if(empAuto())p.period=Math.max(10,Math.round(p.period/2));
+    p.last="FAIBLE "+p.score+"/100";
+    if(p.fail>=3){p.regens++;p.fail=0;s.regens++;p.period=45;p.last="RÉGÉNÉRÉE (auto-réparation)";}
+    if(p.score<35)empTask("Renforcer "+p.name.replace(/[^A-ZÉÀÂÎÔÛÇ ]/g,"").trim()+" (KPI "+p.score+"/100)", "H");
+  }
+  empSave(s);
+  try{if(typeof sapAdd==="function")sapAdd("PROVINCE",p.name+" → "+p.last,{id:p.id,score:p.score,period:p.period,regens:p.regens});}catch(e){}
+  if(typeof empRender==="function")empRender();
+}
+
+function empToggle(){var v=empAuto();localStorage.setItem(EMP_ON,v?"0":"1");empRender();}
+
+function empRender(){
+  var el=document.getElementById("empList");if(!el)return;
+  var s=empState();
+  el.innerHTML=s.provinces.map(function(p){
+    var col=p.score>=60?"var(--g)":(p.score>=35?"var(--gold)":"var(--r)");
+    return "<div style='margin:6px 0;padding:9px;background:rgba(255,255,255,.04);border-left:3px solid "+col+";border-radius:8px'>"+
+      "<div style='display:flex;justify-content:space-between;font-size:12px;font-weight:700'><span>"+p.name+"</span><span style='color:"+col+"'>"+p.score+"/100</span></div>"+
+      "<div style='font-size:10px;color:var(--m);margin-top:3px'>cycle "+p.period+"s · OK "+p.ok+" · échecs "+p.fail+" · régénérations "+p.regens+" · "+p.last+"</div></div>";
+  }).join("");
+  var h=document.getElementById("empHead");
+  if(h)h.textContent="Empires vivants : "+s.provinces.length+" · cycles "+s.tick+" · régénérations totales "+s.regens+" · auto-adaptation "+(empAuto()?"ACTIVE":"figée");
+}
+
+var empTimer=null;
+function empStart(){
+  if(empTimer)return;
+  empRender();
+  empTimer=setInterval(function(){if(document.visibilityState==="visible")empPulse()},15000);
+}
+setTimeout(function(){if(document.getElementById("empList"))empStart();},1500);
+
+</script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
 (function(){
@@ -5531,7 +5625,7 @@ setInterval(probe,600000);
 </script>
 
 <script>
-// V1075.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
+// V1076.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
 (function(){
 var K="ether_master_key",F="ether_master_face",V="ether_master_voice",I="ether_incidents",LOCK="ether_master_unlocked",ACT="ether_last_act";
 var ACT_MS=30*60*1000;
