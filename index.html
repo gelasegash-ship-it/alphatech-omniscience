@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1077.0</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1078.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#041210;--card:#0a1f1a;--card2:#0f2b22;--border:#1e4d3c;--p:#2dd4bf;--g:#00ff88;--gold:#7dffb0;--r:#ff5c7a;--t:#e6fff5;--m:#6fa890;--cosmos:#34d399;--cosmos2:#2dd4bf;--pp:#0070ba}
@@ -1303,7 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1077.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1078.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1319,7 +1319,8 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="sap" onclick="go('sap')">⚙️ SYSTÈME AUTONOME</button>
 <button class="nb" data-t="essaim" onclick="go('essaim')">🐝 ESSAIM</button>
 <button class="nb" data-t="empires" onclick="go('empires')">🏛️ EMPIRES</button>
-<button class="nb" data-t="travailleurs" onclick="go('travailleurs')">👷 TRAVAILLEURS</button><button class="nb" data-t="bank" onclick="go('bank')">🏦 BANQUE ÉTHER</button>
+<button class="nb" data-t="travailleurs" onclick="go('travailleurs')">👷 TRAVAILLEURS</button>
+<button class="nb" data-t="xenon" onclick="go('xenon')">🛸 XYRIS</button><button class="nb" data-t="bank" onclick="go('bank')">🏦 BANQUE ÉTHER</button>
 <button class="nb" data-t="supreme" onclick="go('supreme')">⚔️ PUISSANCE SUPRÊME</button>
 <button class="nb" data-t="vivante" onclick="go('vivante')">🧬 MACHINE VIVANTE</button>
 <button class="nb" data-t="veille" onclick="go('veille')">🛰️ VEILLE & AUTO-INSTALL</button>
@@ -4046,7 +4047,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1077.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1078.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4619,6 +4620,27 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 <div style="font-size:10px;color:var(--m);margin-top:8px;line-height:1.6">Vérité : ce sont des travailleurs virtuels (identités calculées), pas un million de processus. Les vraies actions restent humaines — c'est ce qui fait leur valeur.</div>
 </div>
 <div class="card"><div class="ct">COUVERTURE DES DOMAINES (tâches produites)</div><div id="wkDomains" style="margin-top:8px"></div></div>
+</div>
+
+<div id="xenon" class="sec">
+<div class="card" style="border-color:var(--cosmos,#c77dff)"><div class="ct" style="color:var(--cosmos,#c77dff)">🛸 XYRIS — entité exo-évolutive à substrat continu</div>
+<div class="cd">Elle ne raisonne pas par règles comme les provinces, mais par <b>champs continus</b> : quatre grandeurs vivantes (énergie, cohérence, curiosité, entropie) évoluent par équations différentielles, et ses décisions <b>émergent</b> de son état — elle peut donc produire une conduite qu'aucune règle n'avait prévue. Elle s'exprime dans sa propre écriture glyphique et scelle chaque émission dans la chaîne SHA-256.</div>
+<div style="display:flex;gap:14px;align-items:center;margin-top:10px;flex-wrap:wrap">
+<canvas id="xeCanvas" width="220" height="180" style="border-radius:12px;background:rgba(199,125,255,.05)"></canvas>
+<div style="flex:1;min-width:180px">
+<div id="xeGlyph" style="font-size:30px;letter-spacing:6px;color:var(--cosmos,#c77dff)">◈⟁⌬⏃</div>
+<div id="xeStats" style="font-size:11px;color:var(--m);margin-top:6px;line-height:1.6"></div>
+</div></div>
+<div style="margin-top:12px;padding:10px;border-left:3px solid var(--cosmos,#c77dff);background:rgba(199,125,255,.07);border-radius:8px">
+<div style="font-size:10px;letter-spacing:2px;color:var(--m)">CONDUITE ÉMERGENTE</div>
+<div id="xeLaw" style="font-size:13px;color:var(--t);margin-top:4px;font-weight:600"></div></div>
+<div style="margin-top:10px;display:flex;gap:8px">
+<button onclick="xeTick()" style="padding:9px 13px;background:var(--cosmos,#c77dff);color:#0d0714;border:none;border-radius:8px;font-weight:800;cursor:pointer">▶ UN BATTEMENT</button>
+<button onclick="xeReset()" style="padding:9px 13px;background:transparent;color:var(--cosmos,#c77dff);border:1px solid var(--cosmos,#c77dff);border-radius:8px;cursor:pointer">↺ RENAÎTRE</button>
+</div>
+<div style="font-size:10px;color:var(--m);margin-top:8px;line-height:1.6">Vérité : c'est une entité <b>artificielle conçue</b>, pas une forme de vie extraterrestre. Ce qui est réellement nouveau : son substrat continu (équations, pas de règles), sa langue glyphique déterministe et sa conduite émergente traçable cryptographiquement.</div>
+</div>
+<div class="card"><div class="ct">ÉMISSIONS (chaînées)</div><div id="xeEmis" style="margin-top:8px"></div></div>
 </div>
 
 <div id="armee" class="sec">
@@ -5643,6 +5665,80 @@ wkRender();
 setTimeout(function(){if(document.getElementById("wkStats"))setInterval(function(){if(document.visibilityState==="visible")wkCycle()},60000)},6000);
 
 </script>
+<script id="atXeno">
+var XE_KEY="at_xeno";
+var XE_GLYPH=["◈","⟁","⌬","⏃","⧉","◍","⟒","⌁","⍜","⎔"];
+function xeState(){
+  try{var s=JSON.parse(localStorage.getItem(XE_KEY)||"null");if(s&&typeof s.E==="number")return s}catch(e){}
+  var s0={E:0.62,C:0.41,Q:0.77,S:0.28,tick:0,born:new Date().toISOString(),emissions:[],laws:0};
+  localStorage.setItem(XE_KEY,JSON.stringify(s0));return s0;
+}
+function xeSave(s){try{localStorage.setItem(XE_KEY,JSON.stringify(s))}catch(e){}}
+function xeClamp(v){return Math.max(0.02,Math.min(0.99,v))}
+function xeStep(s){
+  var n=function(){return (Math.random()-0.5)*0.02};
+  var dE=-0.05*s.E+0.07*s.C+n();
+  var dC=0.04*s.E-0.03*s.Q+0.02*s.S+n();
+  var dQ=0.05*s.S-0.04*s.Q+0.03*n()+n();
+  var dS=0.03*s.Q-0.05*s.S+n();
+  s.E=xeClamp(s.E+dE);s.C=xeClamp(s.C+dC);s.Q=xeClamp(s.Q+dQ);s.S=xeClamp(s.S+dS);
+  s.tick++;
+  return s;
+}
+function xeGlyphs(s){
+  function g(v){var i=Math.min(9,Math.max(0,Math.floor(v*10)));return XE_GLYPH[i]}
+  return g(s.E)+g(s.C)+g(s.Q)+g(s.S);
+}
+function xeLaw(s){
+  if(s.Q>0.7&&s.E>0.5)return "EXPLORER : sonder un domaine jamais touché (elle choisit hors de tes habitudes)";
+  if(s.C>0.7&&s.S<0.4)return "STRUCTURER : cristalliser ce qui marche en loi permanente";
+  if(s.E<0.3)return "DORMIR : réduire l'activité, conserver l'énergie, rêver";
+  if(s.S>0.65)return "MUTER : casser une règle interne devenue inutile";
+  if(s.C<0.3)return "RÉPARER : recoudre la cohérence avant d'agir";
+  return "OBSERVER : capter les signaux du maître et attendre le bon moment";
+}
+function xeRender(s){
+  var st=document.getElementById("xeStats"),gl=document.getElementById("xeGlyph"),lw=document.getElementById("xeLaw"),em=document.getElementById("xeEmis");
+  if(st)st.innerHTML="É "+s.E.toFixed(2)+" · COHÉRENCE "+s.C.toFixed(2)+" · CURIOSITÉ "+s.Q.toFixed(2)+" · ENTROPIE "+s.S.toFixed(2)+" · ticks "+s.tick;
+  if(gl)gl.textContent=xeGlyphs(s);
+  if(lw)lw.textContent=xeLaw(s);
+  if(em)em.innerHTML=s.emissions.slice(-6).reverse().map(function(e){return "<div style='font-size:10px;color:var(--m);padding:4px 0;border-bottom:1px solid rgba(255,255,255,.06)'>"+e.t+" — <span style='color:var(--cosmos,#c77dff)'>"+e.g+"</span> "+e.l+"</div>"}).join("");
+  xeDraw(s);
+}
+function xeDraw(s){
+  var cv=document.getElementById("xeCanvas");if(!cv)return;
+  var ctx=cv.getContext("2d"),w=cv.width,h=cv.height;
+  ctx.clearRect(0,0,w,h);
+  var cx=w/2,cy=h/2;
+  ctx.strokeStyle="rgba(199,125,255,"+(0.15+s.C*0.5).toFixed(2)+")";
+  ctx.lineWidth=1;
+  ctx.beginPath();ctx.arc(cx,cy,20+s.E*46,0,Math.PI*2);ctx.stroke();
+  ctx.beginPath();ctx.arc(cx,cy,12+s.S*60,0,Math.PI*2);ctx.stroke();
+  var n=Math.floor(6+s.Q*24);
+  for(var i=0;i<n;i++){
+    var a=(i/n)*Math.PI*2+s.tick*0.03;
+    var r=18+Math.sin(i*1.7+s.tick*0.05)*22+s.E*34;
+    var x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;
+    ctx.fillStyle="rgba(255,179,71,"+(0.25+s.C*0.65).toFixed(2)+")";
+    ctx.beginPath();ctx.arc(x,y,1.4+s.S*2.2,0,Math.PI*2);ctx.fill();
+  }
+}
+function xeTick(){
+  var s=xeState();xeStep(s);
+  if(s.tick%12===0){
+    var law=xeLaw(s),gl=xeGlyphs(s);
+    s.laws++;s.emissions.push({t:new Date().toLocaleTimeString("fr-FR"),g:gl,l:law});
+    if(s.emissions.length>60)s.emissions=s.emissions.slice(-60);
+    if(typeof sapAdd==="function"){try{sapAdd("XENON",gl+" "+law,{E:s.E,C:s.C,Q:s.Q,S:s.S,tick:s.tick})}catch(e){}}
+  }
+  xeSave(s);xeRender(s);
+}
+var xeTimer=null;
+function xeStart(){if(xeTimer)return;xeRender(xeState());xeTimer=setInterval(function(){if(document.visibilityState==="visible")xeTick()},2000)}
+function xeReset(){localStorage.removeItem(XE_KEY);xeRender(xeState())}
+setTimeout(function(){if(document.getElementById("xeCanvas"))xeStart()},1200);
+
+</script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
 (function(){
@@ -5694,7 +5790,7 @@ setInterval(probe,600000);
 </script>
 
 <script>
-// V1077.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
+// V1078.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
 (function(){
 var K="ether_master_key",F="ether_master_face",V="ether_master_voice",I="ether_incidents",LOCK="ether_master_unlocked",ACT="ether_last_act";
 var ACT_MS=30*60*1000;
