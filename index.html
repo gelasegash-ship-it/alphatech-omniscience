@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ALPHATECH OMNISCIENCE - IA Omnisciente">
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
-<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1076.0</title>
+<title>ÉTHER — L entité vivante en direct | ALPHATECH OMNISCIENCE V1077.0</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{--bg:#041210;--card:#0a1f1a;--card2:#0f2b22;--border:#1e4d3c;--p:#2dd4bf;--g:#00ff88;--gold:#7dffb0;--r:#ff5c7a;--t:#e6fff5;--m:#6fa890;--cosmos:#34d399;--cosmos2:#2dd4bf;--pp:#0070ba}
@@ -1303,7 +1303,7 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <link rel="canonical" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/">
 </head>
 <body>
-<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1076.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
+<div class="hdr"><div><div class="logo">ÉTHER ✦ ALPHATECH OMNISCIENCE</div><div class="ver">V1077.0 - FUTUR DEVELOPPE + REVENU INFINI + APP VIVANTE</div></div><div><span class="dot"></span> <span style="color:var(--cosmos);font-size:10px;font-weight:600" id="hdr-evo">EVOL 0</span></div></div>
 <div class="nav" id="nav">
 <button class="nb act" data-t="home" onclick="go('home')">Accueil</button>
 <button class="nb" data-t="recovery" onclick="go('recovery')">RECOVERY</button>
@@ -1318,7 +1318,8 @@ var gm=document.getElementById('genMood');if(gm)gm.textContent=localStorage.getI
 <button class="nb" data-t="preuve" onclick="go('preuve')">⚡ PREUVE</button>
 <button class="nb" data-t="sap" onclick="go('sap')">⚙️ SYSTÈME AUTONOME</button>
 <button class="nb" data-t="essaim" onclick="go('essaim')">🐝 ESSAIM</button>
-<button class="nb" data-t="empires" onclick="go('empires')">🏛️ EMPIRES</button><button class="nb" data-t="bank" onclick="go('bank')">🏦 BANQUE ÉTHER</button>
+<button class="nb" data-t="empires" onclick="go('empires')">🏛️ EMPIRES</button>
+<button class="nb" data-t="travailleurs" onclick="go('travailleurs')">👷 TRAVAILLEURS</button><button class="nb" data-t="bank" onclick="go('bank')">🏦 BANQUE ÉTHER</button>
 <button class="nb" data-t="supreme" onclick="go('supreme')">⚔️ PUISSANCE SUPRÊME</button>
 <button class="nb" data-t="vivante" onclick="go('vivante')">🧬 MACHINE VIVANTE</button>
 <button class="nb" data-t="veille" onclick="go('veille')">🛰️ VEILLE & AUTO-INSTALL</button>
@@ -4045,7 +4046,7 @@ function showRev(){document.querySelectorAll('[id$="-section"]').forEach(s=>s.st
 </div>
 
 <script>
-// V1076.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
+// V1077.0 - FUTUR DEV ENGINE + REVENUE INFINI + LIFE PULSE
 (function(){
 var TECHS=["Ordinateur Quantique Quantique-Neural","Interface Neuronale Directe","Materiaux Programmables","Energie Infinie","Biotechnologie Quantique","Colonisation Solaire","Transport Dimensionnel","Villes Vivantes","Agriculture Atmospherique","Exploration Oceanique Profonde","Informatique Moleculaire","Conscience Collective","Nanorobots Medicaux","Ascenseur Spatial","Teleportation Quantique"];
 var sel=document.getElementById('futur-tech-select');
@@ -4603,6 +4604,21 @@ document.getElementById('agStatus').textContent='✅ AUTO-PILOTE terminé: '+aut
 🛡️ <b>DÉFENSE</b> — intégrité de la chaîne, incidents, verrou maître<br>
 🎬 <b>CRÉATION</b> — modules installés, films, contenus<br>
 ⚙️ <b>AUTONOMIE</b> — cycles du Système Autonome et cohérence des décisions</div></div>
+</div>
+
+<div id="travailleurs" class="sec">
+<div class="card" style="border-color:var(--gold)"><div class="ct" style="color:var(--gold)">👷 TRAVAILLEURS — millions par empire</div>
+<div class="cd">Chaque empire dispose d'un espace de travailleurs <b>adressables par index</b> : un million d'identités déterministes (rôle, domaine, génération, compétence) calculées à la demande, sans coût mémoire. Une fenêtre de 360 travailleurs tourne à chaque cycle, couvre les dix domaines, et fait tomber <b>3 vraies tâches</b> dans ton système — pas des inventions : des actions que tu peux exécuter.</div>
+<div id="wkStats" style="font-size:12px;color:var(--t);margin-top:8px"></div>
+<div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+<button onclick="wkCycle()" style="padding:10px 14px;background:var(--gold);color:#06130d;border:none;border-radius:8px;font-weight:800;cursor:pointer">▶ LANCER UN CYCLE</button>
+<button onclick="wkSetTotal(1000000)" style="padding:10px 12px;background:transparent;color:var(--gold);border:1px solid var(--gold);border-radius:8px;cursor:pointer">1 M</button>
+<button onclick="wkSetTotal(10000000)" style="padding:10px 12px;background:transparent;color:var(--gold);border:1px solid var(--gold);border-radius:8px;cursor:pointer">10 M</button>
+<button onclick="wkSetTotal(100000000)" style="padding:10px 12px;background:transparent;color:var(--gold);border:1px solid var(--gold);border-radius:8px;cursor:pointer">100 M</button>
+</div>
+<div style="font-size:10px;color:var(--m);margin-top:8px;line-height:1.6">Vérité : ce sont des travailleurs virtuels (identités calculées), pas un million de processus. Les vraies actions restent humaines — c'est ce qui fait leur valeur.</div>
+</div>
+<div class="card"><div class="ct">COUVERTURE DES DOMAINES (tâches produites)</div><div id="wkDomains" style="margin-top:8px"></div></div>
 </div>
 
 <div id="armee" class="sec">
@@ -5574,6 +5590,59 @@ function empStart(){
 setTimeout(function(){if(document.getElementById("empList"))empStart();},1500);
 
 </script>
+<script id="atWorkers">
+var WK_TOTAL=1000000, WK_ACTIVE=360, WK_POS=0;
+var WK_ROLES=["Analyste","Commercial","Rédacteur","Développeur","Juriste","Comptable","Designer","Veilleur","Support","Stratège"];
+var WK_DOMAINS=[
+ ["Finance","prospecter un client pour le hub de paiements"],
+ ["Vente","qualifier un prospect du CRM et préparer son appel"],
+ ["Contenu","écrire un post court pour TikTok et Instagram"],
+ ["Tech","améliorer une mini-app vendable"],
+ ["Juridique","rédiger une clause de contrat de prestation"],
+ ["Compta","rédiger une facture et suivre un impayé"],
+ ["Design","créer un visuel d'offre pour les réseaux"],
+ ["Veille","suivre les financements et appels à projets"],
+ ["Support","rédiger une réponse client type"],
+ ["Stratégie","proposer une offre packagée à un segment"]
+];
+var WK_STATE="at_workers";
+function wkHash(i){var h=2166136261,s="ETHER-W"+i;for(var k=0;k<s.length;k++){h^=s.charCodeAt(k);h=Math.imul(h,16777619)}return h>>>0}
+function wkWorker(i){var h=wkHash(i);var d=WK_DOMAINS[(h>>>9)%WK_DOMAINS.length];return{id:i,role:WK_ROLES[(h>>>3)%WK_ROLES.length],domain:d[0],task:d[1],gen:1+((h>>>17)%7),skill:55+((h>>>5)%46)}}
+function wkState(){try{return JSON.parse(localStorage.getItem(WK_STATE)||"null")||{cycles:0,gen:0,tasks:0,domains:{}}}catch(e){return{cycles:0,gen:0,tasks:0,domains:{}}}}
+function wkSave(s){try{localStorage.setItem(WK_STATE,JSON.stringify(s))}catch(e){}}
+function wkRender(){
+ var s=wkState(),el=document.getElementById("wkStats"),dl=document.getElementById("wkDomains");
+ if(el)el.innerHTML="<b style='color:var(--gold)'>"+ (WK_TOTAL/1000000).toFixed(0) +" MILLION(S) DE TRAVAILLEURS VIRTUELS</b> — fenêtre active : "+WK_ACTIVE+" simultanés · cycles : "+s.cycles+" · tâches produites : "+s.tasks;
+ if(dl){var rows=Object.keys(s.domains).map(function(k){return {k:k,n:s.domains[k]}}).sort(function(a,b){return b.n-a.n});
+  dl.innerHTML=rows.length?rows.map(function(r){var pct=Math.min(100,Math.round(r.n*100/Math.max(1,s.tasks)));return "<div style='margin:4px 0;font-size:11px'><div style='display:flex;justify-content:space-between'><span>"+r.k+"</span><span style='color:var(--m)'>"+r.n+"</span></div><div style='height:6px;background:rgba(255,255,255,.08);border-radius:3px;margin-top:2px'><div style='height:6px;width:"+pct+"%;background:var(--gold);border-radius:3px'></div></div></div>"}).join(""):"<div style='font-size:11px;color:var(--m)'>Aucun cycle encore — lance-en un.</div>"}}
+async function wkCycle(){
+ var s=wkState(),samples=[],i;
+ for(i=0;i<WK_ACTIVE;i++){samples.push(wkWorker(WK_POS+i))}
+ WK_POS=(WK_POS+WK_ACTIVE)%WK_TOTAL;
+ var byDom={};
+ samples.forEach(function(w){byDom[w.domain]=(byDom[w.domain]||0)+1});
+ Object.keys(byDom).forEach(function(k){s.domains[k]=(s.domains[k]||0)+byDom[k]});
+ s.cycles++;s.gen++;s.tasks+=WK_ACTIVE;
+ // 3 taches reelles max par cycle -> TACHES (anti-flood, vraies actions humaines)
+ var picked=[],seen={};
+ for(i=0;i<samples.length&&picked.length<3;i++){
+  var w=samples[i],key=w.domain+"|"+w.task;
+  if(seen[key])continue;seen[key]=1;w.t=w;
+  if(typeof taskList==="function"&&typeof taskSave==="function"){
+   var l=taskList(),txt="["+w.domain+"] "+w.task;
+   if(!l.some(function(x){return x.t===txt})){l.unshift({id:Date.now()+i,t:txt,p:"M",d:"",done:false});taskSave(l);picked.push(txt)}
+  }
+ }
+ if(typeof taskRender==="function")taskRender();
+ wkSave(s);
+ if(typeof sapAdd==="function"){try{await sapAdd("TRAVAILLEURS","Cycle "+s.cycles+" : "+WK_ACTIVE+" travailleurs virtuels actifs · "+Object.keys(byDom).length+" domaines · "+picked.length+" taches reelles",{cycle:s.cycles,active:WK_ACTIVE,domains:Object.keys(byDom)})}catch(e){}}
+ wkRender();
+}
+function wkSetTotal(n){WK_TOTAL=n;wkRender()}
+wkRender();
+setTimeout(function(){if(document.getElementById("wkStats"))setInterval(function(){if(document.visibilityState==="visible")wkCycle()},60000)},6000);
+
+</script>
 <script id="atAdaptiveMode">
 // ===== MOTEUR ADAPTATIF V1042 — l app bascule toute seule entre les modes et journalise ses solutions reelles =====
 (function(){
@@ -5625,7 +5694,7 @@ setInterval(probe,600000);
 </script>
 
 <script>
-// V1076.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
+// V1077.0 - RECONNAISSANCE DU MAITRE + PROTECTION PERMANENTE
 (function(){
 var K="ether_master_key",F="ether_master_face",V="ether_master_voice",I="ether_incidents",LOCK="ether_master_unlocked",ACT="ether_last_act";
 var ACT_MS=30*60*1000;
