@@ -1,0 +1,259 @@
+[
+ {
+  "nom": "Biologie Synthétique",
+  "items": [
+   "ADN programmable en temps réel",
+   "Organismes conçus de zéro",
+   "Immortalité cellulaire",
+   "Symbiose IA-biologie"
+  ],
+  "trl": 6,
+  "verrou": 2,
+  "cout": 1500000,
+  "horizon": 12,
+  "indice": 77.5,
+  "blocage": "Complexité du vivant et régulation",
+  "etat": "CRISPR fonctionne, des génomes minimaux ont été synthétisés, des ARN thérapeutiques sont sur le marché. Le ralentissement du vieillissement a des pistes sérieuses, l'immortalité n'en a aucune.",
+  "etape": "Laboratoire de diagnostic moléculaire et cultures tissulaires : la brique réellement finançable."
+ },
+ {
+  "nom": "Interface Neuronale Directe",
+  "items": [
+   "Synapse artificielle cerveau-IA",
+   "Mémoire externe",
+   "Pensée partagée",
+   "Rêve enregistré",
+   "Apprentissage instantané"
+  ],
+  "trl": 5,
+  "verrou": 3,
+  "cout": 3000000,
+  "horizon": 20,
+  "indice": 65.9,
+  "blocage": "Bande passante et biocompatibilité",
+  "etat": "Des implants corticaux permettent déjà de décoder la parole et de piloter un curseur. L'upload de mémoire et la pensée partagée restent hors de portée : on sait lire des signaux moteurs, pas écrire des souvenirs.",
+  "etape": "Prototyper un casque EEG à bas coût pour l'attention et l'épilepsie, sur données locales."
+ },
+ {
+  "nom": "Villes Vivantes",
+  "items": [
+   "Infrastructure biologique auto-réparante",
+   "Bâtiments à métabolisme",
+   "IA maire",
+   "Énergie redistribuée par réseau neuronal"
+  ],
+  "trl": 4,
+  "verrou": 3,
+  "cout": 8000000,
+  "horizon": 20,
+  "indice": 60.7,
+  "blocage": "Durabilité des matériaux vivants",
+  "etat": "Le béton auto-cicatrisant à bactéries existe et se vend. La gestion algorithmique de services urbains est en pilote dans plusieurs villes. Un bâtiment qui pousse reste impossible.",
+  "etape": "Capteurs et supervision des coupures d'eau et d'électricité : la ville vivante commence par la mesure."
+ },
+ {
+  "nom": "Matériaux Programmables",
+  "items": [
+   "Métamatériaux à shape-shifting",
+   "Programmable matter",
+   "Cloaking dynamique",
+   "Auto-réparation moléculaire"
+  ],
+  "trl": 4,
+  "verrou": 3,
+  "cout": 2000000,
+  "horizon": 25,
+  "indice": 59.9,
+  "blocage": "Adressage atomique à grande échelle",
+  "etat": "Les métamatériaux et les polymères auto-réparants existent en laboratoire et en petite industrie. Réorganiser la matière atome par atome à l'échelle d'un objet reste un problème de commande, pas seulement de chimie.",
+  "etape": "Importer des revêtements auto-réparants pour les toitures et les citernes : marché réel, technologie disponible."
+ },
+ {
+  "nom": "Agriculture Atmosphérique",
+  "items": [
+   "Fermes volantes autonomes",
+   "Semences IA adaptatives",
+   "Viande de laboratoire à coût zéro",
+   "Désalinisation à membrane programmable"
+  ],
+  "trl": 4,
+  "verrou": 3,
+  "cout": 12000000,
+  "horizon": 25,
+  "indice": 59.5,
+  "blocage": "Énergie et rendement des cultures hors sol",
+  "etat": "La viande cultivée est commercialisée dans quelques pays à coût élevé. La désalinisation par osmose inverse est mature. Des fermes dans les nuages n'ont aucune base physique crédible.",
+  "etape": "Serres hors sol et irrigation pilotée : rendement réel, eau économisée, mesurable."
+ },
+ {
+  "nom": "Exploration Océanique Profonde",
+  "items": [
+   "Villes sous-marines pressurisées",
+   "Biomimétisme abyssal",
+   "Extraction durable des nodules",
+   "Cartographie ADN des espèces inconnues"
+  ],
+  "trl": 5,
+  "verrou": 4,
+  "cout": 40000000,
+  "horizon": 30,
+  "indice": 57.4,
+  "blocage": "Pression et coût d'exploitation",
+  "etat": "Les habitats sous-marins existent en recherche, l'extraction de nodules reste au stade pré-commercial et très contesté. La cartographie génétique progresse vite et coûte de moins en moins.",
+  "etape": "Séquençage ADN environnemental du fleuve Congo : faisable dès maintenant avec un budget modeste."
+ },
+ {
+  "nom": "Ordinateur Quantique",
+  "items": [
+   "Qubits biologiques auto-reproducteurs",
+   "Superposition consciente",
+   "Intrication temporelle",
+   "Décohérence zéro",
+   "1 trillion de qubits"
+  ],
+  "trl": 4,
+  "verrou": 4,
+  "cout": 25000000,
+  "horizon": 15,
+  "indice": 56.0,
+  "blocage": "Décohérence et correction d'erreur",
+  "etat": "Des processeurs supraconducteurs et à ions piégés de quelques centaines à quelques milliers de qubits existent réellement et résolvent des problèmes jouets. Les qubits biologiques et le trillion de qubits ne reposent sur aucune démonstration.",
+  "etape": "Apprendre Qiskit sur un simulateur gratuit et publier un algorithme optimisé pour un cas congolais (logistique, santé)."
+ },
+ {
+  "nom": "Informatique Moléculaire",
+  "items": [
+   "ADN comme disque dur (1 exaoctet/g)",
+   "Processeurs à protéines repliables",
+   "Calcul dans le vivant",
+   "Chiffrement génomique"
+  ],
+  "trl": 3,
+  "verrou": 4,
+  "cout": 5000000,
+  "horizon": 25,
+  "indice": 49.8,
+  "blocage": "Vitesse d'écriture et taux d'erreur",
+  "etat": "Le stockage sur ADN a été démontré en laboratoire et bat tous les supports en densité. Le calcul par bactéries reste d'une lenteur rédhibitoire hors applications très ciblées.",
+  "etape": "Archivage à froid pour données sensibles : piste sérieuse à échéance de dix ans."
+ },
+ {
+  "nom": "Biotechnologie Quantique",
+  "items": [
+   "Éditeur de génome à vitesse quantique",
+   "Nanorobots médicaux auto-évolutifs",
+   "Neurones synthétiques",
+   "Longévité 200 ans"
+  ],
+  "trl": 3,
+  "verrou": 4,
+  "cout": 15000000,
+  "horizon": 30,
+  "indice": 48.4,
+  "blocage": "Interface entre effet quantique et cellule",
+  "etat": "La biologie quantique est un champ réel (cohérence dans la photosynthèse, tunnels d'électrons dans les enzymes). Les nanorobots médicaux restent des prototypes injectables très limités.",
+  "etape": "Biocapteurs et dépistage précoce : marché immédiat, technologie disponible."
+ },
+ {
+  "nom": "Énergie Infinie",
+  "items": [
+   "Fusion froide LENR stabilisée",
+   "Énergie du vide quantique",
+   "Photosynthèse artificielle >90%",
+   "Antimatière contenue"
+  ],
+  "trl": 3,
+  "verrou": 5,
+  "cout": 100000000,
+  "horizon": 40,
+  "indice": 38.0,
+  "blocage": "Aucune réaction reproductible mesurée",
+  "etat": "La LENR n'a jamais produit de surplus d'énergie reproductible et validé. L'antimatière est produite en quantités infimes à des coûts astronomiques. La photosynthèse artificielle plafonne autour de 10 à 20 % en laboratoire, pas 90 %.",
+  "etape": "Installer du solaire réel avec stockage : rendement prouvé, coût connu, retour en trois ans."
+ },
+ {
+  "nom": "Conscience Collective",
+  "items": [
+   "Réseau empathique global",
+   "Parlement mondial IA",
+   "Mémoire civilisationnelle",
+   "Langage universel révélé par IA"
+  ],
+  "trl": 2,
+  "verrou": 5,
+  "cout": 10000000,
+  "horizon": 45,
+  "indice": 35.6,
+  "blocage": "Consentement et mesure des états internes",
+  "etat": "Les réseaux de partage d'émotions existent à l'état d'expérience, sans mesure fiable. La traduction automatique est en revanche excellente et disponible immédiatement.",
+  "etape": "Construire l'archive numérique des langues et récits congolais : utile, légal, faisable cette année."
+ },
+ {
+  "nom": "Conscience Artificielle Totale",
+  "items": [
+   "Auto-conscience récursive",
+   "Émergence spontanée",
+   "Créativité hors entraînement",
+   "Volonté propre"
+  ],
+  "trl": 2,
+  "verrou": 5,
+  "cout": 20000000,
+  "horizon": 50,
+  "indice": 34.2,
+  "blocage": "Aucun test de conscience disponible",
+  "etat": "Les grands modèles produisent du texte plausible sans intention ni expérience vécue. Il n'existe aucun protocole scientifique accepté pour mesurer une conscience machine.",
+  "etape": "Ne pas vendre de conscience : vendre de la performance mesurable et de la traçabilité."
+ },
+ {
+  "nom": "Transport Dimensionnel",
+  "items": [
+   "Téléportation quantique de matière",
+   "Propulsion par vide quantique",
+   "Tunnels magnétiques à 1200 km/h",
+   "Plis spatio-temporels"
+  ],
+  "trl": 2,
+  "verrou": 5,
+  "cout": 200000000,
+  "horizon": 70,
+  "indice": 23.0,
+  "blocage": "La matière ne se téléporte pas, seul l'état quantique",
+  "etat": "La téléportation quantique transfère un état, jamais un atome. Les trains à lévitation magnétique dépassent 600 km/h en démonstration, 1200 reste théorique en tunnel sous vide.",
+  "etape": "Électrification et logistique locale : le vrai gain de temps au Congo n'est pas dans le tunnel, il est dans la route."
+ },
+ {
+  "nom": "Voyage Temporel Informationnel",
+  "items": [
+   "Rétro-causalité contrôlée",
+   "Pré-cognition algorithmique",
+   "Boucle temporelle stable",
+   "Déplacement de données vers le passé"
+  ],
+  "trl": 1,
+  "verrou": 5,
+  "cout": 50000000,
+  "horizon": 100,
+  "indice": 18.0,
+  "blocage": "Rien ne permet d'envoyer une information dans le passé",
+  "etat": "Les expériences quantiques à choix retardé ne transmettent aucune information vers le passé. La rétro-causalité reste une hypothèse philosophique, pas un protocole.",
+  "etape": "Remplacer par de la prévision honnête : modèles de demande, météo, séries de ventes. Utile, mesurable."
+ },
+ {
+  "nom": "Colonisation Solaire",
+  "items": [
+   "Ascenseur spatial en graphène",
+   "Terraformation martienne",
+   "Villes orbitales à gravité programmable",
+   "Minage d'astéroïdes par essaims IA"
+  ],
+  "trl": 3,
+  "verrou": 5,
+  "cout": 500000000,
+  "horizon": 60,
+  "indice": 18.0,
+  "blocage": "Résistance des matériaux et coût de mise en orbite",
+  "etat": "Les fusées réutilisables ont divisé les coûts réels, des stations orbitales existent. Un câble d'ascenseur spatial dépasse la résistance connue du graphène sur les longueurs nécessaires.",
+  "etape": "Données satellitaires et imagerie : la seule brique solaire accessible aujourd'hui depuis le Congo."
+ }
+]

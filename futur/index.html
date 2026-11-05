@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ALPHATECH FUTUR LAB — les 15 technologies, notées et planifiées</title>
+<meta name="description" content="Application complète : 15 technologies futures, 62 concepts, état réel de la science, indice de faisabilité calculé, planificateur de budget et cahier de laboratoire infalsifiable.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#08090c;color:#dcd9d3;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6}
+.w{max-width:1040px;margin:0 auto;padding:22px 16px 80px}
+.brand{font-size:11px;letter-spacing:2.2px;text-transform:uppercase;color:#e8c878}
+h1{font-size:clamp(22px,4.4vw,34px);margin:8px 0 6px;font-weight:600;color:#f2f0ea}
+.sub{font-size:13.5px;color:#8d8b86;max-width:720px}
+h2{font-size:16px;margin:30px 0 10px;color:#f2f0ea}
+h2::before{content:"";display:inline-block;width:3px;height:14px;background:#e8c878;margin-right:9px;vertical-align:-1px}
+.alert{background:#16130c;border:1px solid #4a4530;border-left:3px solid #e8c878;border-radius:0 8px 8px 0;padding:14px 16px;margin:16px 0;font-size:13px;color:#c9c6c0}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid #1c1e24;vertical-align:middle}
+th{color:#8d8b86;font-size:10.5px;text-transform:uppercase;letter-spacing:1px;font-weight:500}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:#101218}
+.bar{height:6px;background:#1a1d24;border-radius:99px;overflow:hidden;min-width:60px}
+.bar>i{display:block;height:100%;background:#e8c878}
+.num{font-variant-numeric:tabular-nums;color:#f2f0ea;font-weight:600}
+.mono{font-family:ui-monospace,monospace;font-size:11.5px;color:#9fa6b2}
+.panel{background:#101218;border:1px solid #2a2d34;border-radius:10px;padding:18px;margin-top:16px;display:none}
+.panel h3{font-size:17px;color:#f2f0ea;margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.chip{font-size:11.5px;border:1px solid #2f3238;border-radius:99px;padding:3px 10px;color:#b8b5b0}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:12px 0}
+.stat{background:#0c0e13;border:1px solid #24262c;border-radius:8px;padding:12px}
+.stat .l{font-size:10px;letter-spacing:1.1px;text-transform:uppercase;color:#8d8b86}
+.stat .v{font-size:17px;font-weight:600;color:#f2f0ea;margin-top:4px}
+label{display:block;font-size:10.5px;letter-spacing:1.1px;text-transform:uppercase;color:#8d8b86;margin:12px 0 5px}
+input,select,textarea{width:100%;background:#0c0e13;border:1px solid #2a2d34;border-radius:8px;padding:10px;color:#f2f0ea;font-size:13.5px;font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:0;border-color:#e8c878}
+.btn{display:inline-block;background:#e8c878;color:#08090c;padding:10px 18px;border-radius:8px;font-weight:700;font-size:13.5px;border:0;cursor:pointer;margin-top:12px}
+.btn.g{background:transparent;color:#e8c878;border:1px solid #4a4530}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}
+.row>div{flex:1;min-width:130px}
+.chain{font-family:ui-monospace,monospace;font-size:11px;color:#9fa6b2;max-height:170px;overflow:auto;margin-top:10px;background:#0c0e13;border:1px solid #24262c;border-radius:8px;padding:10px}
+.ok{color:#7fd1a0}.bad{color:#ff8a7a}
+footer{margin-top:34px;border-top:1px solid #24262c;padding-top:14px;font-size:11.5px;color:#6f6d69}
+a{color:#e8c878}
+</style></head><body><div class="w">
+<div class="brand">ALPHATECH OMNISCIENCE · FUTUR LAB</div>
+<h1>Les 15 technologies du futur, transformées en programme</h1>
+<div class="sub">Tous les concepts de la section FUTUR, avec l'état réel de la science, un indice de faisabilité calculé, un planificateur de budget et un cahier de laboratoire infalsifiable.</div>
+
+<div class="alert"><strong>Ce que cette application est, et n'est pas.</strong> Les 62 concepts d'origine décrivent des technologies qui n'existent pas : qubits biologiques, voyage d'information vers le passé, antimatière de laboratoire. Aucune application ne les rend possibles, et celle-ci ne prétend pas le contraire. Ce qu'elle fait vraiment : les classer, mesurer l'écart avec la science réelle, et dire par où commencer avec de l'argent et du temps. C'est un outil de décision, pas une démonstration.</div>
+
+<h2>Classement par faisabilité</h2>
+<p style="font-size:12.5px;color:#8d8b86;margin-bottom:8px">Indice = 40 % maturité (TRL) + 20 % faiblesse du verrou + 20 % inverse du coût + 20 % inverse de l'horizon. Clique une ligne pour ouvrir le dossier complet.</p>
+<table><thead><tr><th>Technologie</th><th>Indice</th><th>TRL</th><th>Coût d'entrée</th><th>Horizon</th><th>Verrou principal</th></tr></thead>
+<tbody id="tb"></tbody></table>
+
+<div class="panel" id="panel"></div>
+
+<h2>Planificateur : ce que ton budget permet réellement</h2>
+<div class="row">
+  <div><label for="budget">Budget disponible (FCFA)</label><input id="budget" type="number" value="2000000" min="0" step="100000"></div>
+  <div><label for="annees">Horizon accepté (années)</label><input id="annees" type="number" value="5" min="1" max="60"></div>
+  <div><button class="btn" onclick="planifier()">Calculer</button></div>
+</div>
+<div class="panel" id="plan" style="display:none"></div>
+
+<h2>Cahier de laboratoire, chaîné</h2>
+<p style="font-size:12.5px;color:#8d8b86">Chaque hypothèse est scellée par une empreinte SHA-256 sur la précédente. Une ligne réécrite plus tard rompt la chaîne et le prouve.</p>
+<div class="row">
+  <div><label for="h">Hypothèse ou protocole</label><input id="h" placeholder="Ex. : tester un simulateur quantique sur l'optimisation des tournées de livraison"></div>
+  <div><label for="budgetT">Budget alloué (FCFA)</label><input id="budgetT" type="number" value="0" min="0" step="50000"></div>
+</div>
+<label for="conf">Tape JE CONFIRME pour sceller</label>
+<input id="conf" placeholder="JE CONFIRME">
+<button class="btn" onclick="sceller()">Sceller l'entrée</button>
+<button class="btn g" onclick="verifier()">Vérifier la chaîne</button>
+<button class="btn g" onclick="exporter()">Exporter le dossier</button>
+<div class="chain" id="chain">chaîne vide</div>
+
+<footer>ALPHATECH OMNISCIENCE · Brazzaville · 15 technologies, 62 concepts d'origine conservés mot pour mot · TRL = Technology Readiness Level, échelle 1 à 9 utilisée par les agences de recherche · Les évaluations sont des jugements d'ingénierie documentés, pas des garanties.</footer>
+</div>
+<script>
+const T = [{"nom": "Biologie Synthétique", "items": ["ADN programmable en temps réel", "Organismes conçus de zéro", "Immortalité cellulaire", "Symbiose IA-biologie"], "trl": 6, "verrou": 2, "cout": 1500000, "horizon": 12, "indice": 77.5, "blocage": "Complexité du vivant et régulation", "etat": "CRISPR fonctionne, des génomes minimaux ont été synthétisés, des ARN thérapeutiques sont sur le marché. Le ralentissement du vieillissement a des pistes sérieuses, l'immortalité n'en a aucune.", "etape": "Laboratoire de diagnostic moléculaire et cultures tissulaires : la brique réellement finançable."}, {"nom": "Interface Neuronale Directe", "items": ["Synapse artificielle cerveau-IA", "Mémoire externe", "Pensée partagée", "Rêve enregistré", "Apprentissage instantané"], "trl": 5, "verrou": 3, "cout": 3000000, "horizon": 20, "indice": 65.9, "blocage": "Bande passante et biocompatibilité", "etat": "Des implants corticaux permettent déjà de décoder la parole et de piloter un curseur. L'upload de mémoire et la pensée partagée restent hors de portée : on sait lire des signaux moteurs, pas écrire des souvenirs.", "etape": "Prototyper un casque EEG à bas coût pour l'attention et l'épilepsie, sur données locales."}, {"nom": "Villes Vivantes", "items": ["Infrastructure biologique auto-réparante", "Bâtiments à métabolisme", "IA maire", "Énergie redistribuée par réseau neuronal"], "trl": 4, "verrou": 3, "cout": 8000000, "horizon": 20, "indice": 60.7, "blocage": "Durabilité des matériaux vivants", "etat": "Le béton auto-cicatrisant à bactéries existe et se vend. La gestion algorithmique de services urbains est en pilote dans plusieurs villes. Un bâtiment qui pousse reste impossible.", "etape": "Capteurs et supervision des coupures d'eau et d'électricité : la ville vivante commence par la mesure."}, {"nom": "Matériaux Programmables", "items": ["Métamatériaux à shape-shifting", "Programmable matter", "Cloaking dynamique", "Auto-réparation moléculaire"], "trl": 4, "verrou": 3, "cout": 2000000, "horizon": 25, "indice": 59.9, "blocage": "Adressage atomique à grande échelle", "etat": "Les métamatériaux et les polymères auto-réparants existent en laboratoire et en petite industrie. Réorganiser la matière atome par atome à l'échelle d'un objet reste un problème de commande, pas seulement de chimie.", "etape": "Importer des revêtements auto-réparants pour les toitures et les citernes : marché réel, technologie disponible."}, {"nom": "Agriculture Atmosphérique", "items": ["Fermes volantes autonomes", "Semences IA adaptatives", "Viande de laboratoire à coût zéro", "Désalinisation à membrane programmable"], "trl": 4, "verrou": 3, "cout": 12000000, "horizon": 25, "indice": 59.5, "blocage": "Énergie et rendement des cultures hors sol", "etat": "La viande cultivée est commercialisée dans quelques pays à coût élevé. La désalinisation par osmose inverse est mature. Des fermes dans les nuages n'ont aucune base physique crédible.", "etape": "Serres hors sol et irrigation pilotée : rendement réel, eau économisée, mesurable."}, {"nom": "Exploration Océanique Profonde", "items": ["Villes sous-marines pressurisées", "Biomimétisme abyssal", "Extraction durable des nodules", "Cartographie ADN des espèces inconnues"], "trl": 5, "verrou": 4, "cout": 40000000, "horizon": 30, "indice": 57.4, "blocage": "Pression et coût d'exploitation", "etat": "Les habitats sous-marins existent en recherche, l'extraction de nodules reste au stade pré-commercial et très contesté. La cartographie génétique progresse vite et coûte de moins en moins.", "etape": "Séquençage ADN environnemental du fleuve Congo : faisable dès maintenant avec un budget modeste."}, {"nom": "Ordinateur Quantique", "items": ["Qubits biologiques auto-reproducteurs", "Superposition consciente", "Intrication temporelle", "Décohérence zéro", "1 trillion de qubits"], "trl": 4, "verrou": 4, "cout": 25000000, "horizon": 15, "indice": 56.0, "blocage": "Décohérence et correction d'erreur", "etat": "Des processeurs supraconducteurs et à ions piégés de quelques centaines à quelques milliers de qubits existent réellement et résolvent des problèmes jouets. Les qubits biologiques et le trillion de qubits ne reposent sur aucune démonstration.", "etape": "Apprendre Qiskit sur un simulateur gratuit et publier un algorithme optimisé pour un cas congolais (logistique, santé)."}, {"nom": "Informatique Moléculaire", "items": ["ADN comme disque dur (1 exaoctet/g)", "Processeurs à protéines repliables", "Calcul dans le vivant", "Chiffrement génomique"], "trl": 3, "verrou": 4, "cout": 5000000, "horizon": 25, "indice": 49.8, "blocage": "Vitesse d'écriture et taux d'erreur", "etat": "Le stockage sur ADN a été démontré en laboratoire et bat tous les supports en densité. Le calcul par bactéries reste d'une lenteur rédhibitoire hors applications très ciblées.", "etape": "Archivage à froid pour données sensibles : piste sérieuse à échéance de dix ans."}, {"nom": "Biotechnologie Quantique", "items": ["Éditeur de génome à vitesse quantique", "Nanorobots médicaux auto-évolutifs", "Neurones synthétiques", "Longévité 200 ans"], "trl": 3, "verrou": 4, "cout": 15000000, "horizon": 30, "indice": 48.4, "blocage": "Interface entre effet quantique et cellule", "etat": "La biologie quantique est un champ réel (cohérence dans la photosynthèse, tunnels d'électrons dans les enzymes). Les nanorobots médicaux restent des prototypes injectables très limités.", "etape": "Biocapteurs et dépistage précoce : marché immédiat, technologie disponible."}, {"nom": "Énergie Infinie", "items": ["Fusion froide LENR stabilisée", "Énergie du vide quantique", "Photosynthèse artificielle >90%", "Antimatière contenue"], "trl": 3, "verrou": 5, "cout": 100000000, "horizon": 40, "indice": 38.0, "blocage": "Aucune réaction reproductible mesurée", "etat": "La LENR n'a jamais produit de surplus d'énergie reproductible et validé. L'antimatière est produite en quantités infimes à des coûts astronomiques. La photosynthèse artificielle plafonne autour de 10 à 20 % en laboratoire, pas 90 %.", "etape": "Installer du solaire réel avec stockage : rendement prouvé, coût connu, retour en trois ans."}, {"nom": "Conscience Collective", "items": ["Réseau empathique global", "Parlement mondial IA", "Mémoire civilisationnelle", "Langage universel révélé par IA"], "trl": 2, "verrou": 5, "cout": 10000000, "horizon": 45, "indice": 35.6, "blocage": "Consentement et mesure des états internes", "etat": "Les réseaux de partage d'émotions existent à l'état d'expérience, sans mesure fiable. La traduction automatique est en revanche excellente et disponible immédiatement.", "etape": "Construire l'archive numérique des langues et récits congolais : utile, légal, faisable cette année."}, {"nom": "Conscience Artificielle Totale", "items": ["Auto-conscience récursive", "Émergence spontanée", "Créativité hors entraînement", "Volonté propre"], "trl": 2, "verrou": 5, "cout": 20000000, "horizon": 50, "indice": 34.2, "blocage": "Aucun test de conscience disponible", "etat": "Les grands modèles produisent du texte plausible sans intention ni expérience vécue. Il n'existe aucun protocole scientifique accepté pour mesurer une conscience machine.", "etape": "Ne pas vendre de conscience : vendre de la performance mesurable et de la traçabilité."}, {"nom": "Transport Dimensionnel", "items": ["Téléportation quantique de matière", "Propulsion par vide quantique", "Tunnels magnétiques à 1200 km/h", "Plis spatio-temporels"], "trl": 2, "verrou": 5, "cout": 200000000, "horizon": 70, "indice": 23.0, "blocage": "La matière ne se téléporte pas, seul l'état quantique", "etat": "La téléportation quantique transfère un état, jamais un atome. Les trains à lévitation magnétique dépassent 600 km/h en démonstration, 1200 reste théorique en tunnel sous vide.", "etape": "Électrification et logistique locale : le vrai gain de temps au Congo n'est pas dans le tunnel, il est dans la route."}, {"nom": "Voyage Temporel Informationnel", "items": ["Rétro-causalité contrôlée", "Pré-cognition algorithmique", "Boucle temporelle stable", "Déplacement de données vers le passé"], "trl": 1, "verrou": 5, "cout": 50000000, "horizon": 100, "indice": 18.0, "blocage": "Rien ne permet d'envoyer une information dans le passé", "etat": "Les expériences quantiques à choix retardé ne transmettent aucune information vers le passé. La rétro-causalité reste une hypothèse philosophique, pas un protocole.", "etape": "Remplacer par de la prévision honnête : modèles de demande, météo, séries de ventes. Utile, mesurable."}, {"nom": "Colonisation Solaire", "items": ["Ascenseur spatial en graphène", "Terraformation martienne", "Villes orbitales à gravité programmable", "Minage d'astéroïdes par essaims IA"], "trl": 3, "verrou": 5, "cout": 500000000, "horizon": 60, "indice": 18.0, "blocage": "Résistance des matériaux et coût de mise en orbite", "etat": "Les fusées réutilisables ont divisé les coûts réels, des stations orbitales existent. Un câble d'ascenseur spatial dépasse la résistance connue du graphène sur les longueurs nécessaires.", "etape": "Données satellitaires et imagerie : la seule brique solaire accessible aujourd'hui depuis le Congo."}];
+const fcfa = n => n.toLocaleString('fr-FR') + ' FCFA';
+const tb = document.getElementById('tb');
+
+T.forEach((t, i) => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = '<td><strong>' + t.nom + '</strong><div class="mono">' + t.items.length + ' concepts</div></td>'
+    + '<td><div class="num">' + t.indice + '</div><div class="bar"><i style="width:' + t.indice + '%"></i></div></td>'
+    + '<td class="num">' + t.trl + '/9</td>'
+    + '<td class="num">' + fcfa(t.cout) + '</td>'
+    + '<td class="num">' + t.horizon + ' ans</td>'
+    + '<td style="font-size:12px;color:#9a9893">' + t.blocage + '</td>';
+  tr.onclick = () => ouvrir(i);
+  tb.appendChild(tr);
+});
+
+function ouvrir(i){
+  const t = T[i], p = document.getElementById('panel');
+  p.style.display = 'block';
+  p.innerHTML = '<h3>' + t.nom + ' <span class="mono">indice ' + t.indice + '</span></h3>'
+    + '<div class="chips">' + t.items.map(x => '<span class="chip">' + x + '</span>').join('') + '</div>'
+    + '<div class="grid">'
+    + '<div class="stat"><div class="l">Maturité réelle</div><div class="v">' + t.trl + '/9</div></div>'
+    + '<div class="stat"><div class="l">Verrou</div><div class="v">' + t.verrou + '/5</div></div>'
+    + '<div class="stat"><div class="l">Coût d\'entrée</div><div class="v" style="font-size:14px">' + fcfa(t.cout) + '</div></div>'
+    + '<div class="stat"><div class="l">Horizon</div><div class="v">' + t.horizon + ' ans</div></div>'
+    + '</div>'
+    + '<p style="font-size:13px;margin:10px 0"><strong style="color:#e8c878">Où en est la science :</strong> ' + t.etat + '</p>'
+    + '<p style="font-size:13px;margin:10px 0"><strong style="color:#e8c878">Le verrou :</strong> ' + t.blocage + '</p>'
+    + '<p style="font-size:13px;margin:10px 0"><strong style="color:#e8c878">Par où commencer, ici et maintenant :</strong> ' + t.etape + '</p>';
+  p.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function planifier(){
+  const b = +document.getElementById('budget').value || 0;
+  const a = +document.getElementById('annees').value || 1;
+  const ok = T.filter(t => t.cout <= b && t.horizon <= a);
+  const proches = T.filter(t => t.cout <= b*3 && t.horizon <= a*2 && !ok.includes(t));
+  const p = document.getElementById('plan');
+  p.style.display = 'block';
+  p.innerHTML = '<h3>Avec ' + fcfa(b) + ' et ' + a + ' ans</h3>'
+    + (ok.length
+        ? '<p style="font-size:13px;margin:8px 0"><strong style="color:#7fd1a0">Accessibles :</strong> ' + ok.map(t => t.nom + ' (' + t.indice + ')').join(' · ') + '</p>'
+        : '<p style="font-size:13px;margin:8px 0;color:#ff8a7a">Aucune technologie n\'est finançable à ce niveau. Ce n\'est pas un échec : c\'est l\'information la plus utile de cette page.</p>')
+    + (proches.length ? '<p style="font-size:13px;margin:8px 0"><strong style="color:#e8c878">À portée en triplant le budget :</strong> ' + proches.map(t=>t.nom+' ('+t.indice+')').join(' · ') + '</p>' : '')
+    + '<p style="font-size:12.5px;color:#9a9893;margin-top:10px">Rappel : le TRL reste le facteur décisif. Aucun budget ne raccourcit une physique non démontrée.</p>';
+}
+
+const KEY='at_futur_chain';
+const lire = () => { try { return JSON.parse(localStorage.getItem(KEY)||'[]'); } catch(e){ return []; } };
+async function sha(s){
+  const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+  return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('').toUpperCase();
+}
+async function sceller(){
+  if ((document.getElementById('conf').value||'').trim().toUpperCase() !== 'JE CONFIRME'){ alert('Tape JE CONFIRME pour sceller.'); return; }
+  const h = document.getElementById('h').value.trim();
+  if (!h){ alert('Écris une hypothèse.'); return; }
+  const b = +document.getElementById('budgetT').value || 0;
+  const l = lire(); const prev = l.length ? l[l.length-1].h : 'GENESIS';
+  const t = new Date().toISOString();
+  const hh = await sha(prev + t + h + b);
+  l.push({t, h, b, prev, hash: hh});
+  localStorage.setItem(KEY, JSON.stringify(l.slice(-300)));
+  document.getElementById('conf').value=''; document.getElementById('h').value=''; document.getElementById('budgetT').value='0';
+  dessiner(); alert('Entrée scellée.\nEmpreinte : ' + hh.slice(0,32));
+}
+function dessiner(){
+  const l = lire(), c = document.getElementById('chain');
+  c.innerHTML = l.length ? l.slice().reverse().map(x =>
+    '<div>' + new Date(x.t).toLocaleString('fr-FR') + ' · ' + x.hash.slice(0,16) + '… · ' +
+    (x.h||'').slice(0,70) + (x.b ? ' · ' + fcfa(x.b) : '') + '</div>').join('')
+    : 'chaîne vide';
+}
+async function verifier(){
+  const l = lire(), c = document.getElementById('chain');
+  if (!l.length){ c.textContent = 'chaîne vide'; return; }
+  let prev = 'GENESIS';
+  for (const x of l){
+    const att = await sha(prev + x.t + x.h + x.b);
+    if (att !== x.hash){ c.innerHTML = '<span class="bad">CHAÎNE ROMPUE</span> au maillon ' + (l.indexOf(x)+1); return; }
+    prev = x.hash;
+  }
+  c.innerHTML = '<span class="ok">CHAÎNE INTACTE — ' + l.length + ' maillon(s)</span>' + c.innerHTML;
+}
+function exporter(){
+  const dossier = {genere:new Date().toISOString(), technologies:T, cahier:lire()};
+  const blob = new Blob([JSON.stringify(dossier,null,2)], {type:'application/json'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = 'futur-lab-dossier.json'; a.click();
+}
+dessiner();
+</script></body></html>
