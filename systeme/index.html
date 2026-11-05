@@ -28,6 +28,8 @@ footer{margin-top:34px;border-top:1px solid #24262c;padding-top:14px;font-size:1
 </style></head><body><div class="w">
 <div class="brand">ALPHATECH OMNISCIENCE · Système intégré</div>
 <h1>Système ALPHATECH</h1>
+<div class="note" style="border-color:#e8c878"><b>Laboratoire ouvert</b> : 15 technologies futures notées, planificateur de budget et cahier de laboratoire infalsifiable. <a href="../futur/" style="color:#e8c878">Entrer dans FUTUR LAB</a></div>
+
 <div class="sub">Tous les modules, leur état en direct, leur portée réelle, et le cadre contractuel qui s'applique à quiconque les utilise.</div>
 
 <div class="grid">
@@ -77,7 +79,9 @@ const MODS = [
  ["constat/","Constat","Mise en demeure automatique et datée"],
  ["embed/","Widget","Badge intégrable sur un site tiers"],
  ["embed/gardien.js","Script badge","Une ligne pour afficher la veille"],
- ["whatsapp/","Veille WhatsApp","Verrous du compte, registre chaîné, rapport d'incident"]
+ ["whatsapp/","Veille WhatsApp","Verrous du compte, registre chaîné, rapport d'incident"],
+ ["acces/","Accès et 2FA","TOTP RFC 6238 vérifié, journal chaîné SHA-256"],
+ ["flux/wazuh_alphatech_rules.xml","Règles Wazuh","9 règles converties pour wazuh-manager (niveaux 10/12)"]
 ];
 const tb = document.getElementById('mods');
 let ok = 0, done = 0;
