@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Constat de manquement — ALPHATECH</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#08090c;color:#dcd9d3;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.65}
+.w{max-width:760px;margin:0 auto;padding:26px 18px 70px}
+.brand{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#e8c878}
+h1{font-size:clamp(21px,4vw,30px);margin:8px 0 6px;font-weight:600;color:#f2f0ea}
+.sub{font-size:13.5px;color:#8d8b86;margin-bottom:18px}
+label{display:block;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#8d8b86;margin:14px 0 5px}
+input,select,textarea{width:100%;background:#101218;border:1px solid #2a2d34;border-radius:8px;padding:11px;color:#f2f0ea;font-size:14px;font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:0;border-color:#e8c878}
+textarea{min-height:70px;resize:vertical}
+.btn{display:block;width:100%;text-align:center;background:#e8c878;color:#08090c;padding:13px;border-radius:8px;font-weight:700;font-size:15px;border:0;cursor:pointer;margin-top:20px;text-decoration:none}
+.btn.g{background:transparent;color:#e8c878;border:1px solid #4a4530;margin-top:10px}
+pre{background:#0c0e13;border:1px solid #2a2d34;border-radius:8px;padding:16px;font-size:12px;color:#cfd6cf;white-space:pre-wrap;margin-top:16px;display:none;font-family:ui-monospace,monospace;line-height:1.6}
+.note{background:#101218;border-left:3px solid #e8c878;padding:13px 15px;border-radius:0 8px 8px 0;font-size:12.5px;color:#b8b5b0;margin:16px 0}
+.emp{font-family:ui-monospace,monospace;font-size:11.5px;color:#e8c878;word-break:break-all;margin-top:10px;display:none}
+</style></head><body><div class="w">
+<div class="brand">ALPHATECH OMNISCIENCE · Défense contractuelle</div>
+<h1>Constat de manquement à la licence</h1>
+<div class="sub">Remplis les champs observés. L'outil produit une mise en demeure datée, avec empreinte SHA-256 calculée dans ton navigateur. Tu la télécharges, tu l'envoies en recommandé ou par e-mail avec accusé.</div>
+
+<div class="note"><strong>Ce que cet outil fait et ne fait pas.</strong> Il produit une pièce datée et infalsifiable, opposable en négociation. Il n'engage aucune poursuite à ta place : la plainte et la saisine d'un juge restent des actes humains, avec un avocat. C'est la limite légale, et je ne la franchirai pas.</div>
+
+<label>Contrevenant (nom ou société)</label><input id="nom" placeholder="Société X / domaine.tld">
+<label>Support du manquement</label><input id="site" placeholder="https://exemple.tld/page">
+<label>Manquement observé</label>
+<select id="type">
+ <option>Attribution « ALPHATECH GARDIEN » retirée</option>
+ <option>Revente ou intégration dans une offre payante sans contrat</option>
+ <option>Présentation du flux comme production propre</option>
+ <option>Usage offensif du flux</option>
+ <option>Extraction de données pour entraînement commercial</option>
+</select>
+<label>Date et heure du constat</label><input id="date" type="datetime-local">
+<label>Preuves réunies (capture, URL, empreinte, témoin)</label><textarea id="preuves" placeholder="Capture d'écran du 5/11/2026 à 14h32, URL archivée, empreinte du fichier reproduit…"></textarea>
+<label>Délai accordé avant action (jours)</label><input id="delai" type="number" value="8" min="3" max="30">
+
+<button class="btn" onclick="generer()">Produire le constat</button>
+<pre id="out"></pre>
+<div class="emp" id="hash"></div>
+<button class="btn g" id="dl" style="display:none" onclick="telecharger()">Télécharger le constat (.txt)</button>
+
+<script>
+let TEXTE = "", NOM_FICHIER = "";
+function generer(){
+  const nom = document.getElementById('nom').value.trim() || "[contrevenant à identifier]";
+  const site = document.getElementById('site').value.trim() || "[support non précisé]";
+  const type = document.getElementById('type').value;
+  const d = document.getElementById('date').value || new Date().toISOString().slice(0,16);
+  const preuves = document.getElementById('preuves').value.trim() || "[preuves à compléter]";
+  const delai = document.getElementById('delai').value || 8;
+  const now = new Date().toLocaleString('fr-FR');
+  const cote = "ATH-" + d.replace(/[^0-9]/g,"").slice(0,12) + "-" + Math.random().toString(36).slice(2,6).toUpperCase();
+  TEXTE = `MISE EN DEMEURE — CONSTAT DE MANQUEMENT À LA LICENCE
+ALPHATECH OMNISCIENCE · Brazzaville, République du Congo
+Référence : ${cote}
+Établi le ${now}
+
+DESTINATAIRE
+${nom}
+Support : ${site}
+
+FAITS CONSTATÉS
+Le ${d.replace('T',' à ')}, il a été constaté sur le support désigné ci-dessus le manquement suivant : ${type}.
+Le flux de défense ALPHATECH est publié sous licence d'utilisation v1.0 du 5 novembre 2026, accessible à l'adresse /licence/, dont l'article 2 dispose que l'usage vaut acceptation sans réserve.
+
+PREUVES RÉUNIES
+${preuves}
+
+FONDEMENT
+Article 4 de la licence (interdictions), article 5 (usage commercial soumis à contrat écrit), article 6 (preuve par empreinte SHA-256 et horodatage), article 7 (sanctions), article 8 (voies de recours : contrefaçon, concurrence déloyale, juridictions de Brazzaville, règles OAPI et actes uniformes OHADA).
+
+CE QUI EST DEMANDÉ
+1. Cesser immédiatement le manquement décrit.
+2. Rétablir l'attribution « ALPHATECH GARDIEN » et la mention de licence, ou retirer le flux du support.
+3. Régulariser par un contrat écrit si l'usage est commercial.
+4. Confirmer par écrit l'exécution de ces points.
+
+DÉLAI
+Un délai de ${delai} jours à compter de la réception de la présente est accordé. À défaut, ALPHATECH saisira la juridiction compétente et demandera la cessation de l'usage, la publication de la décision et des dommages-intérêts.
+
+Le présent constat est horodaté et son empreinte SHA-256 est calculée et conservée. Toute modification du texte invalide l'empreinte.
+
+Pour ALPHATECH OMNISCIENCE
+Diamesso Zola · gelasegash@gmail.com · WhatsApp +242 06 80 78 227`;
+  document.getElementById('out').textContent = TEXTE;
+  document.getElementById('out').style.display = "block";
+  NOM_FICHIER = "constat-" + cote + ".txt";
+  crypto.subtle.digest('SHA-256', new TextEncoder().encode(TEXTE)).then(buf=>{
+    const h = [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('').toUpperCase();
+    const el = document.getElementById('hash');
+    el.textContent = "Empreinte SHA-256 du constat : " + h.match(/.{1,8}/g).join(' · ');
+    el.style.display = "block";
+    document.getElementById('dl').style.display = "block";
+    window.__HASH = h;
+  });
+}
+function telecharger(){
+  const blob = new Blob([TEXTE + "\n\nEmpreinte SHA-256 : " + (window.__HASH||"")], {type:"text/plain;charset=utf-8"});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = NOM_FICHIER; a.click();
+}
+</script></body></html>

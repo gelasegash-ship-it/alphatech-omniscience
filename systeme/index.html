@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Système ALPHATECH — modules, portée et contrat</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#08090c;color:#dcd9d3;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6}
+.w{max-width:900px;margin:0 auto;padding:24px 18px 80px}
+.brand{font-size:11px;letter-spacing:2.2px;text-transform:uppercase;color:#e8c878}
+h1{font-size:clamp(23px,4.4vw,34px);margin:8px 0 6px;font-weight:600;color:#f2f0ea}
+.sub{font-size:13.5px;color:#8d8b86;max-width:660px}
+h2{font-size:16px;margin:30px 0 10px;color:#f2f0ea}
+h2::before{content:"";display:inline-block;width:3px;height:14px;background:#e8c878;margin-right:9px;vertical-align:-1px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+td,th{text-align:left;padding:9px 8px;border-bottom:1px solid #1c1e24;vertical-align:middle}
+th{color:#8d8b86;font-size:10.5px;text-transform:uppercase;letter-spacing:1px}
+.st{font-family:ui-monospace,monospace;font-size:11px;padding:2px 7px;border-radius:99px;border:1px solid #2f3238;color:#9fa6b2}
+.ok{color:#7fd1a0;border-color:#2c5c43}
+.bad{color:#ff8a7a;border-color:#63342f}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:18px 0}
+.card{background:#101218;border:1px solid #24262c;border-radius:9px;padding:15px}
+.card .l{font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8d8b86}
+.card .v{font-size:22px;font-weight:600;color:#f2f0ea;margin-top:6px}
+.note{background:#101218;border-left:3px solid #e8c878;padding:13px 15px;border-radius:0 8px 8px 0;font-size:13px;color:#b8b5b0;margin:16px 0}
+a{color:#e8c878}
+.btn{display:inline-block;background:#e8c878;color:#08090c;padding:11px 20px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;margin:14px 8px 0 0}
+.btn.g{background:transparent;color:#e8c878;border:1px solid #4a4530}
+footer{margin-top:34px;border-top:1px solid #24262c;padding-top:14px;font-size:11.5px;color:#6f6d69}
+</style></head><body><div class="w">
+<div class="brand">ALPHATECH OMNISCIENCE · Système intégré</div>
+<h1>Système ALPHATECH</h1>
+<div class="sub">Tous les modules, leur état en direct, leur portée réelle, et le cadre contractuel qui s'applique à quiconque les utilise.</div>
+
+<div class="grid">
+ <div class="card"><div class="l">Modules</div><div class="v" id="m_total">—</div></div>
+ <div class="card"><div class="l">En ligne</div><div class="v" id="m_ok">—</div></div>
+ <div class="card"><div class="l">Organisations ciblées</div><div class="v">47</div></div>
+ <div class="card"><div class="l">Fonds surveillés</div><div class="v" id="btc">—</div></div>
+</div>
+
+<h2>Modules et état vérifié</h2>
+<table><thead><tr><th>Module</th><th>Rôle</th><th>État</th><th>Ouvrir</th></tr></thead><tbody id="mods"></tbody></table>
+
+<h2>Portée du système, sans emphase</h2>
+<p style="font-size:13.5px;color:#b8b5b0;margin:8px 0">Le système est <strong>public et instantané</strong> : n'importe quel site, n'importe quelle entreprise, n'importe quel pays peut se brancher sur le flux sans compte, sans clé, sans autorisation. C'est voulu : une défense qui demande une permission arrive toujours trop tard.</p>
+<p style="font-size:13.5px;color:#b8b5b0;margin:8px 0">Sa portée commerciale, elle, se mesure autrement : 47 organisations identifiées à Brazzaville avec leur passeport prêt, 6 fichiers techniques, 9 règles Sigma, 3 règles YARA, 43 portefeuilles surveillés. Aucun de ces chiffres n'est une promesse : chacun est vérifiable à l'instant, ici même.</p>
+
+<h2>Utiliser, c'est accepter</h2>
+<div class="note"><strong>Le lien contractuel.</strong> Toute personne qui télécharge, intègre ou redistribue le flux accepte la <a href="../licence/">licence v1.0</a> par le seul fait de son usage, sans signature. L'article 2 le dit, l'article 6 en apporte la preuve (empreinte SHA-256 et horodatage), l'article 7 fixe les conséquences, l'article 8 ouvre la voie contentieuse. Pour un usage commercial, un <a href="../compte/">contrat écrit</a> est obligatoire.</div>
+<div class="note"><strong>La défense automatique.</strong> Le <a href="../constat/">générateur de constat</a> produit en trente secondes une mise en demeure datée, chiffrée et téléchargeable, citant l'article violé et le délai accordé. C'est la pièce qui transforme un constat en dossier. Ce qu'il ne fait pas : porter plainte à ta place. La saisine d'un juge reste un acte humain, avec un avocat, et je ne prétendrai jamais le contraire.</div>
+
+<a class="btn" href="../gardien/">Le Gardien mondial</a>
+<a class="btn g" href="../flux/">Connecter le flux</a>
+<a class="btn g" href="../passeport/">Les 47 passeports</a>
+<a class="btn g" href="../licence/">La licence</a>
+<a class="btn g" href="../constat/">Le constat</a>
+
+<footer>ALPHATECH OMNISCIENCE · Brazzaville · Page générée le 5 novembre 2026 · Les états affichés sont vérifiés à l'ouverture, directement depuis ton navigateur.</footer>
+</div>
+<script>
+const MODS = [
+ ["gardien/","Gardien mondial","Surveillance des fonds criminels et des groupes"],
+ ["flux/","Flux de défense","Page de branchement et licence d'usage"],
+ ["flux/feed.json","Feed JSON","Renseignement lisible par une machine"],
+ ["flux/regles_sigma.yml","Règles Sigma","3 règles de détection de base"],
+ ["flux/regles_avancees.yml","Règles avancées","6 règles de détection avancées"],
+ ["flux/regles_yara.yar","Règles YARA","3 règles d'analyse de fichiers"],
+ ["flux/blocklist.txt","Liste de blocage","Binaires et indicateurs à interdire"],
+ ["flux/sentinel_defense.json","Socle défense","Outil → technique MITRE → contre-mesure"],
+ ["passeport/","Passeports","47 diagnostics sectoriels personnalisés"],
+ ["compte/","Compte client","Identifiant et prise de contrat"],
+ ["cgu/","Conditions","Conditions générales du service payant"],
+ ["licence/","Licence","Contrat d'adhésion par usage"],
+ ["constat/","Constat","Mise en demeure automatique et datée"],
+ ["embed/","Widget","Badge intégrable sur un site tiers"],
+ ["embed/gardien.js","Script badge","Une ligne pour afficher la veille"]
+];
+const tb = document.getElementById('mods');
+let ok = 0, done = 0;
+MODS.forEach(([url, nom, role], i)=>{
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td><strong>${nom}</strong></td><td style="color:#9a9893">${role}</td>`
+    + `<td><span class="st" id="s${i}">…</span></td><td><a href="../${url}">ouvrir</a></td>`;
+  tb.appendChild(tr);
+  fetch('/alphatech-omniscience/' + url, {cache:'no-store'})
+    .then(r=>{
+      const el = document.getElementById('s'+i);
+      el.textContent = r.ok ? 'en ligne' : 'erreur ' + r.status;
+      el.className = 'st ' + (r.ok ? 'ok' : 'bad');
+      if (r.ok) ok++;
+    })
+    .catch(()=>{ const el=document.getElementById('s'+i); el.textContent='injoignable'; el.className='st bad'; })
+    .finally(()=>{
+      done++;
+      document.getElementById('m_ok').textContent = ok + '/' + done;
+      if (done === MODS.length) document.getElementById('m_total').textContent = MODS.length;
+    });
+});
+fetch('/alphatech-omniscience/flux/feed.json').then(r=>r.json()).then(f=>{
+  document.getElementById('btc').textContent = Math.round(f.couverture.btc_sous_surveillance) + ' BTC';
+}).catch(()=>{});
+</script></body></html>
