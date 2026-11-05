@@ -10,7 +10,8 @@
   "regles_avancees": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/regles_avancees.yml",
   "regles_yara": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/regles_yara.yar",
   "socle_defense": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/sentinel_defense.json",
-  "regles_completes": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/regles_completes.yml"
+  "regles_completes": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/regles_completes.yml",
+  "regles_wazuh": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/wazuh_alphatech_rules.xml"
  },
  "couverture": {
   "groupes_suivis": 419,
@@ -19,7 +20,8 @@
   "outils_couverts": 14,
   "techniques_mitre": 8,
   "regles_sigma": 9,
-  "regles_yara": 3
+  "regles_yara": 3,
+  "regles_wazuh": 9
  },
  "groupes": [
   {
@@ -248,7 +250,8 @@
   }
  ],
  "integrite": {
-  "methode": "SHA-256 du flux sans ce bloc",
-  "valeur": "dd5522452b2771bcfadc2b2a3ac194476920eba5c025f282ea66636921268a94"
+  "algo": "sha256",
+  "valeur": "517b549f925d5cfdb45ae7c13e25db2e10d010936bb9ee830fb38ee1bce8b8bf",
+  "portee": "toutes les donnees du flux hors ce bloc"
  }
 }

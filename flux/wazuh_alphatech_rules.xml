@@ -1,0 +1,111 @@
+<!-- ALPHATECH SENTINEL — 9 règles Sigma converties pour Wazuh (eth-sentinel-001 à 009)
+     Généré le 2026-11-05 depuis regles_completes.yml
+     Installation: /var/ossec/etc/rules/alphatech_sentinel.xml
+     Test: /var/ossec/bin/wazuh-logtest — Rechargement: systemctl restart wazuh-manager
+     Prérequis: collecte Sysmon ou canal Security (decoder windows_eventchannel). -->
+<group name="windows,alphatech_sentinel,">
+  <rule id="100600" level="12">
+    <field name="win.eventdata.targetImage" type="pcre2">\\\\lsass\.exe$</field>
+    <field name="win.eventdata.grantedAccess">0x1010</field>
+    <field name="win.eventdata.grantedAccess">0x1410</field>
+    <field name="win.eventdata.grantedAccess">0x1438</field>
+    <description>Vol d'identifiants LSASS (Mimikatz / HandleKatz / Nanodump)</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>alphatech_sentinel,eth-sentinel-001,attack</group>
+  </rule>
+
+  <rule id="100601" level="10">
+    <field name="win.eventdata.eventID">4688</field>
+    <field name="win.eventdata.eventID">7045</field>
+    <field name="win.eventdata.commandLine">net\ stop</field>
+    <field name="win.eventdata.commandLine">sc\ stop</field>
+    <description>Sabotage de l'antivirus (EDRKill / HRSword / PCHunter)</description>
+    <mitre>
+      <id>T1562.001</id>
+    </mitre>
+    <group>alphatech_sentinel,eth-sentinel-002,attack</group>
+  </rule>
+
+  <rule id="100602" level="10">
+    <field name="win.eventdata.eventID">5156</field>
+    <field name="win.eventdata.destinationPort">445</field>
+    <description>Balayage réseau horizontal (Advanced IP Scanner / SoftPerfect)</description>
+    <mitre>
+      <id>T1046</id>
+      <id>T1135</id>
+    </mitre>
+    <group>alphatech_sentinel,eth-sentinel-003,attack</group>
+  </rule>
+
+  <rule id="100603" level="12">
+    <field name="win.eventdata.eventID">4688</field>
+    <field name="win.eventdata.commandLine">vssadmin\ delete\ shadows</field>
+    <field name="win.eventdata.commandLine">wmic\ shadowcopy\ delete</field>
+    <field name="win.eventdata.commandLine">wbadmin\ delete\ catalog</field>
+    <description>Suppression des clichés instantanés (avant chiffrement rançongiciel)</description>
+    <mitre>
+      <id>T1490</id>
+    </mitre>
+    <group>alphatech_sentinel,eth-sentinel-004,attack</group>
+  </rule>
+
+  <rule id="100604" level="10">
+    <field name="win.eventdata.eventID">7045</field>
+    <field name="win.eventdata.imagePath">\\\\Temp\\\\</field>
+    <field name="win.eventdata.imagePath">\\\\AppData\\\\</field>
+    <field name="win.eventdata.imagePath">\\\\ProgramData\\\\</field>
+    <description>Création de service persistant depuis un répertoire temporaire</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>alphatech_sentinel,eth-sentinel-005,attack</group>
+  </rule>
+
+  <rule id="100605" level="12">
+    <field name="win.eventdata.eventID">4663</field>
+    <field name="win.eventdata.objectType">File</field>
+    <description>Rafale de renommage de fichiers (chiffrement en cours)</description>
+    <mitre>
+      <id>T1486</id>
+    </mitre>
+    <group>alphatech_sentinel,eth-sentinel-006,attack</group>
+  </rule>
+
+  <rule id="100606" level="10">
+    <field name="win.eventdata.eventID">4625</field>
+    <field name="win.eventdata.eventID">4624</field>
+    <field name="win.eventdata.logonType">10</field>
+    <description>Connexions RDP en force brute</description>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+    <group>alphatech_sentinel,eth-sentinel-007,attack</group>
+  </rule>
+
+  <rule id="100607" level="10">
+    <field name="win.eventdata.eventID">4688</field>
+    <field name="win.eventdata.commandLine">wevtutil\ cl</field>
+    <field name="win.eventdata.commandLine">sc\ config\ vss\ dis</field>
+    <field name="win.eventdata.commandLine">net\ stop\ vss</field>
+    <description>Désactivation de la restauration et des journaux</description>
+    <mitre>
+      <id>T1562.001</id>
+      <id>T1490</id>
+    </mitre>
+    <group>alphatech_sentinel,eth-sentinel-008,attack</group>
+  </rule>
+
+  <rule id="100608" level="10">
+    <field name="win.eventdata.destinationHostname">mega\.nz</field>
+    <field name="win.eventdata.destinationHostname">transfer\.sh</field>
+    <field name="win.eventdata.destinationHostname">anonfiles</field>
+    <field name="win.eventdata.destinationHostname">gofile\.io</field>
+    <description>Sortie massive vers un service de stockage externe</description>
+    <mitre>
+      <id>T1567.002</id>
+    </mitre>
+    <group>alphatech_sentinel,eth-sentinel-009,attack</group>
+  </rule>
+</group>
