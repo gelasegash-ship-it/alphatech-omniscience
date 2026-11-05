@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Surveillance des accès — ALPHATECH</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d0d0f;color:#e8e6e1;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6;padding:24px}
+.wrap{max-width:1000px;margin:0 auto}
+h1{font-size:1.9rem;letter-spacing:-.5px;margin-bottom:6px}
+h1 span{color:#e8c878}
+.sub{color:#8b8b8b;font-size:.85rem;margin-bottom:22px}
+h2{font-size:1.1rem;color:#e8c878;margin:28px 0 10px;border-bottom:1px solid #24242a;padding-bottom:6px}
+.warn{background:#1a1410;border-left:3px solid #c0392b;padding:14px 16px;border-radius:4px;margin:14px 0;font-size:.9rem}
+.note{background:#141416;border:1px solid #24242a;padding:14px 16px;border-radius:6px;margin:12px 0;font-size:.9rem}
+table{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:10px}
+th{text-align:left;color:#8b8b8b;font-weight:500;padding:6px 8px;border-bottom:1px solid #24242a;font-size:.75rem;text-transform:uppercase}
+td{padding:6px 8px;border-bottom:1px solid #1a1a1e}
+td.z{font-variant-numeric:tabular-nums;color:#8b8b8b}
+.bar{height:8px;border-radius:2px;min-width:2px}
+.kpi{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0}
+.kpi div{background:#141416;border:1px solid #24242a;border-radius:6px;padding:14px 18px;flex:1;min-width:140px}
+.kpi b{display:block;font-size:1.6rem;color:#e8c878}
+.kpi small{color:#8b8b8b;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
+code{background:#1a1a1e;padding:2px 6px;border-radius:3px;font-size:.8rem;color:#e8c878}
+pre{background:#141416;border:1px solid #24242a;padding:12px;border-radius:6px;overflow-x:auto;font-size:.78rem;color:#c9c7c2}
+button{background:#e8c878;color:#0d0d0f;border:0;padding:9px 16px;border-radius:5px;font-weight:600;cursor:pointer;font-size:.85rem}
+input{background:#141416;border:1px solid #333;color:#e8e6e1;padding:8px 10px;border-radius:5px;font-size:.85rem;width:100%}
+ul{margin:8px 0 8px 20px}
+li{margin:4px 0;font-size:.88rem}
+a{color:#e8c878}
+footer{margin-top:34px;padding-top:14px;border-top:1px solid #24242a;color:#6e6e6e;font-size:.75rem}
+</style></head><body><div class="wrap">
+
+<h1>Surveillance des <span>accès</span></h1>
+<div class="sub">Rapport établi le 05/11/2026 14:05 · source : API de trafic GitHub · dépôt alphatech-omniscience</div>
+
+<div class="warn"><b>Ce que ton site peut et ne peut pas voir.</b> GitHub Pages est un hébergeur statique : il ne conserve aucun journal de connexion (ni adresse IP, ni pays, ni navigateur, ni heure de visite). Ces données n'existent nulle part, donc personne ne peut les analyser. Les seuls chiffres réels disponibles sont ceux du <b>dépôt</b> : combien de fois le code a été cloné et par combien d'adresses distinctes par jour.</div>
+
+<div class="kpi">
+<div><small>Clones sur 14 jours</small><b>223</b></div>
+<div><small>Cloners uniques</small><b>91</b></div>
+<div><small>Moyenne par jour</small><b>15.9</b></div>
+<div><small>Écart-type</small><b>20.5</b></div>
+</div>
+
+<h2>Série journalière et détection d'anomalies</h2>
+<div class="note">La détection compare chaque jour à la moyenne de la période, en écarts-types (σ). Au-delà de +2 σ, c'est un pic fort : un événement à expliquer, pas nécessairement une intrusion.</div>
+<table>
+<tr><th>Date</th><th>Clones</th><th>Uniques</th><th>Écart</th><th>Volume</th><th>Niveau</th></tr>
+<tr><td>2026-10-22</td><td>8</td><td>5</td><td class="z">-0.39</td><td><div class="bar" style="width:11%;background:#3a3a3a"></div></td><td>normal</td></tr>
+<tr><td>2026-10-23</td><td>1</td><td>1</td><td class="z">-0.73</td><td><div class="bar" style="width:1%;background:#3a3a3a"></div></td><td>normal</td></tr>
+<tr><td>2026-10-24</td><td>1</td><td>1</td><td class="z">-0.73</td><td><div class="bar" style="width:1%;background:#3a3a3a"></div></td><td>normal</td></tr>
+<tr><td>2026-10-25</td><td>0</td><td>0</td><td class="z">-0.78</td><td><div class="bar" style="width:0%;background:#3a3a3a"></div></td><td>calme</td></tr>
+<tr><td>2026-10-26</td><td>66</td><td>28</td><td class="z">+2.44</td><td><div class="bar" style="width:92%;background:#c0392b"></div></td><td>pic fort</td></tr>
+<tr><td>2026-10-27</td><td>15</td><td>8</td><td class="z">-0.05</td><td><div class="bar" style="width:21%;background:#3a3a3a"></div></td><td>normal</td></tr>
+<tr><td>2026-10-28</td><td>6</td><td>4</td><td class="z">-0.48</td><td><div class="bar" style="width:8%;background:#3a3a3a"></div></td><td>normal</td></tr>
+<tr><td>2026-10-29</td><td>0</td><td>0</td><td class="z">-0.78</td><td><div class="bar" style="width:0%;background:#3a3a3a"></div></td><td>calme</td></tr>
+<tr><td>2026-10-30</td><td>2</td><td>1</td><td class="z">-0.68</td><td><div class="bar" style="width:3%;background:#3a3a3a"></div></td><td>normal</td></tr>
+<tr><td>2026-10-31</td><td>1</td><td>1</td><td class="z">-0.73</td><td><div class="bar" style="width:1%;background:#3a3a3a"></div></td><td>normal</td></tr>
+<tr><td>2026-11-01</td><td>42</td><td>16</td><td class="z">+1.27</td><td><div class="bar" style="width:59%;background:#e8c878"></div></td><td>au-dessus</td></tr>
+<tr><td>2026-11-02</td><td>40</td><td>18</td><td class="z">+1.17</td><td><div class="bar" style="width:56%;background:#e8c878"></div></td><td>au-dessus</td></tr>
+<tr><td>2026-11-03</td><td>37</td><td>16</td><td class="z">+1.03</td><td><div class="bar" style="width:52%;background:#e8c878"></div></td><td>au-dessus</td></tr>
+<tr><td>2026-11-04</td><td>4</td><td>2</td><td class="z">-0.58</td><td><div class="bar" style="width:6%;background:#3a3a3a"></div></td><td>normal</td></tr>
+
+</table>
+
+<h2>Jours à expliquer</h2>
+<ul><li>2026-10-26 : 66 clones, 28 uniques, écart +2.44 σ (pic fort)</li><li>2026-11-01 : 42 clones, 16 uniques, écart +1.27 σ (au-dessus)</li><li>2026-11-02 : 40 clones, 18 uniques, écart +1.17 σ (au-dessus)</li><li>2026-11-03 : 37 clones, 16 uniques, écart +1.03 σ (au-dessus)</li></ul>
+<div class="note">Ces pics correspondent aux journées de forte production du système (publications, générations d'images, déploiements). Un pic n'est pas une preuve d'intrusion : c'est un signal qui demande une cause. À l'inverse, une intrusion réelle peut ne produire aucun pic.</div>
+
+<h2>Ce que ces chiffres ne disent pas</h2>
+<ul>
+<li>Qui a cloné : aucun identifiant, aucune IP, aucun pays.</li>
+<li>Si quelqu'un a lu le site : les visites de pages ne sont pas comptées du tout.</li>
+<li>Si un accès a été refusé ou réussi : aucune notion de succès ou d'échec.</li>
+</ul>
+
+<h2>Surveillance automatique : ce qui est réalisable</h2>
+<div class="note"><b>1. Journal scellé.</b> Chaque contrôle ci-dessous est horodaté et chaîné en SHA-256 dans ton navigateur. Si quelqu'un modifie une ligne du registre, la chaîne se rompt et le bouton de vérification te le dit. C'est une preuve de diligence, pas une preuve d'intrusion.<br><br>
+<b>2. Vrais journaux.</b> Il n'y a qu'une façon d'obtenir des adresses IP : placer un intermédiaire devant le site. Cloudflare gratuit suffit, donne IP, pays, navigateur, score de robot, et permet des alertes. À faire quand tu auras un domaine.<br><br>
+<b>3. Exécution quotidienne.</b> Un script peut relever ces chiffres chaque jour et alerter au-delà de +2 σ. Il doit tourner sur une machine à toi, en tâche planifiée, ou sur le VPS prévu.</div>
+
+<pre># crontab du VPS, tous les jours à 7h
+0 7 * * * cd /opt/alphatech && python3 build_surveillance.py >> veille.log 2&gt;&amp;1</pre>
+
+<h2>Seuils d'alerte proposés</h2>
+<ul>
+<li><b>Pic de clones</b> supérieur à la moyenne + 2 σ sur une journée.</li>
+<li><b>Changement de volume</b> supérieur au triple de la moyenne sur trois jours consécutifs.</li>
+<li><b>Nouveau référent</b> inconnu dans le trafic du dépôt.</li>
+<li><b>Toute modification</b> du code que tu n'as pas demandée : là, c'est une vraie alerte.</li>
+</ul>
+
+<h2>Sceller un contrôle</h2>
+<div class="note">Saisis les chiffres du jour pour les inscrire dans le registre chaîné, conservé sur cet appareil uniquement.</div>
+<input id="v" placeholder="ex. 2026-11-05 · clones 4 · uniques 2 · note libre">
+<div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+<button onclick="sceller()">Sceller ce contrôle</button>
+<button onclick="verifier()" style="background:#2a2a30;color:#e8e6e1">Vérifier l'intégrité</button>
+</div>
+<pre id="out" style="margin-top:12px">Registre vide.</pre>
+
+<h2>En cas de doute sérieux</h2>
+<ul>
+<li>Révoquer les jetons d'accès GitHub et Meta, puis les recréer.</li>
+<li>Changer les mots de passe des comptes liés et activer leur 2FA native.</li>
+<li>Comparer le dernier commit avec ce que tu as demandé : toute ligne inconnue est le vrai signal.</li>
+<li>Conserver ce rapport et le registre : ce sont tes pièces si tu dois déposer plainte.</li>
+</ul>
+
+<footer>ALPHATECH OMNISCIENCE · Brazzaville · 05/11/2026 14:05 · Aucune donnée ne quitte cet appareil pour le registre local.</footer>
+</div>
+<script>
+const CLE = "at_surv_chain";
+async function h(t){const b=new TextEncoder().encode(t);const d=await crypto.subtle.digest("SHA-256",b);return [...new Uint8Array(d)].map(x=>x.toString(16).padStart(2,"0")).join("")}
+function lire(){try{return JSON.parse(localStorage.getItem(CLE)||"[]")}catch(e){return []}}
+async function sceller(){
+  const v=document.getElementById("v").value.trim();
+  const out=document.getElementById("out");
+  if(!v){out.textContent="Saisis d'abord les chiffres du jour.";return}
+  const ch=lire(); const prec=ch.length?ch[ch.length-1].h:"GENESIS";
+  const corps=v+" · "+new Date().toISOString();
+  const hh=await h(prec+"|"+corps);
+  ch.push({corps:corps,h:hh,prec:prec});
+  localStorage.setItem(CLE,JSON.stringify(ch.slice(-200)));
+  out.textContent="Contrôle scellé.\n"+ch.map((x,i)=>(i+1)+". "+x.corps+"\n   "+x.h.slice(0,32)+"…").join("\n");
+}
+async function verifier(){
+  const ch=lire(); const out=document.getElementById("out");
+  if(!ch.length){out.textContent="Registre vide.";return}
+  let ok=true;
+  for(let i=0;i<ch.length;i++){
+    const prec=i?ch[i-1].h:"GENESIS";
+    const hh=await h(prec+"|"+ch[i].corps);
+    if(hh!==ch[i].h||prec!==ch[i].prec){ok=false;break}
+  }
+  out.textContent=(ok?"Chaîne intacte : ":"Chaîne ROMPUE au bloc ")+ch.length+" bloc(s).";
+}
+document.getElementById("out").textContent=(lire().length?lire().length+" contrôle(s) au registre.":"Registre vide.");
+</script></body></html>
