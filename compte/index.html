@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Créer un compte — ALPHATECH GARDIEN</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#08090c;color:#dcd9d3;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6}
+.w{max-width:620px;margin:0 auto;padding:26px 18px 70px}
+.brand{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#e8c878}
+h1{font-size:clamp(21px,4vw,29px);margin:8px 0 6px;font-weight:600;color:#f2f0ea}
+.sub{font-size:13.5px;color:#8d8b86;margin-bottom:20px}
+label{display:block;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#8d8b86;margin:14px 0 5px}
+input,select{width:100%;background:#101218;border:1px solid #2a2d34;border-radius:8px;padding:11px 12px;color:#f2f0ea;font-size:14px;font-family:inherit}
+input:focus,select:focus{outline:0;border-color:#e8c878}
+.btn{display:block;width:100%;text-align:center;background:#e8c878;color:#08090c;padding:13px;border-radius:8px;font-weight:700;font-size:15px;border:0;cursor:pointer;margin-top:20px;text-decoration:none}
+.btn.g{background:transparent;color:#e8c878;border:1px solid #4a4530;margin-top:10px}
+.note{background:#101218;border-left:3px solid #e8c878;padding:13px 15px;border-radius:0 8px 8px 0;font-size:12.5px;color:#b8b5b0;margin:18px 0}
+.card{background:#101218;border:1px solid #4a4530;border-radius:10px;padding:18px;margin-top:20px;display:none}
+.cid{font-family:ui-monospace,monospace;font-size:22px;color:#e8c878;letter-spacing:1px;margin:6px 0 12px}
+small{color:#6f6d69;font-size:11.5px}
+a.lien{color:#e8c878}
+</style></head><body><div class="w">
+<div class="brand">ALPHATECH OMNISCIENCE</div>
+<h1>Créer un compte client</h1>
+<div class="sub">Un identifiant client est attribué immédiatement. L'activation est faite par ALPHATECH à réception de la demande.</div>
+
+<div class="note"><strong>Je te dis comment ça marche vraiment :</strong> cette page n'a pas de serveur. Elle fabrique ton identifiant dans ton navigateur, puis prépare le message à envoyer. Aucun mot de passe n'est demandé, aucune donnée n'est envoyée quelque part sans ton action. C'est volontaire : moins il existe de serveurs, moins il existe de choses à pirater.</div>
+
+<label for="nom">Nom et prénom</label><input id="nom" placeholder="Jean Mbemba">
+<label for="org">Organisation</label><input id="org" placeholder="Clinique Les Manguiers">
+<label for="sect">Secteur</label>
+<select id="sect"><option>Santé</option><option>Hôtellerie</option><option>Immobilier</option><option>Éducation</option><option>Finance</option><option>Commerce</option><option>Administration</option><option>Autre</option></select>
+<label for="mail">E-mail</label><input id="mail" type="email" placeholder="nom@organisation.cg">
+<label for="tel">Téléphone / WhatsApp</label><input id="tel" placeholder="+242 06 000 0000">
+<label for="offre">Offre souhaitée</label>
+<select id="offre"><option>Audit SENTINEL — 150 000 FCFA</option><option>Organisation — 75 000 FCFA/mois</option><option>Souverain — 450 000 FCFA/mois</option><option>Veille — 1 500 FCFA/jour</option><option>API du flux — 15 000 FCFA/mois</option><option>Récupération de fonds — 15 % au résultat</option></select>
+
+<button class="btn" onclick="creer()">Obtenir mon identifiant</button>
+<a class="lien" href="/alphatech-omniscience/cgu/" style="display:block;text-align:center;margin-top:14px;font-size:12.5px">J'ai lu les conditions d'utilisation</a>
+
+<div class="card" id="res">
+  <small>Identifiant attribué</small>
+  <div class="cid" id="cid">—</div>
+  <small>Envoie maintenant ta demande, elle part avec ton identifiant :</small>
+  <a class="btn" id="wa" href="#">Envoyer sur WhatsApp</a>
+  <a class="btn g" id="em" href="#">Envoyer par e-mail</a>
+  <button class="btn g" onclick="copier()">Copier mon identifiant</button>
+  <small style="display:block;margin-top:12px">Conserve cet identifiant : il sert de référence pour tout paiement et tout échange. Il reste aussi enregistré dans ce navigateur.</small>
+</div>
+</div>
+<script>
+const AT_WA = "242068078227", AT_MAIL = "gelasegash@gmail.com";
+function h(s){let x=0;for(const c of s) x=(x*31+c.charCodeAt(0))%100000;return String(x).padStart(5,"0");}
+function creer(){
+  const nom=document.getElementById('nom').value.trim();
+  const org=document.getElementById('org').value.trim();
+  const sect=document.getElementById('sect').value;
+  const mail=document.getElementById('mail').value.trim();
+  const tel=document.getElementById('tel').value.trim();
+  const offre=document.getElementById('offre').value;
+  if(!nom||!org){alert("Indique ton nom et ton organisation.");return;}
+  const cid = "AT-" + new Date().getFullYear() + "-" + h(nom+org+mail+Date.now());
+  const msg = "ALPHATECH — demande de compte\n"
+    + "Identifiant : " + cid + "\n"
+    + "Nom : " + nom + "\n"
+    + "Organisation : " + org + "\n"
+    + "Secteur : " + sect + "\n"
+    + "E-mail : " + (mail||"non fourni") + "\n"
+    + "Téléphone : " + (tel||"non fourni") + "\n"
+    + "Offre : " + offre + "\n"
+    + "J'ai lu les conditions d'utilisation.";
+  document.getElementById('cid').textContent = cid;
+  document.getElementById('res').style.display = "block";
+  document.getElementById('wa').href = "https://wa.me/" + AT_WA + "?text=" + encodeURIComponent(msg);
+  document.getElementById('em').href = "mailto:" + AT_MAIL + "?subject=" + encodeURIComponent("Demande de compte " + cid) + "&body=" + encodeURIComponent(msg);
+  try{
+    const l = JSON.parse(localStorage.getItem("at_comptes") || "[]");
+    l.push({cid, nom, org, sect, offre, date:new Date().toISOString()});
+    localStorage.setItem("at_comptes", JSON.stringify(l));
+  }catch(e){}
+  window.scrollTo({top:document.getElementById('res').offsetTop-20,behavior:'smooth'});
+}
+function copier(){
+  const t = document.getElementById('cid').textContent;
+  navigator.clipboard?.writeText(t).then(()=>alert("Identifiant copié : " + t)).catch(()=>alert(t));
+}
+</script></body></html>
