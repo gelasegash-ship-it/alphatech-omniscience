@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Veille WhatsApp — ALPHATECH</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#08090c;color:#dcd9d3;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.65}
+.w{max-width:800px;margin:0 auto;padding:24px 18px 80px}
+.brand{font-size:11px;letter-spacing:2.2px;text-transform:uppercase;color:#e8c878}
+h1{font-size:clamp(22px,4.2vw,32px);margin:8px 0 6px;font-weight:600;color:#f2f0ea}
+.sub{font-size:13.5px;color:#8d8b86;max-width:640px}
+h2{font-size:16px;margin:28px 0 10px;color:#f2f0ea}
+h2::before{content:"";display:inline-block;width:3px;height:14px;background:#e8c878;margin-right:9px;vertical-align:-1px}
+p,li{font-size:13.5px;color:#c3c0ba;margin-bottom:8px}
+ol,ul{padding-left:20px}
+.alert{background:#16130c;border:1px solid #4a4530;border-left:3px solid #e8c878;border-radius:0 8px 8px 0;padding:14px 16px;margin:16px 0;font-size:13px}
+.card{background:#101218;border:1px solid #24262c;border-radius:9px;padding:16px;margin:12px 0}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:16px 0}
+.stat .l{font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8d8b86}
+.stat .v{font-size:20px;font-weight:600;color:#f2f0ea;margin-top:5px}
+label{display:block;font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8d8b86;margin:12px 0 5px}
+input,textarea{width:100%;background:#0c0e13;border:1px solid #2a2d34;border-radius:8px;padding:10px;color:#f2f0ea;font-size:14px;font-family:inherit}
+input:focus,textarea:focus{outline:0;border-color:#e8c878}
+.btn{display:inline-block;background:#e8c878;color:#08090c;padding:11px 18px;border-radius:8px;font-weight:700;font-size:14px;border:0;cursor:pointer;margin-top:12px;text-decoration:none}
+.btn.g{background:transparent;color:#e8c878;border:1px solid #4a4530}
+.btn.r{background:#ff8a7a;color:#1a0d0a}
+pre{background:#0c0e13;border:1px solid #2a2d34;border-radius:8px;padding:14px;font-size:11.5px;color:#cfd6cf;white-space:pre-wrap;margin-top:12px;display:none;font-family:ui-monospace,monospace}
+.chain{font-family:ui-monospace,monospace;font-size:11px;color:#9fa6b2;max-height:150px;overflow:auto;margin-top:10px}
+.ok{color:#7fd1a0}.bad{color:#ff8a7a}
+footer{margin-top:34px;border-top:1px solid #24262c;padding-top:14px;font-size:11.5px;color:#6f6d69}
+</style></head><body><div class="w">
+<div class="brand">ALPHATECH OMNISCIENCE · Veille WhatsApp</div>
+<h1>Si quelqu'un se connecte à ton WhatsApp</h1>
+<div class="sub">Ce que le système peut faire, ce qu'aucun système au monde ne peut faire, et le registre qui te protège réellement.</div>
+
+<div class="alert"><strong>La vérité technique, d'abord.</strong> WhatsApp n'expose aucune API pour les connexions d'un compte personnel. Aucun serveur, aucun agent, aucune application tierce ne peut être prévenu à l'instant où un appareil se lie à ton numéro. Ce que je peux faire : t'armer pour que la connexion soit visible en secondes, et conserver un registre horodaté qui prouve ta vigilance ou ta compromission. Ce que je ne ferai pas : te vendre une détection automatique qui n'existe pas.</div>
+
+<div class="grid">
+ <div class="card stat"><div class="l">Contrôles enregistrés</div><div class="v" id="n">0</div></div>
+ <div class="card stat"><div class="l">Dernier contrôle</div><div class="v" id="last">jamais</div></div>
+ <div class="card stat"><div class="l">Chaîne</div><div class="v" id="ch">—</div></div>
+</div>
+
+<h2>Les quatre verrous qui marchent vraiment</h2>
+<ol>
+<li><strong>Vérification en deux étapes</strong> : WhatsApp → Réglages → Compte → Vérification en deux étapes → activer un PIN à six chiffres et une adresse e-mail de secours. Sans ce PIN, personne ne peut réenregistrer ton numéro.</li>
+<li><strong>Notifications de sécurité</strong> : Réglages → Confidentialité → activer les alertes de changement de code de sécurité. Tu reçois une alerte quand un appareil se lie ou quand la clé change.</li>
+<li><strong>Appareils liés</strong> : Réglages → Appareils liés. Tu vois chaque session avec son appareil, sa date et sa ville. Déconnecte tout ce que tu ne reconnais pas, immédiatement.</li>
+<li><strong>Le code à six chiffres ne se dicte jamais</strong> : ni au téléphone, ni par message, ni à un proche qui insiste. C'est le seul geste qui suffit à voler un compte.</li>
+</ol>
+
+<h2>Registre de contrôle, chaîné et infalsifiable</h2>
+<p>Chaque contrôle que tu enregistres scelle une empreinte SHA-256 sur le précédent. Si une ligne est réécrite après coup, la chaîne se rompt et tu le vois. C'est ta preuve de diligence.</p>
+<div class="card">
+  <label for="app">Appareils liés que tu vois aujourd'hui (modèle, date, ville)</label>
+  <input id="app" placeholder="Ex. : iPhone 13 — 05/11/2026 — Brazzaville ; Chrome Windows — 02/11 — inconnu">
+  <label for="note">Observation éventuelle</label>
+  <input id="note" placeholder="Ex. : un appareil inconnu, déconnecté aussitôt">
+  <label for="ok">Pour sceller, tape JE CONFIRME</label>
+  <input id="ok" placeholder="JE CONFIRME">
+  <button class="btn" onclick="sceller()">Enregistrer ce contrôle</button>
+  <div class="chain" id="log"></div>
+</div>
+
+<h2>Signaler une connexion inconnue</h2>
+<div class="card">
+  <p style="font-size:13px">Génère un rapport horodaté avec empreinte, à présenter à ton opérateur, à ta banque ou à la police. Puis applique les gestes ci-dessous dans l'ordre.</p>
+  <label for="detail">Ce que tu as constaté</label>
+  <textarea id="detail" rows="3" placeholder="Appareil inconnu « Chrome Windows » connecté le 05/11 vers 14h, ville non reconnue…"></textarea>
+  <label for="ok2">Tape JE CONFIRME pour générer le rapport</label>
+  <input id="ok2" placeholder="JE CONFIRME">
+  <button class="btn r" onclick="incident()">Générer le rapport d'incident</button>
+  <pre id="rap"></pre>
+  <button class="btn g" id="dl" style="display:none" onclick="telecharger()">Télécharger le rapport</button>
+</div>
+
+<h2>Ordre des gestes si c'est réel</h2>
+<ol>
+<li>Déconnecter l'appareil depuis Appareils liés, tout de suite.</li>
+<li>Réactiver la vérification en deux étapes et changer le PIN.</li>
+<li>Prévenir tes contacts : le premier réflexe des attaquants est de demander de l'argent en ton nom.</li>
+<li>Si de l'argent a bougé : appeler l'opérateur MoMo, faire bloquer, puis déposer plainte avec le rapport ci-dessus.</li>
+<li>Enregistrer un contrôle dans le registre pour figer l'heure et les faits.</li>
+</ol>
+
+<div class="alert"><strong>Et la confirmation ?</strong> Elle est gravée : aucune action vers l'extérieur (message, publication, appel, paiement) ne part sans que tu écrives « je confirme ». C'est désormais la règle du système, y compris pour les automatismes.</div>
+
+<a class="btn g" href="/alphatech-omniscience/systeme/">Retour au système</a>
+<footer>ALPHATECH OMNISCIENCE · Brazzaville · Registre local, aucune donnée envoyée à un serveur · L'empreinte prouve l'antériorité du contrôle, elle ne prouve pas l'absence d'intrusion.</footer>
+</div>
+<script>
+const KEY = "at_wa_chain";
+const enc = s => new TextEncoder().encode(s);
+async function sha(s){
+  const b = await crypto.subtle.digest('SHA-256', enc(s));
+  return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('').toUpperCase();
+}
+function lire(){ try { return JSON.parse(localStorage.getItem(KEY) || "[]"); } catch(e){ return []; } }
+function ecrire(l){ localStorage.setItem(KEY, JSON.stringify(l.slice(-200))); rafraichir(); }
+function rafraichir(){
+  const l = lire();
+  document.getElementById('n').textContent = l.length;
+  document.getElementById('last').textContent = l.length ? new Date(l[l.length-1].t).toLocaleString('fr-FR') : 'jamais';
+  const box = document.getElementById('log');
+  box.innerHTML = l.slice(-6).reverse().map(x=>`<div>${new Date(x.t).toLocaleString('fr-FR')} · ${x.h.slice(0,16)}… · ${(x.d||'').slice(0,60)}</div>`).join('');
+  const ch = document.getElementById('ch');
+  if (l.length > 1) { ch.textContent = "vérifie…"; verifier(); } else { ch.textContent = l.length ? "1 bloc" : "—"; }
+}
+async function verifier(){
+  const l = lire(); let prev = "GENESIS";
+  for (const x of l){
+    const attendu = await sha(prev + x.t + (x.d||""));
+    if (attendu !== x.h) { const c=document.getElementById('ch'); c.textContent="ROMPUE"; c.className="v bad"; return; }
+    prev = x.h;
+  }
+  const c=document.getElementById('ch'); c.textContent = "intacte (" + l.length + ")"; c.className="v ok";
+}
+async function sceller(){
+  if (document.getElementById('ok').value.trim().toUpperCase() !== "JE CONFIRME") { alert("Tape JE CONFIRME pour sceller le contrôle."); return; }
+  const d = (document.getElementById('app').value.trim()) + (document.getElementById('note').value.trim() ? " | " + document.getElementById('note').value.trim() : "");
+  if (!d.trim()) { alert("Indique les appareils liés que tu vois."); return; }
+  const l = lire(); const prev = l.length ? l[l.length-1].h : "GENESIS";
+  const t = new Date().toISOString();
+  const h = await sha(prev + t + d);
+  l.push({t, d, prev, h}); ecrire(l);
+  document.getElementById('ok').value = ""; document.getElementById('app').value = ""; document.getElementById('note').value = "";
+  alert("Contrôle scellé.\nEmpreinte : " + h.slice(0,32));
+}
+async function incident(){
+  if (document.getElementById('ok2').value.trim().toUpperCase() !== "JE CONFIRME") { alert("Tape JE CONFIRME pour générer le rapport."); return; }
+  const detail = document.getElementById('detail').value.trim() || "[à compléter]";
+  const t = new Date();
+  const txt = `RAPPORT D'INCIDENT — COMPTE WHATSAPP
+ALPHATECH OMNISCIENCE · Brazzaville
+Établi le ${t.toLocaleString('fr-FR')}
+
+FAITS DÉCLARÉS
+${detail}
+
+CONSTAT TECHNIQUE
+Le compte est associé au numéro +242 06 80 78 227. WhatsApp n'expose aucune interface de notification des connexions pour un compte personnel : la constatation repose sur la liste des appareils liés et sur les notifications de sécurité de l'application.
+
+MESURES PRISES
+- Appareil inconnu déconnecté depuis « Appareils liés »
+- Vérification en deux étapes réactivée, PIN renouvelé
+- Contacts proches prévenus
+- Contrôle enregistré au registre horodaté ALPHATECH
+
+CE QUI EST DEMANDÉ
+- Blocage des opérations suspectes sur le compte lié au numéro
+- Communication des journaux de connexion de la période concernée
+- Délivrance d'une attestation de déclaration
+
+Le présent rapport est horodaté ; son empreinte SHA-256 est calculée et conservée par ALPHATECH.
+
+Diamesso Zola · gelasegash@gmail.com · +242 06 80 78 227`;
+  const el = document.getElementById('rap');
+  el.textContent = txt; el.style.display = "block";
+  window.__RAP = txt;
+  const h = await sha(txt);
+  el.textContent += "\n\nEmpreinte SHA-256 : " + h.match(/.{1,8}/g).join(' ');
+  window.__FILE = "rapport-incident-whatsapp.txt";
+  document.getElementById('dl').style.display = "inline-block";
+}
+function telecharger(){
+  const blob = new Blob([window.__RAP || ""], {type:"text/plain;charset=utf-8"});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = window.__FILE; a.click();
+}
+rafraichir();
+</script></body></html>
