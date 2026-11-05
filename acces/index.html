@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Accès et double authentification — ALPHATECH</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0d12;color:#e9edf5;font-family:-apple-system,Segoe UI,Roboto,sans-serif;padding:24px;line-height:1.55}
+.wrap{max-width:900px;margin:0 auto}
+h1{font-size:23px;margin-bottom:4px}h1 b{color:#e8c878}
+.sub{color:#94a0b8;font-size:13px;margin-bottom:22px}
+h2{font-size:16px;margin:26px 0 10px;color:#e8c878;border-bottom:1px solid #1d2331;padding-bottom:6px}
+.card{background:#141a26;border:1px solid #1d2331;border-radius:10px;padding:16px;margin-bottom:12px}
+.k{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:6px}
+.stat{background:#0f1420;border:1px solid #1d2331;border-radius:8px;padding:10px 14px;min-width:130px}
+.stat span{display:block;color:#94a0b8;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+.stat b{font-size:20px;color:#fff}
+table{width:100%;border-collapse:collapse;font-size:13px}
+td,th{padding:5px 8px;border-bottom:1px solid #1a2030;text-align:left}
+th{color:#94a0b8;font-weight:500;font-size:11px;text-transform:uppercase}
+.bar{height:7px;background:#e8c878;border-radius:3px;display:block}
+.alert{background:#1a1414;border-left:3px solid #e2703a;padding:12px 14px;border-radius:6px;font-size:13px;margin:10px 0}
+.ok{background:#0f1a14;border-left:3px solid #3ea86d;padding:12px 14px;border-radius:6px;font-size:13px;margin:10px 0}
+.secret{font-family:ui-monospace,Menlo,monospace;font-size:17px;letter-spacing:2px;background:#0f1420;border:1px dashed #2a3245;padding:12px;border-radius:8px;word-break:break-all;text-align:center;color:#e8c878}
+input{background:#0f1420;border:1px solid #262e42;color:#fff;padding:11px;border-radius:8px;font-size:16px;width:100%;font-family:inherit}
+input:focus{outline:none;border-color:#e8c878}
+button{background:#e8c878;color:#12161f;border:0;padding:11px 16px;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit}
+button.sec{background:#232b3d;color:#cdd6e6}
+button:disabled{opacity:.4;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+ul{margin-left:18px;font-size:13px;color:#c3cbdb}li{margin:4px 0}
+small{color:#8b96ab;font-size:12px;display:block;margin-top:8px}
+code{background:#0f1420;padding:2px 6px;border-radius:4px;font-size:12px;color:#e8c878}
+</style></head><body><div class="wrap">
+<h1>ACCÈS &amp; <b>DOUBLE AUTHENTIFICATION</b></h1>
+<div class="sub">Rapport réel + verrou TOTP pour ALPHATECH OMNISCIENCE</div>
+
+<h2>1. Ce que le site peut réellement voir</h2>
+<div class="card">
+<div class="k" id="stats"></div>
+<table><thead><tr><th>Jour</th><th>Clones</th><th>Uniques</th><th></th></tr></thead><tbody id="rows"></tbody></table>
+<small>Source : API GitHub, fenêtre de 14 jours, relevé du 05/11/2026 15:05 UTC.</small>
+</div>
+<div class="alert"><b>La vérité d'abord.</b> Ton site est hébergé sur GitHub Pages, un hébergeur statique. Il ne produit <b>aucun journal de connexion</b> : pas d'adresse IP, pas de pays, pas de navigateur, pas d'heure de visite. Aucun outil au monde ne peut analyser des logs qui n'existent pas. Les chiffres ci-dessus ne mesurent pas les visiteurs du site : ils mesurent les <b>clones du dépôt</b>, ce qui inclut tes propres scripts et mes propres synchronisations.</div>
+<div class="card"><b>Ce qu'il faut pour de vrais logs</b>
+<ul>
+<li>Placer <b>Cloudflare</b> devant le domaine : journal des requêtes, IP, pays, blocage automatique des scanners, gratuit.</li>
+<li>Ou déplacer le site sur un <b>VPS</b> (nginx) : logs complets, analyse fine, alertes.</li>
+<li>En attendant, chaque page peut compter ses visites sans serveur, mais <b>jamais</b> identifier qui passe.</li>
+</ul></div>
+
+<h2>2. Double authentification TOTP — active-la maintenant</h2>
+<div class="card">
+<div id="zoneOff">
+<p style="font-size:13px;color:#c3cbdb;margin-bottom:12px">Génère ta clé, entre-la dans Google Authenticator ou Authy, puis valide un premier code. Le verrou protège l'accès à cette interface sur ton appareil.</p>
+<button id="btnGen">GÉNÉRER MA CLÉ</button>
+<div id="clrBox" style="display:none;margin-top:14px">
+<div class="secret" id="clr"></div>
+<div class="row"><button class="sec" id="btnCopy">COPIER LA CLÉ</button></div>
+<small>Entre cette clé dans ton application d'authentification (saisie manuelle). Puis colle le code à 6 chiffres ci-dessous.</small>
+<div class="row"><input id="code" inputmode="numeric" maxlength="6" placeholder="Code à 6 chiffres"><button id="btnActiver">ACTIVER</button></div>
+<div id="msg1" style="font-size:13px;margin-top:8px"></div>
+</div>
+</div>
+<div id="zoneOn" style="display:none">
+<div class="ok"><b>Double authentification active.</b> Vérifiée le <span id="lastOk">—</span>.</div>
+<div class="row"><button class="sec" id="btnTest">TESTER UN CODE</button><button class="sec" id="btnOff">DÉSACTIVER</button></div>
+<div id="testBox" style="display:none;margin-top:10px"><input id="codeTest" inputmode="numeric" maxlength="6" placeholder="Code actuel"><div id="msg2" style="font-size:13px;margin-top:8px"></div></div>
+<small>Pour désactiver : saisir « JE CONFIRME » dans le champ code, ou fournir un code valide. Aucune désactivation silencieuse.</small>
+<input id="confirmOff" placeholder="JE CONFIRME" style="display:none;margin-top:8px">
+</div>
+</div>
+<div class="alert"><b>Ce que ce verrou ne fait pas.</b> Il s'exécute dans le navigateur : il empêche quelqu'un qui prend ton téléphone d'ouvrir cette interface, il n'authentifie pas un serveur. La protection de compte réelle se configure chez chaque fournisseur, et ce n'est pas moi qui peux la cocher à ta place.</div>
+<div class="card"><b>À activer chez chaque fournisseur, aujourd'hui</b>
+<ul>
+<li><b>GitHub</b> : Settings → Password and authentication → Two-factor authentication → application d'authentification + codes de secours à imprimer.</li>
+<li><b>Meta (Facebook + Instagram)</b> : Sécurité → Authentification à deux facteurs → application → codes de récupération.</li>
+<li><b>Google</b> : Sécurité → Validation en deux étapes → application + clés de secours.</li>
+<li><b>WhatsApp</b> : Vérification en deux étapes avec PIN à six chiffres.</li>
+<li><b>Banque et MoMo</b> : PIN jamais dicté, jamais photographié.</li>
+</ul></div>
+
+<h2>3. Journal des tentatives (chaîné SHA-256)</h2>
+<div class="card"><table><thead><tr><th>Heure</th><th>Événement</th><th>Empreinte</th></tr></thead><tbody id="chain"></tbody></table>
+<div class="row"><button class="sec" id="btnVerif">VÉRIFIER L'INTÉGRITÉ</button></div>
+<div id="msg3" style="font-size:13px;margin-top:8px"></div></div>
+
+<script>
+const D = {"clones": 223, "uniques": 91, "jours": [{"j": "2026-10-22", "n": 8, "u": 5}, {"j": "2026-10-23", "n": 1, "u": 1}, {"j": "2026-10-24", "n": 1, "u": 1}, {"j": "2026-10-25", "n": 0, "u": 0}, {"j": "2026-10-26", "n": 66, "u": 28}, {"j": "2026-10-27", "n": 15, "u": 8}, {"j": "2026-10-28", "n": 6, "u": 4}, {"j": "2026-10-29", "n": 0, "u": 0}, {"j": "2026-10-30", "n": 2, "u": 1}, {"j": "2026-10-31", "n": 1, "u": 1}, {"j": "2026-11-01", "n": 42, "u": 16}, {"j": "2026-11-02", "n": 40, "u": 18}, {"j": "2026-11-03", "n": 37, "u": 16}, {"j": "2026-11-04", "n": 4, "u": 2}], "genere": "05/11/2026 15:05 UTC", "fenetre": "14 derniers jours"};
+const S_KEY="at_totp_secret", S_ON="at_totp_on", S_LAST="at_totp_last", S_CHAIN="at_acces_chain";
+const $=id=>document.getElementById(id);
+const enc=new TextEncoder();
+const B32="ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+function b32e(bytes){let bits=0,v=0,o="";for(const b of bytes){v=(v<<8)|b;bits+=8;while(bits>=5){o+=B32[(v>>>(bits-5))&31];bits-=5}}if(bits>0)o+=B32[(v<<(5-bits))&31];return o}
+function b32d(s){s=s.replace(/[^A-Z2-7]/gi,"").toUpperCase();let bits=0,v=0,out=[];for(const c of s){const i=B32.indexOf(c);if(i<0)continue;v=(v<<5)|i;bits+=5;if(bits>=8){out.push((v>>>(bits-8))&255);bits-=8}}return new Uint8Array(out)}
+async function totp(secret, t = Date.now()){
+  const key = await crypto.subtle.importKey("raw", b32d(secret), {name:"HMAC",hash:"SHA-1"}, false, ["sign"]);
+  const ctr = Math.floor(t/30000);
+  const buf = new ArrayBuffer(8); const dv = new DataView(buf);
+  dv.setUint32(0, Math.floor(ctr/4294967296)); dv.setUint32(4, ctr>>>0);
+  const sig = new Uint8Array(await crypto.subtle.sign("HMAC", key, buf));
+  const off = sig[sig.length-1] & 15;
+  const code = ((sig[off]&127)<<24 | sig[off+1]<<16 | sig[off+2]<<8 | sig[off+3]) % 1000000;
+  return String(code).padStart(6,"0");
+}
+async function verifier(secret, code){
+  code = (code||"").replace(/\D/g,"");
+  for (const d of [-30000,0,30000]) if (await totp(secret, Date.now()+d) === code) return true;
+  return false;
+}
+async function sha(t){const h=await crypto.subtle.digest("SHA-256",enc.encode(t));return [...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,"0")).join("")}
+async function journal(type){
+  const ch = JSON.parse(localStorage.getItem(S_CHAIN)||"[]");
+  const prev = ch.length ? ch[ch.length-1].h : "GENESIS";
+  const ts = new Date().toISOString();
+  const h = await sha(prev+"|"+ts+"|"+type);
+  ch.push({ts,type,h,prev:prev.slice(0,8)});
+  localStorage.setItem(S_CHAIN, JSON.stringify(ch.slice(-300)));
+  rendreChaine();
+}
+async function rendreChaine(){
+  const ch = JSON.parse(localStorage.getItem(S_CHAIN)||"[]");
+  $("chain").innerHTML = ch.slice(-8).reverse().map(e=>`<tr><td>${e.ts.slice(11,19)}</td><td>${e.type}</td><td style="font-family:monospace;font-size:11px">${e.h.slice(0,12)}…</td></tr>`).join("") || `<tr><td colspan="3" style="color:#8b96ab">Aucun événement enregistré</td></tr>`;
+}
+$("btnVerif").onclick = async ()=>{
+  const ch = JSON.parse(localStorage.getItem(S_CHAIN)||"[]");
+  let prev="GENESIS", ok=true;
+  for(const e of ch){ const calc = await sha(prev+"|"+e.ts+"|"+e.type); if(calc!==e.h){ok=false;break} prev=e.h }
+  $("msg3").innerHTML = ok ? `<span style="color:#3ea86d">Chaîne intacte : ${ch.length} événement(s), aucune réécriture.</span>` : `<span style="color:#e2703a">Chaîne rompue : un événement a été modifié après coup.</span>`;
+};
+function rendre(){
+  const on = localStorage.getItem(S_ON)==="1";
+  $("zoneOn").style.display = on?"block":"none";
+  $("zoneOff").style.display = on?"none":"block";
+  if(on) $("lastOk").textContent = localStorage.getItem(S_LAST)||"—";
+}
+$("btnGen").onclick = ()=>{
+  const b = crypto.getRandomValues(new Uint8Array(20));
+  const s = b32e(b);
+  $("clr").textContent = s; $("clrBox").style.display="block";
+  window.__secret = s;
+  journal("clé générée");
+};
+$("btnCopy").onclick = async ()=>{ try{ await navigator.clipboard.writeText($("clr").textContent); $("msg1").textContent="Clé copiée."; }catch(e){ $("msg1").textContent="Copie refusée par le navigateur : sélectionne la clé à la main."; } };
+$("btnActiver").onclick = async ()=>{
+  const s = window.__secret; if(!s){ $("msg1").innerHTML='<span style="color:#e2703a">Génère d\'abord une clé.</span>'; return; }
+  if(await verifier(s, $("code").value)){
+    localStorage.setItem(S_KEY, s); localStorage.setItem(S_ON,"1");
+    localStorage.setItem(S_LAST, new Date().toLocaleString("fr-FR"));
+    journal("2FA activée"); rendre();
+    $("msg1").innerHTML='<span style="color:#3ea86d">Activée. Garde la clé en lieu sûr : sans elle et sans code de secours, l\'accès est perdu.</span>';
+  } else { journal("code refusé (activation)"); $("msg1").innerHTML='<span style="color:#e2703a">Code invalide. Vérifie l\'heure de ton téléphone : un décalage de plus de 30 secondes fait échouer le code.</span>'; }
+};
+$("btnTest").onclick = ()=>{ $("testBox").style.display="block" };
+$("codeTest").addEventListener("input", async e=>{
+  if(e.target.value.length<6) return;
+  const s = localStorage.getItem(S_KEY)||"";
+  if(await verifier(s, e.target.value)){ $("msg2").innerHTML='<span style="color:#3ea86d">Code valide.</span>'; journal("code valide"); }
+  else { $("msg2").innerHTML='<span style="color:#e2703a">Code invalide.</span>'; journal("code refusé (test)"); }
+});
+$("btnOff").onclick = ()=>{ $("confirmOff").style.display="block" };
+$("confirmOff").addEventListener("input", async e=>{
+  if(e.target.value.trim().toUpperCase()!=="JE CONFIRME") return;
+  localStorage.setItem(S_ON,"0"); journal("2FA désactivée (JE CONFIRME)"); $("confirmOff").value=""; $("confirmOff").style.display="none"; rendre();
+});
+// rapport d'accès réel
+$("stats").innerHTML = `<div class="stat"><span>Clones 14 j</span><b>${D.clones}</b></div>
+<div class="stat"><span>Cloners uniques</span><b>${D.uniques}</b></div>
+<div class="stat"><span>Jours actifs</span><b>${D.jours.filter(j=>j.n>0).length}</b></div>
+<div class="stat"><span>Pic</span><b>${Math.max(...D.jours.map(j=>j.n))}</b></div>`;
+const mx = Math.max(...D.jours.map(j=>j.n),1);
+$("rows").innerHTML = D.jours.slice().reverse().map(j=>`<tr><td>${j.j}</td><td>${j.n}</td><td>${j.u}</td><td><span class="bar" style="width:${Math.round(j.n/mx*100)}%"></span></td></tr>`).join("");
+rendre(); rendreChaine();
+</script></div></body></html>
