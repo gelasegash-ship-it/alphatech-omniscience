@@ -1,0 +1,69 @@
+title: Suppression des clichés instantanés (avant chiffrement rançongiciel)
+id: eth-sentinel-004
+status: experimental
+description: La suppression des copies d'ombre est le premier geste de la majorité des rançongiciels, dont N0n et BrainCipher.
+logsource: {product: windows, service: security}
+detection:
+  selection: {EventID: 4688, CommandLine|contains: ['vssadmin delete shadows', 'wmic shadowcopy delete', 'wbadmin delete catalog', 'bcdedit /set {default} recoveryenabled no']}
+  condition: selection
+level: critical
+tags: [attack.t1490]
+---
+title: Création de service persistant depuis un répertoire temporaire
+id: eth-sentinel-005
+status: experimental
+description: Persistance classique des groupes play et incransom.
+logsource: {product: windows, service: system}
+detection:
+  selection: {EventID: 7045, ImagePath|contains: ['\\Temp\\', '\\AppData\\', '\\ProgramData\\']}
+  condition: selection
+level: high
+tags: [attack.t1543.003]
+---
+title: Rafale de renommage de fichiers (chiffrement en cours)
+id: eth-sentinel-006
+status: experimental
+description: Détecte le chiffrement par le volume de renommages, indépendamment de l'extension utilisée.
+logsource: {product: windows, service: security}
+detection:
+  selection: {EventID: 4663, ObjectType: 'File'}
+  timeframe: 1m
+  condition: selection | count() by SubjectUserName > 300
+level: critical
+tags: [attack.t1486]
+---
+title: Connexions RDP en force brute
+id: eth-sentinel-007
+status: experimental
+description: L'accès initial le plus courant en Afrique centrale.
+logsource: {product: windows, service: security}
+detection:
+  selection: {EventID: [4625, 4624], LogonType: 10}
+  timeframe: 5m
+  condition: selection | count() by IpAddress > 12
+level: high
+tags: [attack.t1110]
+---
+title: Désactivation de la restauration et des journaux
+id: eth-sentinel-008
+status: experimental
+description: Neutralisation des capacités de reprise, signe avant-coureur.
+logsource: {product: windows, service: security}
+detection:
+  selection: {EventID: 4688, CommandLine|contains: ['wevtutil cl', 'sc config vss dis', 'net stop vss', 'net stop wbengine']}
+  condition: selection
+level: high
+tags: [attack.t1562.001, attack.t1490]
+---
+title: Sortie massive vers un service de stockage externe
+id: eth-sentinel-009
+status: experimental
+description: Exfiltration avant demande de rançon.
+logsource: {category: proxy}
+detection:
+  selection:
+    DestinationHostname|contains: ['mega.nz', 'transfer.sh', 'anonfiles', 'gofile.io', 'pixeldrain']
+  timeframe: 10m
+  condition: selection | count(bytes_out) by src_ip > 500000000
+level: high
+tags: [attack.t1567.002]

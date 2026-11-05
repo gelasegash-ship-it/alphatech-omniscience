@@ -1,0 +1,47 @@
+title: Vol d'identifiants LSASS (Mimikatz / HandleKatz / Nanodump)
+id: eth-sentinel-001
+status: experimental
+description: Détecte l'accès au processus LSASS par un binaire non signé, technique utilisée par medusalocker, incransom et play.
+logsource:
+  product: windows
+  category: process_access
+detection:
+  selection:
+    TargetImage|endswith: '\\lsass.exe'
+    GrantedAccess|contains: ['0x1010','0x1410','0x1438','0x143a']
+  filter:
+    SourceImage|startswith: 'C:\\Program Files\\'
+  condition: selection and not filter
+level: critical
+tags: [attack.t1003.001]
+---
+title: Sabotage de l'antivirus (EDRKill / HRSword / PCHunter)
+id: eth-sentinel-002
+status: experimental
+description: Détecte la tentative de neutralisation des protections, signature des groupes play et medusalocker.
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: [4688, 7045]
+    CommandLine|contains: ['net stop', 'sc stop', 'taskkill /f /im', 'echo_driver', 'hrsword', 'pchunter']
+  condition: selection
+level: high
+tags: [attack.t1562.001]
+---
+title: Balayage réseau horizontal (Advanced IP Scanner / SoftPerfect)
+id: eth-sentinel-003
+status: experimental
+description: Détecte la reconnaissance réseau qui précède une attaque rançongiciel.
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 5156
+    DestinationPort: 445
+  timeframe: 1m
+  condition: selection | count() by SourceIp > 25
+level: high
+tags: [attack.t1046, attack.t1135]

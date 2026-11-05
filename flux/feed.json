@@ -1,0 +1,253 @@
+{
+ "feed": "ALPHATECH DEFENSE FEED",
+ "version": "1.0",
+ "genere": "2026-11-05T13:20:22",
+ "licence": "Usage defensif libre. Attribution « ALPHATECH GARDIEN » requise. Revente interdite.",
+ "endpoints": {
+  "flux_principal": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/feed.json",
+  "liste_blocage": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/blocklist.txt",
+  "regles_sigma": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/regles_sigma.yml",
+  "regles_avancees": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/regles_avancees.yml",
+  "regles_yara": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/regles_yara.yar",
+  "socle_defense": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/sentinel_defense.json"
+ },
+ "couverture": {
+  "groupes_suivis": 419,
+  "portefeuilles_surveilles": 43,
+  "btc_sous_surveillance": 472.2244,
+  "outils_couverts": 14,
+  "techniques_mitre": 8,
+  "regles_sigma": 9,
+  "regles_yara": 3
+ },
+ "groupes": [
+  {
+   "g": "N0n",
+   "n": 17,
+   "sites": 1,
+   "ttp": 8,
+   "outils": []
+  },
+  {
+   "g": "medusalocker",
+   "n": 17,
+   "sites": 2,
+   "ttp": 1,
+   "outils": [
+    "Invoke-TheHash",
+    "Mimikatz",
+    "HRSword"
+   ]
+  },
+  {
+   "g": "BrainCipher",
+   "n": 11,
+   "sites": 54,
+   "ttp": 4,
+   "outils": []
+  },
+  {
+   "g": "safepay",
+   "n": 8,
+   "sites": 5,
+   "ttp": 14,
+   "outils": [
+    "{'DiscoveryEnum': ['Invoke-ShareFinder'], 'Exfiltration': ['7-Zip', 'WinRAR'], 'LOLBAS': ['CMSTPLUA', 'Regsvr32.exe', 'dllhost.exe']}"
+   ]
+  },
+  {
+   "g": "incransom",
+   "n": 6,
+   "sites": 7,
+   "ttp": 13,
+   "outils": [
+    "{'CredentialTheft': ['Mimikatz'], 'DiscoveryEnum': ['AdFind', 'Advanced IP Scanner', 'SoftPerfect NetScan'], 'Exfiltration': ['7-Zip', 'BackBlaze', 'MEGA', 'RClone', 'Restic', 'WinRAR', 's5cmd'], 'LOLBAS': ['Finger', 'PsExec'], 'Networking': ['Bitvise SSH Client'], 'RMM-Tools': ['AnyDesk']}"
+   ]
+  },
+  {
+   "g": "play",
+   "n": 5,
+   "sites": 4,
+   "ttp": 15,
+   "outils": [
+    "{'CredentialTheft': ['HandleKatz', 'Mimikatz', 'Nanodump'], 'DefenseEvasion': ['EDRKill (echo_driver.sys + DBUtil 2.3)', 'GMER', 'IOBit', 'PowerTool', 'icardagt.exe (version.dll DLL sideload)'], 'DiscoveryEnum': ['AdFind', 'WKTools'], 'Exfiltration': ['WinSCP'], 'LOLBAS': ['PsExec'], 'Networking': ['FRP', 'Plink'], 'Offsec': ['Cobalt Strike', 'WinPEAS']}"
+   ]
+  },
+  {
+   "g": "Dark Project",
+   "n": 4,
+   "sites": 0,
+   "ttp": 0,
+   "outils": []
+  },
+  {
+   "g": "Aoqin",
+   "n": 4,
+   "sites": 1,
+   "ttp": 0,
+   "outils": []
+  }
+ ],
+ "outils": [
+  {
+   "outil": "Mimikatz",
+   "technique": "T1003.001 LSASS Memory",
+   "signature": "Processus mimikatz, sekurlsa::, lsass.dmp ; accès en lecture au processus lsass.exe par un processus non signé",
+   "contre_mesure": "ASR: bloquer le vol d'identifiants depuis LSASS (EnableLsaProtection + Credential Guard)"
+  },
+  {
+   "outil": "Invoke-TheHash",
+   "technique": "T1550.002 Pass the Hash",
+   "signature": "PowerShell avec Invoke-TheHash, SMB 445 sortant vers postes, montée de privilèges NTLM",
+   "contre_mesure": "Désactiver NTLM, journaliser 4624 type 3, segmenter le réseau"
+  },
+  {
+   "outil": "Invoke-ShareFinder",
+   "technique": "T1135 Network Share Discovery",
+   "signature": "Énumération net share / Invoke-ShareFinder, connexions 445 en rafale",
+   "contre_mesure": "Bloquer SMB sortant, alertes sur >20 connexions 445/min"
+  },
+  {
+   "outil": "AdFind",
+   "technique": "T1087.002 Domain Account Discovery",
+   "signature": "adfind.exe, requêtes LDAP massives vers le contrôleur de domaine",
+   "contre_mesure": "Restreindre LDAP aux serveurs légitimes, journaliser 4662"
+  },
+  {
+   "outil": "Advanced IP Scanner",
+   "technique": "T1046 Network Service Scanning",
+   "signature": "Balayage ICMP/SYN sur /24 complet, advanced_ip_scanner.exe",
+   "contre_mesure": "Alertes sur balayage horizontal, isolation des VLAN"
+  },
+  {
+   "outil": "SoftPerfect Network Scanner",
+   "technique": "T1046 Network Service Scanning",
+   "signature": "netscan.exe, requêtes SNMP en masse",
+   "contre_mesure": "Même défense : détection de balayage"
+  },
+  {
+   "outil": "HandleKatz",
+   "technique": "T1003.001 LSASS Memory",
+   "signature": "Dump LSASS via handles, handlekatz.exe",
+   "contre_mesure": "Credential Guard, protection PPL sur LSASS"
+  },
+  {
+   "outil": "Nanodump",
+   "technique": "T1003.001 LSASS Memory",
+   "signature": "nanodump.exe, ouverture de handle LSASS avec droits réduits",
+   "contre_mesure": "Même défense + détection d'accès handle"
+  },
+  {
+   "outil": "EDRKill",
+   "technique": "T1562.001 Impair Defenses",
+   "signature": "kill de services antivirus, echo_driver.sys, chargement de pilote non signé",
+   "contre_mesure": "Bloquer le chargement de pilotes non signés, service watchdog"
+  },
+  {
+   "outil": "HRSword",
+   "technique": "T1562.001 Impair Defenses",
+   "signature": "hrsword.exe, PCHunter, accès direct au noyau",
+   "contre_mesure": "Liste de blocage applicative (WDAC)"
+  },
+  {
+   "outil": "PCHunter",
+   "technique": "T1562.001 Impair Defenses",
+   "signature": "pchunter.exe, pilotos noyau non signés",
+   "contre_mesure": "WDAC + alerte sur pilotes non signés"
+  },
+  {
+   "outil": "7-Zip",
+   "technique": "T1560.001 Archive via Utility",
+   "signature": "7z.exe a -p (archive chiffrée) sur répertoires de données",
+   "contre_mesure": "DPI sur sorties volumineuses, alerte >500 Mo sortants"
+  },
+  {
+   "outil": "WinRAR",
+   "technique": "T1560.001 Archive via Utility",
+   "signature": "rar.exe a -hp, création d'archives pendant la nuit",
+   "contre_mesure": "Même défense"
+  },
+  {
+   "outil": "CMSTPLUA",
+   "technique": "T1218 System Binary Proxy Execution",
+   "signature": "rundll32 avec cmstplua, contournement UAC",
+   "contre_mesure": "Liste de blocage LOLBAS, surveillance rundll32"
+  }
+ ],
+ "portefeuilles": [
+  {
+   "entite": "WANG, Yunhe",
+   "adresse": "bc1qtrrfhr0f3ufsrjxfv8a7p3yuqj0spe4cm6vaws",
+   "btc_ref": 100.000003
+  },
+  {
+   "entite": "WANG, Yunhe",
+   "adresse": "bc1qw8evftpgc8wsmkemd8yl5fg2husza5z802xaym",
+   "btc_ref": 99.99998
+  },
+  {
+   "entite": "WANG, Yunhe",
+   "adresse": "bc1qu5vngdtcx8nc9d68pq8nv7pzcjrswsy87s66gk",
+   "btc_ref": 99.99998
+  },
+  {
+   "entite": "WANG, Yunhe",
+   "adresse": "bc1qtsl3ufenrv3zgrgm9z8xarcx22x8mfztuartyn",
+   "btc_ref": 99.99998
+  },
+  {
+   "entite": "WANG, Yunhe",
+   "adresse": "bc1qv4krhj2qmpd9qz9xj9nhvj99fq8s9xsw05d485",
+   "btc_ref": 22.22198
+  },
+  {
+   "entite": "YAN, Xiaobing",
+   "adresse": "1EpMiZkQVekM5ij12nMiEwttFPcDK9XhX6",
+   "btc_ref": 20.519656
+  },
+  {
+   "entite": "YAN, Xiaobing",
+   "adresse": "1Kuf2Rd8mDyAViwBozGTNYnvWL8uYFrkVo",
+   "btc_ref": 12.606462
+  },
+  {
+   "entite": "YAN, Xiaobing",
+   "adresse": "13f59kUM5FU8MfTG7DCEugYarDhSD7XCoC",
+   "btc_ref": 9.294517
+  },
+  {
+   "entite": "YAN, Xiaobing",
+   "adresse": "12QtD5BFwRsdNsAZY76UVE1xyCGNTojH9h",
+   "btc_ref": 6.44746
+  },
+  {
+   "entite": "CHATEX",
+   "adresse": "3N9YcPBDky9UsMx1RTk33tL4jDkZfSnsPk",
+   "btc_ref": 1.0
+  },
+  {
+   "entite": "SECONDEYE SOLUTION",
+   "adresse": "1G9CKRHA3mx22DoT1QyNYrh85VSQ19Y1em",
+   "btc_ref": 0.115653
+  },
+  {
+   "entite": "OKO DESIGN BUREAU",
+   "adresse": "13fhnkmpBBWXUQucJd6efWvXdEj78DKavk",
+   "btc_ref": 0.008
+  },
+  {
+   "entite": "HUANG, Xiaojun",
+   "adresse": "3NEcQKZ8RwL2eDNhmMPpZ4td9vPsQh9JwM",
+   "btc_ref": 0.004431
+  },
+  {
+   "entite": "SUEX OTC, S.R.O.",
+   "adresse": "1LrxsRd7zNuxPJcL5rttnoeJFy1y4AffYY",
+   "btc_ref": 0.001335
+  }
+ ],
+ "integrite": {
+  "methode": "SHA-256 du flux sans ce bloc",
+  "valeur": "8f3f1248a23b463b56b5c610b68af7e30b9d3422cc3b0421802171cfbff415b9"
+ }
+}

@@ -1,0 +1,109 @@
+{
+ "produit": "ALPHATECH SENTINEL",
+ "version": "1.0",
+ "principe": "Chaque outil utilisé par les groupes identifiés devient une signature défensive. Aucun outil offensif n'est intégré : seule la contre-mesure est livrée.",
+ "outils": [
+  {
+   "outil": "Mimikatz",
+   "categorie": "Vol d'identifiants",
+   "technique_mitre": "T1003.001 LSASS Memory",
+   "signature": "Processus mimikatz, sekurlsa::, lsass.dmp ; accès en lecture au processus lsass.exe par un processus non signé",
+   "contre_mesure": "ASR: bloquer le vol d'identifiants depuis LSASS (EnableLsaProtection + Credential Guard)"
+  },
+  {
+   "outil": "Invoke-TheHash",
+   "categorie": "Mouvement latéral",
+   "technique_mitre": "T1550.002 Pass the Hash",
+   "signature": "PowerShell avec Invoke-TheHash, SMB 445 sortant vers postes, montée de privilèges NTLM",
+   "contre_mesure": "Désactiver NTLM, journaliser 4624 type 3, segmenter le réseau"
+  },
+  {
+   "outil": "Invoke-ShareFinder",
+   "categorie": "Reconnaissance",
+   "technique_mitre": "T1135 Network Share Discovery",
+   "signature": "Énumération net share / Invoke-ShareFinder, connexions 445 en rafale",
+   "contre_mesure": "Bloquer SMB sortant, alertes sur >20 connexions 445/min"
+  },
+  {
+   "outil": "AdFind",
+   "categorie": "Reconnaissance AD",
+   "technique_mitre": "T1087.002 Domain Account Discovery",
+   "signature": "adfind.exe, requêtes LDAP massives vers le contrôleur de domaine",
+   "contre_mesure": "Restreindre LDAP aux serveurs légitimes, journaliser 4662"
+  },
+  {
+   "outil": "Advanced IP Scanner",
+   "categorie": "Reconnaissance réseau",
+   "technique_mitre": "T1046 Network Service Scanning",
+   "signature": "Balayage ICMP/SYN sur /24 complet, advanced_ip_scanner.exe",
+   "contre_mesure": "Alertes sur balayage horizontal, isolation des VLAN"
+  },
+  {
+   "outil": "SoftPerfect Network Scanner",
+   "categorie": "Reconnaissance réseau",
+   "technique_mitre": "T1046 Network Service Scanning",
+   "signature": "netscan.exe, requêtes SNMP en masse",
+   "contre_mesure": "Même défense : détection de balayage"
+  },
+  {
+   "outil": "HandleKatz",
+   "categorie": "Vol d'identifiants",
+   "technique_mitre": "T1003.001 LSASS Memory",
+   "signature": "Dump LSASS via handles, handlekatz.exe",
+   "contre_mesure": "Credential Guard, protection PPL sur LSASS"
+  },
+  {
+   "outil": "Nanodump",
+   "categorie": "Contournement EDR",
+   "technique_mitre": "T1003.001 LSASS Memory",
+   "signature": "nanodump.exe, ouverture de handle LSASS avec droits réduits",
+   "contre_mesure": "Même défense + détection d'accès handle"
+  },
+  {
+   "outil": "EDRKill",
+   "categorie": "Sabotage défense",
+   "technique_mitre": "T1562.001 Impair Defenses",
+   "signature": "kill de services antivirus, echo_driver.sys, chargement de pilote non signé",
+   "contre_mesure": "Bloquer le chargement de pilotes non signés, service watchdog"
+  },
+  {
+   "outil": "HRSword",
+   "categorie": "Outils chinois de sécurité détournés",
+   "technique_mitre": "T1562.001 Impair Defenses",
+   "signature": "hrsword.exe, PCHunter, accès direct au noyau",
+   "contre_mesure": "Liste de blocage applicative (WDAC)"
+  },
+  {
+   "outil": "PCHunter",
+   "categorie": "Outils chinois de sécurité détournés",
+   "technique_mitre": "T1562.001 Impair Defenses",
+   "signature": "pchunter.exe, pilotos noyau non signés",
+   "contre_mesure": "WDAC + alerte sur pilotes non signés"
+  },
+  {
+   "outil": "7-Zip",
+   "categorie": "Exfiltration",
+   "technique_mitre": "T1560.001 Archive via Utility",
+   "signature": "7z.exe a -p (archive chiffrée) sur répertoires de données",
+   "contre_mesure": "DPI sur sorties volumineuses, alerte >500 Mo sortants"
+  },
+  {
+   "outil": "WinRAR",
+   "categorie": "Exfiltration",
+   "technique_mitre": "T1560.001 Archive via Utility",
+   "signature": "rar.exe a -hp, création d'archives pendant la nuit",
+   "contre_mesure": "Même défense"
+  },
+  {
+   "outil": "CMSTPLUA",
+   "categorie": "LOLBAS",
+   "technique_mitre": "T1218 System Binary Proxy Execution",
+   "signature": "rundll32 avec cmstplua, contournement UAC",
+   "contre_mesure": "Liste de blocage LOLBAS, surveillance rundll32"
+  }
+ ],
+ "couverture": {
+  "outils_couverts": 14,
+  "techniques_mitre": 8
+ }
+}

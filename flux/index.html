@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flux de défense ALPHATECH — à connecter partout</title>
+<meta name="description" content="Flux public de défense ALPHATECH : groupes actifs, outils, règles Sigma et YARA, portefeuilles sanctionnés. Usage défensif libre.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#08090c;color:#dcd9d3;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.65}
+.w{max-width:860px;margin:0 auto;padding:24px 18px 80px}
+.brand{font-size:11px;letter-spacing:2.2px;text-transform:uppercase;color:#e8c878}
+h1{font-size:clamp(23px,4.4vw,34px);margin:8px 0 8px;font-weight:600;color:#f2f0ea}
+.sub{font-size:14px;color:#8d8b86;max-width:640px}
+h2{font-size:16px;margin:30px 0 10px;color:#f2f0ea}
+h2::before{content:"";display:inline-block;width:3px;height:14px;background:#e8c878;margin-right:9px;vertical-align:-1px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));margin:20px 0}
+.card{background:#101218;border:1px solid #24262c;border-radius:9px;padding:15px}
+.card .l{font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:#8d8b86}
+.card .v{font-size:22px;font-weight:600;color:#f2f0ea;margin-top:6px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
+td,th{text-align:left;padding:9px 8px;border-bottom:1px solid #1c1e24;vertical-align:top}
+th{color:#8d8b86;font-size:10.5px;text-transform:uppercase;letter-spacing:1px}
+.mono{font-family:ui-monospace,monospace;font-size:11.5px;color:#9fa6b2;word-break:break-all}
+pre{background:#101218;border:1px solid #2a2d34;border-radius:8px;padding:14px;overflow:auto;font-size:12px;color:#c9e8d4;margin:10px 0;font-family:ui-monospace,monospace}
+code{color:#e8c878;font-family:ui-monospace,monospace;font-size:12.5px}
+a{color:#e8c878}
+.note{background:#101218;border-left:3px solid #e8c878;padding:13px 15px;border-radius:0 8px 8px 0;font-size:13px;color:#b8b5b0;margin:16px 0}
+.ok{display:inline-block;width:8px;height:8px;border-radius:50%;background:#7fd1a0;margin-right:6px}
+.bad{background:#ff8a7a}
+.btn{display:inline-block;background:#e8c878;color:#08090c;padding:11px 20px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;margin-top:16px}
+footer{margin-top:36px;border-top:1px solid #24262c;padding-top:14px;font-size:11.5px;color:#6f6d69}
+</style></head><body><div class="w">
+<div class="brand">ALPHATECH OMNISCIENCE · Brazzaville</div>
+<h1>Flux de défense ALPHATECH</h1>
+<div class="sub">Le renseignement sur les groupes rançongiciels, leurs outils et leurs portefeuilles, en fichiers lisibles par une machine. Gratuit pour la défense. Une ligne de code suffit pour se brancher.</div>
+
+<div class="grid">
+ <div class="card"><div class="l">États</div><div class="v" id="statut">vérification…</div></div>
+ <div class="card"><div class="l">Groupes suivis</div><div class="v" id="g">—</div></div>
+ <div class="card"><div class="l">Portefeuilles</div><div class="v" id="p">—</div></div>
+ <div class="card"><div class="l">Fonds surveillés</div><div class="v" id="b">—</div></div>
+</div>
+
+<h2>Les six points de branchement</h2>
+<table><thead><tr><th>Fichier</th><th>Usage</th><th>URL</th></tr></thead><tbody>
+<tr><td><code>feed.json</code></td><td>Flux principal : groupes, outils, portefeuilles, couverture, empreinte</td><td class="mono">/flux/feed.json</td></tr>
+<tr><td><code>blocklist.txt</code></td><td>Binaires à interdire (WDAC/AppLocker), hôtes onion, techniques à journaliser</td><td class="mono">/flux/blocklist.txt</td></tr>
+<tr><td><code>regles_sigma.yml</code></td><td>3 règles Sigma : vol LSASS, sabotage antivirus, balayage réseau</td><td class="mono">/flux/regles_sigma.yml</td></tr>
+<tr><td><code>regles_avancees.yml</code></td><td>6 règles Sigma : clichés, persistance, renommage, RDP, journaux, exfiltration</td><td class="mono">/flux/regles_avancees.yml</td></tr>
+<tr><td><code>regles_yara.yar</code></td><td>3 règles YARA : rançongiciel, famille Mimikatz, pilote EDRKill</td><td class="mono">/flux/regles_yara.yar</td></tr>
+<tr><td><code>sentinel_defense.json</code></td><td>Socle : chaque outil → technique MITRE → signature → contre-mesure</td><td class="mono">/flux/sentinel_defense.json</td></tr>
+</tbody></table>
+
+<h2>Se brancher en une commande</h2>
+<p style="font-size:13.5px;color:#b8b5b0">Terminal, serveur, script de supervision :</p>
+<pre>curl -s https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/feed.json | jq '.couverture'</pre>
+
+<p style="font-size:13.5px;color:#b8b5b0">Dans une page web ou une application :</p>
+<pre>fetch('https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/feed.json')
+  .then(r =&gt; r.json())
+  .then(f =&gt; console.log(f.couverture.btc_sous_surveillance, 'BTC'));</pre>
+
+<p style="font-size:13.5px;color:#b8b5b0">Badge vivant sur n'importe quel site, sans écrire de code :</p>
+<pre>&lt;script src="https://gelasegash-ship-it.github.io/alphatech-omniscience/embed/gardien.js" data-pos="br"&gt;&lt;/script&gt;</pre>
+
+<p style="font-size:13.5px;color:#b8b5b0">Import dans un SIEM (Splunk, Wazuh, Elastic, Sentinel) :</p>
+<pre>sigma convert -t splunk regles_avancees.yml
+sigma convert -t wazuh regles_avancees.yml</pre>
+
+<h2>Ce que contient le flux, exactement</h2>
+<p style="font-size:13.5px;color:#b8b5b0">Les groupes les plus actifs avec leurs sites de fuite et leurs outils, les quatorze outils convertis en signatures, les portefeuilles sanctionnés encore approvisionnés, et une empreinte SHA-256 du flux lui-même. Si une seule valeur change sans que l'empreinte suive, le fichier a été altéré.</p>
+<div class="note">Le flux est statique, servi par un réseau de diffusion mondial : pas de clé d'API, pas de limite de requêtes, pas de serveur à faire tomber. Une entreprise peut le consommer toutes les heures sans rien nous demander. C'est volontaire : une défense qui dépend d'un serveur vivant s'arrête quand le serveur s'arrête.</div>
+
+<h2>Licence et conditions</h2>
+<p style="font-size:13.5px;color:#b8b5b0"><strong>Usage défensif libre</strong>, y compris commercial, avec attribution « ALPHATECH GARDIEN ». Revente du flux en tant que produit interdite sans contrat. Aucune garantie d'exhaustivité : ce flux couvre les groupes identifiés publiquement, il ne remplace pas une veille payante ni un audit.</p>
+<p style="font-size:13.5px;color:#b8b5b0">Toute utilisation offensive, y compris pour attaquer les groupes cités, sort de la licence et engage seule son auteur.</p>
+
+<a class="btn" href="/alphatech-omniscience/gardien/">Voir le Gardien mondial</a>
+<a class="btn" href="/alphatech-omniscience/compte/" style="background:transparent;color:#e8c878;border:1px solid #4a4530;margin-left:8px">Créer un compte</a>
+
+<footer>ALPHATECH OMNISCIENCE · Brazzaville · Flux publié le <span id="date">—</span> · Empreinte : <span class="mono" id="hash">—</span><br>Sources : liste de sanctions OFAC, registres blockchain publics, API ouverte ransomware.live. Toutes les valeurs affichées proviennent de ces sources, vérifiables indépendamment.</footer>
+</div>
+<script>
+const URL_FEED = '/alphatech-omniscience/flux/feed.json';
+fetch(URL_FEED).then(r=>r.json()).then(f=>{
+  document.getElementById('g').textContent = f.couverture.groupes_suivis;
+  document.getElementById('p').textContent = f.couverture.portefeuilles_surveilles;
+  document.getElementById('b').textContent = Math.round(f.couverture.btc_sous_surveillance) + ' BTC';
+  document.getElementById('statut').innerHTML = '<span class="ok"></span>en ligne';
+  document.getElementById('date').textContent = new Date(f.genere).toLocaleString('fr-FR');
+  document.getElementById('hash').textContent = f.integrite.valeur.slice(0,32) + '…';
+}).catch(e=>{
+  const s=document.getElementById('statut'); s.innerHTML='<span class="ok bad"></span>indisponible';
+});
+</script></body></html>

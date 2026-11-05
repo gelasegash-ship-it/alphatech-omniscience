@@ -1,0 +1,37 @@
+# ALPHATECH SENTINEL — liste de blocage / indicateurs
+# version 2026-11-05 13:08 · usage defensif libre · alphatech-omniscience
+# --- binaires et outils a interdire par strategie (WDAC / AppLocker) ---
+mimikatz.exe
+handlekatz.exe
+nanodump.exe
+adfind.exe
+advanced_ip_scanner.exe
+netscan.exe
+pchunter.exe
+hrsword.exe
+edrkiller.exe
+psexec.exe
+cain.exe
+
+# --- domaines de fuite connus (indicateurs de compromission) ---
+nongzecboljwv3yfndkggsybsglfrkffw7bvk2zemuteoxe6etpusnad.onion
+t33zoj4qwv455fog7qnb2azi5xcdxkixughmmduzbw2rtdgryqfbh6id.onion
+keoz3i32ljvnfrsxo3cwolzv2mhkvbi5y5wlwtn5ngbswu4qzdnjvrqd.onion
+cjuogz6kvmozrapbw6cgf3ovfxgxe2fy3ajlgxm53w3xjve5x5sichyd.onion
+sjyd42k47guvygfiyfdv5dmllytpgdzr3ioiqsuytz726is6ss67imid.onion
+cqkrkmmivhakl3fwgxscurduu3znmroablt7jskxszkctixyseij5gad.onion
+safepaypfxntwixwjrlcscft433ggemlhgkkdupi2ynhtcmvdgubmoyd.onion
+nj5qix45sxnl4h4og6hcgwengg2oqloj3c2rhc6dpwiofx3jbivcs6qd.onion
+incblog7vmuq7rktic73r4ha4j757m3ptym37tyvifzp2roedyyzzxid.onion
+j75o7xvvsm4lpsjhkjvb4wl2q6ajegvabe6oswthuaubbykk4xkzgpid.onion
+mbrlkbtq5jonaqkurjwmxftytyn2ethqvbxfu4rgjbkkknndqwae6byd.onion
+k7kg3jqxang3wh7hnmaiokchk7qoebupfgoik6rha6mjpzwupwtj25yd.onion
+aoqinwwrizxbrwm3qb6l4jzgujgmcetp4jaug7fqylbf3xcwqwzvbuid.onion
+
+# --- techniques a journaliser en priorite ---
+T1003.001
+T1490
+T1562.001
+T1046
+T1110
+T1486
