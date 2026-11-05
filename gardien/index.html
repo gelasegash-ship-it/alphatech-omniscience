@@ -135,7 +135,7 @@ async function checkOne(w, i){
     const d = await r.json();
     const s = d.chain_stats;
     const bal = (s.funded_txo_sum - s.spent_txo_sum) / 1e8;
-    const bouge = Math.abs(bal - w.btc_ref) > 0.00000001;
+    const bouge = Math.abs(bal - w.btc_ref) > 0.0001;
     ligne(i,
       bouge ? '<span class="badge danger">MOUVEMENT</span>' : '<span class="badge ok">stable</span>',
       bal.toFixed(6) + ' BTC');
