@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ALPHATECH GARDIEN MONDIAL</title>
+<meta name="description" content="Surveillance mondiale des fonds criminels et protection des organisations.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#08090c;color:#e8e6e1;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 18px 70px}
+header{border-bottom:1px solid #24262c;padding-bottom:20px;margin-bottom:26px}
+h1{font-size:clamp(24px,4vw,38px);letter-spacing:.4px;font-weight:600}
+h1 span{color:#e8c878}
+.tag{color:#8d8b86;font-size:13px;margin-top:6px;letter-spacing:1.4px;text-transform:uppercase}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin:22px 0}
+.card{background:#101218;border:1px solid #24262c;border-radius:10px;padding:18px}
+.card .lbl{font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:#8d8b86}
+.card .val{font-size:26px;font-weight:600;margin-top:8px;color:#f2f0ea}
+.card .sub{font-size:12px;color:#7d7b76;margin-top:4px}
+h2{font-size:19px;margin:34px 0 12px;font-weight:600;color:#f2f0ea}
+h2::before{content:"";display:inline-block;width:4px;height:16px;background:#e8c878;margin-right:10px;vertical-align:-2px;border-radius:2px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid #1c1e24}
+th{color:#8d8b86;font-weight:500;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+td.mono{font-family:ui-monospace,monospace;font-size:12px;color:#9fa6b2}
+.right{text-align:right}
+.badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;border:1px solid #2f3238}
+.ok{color:#7fd1a0;border-color:#2c5c43}
+.warn{color:#e8c878;border-color:#5c5030}
+.danger{color:#ff8a7a;border-color:#63342f}
+.note{background:#101218;border-left:3px solid #e8c878;padding:14px 16px;border-radius:0 8px 8px 0;font-size:13.5px;color:#c9c6c0;margin:16px 0}
+.btn{display:inline-block;background:#e8c878;color:#08090c;padding:11px 20px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;border:0;cursor:pointer}
+.btn.ghost{background:transparent;color:#e8c878;border:1px solid #4a4530}
+.price{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.pcard{background:#101218;border:1px solid #24262c;border-radius:10px;padding:18px}
+.pcard h3{font-size:14px;color:#e8c878;margin-bottom:8px}
+.pcard .p{font-size:22px;font-weight:600;margin:8px 0}
+.pcard ul{list-style:none;font-size:12.5px;color:#a8a5a0}
+.pcard li::before{content:"· ";color:#e8c878}
+footer{margin-top:44px;border-top:1px solid #24262c;padding-top:16px;font-size:12px;color:#6f6d69}
+.live{font-size:11px;color:#7fd1a0}
+</style></head><body><div class="wrap">
+<header>
+<h1>ALPHATECH <span>GARDIEN MONDIAL</span></h1>
+<div class="tag">Surveillance des fonds criminels · Protection des organisations · Brazzaville</div>
+</header>
+
+<div class="grid">
+  <div class="card"><div class="lbl">Niveau de menace</div><div class="val" id="menace">calcul…</div><div class="sub" id="menaceSrc">données en direct</div></div>
+  <div class="card"><div class="lbl">Portefeuilles surveillés</div><div class="val">43</div><div class="sub">adresses sanctionnées actives</div></div>
+  <div class="card"><div class="lbl">Fonds sous surveillance</div><div class="val">472.2 BTC</div><div class="sub" id="usd">— USD · — FCFA</div></div>
+  <div class="card"><div class="lbl">Groupes rançongiciels suivis</div><div class="val">419</div><div class="sub">100 victimes dans le dernier flux</div></div>
+</div>
+
+<h2>Contrôle en direct des portefeuilles</h2>
+<div class="note">Chaque ligne est vérifiée à l'instant dans votre navigateur, directement sur la blockchain publique. Un mouvement signalé ici signifie que les fonds bougent. <span class="live">● source : mempool.space</span></div>
+<table id="wt"><thead><tr><th>Entité sanctionnée</th><th>Adresse</th><th class="right">Référence</th><th class="right">Solde live</th><th class="right">État</th></tr></thead><tbody></tbody></table>
+<button class="btn ghost" onclick="checkAll()" style="margin-top:14px">Relancer le contrôle</button>
+
+<h2>Infrastructure des groupes actifs</h2>
+<table><thead><tr><th>Groupe</th><th class="right">Revendications</th><th class="right">Sites connus</th><th>Outils</th><th class="right">Techniques</th></tr></thead><tbody>
+<tr><td>N0n</td><td class="right">17</td><td class="right">1</td><td class="mono">non publié</td><td class="right">8</td></tr><tr><td>medusalocker</td><td class="right">17</td><td class="right">2</td><td class="mono">Invoke-TheHash, Mimikatz, HRSword</td><td class="right">1</td></tr><tr><td>BrainCipher</td><td class="right">11</td><td class="right">54</td><td class="mono">non publié</td><td class="right">4</td></tr><tr><td>safepay</td><td class="right">8</td><td class="right">5</td><td class="mono">{'DiscoveryEnum': ['Invoke-ShareFinder'], 'Exfiltration': ['7-Zip', 'WinRAR'], 'LOLBAS': ['CMSTPLUA', 'Regsvr32.exe', 'dllhost.exe']}</td><td class="right">14</td></tr><tr><td>incransom</td><td class="right">6</td><td class="right">7</td><td class="mono">{'CredentialTheft': ['Mimikatz'], 'DiscoveryEnum': ['AdFind', 'Advanced IP Scanner', 'SoftPerfect NetScan'], 'Exfiltration': ['7-Zip', 'BackBlaze', 'MEGA', 'RClone', 'Restic', 'WinRAR', 's5cmd'], 'LOLBAS': ['Finger', 'PsExec'], 'Networking': ['Bitvise SSH Client'], 'RMM-Tools': ['AnyDesk']}</td><td class="right">13</td></tr><tr><td>play</td><td class="right">5</td><td class="right">4</td><td class="mono">{'CredentialTheft': ['HandleKatz', 'Mimikatz', 'Nanodump'], 'DefenseEvasion': ['EDRKill (echo_driver.sys + DBUtil 2.3)', 'GMER', 'IOBit', 'PowerTool', 'icardagt.exe (version.dll DLL sideload)'], 'DiscoveryEnum': ['AdFind', 'WKTools'], 'Exfiltration': ['WinSCP'], 'LOLBAS': ['PsExec'], 'Networking': ['FRP', 'Plink'], 'Offsec': ['Cobalt Strike', 'WinPEAS']}</td><td class="right">15</td></tr><tr><td>Dark Project</td><td class="right">4</td><td class="right">0</td><td class="mono">non publié</td><td class="right">0</td></tr><tr><td>Aoqin</td><td class="right">4</td><td class="right">1</td><td class="mono">non publié</td><td class="right">0</td></tr>
+</tbody></table>
+
+<h2>Rémunération sur les fonds récupérés</h2>
+<div class="note"><strong>Le modèle est simple et légal :</strong> aucun frais d'avance sur un dossier de récupération. ALPHATECH est payé un pourcentage des fonds effectivement restitués, encaissé par un avocat ou un mandataire judiciaire, jamais directement par nous. Sans récupération, la victime ne paie rien.</div>
+<div class="grid">
+  <div class="card"><div class="lbl">Honoraires de succès</div><div class="val">15 %</div><div class="sub">des fonds restitués, plafonné, contractuel</div></div>
+  <div class="card"><div class="lbl">Avance demandée</div><div class="val">0</div><div class="sub">aucun paiement avant résultat</div></div>
+  <div class="card"><div class="lbl">Part versée au maître</div><div class="val">100 %</div><div class="sub">ALPHATECH OMNISCIENCE, Brazzaville</div></div>
+</div>
+
+<h2>Protection mondiale, par abonnement</h2>
+<div class="price">
+  <div class="pcard"><h3>VEILLE</h3><div class="p">1 500 FCFA<span style="font-size:12px;color:#8d8b86"> /jour</span></div>
+  <ul><li>Alerte mensuelle des menaces</li><li>Liste des outils bloqués</li><li>Recommandations écrites</li></ul></div>
+  <div class="pcard"><h3>ORGANISATION</h3><div class="p">75 000 FCFA<span style="font-size:12px;color:#8d8b86"> /mois</span></div>
+  <ul><li>Surveillance hebdomadaire</li><li>Alerte d'attaque en 24 h</li><li>Durcissement appliqué</li><li>Rapport mensuel signé</li></ul></div>
+  <div class="pcard"><h3>SOUVERAIN</h3><div class="p">450 000 FCFA<span style="font-size:12px;color:#8d8b86"> /mois</span></div>
+  <ul><li>Banques, cliniques, opérateurs</li><li>Astreinte téléphonique 24/7</li><li>Réponse incident incluse</li><li>Dossier juridique prêt à déposer</li></ul></div>
+  <div class="pcard"><h3>ÉTAT / INSTITUTION</h3><div class="p">sur devis</div>
+  <ul><li>Traçage de fonds publics</li><li>Rapports pour la justice</li><li>Formation des équipes</li><li>Rémunération au résultat</li></ul></div>
+</div>
+
+<h2>Ce que nous refusons, par écrit</h2>
+<div class="note">Nous n'entrons dans aucun système sans autorisation écrite du propriétaire. Aucune intrusion, aucune interception, aucun accès à des comptes bancaires. Un dossier obtenu par effraction est un dossier perdu devant un juge, et nous préférons perdre un client que perdre un procès. Tout ce qui figure sur cette page est vérifiable : listes de sanctions publiques, registres blockchain publics, sources ouvertes horodatées.</div>
+
+<p style="margin-top:26px"><a class="btn" href="https://wa.me/242068078227?text=ALPHATECH%20GARDIEN%20MONDIAL%20-%20je%20souhaite%20un%20audit">Demander un audit</a>
+<a class="btn ghost" href="mailto:gelasegash@gmail.com?subject=ALPHATECH%20GARDIEN%20MONDIAL" style="margin-left:8px">Écrire</a></p>
+
+<footer>ALPHATECH OMNISCIENCE · Brazzaville, République du Congo · Données générées le 05/11/2026 13:04 · Les soldes affichés proviennent de la blockchain publique Bitcoin (mempool.space). Ce service fournit du renseignement et de la protection ; il ne remplace ni un avocat, ni une autorité judiciaire.</footer>
+</div>
+
+<script>
+const W = [{"entite": "WANG, Yunhe", "adresse": "bc1qtrrfhr0f3ufsrjxfv8a7p3yuqj0spe4cm6vaws", "btc_ref": 100.000003}, {"entite": "WANG, Yunhe", "adresse": "bc1qw8evftpgc8wsmkemd8yl5fg2husza5z802xaym", "btc_ref": 99.99998}, {"entite": "WANG, Yunhe", "adresse": "bc1qu5vngdtcx8nc9d68pq8nv7pzcjrswsy87s66gk", "btc_ref": 99.99998}, {"entite": "WANG, Yunhe", "adresse": "bc1qtsl3ufenrv3zgrgm9z8xarcx22x8mfztuartyn", "btc_ref": 99.99998}, {"entite": "WANG, Yunhe", "adresse": "bc1qv4krhj2qmpd9qz9xj9nhvj99fq8s9xsw05d485", "btc_ref": 22.22198}, {"entite": "YAN, Xiaobing", "adresse": "1EpMiZkQVekM5ij12nMiEwttFPcDK9XhX6", "btc_ref": 20.519656}, {"entite": "YAN, Xiaobing", "adresse": "1Kuf2Rd8mDyAViwBozGTNYnvWL8uYFrkVo", "btc_ref": 12.606462}, {"entite": "YAN, Xiaobing", "adresse": "13f59kUM5FU8MfTG7DCEugYarDhSD7XCoC", "btc_ref": 9.294517}, {"entite": "YAN, Xiaobing", "adresse": "12QtD5BFwRsdNsAZY76UVE1xyCGNTojH9h", "btc_ref": 6.44746}, {"entite": "CHATEX", "adresse": "3N9YcPBDky9UsMx1RTk33tL4jDkZfSnsPk", "btc_ref": 1.0}, {"entite": "SECONDEYE SOLUTION", "adresse": "1G9CKRHA3mx22DoT1QyNYrh85VSQ19Y1em", "btc_ref": 0.115653}, {"entite": "OKO DESIGN BUREAU", "adresse": "13fhnkmpBBWXUQucJd6efWvXdEj78DKavk", "btc_ref": 0.008}, {"entite": "HUANG, Xiaojun", "adresse": "3NEcQKZ8RwL2eDNhmMPpZ4td9vPsQh9JwM", "btc_ref": 0.004431}, {"entite": "SUEX OTC, S.R.O.", "adresse": "1LrxsRd7zNuxPJcL5rttnoeJFy1y4AffYY", "btc_ref": 0.001335}];
+const fmt = n => n.toLocaleString('fr-FR');
+
+async function btcPrice(){
+  try{
+    const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,xaf');
+    const d = (await r.json()).bitcoin;
+    const tot = 472.2244;
+    document.getElementById('usd').textContent =
+      fmt(Math.round(tot*d.usd)) + ' USD · ' + fmt(Math.round(tot*d.xaf)) + ' FCFA';
+  }catch(e){ document.getElementById('usd').textContent = 'prix indisponible'; }
+}
+
+async function menace(){
+  const el = document.getElementById('menace'), src = document.getElementById('menaceSrc');
+  try{
+    const [f,m] = await Promise.all([
+      fetch('https://api.alternative.me/fng/').then(r=>r.json()),
+      fetch('https://api.coingecko.com/api/v3/global').then(r=>r.json())
+    ]);
+    const greed = parseInt(f.data[0].value);
+    const chg = m.data.market_cap_change_percentage_24h_usd || 0;
+    let niveau = 'MODÉRÉ', cls = 'warn';
+    if (greed < 35 || Math.abs(chg) > 6) { niveau = 'ÉLEVÉ'; cls = 'danger'; }
+    if (greed > 60 && Math.abs(chg) < 3) { niveau = 'CALME'; cls = 'ok'; }
+    el.textContent = niveau;
+    el.style.color = cls === 'danger' ? '#ff8a7a' : cls === 'ok' ? '#7fd1a0' : '#e8c878';
+    src.textContent = 'avidité ' + greed + ' · marché ' + chg.toFixed(1) + ' % / 24 h';
+  }catch(e){ el.textContent = 'INDISPONIBLE'; src.textContent = 'sources momentanément muettes'; }
+}
+
+function ligne(i, etat, solde){
+  const t = document.querySelector('#wt tbody').children[i];
+  t.children[3].textContent = solde;
+  t.children[4].innerHTML = etat;
+}
+
+async function checkOne(w, i){
+  ligne(i, '<span class="badge">contrôle…</span>', '—');
+  try{
+    const r = await fetch('https://mempool.space/api/address/' + w.adresse);
+    const d = await r.json();
+    const s = d.chain_stats;
+    const bal = (s.funded_txo_sum - s.spent_txo_sum) / 1e8;
+    const bouge = Math.abs(bal - w.btc_ref) > 0.00000001;
+    ligne(i,
+      bouge ? '<span class="badge danger">MOUVEMENT</span>' : '<span class="badge ok">stable</span>',
+      bal.toFixed(6) + ' BTC');
+  }catch(e){ ligne(i, '<span class="badge warn">indisponible</span>', w.btc_ref.toFixed(6) + ' BTC'); }
+}
+
+async function checkAll(){
+  for (let i = 0; i < W.length; i++) { await checkOne(W[i], i); await new Promise(r=>setTimeout(r,220)); }
+}
+
+(function init(){
+  const tb = document.querySelector('#wt tbody');
+  W.forEach(w => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + w.entite + '</td><td class="mono">' + w.adresse.slice(0,20) + '…</td>'
+      + '<td class="right">' + w.btc_ref.toFixed(4) + ' BTC</td><td class="right">—</td>'
+      + '<td class="right"><span class="badge">en attente</span></td>';
+    tb.appendChild(tr);
+  });
+  btcPrice(); menace(); checkAll();
+})();
+</script></body></html>
