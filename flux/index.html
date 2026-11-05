@@ -46,6 +46,7 @@ footer{margin-top:36px;border-top:1px solid #24262c;padding-top:14px;font-size:1
 <tr><td><code>regles_sigma.yml</code></td><td>3 règles Sigma : vol LSASS, sabotage antivirus, balayage réseau</td><td class="mono">/flux/regles_sigma.yml</td></tr>
 <tr><td><code>regles_avancees.yml</code></td><td>6 règles Sigma : clichés, persistance, renommage, RDP, journaux, exfiltration</td><td class="mono">/flux/regles_avancees.yml</td></tr>
 <tr><td><code>regles_yara.yar</code></td><td>3 règles YARA : rançongiciel, famille Mimikatz, pilote EDRKill</td><td class="mono">/flux/regles_yara.yar</td></tr>
+<tr><td><code>regles_completes.yml</code></td><td>Les 9 règles Sigma en un seul fichier prêt à importer</td><td class="mono">/flux/regles_completes.yml</td></tr>
 <tr><td><code>sentinel_defense.json</code></td><td>Socle : chaque outil → technique MITRE → signature → contre-mesure</td><td class="mono">/flux/sentinel_defense.json</td></tr>
 </tbody></table>
 
@@ -76,7 +77,6 @@ sigma convert -t wazuh regles_avancees.yml</pre>
 <a class="btn" href="/alphatech-omniscience/gardien/">Voir le Gardien mondial</a>
 <a class="btn" href="/alphatech-omniscience/compte/" style="background:transparent;color:#e8c878;border:1px solid #4a4530;margin-left:8px">Créer un compte</a>
 
-<div class="note" style="margin-top:22px"><strong>Système intégré :</strong> <a href="/alphatech-omniscience/systeme/">état des modules</a> · <a href="/alphatech-omniscience/licence/">licence d'usage</a> · <a href="/alphatech-omniscience/constat/">constat de manquement</a></div>
 <footer>ALPHATECH OMNISCIENCE · Brazzaville · Flux publié le <span id="date">—</span> · Empreinte : <span class="mono" id="hash">—</span><br>Sources : liste de sanctions OFAC, registres blockchain publics, API ouverte ransomware.live. Toutes les valeurs affichées proviennent de ces sources, vérifiables indépendamment.</footer>
 </div>
 <script>

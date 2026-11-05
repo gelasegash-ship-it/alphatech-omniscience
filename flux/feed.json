@@ -1,7 +1,7 @@
 {
  "feed": "ALPHATECH DEFENSE FEED",
  "version": "1.0",
- "genere": "2026-11-05T13:20:22",
+ "genere": "2026-11-05T13:48:36",
  "licence": "Usage defensif libre. Attribution « ALPHATECH GARDIEN » requise. Revente interdite.",
  "endpoints": {
   "flux_principal": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/feed.json",
@@ -9,7 +9,8 @@
   "regles_sigma": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/regles_sigma.yml",
   "regles_avancees": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/regles_avancees.yml",
   "regles_yara": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/regles_yara.yar",
-  "socle_defense": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/sentinel_defense.json"
+  "socle_defense": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/sentinel_defense.json",
+  "regles_completes": "https://gelasegash-ship-it.github.io/alphatech-omniscience/flux/regles_completes.yml"
  },
  "couverture": {
   "groupes_suivis": 419,
@@ -248,6 +249,6 @@
  ],
  "integrite": {
   "methode": "SHA-256 du flux sans ce bloc",
-  "valeur": "8f3f1248a23b463b56b5c610b68af7e30b9d3422cc3b0421802171cfbff415b9"
+  "valeur": "dd5522452b2771bcfadc2b2a3ac194476920eba5c025f282ea66636921268a94"
  }
 }

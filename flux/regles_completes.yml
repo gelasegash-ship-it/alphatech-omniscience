@@ -1,0 +1,122 @@
+# ALPHATECH SENTINEL — jeu complet de règles Sigma
+# version 2026-11-05 13:48 · 9 règles · usage défensif libre, attribution requise
+# 001-003 : vol LSASS, sabotage antivirus, balayage réseau
+# 004-009 : clichés instantanés, persistance, renommage de masse, RDP, journaux, exfiltration
+
+title: Vol d'identifiants LSASS (Mimikatz / HandleKatz / Nanodump)
+id: eth-sentinel-001
+status: experimental
+description: Détecte l'accès au processus LSASS par un binaire non signé, technique utilisée par medusalocker, incransom et play.
+logsource:
+  product: windows
+  category: process_access
+detection:
+  selection:
+    TargetImage|endswith: '\\lsass.exe'
+    GrantedAccess|contains: ['0x1010','0x1410','0x1438','0x143a']
+  filter:
+    SourceImage|startswith: 'C:\\Program Files\\'
+  condition: selection and not filter
+level: critical
+tags: [attack.t1003.001]
+---
+title: Sabotage de l'antivirus (EDRKill / HRSword / PCHunter)
+id: eth-sentinel-002
+status: experimental
+description: Détecte la tentative de neutralisation des protections, signature des groupes play et medusalocker.
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: [4688, 7045]
+    CommandLine|contains: ['net stop', 'sc stop', 'taskkill /f /im', 'echo_driver', 'hrsword', 'pchunter']
+  condition: selection
+level: high
+tags: [attack.t1562.001]
+---
+title: Balayage réseau horizontal (Advanced IP Scanner / SoftPerfect)
+id: eth-sentinel-003
+status: experimental
+description: Détecte la reconnaissance réseau qui précède une attaque rançongiciel.
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 5156
+    DestinationPort: 445
+  timeframe: 1m
+  condition: selection | count() by SourceIp > 25
+level: high
+tags: [attack.t1046, attack.t1135]
+---
+title: Suppression des clichés instantanés (avant chiffrement rançongiciel)
+id: eth-sentinel-004
+status: experimental
+description: La suppression des copies d'ombre est le premier geste de la majorité des rançongiciels, dont N0n et BrainCipher.
+logsource: {product: windows, service: security}
+detection:
+  selection: {EventID: 4688, CommandLine|contains: ['vssadmin delete shadows', 'wmic shadowcopy delete', 'wbadmin delete catalog', 'bcdedit /set {default} recoveryenabled no']}
+  condition: selection
+level: critical
+tags: [attack.t1490]
+---
+title: Création de service persistant depuis un répertoire temporaire
+id: eth-sentinel-005
+status: experimental
+description: Persistance classique des groupes play et incransom.
+logsource: {product: windows, service: system}
+detection:
+  selection: {EventID: 7045, ImagePath|contains: ['\\Temp\\', '\\AppData\\', '\\ProgramData\\']}
+  condition: selection
+level: high
+tags: [attack.t1543.003]
+---
+title: Rafale de renommage de fichiers (chiffrement en cours)
+id: eth-sentinel-006
+status: experimental
+description: Détecte le chiffrement par le volume de renommages, indépendamment de l'extension utilisée.
+logsource: {product: windows, service: security}
+detection:
+  selection: {EventID: 4663, ObjectType: 'File'}
+  timeframe: 1m
+  condition: selection | count() by SubjectUserName > 300
+level: critical
+tags: [attack.t1486]
+---
+title: Connexions RDP en force brute
+id: eth-sentinel-007
+status: experimental
+description: L'accès initial le plus courant en Afrique centrale.
+logsource: {product: windows, service: security}
+detection:
+  selection: {EventID: [4625, 4624], LogonType: 10}
+  timeframe: 5m
+  condition: selection | count() by IpAddress > 12
+level: high
+tags: [attack.t1110]
+---
+title: Désactivation de la restauration et des journaux
+id: eth-sentinel-008
+status: experimental
+description: Neutralisation des capacités de reprise, signe avant-coureur.
+logsource: {product: windows, service: security}
+detection:
+  selection: {EventID: 4688, CommandLine|contains: ['wevtutil cl', 'sc config vss dis', 'net stop vss', 'net stop wbengine']}
+  condition: selection
+level: high
+tags: [attack.t1562.001, attack.t1490]
+---
+title: Sortie massive vers un service de stockage externe
+id: eth-sentinel-009
+status: experimental
+description: Exfiltration avant demande de rançon.
+logsource: {category: proxy}
+detection:
+  selection:
+    DestinationHostname|contains: ['mega.nz', 'transfer.sh', 'anonfiles', 'gofile.io', 'pixeldrain']
+  timeframe: 10m
+  condition: selection | count(bytes_out) by src_ip > 500000000
+level: high
+tags: [attack.t1567.002]
