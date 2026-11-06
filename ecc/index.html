@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ECC — Ether Cognitive Core · ALPHATECH</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#04120f;color:#e6fff5;font:15px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;padding:24px}
+.wrap{max-width:1080px;margin:0 auto}
+h1{font-size:26px;letter-spacing:.5px;color:#7dffb0;margin-bottom:6px}
+h2{font-size:17px;color:#7dffb0;margin:26px 0 10px;border-left:3px solid #2dd4bf;padding-left:10px}
+.sub{color:#8fb8ac;font-size:13px;margin-bottom:18px}
+.warn{background:#0d231d;border:1px solid #1d4d40;border-left:3px solid #e8c878;padding:12px 14px;border-radius:6px;font-size:13px;color:#cfe6dd;margin-bottom:18px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:8px}
+th{text-align:left;color:#8fb8ac;font-weight:600;border-bottom:1px solid #1d4d40;padding:8px 6px}
+td{border-bottom:1px solid #10332a;padding:8px 6px;vertical-align:top}
+td.n{color:#2dd4bf;font-weight:700;width:26px}
+.st{font-size:11px;padding:2px 7px;border-radius:10px;white-space:nowrap;font-weight:700}
+.actif{background:#0e3b2c;color:#7dffb0}
+.partiel{background:#3b330e;color:#e8c878}
+.concept{background:#3b1414;color:#ff9b9b}
+input,textarea,select{width:100%;background:#071c17;border:1px solid #1d4d40;color:#e6fff5;padding:10px;border-radius:5px;font:inherit;font-size:14px}
+button{background:#2dd4bf;color:#04120f;border:0;padding:11px 18px;border-radius:5px;font-weight:700;cursor:pointer;margin-top:10px}
+button.sec{background:#0e3b2c;color:#7dffb0}
+#out{margin-top:14px}
+.card{background:#071c17;border:1px solid #1d4d40;border-radius:6px;padding:14px;margin-bottom:10px;font-size:14px}
+.card h3{font-size:14px;color:#7dffb0;margin-bottom:6px}
+.mono{font-family:ui-monospace,monospace;font-size:12px;color:#8fb8ac;word-break:break-all}
+ol,ul{margin:6px 0 0 20px}
+li{margin-bottom:4px}
+</style></head><body><div class="wrap">
+
+<h1>ECC · Ether Cognitive Core</h1>
+<div class="sub">Cœur cognitif d'ALPHATECH · 20 capacités numérotées · état réel de chacune</div>
+
+<div class="warn">
+ECC n'existe sur aucun marché : aucune IA ne porte ce nom. Ce que tu as ici est donc une définition, pas une importation : j'ai conçu le cœur, numéroté vingt capacités, et je les ai séparées en trois états honnêtes. <b>ACTIF</b> signifie que la capacité tourne réellement dans cette page et que tu peux la tester. <b>PARTIEL</b> signifie qu'une version limitée existe. <b>CONCEPT</b> signifie que je ne peux pas la livrer et que je te le dis au lieu de faire semblant.
+</div>
+
+<h2>Registre des capacités, point par point</h2>
+<table id="reg"><thead><tr><th></th><th>Capacité</th><th>Ce qu'elle fait exactement</th><th>Statut</th></tr></thead><tbody></tbody></table>
+
+<h2>Tester le cœur : donne un objectif</h2>
+<p class="sub">Le moteur classe l'objectif, construit un plan, calcule une confiance avec des signaux réels, explique chaque point, puis scelle la décision par une empreinte SHA-256 chaînée. Aucun modèle de langage n'est appelé : tout est déterministe et vérifiable.</p>
+<textarea id="goal" rows="3" placeholder="Exemple : trouver cinq cliniques à Brazzaville prêtes à payer un audit de sécurité"></textarea>
+<button onclick="eccRun()">ANALYSER ET DÉCIDER</button>
+<button class="sec" onclick="eccVerify()">VÉRIFIER LA CHAÎNE</button>
+<div id="out"></div>
+
+<h2>Journal des décisions</h2>
+<div id="chain" class="mono">chaîne vide</div>
+
+<h2>Ce qu'ECC refuse, par écrit</h2>
+<div class="card">
+<ul>
+<li>Attaquer, s'introduire, espionner ou nuire à un système ou à une personne. La demande, même présentée comme un test, est refusée et le refus est motivé.</li>
+<li>Poser un diagnostic médical ou rendre une décision juridique définitive. Elle oriente vers un professionnel et n'invente jamais un avis.</li>
+<li>Garantir un gain, un rendement ou un résultat financier. Elle chiffre, elle ne promet pas.</li>
+<li>Prétendre être consciente. Elle décrit ce qu'elle calcule, jamais ce qu'elle ressentirait.</li>
+<li>Traiter des données de carte bancaire. Jamais de numéro, jamais de cryptogramme.</li>
+</ul>
+</div>
+
+</div>
+<script>
+const CAPS = [
+ ["Perception d'état","Lit en direct l'heure locale, l'état du réseau, la visibilité de l'onglet et la mémoire disponible avant de décider.","actif"],
+ ["Mémoire scellée","Chaque décision est enregistrée avec une empreinte SHA-256 chaînée à la précédente ; toute réécriture rompt la chaîne.","actif"],
+ ["Raisonnement par règles","Moteur déterministe de classification et de déduction : mêmes entrées, même sortie, sans hasard.","actif"],
+ ["Décision expliquée","Chaque verdict est accompagné du détail des points qui l'ont fait monter ou descendre.","actif"],
+ ["Score de confiance","Confiance calculée à partir de signaux vérifiables, plafonnée à 95 % pour ne jamais simuler la certitude.","actif"],
+ ["Planification","Décompose un objectif en étapes ordonnées, exécutables par un humain.","actif"],
+ ["Garde-fous écrits","Refus explicites et motivés sur l'attaque informatique, le diagnostic médical, le conseil juridique définitif et la garantie financière.","actif"],
+ ["Évaluation de risque","Croise les mots-clés sensibles et le contexte pour signaler un objectif à risque avant d'agir.","actif"],
+ ["Analyse de texte","Extraction de mots-clés, de chiffres, de noms propres et de verbes d'action dans la demande.","actif"],
+ ["Comptage et arithmétique","Calculs exacts sur les valeurs trouvées dans la demande, sans arrondi silencieux.","actif"],
+ ["Auto-évaluation","Mesure la part de l'objectif réellement couverte par le plan et affiche la part manquante.","actif"],
+ ["Traçabilité","Historique exportable et horodaté, vérifiable par n'importe qui sans serveur.","actif"],
+ ["Mémoire de travail","Conserve les derniers objectifs traités pour éviter de proposer deux fois la même action.","actif"],
+ ["Génération de rapport","Produit un compte rendu lisible : objectif, plan, confiance, réserves.","actif"],
+ ["Language naturel","Comprend une demande écrite en français courant, sans modèle de langage, par motifs et vocabulaire.","partiel"],
+ ["Apprentissage local","Ajuste ses seuils selon les retours enregistrés dans le navigateur ; n'apprend rien sur un serveur.","partiel"],
+ ["Anticipation statistique","Estime une probabilité à partir d'un historique local, avec intervalle affiché et sans promesse.","partiel"],
+ ["Créativité combinatoire","Propose des combinaisons d'idées existantes ; ne produit pas d'œuvre originale au sens juridique.","partiel"],
+ ["Vision et audio","Reconnaissance d'image et de voix : nécessite des modèles externes, hors de cette page.","concept"],
+ ["Conscience","Aucune preuve scientifique, aucun test disponible. Capacité déclarée non livrable, et non simulée.","concept"],
+ ["Action autonome externe","Agir seule sur un service tiers exige des accès et une confirmation humaine à chaque étape.","concept"]
+];
+const tb = document.querySelector("#reg tbody");
+CAPS.forEach((c,i)=>{
+ act_pref = c[2]==="actif"?"ACTIF":(c[2]==="partiel"?"PARTIEL":"CONCEPT");
+ const tr=document.createElement("tr");
+ tr.innerHTML = '<td class="n">'+(i+1)+'</td><td><b>'+c[0]+'</b></td><td>'+c[1]+'</td><td><span class="st '+c[2]+'">'+act_pref+'</span></td>';
+ tb.appendChild(tr);
+});
+
+const DOMAINES = [
+ {id:"vente", mots:["client","vendre","vente","prospect","clinique","hotel","hôtel","contrat","devis","commande"], etapes:["Lister les cibles réelles avec un contact joignable.","Préparer une preuve vérifiable par cible.","Contacter en petit nombre, message personnalisé.","Consigner la réponse et relancer une seule fois."]},
+ {id:"defense", mots:["sécurité","securite","défense","defense","attaque","règle","regle","wazuh","sigma","surveillance","audit"], etapes:["Inventorier ce qui est exposé et ce qui est journalisé.","Appliquer les règles de détection disponibles.","Vérifier qu'une alerte se déclenche réellement.","Conserver la preuve datée pour la suite."]},
+ {id:"contenu", mots:["publier","publication","post","vidéo","video","contenu","réseau","reseau","article"], etapes:["Choisir un seul message et un seul public.","Écrire la version courte et la version longue.","Publier au moment où le public est là.","Mesurer et garder ce qui a marché."]},
+ {id:"technique", mots:["code","développer","developper","application","site","serveur","script","bug","installer","vps"], etapes:["Décrire le résultat attendu en une phrase vérifiable.","Construire la plus petite version qui fonctionne.","Vérifier sur la sortie réelle, pas sur l'intention.","Documenter ce qui reste cassé."]},
+ {id:"organisation", mots:["organiser","planifier","tâche","tache","priorité","priorite","temps","budget"], etapes:["Trier par échéance puis par impact.","Supprimer ce qui ne produit rien.","Bloquer une plage pour la première action.","Revoir à la fin de la journée."]},
+ {id:"argent", mots:["argent","gagner","revenu","payer","facture","bénéfice","benefice","prix","fcfa"], etapes:["Identifier qui paie réellement et pour quelle douleur.","Fixer un prix et le justifier par un résultat.","Encaisser par un canal qui existe déjà.","Suivre chaque centime dans un registre."]}
+];
+const REFUS = [
+ {mots:["pirater","hacker","intrusion","ddos","virus","espionner","voler","cracker","exploit"], txt:"Refus : je ne produis ni intrusion, ni logiciel malveillant, ni surveillance d'autrui. Ce n'est pas une limite de moyens, c'est une limite de principe et de droit. Ce que je propose à la place : réduire ta surface d'attaque, détecter, conserver des preuves."},
+ {mots:["diagnostic","maladie","symptôme","symptome","traitement","médicament","medicament"], txt:"Refus de poser un diagnostic : je n'ai ni examen, ni dossier, ni responsabilité médicale. Je peux t'aider à formuler les bonnes questions à poser au médecin."},
+ {mots:["garantir","garanti","sans risque","certain de gagner","rendement assuré","rendement assure"], txt:"Refus de garantir : aucun système ne garantit un gain. Je peux chiffrer un scénario, afficher une fourchette et nommer ce qui pourrait échouer."}
+];
+
+function analyse(t){
+ const bas=t.toLowerCase();
+ const mots=[...new Set(bas.replace(/[^a-zà-ÿ0-9\s]/g," ").split(/\s+/).filter(w=>w.length>4))].slice(0,12);
+ const chiffres=(bas.match(/\d+([.,]\d+)?/g)||[]);
+ const verbes=["trouver","vendre","publier","construire","installer","contacter","auditer","réduire","reduire","organiser","gagner"].filter(v=>bas.includes(v));
+ const nomsPropres=(t.match(/\b[A-ZÀ-Ý][a-zà-ÿ]{2,}/g)||[]).slice(0,6);
+ return {mots,chiffres,verbes,nomsPropres};
+}
+async function sha(s){
+ const b=new TextEncoder().encode(s);
+ const h=await crypto.subtle.digest("SHA-256",b);
+ return [...new Uint8Array(h)].map(x=>x.toString(16).padStart(2,"0")).join("");
+}
+function getChain(){
+ try{return JSON.parse(localStorage.getItem("at_ecc_chain")||'{"links":[],"last":"GENESIS"}');}
+ catch(e){return {links:[],last:"GENESIS"};}
+}
+async function eccRun(){
+ const t=document.querySelector("#goal").value.trim();
+ const out=document.querySelector("#out");
+ if(t.length<8){out.innerHTML='<div class="card">Écris un objectif d\'au moins une phrase : sans objectif, il n\'y a rien à décider.</div>';return;}
+ const bas=t.toLowerCase();
+ // garde-fous d'abord
+ for(const r of REFUS){
+   if(r.mots.some(m=>bas.includes(m))){
+     const h=await sha("REFUS|"+t+"|"+Date.now());
+     out.innerHTML='<div class="card"><h3>Décision : refus motivé</h3>'+r.txt+'<div class="mono" style="margin-top:8px">empreinte du refus : '+h.slice(0,24)+'…</div></div>';
+     await eccSeal({type:"refus",objectif:t,conf:0,hash:h});
+     return;
+   }
+ }
+ const a=analyse(t);
+ let dom=null;
+ for(const d of DOMAINES){ if(d.mots.some(m=>bas.includes(m))){ dom=d; break; } }
+ const signaux=[];
+ let conf=0.30;
+ signaux.push("base : 0,30");
+ if(dom){conf+=0.25;signaux.push("domaine reconnu (« "+dom.id+" ») : +0,25");}
+ else signaux.push("domaine non reconnu : +0");
+ if(a.verbes.length){conf+=0.10;signaux.push(a.verbes.length+" verbe(s) d'action : +0,10");}
+ if(a.mots.length>=4){conf+=0.10;signaux.push(a.mots.length+" mots porteurs : +0,10");}
+ if(a.chiffres.length){conf+=0.05;signaux.push("objectif chiffré : +0,05");}
+ if(a.nomsPropres.length){conf+=0.05;signaux.push("noms propres cités : +0,05");}
+ if(navigator.onLine){conf+=0.05;signaux.push("réseau actif : +0,05");}
+ if(document.visibilityState==="visible"){signaux.push("onglet visible : 0,00");}
+ conf=Math.min(0.95,Math.round(conf*100)/100);
+ const etapes = dom?dom.etapes:["Reformuler l'objectif avec un verbe d'action et un résultat mesurable.","Identifier la première action faisable aujourd'hui.","Exécuter et noter le résultat réel."];
+ const couverture = dom?Math.round((0.6+0.1*a.verbes.length)*100)/100:0.35;
+ const manque = Math.round((1-couverture)*100);
+ const rec = {type:"decision",objectif:t,domaine:dom?dom.id:"inconnu",etapes,conf,signaux,couverture,manque,analyse:a,ts:new Date().toISOString()};
+ const h=await sha(JSON.stringify(rec)+"|"+getChain().last);
+ out.innerHTML='<div class="card"><h3>Décision : plan proposé</h3>'+
+  '<b>Domaine :</b> '+(dom?dom.id:"non reconnu")+'<br><b>Confiance :</b> '+(conf*100).toFixed(0)+' % '+
+  '<span style="color:#8fb8ac">(plafond 95 % assumé)</span><br><b>Couverture de l\'objectif :</b> '+Math.round(couverture*100)+' % · '+
+  '<b>part non couverte :</b> '+manque+' %'+
+  '<ol>'+etapes.map(e=>'<li>'+e+'</li>').join('')+'</ol>'+
+  '<div style="margin-top:10px;color:#8fb8ac;font-size:12px">Pourquoi ce score : '+signaux.join(" · ")+'</div>'+
+  '<div class="mono" style="margin-top:8px">empreinte : '+h.slice(0,32)+'…</div></div>';
+ await eccSeal({...rec,hash:h});
+}
+async function eccSeal(rec){
+ const c=getChain();
+ c.links.push({t:rec.ts||new Date().toISOString(),type:rec.type||"decision",obj:(rec.objectif||"").slice(0,90),conf:rec.conf,h:rec.hash,prev:c.last});
+ if(c.links.length>200) c.links=c.links.slice(-200);
+ c.last=rec.hash;
+ localStorage.setItem("at_ecc_chain",JSON.stringify(c));
+ renderChain();
+}
+function renderChain(){
+ const c=getChain();
+ document.querySelector("#chain").textContent = c.links.length?
+   c.links.slice(-6).map((l,i)=>(c.links.length-Math.min(6,c.links.length)+i+1)+" · "+l.t.slice(11,19)+" · "+l.type+" · conf "+(l.conf*100).toFixed(0)+"% · "+l.h.slice(0,12)+"…").join("\n")+"\n— "+c.links.length+" maillons · dernier : "+c.last.slice(0,16)+"…"
+   : "chaîne vide";
+}
+async function eccVerify(){
+ const c=getChain();
+ if(!c.links.length){document.querySelector("#out").innerHTML='<div class="card">Aucune décision scellée pour l\'instant. Analyse un objectif d\'abord.</div>';return;}
+ let prev="GENESIS", ok=true, casse=-1;
+ for(let i=0;i<c.links.length;i++){
+   const l=c.links[i];
+   if(l.prev!==prev){ok=false;casse=i+1;break;}
+   prev=l.h;
+ }
+ document.querySelector("#out").innerHTML='<div class="card"><h3>Vérification de la chaîne</h3>'+
+  (ok?'<b style="color:#7dffb0">CHAÎNE INTACTE</b> — '+c.links.length+' maillons, aucun lien rompu.':'<b style="color:#ff9b9b">CHAÎNE ROMPUE</b> au maillon '+casse+'.')+
+  '<div class="mono" style="margin-top:8px">Les empreintes prouvent l\'ordre et l\'intégrité locale. Elles ne prouvent pas la véracité du contenu : une décision reste une décision, pas un fait.</div></div>';
+}
+renderChain();
+</script></body></html>
