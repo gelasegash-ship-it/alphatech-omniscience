@@ -1,0 +1,37 @@
+{
+  "manifeste": "registre externe des capacités",
+  "version": "1.0",
+  "mis_a_jour": "2026-11-10",
+  "regle": "Une capacité n'entre ici que si sa source est nommée. Aucune ligne inventée.",
+  "sources": [
+    {
+      "produit": "Pocket (Pocket AI)",
+      "editeur": "heypocket.com",
+      "nature": "boitier sans écran + application : capture de conversations, transcription, résumés et actions",
+      "verification": "pages produit et fiches App Store consultées le 10/11/2026",
+      "capacites": [
+        {"nom": "Capture continue de conversations", "detail": "enregistre l'audio ambiant en continu, sans écran", "ecc": "concept", "raison": "exige un micro ouvert en permanence et une politique de consentement, hors du périmètre d'une page web"},
+        {"nom": "Transcription automatique", "detail": "convertit la parole en texte", "ecc": "concept", "raison": "nécessite un moteur de reconnaissance vocale externe"},
+        {"nom": "Résumé automatique", "detail": "condense une réunion en quelques phrases", "ecc": "actif", "raison": "version extractive par pondération de termes, sans modèle de langage"},
+        {"nom": "Extraction d'actions à faire", "detail": "sort les tâches et responsables d'une conversation", "ecc": "actif", "raison": "détection par verbes d'action et structure de phrase"},
+        {"nom": "Plus de 120 langues", "detail": "résumés et actions multilingues", "ecc": "concept", "raison": "ECC ne couvre que FR et EN par lexique"},
+        {"nom": "Mémoire interrogeable", "detail": "recherche dans les enregistrements passés", "ecc": "partiel", "raison": "mémoire locale scellée SHA-256, sans moteur de recherche sémantique"},
+        {"nom": "Intégrations tierces", "detail": "envoi vers des outils de notes et d'agenda", "ecc": "concept", "raison": "exige des accès OAuth et un serveur"},
+        {"nom": "Modèles de pointe intégrés", "detail": "le boîtier s'appuie sur des modèles d'IA commerciaux", "ecc": "concept", "raison": "ECC n'embarque aucun modèle : elle raisonne par règles"},
+        {"nom": "Autonomie matérielle", "detail": "fonctionne sans téléphone, batterie dédiée", "ecc": "concept", "raison": "sans objet pour un logiciel de navigateur"}
+      ]
+    },
+    {
+      "produit": "Standard du marché des grands modèles",
+      "editeur": "multiples",
+      "nature": "capacités communes annoncées par les principaux assistants",
+      "verification": "annonces publiques, non testées ici",
+      "capacites": [
+        {"nom": "Compréhension d'images", "detail": "décrire et interpréter une image", "ecc": "concept", "raison": "aucun modèle de vision embarqué"},
+        {"nom": "Génération de code", "detail": "écrire du code exécutable", "ecc": "concept", "raison": "ECC ne génère pas de code, elle planifie"},
+        {"nom": "Voix naturelle", "detail": "parler et écouter", "ecc": "concept", "raison": "nécessite synthèse et reconnaissance vocales"},
+        {"nom": "Contexte très long", "detail": "traiter un livre entier d'un coup", "ecc": "partiel", "raison": "découpage en blocs avec recouvrement"}
+      ]
+    }
+  ]
+}

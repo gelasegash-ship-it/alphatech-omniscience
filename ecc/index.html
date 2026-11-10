@@ -235,4 +235,56 @@ renderChain();
 <div class="note">
 <b>Sur les capacités cachées.</b> Une capacité non documentée n'est pas une capacité qu'on peut te vendre : elle n'est ni vérifiable, ni testable, ni opposable. Ce qui est réel et mesurable ici, c'est ce tableau. Le reste relève de la croyance.
 </div>
+
+<h2>Registre externe appris (Pocket AI et standard du marché)</h2>
+<div class="note">
+<b>Comment ECC apprend des capacités.</b> Elle lit un registre public (<code>caps-external.json</code>), vérifie que chaque entrée porte un nom, un détail, un statut et une raison, refuse toute ligne sans source, puis fusionne ce qui est retenu dans son propre registre. Elle apprend des <i>déclarations</i>, jamais des modèles : lire qu'un boîtier sait transcrire ne lui donne pas la transcription.
+</div>
+<div>
+<button id="lkBtn">LIRE LE REGISTRE EXTERNE</button>
+<span id="lkMsg" style="font-size:13px;color:#8fb8ac;margin-left:10px">non chargé</span>
+</div>
+<div id="lkOut" style="margin-top:12px"></div>
+
+<script>
+(function(){
+  var ST={actif:"ACTIF",partiel:"PARTIEL",concept:"CONCEPT"};
+  function el(i){return document.getElementById(i)}
+  el("lkBtn").onclick=function(){
+    el("lkMsg").textContent="lecture…";
+    fetch("/alphatech-omniscience/ecc/caps-external.json?t="+Date.now())
+      .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
+      .then(function(d){
+        var retenues=[],rejetees=0;
+        (d.sources||[]).forEach(function(src){
+          (src.capacites||[]).forEach(function(c){
+            if(!c.nom||!c.detail||!c.ecc||!c.raison||!src.produit){rejetees++;return;}
+            if(!ST[c.ecc]){rejetees++;return;}
+            retenues.push({nom:c.nom,detail:c.detail,ecc:c.ecc,raison:c.raison,produit:src.produit,src:src.editeur});
+          });
+        });
+        var html='<div class="card"><h3>'+retenues.length+' capacités lues · '+rejetees+' rejetées (source ou champ manquant)</h3>';
+        html+='<table><thead><tr><th>Capacité</th><th>Ce qu\'elle fait</th><th>Produit d\'origine</th><th>Chez ECC</th><th>Pourquoi</th></tr></thead><tbody>';
+        retenues.forEach(function(c){
+          html+='<tr><td><b>'+c.nom+'</b></td><td>'+c.detail+'</td><td style="color:#8fb8ac">'+c.produit+'</td>'+
+                '<td><span class="st '+c.ecc+'">'+ST[c.ecc]+'</span></td><td style="color:#8fb8ac">'+c.raison+'</td></tr>';
+        });
+        html+='</tbody></table><div class="mono" style="margin-top:8px">registre daté du '+d.mis_a_jour+' · règle appliquée : «'+d.regle+'»</div></div>';
+        el("lkOut").innerHTML=html;
+        el("lkMsg").textContent=retenues.length+" capacités intégrées au registre affiché";
+        try{
+          var ch=JSON.parse(localStorage.getItem("at_ecc_chain")||'{"links":[],"last":"GENESIS"}');
+          var prev=ch.links.length?ch.links[ch.links.length-1].h:"GENESIS";
+          crypto.subtle.digest("SHA-256",new TextEncoder().encode(prev+"|lecture_registre|"+retenues.length+"|"+d.mis_a_jour))
+            .then(function(b){
+              var h=[].map.call(new Uint8Array(b),function(x){return x.toString(16).padStart(2,"0")}).join("");
+              ch.links.push({t:new Date().toISOString(),type:"lecture_registre",obj:retenues.length+" capacités lues",conf:1,h:h,prev:prev});
+              ch.last=h; localStorage.setItem("at_ecc_chain",JSON.stringify(ch));
+            });
+        }catch(e){}
+      })
+      .catch(function(e){ el("lkMsg").textContent="échec de lecture : "+e.message; });
+  };
+})();
+</script>
 </body></html>
