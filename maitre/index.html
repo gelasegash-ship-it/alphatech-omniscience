@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Réinitialiser la reconnaissance du maître — ALPHATECH</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0c;color:#eee9df;font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;padding:22px}
+.w{max-width:620px;margin:0 auto}
+h1{font-size:22px;color:#e8c878;margin-bottom:6px}
+.sub{color:#8d8b86;font-size:13.5px;margin-bottom:20px}
+h2{font-size:15px;color:#e8c878;margin:22px 0 8px}
+.card{background:#131316;border:1px solid #26262c;border-radius:8px;padding:14px;margin-bottom:12px;font-size:14px}
+.warn{border-left:3px solid #c0392b;background:#1a1210}
+.ok{border-left:3px solid #2f9e63}
+.state{font-family:ui-monospace,monospace;font-size:13px;color:#b9b5ad}
+.state b{color:#e8c878}
+input{width:100%;background:#0d0d10;border:1px solid #2a2a32;color:#eee9df;padding:11px;border-radius:6px;font:inherit;font-size:15px;margin-top:8px}
+input:focus{outline:0;border-color:#e8c878}
+button{width:100%;background:#e8c878;color:#0a0a0c;border:0;padding:13px;border-radius:6px;font-weight:700;font-size:15px;cursor:pointer;margin-top:12px}
+button.danger{background:#c0392b;color:#fff}
+ol{margin:8px 0 0 20px;font-size:14px}li{margin:5px 0}
+code{background:#1c1c22;padding:2px 6px;border-radius:4px;font-size:12.5px;color:#e8c878;word-break:break-all}
+#out{margin-top:12px;font-size:14px}
+</style></head><body><div class="w">
+<h1>Réinitialiser la reconnaissance du maître</h1>
+<div class="sub">ALPHATECH OMNISCIENCE · opération locale, sur cet appareil uniquement</div>
+
+<div class="card">
+<h2 style="margin-top:0">État actuel de ce navigateur</h2>
+<div class="state" id="etat">lecture…</div>
+</div>
+
+<div class="card warn">
+<b>Ce que tu as oublié ne peut pas être retrouvé.</b> La phrase est stockée sous forme d'empreinte SHA-256 : elle n'est réversible par personne, moi compris. La seule voie est de la remplacer. Cela efface aussi l'enrôlement du visage et de la voix, qui devront être refaits dans l'application.
+</div>
+
+<h2>1. Nouvelle phrase</h2>
+<input id="p1" type="password" placeholder="Nouvelle phrase (8 caractères minimum)" autocomplete="new-password">
+<input id="p2" type="password" placeholder="Répéter la nouvelle phrase" autocomplete="new-password">
+
+<h2>2. Confirmation obligatoire</h2>
+<input id="conf" type="text" placeholder="Écris JE CONFIRME" autocomplete="off">
+<button class="danger" id="go">RÉINITIALISER LA RECONNAISSANCE</button>
+<div id="out"></div>
+
+<h2>3. Après la réinitialisation</h2>
+<ol>
+<li>Ouvre l'application ALPHATECH sur ce même appareil et même adresse.</li>
+<li>La cérémonie d'enrôlement redémarre : entre ta nouvelle phrase, puis capture ton visage et ta voix.</li>
+<li>Note la phrase sur papier, jamais en photo, jamais dans un message.</li>
+</ol>
+
+<div class="card ok">
+<b>Si le bouton ne fait rien</b> (page ancienne en cache), utilise la console du navigateur : ouvre les outils de développement, onglet Console, et colle cette ligne, en remplaçant les mots entre guillemets par ta nouvelle phrase :
+<div style="margin-top:8px"><code>crypto.subtle.digest('SHA-256',new TextEncoder().encode('TA NOUVELLE PHRASE')).then(b=>{localStorage.setItem('ether_master_key',[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join(''));localStorage.removeItem('ether_master_face');localStorage.removeItem('ether_master_voice');localStorage.removeItem('ether_master_unlocked');alert('réinitialisé')})</code></div>
+</div>
+</div>
+<script>
+(function(){
+ var K="ether_master_key",F="ether_master_face",V="ether_master_voice",U="ether_master_unlocked",CH="at_acces_chain";
+ function el(i){return document.getElementById(i)}
+ function sha(t){return crypto.subtle.digest("SHA-256",new TextEncoder().encode(t)).then(function(b){
+   return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,"0")}).join("")})}
+ function etat(){
+   var k=localStorage.getItem(K),f=localStorage.getItem(F),v=localStorage.getItem(V),u=localStorage.getItem(U);
+   el("etat").innerHTML=
+     "phrase : <b>"+(k?"définie ("+k.slice(0,12)+"…)":"absente")+"</b><br>"+
+     "visage : <b>"+(f?"enrôlé":"non enrôlé")+"</b><br>"+
+     "voix : <b>"+(v?"enrôlée":"non enrôlée")+"</b><br>"+
+     "état de verrouillage : <b>"+(u?"déverrouillé":"verrouillé")+"</b>";
+ }
+ function sceller(action,fp){
+   var ch=[];try{ch=JSON.parse(localStorage.getItem(CH)||"[]")}catch(e){ch=[]}
+   var prev=ch.length?ch[ch.length-1].hash:"GENESIS";
+   var corps={t:new Date().toISOString(),action:action,empreinte:fp};
+   return sha(prev+JSON.stringify(corps)).then(function(h){
+     corps.prev=prev;corps.hash=h;ch.push(corps);
+     if(ch.length>200)ch=ch.slice(-200);
+     localStorage.setItem(CH,JSON.stringify(ch));return h;});
+ }
+ el("go").onclick=function(){
+   var a=el("p1").value,b=el("p2").value,c=el("conf").value.trim().toUpperCase();
+   var out=el("out");out.style.color="#f0a0a0";
+   if(c!=="JE CONFIRME"){out.textContent="Écris exactement JE CONFIRME pour autoriser.";return;}
+   if(!a||a.length<8){out.textContent="Nouvelle phrase trop courte : 8 caractères minimum.";return;}
+   if(a!==b){out.textContent="Les deux saisies ne correspondent pas.";return;}
+   sha(a).then(function(h){
+     localStorage.setItem(K,h);
+     localStorage.removeItem(F);localStorage.removeItem(V);localStorage.removeItem(U);
+     return sceller("reinitialisation_reconnaissance",h.slice(0,12)).then(function(s){
+       out.style.color="#7fdc9e";
+       out.innerHTML="<b>Réinitialisée.</b> Nouvelle empreinte "+h.slice(0,12)+"… · visage et voix effacés · événement scellé "+s.slice(0,12)+"…<br>Ouvre maintenant l'application et refais la cérémonie avec cette phrase.";
+       el("p1").value=el("p2").value=el("conf").value="";etat();
+     });
+   });
+ };
+ etat();
+})();
+</script></body></html>
