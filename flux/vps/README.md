@@ -56,3 +56,16 @@ Le script ne modifie rien : il constate l'état des services, le nombre de règl
 **Le durcissement SSH reste prudent.** Je n'ai pas désactivé l'authentification par mot de passe : le faire avant d'avoir testé une clé te verrouillerait dehors. C'est à toi de le faire après avoir posé ta clé.
 
 **Les règles ne serviront à rien sans Sysmon.** Elles lisent `win.eventdata.*`. Sans collecte Sysmon ou canal Security sur tes postes Windows, Wazuh tournera à vide, correctement mais silencieusement. C'est la prochaine étape une fois le serveur debout.
+
+---
+
+## Voie Docker (SSH + Wazuh conteneurisé)
+
+Deux scripts, deux rôles :
+
+| Fichier | Quand l'utiliser | RAM requise |
+|---|---|---|
+| `vps-bootstrap.sh` | Wazuh installé directement (tout-en-un) | 2 Go |
+| `setup-ssh-docker-wazuh.sh` | Wazuh en conteneurs, SSH durci | 4 Go |
+
+Le script Docker : installe Docker et le plugin compose, applique `vm.max_map_count=262144` (sans quoi l'indexeur meurt), monte ufw sur 22/443/1514/1515/55000, active fail2ban, désactive le mot de passe SSH **seulement si une clé publique est déjà présente** (sinon il conserve le mot de passe et le dit), clone le dépôt officiel Wazuh v4.9.2, génère les certificats, crée un mot de passe indexeur aléatoire en `.env` (600), démarre la pile, puis installe les 9 règles ALPHATECH dans le manager et vérifie qu'elles sont bien 9 avant de le redémarrer.
