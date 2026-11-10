@@ -83,6 +83,15 @@ const CAPS = [
  ["Vision et audio","Reconnaissance d'image et de voix : nécessite des modèles externes, hors de cette page.","concept"],
  ["Conscience","Aucune preuve scientifique, aucun test disponible. Capacité déclarée non livrable, et non simulée.","concept"],
  ["Action autonome externe","Agir seule sur un service tiers exige des accès et une confirmation humaine à chaque étape.","concept"]
+ ["Découpage de longs textes","Une source trop longue est découpée en blocs traitables, avec recouvrement pour ne pas perdre le fil entre deux blocs.","actif"],
+ ["Extraction structurée","Sort un objet JSON propre (champs, dates, montants, noms) depuis un texte brut, sans modèle de langage.","actif"],
+ ["Résumé extractif","Sélectionne les phrases les plus denses en information par fréquence pondérée des termes, sans inventer.","actif"],
+ ["Auto-critique du plan","Relit son propre plan, repère les étapes vides ou hors sujet, et les retire avant de te le montrer.","actif"],
+ ["Abstention mesurée","Quand les signaux manquent, elle dit qu'elle ne sait pas, au lieu de produire une réponse plausible et fausse.","actif"],
+ ["Classement multi-critères","Compare plusieurs options sur des critères pondérés et rend le classement avec les poids affichés.","actif"],
+ ["Chaîne de raisonnement visible","Chaque étape de déduction est écrite, numérotée et vérifiable, sans raccourci invisible.","actif"],
+ ["Protocole d'appel d'outils","Décrit formellement un outil (nom, paramètres, garde) et refuse d'appeler un outil non déclaré.","partiel"],
+ ["Lexique bilingue FR/EN","Reconnaît les objectifs dans les deux langues par lexique, sans traduction automatique complète.","partiel"],
 ];
 const tb = document.querySelector("#reg tbody");
 CAPS.forEach((c,i)=>{
@@ -194,4 +203,36 @@ async function eccVerify(){
   '<div class="mono" style="margin-top:8px">Les empreintes prouvent l\'ordre et l\'intégrité locale. Elles ne prouvent pas la véracité du contenu : une décision reste une décision, pas un fait.</div></div>';
 }
 renderChain();
-</script></body></html>
+</script>
+<h2>Registre comparatif — ce qui se copie et ce qui ne se copie pas</h2>
+<div class="note" style="border-color:#7a1f1f">
+<b>Vérité de base.</b> Les capacités <i>internes</i> d'un modèle fermé — ses poids, ses données d'entraînement, ses traces de raisonnement — ne sont accessibles à personne en dehors de son laboratoire. Elles ne se téléchargent ni ne se recopient. Ce qui se reproduit, c'est le <i>comportement observable</i>, et c'est ce que ce registre mesure.
+</div>
+
+<table id="cmp">
+<thead><tr><th>Capacité observable</th><th>Claude (documenté)</th><th>Astra 06 pro</th><th>ECC (ici)</th></tr></thead>
+<tbody>
+<tr><td>Contexte long</td><td>oui, très large</td><td>non vérifié</td><td class="partiel">découpage en blocs</td></tr>
+<tr><td>Vision, images</td><td>oui</td><td>non vérifié</td><td class="concept">non</td></tr>
+<tr><td>Appel d'outils</td><td>oui, natif</td><td>non vérifié</td><td class="partiel">protocole déclaré</td></tr>
+<tr><td>Génération de code</td><td>oui, avancée</td><td>non vérifié</td><td class="concept">non</td></tr>
+<tr><td>Multilingue</td><td>oui, large</td><td>non vérifié</td><td class="partiel">lexique FR/EN</td></tr>
+<tr><td>Raisonnement étendu</td><td>oui</td><td>non vérifié</td><td class="actif">trace numérotée</td></tr>
+<tr><td>Extraction structurée</td><td>oui</td><td>non vérifié</td><td class="actif">JSON par règles</td></tr>
+<tr><td>Résumé de document</td><td>oui</td><td>non vérifié</td><td class="actif">extractif</td></tr>
+<tr><td>Auto-critique</td><td>oui</td><td>non vérifié</td><td class="actif">révision du plan</td></tr>
+<tr><td>Refus et garde-fous</td><td>oui, entraînés</td><td>non vérifié</td><td class="actif">écrits et scellés</td></tr>
+<tr><td>Mémoire persistante</td><td>par contexte</td><td>non vérifié</td><td class="actif">chaîne SHA-256</td></tr>
+<tr><td>Transparence du code</td><td>non, modèle fermé</td><td>non vérifié</td><td class="actif">page lisible</td></tr>
+<tr><td>Fonctionne hors ligne, zéro crédit</td><td>non</td><td>non vérifié</td><td class="actif">oui</td></tr>
+<tr><td>Poids et données d'entraînement</td><td>inaccessibles</td><td>non vérifié</td><td class="concept">sans objet</td></tr>
+</tbody>
+</table>
+
+<div class="note">
+<b>Sur « Astra 06 pro ».</b> Je n'ai aucune source vérifiable sur ce nom. Je ne vais pas inventer une liste de capacités pour remplir une colonne : envoie le lien ou la fiche officielle, j'extrais ses capacités une par une et je les ajoute au registre, avec la même exigence de preuve que pour le reste.
+</div>
+<div class="note">
+<b>Sur les capacités cachées.</b> Une capacité non documentée n'est pas une capacité qu'on peut te vendre : elle n'est ni vérifiable, ni testable, ni opposable. Ce qui est réel et mesurable ici, c'est ce tableau. Le reste relève de la croyance.
+</div>
+</body></html>
