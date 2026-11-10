@@ -169,4 +169,83 @@ $("stats").innerHTML = `<div class="stat"><span>Clones 14 j</span><b>${D.clones}
 const mx = Math.max(...D.jours.map(j=>j.n),1);
 $("rows").innerHTML = D.jours.slice().reverse().map(j=>`<tr><td>${j.j}</td><td>${j.n}</td><td>${j.u}</td><td><span class="bar" style="width:${Math.round(j.n/mx*100)}%"></span></td></tr>`).join("");
 rendre(); rendreChaine();
-</script></div></body></html>
+</script></div>
+<section id="phraseSec">
+<h2>Phrase secrète du maître</h2>
+<div class="note">Cette phrase est le verrou de l'application ALPHATECH. Elle est stockée <b>uniquement</b> dans ce navigateur, sous forme d'empreinte SHA-256 : personne, moi compris, ne peut la lire. La réinitialisation se fait donc ici, dans ton navigateur, jamais à distance.</div>
+<p>État : <b id="pkEtat">vérification…</b></p>
+
+<h3>1. Changer la phrase (tu connais l'ancienne)</h3>
+<input id="pkOld" type="password" placeholder="Ancienne phrase" autocomplete="off">
+<input id="pkNew" type="password" placeholder="Nouvelle phrase (8 caractères minimum)" autocomplete="off">
+<input id="pkNew2" type="password" placeholder="Répéter la nouvelle phrase" autocomplete="off">
+<button id="pkChg">Changer la phrase</button>
+
+<h3>2. Réinitialisation forcée (ancienne phrase perdue)</h3>
+<div class="note" style="border-left:3px solid #b45309">Effet réel : l'ancienne phrase ne déverrouille plus rien, l'enrôlement du visage et de la voix est effacé (le score facial n'a jamais été le verrou fort), et tout ce qui était protégé par cette phrase devient inaccessible avec elle. Sur un appareil partagé, effacer la clé est possible pour quiconque y a accès : c'est la limite d'un verrou local, et je préfère te l'écrire.</div>
+<input id="pkForce" type="text" placeholder="Écris JE CONFIRME" autocomplete="off">
+<input id="pkNew3" type="password" placeholder="Nouvelle phrase (8 caractères minimum)" autocomplete="off">
+<input id="pkNew4" type="password" placeholder="Répéter la nouvelle phrase" autocomplete="off">
+<button id="pkReset">Réinitialiser de force</button>
+
+<div id="pkOut"></div>
+</section>
+
+<script>
+(function(){
+  var K="ether_master_key", F="ether_master_face", V="ether_master_voice", CH="at_acces_chain";
+  function el(i){return document.getElementById(i)}
+  function sha(t){return crypto.subtle.digest("SHA-256", new TextEncoder().encode(t)).then(function(b){
+    return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,"0")}).join("")})}
+  function say(m,ok){ var o=el("pkOut"); o.textContent=m; o.style.color = ok===false ? "#f87171" : "#e8c878"; }
+  function etat(){
+    var h=localStorage.getItem(K), e=el("pkEtat");
+    if(h){ e.textContent = "phrase définie · empreinte "+h.slice(0,12)+"…"; e.style.color="#4ade80"; }
+    else { e.textContent = "aucune phrase définie dans ce navigateur"; e.style.color="#f87171"; }
+  }
+  function sceller(action, fp){
+    var chain = JSON.parse(localStorage.getItem(CH) || "[]");
+    var prev = chain.length ? chain[chain.length-1].hash : "GENESIS";
+    var corps = {t:new Date().toISOString(), action:action, empreinte:fp};
+    return sha(prev + JSON.stringify(corps)).then(function(hh){
+      corps.prev=prev; corps.hash=hh; chain.push(corps);
+      if(chain.length>200) chain=chain.slice(-200);
+      localStorage.setItem(CH, JSON.stringify(chain)); return hh;
+    });
+  }
+  function valider(n1,n2){
+    if(!n1 || n1.length<8) return "Nouvelle phrase trop courte : 8 caractères minimum.";
+    if(n1!==n2) return "Les deux saisies ne correspondent pas.";
+    return null;
+  }
+  el("pkChg").onclick=function(){
+    var o=el("pkOld").value, n1=el("pkNew").value, n2=el("pkNew2").value;
+    var err=valider(n1,n2); if(err) return say(err,false);
+    sha(o).then(function(ho){
+      if(ho!==localStorage.getItem(K)) return say("Ancienne phrase incorrecte.",false);
+      return sha(n1).then(function(hn){
+        localStorage.setItem(K,hn);
+        return sceller("changement_phrase", hn.slice(0,12)).then(function(hh){
+          say("Phrase changée. Empreinte "+hn.slice(0,12)+"… · scellé "+hh.slice(0,12)+"…",true); etat();
+          el("pkOld").value=el("pkNew").value=el("pkNew2").value="";
+        });
+      });
+    });
+  };
+  el("pkReset").onclick=function(){
+    if(el("pkForce").value.trim().toUpperCase()!=="JE CONFIRME") return say("Écris exactement JE CONFIRME pour autoriser la réinitialisation.",false);
+    var n1=el("pkNew3").value, n2=el("pkNew4").value;
+    var err=valider(n1,n2); if(err) return say(err,false);
+    sha(n1).then(function(hn){
+      localStorage.setItem(K,hn);
+      localStorage.removeItem(F); localStorage.removeItem(V);
+      return sceller("reinitialisation_forcée", hn.slice(0,12)).then(function(hh){
+        say("Phrase réinitialisée. Empreinte "+hn.slice(0,12)+"… · visage et voix effacés · scellé "+hh.slice(0,12)+"…",true);
+        etat(); el("pkForce").value=el("pkNew3").value=el("pkNew4").value="";
+      });
+    });
+  };
+  etat();
+})();
+</script>
+</body></html>
