@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EDGE — Binance, paris et discipline · ALPHATECH</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#07100c;color:#e8f5ee;font:15px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;padding:22px}
+.w{max-width:900px;margin:0 auto}
+h1{font-size:24px;color:#5ef2a0;margin-bottom:4px}
+.sub{color:#84a396;font-size:13px;margin-bottom:18px}
+h2{font-size:16px;color:#5ef2a0;margin:26px 0 10px;border-left:3px solid #2fbf71;padding-left:10px}
+.warn{background:#1a1410;border-left:3px solid #e0a050;padding:12px 14px;border-radius:6px;font-size:13.5px;margin-bottom:16px}
+.refuse{background:#1a1010;border-left:3px solid #d05050;padding:12px 14px;border-radius:6px;font-size:13.5px;margin:12px 0}
+.card{background:#0d1a14;border:1px solid #1c3b2c;border-radius:8px;padding:14px;margin-bottom:12px;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;color:#84a396;font-weight:600;border-bottom:1px solid #1c3b2c;padding:7px 6px}
+td{border-bottom:1px solid #142a20;padding:7px 6px}
+.pos{color:#5ef2a0}.neg{color:#ff8a8a}
+input,select{background:#08130e;border:1px solid #1c3b2c;color:#e8f5ee;padding:10px;border-radius:6px;font:inherit;font-size:14px;width:100%}
+label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#84a396;margin:10px 0 4px}
+button{background:#2fbf71;color:#04120b;border:0;padding:11px 16px;border-radius:6px;font-weight:700;cursor:pointer;margin-top:10px}
+button.sec{background:#0f2a1e;color:#5ef2a0;border:1px solid #1c3b2c}
+.grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.mono{font-family:ui-monospace,monospace;font-size:12px;color:#84a396;word-break:break-all}
+#chain{max-height:150px;overflow:auto}
+</style></head><body><div class="w">
+
+<h1>EDGE — Binance, paris et discipline</h1>
+<div class="sub">ALPHATECH OMNISCIENCE · données de marché réelles · calcul d'espérance · journal scellé</div>
+
+<div class="warn">
+<b>Ce que cette page fait et ne fera jamais.</b> Elle lit les prix réels de Binance, calcule l'espérance mathématique d'un pari, mesure la marge du bookmaker et tient un journal infalsifiable. Elle ne garantit aucun gain : personne ne peut, et un système qui te promet de « te faire gagner » te ment. Sur la durée, c'est la marge du bookmaker qui gagne, sauf là où un avantage mesurable existe. Mon rôle est de te dire lequel des deux cas tu es en train de vivre, chiffres en main.
+</div>
+
+<h2>1. Binance — marché réel</h2>
+<div class="grid">
+ <div><label>Paires</label><input id="syms" value="BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT"></div>
+</div>
+<button id="mkt">LIRE LES PRIX RÉELS</button>
+<span id="mktMsg" style="margin-left:10px;font-size:13px;color:#84a396"></span>
+<div id="mktOut" style="margin-top:12px"></div>
+
+<h2>2. Espérance d'un pari</h2>
+<label>Cote proposée</label><input id="cote" type="number" step="0.01" value="2.10">
+<label>Ta probabilité estimée (%)</label><input id="proba" type="number" step="0.5" value="50">
+<label>Mise (FCFA)</label><input id="mise" type="number" step="500" value="5000">
+<button id="ev">CALCULER L'ESPÉRANCE</button>
+<div id="evOut" style="margin-top:12px"></div>
+
+<h2>3. Marge du bookmaker (deux issues)</h2>
+<label>Cote issue A</label><input id="cA" type="number" step="0.01" value="1.90">
+<label>Cote issue B</label><input id="cB" type="number" step="0.01" value="1.95">
+<button class="sec" id="marge">CALCULER LA MARGE</button>
+<div id="margeOut" style="margin-top:12px"></div>
+
+<h2>4. Jeux de hasard : l'espérance structurelle</h2>
+<div class="card">
+<table>
+<thead><tr><th>Jeu</th><th>Avantage de la maison</th><th>Sur 10 000 FCFA misés</th></tr></thead>
+<tbody>
+<tr><td>Roulette européenne</td><td class="neg">2,70 %</td><td class="neg">−270 FCFA en moyenne</td></tr>
+<tr><td>Roulette américaine</td><td class="neg">5,26 %</td><td class="neg">−526 FCFA</td></tr>
+<tr><td>Blackjack, stratégie de base</td><td class="neg">0,50 %</td><td class="neg">−50 FCFA</td></tr>
+<tr><td>Machines à sous</td><td class="neg">2 à 15 %</td><td class="neg">−200 à −1 500 FCFA</td></tr>
+<tr><td>Keno</td><td class="neg">25 à 35 %</td><td class="neg">−2 500 à −3 500 FCFA</td></tr>
+<tr><td>Loterie</td><td class="neg">≈ 50 %</td><td class="neg">−5 000 FCFA</td></tr>
+<tr><td>Paris sportifs, marge typique 5 à 8 %</td><td class="neg">5 à 8 %</td><td class="neg">−500 à −800 FCFA</td></tr>
+</tbody></table>
+<div class="mono" style="margin-top:10px">Ces chiffres sont des ordres de grandeur publiés par les régulateurs et les opérateurs. Ils ne varient pas avec la stratégie : seule la variance change.</div>
+</div>
+
+<h2>5. Moteur de mutation — se corriger avec des preuves</h2>
+<div class="card">
+<p style="font-size:13.5px;color:#b8d4c6">Le moteur tient ses propres paramètres (seuil RSI, taille de mise, écart minimum). Il lit de vraies bougies Binance, teste une variante de paramètres, et <b>propose</b> la mutation seulement si elle fait mieux sur l'historique. Rien ne s'applique sans ton accord écrit : une IA qui modifie ses règles toute seule sans preuve ni garde-fou n'est pas autonome, elle est hors de contrôle.</p>
+<div class="grid">
+ <div><label>Paire testée</label><input id="mutSym" value="BTCUSDT"></div>
+ <div><label>Bougies (max 1000)</label><input id="mutN" type="number" value="500" max="1000"></div>
+</div>
+<button id="mut">LANCER UNE MUTATION TESTÉE</button>
+<div id="mutOut" style="margin-top:12px"></div>
+</div>
+
+<h2>6. Journal scellé</h2>
+<button class="sec" id="verif">VÉRIFIER LA CHAÎNE</button>
+<div id="chain" class="mono" style="margin-top:10px">chaîne vide</div>
+
+<div class="refuse">
+<b>Ce que je refuse, et pourquoi.</b> Promettre un gain : impossible, et c'est le mécanisme de toutes les arnaques de paris. Parier à ta place ou automatiser des mises réelles : décision financière qui t'appartient, et illégale sans compte vérifié à ton nom. Cibler des jeux truqués ou des sites non agréés : tu perdrais sans recours. Rappel utile : au Congo, les jeux d'argent sont réglementés et interdits aux mineurs ; mise seulement ce que tu peux perdre entièrement.
+</div>
+
+<div class="mono">Données Binance lues côté navigateur, aucun intermédiaire. Journal conservé sur cet appareil.</div>
+</div>
+<script>
+(function(){
+"use strict";
+var CH="at_edge_chain", PG="at_edge_params";
+function el(i){return document.getElementById(i)}
+function num(i,d){var v=parseFloat(el(i).value);return isNaN(v)?d:v}
+function fcfa(n){return Math.round(n).toLocaleString("fr-FR")+" FCFA"}
+function sha(t){return crypto.subtle.digest("SHA-256",new TextEncoder().encode(t)).then(function(b){
+  return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,"0")}).join("")})}
+function chain(){try{return JSON.parse(localStorage.getItem(CH)||'{"links":[],"last":"GENESIS"}')}catch(e){return {links:[],last:"GENESIS"}}}
+function seal(type,data){
+  var c=chain(); var corps={t:new Date().toISOString(),type:type,data:data};
+  return sha(c.last+"|"+JSON.stringify(corps)).then(function(h){
+    corps.prev=c.last; corps.h=h; c.links.push(corps);
+    if(c.links.length>240) c.links=c.links.slice(-240);
+    c.last=h; localStorage.setItem(CH,JSON.stringify(c)); render(); return h;});
+}
+function render(){
+  var c=chain(), n=c.links.length;
+  el("chain").textContent = n ? c.links.slice(-5).map(function(l,i){
+    return (n-Math.min(5,n)+i+1)+" · "+l.t.slice(11,19)+" · "+l.type+" · "+l.h.slice(0,10)+"…";
+  }).join("\n")+"\n— "+n+" maillons" : "chaîne vide";
+}
+
+/* ---- accès Binance multi-hôtes (api.binance.com est bloqué depuis certaines régions) ---- */
+var HOSTS=["https://data-api.binance.vision","https://api.binance.com"];
+function bx(path){
+  var i=0;
+  function essai(){
+    if(i>=HOSTS.length) return Promise.reject(new Error("tous les hôtes Binance sont injoignables"));
+    var h=HOSTS[i++];
+    return fetch(h+path).then(function(r){
+      if(!r.ok) throw new Error("HTTP "+r.status);
+      return r.json();
+    }).catch(function(){ return essai(); });
+  }
+  return essai();
+}
+/* ---- 1. marché réel ---- */
+el("mkt").onclick=function(){
+  var syms=el("syms").value.split(",").map(function(s){return s.trim().toUpperCase()}).filter(Boolean).slice(0,8);
+  el("mktMsg").textContent="lecture…";
+  Promise.all(syms.map(function(s){
+    return bx("/api/v3/ticker/24hr?symbol="+s);
+  })).then(function(rows){
+    var h='<div class="card"><table><thead><tr><th>Paire</th><th>Prix</th><th>24 h</th><th>Volume</th></tr></thead><tbody>';
+    rows.forEach(function(r){
+      var chg=parseFloat(r.priceChangePercent);
+      h+='<tr><td><b>'+r.symbol+'</b></td><td>'+parseFloat(r.lastPrice).toLocaleString("fr-FR")+'</td>'+
+         '<td class="'+(chg>=0?"pos":"neg")+'">'+(chg>=0?"+":"")+chg.toFixed(2)+' %</td>'+
+         '<td>'+Math.round(parseFloat(r.quoteVolume)).toLocaleString("fr-FR")+' USDT</td></tr>';
+    });
+    h+='</tbody></table><div class="mono" style="margin-top:8px">Source : data-api.binance.vision (miroir public Binance) · '+new Date().toLocaleString("fr-FR")+'</div></div>';
+    el("mktOut").innerHTML=h;
+    el("mktMsg").textContent=rows.length+" paires lues";
+    seal("marche",rows.map(function(r){return r.symbol+":"+r.lastPrice}).join(","));
+  }).catch(function(e){
+    el("mktMsg").textContent="échec : "+e.message;
+    el("mktOut").innerHTML='<div class="card neg">Lecture impossible. Cause fréquente : réseau filtré ou Binance bloqué depuis ce pays. Réessaie en données mobiles, ou passe par le VPS.</div>';
+  });
+};
+
+/* ---- 2. espérance ---- */
+el("ev").onclick=function(){
+  var cote=num("cote",0), p=num("proba",0)/100, mise=num("mise",0);
+  if(cote<=1||p<=0||mise<=0){el("evOut").innerHTML='<div class="card neg">Renseigne une cote supérieure à 1, une probabilité et une mise.</div>';return;}
+  var evp=(cote*p-1)*100, evm=evp/100*mise, kelly=(cote*p-1)/(cote-1);
+  var verdict, cls;
+  if(evp>2){verdict="Avantage mathématique réel : la cote est supérieure à ta probabilité.";cls="pos";}
+  else if(evp>-1){verdict="Quasi neutre : l'avantage est trop mince pour couvrir l'erreur d'estimation.";cls="";}
+  else {verdict="Espérance négative : sur le long terme, ce pari te coûte de l'argent.";cls="neg";}
+  el("evOut").innerHTML='<div class="card"><b>Espérance : <span class="'+cls+'">'+(evp>=0?"+":"")+evp.toFixed(2)+' %</span></b>'+
+    ' → '+(evm>=0?"+":"")+fcfa(evm)+' par pari<br>'+
+    '<b>Mise optimale (Kelly, plafonnée à 2 %) :</b> '+(kelly>0?Math.min(kelly*100,2).toFixed(2):"0,00")+' % de la bankroll<br>'+
+    '<div class="'+cls+'" style="margin-top:8px">'+verdict+'</div>'+
+    '<div class="mono" style="margin-top:8px">Formule : espérance = (cote × probabilité − 1). Kelly négatif signifie qu\'il faut s\'abstenir, pas « jouer petit ».</div></div>';
+  seal("esperance",{cote:cote,p:p,evp:+evp.toFixed(2)});
+};
+
+/* ---- 3. marge bookmaker ---- */
+el("marge").onclick=function(){
+  var a=num("cA",0), b=num("cB",0);
+  if(a<=1||b<=1){el("margeOut").innerHTML='<div class="card neg">Cotes invalides.</div>';return;}
+  var s=1/a+1/b, marge=(s-1)*100, pa=(1/a)/s*100, pb=(1/b)/s*100;
+  el("margeOut").innerHTML='<div class="card"><b>Marge du bookmaker : <span class="'+(marge>0?"neg":"pos")+'">'+marge.toFixed(2)+' %</span></b><br>'+
+    'Probabilités réelles estimées : A '+pa.toFixed(1)+' % · B '+pb.toFixed(1)+' %<br>'+
+    '<div class="mono" style="margin-top:8px">Sous 0 %, il y a un arbitrage possible entre deux opérateurs — rare et de courte durée. Au-dessus de 5 %, ton espérance est négative avant même de choisir.</div></div>';
+  seal("marge",{a:a,b:b,marge:+marge.toFixed(2)});
+};
+
+/* ---- 5. mutation testée sur données réelles ---- */
+function rsi(closes,period){
+  var out=[],gains=0,losses=0;
+  for(var i=1;i<closes.length;i++){
+    var d=closes[i]-closes[i-1];
+    if(i<=period){ if(d>0)gains+=d; else losses-=d; if(i===period){gains/=period;losses/=period;out[i]=100-100/(1+(losses?gains/losses:99));} }
+    else {
+      gains=(gains*(period-1)+Math.max(d,0))/period;
+      losses=(losses*(period-1)+Math.max(-d,0))/period;
+      out[i]=100-100/(1+(losses?gains/losses:99));
+    }
+  }
+  return out;
+}
+function backtest(closes,R,buy,sell,stake){
+  var pos=0,entry=0,eq=1,trades=0,wins=0;
+  for(var i=15;i<closes.length;i++){
+    if(!isFinite(R[i])) continue;
+    if(pos===0&&R[i]<buy){pos=1;entry=closes[i];}
+    else if(pos===1&&R[i]>sell){var r=(closes[i]-entry)/entry; eq*= (1+stake*r); if(r>0)wins++; trades++; pos=0;}
+  }
+  return {eq:eq,trades:trades,wins:wins};
+}
+el("mut").onclick=function(){
+  var sym=el("mutSym").value.trim().toUpperCase()||"BTCUSDT", n=Math.min(1000,Math.max(100,num("mutN",500)));
+  el("mutOut").innerHTML='<div class="card">lecture des bougies…</div>';
+  bx("/api/v3/klines?symbol="+sym+"&interval=1h&limit="+n)
+   .then(function(rows){
+     var closes=rows.map(function(r){return parseFloat(r[4])});
+     var R=rsi(closes,14);
+     var base=JSON.parse(localStorage.getItem(PG)||'{"buy":30,"sell":70,"stake":0.02}');
+     var cur=backtest(closes,R,base.buy,base.sell,base.stake);
+     var cands=[];
+     [20,25,30,35,40].forEach(function(b){[60,65,70,75,80].forEach(function(s){
+       if(s>b+10) cands.push({buy:b,sell:s});
+     })});
+     var best=null;
+     cands.forEach(function(c){
+       var r=backtest(closes,R,c.buy,c.sell,base.stake);
+       if(!best||r.eq>best.eq) best={buy:c.buy,sell:c.sell,eq:r.eq,trades:r.trades,wins:r.wins};
+     });
+     var h='<div class="card"><b>Paire '+sym+' · '+closes.length+' bougies H1</b><br>';
+     h+='Paramètres actuels : RSI achat <'+base.buy+', vente >'+base.sell+' → équité ×'+cur.eq.toFixed(3)+' ('+cur.trades+' trades, '+cur.wins+' gagnants)<br>';
+     if(best){
+       h+='Meilleure variante trouvée : achat <'+best.buy+', vente >'+best.sell+' → équité ×'+best.eq.toFixed(3)+' ('+best.trades+' trades, '+best.wins+' gagnants)<br>';
+       var gain=(best.eq-cur.eq)*100;
+       if(gain>0.5){
+         h+='<div class="pos" style="margin-top:8px"><b>Mutation proposée</b> : +'+gain.toFixed(1)+' points d\'équité sur l\'historique.</div>';
+         h+='<label style="margin-top:10px">Pour appliquer, écris JE CONFIRME</label><input id="mconf" placeholder="JE CONFIRME">';
+         h+='<button id="mapply">APPLIQUER LA MUTATION</button>';
+       } else {
+         h+='<div style="margin-top:8px">Aucune variante ne fait nettement mieux : la meilleure configuration reste celle en place. Je ne change rien.</div>';
+       }
+     }
+     h+='<div class="mono" style="margin-top:10px">Un backtest ne prédit pas l\'avenir : il élimine les règles manifestement mauvaises. Les frais, le slippage et le spread ne sont pas modélisés ici.</div></div>';
+     el("mutOut").innerHTML=h;
+     var btn=el("mapply");
+     if(btn) btn.onclick=function(){
+       if(el("mconf").value.trim().toUpperCase()!=="JE CONFIRME"){alert("Écris JE CONFIRME pour appliquer.");return;}
+       base.buy=best.buy; base.sell=best.sell;
+       localStorage.setItem(PG,JSON.stringify(base));
+       seal("mutation_appliquee",{sym:sym,buy:best.buy,sell:best.sell,eq:+best.eq.toFixed(3)}).then(function(hh){
+         el("mutOut").innerHTML='<div class="card pos">Mutation appliquée et scellée ('+hh.slice(0,12)+'…). Nouveaux seuils : RSI <'+best.buy+' / >'+best.sell+'.</div>';
+       });
+     };
+     seal("mutation_test",{sym:sym,best:best?{buy:best.buy,sell:best.sell,eq:+best.eq.toFixed(3)}:null});
+   })
+   .catch(function(e){el("mutOut").innerHTML='<div class="card neg">Lecture Binance impossible : '+e.message+'</div>'});
+};
+
+/* ---- 6. vérification ---- */
+el("verif").onclick=function(){
+  var c=chain();
+  if(!c.links.length){el("chain").textContent="chaîne vide";return;}
+  var prev="GENESIS",ok=true,casse=0;
+  for(var i=0;i<c.links.length;i++){ if(c.links[i].prev!==prev){ok=false;casse=i+1;break;} prev=c.links[i].h; }
+  el("chain").textContent=(ok?"CHAÎNE INTACTE — "+c.links.length+" maillons":"CHAÎNE ROMPUE au maillon "+casse)+"\n\n"+el("chain").textContent;
+};
+render();
+})();
+</script>
+</body></html>
