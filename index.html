@@ -6037,5 +6037,27 @@ badge();
 
 
 <script src="https://gelasegash-ship-it.github.io/alphatech-omniscience/embed/gardien.js" data-pos="br"></script>
+
+<script>
+/* Compteur d'ouvertures ALPHATECH — anonyme, sans IP conservée, sans identifiant.
+   Un seul nombre est incrémenté sur un service public ; rien d'autre n'est transmis. */
+(function(){
+  var NS="alphatech-omniscience", KEY="ouvertures";
+  function badge(n){
+    var d=document.createElement("div");
+    d.id="atCompteur";
+    d.style.cssText="position:fixed;left:8px;bottom:8px;z-index:9998;background:rgba(13,7,20,.92);color:#ffb347;border:1px solid rgba(199,125,255,.35);border-radius:10px;padding:5px 9px;font:11px ui-monospace,monospace;letter-spacing:.03em";
+    d.textContent="ALPHATECH · ouverture n° "+n;
+    d.title="Compteur anonyme d'ouvertures. Aucune adresse IP, aucun identifiant n'est enregistré.";
+    document.body.appendChild(d);
+    setTimeout(function(){ d.style.transition="opacity .6s"; d.style.opacity="0"; }, 9000);
+    setTimeout(function(){ d.remove(); }, 10000);
+  }
+  fetch("https://abacus.jasoncameron.dev/hit/"+NS+"/"+KEY,{cache:"no-store"})
+    .then(function(r){return r.json()})
+    .then(function(d){ if(d && typeof d.value==="number") badge(d.value); })
+    .catch(function(){});
+})();
+</script>
 </body>
 </html>
