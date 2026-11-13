@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Partager ALPHATECH — messages prêts</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d0714;color:#EFE8F7;font:15px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;padding:22px}
+.w{max-width:760px;margin:0 auto}
+h1{font-size:24px;color:#FFB347;margin-bottom:4px}
+.sub{color:#a08fb8;font-size:13px;margin-bottom:18px}
+h2{font-size:15px;color:#C77DFF;margin:24px 0 8px;border-left:3px solid #FFB347;padding-left:10px}
+.card{background:#160c22;border:1px solid #33204a;border-radius:9px;padding:14px;margin-bottom:12px}
+.msg{background:#0f0818;border:1px solid #2a1a3d;border-radius:7px;padding:12px;font-size:14px;white-space:pre-wrap;margin:8px 0;color:#e8dcf5}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+a.b,button.b{display:inline-block;text-decoration:none;border:0;cursor:pointer;padding:9px 13px;border-radius:6px;font-size:13px;font-weight:700;font-family:inherit}
+.wa{background:#25D366;color:#04220f}.fb{background:#1877F2;color:#fff}.li{background:#0A66C2;color:#fff}.cp{background:#33204a;color:#FFB347}
+.note{background:#1a0f14;border-left:3px solid #d05050;border-radius:6px;padding:11px 13px;font-size:13px;margin:14px 0;color:#e8c8c8}
+</style></head><body><div class="w">
+<h1>Partager ALPHATECH</h1>
+<div class="sub">Messages écrits pour chaque interlocuteur. Tu appuies, le message part de ton compte, avec ta voix.</div>
+
+<div class="note">Rien n'est envoyé par cette page. Elle prépare le message et ouvre ton application : l'envoi reste ton geste, sur ton numéro, à ton nom.</div>
+
+<div id="liste"></div>
+
+<h2>Le lien à partager</h2>
+<div class="card">
+<div class="msg" id="lien"></div>
+<div class="row">
+<a class="b wa" id="waApp">Partager l'application sur WhatsApp</a>
+<a class="b fb" id="fbApp">Publier sur Facebook</a>
+<button class="b cp" id="cpLien">Copier le lien</button>
+</div>
+</div>
+</div>
+<script>
+(function(){
+  var APP = "https://gelasegash-ship-it.github.io/alphatech-omniscience/";
+  var CIBLES = [
+    { titre: "Hôtel, restaurant, commerce",
+      msg: "Bonjour,\n\nJe suis Diamesso Zola, je travaille à Brazzaville sur l'automatisation des messages clients.\n\nUne chose simple : quand un client écrit à 22h, personne ne répond, et il va chez le voisin. Ce que j'installe répond seul, prend la réservation, et vous recevez la demande sur WhatsApp.\n\nPas d'avance. Vous payez seulement si ça vous rapporte des clients.\n\nJe vous montre en 10 minutes, sans engagement : " + APP },
+    { titre: "Clinique, cabinet, pharmacie",
+      msg: "Bonjour,\n\nJe suis Diamesso Zola. Je travaille avec les établissements de santé de Brazzaville sur deux sujets : la prise de rendez-vous automatique, et la protection des données patients.\n\nJe peux vous montrer en 10 minutes comment les demandes de rendez-vous arrivent seules, même la nuit, sans qu'une personne soit au téléphone.\n\nGratuit à voir, sans engagement : " + APP },
+    { titre: "Agence immobilière",
+      msg: "Bonjour,\n\nDiamesso Zola, Brazzaville. J'automatise la réception des annonces et des demandes de visite pour les agences.\n\nLes clients qui écrivent le soir reçoivent une réponse immédiate, et vous recevez une fiche propre le matin.\n\nJe vous montre quand vous voulez, 10 minutes : " + APP },
+    { titre: "Particulier, entrepreneur, étudiant",
+      msg: "J'ai construit un système qui travaille pour moi, et il est libre d'accès.\n\nIl vérifie la sécurité d'un site, calcule si un pari est perdant avant que tu le prennes, transcrit et résume tes réunions, et note la faisabilité réelle de 62 technologies.\n\nÇa s'appelle ALPHATECH, ça marche sur ton téléphone, et c'est ici : " + APP },
+    { titre: "Statut WhatsApp ou groupe",
+      msg: "Une femme sur dix vit avec l'endométriose, souvent sans le savoir, et souvent sans être crue.\n\nJ'ai fait un film de 1 minute 21 dessus, gratuit, à partager : " + APP + "endo/\n\nSi la douleur est là depuis des mois, consulte." }
+  ];
+
+  var box = document.getElementById("liste");
+  CIBLES.forEach(function(c, i){
+    var enc = encodeURIComponent(c.msg);
+    var d = document.createElement("div");
+    d.className = "card";
+    d.innerHTML = '<b style="color:#FFB347">' + c.titre + '</b>' +
+      '<div class="msg">' + c.msg.replace(/</g, "&lt;") + '</div>' +
+      '<div class="row">' +
+      '<a class="b wa" target="_blank" rel="noopener" href="https://wa.me/?text=' + enc + '">Envoyer par WhatsApp</a>' +
+      '<button class="b cp" data-i="' + i + '">Copier le texte</button>' +
+      '</div>';
+    box.appendChild(d);
+  });
+
+  document.getElementById("lien").textContent = APP;
+  document.getElementById("waApp").href = "https://wa.me/?text=" + encodeURIComponent("ALPHATECH, le système que j'ai construit pour la défense, l'analyse et la prospection : " + APP);
+  document.getElementById("fbApp").href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(APP);
+
+  document.addEventListener("click", function(e){
+    var b = e.target.closest("button.cp");
+    if (!b) return;
+    var txt = b.dataset.i !== undefined ? CIBLES[+b.dataset.i].msg : APP;
+    function ok(){ b.textContent = "Copié"; setTimeout(function(){ b.textContent = b.dataset.i !== undefined ? "Copier le texte" : "Copier le lien"; }, 1600); }
+    if (navigator.clipboard) navigator.clipboard.writeText(txt).then(ok).catch(ok);
+    else { var t = document.createElement("textarea"); t.value = txt; document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove(); ok(); }
+  });
+})();
+</script></body></html>
