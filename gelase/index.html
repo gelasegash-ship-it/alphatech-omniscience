@@ -3,52 +3,60 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Gelase Tech — Automatisation WhatsApp, IA et solaire à Brazzaville</title>
-<meta name="description" content="Installation gratuite. Votre WhatsApp répond seul, 24h/24, prend les réservations et vous envoie la demande. Brazzaville.">
+<title>Gelase Tech — Automatisation WhatsApp et solaire à Brazzaville</title>
+<meta name="description" content="Votre WhatsApp répond seul 24h/24, prend les réservations et vous envoie la demande. Hôtels, cliniques, commerces, agences à Brazzaville. Installation gratuite, sans engagement.">
 <meta name="theme-color" content="#0b0b0c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gelase Tech — Votre WhatsApp répond seul, même quand vous dormez">
+<meta property="og:description" content="Installation gratuite. Réservations prises automatiquement. Vous payez seulement si les clients arrivent. Brazzaville, Congo.">
+<meta property="og:locale" content="fr_CG">
 <style>
 :root{--or:#e8b64c;--or2:#f7d78a;--fond:#0b0b0c;--carte:#121215;--bord:#25252b;--txt:#f0ece4;--gris:#9a9790}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--fond);color:var(--txt);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{background:var(--fond);color:var(--txt);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:74px}
 .w{max-width:1040px;margin:0 auto;padding:0 20px}
 a{color:var(--or);text-decoration:none}
-header{padding:18px 0;border-bottom:1px solid var(--bord);position:sticky;top:0;background:rgba(11,11,12,.92);backdrop-filter:blur(10px);z-index:20}
+header{padding:16px 0;border-bottom:1px solid var(--bord);position:sticky;top:0;background:rgba(11,11,12,.94);backdrop-filter:blur(10px);z-index:20}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:14px}
-.marque{font-weight:800;letter-spacing:.14em;font-size:14px;color:var(--or);text-transform:uppercase}
+.marque{font-weight:800;letter-spacing:.14em;font-size:13.5px;color:var(--or);text-transform:uppercase}
 .nav a.cta{background:var(--or);color:#12100a;padding:9px 15px;border-radius:7px;font-weight:800;font-size:13.5px;white-space:nowrap}
-.hero{padding:58px 0 34px}
-.eyebrow{color:var(--or);font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
-h1{font-size:clamp(30px,5.6vw,52px);line-height:1.08;letter-spacing:-1px;font-weight:800;margin-bottom:18px}
+.hero{padding:54px 0 30px}
+.eyebrow{color:var(--or);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:13px}
+h1{font-size:clamp(29px,5.4vw,50px);line-height:1.08;letter-spacing:-1px;font-weight:800;margin-bottom:17px}
 h1 em{font-style:normal;color:var(--or2)}
-.chapeau{font-size:clamp(15px,2.4vw,18.5px);color:#cfcac1;max-width:640px}
-.btn{display:inline-block;background:var(--or);color:#12100a;padding:14px 22px;border-radius:9px;font-weight:800;font-size:15.5px;margin:24px 10px 0 0}
+.chapeau{font-size:clamp(15px,2.3vw,18px);color:#cfcac1;max-width:640px}
+.btn{display:inline-block;background:var(--or);color:#12100a;padding:14px 22px;border-radius:9px;font-weight:800;font-size:15.5px;margin:22px 10px 0 0}
 .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--bord)}
-.bandeau{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.bandeau{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
 .puce{border:1px solid var(--bord);border-radius:20px;padding:6px 13px;font-size:12.5px;color:var(--gris)}
-section{padding:44px 0;border-top:1px solid var(--bord)}
-h2{font-size:clamp(21px,3.4vw,29px);letter-spacing:-.4px;margin-bottom:8px;font-weight:800}
-.sous{color:var(--gris);font-size:14.5px;margin-bottom:24px;max-width:620px}
-.grille{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.carte{background:var(--carte);border:1px solid var(--bord);border-radius:12px;padding:20px}
-.carte h3{font-size:16.5px;margin-bottom:7px}
+section{padding:42px 0;border-top:1px solid var(--bord)}
+h2{font-size:clamp(20px,3.3vw,28px);letter-spacing:-.4px;margin-bottom:8px;font-weight:800}
+.sous{color:var(--gris);font-size:14.5px;margin-bottom:22px;max-width:620px}
+.grille{display:grid;gap:13px;grid-template-columns:repeat(auto-fit,minmax(245px,1fr))}
+.carte{background:var(--carte);border:1px solid var(--bord);border-radius:12px;padding:19px}
+.carte h3{font-size:16px;margin-bottom:7px}
 .carte p{font-size:14px;color:#c3bfb7}
-.prix{margin-top:14px;font-size:13.5px;color:var(--or2);font-weight:700}
+.prix{margin-top:13px;font-size:13.5px;color:var(--or2);font-weight:700}
 .prix small{display:block;font-weight:400;color:var(--gris);font-size:12.5px;margin-top:3px}
-ul.liste{margin:10px 0 0 18px;font-size:14px;color:#c3bfb7}
+.mini{display:inline-block;margin-top:12px;font-size:13px;color:var(--or);border-bottom:1px solid rgba(232,182,76,.4);padding-bottom:1px}
+ul.liste{margin:9px 0 0 18px;font-size:14px;color:#c3bfb7}
 ul.liste li{margin:5px 0}
-.gratuit{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.lien-outil{display:block;background:var(--carte);border:1px solid var(--bord);border-radius:12px;padding:17px;transition:.15s}
-.lien-outil:hover{border-color:var(--or);transform:translateY(-2px)}
-.lien-outil b{display:block;color:var(--txt);font-size:15px;margin-bottom:4px}
-.lien-outil span{font-size:13px;color:var(--gris)}
-.transparence{background:#14110c;border:1px solid #3a2f1c;border-left:3px solid var(--or);border-radius:10px;padding:18px;font-size:14.5px}
-.contact{text-align:center;padding:56px 0}
-.contact h2{margin-bottom:10px}
-.gros{font-size:clamp(20px,3.6vw,27px);font-weight:800;color:var(--or2);margin:12px 0 4px}
-footer{border-top:1px solid var(--bord);padding:26px 0 40px;color:var(--gris);font-size:12.5px}
-footer a{color:var(--gris);text-decoration:underline}
+.secteurs{display:flex;flex-wrap:wrap;gap:8px}
+.secteur{background:#141418;border:1px solid var(--bord);border-radius:9px;padding:9px 14px;font-size:13.5px;color:#d6d1c8}
+.qa{border-bottom:1px solid var(--bord);padding:14px 0}
+.qa:last-child{border-bottom:0}
+.qa b{display:block;font-size:15px;margin-bottom:5px;color:var(--txt)}
+.qa span{font-size:14px;color:#bdb8b0}
+.transparence{background:#14110c;border:1px solid #3a2f1c;border-left:3px solid var(--or);border-radius:10px;padding:17px;font-size:14.5px}
+.contact{text-align:center;padding:52px 0}
+.gros{font-size:clamp(19px,3.4vw,26px);font-weight:800;color:var(--or2);margin:11px 0 4px}
+footer{border-top:1px solid var(--bord);padding:24px 0 34px;color:var(--gris);font-size:12.5px}
 .fin{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.barre{position:fixed;left:0;right:0;bottom:0;background:rgba(18,18,21,.97);border-top:1px solid var(--bord);padding:11px 16px;display:flex;gap:10px;align-items:center;justify-content:space-between;z-index:30}
+.barre span{font-size:13px;color:var(--gris)}
+.barre a{background:var(--or);color:#12100a;padding:11px 16px;border-radius:8px;font-weight:800;font-size:14px;white-space:nowrap}
+@media(max-width:520px){.barre span{display:none}.barre a{width:100%;text-align:center}}
 </style>
 </head>
 <body>
@@ -60,11 +68,11 @@ footer a{color:var(--gris);text-decoration:underline}
 
 <main>
 <div class="w hero">
-  <div class="eyebrow">Brazzaville · Congo</div>
+  <div class="eyebrow">Brazzaville · Congo-Brazzaville</div>
   <h1>Votre WhatsApp répond seul,<br><em>même quand vous dormez.</em></h1>
-  <p class="chapeau">J'installe un système qui répond aux clients à votre place, prend les réservations, et vous envoie la demande sur votre téléphone. Hôtels, cliniques, commerces, agences. <strong>Installation gratuite.</strong> Vous payez seulement si ça vous rapporte des clients.</p>
-  <a class="btn" href="https://wa.me/242053343719?text=Bonjour%2C%20je%20veux%20un%20test%20gratuit%20pour%20mon%20%C3%A9tablissement">Tester gratuitement, 10 minutes</a>
-  <a class="btn ghost" href="#offres">Voir ce que je fais</a>
+  <p class="chapeau">J'installe un système qui répond aux clients à votre place, prend les réservations et vous envoie la demande sur votre téléphone. Hôtels, cliniques, commerces, agences. <strong>Installation gratuite.</strong> Vous payez seulement si ça vous rapporte des clients.</p>
+  <a class="btn" href="https://wa.me/242053343719?text=Bonjour%2C%20je%20veux%20une%20d%C3%A9monstration%20gratuite%20pour%20mon%20%C3%A9tablissement">Demander une démonstration</a>
+  <a class="btn ghost" href="#offres">Voir les services</a>
   <div class="bandeau">
     <span class="puce">Aucune avance</span>
     <span class="puce">Sans engagement</span>
@@ -73,44 +81,53 @@ footer a{color:var(--gris);text-decoration:underline}
   </div>
 </div>
 
+<section><div class="w">
+  <h2>Pour qui</h2>
+  <p class="sous">Partout où un client peut écrire et attendre une réponse.</p>
+  <div class="secteurs">
+    <span class="secteur">Hôtels et résidences</span>
+    <span class="secteur">Restaurants et traiteurs</span>
+    <span class="secteur">Cliniques et cabinets</span>
+    <span class="secteur">Pharmacies</span>
+    <span class="secteur">Agences immobilières</span>
+    <span class="secteur">Boutiques et grossistes</span>
+    <span class="secteur">Écoles et centres de formation</span>
+    <span class="secteur">Salons et prestataires</span>
+  </div>
+</div></section>
+
 <section id="offres"><div class="w">
-  <h2>Ce que j'installe</h2>
-  <p class="sous">Quatre services, un seul principe : je montre d'abord, vous payez après avoir vu le résultat.</p>
+  <h2>Les services</h2>
+  <p class="sous">Quatre offres, un seul principe : je montre d'abord, vous payez après avoir vu le résultat.</p>
   <div class="grille">
     <div class="carte">
       <h3>WhatsApp automatique 24/24</h3>
       <p>Le client écrit à 22 h, il reçoit une réponse immédiate, la réservation se prend toute seule, vous recevez la fiche le matin.</p>
-      <ul class="liste"><li>Réponse instantanée jour et nuit</li><li>Réservations et commandes enregistrées</li><li>Aucun message client perdu</li></ul>
-      <div class="prix">Installation gratuite · 50 000 FCFA par mois<small>Payable seulement après les premiers résultats, pas avant.</small></div>
+      <ul class="liste"><li>Réponse instantanée, jour et nuit</li><li>Réservations et commandes enregistrées</li><li>Aucun message client perdu</li></ul>
+      <div class="prix">Installation gratuite · 50 000 FCFA par mois<small>Payable seulement après les premiers résultats, jamais avant.</small></div>
+      <a class="mini" href="https://wa.me/242053343719?text=Bonjour%2C%20je%20veux%20l%20automatisation%20WhatsApp%20pour%20mon%20%C3%A9tablissement">Tester sur mon numéro</a>
     </div>
     <div class="carte">
       <h3>Formation IA pour vos équipes</h3>
-      <p>Vos collaborateurs apprennent à produire trois fois plus vite : rédaction, devis, comptes rendus, visuels, réponses clients.</p>
-      <ul class="liste"><li>Sur votre site ou à distance</li><li>Exercices sur vos vrais documents</li><li>Support après la formation</li></ul>
+      <p>Vos collaborateurs apprennent à produire plus vite : rédaction, devis, comptes rendus, visuels, réponses clients.</p>
+      <ul class="liste"><li>Sur place à Brazzaville ou à distance</li><li>Exercices sur vos vrais documents</li><li>Support après la formation</li></ul>
       <div class="prix">Devis sous 24 h</div>
+      <a class="mini" href="https://wa.me/242053343719?text=Bonjour%2C%20je%20veux%20une%20formation%20IA%20pour%20mon%20%C3%A9quipe">Demander le programme</a>
     </div>
     <div class="carte">
       <h3>Solaire de secours</h3>
-      <p>Kit Deye 6 kW avec panneaux Jinko : de quoi tenir une électricité stable quand le réseau tombe, sans bruit de groupe.</p>
-      <ul class="liste"><li>Étude selon votre consommation réelle</li><li>Installation et mise en service</li><li>Explication du bilan, pas de promesse magique</li></ul>
+      <p>Kit Deye 6 kW avec panneaux Jinko : une électricité stable quand le réseau tombe, sans bruit de groupe électrogène.</p>
+      <ul class="liste"><li>Étude selon votre consommation réelle</li><li>Installation et mise en service</li><li>Bilan expliqué, sans promesse magique</li></ul>
       <div class="prix">Étude et devis sous 24 h</div>
+      <a class="mini" href="https://wa.me/242053343719?text=Bonjour%2C%20je%20veux%20une%20%C3%A9tude%20solaire%20pour%20mon%20site">Demander une étude</a>
     </div>
     <div class="carte">
       <h3>Gestion de stock et caisse</h3>
-      <p>Vous arrêtez de compter dans un cahier. Chaque vente est enregistrée, chaque rupture apparaît avant qu'elle ne bloque vos clients.</p>
+      <p>Vous arrêtez de compter dans un cahier. Chaque vente est enregistrée, chaque rupture apparaît avant de bloquer vos clients.</p>
       <ul class="liste"><li>Inventaire simple, sans matériel coûteux</li><li>Rapport de fin de journée</li><li>Formation de vos vendeurs incluse</li></ul>
       <div class="prix">Devis sous 24 h</div>
+      <a class="mini" href="https://wa.me/242053343719?text=Bonjour%2C%20je%20veux%20la%20gestion%20de%20stock%20pour%20ma%20boutique">Voir une démonstration</a>
     </div>
-  </div>
-</div></section>
-
-<section><div class="w">
-  <h2>Des outils, gratuits et vérifiables</h2>
-  <p class="sous">Ils ne servent pas à impressionner. Ils montrent comment je travaille, et vous pouvez les ouvrir maintenant.</p>
-  <div class="gratuit">
-    <a class="lien-outil" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/"><b>ALPHATECH</b><span>Application qui fonctionne sans réseau : vérification de sécurité, calcul d'espérance, comptes rendus de réunion.</span></a>
-    <a class="lien-outil" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/endo/"><b>L'endométriose, 1 min 21</b><span>Film court, gratuit, pour que la douleur cesse d'être banalisée.</span></a>
-    <a class="lien-outil" href="https://gelasegash-ship-it.github.io/alphatech-omniscience/usage/"><b>Usage réel publié</b><span>Le nombre d'ouvertures de mes outils, affiché sans arrondir.</span></a>
   </div>
 </div></section>
 
@@ -118,25 +135,35 @@ footer a{color:var(--gris);text-decoration:underline}
   <h2>Comment ça se passe</h2>
   <div class="grille">
     <div class="carte"><h3>1. Vous écrivez</h3><p>Un message WhatsApp suffit. Je réponds dans l'heure pendant la journée.</p></div>
-    <div class="carte"><h3>2. Je montre en démonstration</h3><p>Dix minutes sur votre propre activité, pas sur une présentation générale.</p></div>
+    <div class="carte"><h3>2. Je montre</h3><p>Dix minutes sur votre propre activité, avec vos vraies questions clients. Pas une présentation générale.</p></div>
     <div class="carte"><h3>3. J'installe en 48 h</h3><p>Votre WhatsApp répond seul, sans changer de numéro ni d'application.</p></div>
-    <div class="carte"><h3>4. Vous décidez de payer</h3><p>Si et seulement si les clients arrivent. Sinon, on garde l'installation et personne ne paie.</p></div>
+    <div class="carte"><h3>4. Vous décidez de payer</h3><p>Si et seulement si les clients arrivent. Sinon l'installation reste, et personne ne paie.</p></div>
   </div>
 </div></section>
 
 <section><div class="w">
-  <h2>La transparence, comme méthode</h2>
+  <h2>Questions que l'on me pose</h2>
+  <div class="qa"><b>Je dois changer de numéro WhatsApp ?</b><span>Non. On garde votre numéro actuel et votre application. Le système se branche dessus.</span></div>
+  <div class="qa"><b>Et si ça ne fonctionne pas ?</b><span>Vous ne payez pas. La démonstration est gratuite, et l'abonnement ne démarre qu'après des résultats constatés ensemble.</span></div>
+  <div class="qa"><b>Il faut une connexion très rapide ?</b><span>Non. Le système est léger et continue de répondre même quand votre réseau est instable.</span></div>
+  <div class="qa"><b>Que deviennent les données de mes clients ?</b><span>Elles restent chez vous, sur votre compte. Je ne les revends pas et je ne les utilise pour personne d'autre.</span></div>
+  <div class="qa"><b>Combien de temps pour installer ?</b><span>48 heures après la démonstration, le temps de reprendre vos questions les plus fréquentes et vos tarifs.</span></div>
+  <div class="qa"><b>Vous travaillez en dehors de Brazzaville ?</b><span>Oui, à distance pour Pointe-Noire et les autres villes. L'installation ne demande pas de déplacement.</span></div>
+</div></section>
+
+<section><div class="w">
+  <h2>Mes engagements, par écrit</h2>
   <div class="transparence">
-    Ce site ne prétend pas battre Netflix ni être plus rapide que la lumière. Tout ce qui est écrit ici se vérifie : vous pouvez tester le système sur WhatsApp, ouvrir les outils, et voir les résultats de votre propre établissement avant de sortir un franc. Un prestataire qui affiche des chiffres invérifiables vous prépare à une mauvaise surprise.
+    Aucune avance avant résultat. Aucun engagement de durée. Réponse à votre message dans l'heure en journée. Et une règle simple : je n'écris sur ce site que ce qui se vérifie. Pas de chiffre inventé, pas de comparaison avec Netflix, pas de promesse de faire mieux que quiconque. Si un prestataire vous affiche des chiffres invérifiables, il vous prépare à une mauvaise surprise.
   </div>
 </div></section>
 
 <div class="w contact">
   <h2>La chose la plus utile à faire maintenant</h2>
-  <p class="sous" style="margin:8px auto 0;text-align:center">Une démonstration de dix minutes, sur votre établissement, sans engagement.</p>
+  <p class="sous" style="margin:8px auto 0;text-align:center">Une démonstration de dix minutes, sur votre établissement, sans engagement et sans avance.</p>
   <div class="gros">+242 05 33 43 719</div>
-  <div style="color:var(--gris);font-size:13px">WhatsApp et appels · <a href="mailto:gelasegash@gmail.com">gelasegash@gmail.com</a></div>
-  <a class="btn" href="https://wa.me/242053343719?text=Bonjour%2C%20je%20veux%20une%20d%C3%A9monstration%20de%2030%20minutes%20pour%20mon%20%C3%A9tablissement">Écrire sur WhatsApp</a>
+  <div style="color:var(--gris);font-size:13px">WhatsApp et appels · <a href="mailto:gelasegash@gmail.com">gelasegash@gmail.com</a><br>Deuxième ligne : +242 06 80 78 227</div>
+  <a class="btn" href="https://wa.me/242053343719?text=Bonjour%2C%20je%20veux%20une%20d%C3%A9monstration%20pour%20mon%20%C3%A9tablissement">Écrire sur WhatsApp</a>
 </div>
 </main>
 
@@ -145,5 +172,19 @@ footer a{color:var(--gris);text-decoration:underline}
   <div>Site revu le 14 novembre 2026</div>
 </div></footer>
 
+<div class="barre">
+  <span>Démonstration gratuite, sans avance</span>
+  <a href="https://wa.me/242053343719?text=Bonjour%2C%20je%20veux%20une%20d%C3%A9monstration%20gratuite">Écrire sur WhatsApp</a>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness",
+"name":"Gelase Tech","alternateName":"Gelasehouse",
+"description":"Automatisation WhatsApp, formation IA, solaire et gestion de stock à Brazzaville.",
+"areaServed":"Brazzaville, Congo-Brazzaville",
+"telephone":"+242053343719","email":"gelasegash@gmail.com",
+"address":{"@type":"PostalAddress","addressLocality":"Brazzaville","addressCountry":"CG"},
+"priceRange":"50 000 FCFA par mois"}
+</script>
 </body>
 </html>
