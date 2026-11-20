@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BANC — mesurer ce qui marche vraiment</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#07080c;color:#e9eef7;font:15px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;padding:22px}
+.w{max-width:980px;margin:0 auto}
+h1{font-size:24px;color:#f0abfc;margin-bottom:4px;letter-spacing:-.4px}
+.sub{color:#8f9bb3;font-size:13px;margin-bottom:18px}
+h2{font-size:15px;color:#f0abfc;margin:24px 0 8px;border-left:3px solid #d946ef;padding-left:10px}
+.card{background:#0d1018;border:1px solid #1c2233;border-radius:9px;padding:14px;margin-bottom:12px;font-size:14px}
+textarea{width:100%;min-height:100px;background:#0a0e16;border:1px solid #1c2233;color:#e9eef7;padding:11px;border-radius:7px;font:inherit;font-size:14px}
+label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#8f9bb3;margin:10px 0 4px}
+select,input{width:100%;background:#0a0e16;border:1px solid #1c2233;color:#e9eef7;padding:10px;border-radius:7px;font:inherit;font-size:14px}
+button{background:#d946ef;color:#150018;border:0;padding:11px 17px;border-radius:7px;font-weight:800;cursor:pointer;margin:10px 8px 0 0;font-size:14px}
+button.sec{background:#161d2b;color:#e9eef7;border:1px solid #243044}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;color:#8f9bb3;font-weight:600;border-bottom:1px solid #1c2233;padding:7px 6px}
+td{border-bottom:1px solid #151a26;padding:7px 6px}
+.ok{color:#5ee9a8}.ko{color:#f08a9b}.mid{color:#e8c56a}
+.verite{border-left:3px solid #e8b64c;background:#14110a;border-radius:6px;padding:13px 15px;font-size:13.5px}
+.mono{font-family:ui-monospace,monospace;font-size:11.5px;color:#8f9bb3;word-break:break-all}
+</style></head><body><div class="w">
+<h1>BANC — mesurer ce qui marche vraiment</h1>
+<div class="sub">ALPHATECH OMNISCIENCE · tes prompts, tes verdicts, et le routeur qui en tient compte</div>
+
+<h2>1. Ta demande réelle</h2>
+<div class="card">
+  <textarea id="prompt" placeholder="Colle ici une vraie demande que tu ferais à ALPHATECH. Par exemple : « résume ce contrat et sors les dates de paiement »."></textarea>
+  <button id="analyser">ANALYSER ET PROPOSER</button>
+  <button class="sec" id="vider">VIDER</button>
+  <div id="res"></div>
+</div>
+
+<h2>2. Enregistrer ce que tu as constaté</h2>
+<div class="card">
+  <label>Modèle utilisé</label>
+  <select id="modele"><option value="">— analyse d'abord une demande —</option></select>
+  <label>Résultat obtenu</label>
+  <select id="verdict">
+    <option value="utile">Utile du premier coup</option>
+    <option value="moyen">Utilisable, mais à corriger</option>
+    <option value="echec">Inutilisable</option>
+  </select>
+  <label>Ce que tu as remarqué (facultatif)</label>
+  <input id="note" placeholder="ex : a inventé une date, ou : parfait sur le ton">
+  <button id="enregistrer">ENREGISTRER ET SCELLER</button>
+  <div id="msg"></div>
+</div>
+
+<h2>3. Ce que le banc a appris de toi</h2>
+<div class="card" style="padding:8px 10px">
+<table><thead><tr><th>Modèle</th><th style="width:90px">Essais</th><th style="width:110px">Utile</th><th style="width:110px">Échecs</th><th style="width:100px">Fiabilité</th></tr></thead>
+<tbody id="appris"><tr><td colspan="5" style="color:#8f9bb3">aucun essai enregistré</td></tr></tbody></table>
+<div class="mono" style="margin-top:8px" id="chaine">chaîne vide</div>
+</div>
+
+<h2>Ce que ce banc fait, et ce qu'il ne fait pas</h2>
+<div class="verite">
+Il ne s'entraîne pas sur les autres modèles : leurs poids ne sont pas publics, on ne peut donc rien en extraire. Il fait quelque chose de plus utile pour toi : il enregistre <b>tes</b> verdicts sur <b>tes</b> demandes, et c'est cette mesure-là qui indique quel modèle te sert réellement. Un modèle noté trois fois utile sur tes contrats vaut mieux qu'un modèle premier au classement général. Chaque verdict est horodaté et scellé par empreinte, donc l'historique ne peut pas être réécrit sans que ça se voie.
+<br><br>
+Il n'appelle aucun modèle ici : sans clé d'API, aucune requête n'est envoyée, et c'est volontaire. La page prépare la décision et garde la preuve ; l'exécution se fait là où la clé existe.
+</div>
+</div>
+<script>
+(function(){
+  var CH = "at_banc_chain", ESS = "at_banc_essais";
+  var PROFILS = {
+    code: ["code","fonction","bug","erreur","script","python","javascript","corrige","programme","api"],
+    raisonnement: ["analyse","compare","pourquoi","explique","stratégie","décide","évalue","calcule","logique"],
+    redaction: ["rédige","écris","lettre","message","article","post","résume en","traduis","ton"],
+    extraction: ["extrais","liste","sors","tableau","json","dates","montants","noms","fiche"],
+    vision: ["image","photo","capture","scan","document scanné","lis ce"],
+    long: ["contrat","rapport","document entier","50 pages","long texte","tous les articles"]
+  };
+  var FAM = {"openai":3,"anthropic":3,"google":3,"x-ai":3,"deepseek":2.6,"qwen":2.6,"mistralai":2.4,"meta-llama":2.4,"moonshotai":2.4,"z-ai":2.3,"minimax":2.3,"cohere":2.2,"nvidia":2.2,"amazon":2.1,"microsoft":2.2,"perplexity":2.4,"openrouter":2.0,"spacexsi":2.6,"nousresearch":2.1};
+  var FORT = ["opus","sonnet","gpt-5","o3","o4","pro","max","ultra","large","r1","v3","grok-4","gemini-3"];
+  var LEGER = ["mini","nano","flash","lite","small","haiku","8b","7b","3b","1b"];
+  var modeles = [], taux = 600, profil = "redaction";
+
+  function esc(s){return String(s||"").replace(/[<>&]/g,function(c){return {"<":"&lt;",">":"&gt;","&":"&amp;"}[c];});}
+  function sha(t){return crypto.subtle.digest("SHA-256", new TextEncoder().encode(t)).then(function(b){
+    return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,"0")}).join("");});}
+  function chaine(){ try{ return JSON.parse(localStorage.getItem(CH) || '{"links":[],"last":"GENESIS"}'); }catch(e){ return {links:[],last:"GENESIS"}; } }
+  function sceller(type, data){
+    var c = chaine(), corps = {t:new Date().toISOString(), type:type, data:data};
+    return sha(c.last + "|" + JSON.stringify(corps)).then(function(h){
+      corps.prev = c.last; corps.h = h; c.links.push(corps);
+      if (c.links.length > 300) c.links = c.links.slice(-300);
+      c.last = h; localStorage.setItem(CH, JSON.stringify(c));
+      document.getElementById("chaine").textContent = "chaîne : " + c.links.length + " maillons · dernier " + h.slice(0,12) + "…";
+      return h;
+    });
+  }
+  function essais(){ try{ return JSON.parse(localStorage.getItem(ESS) || "[]"); }catch(e){ return []; } }
+  function fiabilite(){
+    var d = {};
+    essais().forEach(function(e){
+      d[e.modele] = d[e.modele] || {n:0, ok:0, ko:0};
+      d[e.modele].n++;
+      if (e.verdict === "utile") d[e.modele].ok++;
+      if (e.verdict === "echec") d[e.modele].ko++;
+    });
+    return d;
+  }
+  function cap(m){
+    var id = (m.id||"").toLowerCase(), s = FAM[m.fournisseur] || 2.0;
+    FORT.forEach(function(f){ if (id.indexOf(f) >= 0) s += 0.9; });
+    LEGER.forEach(function(f){ if (id.indexOf(f) >= 0) s -= 0.6; });
+    s += Math.min(1.4, Math.log10(Math.max(1, m.contexte)) / 2.2);
+    if (profil === "code" && /code|coder|deepseek|qwen/.test(id)) s += 0.8;
+    if (profil === "extraction" && /mini|flash|haiku|lite/.test(id)) s += 0.5;
+    var f = fiabilite()[m.id] || fiabilite()[m.nom];
+    if (f && f.n >= 2) s += (f.ok - f.ko) / f.n * 1.2;   // la mesure de l'utilisateur pèse plus que la théorie
+    return s;
+  }
+  function cout(m){
+    return (2000 * Math.max(0, m.prix_entree_par_million || 0) + 500 * Math.max(0, m.prix_sortie_par_million || 0)) / 1e6;
+  }
+
+  document.getElementById("analyser").onclick = function(){
+    var p = document.getElementById("prompt").value.trim();
+    if (p.length < 8) { document.getElementById("res").innerHTML = "<div class='card'>Écris une demande un peu plus complète.</div>"; return; }
+    var bas = p.toLowerCase(), scores = {};
+    Object.keys(PROFILS).forEach(function(k){
+      scores[k] = PROFILS[k].filter(function(w){ return bas.indexOf(w) >= 0; }).length;
+    });
+    profil = Object.keys(scores).sort(function(a,b){ return scores[b]-scores[a]; })[0];
+    if (!scores[profil]) profil = "redaction";
+    if (!modeles.length) { document.getElementById("res").innerHTML = "<div class='card'>Registre des modèles indisponible, réessaie dans un instant.</div>"; return; }
+
+    var liste = modeles.slice();
+    if (profil === "vision") liste = liste.filter(function(m){ return (m.modalites||"").indexOf("image") >= 0; });
+    if (profil === "long") liste = liste.filter(function(m){ return m.contexte >= 200000; });
+    var notes = liste.map(function(m){ return {m:m, n:cap(m), c:cout(m)}; })
+      .sort(function(a,b){ return b.n - a.n; }).slice(0,4);
+
+    var h = "<div class='card'><b>Tâche reconnue : " + profil + "</b> · " + liste.length + " modèles compatibles";
+    h += "<table style='margin-top:8px'><thead><tr><th>Modèle proposé</th><th style='width:120px'>Contexte</th><th style='width:160px'>Coût estimé</th></tr></thead><tbody>";
+    notes.forEach(function(x){
+      var prix = x.c <= 0 ? "gratuit" : "$" + x.c.toFixed(4) + " · " + Math.round(x.c * taux).toLocaleString("fr-FR") + " FCFA";
+      h += "<tr><td>" + esc(x.m.nom) + "<div class='mono'>" + esc(x.m.fournisseur) + "</div></td><td>" + Math.round(x.m.contexte/1000) + " k</td><td class='mid'>" + prix + "</td></tr>";
+    });
+    h += "</tbody></table></div>";
+    document.getElementById("res").innerHTML = h;
+
+    var sel = document.getElementById("modele");
+    sel.innerHTML = notes.map(function(x){ return "<option value='" + esc(x.m.id) + "'>" + esc(x.m.nom) + "</option>"; }).join("");
+    sceller("analyse", {profil: profil, longueur: p.length});
+  };
+
+  document.getElementById("enregistrer").onclick = function(){
+    var m = document.getElementById("modele").value;
+    if (!m) { document.getElementById("msg").textContent = "Analyse d'abord une demande."; return; }
+    var e = {modele: m, verdict: document.getElementById("verdict").value,
+             note: document.getElementById("note").value.slice(0,160), t: new Date().toISOString()};
+    var all = essais(); all.push(e);
+    if (all.length > 400) all = all.slice(-400);
+    localStorage.setItem(ESS, JSON.stringify(all));
+    sceller("essai", {modele: m, verdict: e.verdict}).then(function(h){
+      document.getElementById("msg").innerHTML = "<span class='ok'>Enregistré et scellé (" + h.slice(0,10) + "…).</span>";
+      document.getElementById("note").value = "";
+      tableau();
+    });
+  };
+
+  function tableau(){
+    var f = fiabilite(), cles = Object.keys(f);
+    var noms = {}; modeles.forEach(function(m){ noms[m.id] = m.nom; });
+    document.getElementById("appris").innerHTML = cles.length ? cles.sort(function(a,b){
+      var ra = f[a].ok/Math.max(1,f[a].n), rb = f[b].ok/Math.max(1,f[b].n); return rb - ra;
+    }).map(function(k){
+      var x = f[k], r = Math.round(100*x.ok/Math.max(1,x.n));
+      var cls = r >= 66 ? "ok" : r >= 33 ? "mid" : "ko";
+      return "<tr><td>" + esc(noms[k] || k) + "</td><td>" + x.n + "</td><td class='ok'>" + x.ok + "</td><td class='ko'>" + x.ko + "</td><td class='" + cls + "'>" + r + " %</td></tr>";
+    }).join("") : "<tr><td colspan='5' style='color:#8f9bb3'>aucun essai enregistré</td></tr>";
+  }
+
+  document.getElementById("vider").onclick = function(){ document.getElementById("prompt").value = ""; document.getElementById("res").innerHTML = ""; };
+
+  fetch("../sentinel/models.json?t=" + Date.now(), {cache:"no-store"})
+    .then(function(r){ return r.json(); })
+    .then(function(d){ modeles = (d.openrouter||[]).filter(function(m){ return m.contexte > 0; }); tableau(); })
+    .catch(function(){});
+  fetch("https://open.er-api.com/v6/latest/USD", {cache:"no-store"})
+    .then(function(r){ return r.json(); })
+    .then(function(d){ if (d && d.rates && d.rates.XAF) taux = d.rates.XAF; })
+    .catch(function(){});
+})();
+</script></body></html>
