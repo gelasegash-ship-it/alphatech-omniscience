@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-20T07:10:45Z",
+ "maj": "2026-11-20T07:11:17Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -16,6 +16,17 @@
    "examines": 60,
    "retenus": 5,
    "total_registre": 20,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
+  },
+  {
+   "ts": "2026-11-20T07:11:17Z",
+   "examines": 60,
+   "retenus": 3,
+   "total_registre": 23,
    "sources": [
     "GitHub",
     "Hacker News",
@@ -236,6 +247,40 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "5a05797065d30631",
+   "titre": "obekt/obekt-terminal",
+   "url": "https://github.com/obekt/obekt-terminal",
+   "source": "GitHub",
+   "resume": "▚ Obekt Autonomous Trading Platform — a real AI agent trading live crypto capital, unattended: typed LLM decisions (Jev System-One), news/sentiment/macro context, code-enforced risk — plus a Bloomberg-style read-only terminal to watch every",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "context"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:11:17Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "d119c21c0456611f",
+   "titre": "Emmanuel-webDev/LatticeWard-protocol",
+   "url": "https://github.com/Emmanuel-webDev/LatticeWard-protocol",
+   "source": "GitHub",
+   "resume": "Post-Quantum Spend-Governance & Q-Day Immunity Engine for Autonomous AI Agents on QoreChain (ML-DSA-87 / 0x0A01 / 0x0A02)",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:11:17Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -361,6 +406,22 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-20T07:10:45Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "4fd3a7ee5dde2842",
+   "titre": "poonamyn7/Autonomous_Data_Analysis_Agent",
+   "url": "https://github.com/poonamyn7/Autonomous_Data_Analysis_Agent",
+   "source": "GitHub",
+   "resume": "",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:11:17Z",
    "statut": "candidat"
   }
  ],
