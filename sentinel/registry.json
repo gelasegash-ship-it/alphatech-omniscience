@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-20T16:08:00Z",
+ "maj": "2026-11-20T22:39:57Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -52,6 +52,17 @@
    "sources": [
     "GitHub",
     "Hacker News"
+   ]
+  },
+  {
+   "ts": "2026-11-20T22:39:57Z",
+   "examines": 60,
+   "retenus": 13,
+   "total_registre": 56,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
    ]
   }
  ],
@@ -192,6 +203,27 @@
     "rag"
    ],
    "vu": "2026-11-20T16:08:00Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "fee26ad4354a6da5",
+   "titre": "u-anjum/sentinel-sre",
+   "url": "https://github.com/u-anjum/sentinel-sre",
+   "source": "GitHub",
+   "resume": "Autonomous on-call SRE agent built from first principles without orchestration frameworks. Uses a custom MCP server, E2B Firecracker sandboxes, and a stateful human-in-the-loop control loop to diagnose production bottlenecks and execute ver",
+   "score": 4,
+   "mots": [
+    "agent",
+    "autonomous",
+    "orchestration",
+    "sandbox"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "orchestration",
+    "sandbox"
+   ],
+   "vu": "2026-11-20T22:39:57Z",
    "statut": "candidat"
   },
   {
@@ -518,6 +550,108 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "67937f5aed29a28f",
+   "titre": "mikeroySoft/factory",
+   "url": "https://github.com/mikeroySoft/factory",
+   "source": "GitHub",
+   "resume": "Label-driven autonomous ticket pipeline for any GitHub repo: triage, worker agents in worktrees, deterministic gate, LLM review, serialized merge stage",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T22:39:57Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "28824cac9f744835",
+   "titre": "BrendoPereira11/Autonomously-Moving-Agents",
+   "url": "https://github.com/BrendoPereira11/Autonomously-Moving-Agents",
+   "source": "GitHub",
+   "resume": "",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T22:39:57Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "c957a8ad7b60cc22",
+   "titre": "sanctuarycomputer/devteam",
+   "url": "https://github.com/sanctuarycomputer/devteam",
+   "source": "GitHub",
+   "resume": "A brutalist, malleable, progressively autonomous & recursively self improving toolkit for aligning & orchestrating coherent fleets of coding agents in planning, building & deploying massively complex systems... all while running mostly unat",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T22:39:57Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "abba033b1f2c5f84",
+   "titre": "sergio-tr/engineering-os",
+   "url": "https://github.com/sergio-tr/engineering-os",
+   "source": "GitHub",
+   "resume": "Management platform for autonomous AI agents",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T22:39:57Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "2e7773b076d06b4b",
+   "titre": "kubainter/botex-harness",
+   "url": "https://github.com/kubainter/botex-harness",
+   "source": "GitHub",
+   "resume": "BoteX is an agent-agnostic, MCP-native execution harness for autonomous code-editing subagents. Any MCP-compatible client (IDE agents, desktop assistants, orchestrators) can delegate multi-step coding tasks to it.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T22:39:57Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "83388e43a90b04dc",
+   "titre": "williacj/rigger",
+   "url": "https://github.com/williacj/rigger",
+   "source": "GitHub",
+   "resume": "Autonomous multi-role execution engine: pulls work off a GitHub Project board, dispatches AI role-agents into isolated git worktrees, and gates every merge behind independent review — the role that makes a thing never judges it. Dev, conten",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T22:39:57Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -787,6 +921,102 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-20T16:08:00Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "11e1c94b0f20a36b",
+   "titre": "theselfruleorg/polyrob",
+   "url": "https://github.com/theselfruleorg/polyrob",
+   "source": "GitHub",
+   "resume": "A self-hosted autonomous AI agent that pursues goals, learns from experience, and runs on your own machine.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T22:39:57Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "79ac414ac3454f17",
+   "titre": "Green-tero/datawhisper",
+   "url": "https://github.com/Green-tero/datawhisper",
+   "source": "GitHub",
+   "resume": "Enterprise-grade, local-first agentic tabular data engine with self-correcting SQL and autonomous GitHub PR auditing.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T22:39:57Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "ec349c91b676132a",
+   "titre": "divyakochgaway/autonomous-cloud-architect-agent",
+   "url": "https://github.com/divyakochgaway/autonomous-cloud-architect-agent",
+   "source": "GitHub",
+   "resume": "",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T22:39:57Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "5fb176d22e0f49cd",
+   "titre": "AstralDeep/LETS",
+   "url": "https://github.com/AstralDeep/LETS",
+   "source": "GitHub",
+   "resume": "LETS: Lineage Escrow Transition Systems for Partition-Safe Autonomous Agent Populations",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T22:39:57Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "b33b828ce4dbedaa",
+   "titre": "letstrnsfrm-ai/agentic-solid-qe",
+   "url": "https://github.com/letstrnsfrm-ai/agentic-solid-qe",
+   "source": "GitHub",
+   "resume": "Zero-API-key agent skill framework bridging Autonomous Exploratory Testing (@playwright/cli) and SOLID Playwright TypeScript Architecture",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T22:39:57Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "a4b0e3dcc8068b3e",
+   "titre": "app-vitals/shipwright",
+   "url": "https://github.com/app-vitals/shipwright",
+   "source": "GitHub",
+   "resume": "The open-source autonomous delivery agent for Claude Code.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T22:39:57Z",
    "statut": "candidat"
   }
  ],
