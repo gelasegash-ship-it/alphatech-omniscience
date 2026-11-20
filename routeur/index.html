@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ROUTEUR — choisir le meilleur modèle pour chaque tâche</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#07080c;color:#e9eef7;font:15px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;padding:22px}
+.w{max-width:980px;margin:0 auto}
+h1{font-size:24px;color:#7dd3fc;margin-bottom:4px;letter-spacing:-.4px}
+.sub{color:#8f9bb3;font-size:13px;margin-bottom:18px}
+h2{font-size:15px;color:#7dd3fc;margin:24px 0 8px;border-left:3px solid #0ea5e9;padding-left:10px}
+.card{background:#0d1018;border:1px solid #1c2233;border-radius:9px;padding:14px;margin-bottom:12px;font-size:14px}
+label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#8f9bb3;margin:10px 0 4px}
+select,input[type=range]{width:100%;background:#0a0e16;border:1px solid #1c2233;color:#e9eef7;padding:10px;border-radius:7px;font:inherit;font-size:14px}
+input[type=range]{padding:0;height:30px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;color:#8f9bb3;font-weight:600;border-bottom:1px solid #1c2233;padding:7px 6px}
+td{border-bottom:1px solid #151a26;padding:8px 6px;vertical-align:top}
+.bar{height:5px;border-radius:3px;background:#16202e;overflow:hidden;margin-top:5px}
+.bar i{display:block;height:100%;background:#0ea5e9}
+.or{color:#e8b64c}
+.verite{border-left:3px solid #e8b64c;background:#14110a;border-radius:6px;padding:13px 15px;font-size:13.5px}
+.mono{font-family:ui-monospace,monospace;font-size:11.5px;color:#8f9bb3;word-break:break-all}
+#etat{color:#8f9bb3;font-size:13px;margin-top:8px}
+</style></head><body><div class="w">
+<h1>ROUTEUR — le bon modèle pour la bonne tâche</h1>
+<div class="sub">ALPHATECH OMNISCIENCE · décision calculée sur 477 modèles réels, prix et contextes vérifiés</div>
+
+<div class="card">
+  <label>Tâche à accomplir</label>
+  <select id="tache">
+    <option value="code">Écrire et corriger du code</option>
+    <option value="raisonnement">Raisonnement complexe, analyse</option>
+    <option value="redaction">Rédaction en français</option>
+    <option value="extraction">Extraction de données, JSON, tri</option>
+    <option value="vision">Lire une image ou un document scanné</option>
+    <option value="long">Très long document à traiter</option>
+  </select>
+  <label>Ce qui compte le plus : <span id="curseurVal">équilibré</span></label>
+  <input type="range" id="curseur" min="0" max="100" value="50">
+  <div class="mono" style="margin-top:6px">à gauche : le coût le plus bas · à droite : la capacité maximale</div>
+  <div id="etat">chargement des modèles…</div>
+</div>
+
+<h2>Classement pour cette tâche</h2>
+<div class="card" style="padding:8px 10px">
+<table><thead><tr><th>Modèle</th><th style="width:90px">Contexte</th><th style="width:150px">Coût d'une tâche</th><th style="width:110px">Score</th></tr></thead>
+<tbody id="res"><tr><td colspan="4" style="color:#8f9bb3">…</td></tr></tbody></table>
+</div>
+
+<h2>Ce que ce routeur fait, et ce qu'il ne fera jamais</h2>
+<div class="verite">
+<b>Il ne s'entraîne pas sur les autres modèles, et personne ne le peut.</b> Les poids d'un modèle ne sont pas publiés, ses données d'entraînement encore moins, et entraîner un modèle demande des milliers de processeurs pendant des semaines. « S'entraîner avec tous les modèles du monde » n'est pas une opération difficile : c'est une opération qui n'existe pas. Ce que ce routeur fait réellement, et qui vaut mieux : il connaît les 477 modèles disponibles, leurs contextes, leurs prix réels, et il choisit pour chaque tâche celui qui donne le meilleur résultat au meilleur coût. Il estime le prix d'une tâche type de 2 000 mots en entrée et 500 en sortie, converti en FCFA au taux du jour.
+</div>
+
+<div class="mono" style="margin-top:14px">Source des prix : sentinel/models.json · taux : open.er-api.com · aucun appel de modèle n'est effectué ici, seulement un calcul de choix.</div>
+</div>
+<script>
+(function(){
+  var FAM = {
+    "openai": 3, "anthropic": 3, "google": 3, "x-ai": 3, "deepseek": 2.6, "qwen": 2.6,
+    "mistralai": 2.4, "meta-llama": 2.4, "moonshotai": 2.4, "z-ai": 2.3, "minimax": 2.3,
+    "cohere": 2.2, "nvidia": 2.2, "amazon": 2.1, "microsoft": 2.2, "perplexity": 2.4,
+    "openrouter": 2.0, "spacexsi": 2.6, "nousresearch": 2.1
+  };
+  var FORT = ["opus","sonnet","gpt-5","gpt-4.5","o3","o4","pro","max","ultra","large","405b","70b","r1","v3","grok-4","gemini-3","kimi","glm-4"];
+  var LEGER = ["mini","nano","flash","lite","small","haiku","8b","7b","3b","1b","free"];
+  var CODE = ["code","coder","codestral","devstral","deepseek","qwen","claude","gpt-5","sonnet","codestral"];
+  var RAIS = ["o3","o4","reason","thinking","r1","sonnet","opus","grok-4","gemini-3","deepseek","kimi"];
+  var REDA = ["claude","gpt","mistral","gemini","sonnet","opus","large"];
+  var EXTR = ["mini","flash","haiku","small","8b","7b","nano","lite","qwen","gemini"];
+  var taux = 600;
+  var modeles = [], tache = "code", p = 50;
+
+  function chargement(){
+    fetch("../sentinel/models.json?t="+Date.now(), {cache:"no-store"})
+      .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
+      .then(function(d){
+        modeles = (d.openrouter||[]).filter(function(m){ return m.contexte > 0; });
+        document.getElementById("etat").textContent = modeles.length + " modèles chargés · dernière lecture " + d.maj;
+        calcul();
+      })
+      .catch(function(e){ document.getElementById("etat").textContent = "registre illisible : " + e.message; });
+    fetch("https://open.er-api.com/v6/latest/USD", {cache:"no-store"})
+      .then(function(r){ return r.json(); })
+      .then(function(d){ if(d && d.rates && d.rates.XAF) { taux = d.rates.XAF; calcul(); } })
+      .catch(function(){});
+  }
+
+  function capScore(m){
+    var id = (m.id||"").toLowerCase(), s = FAM[m.fournisseur] || 2.0;
+    FORT.forEach(function(f){ if(id.indexOf(f) >= 0) s += 0.9; });
+    LEGER.forEach(function(f){ if(id.indexOf(f) >= 0) s -= 0.6; });
+    s += Math.min(1.4, Math.log10(Math.max(1, m.contexte)) / 2.2);
+    var liste = tache === "code" ? CODE : tache === "raisonnement" ? RAIS : tache === "redaction" ? REDA : tache === "extraction" ? EXTR : null;
+    if (liste) liste.forEach(function(f){ if(id.indexOf(f) >= 0) s += 0.8; });
+    return s;
+  }
+  function cout(m){
+    var pin = Math.max(0, m.prix_entree_par_million || 0);
+    var pout = Math.max(0, m.prix_sortie_par_million || 0);
+    return (2000 * pin + 500 * pout) / 1000000;
+  }
+  function calcul(){
+    if(!modeles.length) return;
+    var liste = modeles.slice();
+    if (tache === "vision") liste = liste.filter(function(m){ return (m.modalites||"").indexOf("image") >= 0; });
+    if (tache === "long") liste = liste.filter(function(m){ return m.contexte >= 200000; });
+    if (!liste.length) { document.getElementById("res").innerHTML = "<tr><td colspan='4'>aucun modèle ne remplit cette contrainte</td></tr>"; return; }
+
+    var caps = liste.map(capScore), couts = liste.map(cout);
+    var capMin = Math.min.apply(null, caps), capMax = Math.max.apply(null, caps);
+    var positifs = couts.filter(function(c){ return c > 0; });
+    var cMin = positifs.length ? Math.min.apply(null, positifs) : 0;
+    var cMax = positifs.length ? Math.max.apply(null, positifs) : 1;
+    var wCap = p / 100, wCout = 1 - wCap;
+
+    var notes = liste.map(function(m, i){
+      var cN = (caps[i] - capMin) / Math.max(0.001, capMax - capMin);
+      var cout = couts[i];
+      var pN = cout <= 0 ? 1 : 1 - Math.min(1, (cout - cMin) / Math.max(0.000001, cMax - cMin));
+      return { m: m, note: wCap * cN + wCout * pN, cout: cout };
+    }).sort(function(a, b){ return b.note - a.note; });
+
+    document.getElementById("res").innerHTML = notes.slice(0, 8).map(function(n){
+      var m = n.m, f = Math.round(n.note * 100);
+      var prixTxt = n.cout <= 0 ? "gratuit" : "$" + n.cout.toFixed(4) + " · " + Math.round(n.cout * taux).toLocaleString("fr-FR") + " FCFA";
+      return "<tr><td><b>" + m.nom + "</b><div class='mono'>" + m.fournisseur + "</div></td>" +
+        "<td>" + Math.round(m.contexte/1000) + " k</td>" +
+        "<td class='or'>" + prixTxt + "</td>" +
+        "<td>" + f + "<div class='bar'><i style='width:" + f + "%'></i></div></td></tr>";
+    }).join("");
+  }
+
+  document.getElementById("tache").onchange = function(){ tache = this.value; calcul(); };
+  document.getElementById("curseur").oninput = function(){
+    p = +this.value;
+    document.getElementById("curseurVal").textContent = p < 33 ? "le coût" : p > 66 ? "la capacité" : "équilibré";
+    calcul();
+  };
+  chargement();
+})();
+</script></body></html>
