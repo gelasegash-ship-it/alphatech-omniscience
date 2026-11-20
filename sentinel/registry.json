@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-20T07:11:17Z",
+ "maj": "2026-11-20T07:16:26Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -32,9 +32,42 @@
     "Hacker News",
     "arXiv"
    ]
+  },
+  {
+   "ts": "2026-11-20T07:16:26Z",
+   "examines": 60,
+   "retenus": 6,
+   "total_registre": 29,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
   }
  ],
  "capacites": [
+  {
+   "empreinte": "2a3105f2b643b426",
+   "titre": "dev-core-busy/jarvis",
+   "url": "https://github.com/dev-core-busy/jarvis",
+   "source": "GitHub",
+   "resume": "🖱️ AI Mouse: ask your Windows screen · 🛡️ Hardened to BSI requirements (IT-Grundschutz APP.3.1, TR-02102) · Self-hosted autonomous AI agent for Linux — multi-LLM, real desktop control (VNC), WhatsApp, RAG knowledge base, sandboxed security ",
+   "score": 5,
+   "mots": [
+    "agent",
+    "autonomous",
+    "rag",
+    "security",
+    "sandbox"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "rag",
+    "sandbox"
+   ],
+   "vu": "2026-11-20T07:16:26Z",
+   "statut": "candidat"
+  },
   {
    "empreinte": "4fac8a74fdf4f679",
    "titre": "remya-narayanankutty/ai-agent-team-case-study",
@@ -91,6 +124,44 @@
     "workflow"
    ],
    "vu": "2026-11-20T07:10:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "ce2fc01a640eeab4",
+   "titre": "metodoloji/metodoloji",
+   "url": "https://github.com/metodoloji/metodoloji",
+   "source": "GitHub",
+   "resume": "Mechanical approval gates and workflow discipline for autonomous coding agents.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "workflow"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "workflow"
+   ],
+   "vu": "2026-11-20T07:16:26Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "6698e330a67f8e95",
+   "titre": "KarthV01/Nemesis",
+   "url": "https://github.com/KarthV01/Nemesis",
+   "source": "GitHub",
+   "resume": "Adversarial multi-agent reinforcement learning framework where autonomous cybersecurity agents evolve through offensive and defensive self-play.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "security"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:16:26Z",
    "statut": "candidat"
   },
   {
@@ -422,6 +493,54 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-20T07:11:17Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "0e0a953ab7e1a8f8",
+   "titre": "spidron/grok-aeon-derivative",
+   "url": "https://github.com/spidron/grok-aeon-derivative",
+   "source": "GitHub",
+   "resume": "Grok Bot working on its Aeon derivative: an open-source autonomous agent framework optimized for Grok harness, self-healing skills on GitHub Actions. Free alternative to closed Grok Bot.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:16:26Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "fc70ecbc6448f739",
+   "titre": "yrn-dev/Operator",
+   "url": "https://github.com/yrn-dev/Operator",
+   "source": "GitHub",
+   "resume": "Terminal AI coding agent — Autonomous AI Agent on your computer. Supports Alem AI + Ollama. Works with code, research, automation, DevOps, data analysis, and content generation.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:16:26Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "f42d04e0268ac13e",
+   "titre": "ys-ll/uniterm",
+   "url": "https://github.com/ys-ll/uniterm",
+   "source": "GitHub",
+   "resume": "All-in-one terminal covering 30+ protocols — SSH, RDP, SFTP, databases, Kubernetes and more. With a built-in AI Agent that runs multi-turn shell commands autonomously.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:16:26Z",
    "statut": "candidat"
   }
  ],
