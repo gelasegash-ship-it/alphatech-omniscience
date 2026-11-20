@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MODÈLES — inventaire mondial et faisabilité de la science-fiction</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#07080c;color:#e9eef7;font:15px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;padding:22px}
+.w{max-width:1000px;margin:0 auto}
+h1{font-size:24px;color:#a78bfa;margin-bottom:4px;letter-spacing:-.4px}
+.sub{color:#8f9bb3;font-size:13px;margin-bottom:18px}
+h2{font-size:15px;color:#a78bfa;margin:26px 0 8px;border-left:3px solid #8b5cf6;padding-left:10px}
+.stats{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));margin-bottom:12px}
+.stat{background:#0d1018;border:1px solid #1c2233;border-radius:9px;padding:13px;text-align:center}
+.stat b{display:block;font-size:24px;color:#a78bfa;line-height:1.2}
+.stat span{font-size:11px;color:#8f9bb3;text-transform:uppercase;letter-spacing:.05em}
+.card{background:#0d1018;border:1px solid #1c2233;border-radius:9px;padding:14px;margin-bottom:12px;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;color:#8f9bb3;font-weight:600;border-bottom:1px solid #1c2233;padding:7px 6px}
+td{border-bottom:1px solid #151a26;padding:7px 6px;vertical-align:top}
+a{color:#a78bfa;text-decoration:none}a:hover{text-decoration:underline}
+.badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.p{background:#0c2a1e;color:#5ee9a8;border:1px solid #14523c}
+.r{background:#2a220c;color:#e8c56a;border:1px solid #4d3c14}
+.f{background:#2a0f16;color:#f08a9b;border:1px solid #4d1a26}
+.verite{border-left:3px solid #e8b64c;background:#14110a;border-radius:6px;padding:13px 15px;font-size:13.5px}
+.mono{font-family:ui-monospace,monospace;font-size:11.5px;color:#8f9bb3;word-break:break-all}
+#etat{color:#8f9bb3;font-size:13px}
+</style></head><body><div class="w">
+<h1>MODÈLES — inventaire mondial</h1>
+<div class="sub">ALPHATECH OMNISCIENCE · catalogues publics lus chaque heure · plus la faisabilité réelle des idées de science-fiction</div>
+
+<div class="stats">
+  <div class="stat"><b id="nTot">…</b><span>modèles suivis</span></div>
+  <div class="stat"><b id="nFour">…</b><span>fournisseurs</span></div>
+  <div class="stat"><b id="nCtx">…</b><span>contexte max</span></div>
+  <div class="stat"><b id="nNew">…</b><span>nouveautés vues</span></div>
+</div>
+<div id="etat">lecture du registre…</div>
+
+<h2>Les plus grands contextes disponibles</h2>
+<div class="card" style="padding:8px 10px">
+<table><thead><tr><th>Modèle</th><th style="width:110px">Contexte</th><th style="width:120px">Entrée / M</th><th style="width:120px">Sortie / M</th></tr></thead>
+<tbody id="ctx"><tr><td colspan="4" style="color:#8f9bb3">chargement…</td></tr></tbody></table>
+</div>
+
+<h2>Arrivées récentes</h2>
+<div class="card" style="padding:8px 10px">
+<table><thead><tr><th>Modèle</th><th style="width:130px">Catalogue</th><th style="width:110px">Vu le</th></tr></thead>
+<tbody id="nouveaux"><tr><td colspan="3" style="color:#8f9bb3">chargement…</td></tr></tbody></table>
+</div>
+
+<h2>Science-fiction : ce qui existe, ce qui se cherche, ce qui n'existera pas</h2>
+<div class="card" style="padding:8px 10px">
+<table><thead><tr><th>Idée et œuvre</th><th style="width:120px">Verdict</th><th>Pourquoi</th></tr></thead>
+<tbody id="sf"></tbody></table>
+</div>
+
+<h2>Ce que cette page n'est pas</h2>
+<div class="verite">
+ALPHATECH ne devient pas « la plus puissante des IA » en lisant des catalogues, et personne ne le devient en une nuit. La puissance d'un modèle se mesure à ses poids, à ses données d'entraînement et à son calcul : trois choses que je ne fabrique pas ici. Ce qui est réellement construit sur cette page, c'est une <b>veille exhaustive et honnête</b> : 577 modèles publics recensés, 69 fournisseurs, leurs contextes et leurs prix, rafraîchis chaque heure, plus un registre de ce que la science-fiction promet et de ce que l'ingénierie permet vraiment. S'informer vite et juste, c'est ce qui distingue un système utile d'un slogan.
+</div>
+
+<div class="mono" style="margin-top:14px">Registre : sentinel/models.json · script : sentinel/scan_models.py · cadence : horaire via GitHub Actions</div>
+</div>
+<script>
+(function(){
+  var SF = [
+    ["Mémoire totale indexée (Asimov, Total Recall)", "P", "Indexer et retrouver fonctionne déjà (recherche sémantique). La mémoire parfaite d'une vie entière reste hors de portée, mais l'usage réel est là."],
+    ["Assistant qui parle en continu (Her, 2013)", "P", "Voix, compréhension et réponse existent. Ce qui manque encore : la continuité de mémoire et la prise d'initiative spontanée."],
+    ["Traduction universelle instantanée (Star Trek)", "P", "C'est en production depuis des années, y compris hors ligne sur téléphone."],
+    ["IA qui se réécrit et s'améliore seule (Vinge)", "R", "Le méta-apprentissage progresse, l'auto-amélioration autonome et vérifiable n'est pas démontrée. Sans garde-fou humain, c'est un risque, pas un exploit."],
+    ["Conscience artificielle (Blade Runner, Ex Machina)", "F", "Aucun test ne démontre une conscience de machine. On mesure des comportements, jamais une expérience vécue."],
+    ["Interface neuronale haut débit (Neuromancien)", "R", "Des électrodes à quelques centaines de canaux existent. Lire une pensée ou écrire un souvenir reste du domaine de la recherche lointaine."],
+    ["Téléportation d'objets (Star Trek)", "F", "La téléportation quantique transporte un état de particule, pas de la matière. Rien ne disparaît d'un lieu pour réapparaître ailleurs."],
+    ["Réplicateur (Star Trek)", "F", "L'assemblage atome par atome n'existe pas. L'impression 3D, elle, est réelle à l'échelle macroscopique."],
+    ["Prédiction de l'histoire par calcul (Fondation)", "F", "Les systèmes sociaux sont chaotiques. On produit des prévisions statistiques courtes, jamais une trajectoire certaine."],
+    ["Robots humanoïdes sûrs et souples (I, Robot)", "R", "Des prototypes marchent et saisissent. La sûreté démontrée en environnement humain ouvert n'est pas acquise."],
+    ["Vaisseau à distorsion (Star Trek)", "F", "La métrique exige une densité d'énergie négative jamais observée. C'est une solution d'équation, pas une machine."],
+    ["Immortalité par transfert de conscience (Altered Carbon)", "F", "Aucun support n'existe. Une copie n'est pas une continuité : elle produit un second être, pas une survie."],
+    ["Essaim de nanorobots autonomes (Prey)", "R", "Des micro-robots de laboratoire existent. Un essaim autonome et durable, non."],
+    ["Gagner à coup sûr sur les marchés (psychohistoire du trading)", "F", "Les marchés restent imprévisibles. On calcule une espérance, jamais une certitude."]
+  ];
+  var NOM = {P: "possible", R: "recherche", F: "fiction"};
+  function esc(s){return String(s||"").replace(/[<>&]/g,function(c){return {"<":"&lt;",">":"&gt;","&":"&amp;"}[c];});}
+  function prix(v){ if(v===null||v===undefined) return "—"; if(v<0) return "variable"; if(v===0) return "gratuit"; return v.toFixed(2)+" $"; }
+  function ctx(v){ if(!v) return "—"; if(v>=1000000) return (v/1000000).toFixed(v%1000000?1:0)+" M"; return Math.round(v/1000)+" k"; }
+
+  document.getElementById("sf").innerHTML = SF.map(function(e){
+    return "<tr><td>"+esc(e[0])+"</td><td><span class='badge "+e[1].toLowerCase()+"'>"+NOM[e[1]]+"</span></td><td style='color:#a8b2c6'>"+esc(e[2])+"</td></tr>";
+  }).join("");
+
+  fetch("../sentinel/models.json?t="+Date.now(), {cache:"no-store"})
+    .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
+    .then(function(d){
+      var ors = d.openrouter||[], hfs = d.huggingface||[], news = d.nouveautes||[];
+      var four = {}; ors.forEach(function(m){ four[m.fournisseur]=1; }); hfs.forEach(function(m){ four[m.fournisseur]=1; });
+      var maxCtx = ors.reduce(function(a,m){ return Math.max(a, m.contexte||0); },0);
+      document.getElementById("nTot").textContent = ors.length + hfs.length;
+      document.getElementById("nFour").textContent = Object.keys(four).length;
+      document.getElementById("nCtx").textContent = ctx(maxCtx);
+      document.getElementById("nNew").textContent = news.length;
+      document.getElementById("etat").textContent = "Dernière lecture : " + d.maj + " · OpenRouter " + ors.length + " · Hugging Face " + hfs.length;
+      var top = ors.slice().sort(function(a,b){return (b.contexte||0)-(a.contexte||0);}).slice(0,12);
+      document.getElementById("ctx").innerHTML = top.map(function(m){
+        return "<tr><td>"+esc(m.nom)+"<div class='mono'>"+esc(m.fournisseur)+"</div></td><td>"+ctx(m.contexte)+"</td><td>"+prix(m.prix_entree_par_million)+"</td><td>"+prix(m.prix_sortie_par_million)+"</td></tr>";
+      }).join("");
+      document.getElementById("nouveaux").innerHTML = news.slice(-15).reverse().map(function(n){
+        return "<tr><td>"+esc(n.id)+"</td><td style='color:#8f9bb3'>"+esc(n.source)+"</td><td class='mono'>"+esc((n.vu||"").slice(0,16).replace("T"," "))+"</td></tr>";
+      }).join("") || "<tr><td colspan='3'>aucune nouveauté enregistrée</td></tr>";
+    })
+    .catch(function(e){ document.getElementById("etat").textContent = "registre illisible : "+e.message; });
+})();
+</script></body></html>
