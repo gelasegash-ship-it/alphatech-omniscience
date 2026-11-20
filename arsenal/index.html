@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ARSENAL — modules actifs et récupération de fonds</title>
+<title>ARSENAL — modules actifs, traque et récupération</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#080a0e;color:#e8eef7;font:15px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;padding:22px}
@@ -12,17 +12,18 @@ h2{font-size:15px;color:#f97362;margin:26px 0 8px;border-left:3px solid #ef4444;
 table{width:100%;border-collapse:collapse;font-size:13px}
 th{text-align:left;color:#8f9bb3;font-weight:600;border-bottom:1px solid #1d2430;padding:7px 6px}
 td{border-bottom:1px solid #151b25;padding:7px 6px;vertical-align:top}
-.ok{color:#5ee9a8}.ko{color:#f08a9b}
+.ok{color:#5ee9a8}.ko{color:#f08a9b}.al{color:#ff8a5c;font-weight:700}
 input,textarea{width:100%;background:#0a0e14;border:1px solid #1d2430;color:#e8eef7;padding:11px;border-radius:7px;font:inherit;font-size:14px}
-textarea{min-height:150px;font-family:ui-monospace,monospace;font-size:12px}
+textarea{min-height:170px;font-family:ui-monospace,monospace;font-size:12px}
 button{background:#ef4444;color:#fff;border:0;padding:11px 17px;border-radius:7px;font-weight:800;cursor:pointer;margin:10px 8px 0 0;font-size:14px}
 button.sec{background:#161d27;color:#e8eef7;border:1px solid #24303f}
+button:disabled{opacity:.5;cursor:default}
 .refus{border-left:3px solid #e8b64c;background:#14110a;border-radius:6px;padding:13px 15px;font-size:13.5px}
 .mono{font-family:ui-monospace,monospace;font-size:11.5px;color:#8f9bb3;word-break:break-all}
 label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#8f9bb3;margin:10px 0 4px}
 </style></head><body><div class="w">
-<h1>ARSENAL — modules actifs et récupération de fonds</h1>
-<div class="sub">ALPHATECH OMNISCIENCE · état vérifié dans ton navigateur, à l'instant où tu ouvres cette page</div>
+<h1>ARSENAL — modules actifs, traque et récupération</h1>
+<div class="sub">ALPHATECH OMNISCIENCE · état vérifié maintenant · criblage sur la liste de sanctions réelle</div>
 
 <h2>1. Modules de défense et de renseignement</h2>
 <div class="card" style="padding:8px 10px">
@@ -31,22 +32,32 @@ label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em
 <div class="mono" style="margin-top:8px" id="bilan"></div>
 </div>
 
-<h2>2. Récupération de fonds — trace publique</h2>
+<h2>2. Traque — suivre l'argent, pas les gens</h2>
 <div class="card">
-  <p style="color:#b9c4d4;font-size:13.5px">Colle une adresse Bitcoin ou un identifiant de transaction. La page lit uniquement des données publiques de la blockchain, calcule ce qui reste sur l'adresse, et prépare un paquet de preuves horodaté et scellé que tu peux transmettre à un exchange, à un avocat ou à une autorité.</p>
+  <p style="color:#b9c4d4;font-size:13.5px">Colle une adresse Bitcoin ou un hash de transaction. La page lit la blockchain publique, calcule ce qui reste, liste les adresses de destination, et signale celles qui figurent sur la liste de sanctions du Trésor américain embarquée ici (<b id="nSanctions">…</b> adresses, 16 chaînes).</p>
   <label>Adresse Bitcoin ou hash de transaction</label>
-  <input id="cible" placeholder="bc1… ou 1A1z… ou hash de 64 caractères">
-  <button id="tracer">ANALYSER</button>
+  <input id="cible" placeholder="bc1… · 1A1z… · 3J98… · ou hash de 64 caractères">
+  <button id="analyser">ANALYSER</button>
+  <button id="traquer" disabled>TRAQUER LES SORTIES</button>
   <button class="sec" id="vider">VIDER</button>
   <div id="res"></div>
 </div>
 
-<h2>3. Ce que l'arsenal refuse, et pourquoi c'est une protection pour toi</h2>
-<div class="refus">
-Aucun module offensif n'est activé, et il n'en existe aucun ici : pas d'intrusion, pas de contournement de protection, pas de logiciel nuisible, pas d'attaque contre un tiers, même contre des cybercriminels. Ce n'est pas de la prudence excessive : l'effraction est l'infraction, c'est ton nom qui serait sur la plainte, et une preuve obtenue par intrusion devient inutilisable devant un juge. La récupération réelle passe par trois actes humains : la trace publique, la demande de gel auprès du service de conformité de l'exchange, et la plainte avec constitution de partie civile. Ce que je fais, c'est produire la trace et la preuve datée qui rendent ces trois actes possibles. La fenêtre utile est courte, souvent 72 heures.
+<h2>3. Récupération — la demande de gel</h2>
+<div class="card">
+  <p style="color:#b9c4d4;font-size:13.5px">Une fois les adresses de destination connues, ce bouton produit la demande de gel prête à envoyer au service de conformité d'un exchange, avec les adresses, les montants, l'horodatage et l'empreinte. C'est la pièce qui déclenche réellement un gel : les plateformes ne bougent pas sur une plainte orale.</p>
+  <label>Exchange ou service concerné (facultatif)</label>
+  <input id="dest" placeholder="ex : Binance, Bybit, MTN MoMo">
+  <button id="gel" disabled>GÉNÉRER LA DEMANDE DE GEL</button>
+  <div id="gelOut"></div>
 </div>
 
-<div class="mono" style="margin-top:14px">Traçage : mempool.space (données publiques, lecture seule) · preuves scellées par SHA-256 dans ton navigateur · aucune donnée envoyée ailleurs.</div>
+<h2>4. Ce que l'arsenal refuse, et pourquoi c'est ta protection</h2>
+<div class="refus">
+Aucun module offensif n'existe ici : pas d'intrusion, pas de contournement, pas de logiciel nuisible, même contre des cybercriminels. L'effraction est l'infraction elle-même, c'est ton nom qui figurerait sur la plainte, et une preuve obtenue en entrant dans un système est écartée par un juge. La traque réelle ne demande d'ailleurs aucune effraction : la blockchain est publique, et 513 adresses sanctionnées sont déjà dans cette page. Ce qui bloque une récupération, ce n'est pas l'accès technique, c'est le temps et la preuve.
+</div>
+
+<div class="mono" style="margin-top:14px">Traçage : mempool.space (lecture seule) · sanctions : liste SDN du Trésor américain, extraite le 20 novembre 2026 · preuves scellées SHA-256 dans ton navigateur.</div>
 </div>
 <script>
 (function(){
@@ -65,85 +76,182 @@ Aucun module offensif n'est activé, et il n'en existe aucun ici : pas d'intrusi
     ["passeport/", "Diagnostics sectoriels"],
     ["systeme/", "Hub de tous les modules"]
   ];
+  var SAN = {}, derniere = null;
+
   function esc(s){return String(s||"").replace(/[<>&]/g,function(c){return {"<":"&lt;",">":"&gt;","&":"&amp;"}[c];});}
   function sha(t){return crypto.subtle.digest("SHA-256", new TextEncoder().encode(t)).then(function(b){
     return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,"0")}).join("");});}
+  function btc(sat){ return (sat/1e8).toFixed(8) + " BTC"; }
 
-  var lignes = MODULES.map(function(m){
+  // 1. état des modules
+  var ok = 0, fait = 0;
+  document.getElementById("modules").innerHTML = MODULES.map(function(m){
     return "<tr><td><a href='" + BASE + m[0] + "' style='color:#f97362'>" + m[0] + "</a></td><td style='color:#b9c4d4'>" + m[1] + "</td><td id='st-" + m[0].replace(/[^a-z0-9]/g,"") + "' class='mono'>…</td></tr>";
   }).join("");
-  document.getElementById("modules").innerHTML = lignes;
-
-  var ok = 0, fait = 0;
   MODULES.forEach(function(m){
     var cell = document.getElementById("st-" + m[0].replace(/[^a-z0-9]/g,""));
-    fetch(BASE + m[0] + "?t=" + Date.now(), {method:"GET", cache:"no-store"})
-      .then(function(r){
-        fait++; if(r.ok) ok++;
-        cell.className = r.ok ? "ok" : "ko";
-        cell.textContent = r.ok ? "actif" : "échec " + r.status;
-      })
+    fetch(BASE + m[0] + "?t=" + Date.now(), {cache:"no-store"})
+      .then(function(r){ fait++; if(r.ok) ok++; cell.className = r.ok ? "ok" : "ko"; cell.textContent = r.ok ? "actif" : "échec " + r.status; })
       .catch(function(){ fait++; cell.className = "ko"; cell.textContent = "injoignable"; })
       .finally(function(){
-        if (fait === MODULES.length) {
-          document.getElementById("bilan").textContent = ok + " modules actifs sur " + MODULES.length + " · vérifié le " + new Date().toLocaleString("fr-FR");
-        }
+        if (fait === MODULES.length) document.getElementById("bilan").textContent = ok + " modules actifs sur " + MODULES.length + " · vérifié le " + new Date().toLocaleString("fr-FR");
       });
   });
 
+  // 2. liste de sanctions embarquée
+  fetch(BASE + "arsenal/sanctions.json?t=" + Date.now(), {cache:"no-store"})
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      d.forEach(function(x){ SAN[x.a] = x; });
+      document.getElementById("nSanctions").textContent = d.length;
+    })
+    .catch(function(){ document.getElementById("nSanctions").textContent = "indisponible"; });
+
+  function marque(addr){
+    var s = SAN[addr];
+    return s ? "<span class='al'>SANCTIONNÉ · " + esc(s.e) + " · " + esc(s.c) + "</span>" : "";
+  }
+
+  // 3. analyse d'une cible
   function analyser(){
     var v = document.getElementById("cible").value.trim();
     var out = document.getElementById("res");
     if (!v) { out.innerHTML = "<div class='card'>Colle une adresse ou un hash.</div>"; return; }
     out.innerHTML = "<div class='card'>lecture de la blockchain…</div>";
+    document.getElementById("traquer").disabled = true;
+    document.getElementById("gel").disabled = true;
     var estTx = /^[0-9a-fA-F]{64}$/.test(v);
-    var url = estTx ? "https://mempool.space/api/tx/" + v : "https://mempool.space/api/address/" + encodeURIComponent(v) + "/txs";
-    fetch(url, {cache:"no-store"})
-      .then(function(r){ if(!r.ok) throw new Error("HTTP " + r.status + " (adresse ou hash refusé)"); return r.json(); })
-      .then(function(d){
-        var lignes = [], solde = null, nb = null, derniere = null;
-        if (estTx) {
-          lignes = [["Transaction", d.txid], ["Confirmée dans le bloc", d.status && d.status.block_height ? d.status.block_height : "en attente"],
-                    ["Frais", (d.fee || 0) + " satoshis"], ["Entrées", (d.vin || []).length + " · Sorties", (d.vout || []).length]];
-        } else {
-          var txs = Array.isArray(d) ? d : [];
-          nb = txs.length;
-          derniere = txs.length && txs[0].status ? txs[0].status.block_time : null;
-          var recu = 0, envoye = 0;
-          txs.forEach(function(t){
-            (t.vout || []).forEach(function(o){ if (o.scriptpubkey_address === v) recu += o.value; });
-            (t.vin || []).forEach(function(i){ var p = i.prevout || {}; if (p.scriptpubkey_address === v) envoye += p.value; });
-          });
-          solde = recu - envoye;
-          lignes = [["Adresse", v], ["Transactions visibles", nb],
-                    ["Total reçu", (recu/1e8).toFixed(8) + " BTC"], ["Total envoyé", (envoye/1e8).toFixed(8) + " BTC"],
-                    ["Solde restant", (solde/1e8).toFixed(8) + " BTC"],
-                    ["Dernière activité", derniere ? new Date(derniere*1000).toLocaleString("fr-FR") : "inconnue"]];
-        }
-        var corps = "PAQUET DE PREUVES — ALPHATECH\nGénéré le " + new Date().toISOString() +
-          "\nCible : " + v + "\nSource : mempool.space (données publiques)\n\n" +
-          lignes.map(function(l){ return l[0] + " : " + l[1]; }).join("\n") +
-          "\n\nObjet : demande de gel et de traçage. Adresse à surveiller : " + v + "\n";
-        return sha(corps).then(function(h){
-          var html = "<div class='card'><table>" + lignes.map(function(l){
-            return "<tr><td style='color:#8f9bb3;width:200px'>" + esc(l[0]) + "</td><td class='mono'>" + esc(l[1]) + "</td></tr>";
+
+    if (estTx) {
+      fetch("https://mempool.space/api/tx/" + v, {cache:"no-store"})
+        .then(function(r){ if(!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+        .then(function(d){
+          var sorties = (d.vout||[]).map(function(o){ return {a:o.scriptpubkey_address, v:o.value}; }).filter(function(o){ return o.a; });
+          derniere = {type:"tx", id:v, sorties:sorties, recu:0, envoye:0, solde:null, nb:null};
+          var h = "<div class='card'><table>" +
+            "<tr><td style='color:#8f9bb3;width:210px'>Transaction</td><td class='mono'>" + esc(v) + "</td></tr>" +
+            "<tr><td style='color:#8f9bb3'>Bloc</td><td>" + (d.status && d.status.block_height ? d.status.block_height : "en attente") + "</td></tr>" +
+            "<tr><td style='color:#8f9bb3'>Frais</td><td>" + btc(d.fee||0) + "</td></tr>" +
+            "<tr><td style='color:#8f9bb3'>Destinations</td><td>" + sorties.length + "</td></tr></table></div>";
+          h += "<div class='card'><b>Adresses de destination</b><table>" + sorties.slice(0,20).map(function(o){
+            return "<tr><td class='mono'>" + esc(o.a) + "</td><td style='width:140px'>" + btc(o.v) + "</td><td style='width:220px'>" + marque(o.a) + "</td></tr>";
           }).join("") + "</table></div>";
-          html += "<div class='card'><b>Paquet de preuves</b> · empreinte SHA-256 <span class='mono'>" + h.slice(0,24) + "…</span>" +
-                  "<textarea id='paquet' readonly>" + esc(corps + "\nEmpreinte SHA-256 : " + h) + "</textarea>" +
-                  "<button class='sec' id='copier'>COPIER LE PAQUET</button></div>";
-          out.innerHTML = html;
-          document.getElementById("copier").onclick = function(){
-            var t = document.getElementById("paquet");
-            t.select();
-            if (navigator.clipboard) navigator.clipboard.writeText(t.value).catch(function(){});
-            else document.execCommand("copy");
-            this.textContent = "Copié";
-          };
+          out.innerHTML = h;
+          document.getElementById("traquer").disabled = true;
+          document.getElementById("gel").disabled = false;
+        })
+        .catch(function(e){ out.innerHTML = "<div class='card ko'>Lecture impossible : " + esc(e.message) + "</div>"; });
+      return;
+    }
+
+    fetch("https://mempool.space/api/address/" + encodeURIComponent(v) + "/txs", {cache:"no-store"})
+      .then(function(r){ if(!r.ok) throw new Error("HTTP " + r.status + " (adresse refusée)"); return r.json(); })
+      .then(function(txs){
+        var recu = 0, envoye = 0;
+        txs.forEach(function(t){
+          (t.vout||[]).forEach(function(o){ if (o.scriptpubkey_address === v) recu += o.value; });
+          (t.vin||[]).forEach(function(i){ var p = i.prevout||{}; if (p.scriptpubkey_address === v) envoye += p.value; });
         });
+        var derniereTx = txs.length && txs[0].status ? txs[0].status.block_time : null;
+        derniere = {type:"addr", id:v, txs:txs, recu:recu, envoye:envoye, solde:recu-envoye, nb:txs.length};
+        var h = "<div class='card'><table>" +
+          "<tr><td style='color:#8f9bb3;width:210px'>Adresse</td><td class='mono'>" + esc(v) + "</td></tr>" +
+          "<tr><td style='color:#8f9bb3'>Statut sanctions</td><td>" + (marque(v) || "<span class='ok'>aucune correspondance sur la liste</span>") + "</td></tr>" +
+          "<tr><td style='color:#8f9bb3'>Transactions visibles</td><td>" + txs.length + "</td></tr>" +
+          "<tr><td style='color:#8f9bb3'>Total reçu</td><td>" + btc(recu) + "</td></tr>" +
+          "<tr><td style='color:#8f9bb3'>Total envoyé</td><td>" + btc(envoye) + "</td></tr>" +
+          "<tr><td style='color:#8f9bb3'>Solde restant</td><td class='" + ((recu-envoye) > 0 ? "al" : "ok") + "'>" + btc(recu-envoye) + "</td></tr>" +
+          "<tr><td style='color:#8f9bb3'>Dernière activité</td><td>" + (derniereTx ? new Date(derniereTx*1000).toLocaleString("fr-FR") : "inconnue") + "</td></tr></table></div>";
+        out.innerHTML = h;
+        document.getElementById("traquer").disabled = false;
+        document.getElementById("gel").disabled = false;
       })
-      .catch(function(e){ out.innerHTML = "<div class='card ko'>Lecture impossible : " + esc(e.message) + "<br><span style='color:#8f9bb3'>Vérifie l'adresse : une adresse Bitcoin commence par 1, 3 ou bc1.</span></div>"; });
+      .catch(function(e){ out.innerHTML = "<div class='card ko'>Lecture impossible : " + esc(e.message) + "<br><span style='color:#8f9bb3'>Une adresse Bitcoin commence par 1, 3 ou bc1.</span></div>"; });
   }
-  document.getElementById("tracer").onclick = analyser;
-  document.getElementById("vider").onclick = function(){ document.getElementById("cible").value = ""; document.getElementById("res").innerHTML = ""; };
+
+  // 4. traque des sorties
+  function traquer(){
+    if (!derniere || derniere.type !== "addr") return;
+    var v = derniere.id, txs = derniere.txs || [];
+    var sorties = {}, ordre = [];
+    txs.forEach(function(t){
+      var mien = (t.vin||[]).some(function(i){ var p = i.prevout||{}; return p.scriptpubkey_address === v; });
+      if (!mien) return;
+      (t.vout||[]).forEach(function(o){
+        if (!o.scriptpubkey_address || o.scriptpubkey_address === v) return;
+        if (!sorties[o.scriptpubkey_address]) { sorties[o.scriptpubkey_address] = {v:0, n:0}; ordre.push(o.scriptpubkey_address); }
+        sorties[o.scriptpubkey_address].v += o.value;
+        sorties[o.scriptpubkey_address].n++;
+      });
+    });
+    if (!ordre.length) {
+      document.getElementById("res").innerHTML += "<div class='card'>Aucune sortie vers une autre adresse dans les transactions visibles : les fonds n'ont pas encore bougé, ou l'adresse n'a fait que recevoir.</div>";
+      return;
+    }
+    var total = 0, sanc = 0;
+    ordre.forEach(function(a){ total += sorties[a].v; if (SAN[a]) sanc++; });
+    var h = "<div class='card'><b>" + ordre.length + " adresses de destination</b> · " + btc(total) + " sortis" +
+      (sanc ? " · <span class='al'>" + sanc + " touche(nt) la liste de sanctions</span>" : " · aucune correspondance sur la liste") +
+      "<table style='margin-top:8px'><thead><tr><th>Destination</th><th style='width:130px'>Reçu</th><th style='width:60px'>Tx</th><th style='width:230px'>Sanctions</th></tr></thead><tbody>";
+    ordre.sort(function(a,b){ return sorties[b].v - sorties[a].v; }).slice(0,30).forEach(function(a){
+      h += "<tr><td class='mono'>" + esc(a) + "</td><td>" + btc(sorties[a].v) + "</td><td>" + sorties[a].n + "</td><td>" + marque(a) + "</td></tr>";
+    });
+    h += "</tbody></table><div class='mono' style='margin-top:8px'>Détail sur mempool.space : <a href='https://mempool.space/address/" + esc(v) + "' target='_blank' rel='noopener' style='color:#f97362'>ouvrir l'adresse</a></div></div>";
+    document.getElementById("res").innerHTML += h;
+    derniere.sorties = ordre.map(function(a){ return {a:a, v:sorties[a].v}; });
+  }
+
+  // 5. demande de gel
+  function gel(){
+    if (!derniere) return;
+    var dest = document.getElementById("dest").value.trim() || "le service de conformité";
+    var lignes = [];
+    lignes.push("DEMANDE DE GEL ET DE TRACAGE — ALPHATECH");
+    lignes.push("Date : " + new Date().toISOString());
+    lignes.push("Destinataire : " + dest);
+    lignes.push("Objet : fonds d'origine frauduleuse, demande de gel conservatoire");
+    lignes.push("");
+    lignes.push("Adresse d'origine : " + derniere.id);
+    if (derniere.type === "addr") {
+      lignes.push("Solde restant sur l'adresse : " + btc(derniere.solde || 0));
+      lignes.push("Transactions observées : " + (derniere.nb || 0));
+    }
+    if (derniere.sorties && derniere.sorties.length) {
+      lignes.push("");
+      lignes.push("Adresses de destination à geler :");
+      derniere.sorties.slice(0,20).forEach(function(s, i){
+        var tag = SAN[s.a] ? "  [SANCTIONNÉE — " + SAN[s.a].e + "]" : "";
+        lignes.push("  " + (i+1) + ". " + s.a + " — " + btc(s.v) + tag);
+      });
+    }
+    lignes.push("");
+    lignes.push("Pièces : relevé public mempool.space, horodatage ci-dessus, empreinte SHA-256 en bas de page.");
+    lignes.push("Demande : gel immédiat des avoirs liés à ces adresses, conservation des journaux de connexion,");
+    lignes.push("et confirmation écrite de la date de gel. Une plainte avec constitution de partie civile suit.");
+    var corps = lignes.join("\n");
+    sha(corps).then(function(h){
+      document.getElementById("gelOut").innerHTML = "<div class='card'><b>Demande de gel</b> · empreinte <span class='mono'>" + h.slice(0,24) + "…</span>" +
+        "<textarea id='txtGel' readonly>" + esc(corps + "\n\nEmpreinte SHA-256 : " + h) + "</textarea>" +
+        "<button class='sec' id='copier'>COPIER LA DEMANDE</button></div>";
+      document.getElementById("copier").onclick = function(){
+        var t = document.getElementById("txtGel"); t.select();
+        if (navigator.clipboard) navigator.clipboard.writeText(t.value).catch(function(){});
+        else document.execCommand("copy");
+        this.textContent = "Copié";
+      };
+    });
+  }
+
+  document.getElementById("analyser").onclick = analyser;
+  document.getElementById("traquer").onclick = traquer;
+  document.getElementById("gel").onclick = gel;
+  document.getElementById("vider").onclick = function(){
+    document.getElementById("cible").value = "";
+    document.getElementById("res").innerHTML = "";
+    document.getElementById("gelOut").innerHTML = "";
+    document.getElementById("traquer").disabled = true;
+    document.getElementById("gel").disabled = true;
+    derniere = null;
+  };
 })();
 </script></body></html>
