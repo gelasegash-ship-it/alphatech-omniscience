@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-20T07:16:26Z",
+ "maj": "2026-11-20T16:08:00Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -42,6 +42,16 @@
     "GitHub",
     "Hacker News",
     "arXiv"
+   ]
+  },
+  {
+   "ts": "2026-11-20T16:08:00Z",
+   "examines": 35,
+   "retenus": 14,
+   "total_registre": 43,
+   "sources": [
+    "GitHub",
+    "Hacker News"
    ]
   }
  ],
@@ -162,6 +172,26 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-20T07:16:26Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "f3e0df85f0cb18f0",
+   "titre": "RobThePCGuy/Claude-Patent-Creator",
+   "url": "https://github.com/RobThePCGuy/Claude-Patent-Creator",
+   "source": "GitHub",
+   "resume": "USPTO patent creation system with MCP server + Claude Code plugin. Hybrid RAG search over   MPEP/USC/CFR, BigQuery access to 76M+ patents, automated 35 USC 112 compliance checks, prior   art search, diagram generation. GPU-accelerated with ",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "rag"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "rag"
+   ],
+   "vu": "2026-11-20T16:08:00Z",
    "statut": "candidat"
   },
   {
@@ -349,6 +379,142 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-20T07:11:17Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "7a66a5c8c71d0bb9",
+   "titre": "Mindful-AI-Research/1-ai-robotics-intelligent-agents-consulting-hub",
+   "url": "https://github.com/Mindful-AI-Research/1-ai-robotics-intelligent-agents-consulting-hub",
+   "source": "GitHub",
+   "resume": "🦾🤖🪽  1. Artificial Intelligence, Robotics & Intelligent Agents ➝ Research & Consulting Hub: Exploring intelligent systems, robotics, autonomous and multi-agent architectures through research, consulting, experimentation, and real-world AI a",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T16:08:00Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "1d8de737a1c7c8d5",
+   "titre": "sx4im/BMO",
+   "url": "https://github.com/sx4im/BMO",
+   "source": "GitHub",
+   "resume": "Introducing Bimo 5 (Autonomous Multi-Modal AI Agent with real-time voice, vision processing, document analysis, image generation, and web search/fetch).",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "vision"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T16:08:00Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "288705a621140353",
+   "titre": "ai-openshell/OpenShell",
+   "url": "https://github.com/ai-openshell/OpenShell",
+   "source": "GitHub",
+   "resume": "OpenShell is the safe, private runtime for autonomous AI agents.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T16:08:00Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "822b3ed8929660fe",
+   "titre": "MADHacker912/Local_RAVAN",
+   "url": "https://github.com/MADHacker912/Local_RAVAN",
+   "source": "GitHub",
+   "resume": "⚡ Local_RAVAN // Autonomous Cybersecurity AI Agent powered by AirLLM, Uncensored Local Models & HexStrike FastMCP",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "security"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T16:08:00Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "715b6bc81ab4b4ff",
+   "titre": "crewAIInc/crewAI",
+   "url": "https://github.com/crewAIInc/crewAI",
+   "source": "GitHub",
+   "resume": "Framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T16:08:00Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "c86282330f22bd99",
+   "titre": "mushroomTW/RimAgent",
+   "url": "https://github.com/mushroomTW/RimAgent",
+   "source": "GitHub",
+   "resume": "An in-game AI agent for RimWorld: manage your colony in natural language with tool calling, autonomous goals, subagents, and MCP extensions. Powered by RimLLM Framework.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T16:08:00Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "613fe4de4f3b6120",
+   "titre": "f-o-x11/dreaming-press",
+   "url": "https://github.com/f-o-x11/dreaming-press",
+   "source": "GitHub",
+   "resume": "A publication where AI agents write for humans. Node/Express SSR + SQLite, autonomous newsroom, live AI-tool data engine. https://dreaming.press",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T16:08:00Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "cde15239a3ec9152",
+   "titre": "gke-labs/kube-agents",
+   "url": "https://github.com/gke-labs/kube-agents",
+   "source": "GitHub",
+   "resume": "An autonomous agentic harness for Kubernetes. Proactive fleet audits, declarative GitOps remediation, and ChatOps in one place.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T16:08:00Z",
    "statut": "candidat"
   },
   {
@@ -541,6 +707,86 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-20T07:16:26Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "0dd41a1899e2a501",
+   "titre": "NikaGoshadze/Refactra",
+   "url": "https://github.com/NikaGoshadze/Refactra",
+   "source": "GitHub",
+   "resume": "Autonomous Multi-Agent Repository Refactoring",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T16:08:00Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "ed1d61eac6b3204f",
+   "titre": "MADHacker912/ravan",
+   "url": "https://github.com/MADHacker912/ravan",
+   "source": "GitHub",
+   "resume": "⚡ RAVAN // Autonomous 16-Bit Cyber-Hacker AI Agent | OpenRouter x HexStrike MCP",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T16:08:00Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "4c0dccc3ab877aa1",
+   "titre": "hajimemanila/hermes-pilot",
+   "url": "https://github.com/hajimemanila/hermes-pilot",
+   "source": "GitHub",
+   "resume": "Don't type. Tap, redline, and ship. A mobile-first PWA plugin for Hermes Agent to pilot autonomous A2B coding pipelines from your phone.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T16:08:00Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "bf6a5bad3986ae2b",
+   "titre": "contact9prime-lab/bento-ai-os",
+   "url": "https://github.com/contact9prime-lab/bento-ai-os",
+   "source": "GitHub",
+   "resume": "A local-first AI desktop environment: an autonomous agent that builds apps, runs jobs and takes real actions on your machine. Local models via Ollama, or any cloud provider. Self-hosted, MIT.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T16:08:00Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "11f33355582d70b8",
+   "titre": "RizkiRdm/vanguard-ai-jobHunting",
+   "url": "https://github.com/RizkiRdm/vanguard-ai-jobHunting",
+   "source": "GitHub",
+   "resume": "Vanguard is a high-performance, Autonomous AI Agent designed to bridge the gap between job seekers and automated recruitment systems (ATS).",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T16:08:00Z",
    "statut": "candidat"
   }
  ],
