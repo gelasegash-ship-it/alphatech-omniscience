@@ -39,11 +39,18 @@ label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em
   <input id="cible" placeholder="bc1… · 1A1z… · 3J98… · ou hash de 64 caractères">
   <button id="analyser">ANALYSER</button>
   <button id="traquer" disabled>TRAQUER LES SORTIES</button>
+  <button class="sec" id="coller">LIRE MON PRESSE-PAPIER</button>
   <button class="sec" id="vider">VIDER</button>
   <div id="res"></div>
 </div>
 
-<h2>3. Récupération — la demande de gel</h2>
+<h2>3. Veille autonome — sans rien saisir</h2>
+<div class="card">
+  <p style="color:#b9c4d4;font-size:13.5px">Cette partie travaille seule, sans aucune saisie. Elle interroge les portefeuilles sanctionnés les plus lourds et compare chaque solde à celui vu lors de ta dernière visite. Un solde qui bouge est signalé en rouge : c'est le seul signal qui compte, parce qu'un mouvement signifie que les fonds tentent de sortir.</p>
+  <div id="veille"><span style="color:#8f9bb3">interrogation des portefeuilles…</span></div>
+</div>
+
+<h2>4. Récupération — la demande de gel</h2>
 <div class="card">
   <p style="color:#b9c4d4;font-size:13.5px">Une fois les adresses de destination connues, ce bouton produit la demande de gel prête à envoyer au service de conformité d'un exchange, avec les adresses, les montants, l'horodatage et l'empreinte. C'est la pièce qui déclenche réellement un gel : les plateformes ne bougent pas sur une plainte orale.</p>
   <label>Exchange ou service concerné (facultatif)</label>
@@ -52,7 +59,7 @@ label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em
   <div id="gelOut"></div>
 </div>
 
-<h2>4. Ce que l'arsenal refuse, et pourquoi c'est ta protection</h2>
+<h2>5. Ce que l'arsenal refuse, et pourquoi c'est ta protection</h2>
 <div class="refus">
 Aucun module offensif n'existe ici : pas d'intrusion, pas de contournement, pas de logiciel nuisible, même contre des cybercriminels. L'effraction est l'infraction elle-même, c'est ton nom qui figurerait sur la plainte, et une preuve obtenue en entrant dans un système est écartée par un juge. La traque réelle ne demande d'ailleurs aucune effraction : la blockchain est publique, et 513 adresses sanctionnées sont déjà dans cette page. Ce qui bloque une récupération, ce n'est pas l'accès technique, c'est le temps et la preuve.
 </div>
@@ -241,6 +248,77 @@ Aucun module offensif n'existe ici : pas d'intrusion, pas de contournement, pas 
       };
     });
   }
+
+
+  // 0. recevoir une adresse SANS COLLER : presse-papier d'un geste, lien partagé, ou paramètre d'URL
+  function traiterEntree(txt){
+    if (!txt) return false;
+    var m = String(txt).match(/\b(bc1[a-z0-9]{25,60}|[13][a-km-zA-HJ-NP-Z1-9]{25,34}|[0-9a-fA-F]{64})\b/);
+    if (!m) return false;
+    document.getElementById("cible").value = m[1];
+    analyser();
+    return true;
+  }
+  (function depuisURL(){
+    var q = new URLSearchParams(location.search);
+    var v = q.get("addr") || q.get("tx") || q.get("u") || q.get("text") || q.get("t") || "";
+    if (v) setTimeout(function(){ traiterEntree(decodeURIComponent(v)); }, 400);
+  })();
+  document.getElementById("coller").onclick = function(){
+    var b = this;
+    if (!navigator.clipboard || !navigator.clipboard.readText) {
+      b.textContent = "PRESSE-PAPIER INDISPONIBLE";
+      return;
+    }
+    navigator.clipboard.readText().then(function(t){
+      if (!traiterEntree(t)) {
+        b.textContent = "RIEN D'UTILE DANS LE PRESSE-PAPIER";
+        setTimeout(function(){ b.textContent = "LIRE MON PRESSE-PAPIER"; }, 2600);
+      }
+    }).catch(function(){
+      b.textContent = "AUTORISATION REFUSÉE";
+      setTimeout(function(){ b.textContent = "LIRE MON PRESSE-PAPIER"; }, 2600);
+    });
+  };
+
+
+  // veille autonome : aucun input, comparaison avec la visite précédente
+  (function veille(){
+    var CLE = "at_veille_soldes";
+    fetch(BASE + "arsenal/sanctions.json?t=" + Date.now(), {cache:"no-store"})
+      .then(function(r){ return r.json(); })
+      .then(function(liste){
+        var cibles = liste.filter(function(x){ return x.c === "XBT"; }).slice(0, 8);
+        var avant = {}; try { avant = JSON.parse(localStorage.getItem(CLE) || "{}"); } catch(e) {}
+        var apres = {}, html = "<table><thead><tr><th>Portefeuille sanctionné</th><th style='width:150px'>Solde</th><th style='width:130px'>Depuis ta dernière visite</th></tr></thead><tbody>";
+        var restants = cibles.length;
+        cibles.forEach(function(c){
+          fetch("https://mempool.space/api/address/" + c.a, {cache:"no-store"})
+            .then(function(r){ return r.ok ? r.json() : null; })
+            .then(function(d){
+              var sat = null;
+              if (d && d.chain_stats) sat = d.chain_stats.funded_txo_sum - d.chain_stats.spent_txo_sum;
+              apres[c.a] = sat;
+              var delta = (avant[c.a] !== undefined && sat !== null) ? sat - avant[c.a] : null;
+              var etat = delta === null ? "<span style='color:#8f9bb3'>première mesure</span>"
+                        : delta === 0 ? "<span class='ok'>inchangé</span>"
+                        : "<span class='al'>MOUVEMENT " + (delta > 0 ? "+" : "") + (delta/1e8).toFixed(8) + " BTC</span>";
+              return "<tr><td class='mono'>" + esc(c.a) + "<div style='color:#8f9bb3;font-size:11px'>" + esc(c.e) + "</div></td><td>" + (sat === null ? "—" : btc(sat)) + "</td><td>" + etat + "</td></tr>";
+            })
+            .catch(function(){ return "<tr><td class='mono'>" + esc(c.a) + "</td><td colspan='2' class='ko'>injoignable</td></tr>"; })
+            .then(function(ligne){
+              html += ligne;
+              if (--restants === 0) {
+                html += "</tbody></table><div class='mono' style='margin-top:8px'>8 portefeuilles suivis · comparaison avec la visite précédente · relevé du " + new Date().toLocaleString("fr-FR") + "</div>";
+                document.getElementById("veille").innerHTML = html;
+                localStorage.setItem(CLE, JSON.stringify(apres));
+              }
+            });
+        });
+        if (!cibles.length) document.getElementById("veille").innerHTML = "<span class='ko'>liste indisponible</span>";
+      })
+      .catch(function(){ document.getElementById("veille").innerHTML = "<span class='ko'>liste de sanctions injoignable</span>"; });
+  })();
 
   document.getElementById("analyser").onclick = analyser;
   document.getElementById("traquer").onclick = traquer;
