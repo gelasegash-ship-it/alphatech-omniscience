@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SENTINEL — veille autonome d'ALPHATECH</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#080a10;color:#e8eef7;font:15px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;padding:22px}
+.w{max-width:980px;margin:0 auto}
+h1{font-size:24px;color:#6ee7b7;margin-bottom:4px;letter-spacing:-.4px}
+.sub{color:#8fa3bd;font-size:13px;margin-bottom:18px}
+h2{font-size:15px;color:#6ee7b7;margin:26px 0 8px;border-left:3px solid #10b981;padding-left:10px}
+.card{background:#0e131c;border:1px solid #1e2a3d;border-radius:9px;padding:14px;margin-bottom:12px;font-size:14px}
+.stats{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin-bottom:12px}
+.stat{background:#0e131c;border:1px solid #1e2a3d;border-radius:9px;padding:13px;text-align:center}
+.stat b{display:block;font-size:26px;color:#6ee7b7;line-height:1.2}
+.stat span{font-size:11.5px;color:#8fa3bd;text-transform:uppercase;letter-spacing:.06em}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;color:#8fa3bd;font-weight:600;border-bottom:1px solid #1e2a3d;padding:7px 6px}
+td{border-bottom:1px solid #16202e;padding:8px 6px;vertical-align:top}
+a{color:#6ee7b7;text-decoration:none}
+a:hover{text-decoration:underline}
+.badge{display:inline-block;font-size:11px;padding:2px 7px;border-radius:10px;white-space:nowrap}
+.oui{background:#0d2b21;color:#6ee7b7;border:1px solid #14523c}
+.non{background:#231a10;color:#e0b070;border:1px solid #4a3620}
+.refus{border-left:3px solid #d05050;background:#1a0f12;border-radius:6px;padding:12px 14px;font-size:13.5px}
+.refus li{margin:4px 0 4px 18px}
+.mono{font-family:ui-monospace,monospace;font-size:11.5px;color:#8fa3bd;word-break:break-all}
+#etat{color:#8fa3bd;font-size:13px}
+</style></head><body><div class="w">
+<h1>SENTINEL — veille autonome</h1>
+<div class="sub">ALPHATECH OMNISCIENCE · lecture de sources publiques · cadence horaire, exécutée par GitHub Actions</div>
+
+<div class="stats">
+  <div class="stat"><b id="nCap">…</b><span>capacités au registre</span></div>
+  <div class="stat"><b id="nScan">…</b><span>scans effectués</span></div>
+  <div class="stat"><b id="nAdopt">…</b><span>intégrables ici</span></div>
+  <div class="stat"><b id="nSrc">…</b><span>sources lues</span></div>
+</div>
+<div id="etat">lecture du registre…</div>
+
+<h2>Ce que SENTINEL fait réellement</h2>
+<div class="card">
+Toutes les heures, un travail programmé lit trois sources publiques : Hacker News, arXiv (cs.AI et cs.LG) et la recherche GitHub. Il ne retient que ce qui parle vraiment d'agents, de mémoire, d'outils, d'évaluation ou de sécurité, marque chaque entrée d'une empreinte, écarte les doublons, et écrit le tout dans un registre daté, conservé dans le dépôt. Le résultat est cette page.
+<br><br>
+Ce n'est pas une IA qui se réécrit seule. C'est une veille qui tourne sans moi, qui produit des candidats sourcés, et sur laquelle je m'appuie pour proposer des améliorations précises, avec leur lien d'origine. L'adoption reste un acte explicite : je montre le candidat, tu valides, j'implémente et je vérifie.
+</div>
+
+<h2>Capacités retenues</h2>
+<div class="card" style="padding:8px 10px">
+<table>
+<thead><tr><th style="width:46px">Score</th><th>Titre et source</th><th style="width:150px">Origine</th><th style="width:120px">Intégrable ici</th></tr></thead>
+<tbody id="lignes"><tr><td colspan="4" style="color:#8fa3bd">chargement…</td></tr></tbody>
+</table>
+</div>
+
+<h2>Ce que SENTINEL refuse, par construction</h2>
+<div class="card refus">
+<ul id="refus"><li>chargement…</li></ul>
+<div style="margin-top:8px;color:#c9b0b0">La demande de créer « ses virus » ne sera pas exécutée, aujourd'hui ni plus tard. Un logiciel qui se propage et nuit à des tiers est un délit, il te ferait porter la responsabilité pénale, et il détruirait la crédibilité commerciale d'ALPHATECH. Ce qui est construit ici est défensif : lire, mesurer, alerter, corriger.</div>
+</div>
+
+<h2>Pourquoi pas « chaque seconde »</h2>
+<div class="card">
+Un cycle par seconde sur des sources qui publient quelques dizaines d'objets par heure ne trouverait rien de neuf : il brûlerait du quota pour relire les mêmes pages, et GitHub comme arXiv bloqueraient l'accès. La cadence utile est horaire. Ce qui doit être immédiat, ce n'est pas la lecture des sources, c'est la réaction à un signal : une alerte de sécurité, une opportunité datée. Ces deux vitesses sont séparées ici, volontairement.
+</div>
+
+<div class="mono" style="margin-top:16px">Registre : sentinel/registry.json · script : sentinel/scan.py · planification : .github/workflows/sentinel.yml</div>
+</div>
+<script>
+(function(){
+  var U = "../sentinel/registry.json";
+  function esc(s){return String(s||"").replace(/[<>&]/g, function(c){return {"<":"&lt;",">":"&gt;","&":"&amp;"}[c];});}
+  fetch(U + "?t=" + Date.now(), {cache:"no-store"})
+    .then(function(r){ if(!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(function(d){
+      var caps = d.capacites || [], scans = d.scans || [];
+      document.getElementById("nCap").textContent = caps.length;
+      document.getElementById("nScan").textContent = scans.length;
+      document.getElementById("nAdopt").textContent = caps.filter(function(c){return c.adoptable_localement;}).length;
+      var src = {}; caps.forEach(function(c){ src[c.source] = 1; });
+      document.getElementById("nSrc").textContent = Object.keys(src).length;
+      var dernier = scans.length ? scans[scans.length-1] : null;
+      document.getElementById("etat").textContent = dernier
+        ? "Dernier scan : " + dernier.ts + " · " + dernier.examines + " objets examinés, " + dernier.retenus + " retenus · sources : " + (dernier.sources||[]).join(", ")
+        : "Aucun scan enregistré.";
+      document.getElementById("lignes").innerHTML = caps.length
+        ? caps.slice(0, 60).map(function(c){
+            return "<tr><td><b>" + c.score + "</b></td>" +
+              "<td><a href='" + esc(c.url) + "' target='_blank' rel='noopener'>" + esc(c.titre) + "</a>" +
+              (c.resume ? "<div style='color:#8fa3bd;font-size:12px;margin-top:3px'>" + esc(c.resume.slice(0,150)) + "</div>" : "") + "</td>" +
+              "<td style='color:#8fa3bd'>" + esc(c.source) + "<div class='mono'>" + esc(c.vu.slice(0,10)) + "</div></td>" +
+              "<td><span class='badge " + (c.adoptable_localement ? "oui" : "non") + "'>" + (c.adoptable_localement ? "oui" : "hors périmètre") + "</span></td></tr>";
+          }).join("")
+        : "<tr><td colspan='4'>registre vide</td></tr>";
+      document.getElementById("refus").innerHTML = (d.refus||[]).map(function(r){return "<li>" + esc(r) + "</li>";}).join("");
+    })
+    .catch(function(e){
+      document.getElementById("etat").textContent = "registre illisible : " + e.message;
+    });
+})();
+</script></body></html>

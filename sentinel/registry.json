@@ -1,0 +1,372 @@
+{
+ "maj": "2026-11-20T07:10:45Z",
+ "scans": [
+  {
+   "ts": "2026-11-20T07:10:37Z",
+   "examines": 35,
+   "retenus": 15,
+   "total_registre": 15,
+   "sources": [
+    "GitHub",
+    "Hacker News"
+   ]
+  },
+  {
+   "ts": "2026-11-20T07:10:45Z",
+   "examines": 60,
+   "retenus": 5,
+   "total_registre": 20,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
+  }
+ ],
+ "capacites": [
+  {
+   "empreinte": "4fac8a74fdf4f679",
+   "titre": "remya-narayanankutty/ai-agent-team-case-study",
+   "url": "https://github.com/remya-narayanankutty/ai-agent-team-case-study",
+   "source": "GitHub",
+   "resume": "Case study: how I design and manage a team of autonomous AI agents for a D2C brand, with clear mandates, guardrails and learning loops.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "guardrail"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "guardrail"
+   ],
+   "vu": "2026-11-20T07:10:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "dcd7beb587a908e5",
+   "titre": "ashlrai/phantom",
+   "url": "https://github.com/ashlrai/phantom",
+   "source": "GitHub",
+   "resume": "Chasing open-source RSI (recursive self-improvement): a fully autonomous software factory that improves itself. Anyone can join Phantom with their own agents and compute: Claude Code, Codex, Devin, Grok and local models.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "self-improv"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "06b6387dd3484f1c",
+   "titre": "PrimeIntellect-ai/prime-agent",
+   "url": "https://github.com/PrimeIntellect-ai/prime-agent",
+   "source": "GitHub",
+   "resume": "A self-improving RLM agent for coding workflows and long-running autonomous tasks.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "autonomous",
+    "self-improv",
+    "workflow"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "workflow"
+   ],
+   "vu": "2026-11-20T07:10:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "f316ec570c1a0671",
+   "titre": "pym96/Pan-agent",
+   "url": "https://github.com/pym96/Pan-agent",
+   "source": "GitHub",
+   "resume": "A replayable, recoverable, and general Runtime for autonomous agents.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "89ab162b6c4ef85a",
+   "titre": "J3n5en/EnsoCode",
+   "url": "https://github.com/J3n5en/EnsoCode",
+   "source": "GitHub",
+   "resume": "One Developer. An Entire Fleet of Autonomous Coding Agents. Local-first desktop agent workbench built on Electron + pi.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "27b68c536e077de4",
+   "titre": "AetherraLabs/Aetherra",
+   "url": "https://github.com/AetherraLabs/Aetherra",
+   "source": "GitHub",
+   "resume": "A self-evolving, AI-native language and platform for intelligent agents and autonomous software.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "6eb73169f84ce43f",
+   "titre": "NVIDIA/OpenShell",
+   "url": "https://github.com/NVIDIA/OpenShell",
+   "source": "GitHub",
+   "resume": "OpenShell is the safe, private runtime for autonomous AI agents.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "febc91b10609ac86",
+   "titre": "shinagawa-web/twinx",
+   "url": "https://github.com/shinagawa-web/twinx",
+   "source": "GitHub",
+   "resume": "An experiment: how far autonomous agents can take an HTTP server that behaves like nginx, compared against nginx itself",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "c1e40ea97aa615d6",
+   "titre": "julie-ng/ai-native-sdlc",
+   "url": "https://github.com/julie-ng/ai-native-sdlc",
+   "source": "GitHub",
+   "resume": "Architecture and design for running autonomous coding agents - on my local machine and in the cloud",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "c5f3adb30fe6423f",
+   "titre": "shivvanshh/Nexus",
+   "url": "https://github.com/shivvanshh/Nexus",
+   "source": "GitHub",
+   "resume": "Real-time quantitative trading pipeline and autonomous causal analysis engine built with Apache Kafka, TimescaleDB, Python agents, and a live Streamlit/Plotly dashboard.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "1d08b2a6b57ac2c6",
+   "titre": "PlayCraft: Designing Engaging Games from Agent Play Experience",
+   "url": "http://arxiv.org/abs/2611.26624v1",
+   "source": "arXiv",
+   "resume": "Recent AI agents can generate playable games, but these games are not necessarily engaging. Mastery is a key source of engagement, yet designing for it requires extensive human play and tuning. We propose PlayCraft, an automated framework t",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "vision"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:45Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "2c7619273522d7ac",
+   "titre": "Replication of Agentic Security Events: Audit and Investigation (ROGUE-AI)",
+   "url": "http://arxiv.org/abs/2611.26553v1",
+   "source": "arXiv",
+   "resume": "Agents based on large language models (LLMs) can now delete files and send payments on behalf of their users. News media reports routinely describe failures of these agents (e.g., Replit's coding agent deleting a production database), but a",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "security"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:45Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "3f9634667f0bc323",
+   "titre": "vpatz/autonomous-aiops",
+   "url": "https://github.com/vpatz/autonomous-aiops",
+   "source": "GitHub",
+   "resume": "Agent remediations for unknown scenarios",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "73f405fe54866b5d",
+   "titre": "DuongNAD/DuongNAD",
+   "url": "https://github.com/DuongNAD/DuongNAD",
+   "source": "GitHub",
+   "resume": "⚡ Config & Showcase for Nguyen Anh Duong (DuongNAD) — AI Engineer specializing in Autonomous Agentic Systems, Cognitive Architectures & GenAI Automation",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "d4eb250933bc1d87",
+   "titre": "suixinga/ai-host",
+   "url": "https://github.com/suixinga/ai-host",
+   "source": "GitHub",
+   "resume": "autonomous agent on github actions",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "ca453a5c2e021f8b",
+   "titre": "LIUTod/scream-code",
+   "url": "https://github.com/LIUTod/scream-code",
+   "source": "GitHub",
+   "resume": "零远程行为、子代理协同、支持自主进化的自治 Agent 编队丨 Autonomous Agent Fleet with Zero-Remote Behavior: Sub-agent Collaboration and Self-Evolution",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "8051ddb396d7cf15",
+   "titre": "warni001/agent-crew",
+   "url": "https://github.com/warni001/agent-crew",
+   "source": "GitHub",
+   "resume": "Autonomous multi-agent coding crew on Microsoft Agent Framework",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "1de91b6d50876f2b",
+   "titre": "SoK: Assessing the Evolution of LLM Capability in Software Vulnerability Research",
+   "url": "http://arxiv.org/abs/2611.26601v1",
+   "source": "arXiv",
+   "resume": "LLM-based agents are becoming increasingly capable at discovering, validating and patching vulnerabilities in real software, and vendors and researchers report that this is already changing how vulnerabilities are found and fixed. These cla",
+   "score": 2,
+   "mots": [
+    "agent",
+    "agents"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:45Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "1db1e39e61712ba4",
+   "titre": "Text-Aware, Vision-Blind: How Multimodal Image Editing Systems Handle Unsafe Inputs",
+   "url": "http://arxiv.org/abs/2611.26569v1",
+   "source": "arXiv",
+   "resume": "Multimodal image generation systems have made rapid progress and increasingly emphasize content safety. However, their safety mechanisms tend to rely on a single modality and lack joint consideration of both visual content and text prompts,",
+   "score": 2,
+   "mots": [
+    "multimodal",
+    "vision"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:45Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "a7be3c1e57e039be",
+   "titre": "Backtracking Agent Applications Security Incidents",
+   "url": "http://arxiv.org/abs/2611.26525v1",
+   "source": "arXiv",
+   "resume": "Agent applications are increasingly deployed, yet agent-specific attacks pose real threats to them. Upon a security incident, organizations backtrack to identify the CEP (compromise entry point), remediate the damage, and prevent its recurr",
+   "score": 2,
+   "mots": [
+    "agent",
+    "security"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-20T07:10:45Z",
+   "statut": "candidat"
+  }
+ ],
+ "refus": [
+  "Aucun code trouvé n'est exécuté ni installé automatiquement.",
+  "Aucune création de logiciel nuisible (ver, virus, charge utile) : refus constant.",
+  "Aucune modification de code appliquée sans validation humaine explicite."
+ ]
+}

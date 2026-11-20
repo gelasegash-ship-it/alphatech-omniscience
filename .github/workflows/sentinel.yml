@@ -1,0 +1,36 @@
+name: SENTINEL — veille autonome
+
+# Toutes les heures, sans plateforme, sans crédit : GitHub exécute le scan lui-même.
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Lire les sources publiques et mettre à jour le registre
+        run: python3 sentinel/scan.py
+
+      - name: Publier le registre si quelque chose a changé
+        run: |
+          git config user.name "SENTINEL"
+          git config user.email "sentinel@users.noreply.github.com"
+          git add sentinel/registry.json
+          if git diff --staged --quiet; then
+            echo "aucun changement"
+          else
+            git commit -m "SENTINEL: veille automatique $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
