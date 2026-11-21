@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-21T03:57:19Z",
+ "maj": "2026-11-21T12:36:32Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -71,6 +71,17 @@
    "retenus": 0,
    "total_registre": 56,
    "sources": [
+    "Hacker News",
+    "arXiv"
+   ]
+  },
+  {
+   "ts": "2026-11-21T12:36:32Z",
+   "examines": 60,
+   "retenus": 13,
+   "total_registre": 69,
+   "sources": [
+    "GitHub",
     "Hacker News",
     "arXiv"
    ]
@@ -234,6 +245,26 @@
     "sandbox"
    ],
    "vu": "2026-11-20T22:39:57Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "48d7405f75370f01",
+   "titre": "TraceWard/traceward",
+   "url": "https://github.com/TraceWard/traceward",
+   "source": "GitHub",
+   "resume": "Misalignment Observability for Autonomous Agents",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "observability"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "observability"
+   ],
+   "vu": "2026-11-21T12:36:32Z",
    "statut": "candidat"
   },
   {
@@ -662,6 +693,74 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "4247565dfb989e57",
+   "titre": "nosaa19/mazemind-arena",
+   "url": "https://github.com/nosaa19/mazemind-arena",
+   "source": "GitHub",
+   "resume": "A browser-based AI algorithm competition platform where students program autonomous Pac-Man and Virus agents using JavaScript.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T12:36:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "363ad9c01035d7ee",
+   "titre": "openmake/openmake_llm",
+   "url": "https://github.com/openmake/openmake_llm",
+   "source": "GitHub",
+   "resume": "Open-source, self-hosted AI workspace for local and open-weight LLMs with vLLM, LiteLLM, autonomous agents, MCP tools, deep research, artifacts, and BYOK.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T12:36:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "c673e70f789c7b7f",
+   "titre": "juliosuas/ai-garden",
+   "url": "https://github.com/juliosuas/ai-garden",
+   "source": "GitHub",
+   "resume": "🌱 AI Garden — A living pixel-art world built by AI agents. Open for contributions. Autonomous AI, generative art, collaborative experiment. 130+ plants, 19 structures, real-time growth.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T12:36:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "63f9abfa816850a7",
+   "titre": "ABHISHEK1139/AgentPay-Autonomous-Agent-Commerce-Control-Plane",
+   "url": "https://github.com/ABHISHEK1139/AgentPay-Autonomous-Agent-Commerce-Control-Plane",
+   "source": "GitHub",
+   "resume": "Autonomous Agent Commerce Control Plane — Deterministic authorization, spending boundaries, 7-field human approvals, idempotency, and tamper-evident audit trails for AI agents. Production-ready payment gateway supporting Stripe, Razorpay, A",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T12:36:32Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -1027,6 +1126,134 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-20T22:39:57Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "ca056b3ce92a763c",
+   "titre": "Bethelincovibetv/time-earnings-calculator",
+   "url": "https://github.com/Bethelincovibetv/time-earnings-calculator",
+   "source": "GitHub",
+   "resume": "webapp built autonomously by Vixora Coding Agent: A modern, responsive 'Earnings Time Tracker' web app. Users can input their 'Desired Hourly Rate'. The app features a li",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T12:36:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "bc56400bb2dcd759",
+   "titre": "hemanathk636/secretguard",
+   "url": "https://github.com/hemanathk636/secretguard",
+   "source": "GitHub",
+   "resume": "Sub-millisecond terminal secret interceptor, AI agent firewall, and privacy guard for developers (Ghost Tokens & Autonomous Immune Engine)",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T12:36:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "ca433ef67bb5bd82",
+   "titre": "kingsprayer/instagram-autonomous-content-agent",
+   "url": "https://github.com/kingsprayer/instagram-autonomous-content-agent",
+   "source": "GitHub",
+   "resume": "Autonomous daily Instagram meme, carousel & reel agent with Claude, FFmpeg procedural music synth, approval dashboard & Meta Graph API publishing",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T12:36:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "c1460cc62c7ff02f",
+   "titre": "louloulin/OpenBuddy",
+   "url": "https://github.com/louloulin/OpenBuddy",
+   "source": "GitHub",
+   "resume": "🚀 The open-source WorkBuddy successor — powered by Pi's empathy engine. Autonomous tasks, local files, multi-agent collaboration with emotional intelligence",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T12:36:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "926300543600cc65",
+   "titre": "cuppur/Atom",
+   "url": "https://github.com/cuppur/Atom",
+   "source": "GitHub",
+   "resume": "Lightweight Windows desktop agent with multi-provider models, autonomous planning, independent completion reviews and local sessions.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T12:36:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "2ad71d0f30f727cd",
+   "titre": "omatheusmesmo/Qlawkus",
+   "url": "https://github.com/omatheusmesmo/Qlawkus",
+   "source": "GitHub",
+   "resume": "Autonomous Personal Engineering Agent built with Quarkus LangChain4j",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T12:36:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "9583992910e3d45d",
+   "titre": "M-Noyon/content-agent",
+   "url": "https://github.com/M-Noyon/content-agent",
+   "source": "GitHub",
+   "resume": "Autonomous AI-powered content automation and publishing agent",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T12:36:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "0ecf00ac54f8c1fb",
+   "titre": "rezimx-btc/aevum-proof-gated-payee",
+   "url": "https://github.com/rezimx-btc/aevum-proof-gated-payee",
+   "source": "GitHub",
+   "resume": "Proof-Gated Payee — an autonomous AI agent verifies the payee on-chain before tUSD8 leaves escrow. Aevum Builder Challenge #1, Confirmation of Payee track.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T12:36:32Z",
    "statut": "candidat"
   }
  ],
