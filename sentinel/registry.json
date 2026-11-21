@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-20T22:39:57Z",
+ "maj": "2026-11-21T03:57:19Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -61,6 +61,16 @@
    "total_registre": 56,
    "sources": [
     "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
+  },
+  {
+   "ts": "2026-11-21T03:57:19Z",
+   "examines": 45,
+   "retenus": 0,
+   "total_registre": 56,
+   "sources": [
     "Hacker News",
     "arXiv"
    ]
