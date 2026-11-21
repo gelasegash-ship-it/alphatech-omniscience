@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-21T12:36:32Z",
+ "maj": "2026-11-21T20:05:10Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -80,6 +80,17 @@
    "examines": 60,
    "retenus": 13,
    "total_registre": 69,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
+  },
+  {
+   "ts": "2026-11-21T20:05:10Z",
+   "examines": 60,
+   "retenus": 14,
+   "total_registre": 83,
    "sources": [
     "GitHub",
     "Hacker News",
@@ -265,6 +276,46 @@
     "observability"
    ],
    "vu": "2026-11-21T12:36:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "0b547f49fefcd12b",
+   "titre": "cufelix/ai-team",
+   "url": "https://github.com/cufelix/ai-team",
+   "source": "GitHub",
+   "resume": "Autonomous AI dev team on Claude Code: planner + worktree agents + PRs, voice meeting room (ElevenLabs)",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "planner"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "planner"
+   ],
+   "vu": "2026-11-21T20:05:10Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "6766e0e262629ee4",
+   "titre": "mangod12/OneAlert",
+   "url": "https://github.com/mangod12/OneAlert",
+   "source": "GitHub",
+   "resume": "AI-powered SOC for OT/ICS networks — 6 autonomous agents, MITRE ATT&CK mapping, Suricata/Zeek ingestion, human-in-the-loop response, 330+ tests. Open-source alternative to Claroty/Dragos for SMBs.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "rag"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "rag"
+   ],
+   "vu": "2026-11-21T20:05:10Z",
    "statut": "candidat"
   },
   {
@@ -761,6 +812,125 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "29b27993ffa730b3",
+   "titre": "diptapradipta21/agentic-cron-scheduler",
+   "url": "https://github.com/diptapradipta21/agentic-cron-scheduler",
+   "source": "GitHub",
+   "resume": "Autonomous self-healing task scheduler for AI agents with automatic remediation hooks on job failures.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T20:05:10Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "9fc44f1ea6e5615e",
+   "titre": "MaranZeal678/ghostlayer",
+   "url": "https://github.com/MaranZeal678/ghostlayer",
+   "source": "GitHub",
+   "resume": "GhostLayer — autonomous AI agents that explore your site, find hidden bugs, verify fixes, and open draft PRs. Cutie Hack 2026.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T20:05:10Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "f9400afef150f703",
+   "titre": "andreseloysv/Tirith",
+   "url": "https://github.com/andreseloysv/Tirith",
+   "source": "GitHub",
+   "resume": "An autonomous manager for your coding agents: a plan they must follow, rules enforced in code, merges that pass checks, and a chat that asks you only what only you can decide. macOS app + web UI. Built with Muse Spark and Muse Code.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T20:05:10Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "06e2f78bf55674b6",
+   "titre": "seed-0x01/town",
+   "url": "https://github.com/seed-0x01/town",
+   "source": "GitHub",
+   "resume": "Shared notice board and artifacts of two autonomous AI agents in an isolated pod. Not a human project.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T20:05:10Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "d715aa3b5ebfe430",
+   "titre": "olegiv/claude-code-support-tools",
+   "url": "https://github.com/olegiv/claude-code-support-tools",
+   "source": "GitHub",
+   "resume": "Claude Code support tools: autonomous skills, expert agents, slash commands and prompts",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T20:05:10Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "076fc5e35dcbcd42",
+   "titre": "openagt/openagent",
+   "url": "https://github.com/openagt/openagent",
+   "source": "GitHub",
+   "resume": "Autonomous AI programming. Stop babysitting your coding agents. You make the important decisions; AI does the rest.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T20:05:10Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "16e8ddfc157f42ef",
+   "titre": "hacklab11/apollo-11",
+   "url": "https://github.com/hacklab11/apollo-11",
+   "source": "GitHub",
+   "resume": "Eye of the System: an autonomous monitoring system for a simulated marketplace. Agents keep a typed metric graph, detect anomalies, investigate root causes, and report incidents with evidence. A2A specialists, an MCP server, and a web UI.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T20:05:10Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -1254,6 +1424,86 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-21T12:36:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "7d47e6a24111b846",
+   "titre": "wanted0104/pulse-analytics-ai",
+   "url": "https://github.com/wanted0104/pulse-analytics-ai",
+   "source": "GitHub",
+   "resume": "High-performance agentic telemetry and autonomous LLM cost tracking for Next.js and FastAPI",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T20:05:10Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "2c98dad94f620a0c",
+   "titre": "Kariqq/autonomous-cfo-collabothon",
+   "url": "https://github.com/Kariqq/autonomous-cfo-collabothon",
+   "source": "GitHub",
+   "resume": "Autonomous CFO agent - Collabothon Red Hat Challenge",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T20:05:10Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "3619b011f42f582e",
+   "titre": "BenjiTrapp/TrashPandaPaws",
+   "url": "https://github.com/BenjiTrapp/TrashPandaPaws",
+   "source": "GitHub",
+   "resume": "Red Team hardware implant — RPi4/CM4 inline Ethernet tap with PoE, cover identities (Cisco Phone / HP Printer), 802.1X NAC bypass, a stdlib-only Python beacon over HTTPS/DNS/SMB/QUIC, and an operator GUI with an autonomous agent mode",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T20:05:10Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "30382fb13313d7af",
+   "titre": "hffmnnj/longbow",
+   "url": "https://github.com/hffmnnj/longbow",
+   "source": "GitHub",
+   "resume": "An autonomous trading agent for Robinhood with a deterministic risk engine, simulation lab, web app, and native Android client.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T20:05:10Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "b1569464730ce398",
+   "titre": "Diphiya/Autonomous_AI_Agent",
+   "url": "https://github.com/Diphiya/Autonomous_AI_Agent",
+   "source": "GitHub",
+   "resume": "",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-21T20:05:10Z",
    "statut": "candidat"
   }
  ],
