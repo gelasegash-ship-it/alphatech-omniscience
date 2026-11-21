@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hôpital — patients, lits, consultations, facturation</title>
+<meta name="theme-color" content="#0b1220">
+<style>
+:root{--bg:#0b1220;--card:#121c2e;--line:#233149;--txt:#e8eefc;--dim:#9fb0cc;--ok:#22c55e;--warn:#f59e0b;--bad:#ef4444;--accent:#38bdf8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+h1{font-size:17px;margin:0;letter-spacing:.02em}
+.tag{font:11px ui-monospace,monospace;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:3px 9px}
+nav{display:flex;gap:6px;overflow-x:auto;padding:10px 12px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5}
+nav button{background:var(--card);color:var(--dim);border:1px solid var(--line);border-radius:9px;padding:7px 11px;font-size:13px;white-space:nowrap}
+nav button.on{color:#06121f;background:var(--accent);border-color:var(--accent);font-weight:700}
+main{padding:14px;max-width:1000px;margin:0 auto}
+section{display:none}
+section.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.kpi{padding:11px;border:1px solid var(--line);border-radius:12px}
+.kpi b{display:block;font-size:20px;margin-top:3px}
+.kpi span{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.05em}
+label{display:block;font-size:12px;color:var(--dim);margin:8px 0 3px}
+input,select,textarea,button{font:inherit;color:var(--txt);background:#0d1626;border:1px solid var(--line);border-radius:9px;padding:8px 10px;width:100%}
+textarea{min-height:64px;resize:vertical}
+button{cursor:pointer}
+.btn{background:var(--accent);color:#06121f;border:none;font-weight:700}
+.btn2{background:#1b2942}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.pill{font:11px ui-monospace,monospace;padding:2px 7px;border-radius:999px;border:1px solid var(--line)}
+.ok{color:var(--ok);border-color:var(--ok)}
+.warn{color:var(--warn);border-color:var(--warn)}
+.bad{color:var(--bad);border-color:var(--bad)}
+.dim{color:var(--dim)}
+.lits{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.lit{border:1px solid var(--line);border-radius:10px;padding:8px;text-align:center;font-size:12px}
+.lit.occ{background:#3a1d22;border-color:#7f2b33}
+small{color:var(--dim);font-size:11px}
+.note{border-left:3px solid var(--warn);padding-left:10px;color:var(--dim);font-size:12px;margin:8px 0}
+@media print{nav,header,.noprint{display:none}body{background:#fff;color:#000}.card{border-color:#ccc}}
+</style>
+</head>
+<body>
+<header>
+  <h1>HÔPITAL</h1>
+  <span class="tag">patients · lits · consultations · facturation</span>
+  <span class="tag" id="etatSync">local</span>
+</header>
+<nav id="nav"></nav>
+<main>
+
+<section id="s-bord">
+  <div class="grid" id="kp"></div>
+  <div class="card">
+    <h3 style="margin:0 0 8px">À traiter maintenant</h3>
+    <div id="alertes"></div>
+  </div>
+  <div class="note">Données de santé : elles restent sur cet appareil. Verrouille le téléphone, et n'y consigne que ce qui sert au soin.</div>
+</section>
+
+<section id="s-patients">
+  <div class="card">
+    <h3 style="margin:0 0 6px">Nouveau patient</h3>
+    <div class="row"><div><label>Nom complet</label><input id="pNom"></div><div><label>Téléphone</label><input id="pTel"></div></div>
+    <div class="row3"><div><label>Sexe</label><select id="pSexe"><option>F</option><option>M</option></select></div><div><label>Naissance</label><input id="pNais" type="date"></div><div><label>Groupe</label><input id="pGroupe" placeholder="O+"></div></div>
+    <label>Allergies connues</label><input id="pAll">
+    <label>Antécédents</label><textarea id="pAnt"></textarea>
+    <div style="margin-top:10px"><button class="btn" id="addPatient">Enregistrer le patient</button></div>
+  </div>
+  <div class="card">
+    <label>Rechercher</label><input id="pFiltre" placeholder="nom ou téléphone">
+    <div id="pListe" style="margin-top:10px"></div>
+  </div>
+</section>
+
+<section id="s-adm">
+  <div class="card">
+    <h3 style="margin:0 0 6px">Admission</h3>
+    <div class="row"><div><label>Patient</label><select id="aPatient"></select></div><div><label>Service</label><input id="aService" placeholder="Médecine, Maternité…"></div></div>
+    <div class="row"><div><label>Lit</label><select id="aLit"></select></div><div><label>Médecin</label><input id="aMedecin"></div></div>
+    <div style="margin-top:10px"><button class="btn" id="addAdm">Admettre</button></div>
+  </div>
+  <div class="card"><h3 style="margin:0 0 8px">Patients hospitalisés</h3><div id="admListe"></div></div>
+</section>
+
+<section id="s-cons">
+  <div class="card">
+    <h3 style="margin:0 0 6px">Consultation</h3>
+    <div class="row"><div><label>Patient</label><select id="cPatient"></select></div><div><label>Honoraires (FCFA)</label><input id="cHon" type="number" min="0" step="500" value="5000"></div></div>
+    <label>Motif</label><input id="cMotif">
+    <label>Diagnostic</label><input id="cDiag">
+    <label>Prescription</label><textarea id="cOrdo" placeholder="Une ligne par produit, avec posologie"></textarea>
+    <div style="margin-top:10px"><button class="btn" id="addCons">Enregistrer et facturer</button></div>
+  </div>
+  <div class="card"><h3 style="margin:0 0 8px">Dernières consultations</h3><div id="consListe"></div></div>
+</section>
+
+<section id="s-lits">
+  <div class="card">
+    <h3 style="margin:0 0 6px">Ajouter des lits</h3>
+    <div class="row3"><div><label>Service</label><input id="lService" placeholder="Médecine"></div><div><label>Nombre</label><input id="lNb" type="number" min="1" value="6"></div><div style="display:flex;align-items:flex-end"><button class="btn2" id="addLits">Ajouter</button></div></div>
+  </div>
+  <div class="card"><h3 style="margin:0 0 8px">Occupation</h3><div id="litsZone"></div></div>
+</section>
+
+<section id="s-fact">
+  <div class="card"><h3 style="margin:0 0 8px">Factures</h3><div id="factListe"></div></div>
+</section>
+
+<section id="s-sync">
+  <div class="card">
+    <h3 style="margin:0 0 6px">Sauvegarde et synchronisation</h3>
+    <p class="dim" style="font-size:13px">Trois façons, au choix. Rien ne passe par un serveur à moi.</p>
+    <div class="row"><button class="btn2" id="exp">Télécharger la sauvegarde</button><button class="btn2" id="imp">Importer un fichier</button></div>
+    <input type="file" id="file" accept="application/json" style="display:none">
+    <hr style="border:none;border-top:1px solid var(--line);margin:14px 0">
+    <label>Lien de transfert (ouvre-le sur l'autre appareil)</label>
+    <div class="row"><button class="btn2" id="mkLink">Créer le lien</button><button class="btn2" id="cpLink">Copier</button></div>
+    <div id="linkZone" style="margin-top:8px"></div>
+    <hr style="border:none;border-top:1px solid var(--line);margin:14px 0">
+    <label>Dépôt GitHub (synchronisation entre appareils)</label>
+    <div class="row"><input id="gRepo" placeholder="utilisateur/depot"><input id="gPath" value="hopital.json"></div>
+    <label>Jeton (collé une fois, reste sur cet appareil)</label>
+    <input id="gTok" type="password" placeholder="jeton à portée limitée">
+    <div class="row" style="margin-top:8px"><button class="btn" id="gPush">Envoyer</button><button class="btn2" id="gPull">Récupérer</button></div>
+    <div style="margin-top:8px"><button class="btn2" id="gForget">Oublier le jeton</button></div>
+    <div id="gEtat" class="dim" style="margin-top:8px;font-size:12px"></div>
+  </div>
+</section>
+
+</main>
+<script>
+(function(){
+"use strict";
+var K="at_hopital_v1", SK="at_hopital_sync";
+var S=charger(), onglet="bord";
+
+function charger(){
+  try{ var d=JSON.parse(localStorage.getItem(K)); if(d && d.patients) return d; }catch(e){}
+  return {patients:[],admissions:[],consultations:[],factures:[],lits:[],seq:1,tombstones:[],maj:0,reglages:{nom:"Hôpital"}};
+}
+function sauver(){ S.maj=Date.now(); localStorage.setItem(K,JSON.stringify(S)); }
+function id(){ return "h"+S.seq++ +"-"+Math.random().toString(36).slice(2,7); }
+function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+function fcfa(n){ return (Math.round(n||0)).toLocaleString("fr-FR").replace(/\u202f|\u00a0/g," ")+" F"; }
+function aujourdhui(){ var d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+function age(p){ if(!p.naissance) return "—"; var n=new Date(p.naissance), d=new Date(); var a=d.getFullYear()-n.getFullYear(); var m=d.getMonth()-n.getMonth(); if(m<0||(m===0&&d.getDate()<n.getDate())) a--; return a+" ans"; }
+function patient(pid){ for(var i=0;i<S.patients.length;i++) if(S.patients[i].id===pid) return S.patients[i]; return null; }
+function lit(lid){ for(var i=0;i<S.lits.length;i++) if(S.lits[i].id===lid) return S.lits[i]; return null; }
+function hospitalises(){ return S.admissions.filter(function(a){ return !a.sortie; }); }
+function reste(f){ var paye=(f.paiements||[]).reduce(function(s,p){return s+p.montant;},0); return Math.max(0,f.montant-paye); }
+
+/* ---------- navigation ---------- */
+var ONGLETS=[["bord","Tableau de bord"],["patients","Patients"],["adm","Admissions"],["cons","Consultations"],["lits","Lits"],["fact","Factures"],["sync","Sauvegarde"]];
+function nav(){
+  var z=document.getElementById("nav"); z.innerHTML="";
+  ONGLETS.forEach(function(o){
+    var b=document.createElement("button"); b.textContent=o[1];
+    if(o[0]===onglet) b.className="on";
+    b.onclick=function(){ onglet=o[0]; nav(); dessiner(); };
+    z.appendChild(b);
+  });
+}
+function dessiner(){
+  document.querySelectorAll("section").forEach(function(s){ s.classList.remove("on"); });
+  var el=document.getElementById("s-"+onglet); if(el) el.classList.add("on");
+  if(onglet==="bord") bord();
+  if(onglet==="patients") patients();
+  if(onglet==="adm") adm();
+  if(onglet==="cons") cons();
+  if(onglet==="lits") lits();
+  if(onglet==="fact") fact();
+  if(onglet==="sync") etatSync();
+}
+
+/* ---------- tableau de bord ---------- */
+function bord(){
+  var hos=hospitalises();
+  var occ=S.lits.filter(function(l){ return l.occupe; }).length;
+  var jour=aujourdhui();
+  var recettes=S.factures.filter(function(f){ return f.date===jour; }).reduce(function(s,f){ return s+((f.paiements||[]).reduce(function(x,p){return x+p.montant;},0)); },0);
+  var impayes=S.factures.reduce(function(s,f){ return s+reste(f); },0);
+  var cons= S.consultations.filter(function(c){ return c.date===jour; }).length;
+  var kp=[["Patients suivis",S.patients.length],["Hospitalisés",hos.length],["Lits occupés",occ+" / "+S.lits.length],["Consultations du jour",cons],["Encaissé aujourd'hui",fcfa(recettes)],["Impayés",fcfa(impayes)]];
+  document.getElementById("kp").innerHTML=kp.map(function(k){ return '<div class="kpi"><span>'+k[0]+'</span><b>'+k[1]+'</b></div>'; }).join("");
+  var al=[];
+  if(!S.lits.length) al.push(["warn","Aucun lit enregistré : ajoute des lits dans l'onglet Lits pour suivre l'occupation."]);
+  if(hos.length && !S.lits.length) al.push(["warn","Des patients sont hospitalisés sans lit déclaré."]);
+  S.factures.forEach(function(f){ if(reste(f)>0 && f.date<jour) al.push(["bad","Facture "+f.numero+" impayée : "+fcfa(reste(f))+" — "+nomPatient(f.patientId)]); });
+  if(!S.patients.length) al.push(["dim","Commence par enregistrer un patient."]);
+  document.getElementById("alertes").innerHTML = al.length ? al.map(function(a){ return '<div style="margin:6px 0"><span class="pill '+a[0]+'">'+a[1]+'</span></div>'; }).join("") : '<span class="pill ok">rien à signaler</span>';
+}
+function nomPatient(pid){ var p=patient(pid); return p? p.nom : "patient supprimé"; }
+
+/* ---------- patients ---------- */
+function patients(){
+  var f=(document.getElementById("pFiltre").value||"").toLowerCase();
+  var l=S.patients.filter(function(p){ return !f || (p.nom||"").toLowerCase().indexOf(f)>=0 || (p.tel||"").indexOf(f)>=0; });
+  document.getElementById("pListe").innerHTML = l.length? "<table><tr><th>Nom</th><th>Âge</th><th>Téléphone</th><th>Séjour</th></tr>"+l.map(function(p){
+    var hos=hospitalises().some(function(a){ return a.patientId===p.id; });
+    return "<tr><td>"+esc(p.nom)+"<br><small>"+esc(p.sexe||"")+" · "+esc(p.groupe||"—")+"</small></td><td>"+age(p)+"</td><td>"+esc(p.tel||"—")+"</td><td>"+(hos?'<span class="pill bad">hospitalisé</span>':'<span class="pill ok">ambulatoire</span>')+"</td></tr>";
+  }).join("")+"</table>" : '<span class="dim">Aucun patient pour cette recherche.</span>';
+  var sel=document.getElementById("aPatient"), sel2=document.getElementById("cPatient");
+  var opts=S.patients.map(function(p){ return '<option value="'+p.id+'">'+esc(p.nom)+'</option>'; }).join("");
+  if(sel) sel.innerHTML=opts; if(sel2) sel2.innerHTML=opts;
+}
+function addPatient(){
+  var nom=document.getElementById("pNom").value.trim();
+  if(!nom){ alert("Le nom est nécessaire."); return; }
+  S.patients.push({id:id(),nom:nom,tel:document.getElementById("pTel").value.trim(),sexe:document.getElementById("pSexe").value,naissance:document.getElementById("pNais").value,groupe:document.getElementById("pGroupe").value.trim(),allergies:document.getElementById("pAll").value.trim(),antecedents:document.getElementById("pAnt").value.trim(),maj:Date.now()});
+  ["pNom","pTel","pNais","pGroupe","pAll","pAnt"].forEach(function(k){ document.getElementById(k).value=""; });
+  sauver(); patients(); bord();
+}
+
+/* ---------- admissions ---------- */
+function adm(){
+  var libres=S.lits.filter(function(l){ return !l.occupe; });
+  document.getElementById("aLit").innerHTML = libres.length? libres.map(function(l){ return '<option value="'+l.id+'">'+esc(l.service)+" · lit "+esc(l.num)+'</option>'; }).join("") : '<option value="">aucun lit libre</option>';
+  var hos=hospitalises();
+  document.getElementById("admListe").innerHTML = hos.length? "<table><tr><th>Patient</th><th>Service</th><th>Depuis</th><th></th></tr>"+hos.map(function(a){
+    return "<tr><td>"+esc(nomPatient(a.patientId))+"</td><td>"+esc(a.service)+"<br><small>"+esc(a.medecin||"")+"</small></td><td>"+esc(a.entree)+"</td><td><button class='btn2' data-sortie='"+a.id+"'>Sortie</button></td></tr>";
+  }).join("")+"</table>" : '<span class="dim">Aucun patient hospitalisé.</span>';
+  document.querySelectorAll("[data-sortie]").forEach(function(b){ b.onclick=function(){ sortie(b.getAttribute("data-sortie")); }; });
+}
+function addAdm(){
+  var pid=document.getElementById("aPatient").value, lid=document.getElementById("aLit").value;
+  if(!pid){ alert("Enregistre d'abord un patient."); return; }
+  var svc=document.getElementById("aService").value.trim() || (lit(lid)? lit(lid).service : "Non précisé");
+  S.admissions.push({id:id(),patientId:pid,service:svc,litId:lid||"",medecin:document.getElementById("aMedecin").value.trim(),entree:aujourdhui(),sortie:null,maj:Date.now()});
+  if(lid){ var l=lit(lid); if(l){ l.occupe=true; l.patientId=pid; } }
+  document.getElementById("aService").value=""; document.getElementById("aMedecin").value="";
+  sauver(); adm(); bord();
+}
+function sortie(aid){
+  S.admissions.forEach(function(a){ if(a.id===aid){ a.sortie=aujourdhui(); a.maj=Date.now(); if(a.litId){ var l=lit(a.litId); if(l){ l.occupe=false; l.patientId=null; } } } });
+  sauver(); adm(); bord();
+}
+
+/* ---------- consultations ---------- */
+function cons(){
+  var l=S.consultations.slice().sort(function(a,b){ return b.maj-a.maj; }).slice(0,20);
+  document.getElementById("consListe").innerHTML = l.length? "<table><tr><th>Date</th><th>Patient</th><th>Motif</th><th>Honoraires</th></tr>"+l.map(function(c){
+    return "<tr><td>"+esc(c.date)+"</td><td>"+esc(nomPatient(c.patientId))+"</td><td>"+esc(c.motif||"—")+"<br><small>"+esc(c.diag||"")+"</small></td><td>"+fcfa(c.honoraires)+"</td></tr>";
+  }).join("")+"</table>" : '<span class="dim">Aucune consultation enregistrée.</span>';
+}
+function addCons(){
+  var pid=document.getElementById("cPatient").value;
+  if(!pid){ alert("Enregistre d'abord un patient."); return; }
+  var hon=parseInt(document.getElementById("cHon").value||"0",10)||0;
+  var c={id:id(),patientId:pid,date:aujourdhui(),motif:document.getElementById("cMotif").value.trim(),diag:document.getElementById("cDiag").value.trim(),ordo:document.getElementById("cOrdo").value.trim(),honoraires:hon,maj:Date.now()};
+  S.consultations.push(c);
+  if(hon>0) S.factures.push({id:id(),numero:"F"+new Date().getFullYear()+"-"+String(S.factures.length+1).padStart(4,"0"),patientId:pid,date:aujourdhui(),objet:"Consultation "+(c.motif||""),montant:hon,paiements:[],maj:Date.now()});
+  document.getElementById("cMotif").value=""; document.getElementById("cDiag").value=""; document.getElementById("cOrdo").value="";
+  sauver(); cons(); bord();
+}
+
+/* ---------- lits ---------- */
+function lits(){
+  var svcs={}; S.lits.forEach(function(l){ (svcs[l.service]=svcs[l.service]||[]).push(l); });
+  var out="";
+  Object.keys(svcs).forEach(function(s){
+    var arr=svcs[s], occ=arr.filter(function(l){ return l.occupe; }).length;
+    out+='<div style="margin-bottom:12px"><b>'+esc(s)+'</b> <small>'+occ+' / '+arr.length+' occupés</small><div class="lits" style="margin-top:6px">';
+    arr.forEach(function(l){ out+='<div class="lit '+(l.occupe?"occ":"")+'">'+esc(l.num)+"<br><small>"+(l.occupe? esc(nomPatient(l.patientId)) : "libre")+"</small></div>"; });
+    out+="</div></div>";
+  });
+  document.getElementById("litsZone").innerHTML = out || '<span class="dim">Aucun lit déclaré.</span>';
+}
+function addLits(){
+  var s=document.getElementById("lService").value.trim(); var n=parseInt(document.getElementById("lNb").value||"0",10);
+  if(!s||!n){ alert("Indique un service et un nombre de lits."); return; }
+  for(var i=1;i<=n;i++) S.lits.push({id:id(),service:s,num:String(i),occupe:false,patientId:null});
+  document.getElementById("lService").value="";
+  sauver(); lits(); bord();
+}
+
+/* ---------- factures ---------- */
+function fact(){
+  var l=S.factures.slice().sort(function(a,b){ return b.maj-a.maj; });
+  document.getElementById("factListe").innerHTML = l.length? "<table><tr><th>N°</th><th>Patient</th><th>Montant</th><th>Reste</th><th></th></tr>"+l.map(function(f){
+    var r=reste(f);
+    return "<tr><td>"+esc(f.numero)+"<br><small>"+esc(f.date)+"</small></td><td>"+esc(nomPatient(f.patientId))+"<br><small>"+esc(f.objet||"")+"</small></td><td>"+fcfa(f.montant)+"</td><td>"+(r>0?'<span class="pill bad">'+fcfa(r)+'</span>':'<span class="pill ok">soldée</span>')+"</td><td>"+(r>0?"<button class='btn2' data-pay='"+f.id+"'>Encaisser</button>":"")+"</td></tr>";
+  }).join("")+"</table>" : '<span class="dim">Aucune facture.</span>';
+  document.querySelectorAll("[data-pay]").forEach(function(b){ b.onclick=function(){
+    var fid=b.getAttribute("data-pay"); var f=S.factures.filter(function(x){return x.id===fid;})[0];
+    var v=prompt("Montant encaissé (FCFA) — reste "+reste(f)+" F", String(reste(f)));
+    if(v===null) return; var m=parseInt(v,10); if(!m||m<=0){ alert("Montant invalide."); return; }
+    f.paiements=f.paiements||[]; f.paiements.push({date:aujourdhui(),montant:m}); f.maj=Date.now();
+    sauver(); fact(); bord();
+  }; });
+}
+
+/* ---------- synchronisation ---------- */
+function etatSync(){
+  var g=localStorage.getItem(SK);
+  document.getElementById("gEtat").textContent = g? "Dépôt configuré." : "Aucun dépôt configuré : la synchronisation GitHub est inactive.";
+  document.getElementById("etatSync").textContent = g? "dépôt lié" : "local";
+}
+function exporter(){
+  var b=new Blob([JSON.stringify(S,null,1)],{type:"application/json"});
+  var a=document.createElement("a"); a.href=URL.createObjectURL(b); a.download="hopital-"+aujourdhui()+".json"; a.click();
+}
+function importer(f){
+  var r=new FileReader();
+  r.onload=function(){ try{ var d=JSON.parse(r.result); if(!d.patients) throw new Error("format"); S=fusionner(S,d); sauver(); nav(); dessiner(); alert("Sauvegarde importée et fusionnée."); }catch(e){ alert("Fichier illisible."); } };
+  r.readAsText(f);
+}
+function fusionner(a,b){
+  var out=JSON.parse(JSON.stringify(a));
+  ["patients","admissions","consultations","factures","lits"].forEach(function(k){
+    var map={}; (out[k]||[]).forEach(function(x){ map[x.id]=x; });
+    (b[k]||[]).forEach(function(x){ var cur=map[x.id]; if(!cur || (x.maj||0)>(cur.maj||0)) map[x.id]=x; });
+    var tombs={}; (out.tombstones||[]).concat(b.tombstones||[]).forEach(function(t){ tombs[t.id]=Math.max(tombs[t.id]||0,t.t||0); });
+    out[k]=Object.keys(map).map(function(i){ return map[i]; }).filter(function(x){ return !(tombs[x.id] && tombs[x.id]>=(x.maj||0)); });
+  });
+  out.tombstones=(a.tombstones||[]).concat(b.tombstones||[]);
+  out.seq=Math.max(a.seq||1,b.seq||1);
+  out.maj=Math.max(a.maj||0,b.maj||0);
+  return out;
+}
+function lien(){
+  var txt=btoa(unescape(encodeURIComponent(JSON.stringify(S)))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+  if(txt.length>60000){ alert("Trop de données pour un lien. Utilise le fichier ou le dépôt."); return; }
+  var u=location.origin+location.pathname+"#d="+txt;
+  document.getElementById("linkZone").innerHTML='<input id="lk" value="'+u+'">';
+  window.__lien=u;
+}
+function depuisLien(){
+  var h=location.hash||"";
+  var i=h.indexOf("#d=");
+  if(i<0) return;
+  try{
+    var b=h.slice(i+3).replace(/-/g,"+").replace(/_/g,"/");
+    var d=JSON.parse(decodeURIComponent(escape(atob(b))));
+    if(!d.patients) return;
+    if(confirm("Des données ont été trouvées dans ce lien. Les fusionner avec cet appareil ?")){ S=fusionner(S,d); sauver(); nav(); dessiner(); }
+    history.replaceState(null,"",location.pathname);
+  }catch(e){}
+}
+function gcfg(){ try{ return JSON.parse(localStorage.getItem(SK)); }catch(e){ return null; } }
+async function gpush(){
+  var repo=document.getElementById("gRepo").value.trim(), path=document.getElementById("gPath").value.trim()||"hopital.json", tok=document.getElementById("gTok").value.trim();
+  var c=gcfg(); if(!tok && c) tok=c.tok; if(!repo && c) repo=c.repo;
+  if(!repo||!tok){ alert("Indique le dépôt et le jeton."); return; }
+  localStorage.setItem(SK,JSON.stringify({repo:repo,path:path,tok:tok}));
+  var api="https://api.github.com/repos/"+repo+"/contents/"+path;
+  var h={"Authorization":"Bearer "+tok,"Accept":"application/vnd.github+json"};
+  var sha=null;
+  try{ var r=await fetch(api+"?t="+Date.now(),{headers:h}); if(r.ok){ var j=await r.json(); sha=j.sha; } }catch(e){}
+  var body={message:"Hôpital — synchronisation "+new Date().toISOString(),content:btoa(unescape(encodeURIComponent(JSON.stringify(S))))};
+  if(sha) body.sha=sha;
+  var w=await fetch(api,{method:"PUT",headers:h,body:JSON.stringify(body)});
+  document.getElementById("gEtat").textContent = w.ok? "Envoyé au dépôt." : "Échec de l'envoi ("+w.status+"). Vérifie que le jeton peut écrire dans ce dépôt.";
+}
+async function gpull(){
+  var repo=document.getElementById("gRepo").value.trim(), path=document.getElementById("gPath").value.trim()||"hopital.json", tok=document.getElementById("gTok").value.trim();
+  var c=gcfg(); if(!tok && c) tok=c.tok; if(!repo && c) repo=c.repo;
+  if(!repo||!tok){ alert("Indique le dépôt et le jeton."); return; }
+  localStorage.setItem(SK,JSON.stringify({repo:repo,path:path,tok:tok}));
+  var r=await fetch("https://api.github.com/repos/"+repo+"/contents/"+path+"?t="+Date.now(),{headers:{"Authorization":"Bearer "+tok,"Accept":"application/vnd.github+json"}});
+  if(!r.ok){ document.getElementById("gEtat").textContent="Récupération impossible ("+r.status+")."; return; }
+  var j=await r.json();
+  var d=JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g,"")))));
+  S=fusionner(S,d); sauver(); nav(); dessiner();
+  document.getElementById("gEtat").textContent="Récupéré et fusionné.";
+}
+
+/* ---------- démarrage ---------- */
+document.getElementById("nav").id="nav";
+nav();
+["addPatient"].forEach(function(k){ document.getElementById(k).onclick=function(){ if(k==="addPatient") addPatient(); }; });
+document.getElementById("pFiltre").oninput=function(){ patients(); };
+document.getElementById("addAdm").onclick=addAdm;
+document.getElementById("addCons").onclick=addCons;
+document.getElementById("addLits").onclick=addLits;
+document.getElementById("exp").onclick=exporter;
+document.getElementById("imp").onclick=function(){ document.getElementById("file").click(); };
+document.getElementById("file").onchange=function(e){ if(e.target.files[0]) importer(e.target.files[0]); };
+document.getElementById("mkLink").onclick=lien;
+document.getElementById("cpLink").onclick=function(){ if(window.__lien){ navigator.clipboard.writeText(window.__lien); } };
+document.getElementById("gPush").onclick=gpush;
+document.getElementById("gPull").onclick=gpull;
+document.getElementById("gForget").onclick=function(){ localStorage.removeItem(SK); etatSync(); alert("Jeton oublié sur cet appareil."); };
+dessiner();
+depuisLien();
+})();
+
+</script>
+</body>
+</html>
