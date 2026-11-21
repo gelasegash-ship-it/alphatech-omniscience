@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GESTION — clients, factures, stock, trésorerie</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0b0f;color:#eef1f6;font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding-bottom:80px}
+header{position:sticky;top:0;background:#0f1117;border-bottom:1px solid #1e2330;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;z-index:10}
+.marque{font-weight:800;letter-spacing:.12em;font-size:13px;color:#4ade80}
+h1{font-size:20px;margin:14px 16px 4px}
+.sous{color:#8d97a8;font-size:13px;margin:0 16px 12px}
+nav{display:flex;gap:6px;overflow-x:auto;padding:0 12px 10px}
+nav button{background:#141821;border:1px solid #1e2330;color:#c7d0de;padding:8px 12px;border-radius:8px;font-size:13px;white-space:nowrap;cursor:pointer}
+nav button.on{background:#4ade80;color:#052e16;border-color:#4ade80;font-weight:700}
+.wrap{padding:0 16px;max-width:900px;margin:0 auto}
+.card{background:#0f1117;border:1px solid #1e2330;border-radius:11px;padding:14px;margin-bottom:12px}
+label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#8d97a8;margin:8px 0 4px}
+input,select,textarea{width:100%;background:#0a0d13;border:1px solid #1e2330;color:#eef1f6;padding:10px;border-radius:7px;font:inherit;font-size:14px}
+button.p{background:#4ade80;color:#052e16;border:0;padding:11px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-size:14px}
+button.s{background:#1a1f2b;color:#dfe6f0;border:1px solid #2a3142;padding:10px 14px;border-radius:8px;cursor:pointer;font-size:13px}
+button.d{background:#3a1420;color:#f8a5b0;border:1px solid #5b2030;padding:6px 10px;border-radius:6px;cursor:pointer;font-size:12px}
+.row{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;color:#8d97a8;font-weight:600;border-bottom:1px solid #1e2330;padding:7px 6px}
+td{border-bottom:1px solid #161b25;padding:8px 6px;vertical-align:top}
+.kpi{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin-bottom:12px}
+.kpi div{background:#0f1117;border:1px solid #1e2330;border-radius:11px;padding:13px}
+.kpi b{display:block;font-size:21px;color:#4ade80}
+.kpi span{font-size:11px;color:#8d97a8;text-transform:uppercase;letter-spacing:.05em}
+.mono{font-family:ui-monospace,monospace;font-size:12px;color:#8d97a8}
+.vide{color:#8d97a8;font-size:13px;padding:10px 0}
+.pill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:9px}
+.pay{background:#0d2b21;color:#4ade80;border:1px solid #14523c}
+.att{background:#2a220c;color:#e8c56a;border:1px solid #4d3c14}
+.dan{background:#2a0f16;color:#f08a9b;border:1px solid #4d1a26}
+@media print{body{background:#fff;color:#000}header,nav,.noprint{display:none!important}.card{border:0}}
+</style>
+</head>
+<body>
+<header>
+  <div class="marque">GESTION · ALPHATECH</div>
+  <button class="s noprint" id="exporter">Exporter</button>
+</header>
+
+<h1>Gestion d'entreprise</h1>
+<div class="sous">Clients, factures, stock et trésorerie. Tout reste sur cet appareil, sans internet.</div>
+
+<nav class="noprint">
+  <button data-t="bord" class="on">Tableau de bord</button>
+  <button data-t="clients">Clients</button>
+  <button data-t="factures">Factures</button>
+  <button data-t="stock">Stock</button>
+  <button data-t="caisse">Trésorerie</button>
+</nav>
+
+<div class="wrap" id="vue"></div>
+
+<div class="wrap noprint" id="pied">
+  <div class="card">
+    <label>Sauvegarde et restauration</label>
+    <div class="row">
+      <button class="s" id="sauver">Télécharger la sauvegarde</button>
+      <label style="margin:0;display:flex;align-items:center;gap:8px;text-transform:none;font-size:13px;color:#dfe6f0">
+        <input type="file" id="restaurer" accept="application/json" style="padding:6px">
+      </label>
+    </div>
+    <div class="mono" id="etatSauvegarde" style="margin-top:8px">sauvegarde automatique dans le navigateur</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var CLE = "at_gestion_v1";
+  var TVA = 0.18;
+  var S = {clients:[], produits:[], factures:[], mouvements:[], compteur:1};
+  var vue = "bord";
+
+  function charger(){
+    try { var d = JSON.parse(localStorage.getItem(CLE) || "null"); if (d) S = Object.assign(S, d); } catch(e){}
+  }
+  function sauver(){
+    try { localStorage.setItem(CLE, JSON.stringify(S)); } catch(e){}
+    var e = document.getElementById("etatSauvegarde");
+    if (e) e.textContent = "enregistré à " + new Date().toLocaleTimeString("fr-FR");
+  }
+  function fcfa(n){
+    n = Math.round(n || 0);
+    return n.toLocaleString("fr-FR").replace(/\u202f|\s/g," ") + " FCFA";
+  }
+  function esc(s){ return String(s==null?"":s).replace(/[<>&"]/g, function(c){ return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]; }); }
+  function aujourdhui(){ return new Date().toISOString().slice(0,10); }
+  function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
+
+  function totalFacture(f){
+    var ht = (f.lignes||[]).reduce(function(a,l){ return a + (Number(l.qte)||0) * (Number(l.prix)||0); }, 0);
+    var tva = f.tva === false ? 0 : ht * TVA;
+    return {ht: ht, tva: tva, ttc: ht + tva};
+  }
+
+  function bord(){
+    var encaisse = 0, impaye = 0, depenses = 0;
+    S.factures.forEach(function(f){
+      var t = totalFacture(f).ttc;
+      if (f.statut === "payee") encaisse += t; else impaye += t;
+    });
+    S.mouvements.forEach(function(m){ if (m.type === "sortie") depenses += Number(m.montant)||0; });
+    var stockVal = S.produits.reduce(function(a,p){ return a + (Number(p.qte)||0)*(Number(p.achat)||0); }, 0);
+    var ruptures = S.produits.filter(function(p){ return (Number(p.qte)||0) <= (Number(p.seuil)||0); });
+
+    var h = "<div class='kpi'>" +
+      "<div><b>" + fcfa(encaisse) + "</b><span>encaissé</span></div>" +
+      "<div><b>" + fcfa(impaye) + "</b><span>en attente</span></div>" +
+      "<div><b>" + fcfa(depenses) + "</b><span>dépenses</span></div>" +
+      "<div><b>" + fcfa(encaisse - depenses) + "</b><span>solde</span></div>" +
+      "<div><b>" + fcfa(stockVal) + "</b><span>valeur du stock</span></div>" +
+      "<div><b>" + ruptures.length + "</b><span>produits à recommander</span></div>" +
+      "</div>";
+
+    h += "<div class='card'><label>Dernières factures</label>";
+    var dernieres = S.factures.slice(-5).reverse();
+    h += dernieres.length ? "<table><tbody>" + dernieres.map(function(f){
+      var t = totalFacture(f);
+      return "<tr><td>" + esc(f.numero) + "<div class='mono'>" + esc(f.clientNom||"—") + "</div></td><td>" + fcfa(t.ttc) + "</td><td>" +
+        (f.statut === "payee" ? "<span class='pill pay'>payée</span>" : "<span class='pill att'>en attente</span>") + "</td></tr>";
+    }).join("") + "</tbody></table>" : "<div class='vide'>Aucune facture. Commence par ajouter un client, puis une facture.</div>";
+    h += "</div>";
+
+    if (ruptures.length) {
+      h += "<div class='card'><label>À recommander</label><table><tbody>" + ruptures.slice(0,8).map(function(p){
+        return "<tr><td>" + esc(p.nom) + "</td><td>" + (p.qte||0) + " en stock</td><td><span class='pill dan'>seuil " + (p.seuil||0) + "</span></td></tr>";
+      }).join("") + "</tbody></table></div>";
+    }
+    return h;
+  }
+
+  function clients(){
+    var h = "<div class='card'><label>Nouveau client</label>" +
+      "<div class='row'><input id='cNom' placeholder='Nom ou raison sociale'><input id='cTel' placeholder='Téléphone'><input id='cMail' placeholder='E-mail'></div>" +
+      "<button class='p' id='addClient' style='margin-top:10px'>Ajouter</button></div>";
+    h += "<div class='card'><label>" + S.clients.length + " client(s)</label>";
+    h += S.clients.length ? "<table><tbody>" + S.clients.map(function(c){
+      return "<tr><td><b>" + esc(c.nom) + "</b><div class='mono'>" + esc(c.tel||"") + " " + esc(c.mail||"") + "</div></td>" +
+        "<td style='width:70px'><button class='d' data-delclient='" + c.id + "'>retirer</button></td></tr>";
+    }).join("") + "</tbody></table>" : "<div class='vide'>Aucun client enregistré.</div>";
+    return h + "</div>";
+  }
+
+  function factures(){
+    var h = "<div class='card'><label>Nouvelle facture</label>" +
+      "<div class='row'><select id='fClient'><option value=''>— choisir un client —</option>" +
+      S.clients.map(function(c){ return "<option value='" + c.id + "'>" + esc(c.nom) + "</option>"; }).join("") + "</select>" +
+      "<input id='fDate' type='date' value='" + aujourdhui() + "'>" +
+      "<select id='fTva'><option value='1'>TVA 18 %</option><option value='0'>sans TVA</option></select></div>" +
+      "<label>Lignes</label><div id='lignes'></div>" +
+      "<button class='s' id='addLigne' style='margin-top:8px'>+ ligne</button>" +
+      "<button class='p' id='creerFacture' style='margin-top:10px;margin-left:8px'>Créer la facture</button></div>";
+
+    h += "<div class='card'><label>Factures</label>";
+    h += S.factures.length ? "<table><thead><tr><th>Numéro</th><th>Client</th><th>Total</th><th>Statut</th><th></th></tr></thead><tbody>" +
+      S.factures.slice().reverse().map(function(f){
+        var t = totalFacture(f);
+        return "<tr><td><b>" + esc(f.numero) + "</b><div class='mono'>" + esc(f.date) + "</div></td><td>" + esc(f.clientNom||"—") + "</td><td>" + fcfa(t.ttc) + "</td><td>" +
+          (f.statut === "payee" ? "<span class='pill pay'>payée</span>" : "<span class='pill att'>attente</span>") + "</td>" +
+          "<td style='width:170px' class='noprint'>" +
+          (f.statut !== "payee" ? "<button class='s' data-payer='" + f.id + "'>encaisser</button> " : "") +
+          "<button class='d' data-del='" + f.id + "'>suppr.</button></td></tr>";
+      }).join("") + "</tbody></table>" : "<div class='vide'>Aucune facture.</div>";
+    return h + "</div>";
+  }
+
+  function ligneHTML(i){
+    return "<div class='row' style='margin-bottom:6px' data-ligne='" + i + "'>" +
+      "<input data-desc placeholder='Désignation'>" +
+      "<input data-qte type='number' min='0' step='1' placeholder='Qté' value='1'>" +
+      "<input data-prix type='number' min='0' step='1' placeholder='Prix unitaire'>" +
+      "</div>";
+  }
+
+  function stock(){
+    var h = "<div class='card'><label>Nouveau produit</label>" +
+      "<div class='row'><input id='pNom' placeholder='Nom du produit'><input id='pAchat' type='number' placeholder='Prix d achat'><input id='pVente' type='number' placeholder='Prix de vente'>" +
+      "<input id='pQte' type='number' placeholder='Quantité'><input id='pSeuil' type='number' placeholder='Seuil d alerte' value='3'></div>" +
+      "<button class='p' id='addProduit' style='margin-top:10px'>Ajouter au stock</button></div>";
+    h += "<div class='card'><label>" + S.produits.length + " produit(s)</label>";
+    h += S.produits.length ? "<table><thead><tr><th>Produit</th><th>Stock</th><th>Achat</th><th>Vente</th><th>Marge</th><th></th></tr></thead><tbody>" +
+      S.produits.map(function(p){
+        var marge = (Number(p.vente)||0) - (Number(p.achat)||0);
+        var bas = (Number(p.qte)||0) <= (Number(p.seuil)||0);
+        return "<tr><td>" + esc(p.nom) + "</td><td class='" + (bas?"dan":"") + "'>" + (p.qte||0) + "</td><td>" + fcfa(p.achat) + "</td><td>" + fcfa(p.vente) + "</td><td>" + fcfa(marge) + "</td>" +
+          "<td style='width:140px' class='noprint'><button class='s' data-plus='" + p.id + "'>+1</button> <button class='d' data-delp='" + p.id + "'>suppr.</button></td></tr>";
+      }).join("") + "</tbody></table>" : "<div class='vide'>Aucun produit.</div>";
+    return h + "</div>";
+  }
+
+  function caisse(){
+    var entrees = 0, sorties = 0;
+    S.mouvements.forEach(function(m){ if (m.type === "entree") entrees += Number(m.montant)||0; else sorties += Number(m.montant)||0; });
+    var h = "<div class='kpi'><div><b>" + fcfa(entrees) + "</b><span>entrées</span></div>" +
+      "<div><b>" + fcfa(sorties) + "</b><span>sorties</span></div>" +
+      "<div><b>" + fcfa(entrees - sorties) + "</b><span>solde</span></div></div>";
+    h += "<div class='card'><label>Enregistrer un mouvement</label><div class='row'>" +
+      "<select id='mType'><option value='entree'>Entrée d argent</option><option value='sortie'>Sortie d argent</option></select>" +
+      "<input id='mMontant' type='number' placeholder='Montant'><input id='mMotif' placeholder='Motif'></div>" +
+      "<button class='p' id='addMouv' style='margin-top:10px'>Enregistrer</button></div>";
+    h += "<div class='card'><label>Journal</label>";
+    h += S.mouvements.length ? "<table><tbody>" + S.mouvements.slice().reverse().slice(0,40).map(function(m){
+      return "<tr><td class='mono'>" + esc(m.date) + "</td><td>" + esc(m.motif||"—") + "</td><td class='" + (m.type==="entree"?"":"dan") + "'>" + (m.type==="entree"?"+ ":"− ") + fcfa(m.montant) + "</td></tr>";
+    }).join("") + "</tbody></table>" : "<div class='vide'>Aucun mouvement.</div>";
+    return h + "</div>";
+  }
+
+  function rendre(){
+    var v = document.getElementById("vue");
+    v.innerHTML = vue === "bord" ? bord() : vue === "clients" ? clients() : vue === "factures" ? factures() : vue === "stock" ? stock() : caisse();
+    document.querySelectorAll("nav button").forEach(function(b){ b.classList.toggle("on", b.dataset.t === vue); });
+    if (vue === "factures") {
+      var zone = document.getElementById("lignes");
+      if (zone && !zone.children.length) { zone.innerHTML = ligneHTML(0); }
+    }
+  }
+
+  document.querySelectorAll("nav button").forEach(function(b){
+    b.onclick = function(){ vue = b.dataset.t; rendre(); };
+  });
+
+  document.addEventListener("click", function(e){
+    var t = e.target;
+    if (t.id === "addClient") {
+      var nom = document.getElementById("cNom").value.trim();
+      if (!nom) return alert("Le nom est nécessaire.");
+      S.clients.push({id:uid(), nom:nom, tel:document.getElementById("cTel").value.trim(), mail:document.getElementById("cMail").value.trim()});
+      sauver(); rendre();
+    }
+    if (t.dataset.delclient) {
+      S.clients = S.clients.filter(function(c){ return c.id !== t.dataset.delclient; });
+      sauver(); rendre();
+    }
+    if (t.id === "addLigne") {
+      var zone = document.getElementById("lignes");
+      zone.insertAdjacentHTML("beforeend", ligneHTML(zone.children.length));
+    }
+    if (t.id === "creerFacture") {
+      var cid = document.getElementById("fClient").value;
+      var cli = S.clients.filter(function(c){ return c.id === cid; })[0];
+      var lignes = [];
+      document.querySelectorAll("#lignes [data-ligne]").forEach(function(d){
+        var d1 = d.querySelector("[data-desc]").value.trim();
+        var q = Number(d.querySelector("[data-qte]").value)||0;
+        var pr = Number(d.querySelector("[data-prix]").value)||0;
+        if (d1 && q > 0) lignes.push({desc:d1, qte:q, prix:pr});
+      });
+      if (!lignes.length) return alert("Ajoute au moins une ligne avec une désignation et une quantité.");
+      var num = "FAC-" + new Date().getFullYear() + "-" + String(S.compteur++).padStart(3,"0");
+      S.factures.push({id:uid(), numero:num, date:document.getElementById("fDate").value, clientId:cid, clientNom:cli?cli.nom:"Client de passage",
+        tva:document.getElementById("fTva").value === "1", lignes:lignes, statut:"attente"});
+      sauver(); rendre();
+    }
+    if (t.dataset.payer) {
+      var f = S.factures.filter(function(x){ return x.id === t.dataset.payer; })[0];
+      if (f) {
+        f.statut = "payee";
+        S.mouvements.push({id:uid(), type:"entree", montant:totalFacture(f).ttc, motif:"Facture " + f.numero, date:aujourdhui()});
+        sauver(); rendre();
+      }
+    }
+    if (t.dataset.del) {
+      S.factures = S.factures.filter(function(x){ return x.id !== t.dataset.del; });
+      sauver(); rendre();
+    }
+    if (t.id === "addProduit") {
+      var nom = document.getElementById("pNom").value.trim();
+      if (!nom) return alert("Le nom du produit est nécessaire.");
+      S.produits.push({id:uid(), nom:nom,
+        achat:Number(document.getElementById("pAchat").value)||0,
+        vente:Number(document.getElementById("pVente").value)||0,
+        qte:Number(document.getElementById("pQte").value)||0,
+        seuil:Number(document.getElementById("pSeuil").value)||0});
+      sauver(); rendre();
+    }
+    if (t.dataset.plus) {
+      S.produits.forEach(function(p){ if (p.id === t.dataset.plus) p.qte = (Number(p.qte)||0) + 1; });
+      sauver(); rendre();
+    }
+    if (t.dataset.delp) {
+      S.produits = S.produits.filter(function(p){ return p.id !== t.dataset.delp; });
+      sauver(); rendre();
+    }
+    if (t.id === "addMouv") {
+      var m = Number(document.getElementById("mMontant").value)||0;
+      if (m <= 0) return alert("Indique un montant.");
+      S.mouvements.push({id:uid(), type:document.getElementById("mType").value, montant:m, motif:document.getElementById("mMotif").value.trim(), date:aujourdhui()});
+      sauver(); rendre();
+    }
+    if (t.id === "exporter" || t.id === "sauver") {
+      var blob = new Blob([JSON.stringify(S, null, 1)], {type:"application/json"});
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "gestion-" + aujourdhui() + ".json";
+      a.click();
+    }
+  });
+
+  document.getElementById("restaurer").onchange = function(e){
+    var f = e.target.files[0];
+    if (!f) return;
+    var r = new FileReader();
+    r.onload = function(){
+      try { S = Object.assign(S, JSON.parse(r.result)); sauver(); rendre(); alert("Sauvegarde restaurée."); }
+      catch(err){ alert("Fichier illisible."); }
+    };
+    r.readAsText(f);
+  };
+
+  charger(); rendre();
+})();
+</script>
+</body>
+</html>
