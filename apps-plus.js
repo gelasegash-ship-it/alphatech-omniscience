@@ -217,6 +217,17 @@
       '<button id="atAsk" style="flex:1;padding:9px;border-radius:10px;border:0;background:#ffb347;color:#1a1205;font-weight:700">Demander</button>' +
       '<button id="atMic" title="Question à la voix" style="padding:9px 12px;border-radius:10px;border:1px solid #3a2c4f;background:#0d0714;color:#fff">🎤</button></div>' +
       '<div id="atRep" style="white-space:pre-wrap;font-size:12.5px;color:#cfc6e0;min-height:18px;margin-bottom:10px"></div>' +
+      '<button id="atIA" style="width:100%;padding:9px;border-radius:10px;border:0;background:#c77dff;color:#150a22;font-weight:700;margin-bottom:6px">✨ Rédiger avec l’assistante IA</button>' +
+      '<div id="atIABox" style="display:none;margin-bottom:8px">' +
+      '<input id="atKey" type="password" placeholder="Clé Groq (gsk_...)" style="width:100%;box-sizing:border-box;padding:8px;border-radius:8px;border:1px solid #3a2c4f;background:#0d0714;color:#fff;font-size:12px;margin-bottom:6px">' +
+      '<div style="display:flex;gap:6px;margin-bottom:6px">' +
+      '<select id="atModel" style="flex:1;padding:8px;border-radius:8px;border:1px solid #3a2c4f;background:#0d0714;color:#fff;font-size:12px">' +
+      '<option value="openai/gpt-oss-120b">gpt-oss-120b (puissant)</option>' +
+      '<option value="openai/gpt-oss-20b">gpt-oss-20b (rapide)</option>' +
+      '<option value="qwen/qwen3.8-27b">qwen3.8-27b (rédaction)</option></select>' +
+      '<button id="atSave" style="padding:8px 10px;border-radius:8px;border:1px solid #3a2c4f;background:#0d0714;color:#fff;font-size:12px">Enregistrer</button></div>' +
+      '<label style="font-size:11px;color:#9d8fb8;display:block"><input id="atNoms" type="checkbox"> inclure les noms des clients/patients dans l’envoi</label>' +
+      '</div>' +
       '<hr style="border:0;border-top:1px solid #2a1f3d;margin:10px 0">' +
       '<div style="display:grid;gap:6px">' +
       '<button id="atCsv" style="padding:9px;border-radius:10px;border:1px solid #3a2c4f;background:#0d0714;color:#fff;text-align:left">⬇️ Exporter en tableur (CSV)</button>' +
@@ -248,6 +259,123 @@
       r.onerror = function () { msg("Micro refusé ou indisponible."); };
       try { r.start(); msg("Je t'écoute…"); } catch (e) { msg("Micro déjà en cours."); }
     };
+    /* ---------- Assistante IA : le calcul reste ici, la rédaction vient du modèle ---------- */
+    var ROLE = {
+      gestion: "GERANT",
+      pharmacie: "PHARMA",
+      hopital: "SOIN"
+    }[APP] || "ASSISTANTE";
+    var CLE = "at_ia_key", MOD = "at_ia_model", NOMS = "at_ia_noms";
+
+    function contexte() {
+      var s = lire(), L = [], a = aujourdhui(), avecNoms = localStorage.getItem(NOMS) === "1";
+      var nom = function (n, i) { return avecNoms && n ? n : "Client " + (i + 1); };
+      if (APP === "gestion") {
+        var docs = s.docs || [], mv = s.mouvements || [], pr = s.produits || [];
+        var impayees = docs.filter(function (d) { return d.type !== "devis"; }).map(function (d) {
+          var ht = (d.lignes || []).reduce(function (t, l) { return t + (Number(l.qte) || 0) * (Number(l.prix) || 0); }, 0);
+          var ttc = ht + (d.tva ? ht * ((s.reglages && s.reglages.tva) || 0.18) : 0);
+          var paye = (d.paiements || []).reduce(function (t, p2) { return t + (Number(p2.montant) || 0); }, 0);
+          return { n: d.numero, c: nom(d.clientNom, 0), reste: Math.round(ttc - paye), date: d.date };
+        }).filter(function (x) { return x.reste > 0; });
+        var enc = mv.filter(function (m) { return m.type === "entree"; }).reduce(function (t, m) { return t + (Number(m.montant) || 0); }, 0);
+        var dep = mv.filter(function (m) { return m.type === "sortie"; }).reduce(function (t, m) { return t + (Number(m.montant) || 0); }, 0);
+        L.push("Application de gestion. Date: " + a + ".");
+        L.push("Encaissé total: " + enc + " FCFA. Dépensé total: " + dep + " FCFA. Solde: " + (enc - dep) + " FCFA.");
+        L.push("Factures non soldées: " + impayees.length + ".");
+        impayees.slice(0, 6).forEach(function (x) { L.push("- " + x.n + " | " + x.c + " | reste " + x.reste + " FCFA | émise le " + x.date); });
+        var bas = pr.filter(function (x) { return (Number(x.qte) || 0) <= (Number(x.seuil) || 0); });
+        L.push("Produits au seuil ou en rupture: " + bas.length + ".");
+        bas.slice(0, 6).forEach(function (x) { L.push("- " + x.nom + " : " + (Number(x.qte) || 0) + " en stock, seuil " + (Number(x.seuil) || 0)); });
+      } else if (APP === "pharmacie") {
+        var p3 = s.produits || [], v = s.ventes || [];
+        var tot = 0, mar = 0, nv = 0;
+        v.forEach(function (x) { if ((x.date || "").slice(0, 10) === a) { tot += Number(x.total) || 0; mar += Number(x.marge) || 0; nv++; } });
+        L.push("Application pharmacie. Date: " + a + ".");
+        L.push("Aujourd'hui: " + nv + " vente(s), " + tot + " FCFA encaissés, marge " + mar + " FCFA.");
+        var proches = [], rup = [];
+        p3.forEach(function (x) {
+          var q = (x.lots || []).reduce(function (t, l) { return t + (Number(l.qte) || 0); }, 0);
+          if (q <= (Number(x.seuil) || 0)) rup.push(x.nom + " (" + q + ")");
+          (x.lots || []).forEach(function (l) {
+            if (!l.per) return;
+            var j = Math.round((new Date(l.per + "T00:00:00") - new Date(a + "T00:00:00")) / 864e5);
+            if (j < 60) proches.push(x.nom + " lot " + l.lot + " " + (j < 0 ? "périmé depuis " + (-j) + " j" : "expire dans " + j + " j"));
+          });
+        });
+        L.push("Lots à surveiller (moins de 60 jours): " + proches.length + ".");
+        proches.slice(0, 8).forEach(function (x) { L.push("- " + x); });
+        L.push("Produits en rupture ou au seuil: " + rup.length + ".");
+        rup.slice(0, 8).forEach(function (x) { L.push("- " + x); });
+      } else {
+        var pat = s.patients || [], ad = s.admissions || [], lits = s.lits || [], cons = s.consultations || [], fac = s.factures || [];
+        var occ = ad.filter(function (x) { return !x.sortie; });
+        L.push("Application hôpital. Date: " + a + ".");
+        L.push("Patients au fichier: " + pat.length + ". Hospitalisés: " + occ.length + " sur " + lits.length + " lits.");
+        occ.slice(0, 6).forEach(function (x) { L.push("- " + (avecNoms ? (x.patientNom || "?") : "Patient") + " | " + x.service + " | lit " + x.lit); });
+        var cdj = cons.filter(function (x) { return (x.date || "").slice(0, 10) === a; }).length;
+        L.push("Consultations aujourd'hui: " + cdj + ".");
+        var imp = fac.map(function (f) {
+          var paye = (f.paiements || []).reduce(function (t, p4) { return t + (Number(p4.montant) || 0); }, 0);
+          return Math.round((Number(f.total) || 0) - paye);
+        }).filter(function (r) { return r > 0; });
+        L.push("Factures impayées: " + imp.length + " pour " + imp.reduce(function (t, x) { return t + x; }, 0) + " FCFA.");
+      }
+      L.push("Consigne: n'effectue aucun calcul, les chiffres ci-dessus sont exacts et définitifs.");
+      return L.join("\n");
+    }
+
+    function demanderIA(q) {
+      var rep = document.getElementById("atRep");
+      var cle = localStorage.getItem(CLE) || "";
+      if (!cle) {
+        document.getElementById("atIABox").style.display = "block";
+        rep.textContent = repondre(q) + "\n\n— Pour la rédaction, ajoute une clé Groq ci-dessous (gratuite sur console.groq.com). Elle reste sur cet appareil.";
+        return;
+      }
+      var modele = localStorage.getItem(MOD) || "openai/gpt-oss-120b";
+      var corps = {
+        model: modele,
+        temperature: 0.35,
+        max_tokens: 600,
+        messages: [
+          { role: "system", content: "Tu es " + ROLE + ", assistante de " + NOM + " pour une entreprise à Brazzaville. Réponds en français, court et concret, en 5 phrases maximum. N'invente aucun chiffre et ne recalcule rien: les données fournies sont exactes. Si une information manque, dis-le. Tu ne promets jamais une action que tu n'as pas faite." },
+          { role: "user", content: "DONNÉES RÉELLES:\n" + contexte() + "\n\nDEMANDE: " + (q || "Fais le point et dis-moi quoi faire en priorité.") }
+        ]
+      };
+      rep.textContent = repondre(q) + "\n\n… " + ROLE + " réfléchit";
+      var ctl = new AbortController();
+      var t = setTimeout(function () { ctl.abort(); }, 25000);
+      fetch("https://api.groq.com/openai/v1/chat/completions", {
+        method: "POST", signal: ctl.signal,
+        headers: { "Content-Type": "application/json", Authorization: "Bearer " + cle },
+        body: JSON.stringify(corps)
+      }).then(function (r) {
+        clearTimeout(t);
+        if (r.status === 401) throw new Error("Clé refusée. Vérifie-la sur console.groq.com.");
+        if (r.status === 429) throw new Error("Quota atteint chez Groq, réessaie dans une minute.");
+        if (!r.ok) throw new Error("Le service a répondu " + r.status + ".");
+        return r.json();
+      }).then(function (d) {
+        var txt = (d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content) || "";
+        rep.textContent = repondre(q) + "\n\n— " + ROLE + " :\n" + txt.trim();
+      }).catch(function (e) {
+        clearTimeout(t);
+        rep.textContent = repondre(q) + "\n\n— Assistante IA indisponible : " + (e.name === "AbortError" ? "délai dépassé." : e.message);
+      });
+    }
+
+    document.getElementById("atIA").onclick = function () {
+      demanderIA(document.getElementById("atQ").value);
+    };
+    document.getElementById("atSave").onclick = function () {
+      var k = document.getElementById("atKey").value.trim();
+      if (k) localStorage.setItem(CLE, k);
+      localStorage.setItem(MOD, document.getElementById("atModel").value);
+      localStorage.setItem(NOMS, document.getElementById("atNoms").checked ? "1" : "0");
+      msg("Réglages IA enregistrés sur cet appareil.");
+    };
+
     document.getElementById("atCsv").onclick = function () { exporterCSV(); msg("Fichier CSV généré."); };
     document.getElementById("atEnc").onclick = function () {
       var m = prompt("Mot de passe de la sauvegarde (il ne sera pas conservé) :");
