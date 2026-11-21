@@ -3,132 +3,143 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GESTION — clients, factures, stock, trésorerie</title>
+<title>GESTION PRO — devis, factures, stock, trésorerie, synchronisation</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0b0f;color:#eef1f6;font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding-bottom:80px}
-header{position:sticky;top:0;background:#0f1117;border-bottom:1px solid #1e2330;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;z-index:10}
+header{position:sticky;top:0;background:#0f1117;border-bottom:1px solid #1e2330;padding:11px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;z-index:10}
 .marque{font-weight:800;letter-spacing:.12em;font-size:13px;color:#4ade80}
 h1{font-size:20px;margin:14px 16px 4px}
 .sous{color:#8d97a8;font-size:13px;margin:0 16px 12px}
 nav{display:flex;gap:6px;overflow-x:auto;padding:0 12px 10px}
 nav button{background:#141821;border:1px solid #1e2330;color:#c7d0de;padding:8px 12px;border-radius:8px;font-size:13px;white-space:nowrap;cursor:pointer}
 nav button.on{background:#4ade80;color:#052e16;border-color:#4ade80;font-weight:700}
-.wrap{padding:0 16px;max-width:900px;margin:0 auto}
+.wrap{padding:0 16px;max-width:920px;margin:0 auto}
 .card{background:#0f1117;border:1px solid #1e2330;border-radius:11px;padding:14px;margin-bottom:12px}
 label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#8d97a8;margin:8px 0 4px}
 input,select,textarea{width:100%;background:#0a0d13;border:1px solid #1e2330;color:#eef1f6;padding:10px;border-radius:7px;font:inherit;font-size:14px}
 button.p{background:#4ade80;color:#052e16;border:0;padding:11px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-size:14px}
-button.s{background:#1a1f2b;color:#dfe6f0;border:1px solid #2a3142;padding:10px 14px;border-radius:8px;cursor:pointer;font-size:13px}
+button.s{background:#1a1f2b;color:#dfe6f0;border:1px solid #2a3142;padding:9px 13px;border-radius:8px;cursor:pointer;font-size:13px}
 button.d{background:#3a1420;color:#f8a5b0;border:1px solid #5b2030;padding:6px 10px;border-radius:6px;cursor:pointer;font-size:12px}
-.row{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.row{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(145px,1fr))}
 table{width:100%;border-collapse:collapse;font-size:13.5px}
 th{text-align:left;color:#8d97a8;font-weight:600;border-bottom:1px solid #1e2330;padding:7px 6px}
 td{border-bottom:1px solid #161b25;padding:8px 6px;vertical-align:top}
-.kpi{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin-bottom:12px}
+.kpi{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));margin-bottom:12px}
 .kpi div{background:#0f1117;border:1px solid #1e2330;border-radius:11px;padding:13px}
-.kpi b{display:block;font-size:21px;color:#4ade80}
+.kpi b{display:block;font-size:19px;color:#4ade80}
 .kpi span{font-size:11px;color:#8d97a8;text-transform:uppercase;letter-spacing:.05em}
-.mono{font-family:ui-monospace,monospace;font-size:12px;color:#8d97a8}
+.mono{font-family:ui-monospace,monospace;font-size:12px;color:#8d97a8;word-break:break-all}
 .vide{color:#8d97a8;font-size:13px;padding:10px 0}
-.pill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:9px}
+.pill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:9px;white-space:nowrap}
 .pay{background:#0d2b21;color:#4ade80;border:1px solid #14523c}
 .att{background:#2a220c;color:#e8c56a;border:1px solid #4d3c14}
 .dan{background:#2a0f16;color:#f08a9b;border:1px solid #4d1a26}
+.dev{background:#101a2b;color:#7dd3fc;border:1px solid #1e3a5f}
+.avert{border-left:3px solid #e8b64c;background:#14110a;border-radius:6px;padding:11px 13px;font-size:13px;color:#e8dcc0}
 @media print{body{background:#fff;color:#000}header,nav,.noprint{display:none!important}.card{border:0}}
 </style>
 </head>
 <body>
 <header>
-  <div class="marque">GESTION · ALPHATECH</div>
+  <div class="marque">GESTION PRO · ALPHATECH</div>
   <button class="s noprint" id="exporter">Exporter</button>
 </header>
 
 <h1>Gestion d'entreprise</h1>
-<div class="sous">Clients, factures, stock et trésorerie. Tout reste sur cet appareil, sans internet.</div>
+<div class="sous">Devis, factures, paiements partiels, stock, trésorerie et synchronisation entre appareils.</div>
 
 <nav class="noprint">
   <button data-t="bord" class="on">Tableau de bord</button>
   <button data-t="clients">Clients</button>
-  <button data-t="factures">Factures</button>
+  <button data-t="docs">Devis et factures</button>
   <button data-t="stock">Stock</button>
   <button data-t="caisse">Trésorerie</button>
+  <button data-t="sync">Synchronisation</button>
+  <button data-t="reglages">Réglages</button>
 </nav>
 
 <div class="wrap" id="vue"></div>
 
-<div class="wrap noprint" id="pied">
-  <div class="card">
-    <label>Sauvegarde et restauration</label>
-    <div class="row">
-      <button class="s" id="sauver">Télécharger la sauvegarde</button>
-      <label style="margin:0;display:flex;align-items:center;gap:8px;text-transform:none;font-size:13px;color:#dfe6f0">
-        <input type="file" id="restaurer" accept="application/json" style="padding:6px">
-      </label>
-    </div>
-    <div class="mono" id="etatSauvegarde" style="margin-top:8px">sauvegarde automatique dans le navigateur</div>
-  </div>
-</div>
-
 <script>
 (function(){
-  var CLE = "at_gestion_v1";
-  var TVA = 0.18;
-  var S = {clients:[], produits:[], factures:[], mouvements:[], compteur:1};
+  var CLE = "at_gestion_v2";
+  var S = {
+    clients:[], produits:[], docs:[], mouvements:[], tombstones:[],
+    reglages:{entreprise:"", tel:"", adresse:"", tva:0.18},
+    seq:1, maj:0
+  };
   var vue = "bord";
+  var syncCfg = {token:"", repo:"", chemin:"gestion.json", branche:"main"};
 
   function charger(){
-    try { var d = JSON.parse(localStorage.getItem(CLE) || "null"); if (d) S = Object.assign(S, d); } catch(e){}
+    try {
+      var d = JSON.parse(localStorage.getItem(CLE) || "null");
+      if (d) S = Object.assign(S, d);
+      var c = JSON.parse(localStorage.getItem(CLE + "_sync") || "null");
+      if (c) syncCfg = Object.assign(syncCfg, c);
+    } catch(e){}
   }
   function sauver(){
+    S.maj = Date.now();
     try { localStorage.setItem(CLE, JSON.stringify(S)); } catch(e){}
-    var e = document.getElementById("etatSauvegarde");
+    var e = document.getElementById("etatSave");
     if (e) e.textContent = "enregistré à " + new Date().toLocaleTimeString("fr-FR");
   }
-  function fcfa(n){
-    n = Math.round(n || 0);
-    return n.toLocaleString("fr-FR").replace(/\u202f|\s/g," ") + " FCFA";
-  }
-  function esc(s){ return String(s==null?"":s).replace(/[<>&"]/g, function(c){ return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]; }); }
-  function aujourdhui(){ return new Date().toISOString().slice(0,10); }
-  function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
+  function fcfa(n){ return Math.round(n||0).toLocaleString("fr-FR").replace(/\u202f|\s/g," ") + " FCFA"; }
+  function esc(s){ return String(s==null?"":s).replace(/[<>&"]/g,function(c){return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c];}); }
+  function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,7); }
+  function jour(){ return new Date().toISOString().slice(0,10); }
+  function txt(n){ return String(n).replace(/\u202f|\s/g," "); }
 
-  function totalFacture(f){
-    var ht = (f.lignes||[]).reduce(function(a,l){ return a + (Number(l.qte)||0) * (Number(l.prix)||0); }, 0);
-    var tva = f.tva === false ? 0 : ht * TVA;
-    return {ht: ht, tva: tva, ttc: ht + tva};
+  function totaux(d){
+    var ht = (d.lignes||[]).reduce(function(a,l){ return a + (Number(l.qte)||0)*(Number(l.prix)||0); }, 0);
+    var tva = d.tva ? ht * (Number(S.reglages.tva)||0) : 0;
+    var paye = (d.paiements||[]).reduce(function(a,p){ return a + (Number(p.montant)||0); }, 0);
+    var ttc = ht + tva;
+    return {ht:ht, tva:tva, ttc:ttc, paye:paye, solde:ttc - paye};
+  }
+  function statut(d){
+    if (d.type === "devis") return "devis";
+    var t = totaux(d);
+    if (t.solde <= 0.5) return "payee";
+    return t.paye > 0 ? "partielle" : "attente";
+  }
+  function pill(st){
+    var m = {payee:["pay","payée"], attente:["att","en attente"], partielle:["att","partielle"], devis:["dev","devis"], annulee:["dan","annulée"]};
+    var v = m[st] || ["att",st];
+    return "<span class='pill " + v[0] + "'>" + v[1] + "</span>";
   }
 
   function bord(){
-    var encaisse = 0, impaye = 0, depenses = 0;
-    S.factures.forEach(function(f){
-      var t = totalFacture(f).ttc;
-      if (f.statut === "payee") encaisse += t; else impaye += t;
+    var ca = 0, encaisse = 0, impaye = 0, devis = 0, depenses = 0;
+    S.docs.forEach(function(d){
+      if (d.type === "devis") { devis++; return; }
+      var t = totaux(d);
+      ca += t.ttc; encaisse += t.paye; impaye += Math.max(0, t.solde);
     });
     S.mouvements.forEach(function(m){ if (m.type === "sortie") depenses += Number(m.montant)||0; });
     var stockVal = S.produits.reduce(function(a,p){ return a + (Number(p.qte)||0)*(Number(p.achat)||0); }, 0);
-    var ruptures = S.produits.filter(function(p){ return (Number(p.qte)||0) <= (Number(p.seuil)||0); });
+    var alertes = S.produits.filter(function(p){ return (Number(p.qte)||0) <= (Number(p.seuil)||0); });
 
     var h = "<div class='kpi'>" +
       "<div><b>" + fcfa(encaisse) + "</b><span>encaissé</span></div>" +
-      "<div><b>" + fcfa(impaye) + "</b><span>en attente</span></div>" +
+      "<div><b>" + fcfa(impaye) + "</b><span>reste à encaisser</span></div>" +
       "<div><b>" + fcfa(depenses) + "</b><span>dépenses</span></div>" +
       "<div><b>" + fcfa(encaisse - depenses) + "</b><span>solde</span></div>" +
       "<div><b>" + fcfa(stockVal) + "</b><span>valeur du stock</span></div>" +
-      "<div><b>" + ruptures.length + "</b><span>produits à recommander</span></div>" +
-      "</div>";
+      "<div><b>" + devis + "</b><span>devis en cours</span></div></div>";
 
-    h += "<div class='card'><label>Dernières factures</label>";
-    var dernieres = S.factures.slice(-5).reverse();
-    h += dernieres.length ? "<table><tbody>" + dernieres.map(function(f){
-      var t = totalFacture(f);
-      return "<tr><td>" + esc(f.numero) + "<div class='mono'>" + esc(f.clientNom||"—") + "</div></td><td>" + fcfa(t.ttc) + "</td><td>" +
-        (f.statut === "payee" ? "<span class='pill pay'>payée</span>" : "<span class='pill att'>en attente</span>") + "</td></tr>";
-    }).join("") + "</tbody></table>" : "<div class='vide'>Aucune facture. Commence par ajouter un client, puis une facture.</div>";
+    h += "<div class='card'><label>À relancer</label>";
+    var relance = S.docs.filter(function(d){ return d.type === "facture" && totaux(d).solde > 0.5; }).slice(0,5);
+    h += relance.length ? "<table><tbody>" + relance.map(function(d){
+      var t = totaux(d);
+      return "<tr><td><b>" + esc(d.numero) + "</b><div class='mono'>" + esc(d.clientNom||"") + " · " + esc(d.date) + "</div></td><td>" + fcfa(t.solde) + "</td><td class='noprint'><button class='s' data-relance='" + d.id + "'>message</button></td></tr>";
+    }).join("") + "</tbody></table>" : "<div class='vide'>Aucune facture impayée.</div>";
     h += "</div>";
 
-    if (ruptures.length) {
-      h += "<div class='card'><label>À recommander</label><table><tbody>" + ruptures.slice(0,8).map(function(p){
+    if (alertes.length) {
+      h += "<div class='card'><label>Stock à recommander</label><table><tbody>" + alertes.slice(0,8).map(function(p){
         return "<tr><td>" + esc(p.nom) + "</td><td>" + (p.qte||0) + " en stock</td><td><span class='pill dan'>seuil " + (p.seuil||0) + "</span></td></tr>";
       }).join("") + "</tbody></table></div>";
     }
@@ -141,179 +152,396 @@ td{border-bottom:1px solid #161b25;padding:8px 6px;vertical-align:top}
       "<button class='p' id='addClient' style='margin-top:10px'>Ajouter</button></div>";
     h += "<div class='card'><label>" + S.clients.length + " client(s)</label>";
     h += S.clients.length ? "<table><tbody>" + S.clients.map(function(c){
-      return "<tr><td><b>" + esc(c.nom) + "</b><div class='mono'>" + esc(c.tel||"") + " " + esc(c.mail||"") + "</div></td>" +
-        "<td style='width:70px'><button class='d' data-delclient='" + c.id + "'>retirer</button></td></tr>";
-    }).join("") + "</tbody></table>" : "<div class='vide'>Aucun client enregistré.</div>";
+      var du = S.docs.filter(function(d){ return d.clientId === c.id && d.type === "facture"; }).reduce(function(a,d){ return a + Math.max(0, totaux(d).solde); }, 0);
+      return "<tr><td><b>" + esc(c.nom) + "</b><div class='mono'>" + esc(c.tel||"") + " " + esc(c.mail||"") + "</div></td><td>" + (du > 0 ? fcfa(du) : "—") + "</td>" +
+        "<td style='width:70px' class='noprint'><button class='d' data-delclient='" + c.id + "'>retirer</button></td></tr>";
+    }).join("") + "</tbody></table>" : "<div class='vide'>Aucun client.</div>";
     return h + "</div>";
   }
 
-  function factures(){
-    var h = "<div class='card'><label>Nouvelle facture</label>" +
-      "<div class='row'><select id='fClient'><option value=''>— choisir un client —</option>" +
-      S.clients.map(function(c){ return "<option value='" + c.id + "'>" + esc(c.nom) + "</option>"; }).join("") + "</select>" +
-      "<input id='fDate' type='date' value='" + aujourdhui() + "'>" +
-      "<select id='fTva'><option value='1'>TVA 18 %</option><option value='0'>sans TVA</option></select></div>" +
+  function docs(){
+    var h = "<div class='card'><label>Nouveau document</label>" +
+      "<div class='row'><select id='dType'><option value='facture'>Facture</option><option value='devis'>Devis</option></select>" +
+      "<select id='dClient'><option value=''>— client —</option>" + S.clients.map(function(c){ return "<option value='" + c.id + "'>" + esc(c.nom) + "</option>"; }).join("") + "</select>" +
+      "<input id='dDate' type='date' value='" + jour() + "'>" +
+      "<select id='dTva'><option value='1'>TVA</option><option value='0'>sans TVA</option></select></div>" +
       "<label>Lignes</label><div id='lignes'></div>" +
       "<button class='s' id='addLigne' style='margin-top:8px'>+ ligne</button>" +
-      "<button class='p' id='creerFacture' style='margin-top:10px;margin-left:8px'>Créer la facture</button></div>";
+      "<button class='p' id='creerDoc' style='margin-top:10px;margin-left:8px'>Créer</button></div>";
 
-    h += "<div class='card'><label>Factures</label>";
-    h += S.factures.length ? "<table><thead><tr><th>Numéro</th><th>Client</th><th>Total</th><th>Statut</th><th></th></tr></thead><tbody>" +
-      S.factures.slice().reverse().map(function(f){
-        var t = totalFacture(f);
-        return "<tr><td><b>" + esc(f.numero) + "</b><div class='mono'>" + esc(f.date) + "</div></td><td>" + esc(f.clientNom||"—") + "</td><td>" + fcfa(t.ttc) + "</td><td>" +
-          (f.statut === "payee" ? "<span class='pill pay'>payée</span>" : "<span class='pill att'>attente</span>") + "</td>" +
-          "<td style='width:170px' class='noprint'>" +
-          (f.statut !== "payee" ? "<button class='s' data-payer='" + f.id + "'>encaisser</button> " : "") +
-          "<button class='d' data-del='" + f.id + "'>suppr.</button></td></tr>";
-      }).join("") + "</tbody></table>" : "<div class='vide'>Aucune facture.</div>";
+    h += "<div class='card'><label>" + S.docs.length + " document(s)</label>";
+    h += S.docs.length ? "<table><thead><tr><th>Numéro</th><th>Client</th><th>Total</th><th>Reste</th><th>Statut</th><th></th></tr></thead><tbody>" +
+      S.docs.slice().sort(function(a,b){ return b.date.localeCompare(a.date); }).map(function(d){
+        var t = totaux(d), st = statut(d);
+        return "<tr><td><b>" + esc(d.numero) + "</b><div class='mono'>" + esc(d.date) + "</div></td><td>" + esc(d.clientNom||"—") + "</td><td>" + fcfa(t.ttc) + "</td><td>" + (t.solde > 0.5 ? fcfa(t.solde) : "—") + "</td><td>" + pill(st) + "</td>" +
+          "<td style='width:190px' class='noprint'>" +
+          (d.type === "devis" ? "<button class='s' data-convertir='" + d.id + "'>facturer</button> " : (t.solde > 0.5 ? "<button class='s' data-payer='" + d.id + "'>encaisser</button> " : "")) +
+          "<button class='s' data-imprimer='" + d.id + "'>impr.</button> <button class='d' data-del='" + d.id + "'>×</button></td></tr>";
+      }).join("") + "</tbody></table>" : "<div class='vide'>Aucun document.</div>";
     return h + "</div>";
   }
 
   function ligneHTML(i){
-    return "<div class='row' style='margin-bottom:6px' data-ligne='" + i + "'>" +
-      "<input data-desc placeholder='Désignation'>" +
-      "<input data-qte type='number' min='0' step='1' placeholder='Qté' value='1'>" +
-      "<input data-prix type='number' min='0' step='1' placeholder='Prix unitaire'>" +
-      "</div>";
+    return "<div class='row' style='margin-bottom:6px' data-ligne='" + i + "'><input data-desc placeholder='Désignation'><input data-qte type='number' min='0' value='1' placeholder='Qté'><input data-prix type='number' min='0' placeholder='Prix unitaire'></div>";
   }
 
   function stock(){
     var h = "<div class='card'><label>Nouveau produit</label>" +
-      "<div class='row'><input id='pNom' placeholder='Nom du produit'><input id='pAchat' type='number' placeholder='Prix d achat'><input id='pVente' type='number' placeholder='Prix de vente'>" +
-      "<input id='pQte' type='number' placeholder='Quantité'><input id='pSeuil' type='number' placeholder='Seuil d alerte' value='3'></div>" +
-      "<button class='p' id='addProduit' style='margin-top:10px'>Ajouter au stock</button></div>";
+      "<div class='row'><input id='pNom' placeholder='Nom'><input id='pAchat' type='number' placeholder='Achat'><input id='pVente' type='number' placeholder='Vente'><input id='pQte' type='number' placeholder='Quantité'><input id='pSeuil' type='number' placeholder='Seuil' value='3'></div>" +
+      "<button class='p' id='addProduit' style='margin-top:10px'>Ajouter</button></div>";
     h += "<div class='card'><label>" + S.produits.length + " produit(s)</label>";
-    h += S.produits.length ? "<table><thead><tr><th>Produit</th><th>Stock</th><th>Achat</th><th>Vente</th><th>Marge</th><th></th></tr></thead><tbody>" +
+    h += S.produits.length ? "<table><thead><tr><th>Produit</th><th>Stock</th><th>Marge</th><th></th></tr></thead><tbody>" +
       S.produits.map(function(p){
         var marge = (Number(p.vente)||0) - (Number(p.achat)||0);
         var bas = (Number(p.qte)||0) <= (Number(p.seuil)||0);
-        return "<tr><td>" + esc(p.nom) + "</td><td class='" + (bas?"dan":"") + "'>" + (p.qte||0) + "</td><td>" + fcfa(p.achat) + "</td><td>" + fcfa(p.vente) + "</td><td>" + fcfa(marge) + "</td>" +
-          "<td style='width:140px' class='noprint'><button class='s' data-plus='" + p.id + "'>+1</button> <button class='d' data-delp='" + p.id + "'>suppr.</button></td></tr>";
+        return "<tr><td>" + esc(p.nom) + "<div class='mono'>" + fcfa(p.achat) + " → " + fcfa(p.vente) + "</div></td><td class='" + (bas?"dan":"") + "'>" + (p.qte||0) + "</td><td>" + fcfa(marge) + "</td>" +
+          "<td style='width:150px' class='noprint'><button class='s' data-plus='" + p.id + "'>+1</button> <button class='s' data-vendre='" + p.id + "'>vendre</button> <button class='d' data-delp='" + p.id + "'>×</button></td></tr>";
       }).join("") + "</tbody></table>" : "<div class='vide'>Aucun produit.</div>";
     return h + "</div>";
   }
 
   function caisse(){
-    var entrees = 0, sorties = 0;
-    S.mouvements.forEach(function(m){ if (m.type === "entree") entrees += Number(m.montant)||0; else sorties += Number(m.montant)||0; });
-    var h = "<div class='kpi'><div><b>" + fcfa(entrees) + "</b><span>entrées</span></div>" +
-      "<div><b>" + fcfa(sorties) + "</b><span>sorties</span></div>" +
-      "<div><b>" + fcfa(entrees - sorties) + "</b><span>solde</span></div></div>";
-    h += "<div class='card'><label>Enregistrer un mouvement</label><div class='row'>" +
-      "<select id='mType'><option value='entree'>Entrée d argent</option><option value='sortie'>Sortie d argent</option></select>" +
+    var e = 0, s = 0;
+    S.mouvements.forEach(function(m){ if (m.type === "entree") e += Number(m.montant)||0; else s += Number(m.montant)||0; });
+    var h = "<div class='kpi'><div><b>" + fcfa(e) + "</b><span>entrées</span></div><div><b>" + fcfa(s) + "</b><span>sorties</span></div><div><b>" + fcfa(e-s) + "</b><span>solde</span></div></div>";
+    h += "<div class='card'><label>Mouvement</label><div class='row'><select id='mType'><option value='entree'>Entrée</option><option value='sortie'>Sortie</option></select>" +
       "<input id='mMontant' type='number' placeholder='Montant'><input id='mMotif' placeholder='Motif'></div>" +
       "<button class='p' id='addMouv' style='margin-top:10px'>Enregistrer</button></div>";
     h += "<div class='card'><label>Journal</label>";
-    h += S.mouvements.length ? "<table><tbody>" + S.mouvements.slice().reverse().slice(0,40).map(function(m){
+    h += S.mouvements.length ? "<table><tbody>" + S.mouvements.slice().reverse().slice(0,50).map(function(m){
       return "<tr><td class='mono'>" + esc(m.date) + "</td><td>" + esc(m.motif||"—") + "</td><td class='" + (m.type==="entree"?"":"dan") + "'>" + (m.type==="entree"?"+ ":"− ") + fcfa(m.montant) + "</td></tr>";
     }).join("") + "</tbody></table>" : "<div class='vide'>Aucun mouvement.</div>";
     return h + "</div>";
   }
 
+  function sync(){
+    var h = "<div class='card'><label>1 · Fichier</label><p style='color:#b9c4d4;font-size:13px'>La sauvegarde complète, à envoyer par WhatsApp ou e-mail à ton autre appareil.</p>" +
+      "<div class='row'><button class='s' id='sauver'>Télécharger la sauvegarde</button>" +
+      "<input type='file' id='restaurer' accept='application/json' style='padding:6px'></div></div>";
+
+    h += "<div class='card'><label>2 · Lien de transfert</label><p style='color:#b9c4d4;font-size:13px'>Copie un lien qui contient tes données compressées. Ouvre-le sur l'autre appareil, il propose de les importer. Pour de petits volumes.</p>" +
+      "<button class='s' id='faireLien'>Créer le lien</button><div id='lienOut' style='margin-top:8px'></div></div>";
+
+    h += "<div class='card'><label>3 · Synchronisation par dépôt GitHub</label>" +
+      "<div class='avert'>Le jeton reste sur cet appareil, dans le navigateur. Crée un jeton fin, limité à un seul dépôt privé, en lecture et écriture, et révoque-le quand tu ne l'utilises plus. Ne mets jamais ici un jeton qui donne accès à tout ton compte.</div>" +
+      "<div class='row'><input id='sRepo' placeholder='utilisateur/depot' value='" + esc(syncCfg.repo) + "'>" +
+      "<input id='sChemin' placeholder='gestion.json' value='" + esc(syncCfg.chemin) + "'>" +
+      "<input id='sBranche' placeholder='main' value='" + esc(syncCfg.branche) + "'></div>" +
+      "<label>Jeton GitHub</label><input id='sToken' type='password' placeholder='github_pat_…' value='" + esc(syncCfg.token) + "'>" +
+      "<div class='row' style='margin-top:10px'><button class='p' id='pushGH'>Envoyer vers le dépôt</button><button class='s' id='pullGH'>Récupérer et fusionner</button><button class='d' id='oubliToken'>Oublier le jeton</button></div>" +
+      "<div id='ghOut' style='margin-top:10px'></div></div>";
+
+    h += "<div class='card'><label>État</label><div class='mono' id='etatSave'>sauvegarde locale automatique</div>" +
+      "<div class='mono'>" + S.docs.length + " documents · " + S.clients.length + " clients · " + S.produits.length + " produits · " + S.mouvements.length + " mouvements</div></div>";
+    return h;
+  }
+
+  function reglages(){
+    return "<div class='card'><label>Identité sur les factures</label>" +
+      "<div class='row'><input id='rNom' placeholder='Nom de l entreprise' value='" + esc(S.reglages.entreprise) + "'>" +
+      "<input id='rTel' placeholder='Téléphone' value='" + esc(S.reglages.tel) + "'></div>" +
+      "<label>Adresse</label><input id='rAdr' placeholder='Adresse' value='" + esc(S.reglages.adresse) + "'>" +
+      "<label>Taux de TVA (%)</label><input id='rTva' type='number' step='0.5' value='" + (Number(S.reglages.tva)*100) + "'>" +
+      "<button class='p' id='saveReg' style='margin-top:10px'>Enregistrer</button></div>" +
+      "<div class='card'><label>Zone dangereuse</label><button class='d' id='toutEffacer'>Effacer toutes les données locales</button></div>";
+  }
+
   function rendre(){
     var v = document.getElementById("vue");
-    v.innerHTML = vue === "bord" ? bord() : vue === "clients" ? clients() : vue === "factures" ? factures() : vue === "stock" ? stock() : caisse();
+    v.innerHTML = vue === "bord" ? bord() : vue === "clients" ? clients() : vue === "docs" ? docs() : vue === "stock" ? stock() : vue === "caisse" ? caisse() : vue === "sync" ? sync() : reglages();
     document.querySelectorAll("nav button").forEach(function(b){ b.classList.toggle("on", b.dataset.t === vue); });
-    if (vue === "factures") {
-      var zone = document.getElementById("lignes");
-      if (zone && !zone.children.length) { zone.innerHTML = ligneHTML(0); }
+    if (vue === "docs") {
+      var z = document.getElementById("lignes");
+      if (z && !z.children.length) z.innerHTML = ligneHTML(0);
+    }
+    if (vue === "sync") {
+      var f = document.getElementById("restaurer");
+      if (f) f.onchange = restaurer;
     }
   }
 
-  document.querySelectorAll("nav button").forEach(function(b){
-    b.onclick = function(){ vue = b.dataset.t; rendre(); };
-  });
+  // fusion par identifiant, la version la plus récente gagne, les suppressions sont conservées
+  function fusionner(a, b){
+    var out = {clients:[], produits:[], docs:[], mouvements:[], tombstones:[], reglages:a.reglages || b.reglages, seq:Math.max(a.seq||1, b.seq||1), maj:Date.now()};
+    ["clients","produits","docs","mouvements"].forEach(function(k){
+      var m = {};
+      (a[k]||[]).concat(b[k]||[]).forEach(function(x){
+        if (!x || !x.id) return;
+        var prev = m[x.id];
+        var t = x.maj || 0, pt = prev ? (prev.maj || 0) : -1;
+        if (!prev || t > pt) m[x.id] = x;
+      });
+      out[k] = Object.keys(m).map(function(i){ return m[i]; });
+    });
+    var tomb = {};
+    (a.tombstones||[]).concat(b.tombstones||[]).forEach(function(t){ if (t && t.id) tomb[t.id] = t.t; });
+    out.tombstones = Object.keys(tomb).map(function(id){ return {id:id, t:tomb[id]}; });
+    var morts = {};
+    out.tombstones.forEach(function(t){ morts[t.id] = t.t; });
+    ["clients","produits","docs","mouvements"].forEach(function(k){
+      out[k] = out[k].filter(function(x){ return !(morts[x.id] && morts[x.id] >= (x.maj||0)); });
+    });
+    return out;
+  }
+
+  function restaurer(e){
+    var f = e.target.files[0];
+    if (!f) return;
+    var r = new FileReader();
+    r.onload = function(){
+      try {
+        var d = JSON.parse(r.result);
+        S = fusionner(S, d);
+        sauver(); rendre();
+        alert("Sauvegarde fusionnée : " + S.docs.length + " documents, " + S.clients.length + " clients.");
+      } catch(err){ alert("Fichier illisible."); }
+    };
+    r.readAsText(f);
+  }
+
+  function b64enc(str){
+    return btoa(unescape(encodeURIComponent(str))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+  }
+  function b64dec(str){
+    var s = str.replace(/-/g,"+").replace(/_/g,"/");
+    while (s.length % 4) s += "=";
+    return decodeURIComponent(escape(atob(s)));
+  }
+
+  function ghHeaders(){
+    return {"Authorization":"Bearer " + syncCfg.token, "Accept":"application/vnd.github+json", "Content-Type":"application/json"};
+  }
+  function ghUrl(){
+    return "https://api.github.com/repos/" + syncCfg.repo + "/contents/" + encodeURIComponent(syncCfg.chemin) + "?ref=" + encodeURIComponent(syncCfg.branche);
+  }
+  function ghLire(){
+    return fetch(ghUrl(), {headers:ghHeaders(), cache:"no-store"}).then(function(r){
+      if (r.status === 404) return null;
+      if (!r.ok) throw new Error("lecture " + r.status);
+      return r.json();
+    });
+  }
+  function ghEcrire(contenu, sha){
+    var corps = {message:"synchronisation depuis l'app " + new Date().toISOString(), content:b64enc(contenu), branch:syncCfg.branche};
+    if (sha) corps.sha = sha;
+    return fetch("https://api.github.com/repos/" + syncCfg.repo + "/contents/" + encodeURIComponent(syncCfg.chemin), {
+      method:"PUT", headers:ghHeaders(), body:JSON.stringify(corps)
+    }).then(function(r){ if (!r.ok) throw new Error("écriture " + r.status); return r.json(); });
+  }
+
+  document.querySelectorAll("nav button").forEach(function(b){ b.onclick = function(){ vue = b.dataset.t; rendre(); }; });
 
   document.addEventListener("click", function(e){
-    var t = e.target;
+    var t = e.target.closest("[data-relance],[data-payer],[data-del],[data-delp],[data-plus],[data-convertir],[data-imprimer],[data-delclient]") || e.target;
+
     if (t.id === "addClient") {
       var nom = document.getElementById("cNom").value.trim();
       if (!nom) return alert("Le nom est nécessaire.");
-      S.clients.push({id:uid(), nom:nom, tel:document.getElementById("cTel").value.trim(), mail:document.getElementById("cMail").value.trim()});
+      S.clients.push({id:uid(), nom:nom, tel:document.getElementById("cTel").value.trim(), mail:document.getElementById("cMail").value.trim(), maj:Date.now()});
       sauver(); rendre();
     }
     if (t.dataset.delclient) {
-      S.clients = S.clients.filter(function(c){ return c.id !== t.dataset.delclient; });
+      var idc = t.dataset.delclient;
+      S.clients = S.clients.filter(function(c){ return c.id !== idc; });
+      S.tombstones.push({id:idc, t:Date.now()});
       sauver(); rendre();
     }
     if (t.id === "addLigne") {
-      var zone = document.getElementById("lignes");
-      zone.insertAdjacentHTML("beforeend", ligneHTML(zone.children.length));
+      var z = document.getElementById("lignes");
+      z.insertAdjacentHTML("beforeend", ligneHTML(z.children.length));
     }
-    if (t.id === "creerFacture") {
-      var cid = document.getElementById("fClient").value;
+    if (t.id === "creerDoc") {
+      var cid = document.getElementById("dClient").value;
       var cli = S.clients.filter(function(c){ return c.id === cid; })[0];
       var lignes = [];
       document.querySelectorAll("#lignes [data-ligne]").forEach(function(d){
-        var d1 = d.querySelector("[data-desc]").value.trim();
+        var ds = d.querySelector("[data-desc]").value.trim();
         var q = Number(d.querySelector("[data-qte]").value)||0;
         var pr = Number(d.querySelector("[data-prix]").value)||0;
-        if (d1 && q > 0) lignes.push({desc:d1, qte:q, prix:pr});
+        if (ds && q > 0) lignes.push({desc:ds, qte:q, prix:pr});
       });
-      if (!lignes.length) return alert("Ajoute au moins une ligne avec une désignation et une quantité.");
-      var num = "FAC-" + new Date().getFullYear() + "-" + String(S.compteur++).padStart(3,"0");
-      S.factures.push({id:uid(), numero:num, date:document.getElementById("fDate").value, clientId:cid, clientNom:cli?cli.nom:"Client de passage",
-        tva:document.getElementById("fTva").value === "1", lignes:lignes, statut:"attente"});
+      if (!lignes.length) return alert("Ajoute au moins une ligne.");
+      var type = document.getElementById("dType").value;
+      var num = (type === "devis" ? "DEV-" : "FAC-") + new Date().getFullYear() + "-" + String(S.seq++).padStart(3,"0");
+      S.docs.push({id:uid(), type:type, numero:num, date:document.getElementById("dDate").value, clientId:cid,
+        clientNom:cli?cli.nom:"Client de passage", tva:document.getElementById("dTva").value === "1",
+        lignes:lignes, paiements:[], maj:Date.now()});
       sauver(); rendre();
     }
-    if (t.dataset.payer) {
-      var f = S.factures.filter(function(x){ return x.id === t.dataset.payer; })[0];
-      if (f) {
-        f.statut = "payee";
-        S.mouvements.push({id:uid(), type:"entree", montant:totalFacture(f).ttc, motif:"Facture " + f.numero, date:aujourdhui()});
+    if (t.dataset.convertir) {
+      var d0 = S.docs.filter(function(x){ return x.id === t.dataset.convertir; })[0];
+      if (d0) {
+        d0.type = "facture";
+        d0.numero = "FAC-" + new Date().getFullYear() + "-" + String(S.seq++).padStart(3,"0");
+        d0.maj = Date.now();
         sauver(); rendre();
       }
     }
+    if (t.dataset.payer) {
+      var d1 = S.docs.filter(function(x){ return x.id === t.dataset.payer; })[0];
+      if (!d1) return;
+      var reste = totaux(d1).solde;
+      var montant = prompt("Montant encaissé (reste dû : " + fcfa(reste) + ")", String(Math.round(reste)));
+      if (montant === null) return;
+      var m = Number(montant)||0;
+      if (m <= 0) return;
+      d1.paiements = d1.paiements || [];
+      d1.paiements.push({date:jour(), montant:m});
+      d1.maj = Date.now();
+      S.mouvements.push({id:uid(), type:"entree", montant:m, motif:"Paiement " + d1.numero, date:jour(), maj:Date.now()});
+      sauver(); rendre();
+    }
+    if (t.dataset.relance) {
+      var d2 = S.docs.filter(function(x){ return x.id === t.dataset.relance; })[0];
+      if (!d2) return;
+      var cli2 = S.clients.filter(function(c){ return c.id === d2.clientId; })[0] || {};
+      var msg = "Bonjour " + (d2.clientNom||"") + ",\n\nSauf erreur de ma part, la facture " + d2.numero + " du " + d2.date +
+        " présente un solde de " + fcfa(totaux(d2).solde) + ".\n\nPouvez-vous me confirmer la date de règlement ? Je reste disponible si un échelonnement vous arrange.\n\n" +
+        (S.reglages.entreprise || "") + (S.reglages.tel ? " · " + S.reglages.tel : "");
+      var w = window.open("", "_blank");
+      if (w) {
+        w.document.write("<pre style='font:14px system-ui;padding:20px;white-space:pre-wrap'>" + esc(msg) + "</pre>" +
+          (cli2.tel ? "<p style='padding:0 20px'><a href='https://wa.me/" + cli2.tel.replace(/[^0-9]/g,"") + "?text=" + encodeURIComponent(msg) + "'>Envoyer sur WhatsApp</a></p>" : "") +
+          (cli2.mail ? "<p style='padding:0 20px'><a href='mailto:" + cli2.mail + "?body=" + encodeURIComponent(msg) + "'>Envoyer par e-mail</a></p>" : ""));
+        w.document.close();
+      }
+    }
+    if (t.dataset.imprimer) {
+      var d3 = S.docs.filter(function(x){ return x.id === t.dataset.imprimer; })[0];
+      if (!d3) return;
+      var tt = totaux(d3);
+      var w2 = window.open("", "_blank");
+      if (!w2) return;
+      w2.document.write("<html><head><title>" + d3.numero + "</title></head><body style='font:14px system-ui;padding:28px;color:#000'>" +
+        "<h2 style='margin:0 0 4px'>" + esc(S.reglages.entreprise || "Facture") + "</h2>" +
+        "<div>" + esc(S.reglages.adresse||"") + (S.reglages.tel ? " · " + esc(S.reglages.tel) : "") + "</div><hr style='margin:14px 0'>" +
+        "<div><b>" + esc(d3.numero) + "</b> · " + esc(d3.date) + "</div><div>Client : " + esc(d3.clientNom||"") + "</div>" +
+        "<table style='width:100%;border-collapse:collapse;margin-top:14px'><tr><th style='text-align:left;border-bottom:1px solid #999'>Désignation</th><th>Qté</th><th>Prix</th><th>Total</th></tr>" +
+        (d3.lignes||[]).map(function(l){ return "<tr><td style='border-bottom:1px solid #eee'>" + esc(l.desc) + "</td><td style='text-align:right'>" + l.qte + "</td><td style='text-align:right'>" + fcfa(l.prix) + "</td><td style='text-align:right'>" + fcfa(l.qte*l.prix) + "</td></tr>"; }).join("") +
+        "</table><div style='margin-top:12px;text-align:right'>Total HT : " + fcfa(tt.ht) + "<br>TVA : " + fcfa(tt.tva) + "<br><b>Total : " + fcfa(tt.ttc) + "</b>" +
+        (tt.paye ? "<br>Déjà payé : " + fcfa(tt.paye) + "<br><b>Reste : " + fcfa(tt.solde) + "</b>" : "") + "</div>" +
+        "<script>window.print()<\/script></body></html>");
+      w2.document.close();
+    }
     if (t.dataset.del) {
-      S.factures = S.factures.filter(function(x){ return x.id !== t.dataset.del; });
+      var idd = t.dataset.del;
+      S.docs = S.docs.filter(function(x){ return x.id !== idd; });
+      S.tombstones.push({id:idd, t:Date.now()});
       sauver(); rendre();
     }
     if (t.id === "addProduit") {
-      var nom = document.getElementById("pNom").value.trim();
-      if (!nom) return alert("Le nom du produit est nécessaire.");
-      S.produits.push({id:uid(), nom:nom,
-        achat:Number(document.getElementById("pAchat").value)||0,
-        vente:Number(document.getElementById("pVente").value)||0,
-        qte:Number(document.getElementById("pQte").value)||0,
-        seuil:Number(document.getElementById("pSeuil").value)||0});
+      var pn = document.getElementById("pNom").value.trim();
+      if (!pn) return alert("Le nom du produit est nécessaire.");
+      S.produits.push({id:uid(), nom:pn, achat:Number(document.getElementById("pAchat").value)||0,
+        vente:Number(document.getElementById("pVente").value)||0, qte:Number(document.getElementById("pQte").value)||0,
+        seuil:Number(document.getElementById("pSeuil").value)||0, maj:Date.now()});
       sauver(); rendre();
     }
     if (t.dataset.plus) {
-      S.produits.forEach(function(p){ if (p.id === t.dataset.plus) p.qte = (Number(p.qte)||0) + 1; });
+      S.produits.forEach(function(p){ if (p.id === t.dataset.plus) { p.qte = (Number(p.qte)||0)+1; p.maj = Date.now(); } });
+      sauver(); rendre();
+    }
+    if (t.dataset.vendre) {
+      var p2 = S.produits.filter(function(p){ return p.id === t.dataset.vendre; })[0];
+      if (!p2) return;
+      if ((Number(p2.qte)||0) <= 0) return alert("Stock épuisé.");
+      var q = Number(prompt("Quantité vendue", "1"))||0;
+      if (q <= 0) return;
+      if (q > p2.qte) return alert("Il reste " + p2.qte + ".");
+      p2.qte -= q; p2.maj = Date.now();
+      var montant2 = q * (Number(p2.vente)||0);
+      S.mouvements.push({id:uid(), type:"entree", montant:montant2, motif:"Vente " + q + " × " + p2.nom, date:jour(), maj:Date.now()});
       sauver(); rendre();
     }
     if (t.dataset.delp) {
-      S.produits = S.produits.filter(function(p){ return p.id !== t.dataset.delp; });
+      var idp = t.dataset.delp;
+      S.produits = S.produits.filter(function(p){ return p.id !== idp; });
+      S.tombstones.push({id:idp, t:Date.now()});
       sauver(); rendre();
     }
     if (t.id === "addMouv") {
-      var m = Number(document.getElementById("mMontant").value)||0;
-      if (m <= 0) return alert("Indique un montant.");
-      S.mouvements.push({id:uid(), type:document.getElementById("mType").value, montant:m, motif:document.getElementById("mMotif").value.trim(), date:aujourdhui()});
+      var mm = Number(document.getElementById("mMontant").value)||0;
+      if (mm <= 0) return alert("Indique un montant.");
+      S.mouvements.push({id:uid(), type:document.getElementById("mType").value, montant:mm, motif:document.getElementById("mMotif").value.trim(), date:jour(), maj:Date.now()});
       sauver(); rendre();
+    }
+    if (t.id === "saveReg") {
+      S.reglages = {entreprise:document.getElementById("rNom").value.trim(), tel:document.getElementById("rTel").value.trim(),
+        adresse:document.getElementById("rAdr").value.trim(), tva:(Number(document.getElementById("rTva").value)||0)/100};
+      sauver(); rendre(); alert("Réglages enregistrés.");
+    }
+    if (t.id === "toutEffacer") {
+      if (!confirm("Effacer toutes les données de cet appareil ? Cette action ne se défait pas.")) return;
+      localStorage.removeItem(CLE); location.reload();
     }
     if (t.id === "exporter" || t.id === "sauver") {
       var blob = new Blob([JSON.stringify(S, null, 1)], {type:"application/json"});
       var a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
-      a.download = "gestion-" + aujourdhui() + ".json";
+      a.download = "gestion-" + jour() + ".json";
       a.click();
+    }
+    if (t.id === "faireLien") {
+      var lien = location.origin + location.pathname + "#d=" + b64enc(JSON.stringify(S));
+      var out = document.getElementById("lienOut");
+      if (lien.length > 60000) { out.innerHTML = "<div class='avert'>Trop de données pour un lien. Utilise le fichier ou GitHub.</div>"; return; }
+      out.innerHTML = "<textarea readonly style='min-height:70px'>" + esc(lien) + "</textarea><button class='s' id='copierLien' style='margin-top:8px'>Copier</button>";
+      document.getElementById("copierLien").onclick = function(){
+        var ta = out.querySelector("textarea"); ta.select();
+        if (navigator.clipboard) navigator.clipboard.writeText(ta.value).catch(function(){}); else document.execCommand("copy");
+        this.textContent = "Copié";
+      };
+    }
+    if (t.id === "pushGH" || t.id === "pullGH") {
+      syncCfg.token = document.getElementById("sToken").value.trim();
+      syncCfg.repo = document.getElementById("sRepo").value.trim();
+      syncCfg.chemin = document.getElementById("sChemin").value.trim() || "gestion.json";
+      syncCfg.branche = document.getElementById("sBranche").value.trim() || "main";
+      localStorage.setItem(CLE + "_sync", JSON.stringify(syncCfg));
+      var o = document.getElementById("ghOut");
+      if (!syncCfg.token || !syncCfg.repo) { o.innerHTML = "<div class='avert'>Il manque le jeton ou le dépôt.</div>"; return; }
+      o.textContent = "communication avec GitHub…";
+      if (t.id === "pushGH") {
+        ghLire().then(function(f){
+          return ghEcrire(JSON.stringify(S), f ? f.sha : null);
+        }).then(function(){
+          o.innerHTML = "<span style='color:#4ade80'>Envoyé. L'autre appareil peut récupérer.</span>";
+        }).catch(function(err){ o.innerHTML = "<span class='dan'>Échec : " + esc(err.message) + "</span>"; });
+      } else {
+        ghLire().then(function(f){
+          if (!f) { o.innerHTML = "<div class='avert'>Rien à récupérer : le fichier n'existe pas encore dans ce dépôt.</div>"; return; }
+          var contenu = b64dec(f.content.replace(/\n/g,""));
+          var distant = JSON.parse(contenu);
+          S = fusionner(S, distant);
+          sauver(); rendre();
+          o.innerHTML = "<span style='color:#4ade80'>Fusion faite : " + S.docs.length + " documents, " + S.clients.length + " clients.</span>";
+        }).catch(function(err){ o.innerHTML = "<span class='dan'>Échec : " + esc(err.message) + "</span>"; });
+      }
+    }
+    if (t.id === "oubliToken") {
+      syncCfg.token = "";
+      localStorage.removeItem(CLE + "_sync");
+      var ot = document.getElementById("sToken");
+      if (ot) ot.value = "";
+      document.getElementById("ghOut").innerHTML = "<span style='color:#4ade80'>Jeton oublié sur cet appareil.</span>";
     }
   });
 
-  document.getElementById("restaurer").onchange = function(e){
-    var f = e.target.files[0];
-    if (!f) return;
-    var r = new FileReader();
-    r.onload = function(){
-      try { S = Object.assign(S, JSON.parse(r.result)); sauver(); rendre(); alert("Sauvegarde restaurée."); }
-      catch(err){ alert("Fichier illisible."); }
-    };
-    r.readAsText(f);
-  };
+  // import par lien
+  function depuisLien(){
+    var m = location.hash.match(/#d=(.+)$/);
+    if (!m) return;
+    try {
+      var d = JSON.parse(b64dec(m[1]));
+      if (confirm("Un transfert de données est présent dans ce lien. Fusionner avec les données de cet appareil ?")) {
+        S = fusionner(S, d);
+        sauver();
+        history.replaceState(null, "", location.pathname);
+      }
+    } catch(e){}
+  }
 
-  charger(); rendre();
+  charger(); depuisLien(); rendre();
 })();
 </script>
 </body>

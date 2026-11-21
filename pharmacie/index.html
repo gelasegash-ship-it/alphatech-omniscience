@@ -3,211 +3,290 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PHARMACIE — stock, caisse, péremptions</title>
+<title>PHARMACIE PRO — lots, FEFO, scan, inventaire, synchronisation</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#080c10;color:#eaf3f7;font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding-bottom:80px}
-header{position:sticky;top:0;background:#0b1117;border-bottom:1px solid #1b2733;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;z-index:10}
+header{position:sticky;top:0;background:#0b1117;border-bottom:1px solid #1b2733;padding:11px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;z-index:10}
 .marque{font-weight:800;letter-spacing:.12em;font-size:13px;color:#38bdf8}
 h1{font-size:20px;margin:14px 16px 4px}
 .sous{color:#8ba0b3;font-size:13px;margin:0 16px 12px}
 nav{display:flex;gap:6px;overflow-x:auto;padding:0 12px 10px}
 nav button{background:#111a23;border:1px solid #1b2733;color:#c2d3e0;padding:8px 12px;border-radius:8px;font-size:13px;white-space:nowrap;cursor:pointer}
 nav button.on{background:#38bdf8;color:#04212f;border-color:#38bdf8;font-weight:700}
-.wrap{padding:0 16px;max-width:900px;margin:0 auto}
+.wrap{padding:0 16px;max-width:920px;margin:0 auto}
 .card{background:#0b1117;border:1px solid #1b2733;border-radius:11px;padding:14px;margin-bottom:12px}
 label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#8ba0b3;margin:8px 0 4px}
 input,select{width:100%;background:#080d12;border:1px solid #1b2733;color:#eaf3f7;padding:10px;border-radius:7px;font:inherit;font-size:14px}
 button.p{background:#38bdf8;color:#04212f;border:0;padding:11px 16px;border-radius:8px;font-weight:800;cursor:pointer;font-size:14px}
-button.s{background:#141d27;color:#dbe7f0;border:1px solid #24323f;padding:10px 14px;border-radius:8px;cursor:pointer;font-size:13px}
+button.s{background:#141d27;color:#dbe7f0;border:1px solid #24323f;padding:9px 13px;border-radius:8px;cursor:pointer;font-size:13px}
 button.d{background:#3a1420;color:#f8a5b0;border:1px solid #5b2030;padding:6px 10px;border-radius:6px;cursor:pointer;font-size:12px}
 .row{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
 table{width:100%;border-collapse:collapse;font-size:13.5px}
 th{text-align:left;color:#8ba0b3;font-weight:600;border-bottom:1px solid #1b2733;padding:7px 6px}
 td{border-bottom:1px solid #141d25;padding:8px 6px;vertical-align:top}
-.kpi{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));margin-bottom:12px}
+.kpi{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));margin-bottom:12px}
 .kpi div{background:#0b1117;border:1px solid #1b2733;border-radius:11px;padding:13px}
-.kpi b{display:block;font-size:20px;color:#38bdf8}
+.kpi b{display:block;font-size:19px;color:#38bdf8}
 .kpi span{font-size:11px;color:#8ba0b3;text-transform:uppercase;letter-spacing:.05em}
-.mono{font-family:ui-monospace,monospace;font-size:12px;color:#8ba0b3}
+.mono{font-family:ui-monospace,monospace;font-size:12px;color:#8ba0b3;word-break:break-all}
 .vide{color:#8ba0b3;font-size:13px;padding:10px 0}
-.pill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:9px}
+.pill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:9px;white-space:nowrap}
 .ok{background:#0d2b21;color:#4ade80;border:1px solid #14523c}
 .att{background:#2a220c;color:#e8c56a;border:1px solid #4d3c14}
 .dan{background:#2a0f16;color:#f08a9b;border:1px solid #4d1a26}
 .prod{display:flex;justify-content:space-between;gap:8px;align-items:center;border-bottom:1px solid #141d25;padding:9px 0;cursor:pointer}
 .prod:hover{background:#0e1620}
+.avert{border-left:3px solid #e8b64c;background:#14110a;border-radius:6px;padding:11px 13px;font-size:13px;color:#e8dcc0}
 @media print{body{background:#fff;color:#000}header,nav,.noprint{display:none!important}.card{border:0}}
 </style>
 </head>
 <body>
 <header>
-  <div class="marque">PHARMACIE · ALPHATECH</div>
+  <div class="marque">PHARMACIE PRO · ALPHATECH</div>
   <button class="s noprint" id="exporter">Exporter</button>
 </header>
 
 <h1>Pharmacie</h1>
-<div class="sous">Stock, caisse et péremptions. Données gardées sur cet appareil, sans internet.</div>
+<div class="sous">Lots et péremptions en priorité, scan de code-barres, réceptions, inventaire et synchronisation.</div>
 
 <nav class="noprint">
   <button data-t="caisse" class="on">Caisse</button>
   <button data-t="stock">Stock</button>
+  <button data-t="reception">Réception</button>
   <button data-t="alertes">Alertes</button>
+  <button data-t="inventaire">Inventaire</button>
   <button data-t="journal">Journal</button>
+  <button data-t="sync">Synchronisation</button>
 </nav>
 
 <div class="wrap" id="vue"></div>
 
-<div class="wrap noprint">
-  <div class="card">
-    <label>Sauvegarde</label>
-    <div class="row">
-      <button class="s" id="sauver">Télécharger la sauvegarde</button>
-      <input type="file" id="restaurer" accept="application/json" style="padding:6px">
-    </div>
-    <div class="mono" id="etat" style="margin-top:8px">sauvegarde automatique</div>
-  </div>
-</div>
-
 <script>
 (function(){
-  var CLE = "at_pharmacie_v1";
-  var S = {medicaments:[], ventes:[], panier:[]};
+  var CLE = "at_pharmacie_v2";
+  var S = {fournisseurs:[], produits:[], ventes:[], retours:[], inventaires:[], panier:[], tombstones:[], seq:1, reglages:{tva:0}, maj:0};
   var vue = "caisse";
+  var syncCfg = {token:"", repo:"", chemin:"pharmacie.json", branche:"main"};
 
-  function charger(){ try { var d = JSON.parse(localStorage.getItem(CLE)||"null"); if (d) S = Object.assign(S, d); } catch(e){} }
+  function charger(){
+    try {
+      var d = JSON.parse(localStorage.getItem(CLE)||"null");
+      if (d) S = Object.assign(S, d);
+      var c = JSON.parse(localStorage.getItem(CLE+"_sync")||"null");
+      if (c) syncCfg = Object.assign(syncCfg, c);
+    } catch(e){}
+  }
   function sauver(){
+    S.maj = Date.now();
     try { localStorage.setItem(CLE, JSON.stringify(S)); } catch(e){}
-    var e = document.getElementById("etat");
+    var e = document.getElementById("etatSave");
     if (e) e.textContent = "enregistré à " + new Date().toLocaleTimeString("fr-FR");
   }
   function fcfa(n){ return Math.round(n||0).toLocaleString("fr-FR").replace(/\u202f|\s/g," ") + " FCFA"; }
   function esc(s){ return String(s==null?"":s).replace(/[<>&"]/g,function(c){return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c];}); }
   function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,7); }
   function jour(){ return new Date().toISOString().slice(0,10); }
+  function heures(){ return new Date().toLocaleTimeString("fr-FR").slice(0,5); }
   function joursRestants(d){
     if (!d) return null;
-    var ms = new Date(d + "T00:00:00").getTime() - new Date().setHours(0,0,0,0);
-    return Math.round(ms / 86400000);
+    return Math.round((new Date(d+"T00:00:00").getTime() - new Date().setHours(0,0,0,0)) / 86400000);
   }
-  function etatPeremption(d){
+  function qteTotale(p){ return (p.lots||[]).reduce(function(a,l){ return a + (Number(l.qte)||0); }, 0); }
+  function lotsTries(p){
+    return (p.lots||[]).slice().sort(function(a,b){
+      var ja = joursRestants(a.per), jb = joursRestants(b.per);
+      if (ja === null) return 1; if (jb === null) return -1;
+      return ja - jb;   // FEFO : le lot qui périme le plus tôt sort d'abord
+    });
+  }
+  function prixVente(p){
+    var l = lotsTries(p)[0];
+    return l ? Number(l.vente)||0 : 0;
+  }
+  function badgePer(d){
     var j = joursRestants(d);
     if (j === null) return "<span class='pill'>—</span>";
-    if (j < 0) return "<span class='pill dan'>périmé depuis " + Math.abs(j) + " j</span>";
-    if (j <= 60) return "<span class='pill att'>expire dans " + j + " j</span>";
+    if (j < 0) return "<span class='pill dan'>périmé " + Math.abs(j) + " j</span>";
+    if (j <= 60) return "<span class='pill att'>" + j + " j</span>";
     return "<span class='pill ok'>" + j + " j</span>";
   }
-  function totalPanier(){
-    return S.panier.reduce(function(a,l){ return a + l.qte * l.prix; }, 0);
-  }
-  function margePanier(){
-    return S.panier.reduce(function(a,l){ return a + l.qte * (l.prix - (l.achat||0)); }, 0);
-  }
+  function totalPanier(){ return S.panier.reduce(function(a,l){ return a + l.qte*l.prix; }, 0); }
+  function margePanier(){ return S.panier.reduce(function(a,l){ return a + l.qte*(l.prix-(l.achat||0)); }, 0); }
 
   function caisse(){
-    var h = "<div class='card'><label>Chercher un médicament</label>" +
-      "<input id='q' placeholder='nom, dosage ou lot' autocomplete='off'><div id='res' style='margin-top:8px'></div></div>";
-
+    var h = "<div class='card'><label>Chercher ou scanner</label>" +
+      "<div class='row'><input id='q' placeholder='nom, dosage, code-barres ou lot' autocomplete='off'><button class='s' id='scan'>Scanner</button></div>" +
+      "<div id='res' style='margin-top:8px'></div></div>";
     h += "<div class='card'><label>Panier · " + S.panier.length + " ligne(s)</label>";
     h += S.panier.length ? "<table><tbody>" + S.panier.map(function(l,i){
-      return "<tr><td><b>" + esc(l.nom) + "</b><div class='mono'>" + esc(l.dosage||"") + "</div></td>" +
-        "<td style='width:110px'><input type='number' min='1' value='" + l.qte + "' data-qte='" + i + "' style='padding:6px'></td>" +
-        "<td style='width:110px'>" + fcfa(l.prix * l.qte) + "</td>" +
-        "<td style='width:60px'><button class='d' data-retirer='" + i + "'>×</button></td></tr>";
+      return "<tr><td><b>" + esc(l.nom) + "</b><div class='mono'>" + esc(l.dosage||"") + " · lot " + esc(l.lot||"—") + "</div></td>" +
+        "<td style='width:100px'><input type='number' min='1' value='" + l.qte + "' data-qte='" + i + "' style='padding:6px'></td>" +
+        "<td style='width:110px'>" + fcfa(l.prix*l.qte) + "</td><td style='width:50px'><button class='d' data-retirer='" + i + "'>×</button></td></tr>";
     }).join("") + "</tbody></table>" +
       "<div style='display:flex;justify-content:space-between;margin-top:10px;font-size:17px'><b>Total</b><b style='color:#38bdf8'>" + fcfa(totalPanier()) + "</b></div>" +
       "<div class='mono' style='margin-top:4px'>marge prévue " + fcfa(margePanier()) + "</div>" +
       "<button class='p' id='valider' style='margin-top:12px;width:100%'>ENCAISSER LA VENTE</button>"
-      : "<div class='vide'>Panier vide. Cherche un médicament ci-dessus.</div>";
+      : "<div class='vide'>Panier vide.</div>";
     h += "</div>";
-
-    var jourVentes = S.ventes.filter(function(v){ return v.date === jour(); });
-    var ca = jourVentes.reduce(function(a,v){ return a + v.total; }, 0);
-    h += "<div class='kpi'><div><b>" + fcfa(ca) + "</b><span>ventes du jour</span></div>" +
-      "<div><b>" + jourVentes.length + "</b><span>tickets</span></div></div>";
+    var jv = S.ventes.filter(function(v){ return v.date === jour(); });
+    h += "<div class='kpi'><div><b>" + fcfa(jv.reduce(function(a,v){ return a+v.total; },0)) + "</b><span>ventes du jour</span></div>" +
+      "<div><b>" + jv.length + "</b><span>tickets</span></div>" +
+      "<div><b>" + fcfa(jv.reduce(function(a,v){ return a+v.marge; },0)) + "</b><span>marge du jour</span></div></div>";
     return h;
   }
 
-  function resultats(q){
-    var t = (q||"").toLowerCase();
-    var l = S.medicaments.filter(function(m){
-      return !t || (m.nom + " " + (m.dosage||"") + " " + (m.lot||"")).toLowerCase().indexOf(t) >= 0;
-    }).slice(0, 12);
-    if (!S.medicaments.length) return "<div class='vide'>Aucun médicament en stock. Ajoute-les dans l'onglet Stock.</div>";
+  function resultats(t){
+    var q = (t||"").toLowerCase();
+    var l = S.produits.filter(function(p){
+      if (!q) return true;
+      var txt = (p.nom+" "+(p.dosage||"")+" "+(p.forme||"")+" "+(p.code||"")+" "+(p.lots||[]).map(function(x){return x.lot;}).join(" ")).toLowerCase();
+      return txt.indexOf(q) >= 0;
+    }).slice(0,12);
+    if (!S.produits.length) return "<div class='vide'>Aucun produit. Ajoute-les dans l'onglet Stock, ou passe par une réception.</div>";
     if (!l.length) return "<div class='vide'>Aucun résultat.</div>";
-    return l.map(function(m){
-      var rupture = (Number(m.qte)||0) <= 0;
-      return "<div class='prod' data-ajouter='" + m.id + "'>" +
-        "<div><b>" + esc(m.nom) + "</b> <span class='mono'>" + esc(m.dosage||"") + "</span><div class='mono'>lot " + esc(m.lot||"—") + " · " + etatPeremption(m.peremption) + "</div></div>" +
-        "<div style='text-align:right'><b style='color:#38bdf8'>" + fcfa(m.vente) + "</b><div class='mono'>" + (rupture ? "<span class='pill dan'>rupture</span>" : (m.qte + " en stock")) + "</div></div>" +
-        "</div>";
+    return l.map(function(p){
+      var qte = qteTotale(p), lot = lotsTries(p)[0];
+      return "<div class='prod' data-ajouter='" + p.id + "'>" +
+        "<div><b>" + esc(p.nom) + "</b> <span class='mono'>" + esc(p.dosage||"") + "</span>" +
+        "<div class='mono'>" + (p.lots||[]).length + " lot(s) · " + (lot ? badgePer(lot.per) : "aucun lot") + "</div></div>" +
+        "<div style='text-align:right'><b style='color:#38bdf8'>" + fcfa(prixVente(p)) + "</b><div class='mono'>" + (qte > 0 ? qte + " en stock" : "<span class='pill dan'>rupture</span>") + "</div></div></div>";
     }).join("");
   }
 
   function stock(){
-    var h = "<div class='card'><label>Nouveau médicament</label>" +
-      "<div class='row'><input id='mNom' placeholder='Nom'><input id='mDosage' placeholder='Dosage, ex 500 mg'><input id='mForme' placeholder='Forme, ex comprimé'>" +
-      "<input id='mLot' placeholder='Numéro de lot'><input id='mPer' type='date'><input id='mQte' type='number' placeholder='Quantité'>" +
-      "<input id='mAchat' type='number' placeholder='Prix d achat'><input id='mVente' type='number' placeholder='Prix de vente'><input id='mSeuil' type='number' placeholder='Seuil' value='5'></div>" +
-      "<button class='p' id='addMed' style='margin-top:10px'>Ajouter</button></div>";
+    var h = "<div class='card'><label>Nouveau produit</label>" +
+      "<div class='row'><input id='pNom' placeholder='Nom'><input id='pDosage' placeholder='Dosage'><input id='pForme' placeholder='Forme'><input id='pCode' placeholder='Code-barres'><input id='pSeuil' type='number' placeholder='Seuil' value='5'></div>" +
+      "<button class='p' id='addProduit' style='margin-top:10px'>Créer la fiche</button>" +
+      "<div class='mono' style='margin-top:6px'>Le stock entre par l'onglet Réception, avec un lot et une date de péremption.</div></div>";
+    h += "<div class='card'><label>" + S.produits.length + " fiche(s)</label>";
+    h += S.produits.length ? "<table><thead><tr><th>Produit</th><th>Stock</th><th>Lots</th><th></th></tr></thead><tbody>" +
+      S.produits.map(function(p){
+        var qte = qteTotale(p), bas = qte <= (Number(p.seuil)||0);
+        var lots = (p.lots||[]).map(function(l){ return esc(l.lot||"—") + " : " + l.qte + " · " + badgePer(l.per); }).join("<br>");
+        return "<tr><td><b>" + esc(p.nom) + "</b><div class='mono'>" + esc(p.dosage||"") + " " + esc(p.forme||"") + (p.code ? " · " + esc(p.code) : "") + "</div></td>" +
+          "<td class='" + (bas?"dan":"") + "'>" + qte + "</td><td class='mono'>" + (lots || "aucun lot") + "</td>" +
+          "<td style='width:60px' class='noprint'><button class='d' data-delp='" + p.id + "'>×</button></td></tr>";
+      }).join("") + "</tbody></table>" : "<div class='vide'>Aucune fiche produit.</div>";
+    return h + "</div>";
+  }
 
-    h += "<div class='card'><label>" + S.medicaments.length + " référence(s)</label>";
-    h += S.medicaments.length ? "<table><thead><tr><th>Médicament</th><th>Lot</th><th>Péremption</th><th>Stock</th><th>Vente</th><th></th></tr></thead><tbody>" +
-      S.medicaments.map(function(m){
-        var bas = (Number(m.qte)||0) <= (Number(m.seuil)||0);
-        return "<tr><td><b>" + esc(m.nom) + "</b><div class='mono'>" + esc(m.dosage||"") + " " + esc(m.forme||"") + "</div></td>" +
-          "<td class='mono'>" + esc(m.lot||"—") + "</td><td>" + etatPeremption(m.peremption) + "</td>" +
-          "<td class='" + (bas?"dan":"") + "'>" + (m.qte||0) + "</td><td>" + fcfa(m.vente) + "</td>" +
-          "<td style='width:130px' class='noprint'><button class='s' data-plus='" + m.id + "'>+10</button> <button class='d' data-del='" + m.id + "'>×</button></td></tr>";
-      }).join("") + "</tbody></table>" : "<div class='vide'>Aucune référence.</div>";
+  function reception(){
+    var h = "<div class='card'><label>Entrée de stock</label>" +
+      "<div class='row'><select id='rProduit'><option value=''>— produit —</option>" +
+      S.produits.map(function(p){ return "<option value='" + p.id + "'>" + esc(p.nom) + " " + esc(p.dosage||"") + "</option>"; }).join("") + "</select>" +
+      "<input id='rFour' placeholder='Fournisseur' list='fourList'><datalist id='fourList'>" +
+      S.fournisseurs.map(function(f){ return "<option value='" + esc(f.nom) + "'>"; }).join("") + "</datalist></div>" +
+      "<div class='row'><input id='rLot' placeholder='Numéro de lot'><input id='rPer' type='date'><input id='rQte' type='number' placeholder='Quantité'><input id='rAchat' type='number' placeholder='Prix d achat'><input id='rVente' type='number' placeholder='Prix de vente'></div>" +
+      "<button class='p' id='addLot' style='margin-top:10px'>Enregistrer la réception</button></div>";
+    h += "<div class='card'><label>Dernières réceptions</label>";
+    var rec = [];
+    S.produits.forEach(function(p){
+      (p.lots||[]).forEach(function(l){ if (l.recu) rec.push({p:p, l:l}); });
+    });
+    rec.sort(function(a,b){ return (b.l.recu||"").localeCompare(a.l.recu||""); });
+    h += rec.length ? "<table><tbody>" + rec.slice(0,15).map(function(x){
+      return "<tr><td>" + esc(x.p.nom) + "<div class='mono'>lot " + esc(x.l.lot||"—") + " · " + esc(x.l.recu) + "</div></td><td>" + x.l.qte + " unités</td><td>" + badgePer(x.l.per) + "</td></tr>";
+    }).join("") + "</tbody></table>" : "<div class='vide'>Aucune réception enregistrée.</div>";
     return h + "</div>";
   }
 
   function alertes(){
-    var rupture = S.medicaments.filter(function(m){ return (Number(m.qte)||0) <= 0; });
-    var bas = S.medicaments.filter(function(m){ return (Number(m.qte)||0) > 0 && (Number(m.qte)||0) <= (Number(m.seuil)||0); });
-    var proche = S.medicaments.filter(function(m){ var j = joursRestants(m.peremption); return j !== null && j >= 0 && j <= 60; });
-    var perime = S.medicaments.filter(function(m){ var j = joursRestants(m.peremption); return j !== null && j < 0; });
-
-    function bloc(titre, liste, cls, rendu){
-      return "<div class='card'><label>" + titre + " (" + liste.length + ")</label>" +
-        (liste.length ? "<table><tbody>" + liste.map(rendu).join("") + "</tbody></table>" : "<div class='vide'>rien à signaler</div>") + "</div>";
+    var perimes = [], proches = [], rupture = [], bas = [];
+    S.produits.forEach(function(p){
+      var qte = qteTotale(p);
+      if (qte <= 0) rupture.push(p);
+      else if (qte <= (Number(p.seuil)||0)) bas.push(p);
+      (p.lots||[]).forEach(function(l){
+        var j = joursRestants(l.per);
+        if (j === null || (Number(l.qte)||0) <= 0) return;
+        if (j < 0) perimes.push({p:p, l:l, j:j});
+        else if (j <= 60) proches.push({p:p, l:l, j:j});
+      });
+    });
+    proches.sort(function(a,b){ return a.j - b.j; });
+    function bloc(titre, n, lignes){
+      return "<div class='card'><label>" + titre + " (" + n + ")</label>" + (n ? "<table><tbody>" + lignes + "</tbody></table>" : "<div class='vide'>rien à signaler</div>") + "</div>";
     }
     var h = "";
-    h += bloc("Périmés, à retirer du rayon", perime, "dan", function(m){
-      return "<tr><td>" + esc(m.nom) + " <span class='mono'>" + esc(m.lot||"") + "</span></td><td>" + etatPeremption(m.peremption) + "</td><td>" + (m.qte||0) + " unités</td></tr>";
-    });
-    h += bloc("Expirent sous 60 jours, à vendre en priorité", proche, "att", function(m){
-      return "<tr><td>" + esc(m.nom) + " <span class='mono'>" + esc(m.lot||"") + "</span></td><td>" + etatPeremption(m.peremption) + "</td><td>" + (m.qte||0) + " unités</td></tr>";
-    });
-    h += bloc("En rupture", rupture, "dan", function(m){
-      return "<tr><td>" + esc(m.nom) + " <span class='mono'>" + esc(m.dosage||"") + "</span></td><td>0 en stock</td></tr>";
-    });
-    h += bloc("Sous le seuil", bas, "att", function(m){
-      return "<tr><td>" + esc(m.nom) + "</td><td>" + (m.qte||0) + " restants · seuil " + (m.seuil||0) + "</td></tr>";
-    });
+    h += bloc("Périmés, à retirer du rayon", perimes.length, perimes.map(function(x){
+      return "<tr><td>" + esc(x.p.nom) + " <span class='mono'>lot " + esc(x.l.lot||"") + "</span></td><td>" + x.l.qte + " unités</td><td><span class='pill dan'>périmé " + Math.abs(x.j) + " j</span></td></tr>";
+    }).join(""));
+    h += bloc("Expirent sous 60 jours, à écouler d'abord", proches.length, proches.map(function(x){
+      return "<tr><td>" + esc(x.p.nom) + " <span class='mono'>lot " + esc(x.l.lot||"") + "</span></td><td>" + x.l.qte + " unités</td><td><span class='pill att'>" + x.j + " j</span></td></tr>";
+    }).join(""));
+    h += bloc("En rupture", rupture.length, rupture.map(function(p){
+      return "<tr><td>" + esc(p.nom) + " <span class='mono'>" + esc(p.dosage||"") + "</span></td><td colspan='2'>0 en stock</td></tr>";
+    }).join(""));
+    h += bloc("Sous le seuil", bas.length, bas.map(function(p){
+      return "<tr><td>" + esc(p.nom) + "</td><td>" + qteTotale(p) + " restants</td><td>seuil " + (p.seuil||0) + "</td></tr>";
+    }).join(""));
     return h;
+  }
+
+  function inventaire(){
+    var h = "<div class='card'><label>Comptage</label><p style='color:#b9c4d4;font-size:13px'>Saisis ce que tu comptes réellement en rayon. L'écart est calculé et la correction n'est appliquée qu'après validation.</p>";
+    h += S.produits.length ? "<table><thead><tr><th>Produit</th><th style='width:80px'>Système</th><th style='width:110px'>Compté</th></tr></thead><tbody>" +
+      S.produits.map(function(p){
+        return "<tr><td>" + esc(p.nom) + " <span class='mono'>" + esc(p.dosage||"") + "</span></td><td>" + qteTotale(p) + "</td>" +
+          "<td><input type='number' min='0' data-compte='" + p.id + "' placeholder='—' style='padding:6px'></td></tr>";
+      }).join("") + "</tbody></table><button class='p' id='validerInv' style='margin-top:10px'>Calculer les écarts</button>" : "<div class='vide'>Aucun produit.</div>";
+    h += "<div id='invOut' style='margin-top:10px'></div></div>";
+    h += "<div class='card'><label>Historique des inventaires</label>";
+    h += S.inventaires.length ? "<table><tbody>" + S.inventaires.slice().reverse().slice(0,10).map(function(i){
+      return "<tr><td class='mono'>" + esc(i.date) + "</td><td>" + i.lignes.length + " produit(s) comptés</td><td>" + (i.ecarts ? "<span class='pill att'>" + i.ecarts + " écart(s)</span>" : "<span class='pill ok'>aucun écart</span>") + "</td></tr>";
+    }).join("") + "</tbody></table>" : "<div class='vide'>Aucun inventaire.</div>";
+    return h + "</div>";
   }
 
   function journal(){
     var j = jour();
-    var dujour = S.ventes.filter(function(v){ return v.date === j; });
-    var ca = dujour.reduce(function(a,v){ return a + v.total; }, 0);
-    var marge = dujour.reduce(function(a,v){ return a + (v.marge||0); }, 0);
+    var dv = S.ventes.filter(function(v){ return v.date === j; });
+    var ca = dv.reduce(function(a,v){ return a+v.total; },0);
+    var mg = dv.reduce(function(a,v){ return a+v.marge; },0);
+    var valStock = S.produits.reduce(function(a,p){ return a + (p.lots||[]).reduce(function(b,l){ return b + (Number(l.qte)||0)*(Number(l.achat)||0); },0); },0);
+    var perimes = 0;
+    S.produits.forEach(function(p){ (p.lots||[]).forEach(function(l){ var x = joursRestants(l.per); if (x !== null && x < 0) perimes += Number(l.qte)||0; }); });
+
+    var top = {};
+    dv.forEach(function(v){ (v.lignes||[]).forEach(function(l){ top[l.nom] = (top[l.nom]||0) + l.qte; }); });
+    var classement = Object.keys(top).sort(function(a,b){ return top[b]-top[a]; }).slice(0,5);
+
     var h = "<div class='kpi'><div><b>" + fcfa(ca) + "</b><span>CA du jour</span></div>" +
-      "<div><b>" + fcfa(marge) + "</b><span>marge du jour</span></div>" +
-      "<div><b>" + dujour.length + "</b><span>tickets</span></div></div>";
-    h += "<div class='card'><label>Dernières ventes</label>";
+      "<div><b>" + fcfa(mg) + "</b><span>marge</span></div>" +
+      "<div><b>" + dv.length + "</b><span>tickets</span></div>" +
+      "<div><b>" + fcfa(valStock) + "</b><span>valeur du stock</span></div>" +
+      "<div><b>" + perimes + "</b><span>unités périmées</span></div></div>";
+    if (classement.length) {
+      h += "<div class='card'><label>Meilleures ventes du jour</label><table><tbody>" + classement.map(function(n){
+        return "<tr><td>" + esc(n) + "</td><td>" + top[n] + " unités</td></tr>";
+      }).join("") + "</tbody></table></div>";
+    }
+    h += "<div class='card'><label>Ventes</label>";
     h += S.ventes.length ? "<table><tbody>" + S.ventes.slice().reverse().slice(0,40).map(function(v){
-      return "<tr><td class='mono'>" + esc(v.date) + " " + esc(v.heure||"") + "</td><td>" + (v.lignes||[]).length + " article(s)<div class='mono'>" + esc((v.lignes||[]).map(function(l){return l.nom;}).join(", ").slice(0,60)) + "</div></td>" +
-        "<td>" + fcfa(v.total) + "</td><td><button class='s noprint' data-ticket='" + v.id + "'>ticket</button></td></tr>";
-    }).join("") + "</tbody></table>" : "<div class='vide'>Aucune vente enregistrée.</div>";
+      return "<tr><td class='mono'>" + esc(v.numero||"") + "<div>" + esc(v.date) + " " + esc(v.heure||"") + "</div></td>" +
+        "<td>" + (v.lignes||[]).length + " article(s)<div class='mono'>" + esc((v.lignes||[]).map(function(l){return l.nom;}).join(", ").slice(0,50)) + "</div></td>" +
+        "<td>" + fcfa(v.total) + "</td><td class='noprint'><button class='s' data-ticket='" + v.id + "'>ticket</button></td></tr>";
+    }).join("") + "</tbody></table>" : "<div class='vide'>Aucune vente.</div>";
     return h + "</div>";
+  }
+
+  function sync(){
+    var h = "<div class='card'><label>1 · Fichier</label><div class='row'><button class='s' id='sauver'>Télécharger la sauvegarde</button><input type='file' id='restaurer' accept='application/json' style='padding:6px'></div></div>";
+    h += "<div class='card'><label>2 · Lien de transfert</label><button class='s' id='faireLien'>Créer le lien</button><div id='lienOut' style='margin-top:8px'></div></div>";
+    h += "<div class='card'><label>3 · Synchronisation par dépôt GitHub</label>" +
+      "<div class='avert'>Le jeton reste sur cet appareil. Crée un jeton limité à un seul dépôt privé, lecture et écriture, et révoque-le quand tu ne l'utilises plus.</div>" +
+      "<div class='row'><input id='sRepo' placeholder='utilisateur/depot' value='" + esc(syncCfg.repo) + "'><input id='sChemin' value='" + esc(syncCfg.chemin) + "'><input id='sBranche' value='" + esc(syncCfg.branche) + "'></div>" +
+      "<label>Jeton GitHub</label><input id='sToken' type='password' value='" + esc(syncCfg.token) + "'>" +
+      "<div class='row' style='margin-top:10px'><button class='p' id='pushGH'>Envoyer</button><button class='s' id='pullGH'>Récupérer et fusionner</button><button class='d' id='oubliToken'>Oublier le jeton</button></div>" +
+      "<div id='ghOut' style='margin-top:10px'></div></div>";
+    h += "<div class='card'><label>État</label><div class='mono' id='etatSave'>sauvegarde locale</div><div class='mono'>" + S.produits.length + " produits · " + S.ventes.length + " ventes · " + S.inventaires.length + " inventaires</div></div>";
+    return h;
   }
 
   function rendre(){
     var v = document.getElementById("vue");
-    v.innerHTML = vue === "caisse" ? caisse() : vue === "stock" ? stock() : vue === "alertes" ? alertes() : journal();
+    v.innerHTML = vue === "caisse" ? caisse() : vue === "stock" ? stock() : vue === "reception" ? reception() : vue === "alertes" ? alertes() : vue === "inventaire" ? inventaire() : vue === "journal" ? journal() : sync();
     document.querySelectorAll("nav button").forEach(function(b){ b.classList.toggle("on", b.dataset.t === vue); });
     if (vue === "caisse") {
       var r = document.getElementById("res");
@@ -215,81 +294,254 @@ td{border-bottom:1px solid #141d25;padding:8px 6px;vertical-align:top}
       var q = document.getElementById("q");
       if (q) q.oninput = function(){ document.getElementById("res").innerHTML = resultats(this.value); };
     }
+    if (vue === "sync") {
+      var f = document.getElementById("restaurer");
+      if (f) f.onchange = restaurer;
+    }
+  }
+
+  function fusionner(a, b){
+    var out = {fournisseurs:[], produits:[], ventes:[], retours:[], inventaires:[], panier:a.panier||[], tombstones:[],
+      seq:Math.max(a.seq||1, b.seq||1), reglages:a.reglages||b.reglages, maj:Date.now()};
+    ["fournisseurs","produits","ventes","retours","inventaires"].forEach(function(k){
+      var m = {};
+      (a[k]||[]).concat(b[k]||[]).forEach(function(x){
+        if (!x || !x.id) return;
+        var prev = m[x.id], t = x.maj||0, pt = prev ? (prev.maj||0) : -1;
+        if (!prev || t > pt) m[x.id] = x;
+      });
+      out[k] = Object.keys(m).map(function(i){ return m[i]; });
+    });
+    var tomb = {};
+    (a.tombstones||[]).concat(b.tombstones||[]).forEach(function(t){ if (t && t.id) tomb[t.id] = t.t; });
+    out.tombstones = Object.keys(tomb).map(function(id){ return {id:id, t:tomb[id]}; });
+    var morts = {};
+    out.tombstones.forEach(function(t){ morts[t.id] = t.t; });
+    ["fournisseurs","produits","ventes","retours","inventaires"].forEach(function(k){
+      out[k] = out[k].filter(function(x){ return !(morts[x.id] && morts[x.id] >= (x.maj||0)); });
+    });
+    return out;
+  }
+
+  function restaurer(e){
+    var f = e.target.files[0];
+    if (!f) return;
+    var r = new FileReader();
+    r.onload = function(){
+      try { S = fusionner(S, JSON.parse(r.result)); sauver(); rendre(); alert("Sauvegarde fusionnée."); }
+      catch(err){ alert("Fichier illisible."); }
+    };
+    r.readAsText(f);
+  }
+
+  function b64enc(s){ return btoa(unescape(encodeURIComponent(s))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,""); }
+  function b64dec(s){
+    var x = s.replace(/-/g,"+").replace(/_/g,"/");
+    while (x.length % 4) x += "=";
+    return decodeURIComponent(escape(atob(x)));
+  }
+  function ghHeaders(){ return {"Authorization":"Bearer "+syncCfg.token, "Accept":"application/vnd.github+json", "Content-Type":"application/json"}; }
+  function ghLire(){
+    return fetch("https://api.github.com/repos/"+syncCfg.repo+"/contents/"+encodeURIComponent(syncCfg.chemin)+"?ref="+encodeURIComponent(syncCfg.branche),
+      {headers:ghHeaders(), cache:"no-store"}).then(function(r){
+        if (r.status === 404) return null;
+        if (!r.ok) throw new Error("lecture " + r.status);
+        return r.json();
+      });
+  }
+  function ghEcrire(contenu, sha){
+    var corps = {message:"synchronisation pharmacie " + new Date().toISOString(), content:b64enc(contenu), branch:syncCfg.branche};
+    if (sha) corps.sha = sha;
+    return fetch("https://api.github.com/repos/"+syncCfg.repo+"/contents/"+encodeURIComponent(syncCfg.chemin),
+      {method:"PUT", headers:ghHeaders(), body:JSON.stringify(corps)}).then(function(r){ if (!r.ok) throw new Error("écriture " + r.status); return r.json(); });
+  }
+
+  // scan de code-barres (API native du navigateur, aucun service externe)
+  function scanner(){
+    if (!("BarcodeDetector" in window)) return alert("Ce navigateur ne sait pas lire les codes-barres. Utilise la recherche par nom.");
+    var zone = document.createElement("div");
+    zone.style.cssText = "position:fixed;inset:0;background:#000;z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px";
+    zone.innerHTML = "<video id='cam' playsinline style='width:100%;max-width:480px;border-radius:10px'></video><button class='d' id='stopCam'>Arrêter</button><div id='scanMsg' style='color:#8ba0b3;font-size:13px'>vise le code-barres…</div>";
+    document.body.appendChild(zone);
+    var stream = null, stop = false;
+    var det = new BarcodeDetector({formats:["ean_13","ean_8","code_128","upc_a","upc_e","qr_code"]});
+    navigator.mediaDevices.getUserMedia({video:{facingMode:"environment"}}).then(function(s){
+      stream = s;
+      var v = document.getElementById("cam");
+      v.srcObject = s;
+      return v.play();
+    }).then(function(){
+      function boucle(){
+        if (stop) return;
+        var v = document.getElementById("cam");
+        det.detect(v).then(function(codes){
+          if (codes && codes.length) {
+            var val = codes[0].rawValue;
+            stop = true;
+            if (stream) stream.getTracks().forEach(function(t){ t.stop(); });
+            zone.remove();
+            var p = S.produits.filter(function(x){ return (x.code||"") === val; })[0];
+            if (p) { ajouterAuPanier(p.id); }
+            else {
+              document.getElementById("q").value = val;
+              document.getElementById("res").innerHTML = "<div class='avert'>Aucun produit avec le code " + esc(val) + ". Crée la fiche dans Stock en collant ce code.</div>";
+            }
+            return;
+          }
+          requestAnimationFrame(boucle);
+        }).catch(function(){ requestAnimationFrame(boucle); });
+      }
+      boucle();
+    }).catch(function(){
+      zone.innerHTML = "<div style='color:#f08a9b;padding:20px;text-align:center'>Caméra refusée ou indisponible.</div><button class='d' id='stopCam'>Fermer</button>";
+    });
+    zone.addEventListener("click", function(e){
+      if (e.target.id === "stopCam") {
+        stop = true;
+        if (stream) stream.getTracks().forEach(function(t){ t.stop(); });
+        zone.remove();
+      }
+    });
+  }
+
+  function ajouterAuPanier(id){
+    var p = S.produits.filter(function(x){ return x.id === id; })[0];
+    if (!p) return;
+    var lot = lotsTries(p).filter(function(l){ return (Number(l.qte)||0) > 0; })[0];
+    if (!lot) return alert("Rupture : aucun lot disponible. Passe par une réception.");
+    var ligne = S.panier.filter(function(l){ return l.id === p.id; })[0];
+    if (ligne) {
+      if (ligne.qte + 1 > qteTotale(p)) return alert("Stock insuffisant : il reste " + qteTotale(p) + ".");
+      ligne.qte++;
+    } else {
+      S.panier.push({id:p.id, nom:p.nom, dosage:p.dosage, lot:lot.lot, prix:Number(lot.vente)||0, achat:Number(lot.achat)||0, qte:1});
+    }
+    sauver(); rendre();
   }
 
   document.querySelectorAll("nav button").forEach(function(b){ b.onclick = function(){ vue = b.dataset.t; rendre(); }; });
 
   document.addEventListener("click", function(e){
-    var t = e.target.closest("[data-ajouter],[data-retirer],[data-plus],[data-del],[data-ticket]");
-    if (!t) t = e.target;
-    if (t.dataset && t.dataset.ajouter) {
-      var m = S.medicaments.filter(function(x){ return x.id === t.dataset.ajouter; })[0];
-      if (!m) return;
-      if ((Number(m.qte)||0) <= 0) return alert("Ce médicament est en rupture : ajoute du stock d'abord.");
-      var ligne = S.panier.filter(function(l){ return l.id === m.id; })[0];
-      if (ligne) { if (ligne.qte + 1 > m.qte) return alert("Stock insuffisant : il reste " + m.qte + "."); ligne.qte++; }
-      else S.panier.push({id:m.id, nom:m.nom, dosage:m.dosage, prix:Number(m.vente)||0, achat:Number(m.achat)||0, qte:1});
-      sauver(); rendre();
-    }
-    if (t.dataset && t.dataset.retirer !== undefined) {
-      S.panier.splice(Number(t.dataset.retirer), 1); sauver(); rendre();
-    }
+    var t = e.target.closest("[data-ajouter],[data-retirer],[data-delp],[data-ticket]") || e.target;
+
+    if (t.dataset && t.dataset.ajouter) { ajouterAuPanier(t.dataset.ajouter); }
+    if (t.dataset && t.dataset.retirer !== undefined) { S.panier.splice(Number(t.dataset.retirer),1); sauver(); rendre(); }
+    if (t.id === "scan") scanner();
+
     if (t.id === "valider") {
       if (!S.panier.length) return;
-      var manque = null;
+      var erreur = null;
       S.panier.forEach(function(l){
-        var m = S.medicaments.filter(function(x){ return x.id === l.id; })[0];
-        if (!m || m.qte < l.qte) manque = l.nom;
+        var p = S.produits.filter(function(x){ return x.id === l.id; })[0];
+        if (!p || qteTotale(p) < l.qte) erreur = l.nom;
       });
-      if (manque) return alert("Stock insuffisant pour " + manque + ".");
+      if (erreur) return alert("Stock insuffisant pour " + erreur + ".");
+      // sortie FEFO réelle, lot par lot
       S.panier.forEach(function(l){
-        var m = S.medicaments.filter(function(x){ return x.id === l.id; })[0];
-        if (m) m.qte = (Number(m.qte)||0) - l.qte;
+        var p = S.produits.filter(function(x){ return x.id === l.id; })[0];
+        var reste = l.qte;
+        lotsTries(p).forEach(function(lot){
+          if (reste <= 0) return;
+          var dispo = Number(lot.qte)||0;
+          var pris = Math.min(dispo, reste);
+          lot.qte = dispo - pris;
+          reste -= pris;
+        });
+        p.maj = Date.now();
       });
-      var v = {id:uid(), date:jour(), heure:new Date().toLocaleTimeString("fr-FR").slice(0,5),
-        lignes:S.panier.map(function(l){ return {nom:l.nom, qte:l.qte, prix:l.prix}; }),
-        total:totalPanier(), marge:margePanier()};
+      var num = "T" + new Date().getFullYear() + "-" + String(S.seq++).padStart(5,"0");
+      var v = {id:uid(), numero:num, date:jour(), heure:heures(),
+        lignes:S.panier.map(function(l){ return {nom:l.nom, lot:l.lot, qte:l.qte, prix:l.prix}; }),
+        total:totalPanier(), marge:margePanier(), maj:Date.now()};
       S.ventes.push(v);
       S.panier = [];
-      sauver();
-      vue = "journal";
-      rendre();
+      sauver(); vue = "journal"; rendre();
       var b = document.createElement("div");
       b.className = "card";
       b.style.borderColor = "#14523c";
-      b.innerHTML = "<b style='color:#4ade80'>Vente enregistrée</b> · " + fcfa(v.total) + "<div class='mono'>ticket " + v.date + " " + v.heure + " · le stock a été mis à jour</div>";
-      document.getElementById("vue").insertBefore(b, document.getElementById("vue").firstChild);
+      b.innerHTML = "<b style='color:#4ade80'>Vente " + num + " enregistrée</b> · " + fcfa(v.total) + "<div class='mono'>les lots ont été déduits dans l'ordre des péremptions</div>";
+      var zone = document.getElementById("vue");
+      zone.insertBefore(b, zone.firstChild);
     }
-    if (t.id === "addMed") {
-      var nom = document.getElementById("mNom").value.trim();
+
+    if (t.id === "addProduit") {
+      var nom = document.getElementById("pNom").value.trim();
       if (!nom) return alert("Le nom est nécessaire.");
-      S.medicaments.push({id:uid(), nom:nom,
-        dosage:document.getElementById("mDosage").value.trim(),
-        forme:document.getElementById("mForme").value.trim(),
-        lot:document.getElementById("mLot").value.trim(),
-        peremption:document.getElementById("mPer").value,
-        qte:Number(document.getElementById("mQte").value)||0,
-        achat:Number(document.getElementById("mAchat").value)||0,
-        vente:Number(document.getElementById("mVente").value)||0,
-        seuil:Number(document.getElementById("mSeuil").value)||0});
+      S.produits.push({id:uid(), nom:nom, dosage:document.getElementById("pDosage").value.trim(),
+        forme:document.getElementById("pForme").value.trim(), code:document.getElementById("pCode").value.trim(),
+        seuil:Number(document.getElementById("pSeuil").value)||0, lots:[], maj:Date.now()});
       sauver(); rendre();
     }
-    if (t.dataset && t.dataset.plus) {
-      S.medicaments.forEach(function(m){ if (m.id === t.dataset.plus) m.qte = (Number(m.qte)||0) + 10; });
+    if (t.dataset && t.dataset.delp) {
+      var idp = t.dataset.delp;
+      S.produits = S.produits.filter(function(p){ return p.id !== idp; });
+      S.tombstones.push({id:idp, t:Date.now()});
       sauver(); rendre();
     }
-    if (t.dataset && t.dataset.del) {
-      S.medicaments = S.medicaments.filter(function(m){ return m.id !== t.dataset.del; });
+    if (t.id === "addLot") {
+      var pid = document.getElementById("rProduit").value;
+      var p = S.produits.filter(function(x){ return x.id === pid; })[0];
+      if (!p) return alert("Choisis un produit.");
+      var qte = Number(document.getElementById("rQte").value)||0;
+      if (qte <= 0) return alert("Indique une quantité.");
+      var four = document.getElementById("rFour").value.trim();
+      if (four && !S.fournisseurs.some(function(f){ return f.nom.toLowerCase() === four.toLowerCase(); })) {
+        S.fournisseurs.push({id:uid(), nom:four, maj:Date.now()});
+      }
+      p.lots = p.lots || [];
+      p.lots.push({lot:document.getElementById("rLot").value.trim(), per:document.getElementById("rPer").value,
+        qte:qte, achat:Number(document.getElementById("rAchat").value)||0,
+        vente:Number(document.getElementById("rVente").value)||0, recu:jour(), fournisseur:four});
+      p.maj = Date.now();
       sauver(); rendre();
+      alert("Réception enregistrée : " + qte + " unités de " + p.nom + ".");
+    }
+    if (t.id === "validerInv") {
+      var ecarts = 0, lignes = [], html = "<table><tbody>";
+      document.querySelectorAll("[data-compte]").forEach(function(inp){
+        var id = inp.getAttribute("data-compte");
+        if (inp.value === "") return;
+        var p = S.produits.filter(function(x){ return x.id === id; })[0];
+        if (!p) return;
+        var systeme = qteTotale(p), compte = Number(inp.value)||0, ecart = compte - systeme;
+        if (ecart !== 0) { ecarts++; lignes.push({id:id, nom:p.nom, systeme:systeme, compte:compte, ecart:ecart}); }
+        html += "<tr><td>" + esc(p.nom) + "</td><td>" + systeme + "</td><td>" + compte + "</td><td class='" + (ecart ? "dan" : "ok") + "'>" + (ecart > 0 ? "+" : "") + ecart + "</td></tr>";
+      });
+      html += "</tbody></table>";
+      document.getElementById("invOut").innerHTML = "<div class='card'><b>" + ecarts + " écart(s)</b>" + html +
+        (ecarts ? "<button class='p' id='appliquerInv' style='margin-top:10px'>Corriger le stock</button>" : "") + "</div>";
+      window.__ecartsInv = lignes;
+    }
+    if (t.id === "appliquerInv") {
+      var lignes2 = window.__ecartsInv || [];
+      lignes2.forEach(function(l){
+        var p = S.produits.filter(function(x){ return x.id === l.id; })[0];
+        if (!p) return;
+        var delta = l.ecart;
+        if (delta > 0) {
+          p.lots = p.lots || [];
+          p.lots.push({lot:"AJUST-" + jour(), per:"", qte:delta, achat:0, vente:0, recu:jour(), fournisseur:"inventaire"});
+        } else {
+          var reste = -delta;
+          lotsTries(p).forEach(function(lot){
+            if (reste <= 0) return;
+            var dispo = Number(lot.qte)||0, pris = Math.min(dispo, reste);
+            lot.qte = dispo - pris; reste -= pris;
+          });
+        }
+        p.maj = Date.now();
+      });
+      S.inventaires.push({id:uid(), date:jour(), lignes:lignes2, ecarts:lignes2.length, maj:Date.now()});
+      sauver(); rendre();
+      alert("Stock corrigé.");
     }
     if (t.dataset && t.dataset.ticket) {
       var v2 = S.ventes.filter(function(x){ return x.id === t.dataset.ticket; })[0];
       if (!v2) return;
       var w = window.open("", "_blank");
       if (!w) return;
-      w.document.write("<pre style='font:13px ui-monospace,monospace;padding:16px'>PHARMACIE\n" + v2.date + " " + v2.heure +
-        "\n------------------------------\n" +
-        v2.lignes.map(function(l){ return l.nom + "  x" + l.qte + "  " + fcfa(l.prix * l.qte); }).join("\n") +
+      w.document.write("<pre style='font:13px ui-monospace,monospace;padding:16px'>PHARMACIE\n" + esc(v2.numero||"") + "\n" + v2.date + " " + (v2.heure||"") +
+        "\n------------------------------\n" + (v2.lignes||[]).map(function(l){ return l.nom + "  x" + l.qte + "  " + fcfa(l.prix*l.qte); }).join("\n") +
         "\n------------------------------\nTOTAL : " + fcfa(v2.total) + "\n\nMerci.</pre>");
       w.document.close();
     }
@@ -300,31 +552,69 @@ td{border-bottom:1px solid #141d25;padding:8px 6px;vertical-align:top}
       a.download = "pharmacie-" + jour() + ".json";
       a.click();
     }
+    if (t.id === "faireLien") {
+      var lien = location.origin + location.pathname + "#d=" + b64enc(JSON.stringify(S));
+      var out = document.getElementById("lienOut");
+      if (lien.length > 60000) { out.innerHTML = "<div class='avert'>Trop de données pour un lien. Utilise le fichier ou GitHub.</div>"; return; }
+      out.innerHTML = "<textarea readonly style='min-height:70px'>" + esc(lien) + "</textarea><button class='s' id='copierLien' style='margin-top:8px'>Copier</button>";
+      document.getElementById("copierLien").onclick = function(){
+        var ta = out.querySelector("textarea"); ta.select();
+        if (navigator.clipboard) navigator.clipboard.writeText(ta.value).catch(function(){}); else document.execCommand("copy");
+        this.textContent = "Copié";
+      };
+    }
+    if (t.id === "pushGH" || t.id === "pullGH") {
+      syncCfg.token = document.getElementById("sToken").value.trim();
+      syncCfg.repo = document.getElementById("sRepo").value.trim();
+      syncCfg.chemin = document.getElementById("sChemin").value.trim() || "pharmacie.json";
+      syncCfg.branche = document.getElementById("sBranche").value.trim() || "main";
+      localStorage.setItem(CLE+"_sync", JSON.stringify(syncCfg));
+      var o = document.getElementById("ghOut");
+      if (!syncCfg.token || !syncCfg.repo) { o.innerHTML = "<div class='avert'>Il manque le jeton ou le dépôt.</div>"; return; }
+      o.textContent = "communication avec GitHub…";
+      if (t.id === "pushGH") {
+        ghLire().then(function(f){ return ghEcrire(JSON.stringify(S), f ? f.sha : null); })
+          .then(function(){ o.innerHTML = "<span style='color:#4ade80'>Envoyé.</span>"; })
+          .catch(function(err){ o.innerHTML = "<span class='dan'>Échec : " + esc(err.message) + "</span>"; });
+      } else {
+        ghLire().then(function(f){
+          if (!f) { o.innerHTML = "<div class='avert'>Rien à récupérer.</div>"; return; }
+          S = fusionner(S, JSON.parse(b64dec(f.content.replace(/\n/g,""))));
+          sauver(); rendre();
+          o.innerHTML = "<span style='color:#4ade80'>Fusion faite.</span>";
+        }).catch(function(err){ o.innerHTML = "<span class='dan'>Échec : " + esc(err.message) + "</span>"; });
+      }
+    }
+    if (t.id === "oubliToken") {
+      syncCfg.token = ""; localStorage.removeItem(CLE+"_sync");
+      var ot = document.getElementById("sToken"); if (ot) ot.value = "";
+      document.getElementById("ghOut").innerHTML = "<span style='color:#4ade80'>Jeton oublié.</span>";
+    }
   });
 
   document.addEventListener("change", function(e){
     var i = e.target.getAttribute("data-qte");
     if (i !== null) {
       var idx = Number(i), l = S.panier[idx];
-      var m = S.medicaments.filter(function(x){ return x.id === l.id; })[0];
+      var p = S.produits.filter(function(x){ return x.id === l.id; })[0];
       var q = Math.max(1, Number(e.target.value)||1);
-      if (m && q > m.qte) { alert("Stock insuffisant : il reste " + m.qte + "."); q = m.qte; }
+      if (p && q > qteTotale(p)) { alert("Stock insuffisant : il reste " + qteTotale(p) + "."); q = qteTotale(p); }
       l.qte = q; sauver(); rendre();
     }
   });
 
-  document.getElementById("restaurer").onchange = function(e){
-    var f = e.target.files[0];
-    if (!f) return;
-    var r = new FileReader();
-    r.onload = function(){
-      try { S = Object.assign(S, JSON.parse(r.result)); sauver(); rendre(); alert("Sauvegarde restaurée."); }
-      catch(err){ alert("Fichier illisible."); }
-    };
-    r.readAsText(f);
-  };
+  function depuisLien(){
+    var m = location.hash.match(/#d=(.+)$/);
+    if (!m) return;
+    try {
+      var d = JSON.parse(b64dec(m[1]));
+      if (confirm("Transfert de données présent dans ce lien. Fusionner ?")) {
+        S = fusionner(S, d); sauver(); history.replaceState(null,"",location.pathname);
+      }
+    } catch(e){}
+  }
 
-  charger(); rendre();
+  charger(); depuisLien(); rendre();
 })();
 </script>
 </body>
