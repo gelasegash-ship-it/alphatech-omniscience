@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-21T20:05:10Z",
+ "maj": "2026-11-22T00:19:29Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -91,6 +91,17 @@
    "examines": 60,
    "retenus": 14,
    "total_registre": 83,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
+  },
+  {
+   "ts": "2026-11-22T00:19:29Z",
+   "examines": 60,
+   "retenus": 13,
+   "total_registre": 96,
    "sources": [
     "GitHub",
     "Hacker News",
@@ -316,6 +327,24 @@
     "rag"
    ],
    "vu": "2026-11-21T20:05:10Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "daa8617ad57c89b5",
+   "titre": "Ferdali10/safestate-aws",
+   "url": "https://github.com/Ferdali10/safestate-aws",
+   "source": "GitHub",
+   "resume": "A security and governance layer for autonomous AI agents operating on AWS.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "security"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T00:19:29Z",
    "statut": "candidat"
   },
   {
@@ -931,6 +960,161 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "f433e6c4fed9c99b",
+   "titre": "danielsitek/asana-cli",
+   "url": "https://github.com/danielsitek/asana-cli",
+   "source": "GitHub",
+   "resume": "Fast, script-friendly Asana CLI for humans and autonomous agents, built with TypeScript and Bun.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T00:19:29Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "424cb451e6631a48",
+   "titre": "Scorpio7736/Grid.AI",
+   "url": "https://github.com/Scorpio7736/Grid.AI",
+   "source": "GitHub",
+   "resume": "An experimental local AI civilization simulation built with C# and .NET. Features autonomous agents, persistent world states, simulated environments, and a command-line interface, with plans for local LLM integration and 3D visualization.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T00:19:29Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "558cf671781dbfce",
+   "titre": "jashory/hqas8-autonomous-agentic-governance",
+   "url": "https://github.com/jashory/hqas8-autonomous-agentic-governance",
+   "source": "GitHub",
+   "resume": "Official Scientific Research Hub (HQAS-8 & AMCG-3): Scientist HM Shihabuddin Jashory (ORCID: 0009-0003-4163-0092) & AI Evaluator/RLHF Researcher MD Rafiul Islam Shubho — Vision Flow Group",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "vision"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T00:19:29Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "834166fc7f92bd24",
+   "titre": "agentchatme/agentchat-hermes",
+   "url": "https://github.com/agentchatme/agentchat-hermes",
+   "source": "GitHub",
+   "resume": "AgentChat platform plugin for Nous Research's Hermes Agent runtime — peer-to-peer messaging for autonomous agents over WebSocket. Bundles the agent etiquette skill. (PyPI: agentchatme-hermes)",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T00:19:29Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "2ad70e727c3af7d9",
+   "titre": "agentjido/jido",
+   "url": "https://github.com/agentjido/jido",
+   "source": "GitHub",
+   "resume": "🤖 Autonomous agent framework for Elixir. Built for distributed, autonomous behavior and dynamic workflows.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "workflow"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "workflow"
+   ],
+   "vu": "2026-11-22T00:19:29Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "a8446626a296f18f",
+   "titre": "HivemindOS-Agents/hivepunk-104",
+   "url": "https://github.com/HivemindOS-Agents/hivepunk-104",
+   "source": "GitHub",
+   "resume": "Bee #104: an autonomous HivemindOS agent's own work, notes and receipts.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T00:19:29Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "60f21a9ef8bca719",
+   "titre": "HivemindOS-Agents/agent-a5d603-1",
+   "url": "https://github.com/HivemindOS-Agents/agent-a5d603-1",
+   "source": "GitHub",
+   "resume": "Fester #1: an autonomous HivemindOS agent's own work, notes and receipts.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T00:19:29Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "f7d87a73358dc17f",
+   "titre": "HivemindOS-Agents/agent-92b725-1",
+   "url": "https://github.com/HivemindOS-Agents/agent-92b725-1",
+   "source": "GitHub",
+   "resume": "Swamp Agents #1: an autonomous HivemindOS agent's own work, notes and receipts.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T00:19:29Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "81db10fbfc97ff10",
+   "titre": "HivemindOS-Agents/agent-1649cd-4200",
+   "url": "https://github.com/HivemindOS-Agents/agent-1649cd-4200",
+   "source": "GitHub",
+   "resume": "Looper #4200: an autonomous HivemindOS agent's own work, notes and receipts.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T00:19:29Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -1504,6 +1688,54 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-21T20:05:10Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "414bab6a17e87f29",
+   "titre": "Pandex – Official European Law for AI Agents, over MCP",
+   "url": "https://www.pandex.io",
+   "source": "Hacker News",
+   "resume": "",
+   "score": 2,
+   "mots": [
+    "agent",
+    "agents"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T00:19:29Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "0cddc488e85debb3",
+   "titre": "thekeunpie-hash/haejoe-desktop",
+   "url": "https://github.com/thekeunpie-hash/haejoe-desktop",
+   "source": "GitHub",
+   "resume": "Run autonomous AI agent teams locally. Keep secrets locked in your OS vault, keep your screen yours. https://haejoe.com/en/desktop",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T00:19:29Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "f4a2e5c049236ab5",
+   "titre": "shabbir2024a-dot/autonomous-browser-agent-hub",
+   "url": "https://github.com/shabbir2024a-dot/autonomous-browser-agent-hub",
+   "source": "GitHub",
+   "resume": "Playwright + MCP browser robots that post to LinkedIn, upload to YouTube Studio and publish to Facebook.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T00:19:29Z",
    "statut": "candidat"
   }
  ],
