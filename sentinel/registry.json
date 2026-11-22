@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-22T16:15:23Z",
+ "maj": "2026-11-22T21:47:32Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -124,6 +124,17 @@
    "examines": 60,
    "retenus": 14,
    "total_registre": 125,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
+  },
+  {
+   "ts": "2026-11-22T21:47:32Z",
+   "examines": 60,
+   "retenus": 10,
+   "total_registre": 135,
    "sources": [
     "GitHub",
     "Hacker News",
@@ -472,6 +483,46 @@
     "rag"
    ],
    "vu": "2026-11-22T16:15:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "db4582e7154a3a1d",
+   "titre": "Thorup/wsl-agent-sandbox",
+   "url": "https://github.com/Thorup/wsl-agent-sandbox",
+   "source": "GitHub",
+   "resume": "Hardened Ubuntu 26.04 LTS WSL2 sandbox for autonomous AI coding agents (Gemini CLI, Claude Code, etc.) isolates Windows drives, interop, clipboard, and LAN/loopback while safely sharing Docker Desktop via a Go API policy proxy and keeping l",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "sandbox"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "sandbox"
+   ],
+   "vu": "2026-11-22T21:47:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "5b92f01d098c39f7",
+   "titre": "k1ng0mar/galaxymem",
+   "url": "https://github.com/k1ng0mar/galaxymem",
+   "source": "GitHub",
+   "resume": "Local first memory for agents: entity scoped, four epistemic networks, hybrid recall, and autonomous reflection in a single SQLite file.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "memory"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "memory"
+   ],
+   "vu": "2026-11-22T21:47:32Z",
    "statut": "candidat"
   },
   {
@@ -1414,6 +1465,59 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "801a306192e1b8cd",
+   "titre": "grapeeater/skyrim-ai-harness",
+   "url": "https://github.com/grapeeater/skyrim-ai-harness",
+   "source": "GitHub",
+   "resume": "Experimental Skyrim Special Edition AI harness featuring autonomous agents, DeepSeek integration, native SKSE bridging, and supervised gameplay testing.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T21:47:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "4a0d272253760fb5",
+   "titre": "manikanakathala-droid/pipeleap-seo-agents",
+   "url": "https://github.com/manikanakathala-droid/pipeleap-seo-agents",
+   "source": "GitHub",
+   "resume": "Pipeleap SEO agent library — modular engines, connectors, and utilities for autonomous SEO",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T21:47:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "5bfc5a516cf3a73f",
+   "titre": "IkrashNoman/Autonomous-Delivery-Agent",
+   "url": "https://github.com/IkrashNoman/Autonomous-Delivery-Agent",
+   "source": "GitHub",
+   "resume": "Autonomous grid-city delivery agent implemented from-scratch A*/UCS/IDS/Greedy search, Minimax + Alpha-Beta adversarial evasion, stochastic slip simulation, and an LLM dispatcher with a validation guardrail layer. Academic project for CS-37",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "guardrail"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "guardrail"
+   ],
+   "vu": "2026-11-22T21:47:32Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -2259,6 +2363,86 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-22T16:15:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "77821eda027b5933",
+   "titre": "javiersanzg/jtbd-persona-agent",
+   "url": "https://github.com/javiersanzg/jtbd-persona-agent",
+   "source": "GitHub",
+   "resume": "Autonomous agent that turns field research into user personas and checks its own work until it passes. Claude Code + Python.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T21:47:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "2ba4c0f3aa807b49",
+   "titre": "IgorShkabar/personal_productiv_and_it_ops_assistant",
+   "url": "https://github.com/IgorShkabar/personal_productiv_and_it_ops_assistant",
+   "source": "GitHub",
+   "resume": "Autonomous CLI AI Agent for IT Ops & Infrastructure Monitoring built with Python and Google GenAI SDK",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T21:47:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "6c5baa9932ebc037",
+   "titre": "dannicolau7/ai-testing-agent",
+   "url": "https://github.com/dannicolau7/ai-testing-agent",
+   "source": "GitHub",
+   "resume": "🤖 AI-powered pytest test generator — replace Postman with autonomous test automation",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T21:47:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "1c8c62becb6538d9",
+   "titre": "Bigmanmarsh/yieldwire",
+   "url": "https://github.com/Bigmanmarsh/yieldwire",
+   "source": "GitHub",
+   "resume": "YieldWire — the autonomous agent that watches Base stablecoin yield every 5 minutes and publishes public receipts on everything it finds. No custody. No trades.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T21:47:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "5fadfef082632d30",
+   "titre": "gptme/gptme",
+   "url": "https://github.com/gptme/gptme",
+   "source": "GitHub",
+   "resume": "Your agent in your terminal, equipped with local tools: writes code, uses the terminal, browses the web. Make your own persistent autonomous agent on top!",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T21:47:32Z",
    "statut": "candidat"
   }
  ],
