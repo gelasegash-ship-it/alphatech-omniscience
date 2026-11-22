@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-22T00:19:29Z",
+ "maj": "2026-11-22T07:58:37Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -107,6 +107,17 @@
     "Hacker News",
     "arXiv"
    ]
+  },
+  {
+   "ts": "2026-11-22T07:58:37Z",
+   "examines": 60,
+   "retenus": 15,
+   "total_registre": 111,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
   }
  ],
  "capacites": [
@@ -130,6 +141,28 @@
     "sandbox"
    ],
    "vu": "2026-11-20T07:16:26Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "0f8990485c2d90c6",
+   "titre": "vedasree18/CareerPilot-AI-Autonomous-LLM-Powered-Career-Agent",
+   "url": "https://github.com/vedasree18/CareerPilot-AI-Autonomous-LLM-Powered-Career-Agent",
+   "source": "GitHub",
+   "resume": "An AI-powered career agent that analyzes resumes, performs semantic job searches, generates personalized job recommendations, identifies skill gaps, and provides context-aware career guidance using LLMs, RAG, embeddings, and intelligent ret",
+   "score": 5,
+   "mots": [
+    "agent",
+    "autonomous",
+    "context",
+    "retrieval",
+    "rag"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "retrieval",
+    "rag"
+   ],
+   "vu": "2026-11-22T07:58:37Z",
    "statut": "candidat"
   },
   {
@@ -345,6 +378,68 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-22T00:19:29Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "491b4784d7887b59",
+   "titre": "cayleb-james2008/ergon",
+   "url": "https://github.com/cayleb-james2008/ergon",
+   "source": "GitHub",
+   "resume": "An AI agent for every employee — personal to each person, learns how they work, and finishes digital work autonomously end to end. Single Rust binary with web shell, tools, memory, and 12 built-in workflows.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "autonomous",
+    "memory",
+    "workflow"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "workflow",
+    "memory"
+   ],
+   "vu": "2026-11-22T07:58:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "707dfd51c2e00eab",
+   "titre": "matt82198/aesop",
+   "url": "https://github.com/matt82198/aesop",
+   "source": "GitHub",
+   "resume": "Orchestration kernel for autonomous software development — crash-only multi-agent coordination on git and plain text, fail-closed verification gates, self-learning guardrails.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "autonomous",
+    "orchestration",
+    "guardrail"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "guardrail",
+    "orchestration"
+   ],
+   "vu": "2026-11-22T07:58:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "f71df7363fb57c08",
+   "titre": "giriedu/maxilun",
+   "url": "https://github.com/giriedu/maxilun",
+   "source": "GitHub",
+   "resume": "AI engineering co-pilot — 25 skills, 15 autonomous agents, shared agent bus, Knowledge Graph MCP, 100 UI design references, programmatic motion video & evidence-based orchestration",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "orchestration"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "orchestration"
+   ],
+   "vu": "2026-11-22T07:58:37Z",
    "statut": "candidat"
   },
   {
@@ -1115,6 +1210,91 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "433f8b260526a6f5",
+   "titre": "Dicklesworthstone/dwarf_fortress_mcp",
+   "url": "https://github.com/Dicklesworthstone/dwarf_fortress_mcp",
+   "source": "GitHub",
+   "resume": "A semantic, transactional, replayable MCP control plane that lets autonomous AI agents operate Dwarf Fortress as a long-lived civilization. Safe-Rust phase-0B scaffold: MVCC world state, witnessed semantic plans, evidence-backed effects, de",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T07:58:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "9aef20dbade77f4e",
+   "titre": "1337isnot1337/erdos-99",
+   "url": "https://github.com/1337isnot1337/erdos-99",
+   "source": "GitHub",
+   "resume": "Collaborative research on Erdős Problem 99 using autonomous agents, reproducible mathematical evidence, and independent review.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T07:58:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "21f9d38bae1e514a",
+   "titre": "platonai/Browser4",
+   "url": "https://github.com/platonai/Browser4",
+   "source": "GitHub",
+   "resume": "Browser4 — an AI-native browser engine for autonomous agents, intelligent extraction, and large-scale web automation.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T07:58:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "404decc46ac8df5c",
+   "titre": "pom11/hscc",
+   "url": "https://github.com/pom11/hscc",
+   "source": "GitHub",
+   "resume": "Turn a DGX Spark GPU cluster into a self-running team of specialized AI agents — cluster control, role-specialized workers, and an autonomous review gate for Hermes",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T07:58:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "131835801aa5f427",
+   "titre": "Voxion-Labs/FluxKernel",
+   "url": "https://github.com/Voxion-Labs/FluxKernel",
+   "source": "GitHub",
+   "resume": "A self-contained intelligence platform engineered by fusing Foundational Large Language Model (LLM) reasoning with an Autonomous Agentic Decision & Execution Loop.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "reasoning"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T07:58:37Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -1736,6 +1916,102 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-22T00:19:29Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "93c4214318274a80",
+   "titre": "Orkeon/orkeon-code",
+   "url": "https://github.com/Orkeon/orkeon-code",
+   "source": "GitHub",
+   "resume": "Agentic coding assistant in TypeScript on the Orkeon runtime. Pair with it in the terminal under permission modes, run it fully autonomous in a pipeline, or call its crews from your own application. Every command, crew and prompt is a sourc",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T07:58:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "2f4847a2ad86ff4f",
+   "titre": "w3joe/OmniSRE",
+   "url": "https://github.com/w3joe/OmniSRE",
+   "source": "GitHub",
+   "resume": "OmniSRE — Open-weights autonomous SRE agent & Multi-Turn DAPO+GTPO RLVR post-training pipeline (Apache 2.0)",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T07:58:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "0551a86bdc571adf",
+   "titre": "amol004/Autonomous-Deep-Research-Multi-Agent-System",
+   "url": "https://github.com/amol004/Autonomous-Deep-Research-Multi-Agent-System",
+   "source": "GitHub",
+   "resume": "",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T07:58:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "f144d5e192999e81",
+   "titre": "gayudinakar/Autonomous-Multi-Agent-System",
+   "url": "https://github.com/gayudinakar/Autonomous-Multi-Agent-System",
+   "source": "GitHub",
+   "resume": "",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T07:58:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "69ee9c41ef4e40b5",
+   "titre": "brunoaadul/autonomous-research-agent",
+   "url": "https://github.com/brunoaadul/autonomous-research-agent",
+   "source": "GitHub",
+   "resume": " The system independently plans the research, searches for evidence, evaluates sources, identifies gaps, performs follow-up research and creates a report.  Example: Analyze the opportunities for AI-powered agricultural technology in Kenya. ",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T07:58:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "58e8dd236815099f",
+   "titre": "Elroi-thecreator/tripsteward-agentic-travel",
+   "url": "https://github.com/Elroi-thecreator/tripsteward-agentic-travel",
+   "source": "GitHub",
+   "resume": "TripSteward: Autonomous Federated Travel, Hotel & City Mobility Concierge — Cognizant Open Agentic Web Challenge (MVP Profile 0.3)",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T07:58:37Z",
    "statut": "candidat"
   }
  ],
