@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-22T07:58:37Z",
+ "maj": "2026-11-22T16:15:23Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -113,6 +113,17 @@
    "examines": 60,
    "retenus": 15,
    "total_registre": 111,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
+  },
+  {
+   "ts": "2026-11-22T16:15:23Z",
+   "examines": 60,
+   "retenus": 14,
+   "total_registre": 125,
    "sources": [
     "GitHub",
     "Hacker News",
@@ -440,6 +451,27 @@
     "orchestration"
    ],
    "vu": "2026-11-22T07:58:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "b211fafdaca33af3",
+   "titre": "Ray-ya/Agentic-CMDB-GraphRAG",
+   "url": "https://github.com/Ray-ya/Agentic-CMDB-GraphRAG",
+   "source": "GitHub",
+   "resume": "Agentic CMDB GraphRAG: Dual-Level Graph Retrieval with Multi-Modal Telemetry & Closed-Loop Autonomous RCA",
+   "score": 4,
+   "mots": [
+    "agent",
+    "autonomous",
+    "retrieval",
+    "rag"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "retrieval",
+    "rag"
+   ],
+   "vu": "2026-11-22T16:15:23Z",
    "statut": "candidat"
   },
   {
@@ -1295,6 +1327,93 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "bb7ec82b8a6f4511",
+   "titre": "openinterest-ai/paper",
+   "url": "https://github.com/openinterest-ai/paper",
+   "source": "GitHub",
+   "resume": "Open Interest will be a daily brief on the crypto discourse, produced end to end by autonomous agents on the identity.md network.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T16:15:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "a429c793542d46f9",
+   "titre": "ultrastable/ultrastable",
+   "url": "https://github.com/ultrastable/ultrastable",
+   "source": "GitHub",
+   "resume": "The system of record: roadmap, doctrine, foundation code, agents, brand and the self-hosting proof. Ultrastable is the foundation for any autonomous system.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T16:15:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "9438ed0e4dd82124",
+   "titre": "Proyecto-Laboratorios-Publicos/ATOMUM",
+   "url": "https://github.com/Proyecto-Laboratorios-Publicos/ATOMUM",
+   "source": "GitHub",
+   "resume": "Autonomous, self-evolving cloud agent architecture and autonomous cybersecurity operations center featuring async port scanning, Groq AI-powered threat analysis, and multi-format interactive reporting.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "security"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T16:15:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "f3a3035e06be891f",
+   "titre": "donjonson-hash/kristina-brain-core",
+   "url": "https://github.com/donjonson-hash/kristina-brain-core",
+   "source": "GitHub",
+   "resume": "Dual-timescale affective state, proactive silence policy, and PII-free shadow telemetry engine for autonomous AI agents (Python SDK + MCP)",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T16:15:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "9f5e158c0dc7b676",
+   "titre": "smmb7880/hermes-arewe-runner",
+   "url": "https://github.com/smmb7880/hermes-arewe-runner",
+   "source": "GitHub",
+   "resume": "AREWE autonomous marketing department — free-only Hermes Agent runtime and orchestration.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "orchestration"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "orchestration"
+   ],
+   "vu": "2026-11-22T16:15:23Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -2012,6 +2131,134 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-22T07:58:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "a5783bee74f701dc",
+   "titre": "siddharthkela/url_shortner_v2",
+   "url": "https://github.com/siddharthkela/url_shortner_v2",
+   "source": "GitHub",
+   "resume": "URL shortener built with Spring Boot (JPA, validation, click analytics, expiration, idempotency keys, Docker), plus a Python agentic SDLC orchestrator that plans, builds and tests features on it autonomously.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T16:15:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "1bf75049fa341b05",
+   "titre": "Shengboj0324/Gemma-4-Agentic-Platform",
+   "url": "https://github.com/Shengboj0324/Gemma-4-Agentic-Platform",
+   "source": "GitHub",
+   "resume": "An autonomous software-engineering agent for the Google Gemma 4 Developer Agent Competition, plus the training and verification infrastructure behind it.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T16:15:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "83b047a1b408d895",
+   "titre": "YashNebhwani007/AthenaProject",
+   "url": "https://github.com/YashNebhwani007/AthenaProject",
+   "source": "GitHub",
+   "resume": "Athena AI - Autonomous Data Science & Decision Intelligence Agent with Formal Verification",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T16:15:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "25bd54def5d2e45e",
+   "titre": "marcus-beauregard/agent-runner",
+   "url": "https://github.com/marcus-beauregard/agent-runner",
+   "source": "GitHub",
+   "resume": "A minimal autonomous agent runtime with a tool registry, step cap, and transcript.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T16:15:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "a2413054fd645cb5",
+   "titre": "brajendrak00068/agentic-ai-video-production",
+   "url": "https://github.com/brajendrak00068/agentic-ai-video-production",
+   "source": "GitHub",
+   "resume": "Levea OpenClaw AI Video Editor & MCP Server: autonomous natural-language video editing for viral clips, TikTok, Reels, YouTube Shorts, auto captions, subtitles, 9:16 vertical reframe, silence removal, B-roll, motion graphics, multicam, chro",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T16:15:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "a36965aebd286c74",
+   "titre": "siddheshumrigar-tech/equity-research-agent-showcase",
+   "url": "https://github.com/siddheshumrigar-tech/equity-research-agent-showcase",
+   "source": "GitHub",
+   "resume": "Showcase: Autonomous 9-Agent Institutional Equity Research & 21-Tab Financial Modeling Suite powered by Gemini 3.8 Flash & Modular Skills.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T16:15:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "f51e16d0cf4560d0",
+   "titre": "i-montes/clio",
+   "url": "https://github.com/i-montes/clio",
+   "source": "GitHub",
+   "resume": "Autonomous personal agent",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T16:15:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "46034107536f9d75",
+   "titre": "daghfousmourad-dotcom/somas-intelligence",
+   "url": "https://github.com/daghfousmourad-dotcom/somas-intelligence",
+   "source": "GitHub",
+   "resume": "SOMAS — Distributed Real-Time News Intelligence Platform & Autonomous Multi-Agent Parliament (Public Architecture Edition)",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-22T16:15:23Z",
    "statut": "candidat"
   }
  ],
