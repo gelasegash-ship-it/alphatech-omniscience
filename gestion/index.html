@@ -41,6 +41,15 @@ td{border-bottom:1px solid #161b25;padding:8px 6px;vertical-align:top}
 </style>
 </head>
 <body>
+<script>/* reprise des données d'une version précédente */
+(function(){try{
+  var ancien='at_gestion_v1', actuel='at_gestion_v2';
+  if(ancien && !localStorage.getItem(actuel) && localStorage.getItem(ancien)){
+    localStorage.setItem(actuel, localStorage.getItem(ancien));
+    console.log("données reprises depuis " + ancien);
+  }
+}catch(e){}})();
+</script>
 <header>
   <div class="marque">GESTION PRO · ALPHATECH</div>
   <button class="s noprint" id="exporter">Exporter</button>
@@ -545,6 +554,15 @@ td{border-bottom:1px solid #161b25;padding:8px 6px;vertical-align:top}
 })();
 </script>
 <link rel="manifest" href="manifest.webmanifest">
-<script src="../apps-plus.js" defer data-app="gestion" data-store="at_gestion_v2"></script>
-</body>
+<script src="../apps-plus.js?v=3" defer data-app="gestion" data-store="at_gestion_v2"></script>
+<script>/* marqueur de version visible */
+(function(){try{
+  var h=document.querySelector("header");
+  if(!h) return;
+  var s=document.createElement("span");
+  s.textContent=" v3";
+  s.style.cssText="margin-left:8px;font-size:10px;letter-spacing:.12em;color:#ffb347;border:1px solid rgba(255,179,71,.45);border-radius:6px;padding:1px 5px;vertical-align:middle";
+  h.appendChild(s);
+}catch(e){}})();
+</script></body>
 </html>

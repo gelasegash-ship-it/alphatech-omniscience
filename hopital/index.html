@@ -48,6 +48,15 @@ small{color:var(--dim);font-size:11px}
 </style>
 </head>
 <body>
+<script>/* reprise des données d'une version précédente */
+(function(){try{
+  var ancien=None, actuel='at_hopital_v1';
+  if(ancien && !localStorage.getItem(actuel) && localStorage.getItem(ancien)){
+    localStorage.setItem(actuel, localStorage.getItem(ancien));
+    console.log("données reprises depuis " + ancien);
+  }
+}catch(e){}})();
+</script>
 <header>
   <h1>HÔPITAL</h1>
   <span class="tag">patients · lits · consultations · facturation</span>
@@ -394,6 +403,15 @@ depuisLien();
 
 </script>
 <link rel="manifest" href="manifest.webmanifest">
-<script src="../apps-plus.js" defer data-app="hopital" data-store="at_hopital_v1"></script>
-</body>
+<script src="../apps-plus.js?v=3" defer data-app="hopital" data-store="at_hopital_v1"></script>
+<script>/* marqueur de version visible */
+(function(){try{
+  var h=document.querySelector("header");
+  if(!h) return;
+  var s=document.createElement("span");
+  s.textContent=" v3";
+  s.style.cssText="margin-left:8px;font-size:10px;letter-spacing:.12em;color:#ffb347;border:1px solid rgba(255,179,71,.45);border-radius:6px;padding:1px 5px;vertical-align:middle";
+  h.appendChild(s);
+}catch(e){}})();
+</script></body>
 </html>
