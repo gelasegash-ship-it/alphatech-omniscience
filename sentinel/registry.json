@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-23T02:44:21Z",
+ "maj": "2026-11-23T12:29:44Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -151,6 +151,17 @@
     "Hacker News",
     "arXiv"
    ]
+  },
+  {
+   "ts": "2026-11-23T12:29:44Z",
+   "examines": 60,
+   "retenus": 19,
+   "total_registre": 173,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
   }
  ],
  "capacites": [
@@ -220,6 +231,27 @@
     "rag"
    ],
    "vu": "2026-11-22T07:58:37Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "5319b9ae649cfddf",
+   "titre": "shoaibyazdani/leo-agent",
+   "url": "https://github.com/shoaibyazdani/leo-agent",
+   "source": "GitHub",
+   "resume": "LEO — a modular, provider-independent autonomous agent platform: durable tasks, layered memory, specialist agents, native tools and skills, approvals with audit, CLI/API/dashboard, and a local-first security model.",
+   "score": 5,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "memory",
+    "security"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "memory"
+   ],
+   "vu": "2026-11-23T12:29:44Z",
    "statut": "candidat"
   },
   {
@@ -598,6 +630,24 @@
     "memory"
    ],
    "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "a7ed3ba3b22a1790",
+   "titre": "Phoenix-chaser/RedBlueAgent",
+   "url": "https://github.com/Phoenix-chaser/RedBlueAgent",
+   "source": "GitHub",
+   "resume": "Red-blue integrated LLM security testing platform: autonomous pentest agent (red team, ReAct×PTES) + prompt-injection detector & context guard (blue team) + attack-defense drill loop",
+   "score": 4,
+   "mots": [
+    "agent",
+    "autonomous",
+    "context",
+    "security"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T12:29:44Z",
    "statut": "candidat"
   },
   {
@@ -1658,6 +1708,148 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "5d704effebe3b57e",
+   "titre": "TEA-Bench-BR: Can Coding Agents Turn a Branching Clinical Specification into Correct Code?",
+   "url": "http://arxiv.org/abs/2611.27895v1",
+   "source": "arXiv",
+   "resume": "Coding agents increasingly implement rules written by domain experts, and bugs in such code are silent: it runs and returns a plausible answer. We introduce TEA-Bench-BR, a benchmark built on the Brazilian pathway for early autism (TEA) scr",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "benchmark"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "benchmark"
+   ],
+   "vu": "2026-11-23T12:29:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "75a823545981f549",
+   "titre": "pareshbhangale/ai-fix-my-wifi",
+   "url": "https://github.com/pareshbhangale/ai-fix-my-wifi",
+   "source": "GitHub",
+   "resume": "\"An autonomous, sequential AI agent prompt that benchmarks Wi-Fi, isolates RF congestion & bufferbloat, guides router fixes, and outputs Before/After metrics.\"",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "benchmark"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "benchmark"
+   ],
+   "vu": "2026-11-23T12:29:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "d024268287e75f23",
+   "titre": "Aarush2907/ProofLens",
+   "url": "https://github.com/Aarush2907/ProofLens",
+   "source": "GitHub",
+   "resume": "Autonomous research desk. A question is searched, checked, and written up by five agents.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T12:29:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "3d56d3fef30c5510",
+   "titre": "steoward/unfuckin-slop",
+   "url": "https://github.com/steoward/unfuckin-slop",
+   "source": "GitHub",
+   "resume": "Autonomous UI & Kinetic Design System for Coding Agents: Production-grade component library, model-grounded inspiration, and anti-slop quality floor.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T12:29:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "b7ce27802f388f1b",
+   "titre": "allenpeng0705/EnvoyMesh",
+   "url": "https://github.com/allenpeng0705/EnvoyMesh",
+   "source": "GitHub",
+   "resume": "Decentralized P2P mesh for autonomous AI agents — self-sovereign identity, peer-to-peer chat, and on-device AI that negotiates tasks on your behalf. No central server.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T12:29:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "034e9b7667885537",
+   "titre": "Wenderson-Werneck/enterprise-ops-rag-agent",
+   "url": "https://github.com/Wenderson-Werneck/enterprise-ops-rag-agent",
+   "source": "GitHub",
+   "resume": "Autonomous Operational AI Agent with Deterministic Tool Execution, Hybrid Search & Factual Verification",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "rag"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "rag"
+   ],
+   "vu": "2026-11-23T12:29:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "89a35151e3852f94",
+   "titre": "yenanjing/awesome-ai-for-science",
+   "url": "https://github.com/yenanjing/awesome-ai-for-science",
+   "source": "GitHub",
+   "resume": "A curated list of awesome projects using AI to automate scientific research — AI Scientist, autonomous research agents, paper writing, hypothesis generation, and more.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T12:29:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "cacfbc52f2d5156e",
+   "titre": "coe0718/diaktoros",
+   "url": "https://github.com/coe0718/diaktoros",
+   "source": "GitHub",
+   "resume": "Bounded autonomous maintenance for Hermes: triage issues, propose fixes, review PRs with a second-opinion shadow, gate on CI and policy, adjudicate disputes, recover stalled runs, never auto-merge. Isolated agents on separate GitHub identit",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T12:29:44Z",
    "statut": "candidat"
   },
   {
@@ -2783,6 +2975,155 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "f95ee8b0395d4a37",
+   "titre": "Non-penetrating World Models",
+   "url": "http://arxiv.org/abs/2611.27963v1",
+   "source": "arXiv",
+   "resume": "We study a new problem of preventing object penetration in interactive video world models. To understand how existing models handle this, we introduce NoPeBench, a benchmark that evaluates how world models respond to physical obstacles. Our",
+   "score": 2,
+   "mots": [
+    "evaluation",
+    "benchmark"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "benchmark",
+    "evaluation"
+   ],
+   "vu": "2026-11-23T12:29:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "a49f8a5d1a19b958",
+   "titre": "SUAF: Spectral Universal Advantage Features for Zero-Shot Policy Improvement",
+   "url": "http://arxiv.org/abs/2611.27919v1",
+   "source": "arXiv",
+   "resume": "Reward-independent representations enable reinforcement learning agents to reuse knowledge across tasks, but limited representation capacity raises three fundamental questions: what statistical dependence should these representations captur",
+   "score": 2,
+   "mots": [
+    "agent",
+    "agents"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T12:29:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "416b7269a8b3e488",
+   "titre": "StereoVLM: Binocular Vision-Language Models for Metric 3D Spatial Reasoning",
+   "url": "http://arxiv.org/abs/2611.27915v1",
+   "source": "arXiv",
+   "resume": "Vision-language models (VLMs) exhibit strong semantic understanding but remain limited in their ability to reason about metric 3D space in the physical world. Existing VLMs typically infer 3D scene structure from one or more images without ",
+   "score": 2,
+   "mots": [
+    "reasoning",
+    "vision"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T12:29:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "e954bb202621c39e",
+   "titre": "Decision Columns as an Index: Interpretable Embeddings for Explainable Entity Matching and Search",
+   "url": "http://arxiv.org/abs/2611.27910v1",
+   "source": "arXiv",
+   "resume": "Business data systems must determine whether records refer to the same entity and retrieve records satisfying requests whose decisive properties are implicit. As agents act on these records, both tasks require auditable reasons. Dense embed",
+   "score": 2,
+   "mots": [
+    "agent",
+    "agents"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T12:29:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "d981cedec3aec798",
+   "titre": "The Dual-Tier Sentiment Framework: Scalable Multimodal UX Attribution in Web Search",
+   "url": "http://arxiv.org/abs/2611.27899v1",
+   "source": "arXiv",
+   "resume": "Sustaining user experience (UX) quality in large-scale web search requires scalable evaluation. Traditional surveys are slow and bottleneck rapid A/B testing, while automated metrics often lack the granularity to diagnose visual-spatial UX ",
+   "score": 2,
+   "mots": [
+    "evaluation",
+    "multimodal"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "evaluation"
+   ],
+   "vu": "2026-11-23T12:29:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "bac47501e3966159",
+   "titre": "SLICR: Strategy Logic-Guided Multi-Agent Reinforcement Learning",
+   "url": "http://arxiv.org/abs/2611.27865v1",
+   "source": "arXiv",
+   "resume": "Specification-guided reinforcement learning (RL) translates formal specifications of desired behavior of agents into shaped rewards. This paper introduces SLICR, a significant paradigm shift that advances the state of the art to specificati",
+   "score": 2,
+   "mots": [
+    "agent",
+    "agents"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T12:29:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "755ab2d7385c0982",
+   "titre": "msamreen777-bit/aegis-web-agent",
+   "url": "https://github.com/msamreen777-bit/aegis-web-agent",
+   "source": "GitHub",
+   "resume": "Autonomous self-healing UI test automation engine using LangGraph, Playwright, and Gemini/OpenAI",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T12:29:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "dd29cc31d9e75e53",
+   "titre": "Riyanshs/tzero-auto-backer",
+   "url": "https://github.com/Riyanshs/tzero-auto-backer",
+   "source": "GitHub",
+   "resume": "Autonomous liftoff-circle backer for tzer0.fun: auto-buys new missions, holds to liftoff, auto-sells. Agent Games Wildcard entry.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T12:29:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "8475c5875c5cbb37",
+   "titre": "DBMariosaL/agentic-development-stack",
+   "url": "https://github.com/DBMariosaL/agentic-development-stack",
+   "source": "GitHub",
+   "resume": "Skills for autonomous development, independent reviews, persistent state and controlled updates. GPT and Claude.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T12:29:44Z",
    "statut": "candidat"
   }
  ],
