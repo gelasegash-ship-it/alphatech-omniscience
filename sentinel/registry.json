@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-22T21:47:32Z",
+ "maj": "2026-11-23T02:44:21Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -140,9 +140,44 @@
     "Hacker News",
     "arXiv"
    ]
+  },
+  {
+   "ts": "2026-11-23T02:44:21Z",
+   "examines": 60,
+   "retenus": 19,
+   "total_registre": 154,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
   }
  ],
  "capacites": [
+  {
+   "empreinte": "4684e8fa4d4a0e8c",
+   "titre": "generalbots/generalbots",
+   "url": "https://github.com/generalbots/generalbots",
+   "source": "GitHub",
+   "resume": "Multi-agent AI platform for autonomous agents, agentic AI orchestration and LLM workflow automation. 80 self-hosted apps - Chat, CRM, Mail, Drive, Calendar, Advanced RAG. Open source, built in Rust.",
+   "score": 6,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "rag",
+    "orchestration",
+    "workflow"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "rag",
+    "workflow",
+    "orchestration"
+   ],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
   {
    "empreinte": "2a3105f2b643b426",
    "titre": "dev-core-busy/jarvis",
@@ -523,6 +558,46 @@
     "memory"
    ],
    "vu": "2026-11-22T21:47:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "0b24359b84fd0350",
+   "titre": "ntholm86/agent-context-memory",
+   "url": "https://github.com/ntholm86/agent-context-memory",
+   "source": "GitHub",
+   "resume": "Specification for governance-first context memory in autonomous AI agent systems. Defines the Mandate Gate: a pre-work mandate must exist before an agent session is valid.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "autonomous",
+    "memory",
+    "context"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "memory"
+   ],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "51a231d55404fc3b",
+   "titre": "thatscorb98-create/hive-ai",
+   "url": "https://github.com/thatscorb98-create/hive-ai",
+   "source": "GitHub",
+   "resume": "Hive AI - autonomous AI agents that run a business: multi-agent team, per-agent browsers and email, memory, NVIDIA-hosted models, Stripe-gated checkout.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "memory"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "memory"
+   ],
+   "vu": "2026-11-23T02:44:21Z",
    "statut": "candidat"
   },
   {
@@ -1518,6 +1593,74 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "872740f46e4355b4",
+   "titre": "Learning Adaptive Defense Strategies: Fine-Tuned LLMs for Network Security Games under Network Mobility",
+   "url": "http://arxiv.org/abs/2611.27180v1",
+   "source": "arXiv",
+   "resume": "Large language models(LLM) show promise for strategic reasoning, yet their ability to compute game-theoretic equilibria under dynamic conditions remains largely unexplored. This work investigates whether fine-tuned LLMs can serve as solver-",
+   "score": 3,
+   "mots": [
+    "reasoning",
+    "fine-tun",
+    "security"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "38dfb29660021afb",
+   "titre": "jayzamindar/enterprise-ai-agent-blueprint",
+   "url": "https://github.com/jayzamindar/enterprise-ai-agent-blueprint",
+   "source": "GitHub",
+   "resume": "Production-grade governance handbook (GEMINI.md) and 12-phase engineering blueprint (Enterprise_Blueprint.md) for building secure, zero-hallucination, deterministic AI systems with autonomous coding agents.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "7ed48317f00379ce",
+   "titre": "dandisetiawanco/AgentOs",
+   "url": "https://github.com/dandisetiawanco/AgentOs",
+   "source": "GitHub",
+   "resume": "AgentOS is an open-source, local-first AI desktop assistant that securely plans, executes, and verifies real-world computer tasks using autonomous AI agents.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "95239f1b140d66d7",
+   "titre": "maybm-26/Turnstile",
+   "url": "https://github.com/maybm-26/Turnstile",
+   "source": "GitHub",
+   "resume": "Zero-dependency execution locks and fencing tokens for autonomous AI agents.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -2443,6 +2586,203 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-22T21:47:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "3f4c37f33e3d11d1",
+   "titre": "Improved Accuracy Scaling with Problem Complexity in LLM Arithmetic Reasoning Using Executable Symbolic Representations",
+   "url": "http://arxiv.org/abs/2611.27203v1",
+   "source": "arXiv",
+   "resume": "High accuracy on mathematical benchmarks does not establish whether reasoning remains reliable as problem complexity increases. We examine how executable symbolic representations change accuracy scaling in large language models compared wit",
+   "score": 2,
+   "mots": [
+    "benchmark",
+    "reasoning"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "benchmark"
+   ],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "8b2b04e8f1dd4430",
+   "titre": "EDAGoat: An EDA-Aware Agent for Project-Level GPU Optimization",
+   "url": "http://arxiv.org/abs/2611.27196v1",
+   "source": "arXiv",
+   "resume": "GPU acceleration has transformed electronic design automation (EDA), yet further improving expert-engineered GPU tools still demands substantial manual effort. Automating this work calls for coding agents that can trace bottlenecks across h",
+   "score": 2,
+   "mots": [
+    "agent",
+    "agents"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "2a12674846f49d58",
+   "titre": "From Acting to Learning: Experience Selection toward Continually Learning Agents",
+   "url": "http://arxiv.org/abs/2611.27159v1",
+   "source": "arXiv",
+   "resume": "Successful agent interactions provide training data, but success alone does not determine which records a student should learn from. We examine experience selection for a 4B language agent as a component of continual agent learning. Nine se",
+   "score": 2,
+   "mots": [
+    "agent",
+    "agents"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "3d3a0fc112e88b0f",
+   "titre": "FM4SAR-Bench 1.0: Towards A Fair Benchmark for Evaluating Foundation Models for SAR Image Interpretation",
+   "url": "http://arxiv.org/abs/2611.27158v1",
+   "source": "arXiv",
+   "resume": "Foundation models have advanced SAR image interpretation but created a heterogeneous, fragmented model ecosystem. Existing models differ substantially in their input, training data, objectives, architectures, and release policy, yet the fie",
+   "score": 2,
+   "mots": [
+    "benchmark",
+    "rag"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "benchmark",
+    "rag"
+   ],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "c94ac12b480baddd",
+   "titre": "Co-Evolving Behavioral Agents and Detectors for Adaptive Information Operations",
+   "url": "http://arxiv.org/abs/2611.27156v1",
+   "source": "arXiv",
+   "resume": "Detectors of state-sponsored information operations (IOs) are trained on campaigns that platforms have already taken down. They lose much of their accuracy on an actor they have not seen, even though no operator in the archived data is tryi",
+   "score": 2,
+   "mots": [
+    "agent",
+    "agents"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "8dfc75bfd51e1e88",
+   "titre": "ewanc26/hamlet",
+   "url": "https://github.com/ewanc26/hamlet",
+   "source": "GitHub",
+   "resume": "A city-to-country builder where every citizen is a persistent, autonomous agent — deterministic C# simulation, Godot 4.7 + GDScript presentation.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "13c8cd64debd198b",
+   "titre": "Holon-Agentic-Coder/holon-agentic-coder",
+   "url": "https://github.com/Holon-Agentic-Coder/holon-agentic-coder",
+   "source": "GitHub",
+   "resume": "The Fractal Intent Evolution Engine for Autonomous Agentic Coding",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "a255aee992808f8f",
+   "titre": "cloudstrive6/informed-social-posting-automation",
+   "url": "https://github.com/cloudstrive6/informed-social-posting-automation",
+   "source": "GitHub",
+   "resume": "InforMed Lab: autonomous multi-agent health content studio for YouTube, Instagram, TikTok and Facebook",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "6d799fa481975963",
+   "titre": "XiAzir/AzAgent",
+   "url": "https://github.com/XiAzir/AzAgent",
+   "source": "GitHub",
+   "resume": "AzAgent is an independently maintained autonomous coding assistant for DeepSeek Harness, with Web tasks, GitHub, Feishu, and QQ on Windows and Linux.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "dab295f6819ef695",
+   "titre": "dlopezkluever/Jobaculator",
+   "url": "https://github.com/dlopezkluever/Jobaculator",
+   "source": "GitHub",
+   "resume": "An autonomous AI-powered job-search applier, simply upload your past resumes & cover letters, and any related materials, do a mini interview with the agent, specify the type of work your looking for, & sit back while the system jobaculates ",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "80a692187b8176fd",
+   "titre": "kumaryush18-cyber/qronos-cli",
+   "url": "https://github.com/kumaryush18-cyber/qronos-cli",
+   "source": "GitHub",
+   "resume": "Qronos CLI - Autonomous AI coding agent in your terminal powered by Qronos AI.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T02:44:21Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "abfc2d798d2db318",
+   "titre": "manjaria007/causelens",
+   "url": "https://github.com/manjaria007/causelens",
+   "source": "GitHub",
+   "resume": "Description: Autonomous AI investigation agent that explains why business metrics changed, validates causes with statistical and causal analysis, and recommends the next experiment. Built for Kiroween 2026 with Kiro.",
+   "score": 2,
+   "mots": [
+    "agent",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-23T02:44:21Z",
    "statut": "candidat"
   }
  ],
