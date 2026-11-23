@@ -420,9 +420,7 @@ td{border-bottom:1px solid #161b25;padding:8px 6px;vertical-align:top}
         (d3.lignes||[]).map(function(l){ return "<tr><td style='border-bottom:1px solid #eee'>" + esc(l.desc) + "</td><td style='text-align:right'>" + l.qte + "</td><td style='text-align:right'>" + fcfa(l.prix) + "</td><td style='text-align:right'>" + fcfa(l.qte*l.prix) + "</td></tr>"; }).join("") +
         "</table><div style='margin-top:12px;text-align:right'>Total HT : " + fcfa(tt.ht) + "<br>TVA : " + fcfa(tt.tva) + "<br><b>Total : " + fcfa(tt.ttc) + "</b>" +
         (tt.paye ? "<br>Déjà payé : " + fcfa(tt.paye) + "<br><b>Reste : " + fcfa(tt.solde) + "</b>" : "") + "</div>" +
-        "<script>window.print()<\/script><link rel="manifest" href="manifest.webmanifest">
-<script src="../apps-plus.js" defer data-app="gestion" data-store="at_gestion_v2"></script>
-</body></html>");
+        "<script>window.print()<\/script></body></html>");
       w2.document.close();
     }
     if (t.dataset.del) {
