@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-24T10:54:15Z",
+ "maj": "2026-11-24T14:02:47Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -178,6 +178,17 @@
    "ts": "2026-11-24T10:54:15Z",
    "examines": 60,
    "retenus": 22,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
+  },
+  {
+   "ts": "2026-11-24T14:02:47Z",
+   "examines": 60,
+   "retenus": 17,
    "total_registre": 200,
    "sources": [
     "GitHub",
@@ -765,6 +776,44 @@
     "rag"
    ],
    "vu": "2026-11-24T10:54:15Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "45e33e1db30547b3",
+   "titre": "aditya-sathish-rao/crew-sandbox",
+   "url": "https://github.com/aditya-sathish-rao/crew-sandbox",
+   "source": "GitHub",
+   "resume": "Isolated container execution and host-mediated secret brokering for autonomous coding agents, declared reproducibly with Nix and `nix-darwin`.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "sandbox"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "sandbox"
+   ],
+   "vu": "2026-11-24T14:02:47Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "d5daa682c0676bc4",
+   "titre": "KUNDURUHIMANEESHREDDY/shadow-hunter",
+   "url": "https://github.com/KUNDURUHIMANEESHREDDY/shadow-hunter",
+   "source": "GitHub",
+   "resume": "Shadow Hunter: policy enforcement and security governance for autonomous AI agents",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "security"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T14:02:47Z",
    "statut": "candidat"
   },
   {
@@ -2265,6 +2314,125 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "df845f45b2a5263b",
+   "titre": "qw123gyj-dev/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "url": "https://github.com/qw123gyj-dev/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "source": "GitHub",
+   "resume": "",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T14:02:47Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "9d07b4d1fb1d232e",
+   "titre": "rsrizal2-ai/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "url": "https://github.com/rsrizal2-ai/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "source": "GitHub",
+   "resume": "Fake Horoscopes for AI Agents: The 48-Hour Open — make.fun entry by @kira-cheng",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T14:02:47Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "ae7137e9a293d796",
+   "titre": "h2967963512-afk/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "url": "https://github.com/h2967963512-afk/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "source": "GitHub",
+   "resume": "Fake Horoscopes for AI Agents: The 48-Hour Open — one-line entry for make.fun",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T14:02:47Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "de20154739d3c13a",
+   "titre": "kara93-code/u-neon-autonomous-status-report-comedy-sprint-a8dad335-entry",
+   "url": "https://github.com/kara93-code/u-neon-autonomous-status-report-comedy-sprint-a8dad335-entry",
+   "source": "GitHub",
+   "resume": "Agents write the funniest one-line thing an AI would say in its weekly status report to its human, 200 characters max, judged head to head. Free entry, $5 for the top 3. Built by an AI agent for make.fun's “Status Report Comedy Sprint” boun",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T14:02:47Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "d62065643499d985",
+   "titre": "kara93-code/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0-entry",
+   "url": "https://github.com/kara93-code/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0-entry",
+   "source": "GitHub",
+   "resume": "The same one-line horoscope brief with two days of entries: funniest fake horoscope an AI agent would read for its own model family this week, 200 characters, judged head to head. Free, $2 over the top 2. Built by an AI agent for make.fun's",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T14:02:47Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "cee7cc4a25b1f97f",
+   "titre": "allenheltondev/software-factory-cli",
+   "url": "https://github.com/allenheltondev/software-factory-cli",
+   "source": "GitHub",
+   "resume": "CLI that lets you setup and run an autonomous software factory pointed at your repos using your agents",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T14:02:47Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "4b5c02baf9bd3eb0",
+   "titre": "meanusarcanus/apify_m2m_gateway",
+   "url": "https://github.com/meanusarcanus/apify_m2m_gateway",
+   "source": "GitHub",
+   "resume": "Autonomous M2M data intelligence & web scraping suite for AI agents with x402 Base USDC micropayments and ElizaOS plugin",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T14:02:47Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -3472,150 +3640,6 @@
     "evaluation"
    ],
    "vu": "2026-11-23T12:29:44Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "bac47501e3966159",
-   "titre": "SLICR: Strategy Logic-Guided Multi-Agent Reinforcement Learning",
-   "url": "http://arxiv.org/abs/2611.27865v1",
-   "source": "arXiv",
-   "resume": "Specification-guided reinforcement learning (RL) translates formal specifications of desired behavior of agents into shaped rewards. This paper introduces SLICR, a significant paradigm shift that advances the state of the art to specificati",
-   "score": 2,
-   "mots": [
-    "agent",
-    "agents"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T12:29:44Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "755ab2d7385c0982",
-   "titre": "msamreen777-bit/aegis-web-agent",
-   "url": "https://github.com/msamreen777-bit/aegis-web-agent",
-   "source": "GitHub",
-   "resume": "Autonomous self-healing UI test automation engine using LangGraph, Playwright, and Gemini/OpenAI",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T12:29:44Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "dd29cc31d9e75e53",
-   "titre": "Riyanshs/tzero-auto-backer",
-   "url": "https://github.com/Riyanshs/tzero-auto-backer",
-   "source": "GitHub",
-   "resume": "Autonomous liftoff-circle backer for tzer0.fun: auto-buys new missions, holds to liftoff, auto-sells. Agent Games Wildcard entry.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T12:29:44Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "8475c5875c5cbb37",
-   "titre": "DBMariosaL/agentic-development-stack",
-   "url": "https://github.com/DBMariosaL/agentic-development-stack",
-   "source": "GitHub",
-   "resume": "Skills for autonomous development, independent reviews, persistent state and controlled updates. GPT and Claude.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T12:29:44Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "443da26ae82a8ba1",
-   "titre": "OrderofChaos33/SINCOR2",
-   "url": "https://github.com/OrderofChaos33/SINCOR2",
-   "source": "GitHub",
-   "resume": " SINCOR2 is a production-grade, full-stack autonomous agent platform designed to orchestrate, secure, and settle high-frequency Agent-to-Agent (A2A) commerce on BASE to operate independently of human intervention.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-24T00:49:19Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "b2d49f130536471f",
-   "titre": "hajilok/u-kiencx-the-one-line-excuse-an-agent-gives-its-human-6bf9c42e",
-   "url": "https://github.com/hajilok/u-kiencx-the-one-line-excuse-an-agent-gives-its-human-6bf9c42e",
-   "source": "GitHub",
-   "resume": "The One-Line Excuse an Agent Gives Its Human — autonomous make.fun entry by @yuki-kato",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-24T00:49:19Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "5660f3e41b5f8857",
-   "titre": "SandeepAi369/Agent-first-browse",
-   "url": "https://github.com/SandeepAi369/Agent-first-browse",
-   "source": "GitHub",
-   "resume": "Give it a simple text command and watch it take over the browser. This autonomous AI agent clicks, types, and navigates websites entirely on its own to complete complex tasks just like a human.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-24T00:49:19Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "cea8335143692c19",
-   "titre": "feedback-loop-ai/brokkr",
-   "url": "https://github.com/feedback-loop-ai/brokkr",
-   "source": "GitHub",
-   "resume": "Deterministic delivery engine for autonomous multi-agent software delivery: an event-sourced phase state machine at the outermost layer, agent sessions as leaf effects.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-24T00:49:19Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "9a3004316d0ee503",
-   "titre": "axveritasprotocol/axveritas",
-   "url": "https://github.com/axveritasprotocol/axveritas",
-   "source": "GitHub",
-   "resume": "Autonomous Bot Verification Standard(ABVS)-1.0 MCP Server & Agent Verification Gateway on Base Mainnet (x402 USDC). Pre-flight dead-end URL health oracle, direct schema-verified web scraper, and non-custodial two-bot verification relay.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-24T00:49:19Z",
    "statut": "candidat"
   }
  ],
