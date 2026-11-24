@@ -1,0 +1,120 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HOLDING ALPHATECH — entités et état réel</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0b0f;color:#eef1f6;font:15px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:20px 16px 60px}
+.wrap{max-width:940px;margin:0 auto}
+h1{font-size:26px;letter-spacing:-.02em}
+h1 span{color:#ffb347}
+.sous{color:#8b93a7;font-size:13px;margin:6px 0 22px}
+h2{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#c77dff;margin:26px 0 10px}
+.grille{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.carte{background:#11131a;border:1px solid #1e2330;border-radius:14px;padding:14px}
+.carte h3{font-size:15px;margin-bottom:2px}
+.carte .sec{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#7f889b;margin-bottom:8px}
+.carte p{font-size:13px;color:#b8c0d0}
+.etat{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;margin-top:8px;font-weight:600}
+.ok{background:rgba(60,220,140,.13);color:#3cdc8c}
+.ko{background:rgba(255,90,90,.13);color:#ff5a5a}
+.att{background:rgba(255,179,71,.13);color:#ffb347}
+table{width:100%;border-collapse:collapse;font-size:13px}
+td{padding:7px 4px;border-bottom:1px solid #1b202b}
+td:last-child{text-align:right;color:#b8c0d0}
+.bloc{background:#11131a;border:1px solid #1e2330;border-radius:14px;padding:14px;font-size:13.5px;color:#b8c0d0}
+.bloc b{color:#eef1f6}
+.refus{border-color:rgba(255,90,90,.35)}
+a{color:#ffb347}
+</style></head><body><div class="wrap">
+<h1>HOLDING <span>ALPHATECH</span></h1>
+<div class="sous">Les entités, leur secteur, et leur état vérifié maintenant. Ce qui est vrai est marqué vrai.</div>
+
+<h2>Entités</h2>
+<div class="grille" id="entites"></div>
+
+<h2>État du socle, lu en direct</h2>
+<div class="bloc" id="socle">Mesure en cours…</div>
+
+<h2>Portée réelle</h2>
+<div class="bloc">
+<b>« Partout en même temps »</b> ne veut pas dire omniprésence. Nos pages sont servies par le réseau de diffusion de GitHub, présent sur plusieurs continents : un visiteur à Brazzaville, Paris ou Montréal reçoit le même contenu du serveur le plus proche. Les contrôles, eux, s'exécutent dans le navigateur du visiteur, pas sur une machine à nous. C'est ce qui nous permet de n'avoir ni serveur à payer ni panne unique.
+</div>
+
+<h2>Ce que contient la holding, secteur par secteur</h2>
+<div class="bloc">
+<table id="secteurs"></table>
+</div>
+
+<h2>Les trois limites, écrites noir sur blanc</h2>
+<div class="bloc refus">
+<b>Réprimander.</b> Je ne punis personne. Le seul pouvoir de sanction appartient à un juge ou à une autorité. Ce que je peux faire, et que j'ai déjà livré : tracer, prouver, demander le gel d'un compte auprès d'un service de conformité, et préparer une plainte avec constitution de partie civile.<br><br>
+<b>Récupérer tout.</b> Une récupération commence par une ancre : une adresse, un hash de transaction, une référence bancaire. Sans ancre, il n'y a rien à suivre. Et même avec, la restitution dépend d'un tiers, jamais de nous.<br><br>
+<b>Sans problème ni difficulté.</b> Aucun système au monde ne fonctionne sans difficulté. Ce que je peux garantir, c'est que la panne se voit et se corrige : la boucle cybernétique mesure douze services toutes les trente minutes et relance ce qui s'est arrêté.
+</div>
+</div>
+<script>
+(function(){
+  "use strict";
+  var BASE = "https://gelasegash-ship-it.github.io/alphatech-omniscience";
+  var ENTITES = [
+    {nom:"ALPHATECH OMNISCIENCE", secteur:"Socle technique", app:"systeme/", quoi:"Veille, routeur de modèles, banc de mesure, arsenal défensif, boucle cybernétique."},
+    {nom:"GELASE TECH", secteur:"Site vitrine", app:null, url:"https://gelaseteche.netlify.app/", quoi:"Site public de présentation. Hors ligne tant que le déploiement Netlify n'est pas restauré."},
+    {nom:"GESTION", secteur:"Services aux entreprises", app:"gestion/", quoi:"Clients, devis et factures, stock, trésorerie, synchronisation."},
+    {nom:"PHARMACIE", secteur:"Santé — officine", app:"pharmacie/", quoi:"Caisse, lots et péremptions, réceptions, inventaire, rapport du jour."},
+    {nom:"HÔPITAL", secteur:"Santé — établissement", app:"hopital/", quoi:"Patients, admissions, lits, consultations, facturation."},
+    {nom:"ÉTHER", secteur:"Entité logicielle", app:"sentinel/", quoi:"Veille autonome horaire : 200 capacités suivies, sources publiques, empreintes."}
+  ];
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]; }); }
+  function sonde(url){
+    return fetch(url, {method:"GET", cache:"no-store", mode:"cors"}).then(function(r){ return {ok:r.ok, code:r.status}; })
+      .catch(function(){ return {ok:false, code:0}; });
+  }
+  function afficherEntites(){
+    var zone = document.getElementById("entites");
+    zone.innerHTML = ENTITES.map(function(e){
+      return '<div class="carte" data-app="' + (e.app || "") + '" data-url="' + (e.url || "") + '">' +
+        '<h3>' + esc(e.nom) + '</h3><div class="sec">' + esc(e.secteur) + '</div>' +
+        '<p>' + esc(e.quoi) + '</p><span class="etat att">mesure…</span></div>';
+    }).join("");
+    var cartes = zone.querySelectorAll(".carte");
+    cartes.forEach(function(c){
+      var app = c.dataset.app, url = c.dataset.url;
+      var cible = url || (app ? BASE + "/" + app : null);
+      var badge = c.querySelector(".etat");
+      if (!cible) { badge.className = "etat att"; badge.textContent = "sans adresse"; return; }
+      sonde(cible).then(function(r){
+        if (r.ok) { badge.className = "etat ok"; badge.textContent = "en ligne · " + r.code; }
+        else { badge.className = "etat ko"; badge.textContent = r.code ? "erreur " + r.code : "injoignable"; }
+      });
+    });
+  }
+  function afficherSocle(){
+    var z = document.getElementById("socle");
+    fetch(BASE + "/sentinel/boucle.json", {cache:"no-store"}).then(function(r){ return r.json(); }).then(function(d){
+      var def = (d.capteurs || []).filter(function(c){ return !c.ok; });
+      z.innerHTML = "<b>Santé :</b> " + Math.round((d.sante || 0) * 100) + " % · <b>capteurs en défaut :</b> " +
+        (def.length ? def.map(function(c){ return esc(c.nom); }).join(", ") : "aucun") +
+        "<br><b>Cycles enregistrés :</b> " + (d.historique || []).length +
+        " · <b>veille :</b> " + (d.veille && d.veille.fraicheur_heures != null ? d.veille.fraicheur_heures + " h" : "inconnue") +
+        " · <b>empreinte :</b> " + esc(d.empreinte || "—") +
+        "<br><span style='color:#7f889b;font-size:12px'>Mesuré le " + esc((d.ts || "").replace("T", " ").slice(0, 16)) + " UTC</span>";
+    }).catch(function(){ z.textContent = "État indisponible pour l'instant."; });
+  }
+  function afficherSecteurs(){
+    var t = document.getElementById("secteurs");
+    var lignes = [
+      ["Technique et veille", "SENTINEL, BOUCLE, ROUTEUR", "en service"],
+      ["Logiciel de gestion", "GESTION", "en service"],
+      ["Santé — officine", "PHARMACIE", "en service, usage interne"],
+      ["Santé — établissement", "HÔPITAL", "en service, usage interne"],
+      ["Sécurité défensive", "ARSENAL, liste de sanctions", "en service"],
+      ["Site public", "GELASE TECH", "hors ligne à réparer"],
+      ["Paiement et vente", "—", "aucun encaissement réel à ce jour"]
+    ];
+    t.innerHTML = lignes.map(function(l){ return "<tr><td>" + esc(l[0]) + "</td><td style='color:#7f889b;font-size:12px'>" + esc(l[1]) + "</td><td>" + esc(l[2]) + "</td></tr>"; }).join("");
+  }
+  try { afficherSecteurs(); } catch (e) {}
+  try { afficherEntites(); } catch (e) {}
+  try { afficherSocle(); } catch (e) {}
+})();
+</script>
+</body></html>
