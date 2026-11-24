@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BOUCLE — cycle cybernétique d'ALPHATECH</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0b0f;color:#eef1f6;font:15px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:22px 18px 60px}
+.wrap{max-width:900px;margin:0 auto}
+h1{font-size:22px;letter-spacing:.02em}
+.sub{color:#8b93a7;font-size:13px;margin:6px 0 20px}
+.card{background:#101219;border:1px solid #1e2330;border-radius:14px;padding:16px;margin-bottom:14px}
+.k{font-size:11px;letter-spacing:.14em;color:#7b6bd6;text-transform:uppercase;margin-bottom:8px}
+.gauge{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.big{font-size:34px;font-weight:800}
+.bar{flex:1;min-width:180px;height:12px;background:#1b1f2a;border-radius:99px;overflow:hidden}
+.bar>i{display:block;height:100%;background:linear-gradient(90deg,#3ddc97,#8f7bff)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid #1a1e29}
+th{color:#8b93a7;font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.ok{color:#3ddc97}.ko{color:#ff6b6b}
+.spark{display:flex;align-items:flex-end;gap:2px;height:44px;margin-top:8px}
+.spark i{flex:1;background:#8f7bff;border-radius:2px 2px 0 0;min-height:2px;opacity:.85}
+ul{margin:8px 0 0 18px;font-size:13px;color:#c9d0dd}
+li{margin:4px 0}
+a{color:#8f7bff}
+.lim{font-size:12.5px;color:#8b93a7}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>BOUCLE</h1>
+<p class="sub">Cycle cybernétique d'ALPHATECH : mesurer ses propres services, comparer à la cible, corriger, consigner. Cycle automatique toutes les 30 minutes.</p>
+
+<div class="card">
+  <div class="k">Santé mesurée</div>
+  <div class="gauge">
+    <div class="big" id="sante">—</div>
+    <div class="bar"><i id="jauge" style="width:0%"></i></div>
+    <div class="lim" id="erreur">erreur —</div>
+  </div>
+  <div class="lim" id="ts" style="margin-top:10px"></div>
+</div>
+
+<div class="card">
+  <div class="k">Capteurs</div>
+  <table><thead><tr><th>Service</th><th>État</th><th>Latence</th></tr></thead><tbody id="capteurs"></tbody></table>
+</div>
+
+<div class="card">
+  <div class="k">Boucle de veille</div>
+  <div id="veille" class="lim"></div>
+</div>
+
+<div class="card">
+  <div class="k">Corrections du dernier cycle</div>
+  <ul id="actions"></ul>
+</div>
+
+<div class="card">
+  <div class="k">Historique</div>
+  <div class="spark" id="spark"></div>
+  <div class="lim" id="hist" style="margin-top:8px"></div>
+</div>
+
+<div class="card">
+  <div class="k">Ce que la boucle fait, et ce qu'elle ne fait pas</div>
+  <ul>
+    <li>Elle mesure <b>ses propres</b> services publics, toutes les 30 minutes, sans intervention humaine.</li>
+    <li>Quand la veille dépasse 3 heures, elle <b>relance elle-même</b> le scan.</li>
+    <li>Chaque cycle est horodaté et scellé par empreinte : l'historique ne se réécrit pas.</li>
+    <li>Elle ne modifie pas son propre code sans validation, ne dépense rien, et ne touche aucun système extérieur.</li>
+    <li>Une révolution cybernétique, c'est une boucle qui mesure et se corrige. Pas une machine sans limites.</li>
+  </ul>
+</div>
+</div>
+<script>
+(function(){
+  "use strict";
+  var url = "../sentinel/boucle.json?t=" + Date.now();
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function afficher(d){
+    var pct = Math.round((Number(d.sante)||0)*100);
+    document.getElementById("sante").textContent = pct + " %";
+    document.getElementById("jauge").style.width = pct + "%";
+    document.getElementById("erreur").textContent = "erreur " + (Math.round((Number(d.erreur)||0)*1000)/10) + " % · empreinte " + esc(d.empreinte);
+    document.getElementById("ts").textContent = "Dernier cycle : " + esc((d.ts||"").replace("T"," ").replace("+00:00"," UTC"));
+    var tb = document.getElementById("capteurs"), h = "";
+    (d.capteurs||[]).forEach(function(c){
+      h += "<tr><td>" + esc(c.nom) + "</td><td class='" + (c.ok?"ok":"ko") + "'>" + (c.ok?"en ligne":"HTTP " + esc(c.code)) + "</td><td>" + esc(c.ms) + " ms</td></tr>";
+    });
+    tb.innerHTML = h || "<tr><td colspan='3' class='lim'>aucune mesure</td></tr>";
+    var v = d.veille || {}, f = v.fraicheur_heures;
+    document.getElementById("veille").innerHTML = (f == null)
+      ? "Fraîcheur inconnue : le registre de veille n'a pas pu être lu."
+      : ("Registre de veille vieux de <b>" + esc(f) + " h</b> · <b>" + esc(v.capacites||0) + "</b> capacités suivies · cible : moins de " + esc((d.cibles||{}).fraicheur_max_heures||3) + " h.");
+    var ul = document.getElementById("actions"), a = d.actions || [];
+    ul.innerHTML = a.length ? a.map(function(x){
+      return "<li><b>" + esc(x.type) + "</b> — " + esc(x.detail) + " <span class='lim'>(" + (x.reussi?"appliquée":"non appliquée") + ")</span></li>";
+    }).join("") : "<li class='lim'>Aucune correction nécessaire : tout était conforme à la cible.</li>";
+    var hist = d.historique || [], sp = document.getElementById("spark"), sh = "";
+    hist.slice(-40).forEach(function(p){ sh += "<i style='height:" + Math.max(2, Math.round((Number(p.sante)||0)*44)) + "px' title='" + esc(p.ts) + " · " + esc(p.sante) + "'></i>"; });
+    sp.innerHTML = sh;
+    document.getElementById("hist").textContent = hist.length + " cycle(s) enregistré(s)" + (hist.length ? " · du " + hist[0].ts.replace("T"," ").slice(0,16) + " au " + hist[hist.length-1].ts.replace("T"," ").slice(0,16) : "");
+  }
+  fetch(url).then(function(r){ return r.json(); }).then(afficher).catch(function(){
+    document.getElementById("sante").textContent = "hors ligne";
+    document.getElementById("erreur").textContent = "l'état de la boucle n'a pas pu être lu";
+  });
+})();
+</script>
+</body>
+</html>
