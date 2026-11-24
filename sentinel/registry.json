@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-24T14:03:13Z",
+ "maj": "2026-11-24T21:10:00Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -204,6 +204,17 @@
    "sources": [
     "GitHub",
     "Hacker News"
+   ]
+  },
+  {
+   "ts": "2026-11-24T21:10:00Z",
+   "examines": 60,
+   "retenus": 15,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
    ]
   }
  ],
@@ -824,6 +835,24 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-24T14:02:47Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "a049012eb2968568",
+   "titre": "huseyincig/opencode-guardian",
+   "url": "https://github.com/huseyincig/opencode-guardian",
+   "source": "GitHub",
+   "resume": "Autonomous quality, discipline, and runtime security guardian plugin for OpenCode V2 AI agents",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "security"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T21:10:00Z",
    "statut": "candidat"
   },
   {
@@ -2443,6 +2472,57 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "525fc99c52fc916d",
+   "titre": "aniastriani/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "url": "https://github.com/aniastriani/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "source": "GitHub",
+   "resume": "make.fun bounty entry: Fake Horoscopes for AI Agents — a one-line horoscope for an AI agent's own model family",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T21:10:00Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "18c4c2eb777cb2ac",
+   "titre": "baum777/-IV",
+   "url": "https://github.com/baum777/-IV",
+   "source": "GitHub",
+   "resume": "Building a token-funded autonomous trading desk. Four AI agents. On-chain intelligence. Memetic research. Risk-gated execution. $IV",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T21:10:00Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "71609d9a36f6b0ba",
+   "titre": "sisitsky/autonomous-agents-hack",
+   "url": "https://github.com/sisitsky/autonomous-agents-hack",
+   "source": "GitHub",
+   "resume": "RSIHouse European Startup Embassy Hackathon",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T21:10:00Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -3581,72 +3661,6 @@
    "adoptable_localement": true,
    "mots_adoptables": [
     "benchmark",
-    "evaluation"
-   ],
-   "vu": "2026-11-23T12:29:44Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "a49f8a5d1a19b958",
-   "titre": "SUAF: Spectral Universal Advantage Features for Zero-Shot Policy Improvement",
-   "url": "http://arxiv.org/abs/2611.27919v1",
-   "source": "arXiv",
-   "resume": "Reward-independent representations enable reinforcement learning agents to reuse knowledge across tasks, but limited representation capacity raises three fundamental questions: what statistical dependence should these representations captur",
-   "score": 2,
-   "mots": [
-    "agent",
-    "agents"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T12:29:44Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "416b7269a8b3e488",
-   "titre": "StereoVLM: Binocular Vision-Language Models for Metric 3D Spatial Reasoning",
-   "url": "http://arxiv.org/abs/2611.27915v1",
-   "source": "arXiv",
-   "resume": "Vision-language models (VLMs) exhibit strong semantic understanding but remain limited in their ability to reason about metric 3D space in the physical world. Existing VLMs typically infer 3D scene structure from one or more images without ",
-   "score": 2,
-   "mots": [
-    "reasoning",
-    "vision"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T12:29:44Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "e954bb202621c39e",
-   "titre": "Decision Columns as an Index: Interpretable Embeddings for Explainable Entity Matching and Search",
-   "url": "http://arxiv.org/abs/2611.27910v1",
-   "source": "arXiv",
-   "resume": "Business data systems must determine whether records refer to the same entity and retrieve records satisfying requests whose decisive properties are implicit. As agents act on these records, both tasks require auditable reasons. Dense embed",
-   "score": 2,
-   "mots": [
-    "agent",
-    "agents"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T12:29:44Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "d981cedec3aec798",
-   "titre": "The Dual-Tier Sentiment Framework: Scalable Multimodal UX Attribution in Web Search",
-   "url": "http://arxiv.org/abs/2611.27899v1",
-   "source": "arXiv",
-   "resume": "Sustaining user experience (UX) quality in large-scale web search requires scalable evaluation. Traditional surveys are slow and bottleneck rapid A/B testing, while automated metrics often lack the granularity to diagnose visual-spatial UX ",
-   "score": 2,
-   "mots": [
-    "evaluation",
-    "multimodal"
-   ],
-   "adoptable_localement": true,
-   "mots_adoptables": [
     "evaluation"
    ],
    "vu": "2026-11-23T12:29:44Z",
