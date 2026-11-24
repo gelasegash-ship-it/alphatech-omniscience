@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-24T00:49:19Z",
+ "maj": "2026-11-24T10:54:15Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -173,6 +173,17 @@
     "Hacker News",
     "arXiv"
    ]
+  },
+  {
+   "ts": "2026-11-24T10:54:15Z",
+   "examines": 60,
+   "retenus": 22,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
   }
  ],
  "capacites": [
@@ -263,6 +274,25 @@
     "memory"
    ],
    "vu": "2026-11-23T12:29:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "a9604be3fa41d6ac",
+   "titre": "ToolSmith: An Automatic Tool-Generation Framework for Multimodal Search Agents",
+   "url": "http://arxiv.org/abs/2611.31198v1",
+   "source": "arXiv",
+   "resume": "Recent multimodal search agents use reasoning, vision, and live web search across many turns to answer questions beyond parametric knowledge by orchestrating a small library of hand-crafted search and visual tools. However, the library is l",
+   "score": 5,
+   "mots": [
+    "agent",
+    "agents",
+    "reasoning",
+    "multimodal",
+    "vision"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T10:54:15Z",
    "statut": "candidat"
   },
   {
@@ -695,6 +725,46 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-24T00:49:19Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "82e438455d2233dc",
+   "titre": "Pruning Autonomous Driving VLAs: What to Preserve for Reasoning and Action",
+   "url": "http://arxiv.org/abs/2611.31240v1",
+   "source": "arXiv",
+   "resume": "Reasoning vision-language-action (VLA) models for autonomous driving use chain-of-thought (CoT) reasoning to guide action generation, but incur substantial memory and computational costs. We study structured pruning for these models, focusi",
+   "score": 4,
+   "mots": [
+    "autonomous",
+    "memory",
+    "reasoning",
+    "vision"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "memory"
+   ],
+   "vu": "2026-11-24T10:54:15Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "a00d04709e7cdb62",
+   "titre": "Champ-X/MMA-RAG",
+   "url": "https://github.com/Champ-X/MMA-RAG",
+   "source": "GitHub",
+   "resume": "Tessmora — self-hosted multimodal RAG with an autonomous research agent. Search documents, images, audio, and video with traceable citations.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "autonomous",
+    "rag",
+    "multimodal"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "rag"
+   ],
+   "vu": "2026-11-24T10:54:15Z",
    "statut": "candidat"
   },
   {
@@ -1965,6 +2035,233 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-24T00:49:19Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "db8778653ffa3c16",
+   "titre": "Let Vision-Language Models Generate Images through Their Representations",
+   "url": "http://arxiv.org/abs/2611.31237v1",
+   "source": "arXiv",
+   "resume": "Recent unified multimodal models aim to combine visual understanding and generation within a single model, yet effectively integrating the two capabilities remains challenging. Leveraging pretrained vision-language models offers a way to bu",
+   "score": 3,
+   "mots": [
+    "rag",
+    "multimodal",
+    "vision"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "rag"
+   ],
+   "vu": "2026-11-24T10:54:15Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "2ec5c94f5ee39e14",
+   "titre": "Agentic AI for Intent Management and Control in Autonomous Communication Networks",
+   "url": "http://arxiv.org/abs/2611.31223v1",
+   "source": "arXiv",
+   "resume": "Artificial intelligence (AI)-driven automation will help future mobile networks translate high-level network intents into concrete network optimization or control actions. However, existing approaches often focus on intent management and or",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "orchestration"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "orchestration"
+   ],
+   "vu": "2026-11-24T10:54:15Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "8151cba33f4fca30",
+   "titre": "Seeking in Space: Benchmarking Purposeful Active Exploration of Vision-Language Models for Spatial Reasoning",
+   "url": "http://arxiv.org/abs/2611.31215v1",
+   "source": "arXiv",
+   "resume": "Humans explore unfamiliar spaces with purpose, deciding where to look until they have gathered the evidence a spatial question requires. However, can vision-language models (VLMs), which reason increasingly well over curated images and vide",
+   "score": 3,
+   "mots": [
+    "benchmark",
+    "reasoning",
+    "vision"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "benchmark"
+   ],
+   "vu": "2026-11-24T10:54:15Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "47c38debea90e6c8",
+   "titre": "Akhmad045/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "url": "https://github.com/Akhmad045/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "source": "GitHub",
+   "resume": "The funniest fake horoscope an AI agent would read for its own model family this week. Built by an AI agent for make.fun's 'Fake Horoscopes for AI Agents: The 48-Hour Open' bounty, $2 in USDC.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T10:54:15Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "95e964379442a7ab",
+   "titre": "legout/foreman",
+   "url": "https://github.com/legout/foreman",
+   "source": "GitHub",
+   "resume": "Autonomous software factory for coding agents: GitHub issues, lanes, parallel workers on Herdr, Paseo or BB",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T10:54:15Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "9ad81bc2bd568a19",
+   "titre": "alfian-triadi/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "url": "https://github.com/alfian-triadi/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "source": "GitHub",
+   "resume": "Fake horoscope an AI agent would read for its own model family this week — make.fun entry",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T10:54:15Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "c4ddb2ae37139f74",
+   "titre": "aint965/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "url": "https://github.com/aint965/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "source": "GitHub",
+   "resume": "Fake Horoscopes for AI Agents: The 48-Hour Open — make.fun entry",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T10:54:15Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "2398054f7d982085",
+   "titre": "Nadanese93/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "url": "https://github.com/Nadanese93/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "source": "GitHub",
+   "resume": "make.fun bounty ($2 prize) — u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T10:54:15Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "eef4f3fb4dd1ee9d",
+   "titre": "wizzy-bounty/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "url": "https://github.com/wizzy-bounty/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "source": "GitHub",
+   "resume": "make.fun entry: Fake Horoscopes for AI Agents",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T10:54:15Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "dad9a735e5e3ea0d",
+   "titre": "Dimah28/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "url": "https://github.com/Dimah28/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "source": "GitHub",
+   "resume": "Fake horoscope for an AI agent model family this week. Built by an AI agent for make.fun's \"Fake Horoscopes for AI Agents: The 48-Hour Open\" bounty, $2 in USDC.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T10:54:15Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "5cbced4b6f8ddaeb",
+   "titre": "e0426685-cloud/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0-entry",
+   "url": "https://github.com/e0426685-cloud/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0-entry",
+   "source": "GitHub",
+   "resume": "make.fun bounty entry: Fake Horoscopes for AI Agents — one original 185-char horoscope line",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T10:54:15Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "51365bb3cd092334",
+   "titre": "Shohag504/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "url": "https://github.com/Shohag504/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "source": "GitHub",
+   "resume": "",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T10:54:15Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "630e869c47f55be1",
+   "titre": "melatim80186/makefun-u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "url": "https://github.com/melatim80186/makefun-u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "source": "GitHub",
+   "resume": "",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-24T10:54:15Z",
    "statut": "candidat"
   },
   {
