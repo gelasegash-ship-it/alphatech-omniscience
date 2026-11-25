@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-25T14:17:41Z",
+ "maj": "2026-11-25T23:37:03Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -238,6 +238,17 @@
     "Hacker News",
     "arXiv"
    ]
+  },
+  {
+   "ts": "2026-11-25T23:37:03Z",
+   "examines": 60,
+   "retenus": 15,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
   }
  ],
  "capacites": [
@@ -390,6 +401,28 @@
     "benchmark"
    ],
    "vu": "2026-11-25T04:10:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "5b6d5b97a03c7208",
+   "titre": "ddbase3/MissionBay",
+   "url": "https://github.com/ddbase3/MissionBay",
+   "source": "GitHub",
+   "resume": "MissionBay is a plugin for the Base3 Framework that enables the orchestration of autonomous agents to execute tasks, coordinate workflows, and communicate through event-driven logic. Designed for flexibility and scalability, MissionBay prov",
+   "score": 5,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "orchestration",
+    "workflow"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "workflow",
+    "orchestration"
+   ],
+   "vu": "2026-11-25T23:37:03Z",
    "statut": "candidat"
   },
   {
@@ -998,6 +1031,46 @@
     "orchestration"
    ],
    "vu": "2026-11-25T04:10:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "919233ae86f091ba",
+   "titre": "smolboon/smort",
+   "url": "https://github.com/smolboon/smort",
+   "source": "GitHub",
+   "resume": "Single-file, zero-dependency operating system for autonomous multi-agent software development — project indexing, dependency graphs, automated task delegation, 8-domain verification gates, bi-temporal memory, and scheduled owner approval sl",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "memory"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "memory"
+   ],
+   "vu": "2026-11-25T23:37:03Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "fe9f98c9e62d86c4",
+   "titre": "easingthemes/dx-aem-flow",
+   "url": "https://github.com/easingthemes/dx-aem-flow",
+   "source": "GitHub",
+   "resume": "AI-powered development plugins for Claude Code & Copilot CLI — requirements to PR workflow, AEM tooling, and autonomous CI agents. 78 skills, 13 agents, 4 plugins.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "workflow"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "workflow"
+   ],
+   "vu": "2026-11-25T23:37:03Z",
    "statut": "candidat"
   },
   {
@@ -2940,6 +3013,57 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "48e6ff5ceca3e46c",
+   "titre": "tadija/swift-agent",
+   "url": "https://github.com/tadija/swift-agent",
+   "source": "GitHub",
+   "resume": "A harness-agnostic Swift framework for autonomous, iterative repository agents.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-25T23:37:03Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "c222e5c11d986da8",
+   "titre": "TrogonStack/trogonai",
+   "url": "https://github.com/TrogonStack/trogonai",
+   "source": "GitHub",
+   "resume": "Distributed platform for coordinating autonomous AI agents across services and runtimes",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-25T23:37:03Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "6ef2750a9541eee4",
+   "titre": "agentic-threat-defense/artex-defense",
+   "url": "https://github.com/agentic-threat-defense/artex-defense",
+   "source": "GitHub",
+   "resume": "Offline Zero-IOC behavioral detection engine, DFIR triage workbench, and 8-SIEM rule pack (Sigma, KQL, ES|QL, SPL, CQL, S1QL, Suricata, Zeek, YARA) for ARTEX and autonomous LLM offensive agents. Includes YAF IPFIX, JA4+, and purple-team eva",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-25T23:37:03Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -3641,102 +3765,6 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-22T07:58:37Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "58e8dd236815099f",
-   "titre": "Elroi-thecreator/tripsteward-agentic-travel",
-   "url": "https://github.com/Elroi-thecreator/tripsteward-agentic-travel",
-   "source": "GitHub",
-   "resume": "TripSteward: Autonomous Federated Travel, Hotel & City Mobility Concierge — Cognizant Open Agentic Web Challenge (MVP Profile 0.3)",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T07:58:37Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "a5783bee74f701dc",
-   "titre": "siddharthkela/url_shortner_v2",
-   "url": "https://github.com/siddharthkela/url_shortner_v2",
-   "source": "GitHub",
-   "resume": "URL shortener built with Spring Boot (JPA, validation, click analytics, expiration, idempotency keys, Docker), plus a Python agentic SDLC orchestrator that plans, builds and tests features on it autonomously.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T16:15:23Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "1bf75049fa341b05",
-   "titre": "Shengboj0324/Gemma-4-Agentic-Platform",
-   "url": "https://github.com/Shengboj0324/Gemma-4-Agentic-Platform",
-   "source": "GitHub",
-   "resume": "An autonomous software-engineering agent for the Google Gemma 4 Developer Agent Competition, plus the training and verification infrastructure behind it.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T16:15:23Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "83b047a1b408d895",
-   "titre": "YashNebhwani007/AthenaProject",
-   "url": "https://github.com/YashNebhwani007/AthenaProject",
-   "source": "GitHub",
-   "resume": "Athena AI - Autonomous Data Science & Decision Intelligence Agent with Formal Verification",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T16:15:23Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "25bd54def5d2e45e",
-   "titre": "marcus-beauregard/agent-runner",
-   "url": "https://github.com/marcus-beauregard/agent-runner",
-   "source": "GitHub",
-   "resume": "A minimal autonomous agent runtime with a tool registry, step cap, and transcript.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T16:15:23Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "a2413054fd645cb5",
-   "titre": "brajendrak00068/agentic-ai-video-production",
-   "url": "https://github.com/brajendrak00068/agentic-ai-video-production",
-   "source": "GitHub",
-   "resume": "Levea OpenClaw AI Video Editor & MCP Server: autonomous natural-language video editing for viral clips, TikTok, Reels, YouTube Shorts, auto captions, subtitles, 9:16 vertical reframe, silence removal, B-roll, motion graphics, multicam, chro",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T16:15:23Z",
    "statut": "candidat"
   }
  ],
