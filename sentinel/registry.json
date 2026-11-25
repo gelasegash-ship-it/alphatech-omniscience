@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-24T21:10:00Z",
+ "maj": "2026-11-25T04:10:23Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -216,6 +216,17 @@
     "Hacker News",
     "arXiv"
    ]
+  },
+  {
+   "ts": "2026-11-25T04:10:23Z",
+   "examines": 60,
+   "retenus": 21,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
   }
  ],
  "capacites": [
@@ -325,6 +336,49 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-24T10:54:15Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "12a67d3ad6875fb6",
+   "titre": "Attestation is All You Need: Toward a Zero-Trust Architecture for HPC AI Agents",
+   "url": "http://arxiv.org/abs/2611.32958v1",
+   "source": "arXiv",
+   "resume": "AI agents are beginning to automate data analysis, orchestration, and simulation steering in HPC environments, but they introduce a security problem that existing cluster defenses do not address: the hijacked authorized agent. An adversary ",
+   "score": 5,
+   "mots": [
+    "agent",
+    "agents",
+    "orchestration",
+    "security",
+    "prompt injection"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "prompt injection",
+    "orchestration"
+   ],
+   "vu": "2026-11-25T04:10:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "1bd63b00a80031b2",
+   "titre": "inwpu/shadownet-benchmark",
+   "url": "https://github.com/inwpu/shadownet-benchmark",
+   "source": "GitHub",
+   "resume": "An agentic penetration-testing benchmark: a 96-container enterprise shadow network with 103 dynamic flags for autonomous security agents.",
+   "score": 5,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "benchmark",
+    "security"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "benchmark"
+   ],
+   "vu": "2026-11-25T04:10:23Z",
    "statut": "candidat"
   },
   {
@@ -853,6 +907,86 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-24T21:10:00Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "0ede9d9645df3fea",
+   "titre": "Benchmarking Evidence Sufficiency in Vision-Language Models for Autonomous Driving",
+   "url": "http://arxiv.org/abs/2611.32964v1",
+   "source": "arXiv",
+   "resume": "Reliable driving VLMs must do more than answer correctly or localize relevant scene actors: they must determine whether the available visual evidence is sufficient to support an answer. Existing evaluations largely treat grounding and answe",
+   "score": 4,
+   "mots": [
+    "autonomous",
+    "evaluation",
+    "benchmark",
+    "vision"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "benchmark",
+    "evaluation"
+   ],
+   "vu": "2026-11-25T04:10:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "7932c23e0f6801d6",
+   "titre": "InstructReplay: Replaying Assistant Turns to Preserve General Behavior During Factual Fine-Tuning",
+   "url": "http://arxiv.org/abs/2611.32918v1",
+   "source": "arXiv",
+   "resume": "Fine-tuning an instruction-tuned language model on new facts often erodes its general abilities. We find that standard fine-tuning lowers instruction-following, reasoning and coding benchmarks by 35 points on average, and that these losses ",
+   "score": 4,
+   "mots": [
+    "benchmark",
+    "reasoning",
+    "rag",
+    "fine-tun"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "benchmark",
+    "rag"
+   ],
+   "vu": "2026-11-25T04:10:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "86bc8798f603a739",
+   "titre": "futakw/Awesome-Physical-AI-Safety",
+   "url": "https://github.com/futakw/Awesome-Physical-AI-Safety",
+   "source": "GitHub",
+   "resume": "An LLM-assisted bibliography of safety, security, robustness, ethical and societal risks, and trustworthy deployment across VLA, robots, autonomous systems, and embodied agents.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "security"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-25T04:10:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "149516fa30125153",
+   "titre": "paul-gross/blizzard",
+   "url": "https://github.com/paul-gross/blizzard",
+   "source": "GitHub",
+   "resume": "Blizzard — orchestration platform for autonomous fleets of coding agents: hub, runner, CLI, web board",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "orchestration"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "orchestration"
+   ],
+   "vu": "2026-11-25T04:10:23Z",
    "statut": "candidat"
   },
   {
@@ -2523,6 +2657,136 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "781cf75396f7fbfc",
+   "titre": "Efficient Video Retrieval Augmented Generation via Token Allocation",
+   "url": "http://arxiv.org/abs/2611.32938v1",
+   "source": "arXiv",
+   "resume": "Efficient long-video understanding requires identifying relevant evidence while minimizing the tokens processed by vision-language models (VLMs). Existing video retrieval-augmented generation (RAG) methods rely on frame selection and token ",
+   "score": 3,
+   "mots": [
+    "retrieval",
+    "rag",
+    "vision"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "retrieval",
+    "rag"
+   ],
+   "vu": "2026-11-25T04:10:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "e8226c13fd91bfc4",
+   "titre": "Lazy Agents Answer Against Their Own Beliefs: Reinforcement Learning with Verifiable Beliefs Teaches Them to Act on What They Believe",
+   "url": "http://arxiv.org/abs/2611.32884v1",
+   "source": "arXiv",
+   "resume": "AI agents working on long tasks often commit to an answer before they have enough evidence, a behavior called laziness. In our evaluations, they frequently commit even while their stated belief still names several possible answers. An outco",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "evaluation"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "evaluation"
+   ],
+   "vu": "2026-11-25T04:10:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "85e3b5b8244da8fa",
+   "titre": "LittleChenLiya/dsh-superagent",
+   "url": "https://github.com/LittleChenLiya/dsh-superagent",
+   "source": "GitHub",
+   "resume": "Long-running autonomous execution plugin for DeepSeek Harness: one goal, model-planned parallel subtasks, one merged report, durable across restarts.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "rag"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "rag"
+   ],
+   "vu": "2026-11-25T04:10:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "9600b837ea39f93c",
+   "titre": "ducky8x/session-kit",
+   "url": "https://github.com/ducky8x/session-kit",
+   "source": "GitHub",
+   "resume": "Sets up each Claude Code session: single-agent or multi-agent, autonomous mode, standing rules, per-project context files, and task specs you approve before building.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "context"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-25T04:10:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "20056d557aab1c93",
+   "titre": "pratik-saptarshi/autonomous-engineering-platform",
+   "url": "https://github.com/pratik-saptarshi/autonomous-engineering-platform",
+   "source": "GitHub",
+   "resume": "Reference architecture and runbook for an autonomous engineering environment: agent skill library, Ralph execution loop, NeuroStrata memory backend, and supporting tooling.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "memory"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "memory"
+   ],
+   "vu": "2026-11-25T04:10:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "0445c3e68424befb",
+   "titre": "kahlanhamza/video-edit",
+   "url": "https://github.com/kahlanhamza/video-edit",
+   "source": "GitHub",
+   "resume": "DirectorOS — autonomous multimodal video editing & documentary platform (durable cloud state + agentic tools on an OpenTimelineIO backbone). PLAN.md is the source of truth.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "multimodal"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-25T04:10:23Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "74ba64189ab44ac6",
+   "titre": "asjames18/tidebot",
+   "url": "https://github.com/asjames18/tidebot",
+   "source": "GitHub",
+   "resume": "Self-hosted open-source Autonomous Multi-Agent Studio — bring your own model (OpenRouter, Ollama, vLLM), 1,500+ app integrations, local sandbox + cloud Linux desktops, installable desktop app.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "sandbox"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "sandbox"
+   ],
+   "vu": "2026-11-25T04:10:23Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -3448,222 +3712,6 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-22T21:47:32Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "3f4c37f33e3d11d1",
-   "titre": "Improved Accuracy Scaling with Problem Complexity in LLM Arithmetic Reasoning Using Executable Symbolic Representations",
-   "url": "http://arxiv.org/abs/2611.27203v1",
-   "source": "arXiv",
-   "resume": "High accuracy on mathematical benchmarks does not establish whether reasoning remains reliable as problem complexity increases. We examine how executable symbolic representations change accuracy scaling in large language models compared wit",
-   "score": 2,
-   "mots": [
-    "benchmark",
-    "reasoning"
-   ],
-   "adoptable_localement": true,
-   "mots_adoptables": [
-    "benchmark"
-   ],
-   "vu": "2026-11-23T02:44:21Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "8b2b04e8f1dd4430",
-   "titre": "EDAGoat: An EDA-Aware Agent for Project-Level GPU Optimization",
-   "url": "http://arxiv.org/abs/2611.27196v1",
-   "source": "arXiv",
-   "resume": "GPU acceleration has transformed electronic design automation (EDA), yet further improving expert-engineered GPU tools still demands substantial manual effort. Automating this work calls for coding agents that can trace bottlenecks across h",
-   "score": 2,
-   "mots": [
-    "agent",
-    "agents"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T02:44:21Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "2a12674846f49d58",
-   "titre": "From Acting to Learning: Experience Selection toward Continually Learning Agents",
-   "url": "http://arxiv.org/abs/2611.27159v1",
-   "source": "arXiv",
-   "resume": "Successful agent interactions provide training data, but success alone does not determine which records a student should learn from. We examine experience selection for a 4B language agent as a component of continual agent learning. Nine se",
-   "score": 2,
-   "mots": [
-    "agent",
-    "agents"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T02:44:21Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "3d3a0fc112e88b0f",
-   "titre": "FM4SAR-Bench 1.0: Towards A Fair Benchmark for Evaluating Foundation Models for SAR Image Interpretation",
-   "url": "http://arxiv.org/abs/2611.27158v1",
-   "source": "arXiv",
-   "resume": "Foundation models have advanced SAR image interpretation but created a heterogeneous, fragmented model ecosystem. Existing models differ substantially in their input, training data, objectives, architectures, and release policy, yet the fie",
-   "score": 2,
-   "mots": [
-    "benchmark",
-    "rag"
-   ],
-   "adoptable_localement": true,
-   "mots_adoptables": [
-    "benchmark",
-    "rag"
-   ],
-   "vu": "2026-11-23T02:44:21Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "c94ac12b480baddd",
-   "titre": "Co-Evolving Behavioral Agents and Detectors for Adaptive Information Operations",
-   "url": "http://arxiv.org/abs/2611.27156v1",
-   "source": "arXiv",
-   "resume": "Detectors of state-sponsored information operations (IOs) are trained on campaigns that platforms have already taken down. They lose much of their accuracy on an actor they have not seen, even though no operator in the archived data is tryi",
-   "score": 2,
-   "mots": [
-    "agent",
-    "agents"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T02:44:21Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "8dfc75bfd51e1e88",
-   "titre": "ewanc26/hamlet",
-   "url": "https://github.com/ewanc26/hamlet",
-   "source": "GitHub",
-   "resume": "A city-to-country builder where every citizen is a persistent, autonomous agent — deterministic C# simulation, Godot 4.7 + GDScript presentation.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T02:44:21Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "13c8cd64debd198b",
-   "titre": "Holon-Agentic-Coder/holon-agentic-coder",
-   "url": "https://github.com/Holon-Agentic-Coder/holon-agentic-coder",
-   "source": "GitHub",
-   "resume": "The Fractal Intent Evolution Engine for Autonomous Agentic Coding",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T02:44:21Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "a255aee992808f8f",
-   "titre": "cloudstrive6/informed-social-posting-automation",
-   "url": "https://github.com/cloudstrive6/informed-social-posting-automation",
-   "source": "GitHub",
-   "resume": "InforMed Lab: autonomous multi-agent health content studio for YouTube, Instagram, TikTok and Facebook",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T02:44:21Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "6d799fa481975963",
-   "titre": "XiAzir/AzAgent",
-   "url": "https://github.com/XiAzir/AzAgent",
-   "source": "GitHub",
-   "resume": "AzAgent is an independently maintained autonomous coding assistant for DeepSeek Harness, with Web tasks, GitHub, Feishu, and QQ on Windows and Linux.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T02:44:21Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "dab295f6819ef695",
-   "titre": "dlopezkluever/Jobaculator",
-   "url": "https://github.com/dlopezkluever/Jobaculator",
-   "source": "GitHub",
-   "resume": "An autonomous AI-powered job-search applier, simply upload your past resumes & cover letters, and any related materials, do a mini interview with the agent, specify the type of work your looking for, & sit back while the system jobaculates ",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T02:44:21Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "80a692187b8176fd",
-   "titre": "kumaryush18-cyber/qronos-cli",
-   "url": "https://github.com/kumaryush18-cyber/qronos-cli",
-   "source": "GitHub",
-   "resume": "Qronos CLI - Autonomous AI coding agent in your terminal powered by Qronos AI.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T02:44:21Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "abfc2d798d2db318",
-   "titre": "manjaria007/causelens",
-   "url": "https://github.com/manjaria007/causelens",
-   "source": "GitHub",
-   "resume": "Description: Autonomous AI investigation agent that explains why business metrics changed, validates causes with statistical and causal analysis, and recommends the next experiment. Built for Kiroween 2026 with Kiro.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-23T02:44:21Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "f95ee8b0395d4a37",
-   "titre": "Non-penetrating World Models",
-   "url": "http://arxiv.org/abs/2611.27963v1",
-   "source": "arXiv",
-   "resume": "We study a new problem of preventing object penetration in interactive video world models. To understand how existing models handle this, we introduce NoPeBench, a benchmark that evaluates how world models respond to physical obstacles. Our",
-   "score": 2,
-   "mots": [
-    "evaluation",
-    "benchmark"
-   ],
-   "adoptable_localement": true,
-   "mots_adoptables": [
-    "benchmark",
-    "evaluation"
-   ],
-   "vu": "2026-11-23T12:29:44Z",
    "statut": "candidat"
   }
  ],
