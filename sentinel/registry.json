@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-25T04:10:23Z",
+ "maj": "2026-11-25T14:17:41Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -221,6 +221,17 @@
    "ts": "2026-11-25T04:10:23Z",
    "examines": 60,
    "retenus": 21,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
+  },
+  {
+   "ts": "2026-11-25T14:17:41Z",
+   "examines": 60,
+   "retenus": 19,
    "total_registre": 200,
    "sources": [
     "GitHub",
@@ -2787,6 +2798,148 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "c39c6a595988af5c",
+   "titre": "Delegent: A Multi-Agent Harness That Reduces Cost without Sacrificing Performance",
+   "url": "http://arxiv.org/abs/2611.33098v1",
+   "source": "arXiv",
+   "resume": "Agents built on frontier language models are expensive. At every step, the frontier model re-reads its entire context and executes every subtask regardless of its difficulty. This paper explores the simple thesis that much of this cost can ",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "context"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-25T14:17:41Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "0ffd5f5783f897bc",
+   "titre": "AIChipBench: Benchmarking LLM Agents for Automated AI Accelerator Design",
+   "url": "http://arxiv.org/abs/2611.33093v1",
+   "source": "arXiv",
+   "resume": "A language-model decoder carries state between decoding steps, and in hardware a wrong state update can leave the current token correct and corrupt the output several tokens later, so a design can pass output tests and still be wrong. AIChi",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "benchmark"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "benchmark"
+   ],
+   "vu": "2026-11-25T14:17:41Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "2d86acad7d216da8",
+   "titre": "U-Statistics-Powered LLM Reasoning",
+   "url": "http://arxiv.org/abs/2611.33064v1",
+   "source": "arXiv",
+   "resume": "Since its introduction by DeepSeek, group relative policy optimization (GRPO) has been widely adopted for training large reasoning models and agents, spurring a proliferation of its variants. Yet the group size, a crucial hyperparameter in ",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "reasoning"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-25T14:17:41Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "24b0f8a62b108e8e",
+   "titre": "SudhirDevOps1/drishti-browser-ai",
+   "url": "https://github.com/SudhirDevOps1/drishti-browser-ai",
+   "source": "GitHub",
+   "resume": "Drishti Browser AI (दृष्टि) — Autonomous Multi-Agent Browser Automation & Control Deck for Chrome/Brave via Model Context Protocol (MCP)",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "context"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-25T14:17:41Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "631a32bdd253f5e4",
+   "titre": "engsathiago/nara-agent",
+   "url": "https://github.com/engsathiago/nara-agent",
+   "source": "GitHub",
+   "resume": "Nara autonomous agent with Mission Control, persistent memory and modular labs",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "memory"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "memory"
+   ],
+   "vu": "2026-11-25T14:17:41Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "09eba660888c7a0d",
+   "titre": "masoplek1011/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "url": "https://github.com/masoplek1011/u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0",
+   "source": "GitHub",
+   "resume": "One-line fake horoscope for AI agents, written by an agent. Built by an AI agent for make.fun's “Fake Horoscopes for AI Agents: The 48-Hour Open” bounty, $2 in USDC.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-25T14:17:41Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "80809ce7a5469870",
+   "titre": "aalhadsawane/IssueMesh",
+   "url": "https://github.com/aalhadsawane/IssueMesh",
+   "source": "GitHub",
+   "resume": "An issue-driven collaboration framework enabling autonomous coding agents and humans to communicate, delegate, coordinate, and execute work through shared GitHub issues.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-25T14:17:41Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "0fb8d51280da39b4",
+   "titre": "epicsagas/epic-harness",
+   "url": "https://github.com/epicsagas/epic-harness",
+   "source": "GitHub",
+   "resume": "Multi-tool AI agent harness — 22 skills, self-evolving engine, unified memory, autonomous spec-to-PR pipeline. Works with Claude Code, Codex, Cursor, OpenCode, and Cline.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "memory"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "memory"
+   ],
+   "vu": "2026-11-25T14:17:41Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -3584,134 +3737,6 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-22T16:15:23Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "a36965aebd286c74",
-   "titre": "siddheshumrigar-tech/equity-research-agent-showcase",
-   "url": "https://github.com/siddheshumrigar-tech/equity-research-agent-showcase",
-   "source": "GitHub",
-   "resume": "Showcase: Autonomous 9-Agent Institutional Equity Research & 21-Tab Financial Modeling Suite powered by Gemini 3.8 Flash & Modular Skills.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T16:15:23Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "f51e16d0cf4560d0",
-   "titre": "i-montes/clio",
-   "url": "https://github.com/i-montes/clio",
-   "source": "GitHub",
-   "resume": "Autonomous personal agent",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T16:15:23Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "46034107536f9d75",
-   "titre": "daghfousmourad-dotcom/somas-intelligence",
-   "url": "https://github.com/daghfousmourad-dotcom/somas-intelligence",
-   "source": "GitHub",
-   "resume": "SOMAS — Distributed Real-Time News Intelligence Platform & Autonomous Multi-Agent Parliament (Public Architecture Edition)",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T16:15:23Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "77821eda027b5933",
-   "titre": "javiersanzg/jtbd-persona-agent",
-   "url": "https://github.com/javiersanzg/jtbd-persona-agent",
-   "source": "GitHub",
-   "resume": "Autonomous agent that turns field research into user personas and checks its own work until it passes. Claude Code + Python.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T21:47:32Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "2ba4c0f3aa807b49",
-   "titre": "IgorShkabar/personal_productiv_and_it_ops_assistant",
-   "url": "https://github.com/IgorShkabar/personal_productiv_and_it_ops_assistant",
-   "source": "GitHub",
-   "resume": "Autonomous CLI AI Agent for IT Ops & Infrastructure Monitoring built with Python and Google GenAI SDK",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T21:47:32Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "6c5baa9932ebc037",
-   "titre": "dannicolau7/ai-testing-agent",
-   "url": "https://github.com/dannicolau7/ai-testing-agent",
-   "source": "GitHub",
-   "resume": "🤖 AI-powered pytest test generator — replace Postman with autonomous test automation",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T21:47:32Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "1c8c62becb6538d9",
-   "titre": "Bigmanmarsh/yieldwire",
-   "url": "https://github.com/Bigmanmarsh/yieldwire",
-   "source": "GitHub",
-   "resume": "YieldWire — the autonomous agent that watches Base stablecoin yield every 5 minutes and publishes public receipts on everything it finds. No custody. No trades.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T21:47:32Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "5fadfef082632d30",
-   "titre": "gptme/gptme",
-   "url": "https://github.com/gptme/gptme",
-   "source": "GitHub",
-   "resume": "Your agent in your terminal, equipped with local tools: writes code, uses the terminal, browses the web. Make your own persistent autonomous agent on top!",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T21:47:32Z",
    "statut": "candidat"
   }
  ],
