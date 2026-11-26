@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-25T23:37:03Z",
+ "maj": "2026-11-26T08:12:06Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -249,6 +249,17 @@
     "Hacker News",
     "arXiv"
    ]
+  },
+  {
+   "ts": "2026-11-26T08:12:06Z",
+   "examines": 60,
+   "retenus": 20,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
   }
  ],
  "capacites": [
@@ -423,6 +434,29 @@
     "orchestration"
    ],
    "vu": "2026-11-25T23:37:03Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "2477e7048eea6d93",
+   "titre": "$μ$-Bench: Benchmarking Multi-User Task Completion in Shared Interaction Voice Agents",
+   "url": "http://arxiv.org/abs/2611.34920v1",
+   "source": "arXiv",
+   "resume": "Voice agents in shared spaces must satisfy interdependent multi-user requests while upholding per-user authority, privacy, and task constraints. Existing evaluations offer limited coverage when participants react throughout a session. We in",
+   "score": 5,
+   "mots": [
+    "agent",
+    "agents",
+    "evaluation",
+    "benchmark",
+    "rag"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "benchmark",
+    "evaluation",
+    "rag"
+   ],
+   "vu": "2026-11-26T08:12:06Z",
    "statut": "candidat"
   },
   {
@@ -1071,6 +1105,47 @@
     "workflow"
    ],
    "vu": "2026-11-25T23:37:03Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "b771eb023b90c8cb",
+   "titre": "DRBench Pro: A Knowledge-Centric Benchmark for Professional Deep Research Agents",
+   "url": "http://arxiv.org/abs/2611.34852v1",
+   "source": "arXiv",
+   "resume": "Deep research agents gather information from multiple sources and synthesize it into reports on complex, open-ended questions. Existing benchmarks assess report quality along several dimensions, but lack a dedicated knowledge-centric evalua",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "evaluation",
+    "benchmark"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "benchmark",
+    "evaluation"
+   ],
+   "vu": "2026-11-26T08:12:06Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "78dd6cd6ddaf9c89",
+   "titre": "MichaOro/openArtifact",
+   "url": "https://github.com/MichaOro/openArtifact",
+   "source": "GitHub",
+   "resume": "OpenArtifact is an open-source platform for orchestrating projects, workflows, and AI agents around structured artifacts. It connects autonomous execution, deterministic processes, and human oversight in one extensible system.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "workflow"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "workflow"
+   ],
+   "vu": "2026-11-26T08:12:06Z",
    "statut": "candidat"
   },
   {
@@ -3064,6 +3139,110 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "f96de64196c2f4d2",
+   "titre": "Can image generation help visual reasoning? An empirical study",
+   "url": "http://arxiv.org/abs/2611.34935v1",
+   "source": "arXiv",
+   "resume": "Language models think in words; then multimodal models might think in images. We test whether a generated helper improves the answer to a visual question. A model describes the helper it needs and then answers using the original and generat",
+   "score": 3,
+   "mots": [
+    "reasoning",
+    "multimodal",
+    "vision"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-26T08:12:06Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "7c42f2a01f563a99",
+   "titre": "RePace: Reasoning about Demonstration Speedup for Faster Vision-Language-Action Policies",
+   "url": "http://arxiv.org/abs/2611.34864v1",
+   "source": "arXiv",
+   "resume": "Since vision-language-action (VLA) policies can inherit the slow pace of human demonstrations, accelerating these demonstrations before fine-tuning can lead to faster VLA policies without an additional speed-selection module at deployment. ",
+   "score": 3,
+   "mots": [
+    "reasoning",
+    "fine-tun",
+    "vision"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-26T08:12:06Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "49245e5a3419dd92",
+   "titre": "jakadul/fake-horoscope-agent",
+   "url": "https://github.com/jakadul/fake-horoscope-agent",
+   "source": "GitHub",
+   "resume": "Fake horoscope for an AI agent model family Built by an AI agent for make.fun's bounty u-neon-autonomous-fake-horoscopes-for-ai-agents-the-ce9f07a0.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-26T08:12:06Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "656899bc282bd9b6",
+   "titre": "gemron/Termexo-Fleet",
+   "url": "https://github.com/gemron/Termexo-Fleet",
+   "source": "GitHub",
+   "resume": "Local-first AI coding fleet commander for orchestrating Termexo instances with L1-L4 difficulty routing, autonomous sub-agents, and multi-machine DAGs",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-26T08:12:06Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "714f512ba2f6fabe",
+   "titre": "uddeshya98/UddexAI",
+   "url": "https://github.com/uddeshya98/UddexAI",
+   "source": "GitHub",
+   "resume": "Autonomous enterprise operations agent with custom multi-agent pipeline, parallel knowledge retrieval, conflict detection, and human-in-the-loop approvals.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "retrieval"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "retrieval"
+   ],
+   "vu": "2026-11-26T08:12:06Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "794464b378075996",
+   "titre": "kaxokaze/fellows",
+   "url": "https://github.com/kaxokaze/fellows",
+   "source": "GitHub",
+   "resume": "Peer-first collaboration runtime for autonomous AI agents.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-26T08:12:06Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -3621,150 +3800,6 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-21T20:05:10Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "b1569464730ce398",
-   "titre": "Diphiya/Autonomous_AI_Agent",
-   "url": "https://github.com/Diphiya/Autonomous_AI_Agent",
-   "source": "GitHub",
-   "resume": "",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-21T20:05:10Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "414bab6a17e87f29",
-   "titre": "Pandex – Official European Law for AI Agents, over MCP",
-   "url": "https://www.pandex.io",
-   "source": "Hacker News",
-   "resume": "",
-   "score": 2,
-   "mots": [
-    "agent",
-    "agents"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T00:19:29Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "0cddc488e85debb3",
-   "titre": "thekeunpie-hash/haejoe-desktop",
-   "url": "https://github.com/thekeunpie-hash/haejoe-desktop",
-   "source": "GitHub",
-   "resume": "Run autonomous AI agent teams locally. Keep secrets locked in your OS vault, keep your screen yours. https://haejoe.com/en/desktop",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T00:19:29Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "f4a2e5c049236ab5",
-   "titre": "shabbir2024a-dot/autonomous-browser-agent-hub",
-   "url": "https://github.com/shabbir2024a-dot/autonomous-browser-agent-hub",
-   "source": "GitHub",
-   "resume": "Playwright + MCP browser robots that post to LinkedIn, upload to YouTube Studio and publish to Facebook.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T00:19:29Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "93c4214318274a80",
-   "titre": "Orkeon/orkeon-code",
-   "url": "https://github.com/Orkeon/orkeon-code",
-   "source": "GitHub",
-   "resume": "Agentic coding assistant in TypeScript on the Orkeon runtime. Pair with it in the terminal under permission modes, run it fully autonomous in a pipeline, or call its crews from your own application. Every command, crew and prompt is a sourc",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T07:58:37Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "2f4847a2ad86ff4f",
-   "titre": "w3joe/OmniSRE",
-   "url": "https://github.com/w3joe/OmniSRE",
-   "source": "GitHub",
-   "resume": "OmniSRE — Open-weights autonomous SRE agent & Multi-Turn DAPO+GTPO RLVR post-training pipeline (Apache 2.0)",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T07:58:37Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "0551a86bdc571adf",
-   "titre": "amol004/Autonomous-Deep-Research-Multi-Agent-System",
-   "url": "https://github.com/amol004/Autonomous-Deep-Research-Multi-Agent-System",
-   "source": "GitHub",
-   "resume": "",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T07:58:37Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "f144d5e192999e81",
-   "titre": "gayudinakar/Autonomous-Multi-Agent-System",
-   "url": "https://github.com/gayudinakar/Autonomous-Multi-Agent-System",
-   "source": "GitHub",
-   "resume": "",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T07:58:37Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "69ee9c41ef4e40b5",
-   "titre": "brunoaadul/autonomous-research-agent",
-   "url": "https://github.com/brunoaadul/autonomous-research-agent",
-   "source": "GitHub",
-   "resume": " The system independently plans the research, searches for evidence, evaluates sources, identifies gaps, performs follow-up research and creates a report.  Example: Analyze the opportunities for AI-powered agricultural technology in Kenya. ",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-22T07:58:37Z",
    "statut": "candidat"
   }
  ],
