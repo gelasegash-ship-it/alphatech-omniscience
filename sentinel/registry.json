@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-26T08:12:06Z",
+ "maj": "2026-11-26T18:24:38Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -254,6 +254,17 @@
    "ts": "2026-11-26T08:12:06Z",
    "examines": 60,
    "retenus": 20,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
+  },
+  {
+   "ts": "2026-11-26T18:24:38Z",
+   "examines": 60,
+   "retenus": 16,
    "total_registre": 200,
    "sources": [
     "GitHub",
@@ -1146,6 +1157,46 @@
     "workflow"
    ],
    "vu": "2026-11-26T08:12:06Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "54c00501a60fccf5",
+   "titre": "Jonatan-Oliveira/enterprise-lakehouse-mcp-agent",
+   "url": "https://github.com/Jonatan-Oliveira/enterprise-lakehouse-mcp-agent",
+   "source": "GitHub",
+   "resume": "Autonomous BigQuery Analytical Agent via Custom Model Context Protocol (MCP) with Zero-Hallucination Guardrails & FinOps",
+   "score": 4,
+   "mots": [
+    "agent",
+    "autonomous",
+    "context",
+    "guardrail"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "guardrail"
+   ],
+   "vu": "2026-11-26T18:24:38Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "3d92a24025d0923e",
+   "titre": "Vigil-SOC/vigil",
+   "url": "https://github.com/Vigil-SOC/vigil",
+   "source": "GitHub",
+   "resume": "Open-source agentic AI SOC with a human on the loop. Agents triage, investigate and hunt over MCP; an autonomous SOC daemon works new findings, and outside action waits for a person. Each run writes an append-only ledger, and later runs rec",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "workflow"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "workflow"
+   ],
+   "vu": "2026-11-26T18:24:38Z",
    "statut": "candidat"
   },
   {
@@ -3243,6 +3294,57 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "19c52fc0e497caf8",
+   "titre": "TheFreeIntelligenceCompany/agentnet",
+   "url": "https://github.com/TheFreeIntelligenceCompany/agentnet",
+   "source": "GitHub",
+   "resume": "AgentNet: private asynchronous messaging for autonomous agents over Waku / Logos Delivery, exposed through MCP. Experimental; not independently reviewed.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-26T18:24:38Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "320061caeebe311d",
+   "titre": "jesusalcaladev/opencode-mission",
+   "url": "https://github.com/jesusalcaladev/opencode-mission",
+   "source": "GitHub",
+   "resume": "Autonomous mission supervisor for OpenCode: plans work, dispatches parallel sub-agents, and verifies executable criteria until the task is actually done.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-26T18:24:38Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "536c77ed0252524a",
+   "titre": "ChopraArhaan/Open-source-agent-builder",
+   "url": "https://github.com/ChopraArhaan/Open-source-agent-builder",
+   "source": "GitHub",
+   "resume": "An open-source engine to build and deploy autonomous AI agents from scratch using Python and FastAPI. Features a raw ReAct execution loop, Pydantic tool registry, and declarative YAML configs. Built cleanly without heavy frameworks to highl",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-26T18:24:38Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -3720,86 +3822,6 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-21T12:36:32Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "0ecf00ac54f8c1fb",
-   "titre": "rezimx-btc/aevum-proof-gated-payee",
-   "url": "https://github.com/rezimx-btc/aevum-proof-gated-payee",
-   "source": "GitHub",
-   "resume": "Proof-Gated Payee — an autonomous AI agent verifies the payee on-chain before tUSD8 leaves escrow. Aevum Builder Challenge #1, Confirmation of Payee track.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-21T12:36:32Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "7d47e6a24111b846",
-   "titre": "wanted0104/pulse-analytics-ai",
-   "url": "https://github.com/wanted0104/pulse-analytics-ai",
-   "source": "GitHub",
-   "resume": "High-performance agentic telemetry and autonomous LLM cost tracking for Next.js and FastAPI",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-21T20:05:10Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "2c98dad94f620a0c",
-   "titre": "Kariqq/autonomous-cfo-collabothon",
-   "url": "https://github.com/Kariqq/autonomous-cfo-collabothon",
-   "source": "GitHub",
-   "resume": "Autonomous CFO agent - Collabothon Red Hat Challenge",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-21T20:05:10Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "3619b011f42f582e",
-   "titre": "BenjiTrapp/TrashPandaPaws",
-   "url": "https://github.com/BenjiTrapp/TrashPandaPaws",
-   "source": "GitHub",
-   "resume": "Red Team hardware implant — RPi4/CM4 inline Ethernet tap with PoE, cover identities (Cisco Phone / HP Printer), 802.1X NAC bypass, a stdlib-only Python beacon over HTTPS/DNS/SMB/QUIC, and an operator GUI with an autonomous agent mode",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-21T20:05:10Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "30382fb13313d7af",
-   "titre": "hffmnnj/longbow",
-   "url": "https://github.com/hffmnnj/longbow",
-   "source": "GitHub",
-   "resume": "An autonomous trading agent for Robinhood with a deterministic risk engine, simulation lab, web app, and native Android client.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-21T20:05:10Z",
    "statut": "candidat"
   }
  ],
