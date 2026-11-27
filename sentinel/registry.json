@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-27T02:09:57Z",
+ "maj": "2026-11-27T10:33:54Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -285,6 +285,17 @@
   },
   {
    "ts": "2026-11-27T02:09:57Z",
+   "examines": 60,
+   "retenus": 16,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
+  },
+  {
+   "ts": "2026-11-27T10:33:54Z",
    "examines": 60,
    "retenus": 16,
    "total_registre": 200,
@@ -1280,6 +1291,27 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-27T01:59:28Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "2d8bbcd841a22327",
+   "titre": "prodigy234/AI-Automation-with-n8n",
+   "url": "https://github.com/prodigy234/AI-Automation-with-n8n",
+   "source": "GitHub",
+   "resume": "A curated repository of production-ready n8n workflows, custom AI agent templates, and integration blueprints. This repository bridges traditional rule-based workflow automation with advanced LLM orchestration, enabling you to build fully a",
+   "score": 4,
+   "mots": [
+    "agent",
+    "autonomous",
+    "orchestration",
+    "workflow"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "workflow",
+    "orchestration"
+   ],
+   "vu": "2026-11-27T10:33:54Z",
    "statut": "candidat"
   },
   {
@@ -3587,6 +3619,57 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "ce0a7d3a28535483",
+   "titre": "kashmirsportslive/pulse-leads-mcp",
+   "url": "https://github.com/kashmirsportslive/pulse-leads-mcp",
+   "source": "GitHub",
+   "resume": "Autonomous High-Intent B2B Prospect Intelligence MCPServer for AI Agents",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-27T10:33:54Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "3bfeab0f18fe898a",
+   "titre": "haoit/agentic-autopentest",
+   "url": "https://github.com/haoit/agentic-autopentest",
+   "source": "GitHub",
+   "resume": "Autonomous AI penetration-testing skill for coding agents (Claude Code, Cursor, Copilot, Codex, Windsurf, Cline, Gemini, Aider) — proof-gated OWASP Web + API findings",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-27T10:33:54Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "dec29011dc63a5d9",
+   "titre": "stagewise-io/klex",
+   "url": "https://github.com/stagewise-io/klex",
+   "source": "GitHub",
+   "resume": "Meet Klex Bots - Your own team of digital coworkers. Fully autonomous agents that work like your team does. Self-hostable and model-agnostic.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-27T10:33:54Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -3808,70 +3891,6 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-20T16:08:00Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "4c0dccc3ab877aa1",
-   "titre": "hajimemanila/hermes-pilot",
-   "url": "https://github.com/hajimemanila/hermes-pilot",
-   "source": "GitHub",
-   "resume": "Don't type. Tap, redline, and ship. A mobile-first PWA plugin for Hermes Agent to pilot autonomous A2B coding pipelines from your phone.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-20T16:08:00Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "bf6a5bad3986ae2b",
-   "titre": "contact9prime-lab/bento-ai-os",
-   "url": "https://github.com/contact9prime-lab/bento-ai-os",
-   "source": "GitHub",
-   "resume": "A local-first AI desktop environment: an autonomous agent that builds apps, runs jobs and takes real actions on your machine. Local models via Ollama, or any cloud provider. Self-hosted, MIT.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-20T16:08:00Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "11f33355582d70b8",
-   "titre": "RizkiRdm/vanguard-ai-jobHunting",
-   "url": "https://github.com/RizkiRdm/vanguard-ai-jobHunting",
-   "source": "GitHub",
-   "resume": "Vanguard is a high-performance, Autonomous AI Agent designed to bridge the gap between job seekers and automated recruitment systems (ATS).",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-20T16:08:00Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "11e1c94b0f20a36b",
-   "titre": "theselfruleorg/polyrob",
-   "url": "https://github.com/theselfruleorg/polyrob",
-   "source": "GitHub",
-   "resume": "A self-hosted autonomous AI agent that pursues goals, learns from experience, and runs on your own machine.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-20T22:39:57Z",
    "statut": "candidat"
   }
  ],
