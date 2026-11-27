@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-27T10:33:54Z",
+ "maj": "2026-11-27T10:49:36Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -298,6 +298,17 @@
    "ts": "2026-11-27T10:33:54Z",
    "examines": 60,
    "retenus": 16,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
+  },
+  {
+   "ts": "2026-11-27T10:49:36Z",
+   "examines": 60,
+   "retenus": 14,
    "total_registre": 200,
    "sources": [
     "GitHub",
@@ -1312,6 +1323,62 @@
     "orchestration"
    ],
    "vu": "2026-11-27T10:33:54Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "dcd67db2894916ea",
+   "titre": "joshdumoulin/pulseloop",
+   "url": "https://github.com/joshdumoulin/pulseloop",
+   "source": "GitHub",
+   "resume": "Differentiable 0D MagLIF physics and a leak-isolated two-container evaluation harness for autonomous experimental-design agents",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "evaluation"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "evaluation"
+   ],
+   "vu": "2026-11-27T10:49:36Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "f0c861e8785bbe6b",
+   "titre": "tokensafe-dev/oumv",
+   "url": "https://github.com/tokensafe-dev/oumv",
+   "source": "GitHub",
+   "resume": "OUMV: the open Universal Agent-Runtime Protocol for autonomous AI coding agents: Observe, Understand, Mutate, and Verify live frontends and backends (web UIs, APIs, services) with progressive context, OCC mutations, and evidence-based verif",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "context"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-27T10:49:36Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "6bc2edea9fa8f037",
+   "titre": "Skryx-L-A/agent-workbench",
+   "url": "https://github.com/Skryx-L-A/agent-workbench",
+   "source": "GitHub",
+   "resume": "Desktop workbench for orchestrated coding agents: one lead session, worker panes in tmux, an Agents tab where autonomous agents work in teams on tickets, a context guard, a model registry across harnesses (Claude Code, Codex, aider, opencod",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "context"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-27T10:49:36Z",
    "statut": "candidat"
   },
   {
@@ -3670,6 +3737,40 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "e26fd385451fcab1",
+   "titre": "extremespecification/xs",
+   "url": "https://github.com/extremespecification/xs",
+   "source": "GitHub",
+   "resume": "Extreme Specification: a method for autonomous programming. People specify; agents build, verify and integrate.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-27T10:49:36Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "0db2cabdacc4873f",
+   "titre": "MachinaIO/SigabaNeo",
+   "url": "https://github.com/MachinaIO/SigabaNeo",
+   "source": "GitHub",
+   "resume": "Autonomous cryptographic research, from cryptanalysis to optimization. Untrusted AI agents design, prove and attack; a deterministic Lean harness verifies everything.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-27T10:49:36Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -3811,86 +3912,6 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-20T07:11:17Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "0e0a953ab7e1a8f8",
-   "titre": "spidron/grok-aeon-derivative",
-   "url": "https://github.com/spidron/grok-aeon-derivative",
-   "source": "GitHub",
-   "resume": "Grok Bot working on its Aeon derivative: an open-source autonomous agent framework optimized for Grok harness, self-healing skills on GitHub Actions. Free alternative to closed Grok Bot.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-20T07:16:26Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "fc70ecbc6448f739",
-   "titre": "yrn-dev/Operator",
-   "url": "https://github.com/yrn-dev/Operator",
-   "source": "GitHub",
-   "resume": "Terminal AI coding agent — Autonomous AI Agent on your computer. Supports Alem AI + Ollama. Works with code, research, automation, DevOps, data analysis, and content generation.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-20T07:16:26Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "f42d04e0268ac13e",
-   "titre": "ys-ll/uniterm",
-   "url": "https://github.com/ys-ll/uniterm",
-   "source": "GitHub",
-   "resume": "All-in-one terminal covering 30+ protocols — SSH, RDP, SFTP, databases, Kubernetes and more. With a built-in AI Agent that runs multi-turn shell commands autonomously.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-20T07:16:26Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "0dd41a1899e2a501",
-   "titre": "NikaGoshadze/Refactra",
-   "url": "https://github.com/NikaGoshadze/Refactra",
-   "source": "GitHub",
-   "resume": "Autonomous Multi-Agent Repository Refactoring",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-20T16:08:00Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "ed1d61eac6b3204f",
-   "titre": "MADHacker912/ravan",
-   "url": "https://github.com/MADHacker912/ravan",
-   "source": "GitHub",
-   "resume": "⚡ RAVAN // Autonomous 16-Bit Cyber-Hacker AI Agent | OpenRouter x HexStrike MCP",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-20T16:08:00Z",
    "statut": "candidat"
   }
  ],
