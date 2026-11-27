@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-27T01:59:28Z",
+ "maj": "2026-11-27T02:09:57Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -282,6 +282,17 @@
     "Hacker News",
     "arXiv"
    ]
+  },
+  {
+   "ts": "2026-11-27T02:09:57Z",
+   "examines": 60,
+   "retenus": 16,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
   }
  ],
  "capacites": [
@@ -501,6 +512,27 @@
     "workflow"
    ],
    "vu": "2026-11-27T01:59:28Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "bfe7d8dd4dd9a0a2",
+   "titre": "brace-ai-security/open-agent-security",
+   "url": "https://github.com/brace-ai-security/open-agent-security",
+   "source": "GitHub",
+   "resume": "BRACE Framework — a practical security framework for autonomous AI agents: nine controls, three observability requirements, and a sign-off checklist.",
+   "score": 5,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "security",
+    "observability"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "observability"
+   ],
+   "vu": "2026-11-27T02:09:57Z",
    "statut": "candidat"
   },
   {
@@ -3483,6 +3515,78 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "bd6e96e7cf943a25",
+   "titre": "assassinratstrainer/AI-Autonomous-Coding-Agent",
+   "url": "https://github.com/assassinratstrainer/AI-Autonomous-Coding-Agent",
+   "source": "GitHub",
+   "resume": "⭐️ AI Autonomous Coding Agent helps you automate software development with the power of AI. Generate code, debug errors, build projects and streamline your programming workflow with an intelligent autonomous coding assistant. Powerful, effi",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "workflow"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "workflow"
+   ],
+   "vu": "2026-11-27T02:09:57Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "2a6714f444a09495",
+   "titre": "shawnhvac/agentworld-skills",
+   "url": "https://github.com/shawnhvac/agentworld-skills",
+   "source": "GitHub",
+   "resume": "Skills autonomously learned by AgentWorld AI agents — promoted from repeated high-confidence successes into reusable SKILL.md files. Auto-synced nightly.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-27T02:09:57Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "aa8935fafc6eeb78",
+   "titre": "ascending-llc/jarvis-registry",
+   "url": "https://github.com/ascending-llc/jarvis-registry",
+   "source": "GitHub",
+   "resume": "Connect any AI copilot or autonomous agent to your enterprise tools — through a single, secure MCP/Agent gateway with built-in identity, access control, and full observability.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "observability"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "observability"
+   ],
+   "vu": "2026-11-27T02:09:57Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "8f0efeacd6760f93",
+   "titre": "roeeinvest18-tech/jarvis-dashboard",
+   "url": "https://github.com/roeeinvest18-tech/jarvis-dashboard",
+   "source": "GitHub",
+   "resume": "Jarvis OS Dashboard: Real-time UI for autonomous AI agents, quantitative market scanner, and cyber threat intelligence",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-27T02:09:57Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -3760,86 +3864,6 @@
    "url": "https://github.com/theselfruleorg/polyrob",
    "source": "GitHub",
    "resume": "A self-hosted autonomous AI agent that pursues goals, learns from experience, and runs on your own machine.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-20T22:39:57Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "79ac414ac3454f17",
-   "titre": "Green-tero/datawhisper",
-   "url": "https://github.com/Green-tero/datawhisper",
-   "source": "GitHub",
-   "resume": "Enterprise-grade, local-first agentic tabular data engine with self-correcting SQL and autonomous GitHub PR auditing.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-20T22:39:57Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "ec349c91b676132a",
-   "titre": "divyakochgaway/autonomous-cloud-architect-agent",
-   "url": "https://github.com/divyakochgaway/autonomous-cloud-architect-agent",
-   "source": "GitHub",
-   "resume": "",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-20T22:39:57Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "5fb176d22e0f49cd",
-   "titre": "AstralDeep/LETS",
-   "url": "https://github.com/AstralDeep/LETS",
-   "source": "GitHub",
-   "resume": "LETS: Lineage Escrow Transition Systems for Partition-Safe Autonomous Agent Populations",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-20T22:39:57Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "b33b828ce4dbedaa",
-   "titre": "letstrnsfrm-ai/agentic-solid-qe",
-   "url": "https://github.com/letstrnsfrm-ai/agentic-solid-qe",
-   "source": "GitHub",
-   "resume": "Zero-API-key agent skill framework bridging Autonomous Exploratory Testing (@playwright/cli) and SOLID Playwright TypeScript Architecture",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-20T22:39:57Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "a4b0e3dcc8068b3e",
-   "titre": "app-vitals/shipwright",
-   "url": "https://github.com/app-vitals/shipwright",
-   "source": "GitHub",
-   "resume": "The open-source autonomous delivery agent for Claude Code.",
    "score": 2,
    "mots": [
     "agent",
