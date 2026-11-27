@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-26T18:24:38Z",
+ "maj": "2026-11-27T01:59:28Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -271,6 +271,17 @@
     "Hacker News",
     "arXiv"
    ]
+  },
+  {
+   "ts": "2026-11-27T01:59:28Z",
+   "examines": 60,
+   "retenus": 21,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
   }
  ],
  "capacites": [
@@ -468,6 +479,28 @@
     "rag"
    ],
    "vu": "2026-11-26T08:12:06Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "81a989b3968b89a5",
+   "titre": "panxiaoyan225-sudo/AI-DataSuite",
+   "url": "https://github.com/panxiaoyan225-sudo/AI-DataSuite",
+   "source": "GitHub",
+   "resume": "Autonomous Data-to-Narrative Engine , Autonomous agents, human–AI governance, semantic retrieval, and local AI workflows ",
+   "score": 5,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "retrieval",
+    "workflow"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "retrieval",
+    "workflow"
+   ],
+   "vu": "2026-11-27T01:59:28Z",
    "statut": "candidat"
   },
   {
@@ -1197,6 +1230,24 @@
     "workflow"
    ],
    "vu": "2026-11-26T18:24:38Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "b5f983c2e390f78a",
+   "titre": "georgesaks/ai-agent-security-control-plane",
+   "url": "https://github.com/georgesaks/ai-agent-security-control-plane",
+   "source": "GitHub",
+   "resume": "Defense-in-depth security control plane for autonomous AI agents using MCP, OPA/Rego, human approval, adaptive risk, detection, and automated containment.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "security"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-27T01:59:28Z",
    "statut": "candidat"
   },
   {
@@ -3345,6 +3396,93 @@
    "statut": "candidat"
   },
   {
+   "empreinte": "bf08ef27a788999a",
+   "titre": "Auctivon-CoderaxAI/Coderax",
+   "url": "https://github.com/Auctivon-CoderaxAI/Coderax",
+   "source": "GitHub",
+   "resume": "Autonomous AI execution platform for planning, running, and verifying authorized work across models, agents, tools, and services.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-27T01:59:28Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "9d95a585673b782a",
+   "titre": "itsoumya-d/certiflow-ai",
+   "url": "https://github.com/itsoumya-d/certiflow-ai",
+   "source": "GitHub",
+   "resume": "AI-powered compliance automation platform — autonomous agents verify SOC 2, ISO 27001 controls 24/7",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-27T01:59:28Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "ccc1bf0378def9e4",
+   "titre": "heymegabyte/agent-skills",
+   "url": "https://github.com/heymegabyte/agent-skills",
+   "source": "GitHub",
+   "resume": "Agent Skills — agent-neutral autonomous product-building OS for 32+ AI coding tools. 23 skill categories · 28 agents · 149 reference docs · 37 platform variants. One-line prompts → deployed products on Cloudflare Workers.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-27T01:59:28Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "65d2406b711a5bd4",
+   "titre": "Trixxy98/FINMIND---Autonomous-AI-Financial-Behavior-Sandbox-",
+   "url": "https://github.com/Trixxy98/FINMIND---Autonomous-AI-Financial-Behavior-Sandbox-",
+   "source": "GitHub",
+   "resume": "FINMIND is a controlled experimental platform that grants an AI agent autonomy to manage simulated financial resources and records what it actually attempts to do. ",
+   "score": 3,
+   "mots": [
+    "agent",
+    "autonomous",
+    "sandbox"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "sandbox"
+   ],
+   "vu": "2026-11-27T01:59:28Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "e19c1e5c144741d1",
+   "titre": "thinksmart-systems/m3",
+   "url": "https://github.com/thinksmart-systems/m3",
+   "source": "GitHub",
+   "resume": "Invest like Charlie Munger — Local-first value research workbench (Rust, NSH, DuckDB, SEC EDGAR), evolving toward autonomous Agents & programmatic value investing.",
+   "score": 3,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-27T01:59:28Z",
+   "statut": "candidat"
+  },
+  {
    "empreinte": "3f9634667f0bc323",
    "titre": "vpatz/autonomous-aiops",
    "url": "https://github.com/vpatz/autonomous-aiops",
@@ -3710,118 +3848,6 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-20T22:39:57Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "ca056b3ce92a763c",
-   "titre": "Bethelincovibetv/time-earnings-calculator",
-   "url": "https://github.com/Bethelincovibetv/time-earnings-calculator",
-   "source": "GitHub",
-   "resume": "webapp built autonomously by Vixora Coding Agent: A modern, responsive 'Earnings Time Tracker' web app. Users can input their 'Desired Hourly Rate'. The app features a li",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-21T12:36:32Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "bc56400bb2dcd759",
-   "titre": "hemanathk636/secretguard",
-   "url": "https://github.com/hemanathk636/secretguard",
-   "source": "GitHub",
-   "resume": "Sub-millisecond terminal secret interceptor, AI agent firewall, and privacy guard for developers (Ghost Tokens & Autonomous Immune Engine)",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-21T12:36:32Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "ca433ef67bb5bd82",
-   "titre": "kingsprayer/instagram-autonomous-content-agent",
-   "url": "https://github.com/kingsprayer/instagram-autonomous-content-agent",
-   "source": "GitHub",
-   "resume": "Autonomous daily Instagram meme, carousel & reel agent with Claude, FFmpeg procedural music synth, approval dashboard & Meta Graph API publishing",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-21T12:36:32Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "c1460cc62c7ff02f",
-   "titre": "louloulin/OpenBuddy",
-   "url": "https://github.com/louloulin/OpenBuddy",
-   "source": "GitHub",
-   "resume": "🚀 The open-source WorkBuddy successor — powered by Pi's empathy engine. Autonomous tasks, local files, multi-agent collaboration with emotional intelligence",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-21T12:36:32Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "926300543600cc65",
-   "titre": "cuppur/Atom",
-   "url": "https://github.com/cuppur/Atom",
-   "source": "GitHub",
-   "resume": "Lightweight Windows desktop agent with multi-provider models, autonomous planning, independent completion reviews and local sessions.",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-21T12:36:32Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "2ad71d0f30f727cd",
-   "titre": "omatheusmesmo/Qlawkus",
-   "url": "https://github.com/omatheusmesmo/Qlawkus",
-   "source": "GitHub",
-   "resume": "Autonomous Personal Engineering Agent built with Quarkus LangChain4j",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-21T12:36:32Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "9583992910e3d45d",
-   "titre": "M-Noyon/content-agent",
-   "url": "https://github.com/M-Noyon/content-agent",
-   "source": "GitHub",
-   "resume": "Autonomous AI-powered content automation and publishing agent",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-21T12:36:32Z",
    "statut": "candidat"
   }
  ],
