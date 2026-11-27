@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-27T19:43:09Z",
+ "maj": "2026-11-27T19:56:10Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -320,6 +320,17 @@
    "ts": "2026-11-27T19:43:09Z",
    "examines": 60,
    "retenus": 19,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
+  },
+  {
+   "ts": "2026-11-27T19:56:10Z",
+   "examines": 60,
+   "retenus": 15,
    "total_registre": 200,
    "sources": [
     "GitHub",
@@ -1433,6 +1444,26 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-27T10:49:36Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "b02ac6be5abdfbd2",
+   "titre": "Trideep091/kairo",
+   "url": "https://github.com/Trideep091/kairo",
+   "source": "GitHub",
+   "resume": "Kairo is an autonomous multi-agent AI email assistant that intelligently manages inboxes, extracts action items, drafts contextual replies, and handles follow-ups using Agentic RAG, LangGraph, and Human-in-the-Loop approval.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "autonomous",
+    "context",
+    "rag"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "rag"
+   ],
+   "vu": "2026-11-27T19:56:10Z",
    "statut": "candidat"
   },
   {
@@ -3859,83 +3890,73 @@
    "statut": "candidat"
   },
   {
-   "empreinte": "3f9634667f0bc323",
-   "titre": "vpatz/autonomous-aiops",
-   "url": "https://github.com/vpatz/autonomous-aiops",
+   "empreinte": "7b685ff89339fd45",
+   "titre": "poornachandra24/Helix",
+   "url": "https://github.com/poornachandra24/Helix",
    "source": "GitHub",
-   "resume": "Agent remediations for unknown scenarios",
-   "score": 2,
+   "resume": "An autonomous, white-box AI agent harness. Built in Rust/Tokio for researchers and engineers who need extreme control over agent loops, context windows, and execution tracing.",
+   "score": 3,
    "mots": [
     "agent",
-    "autonomous"
+    "autonomous",
+    "context"
    ],
    "adoptable_localement": false,
    "mots_adoptables": [],
-   "vu": "2026-11-20T07:10:37Z",
+   "vu": "2026-11-27T19:56:10Z",
    "statut": "candidat"
   },
   {
-   "empreinte": "73f405fe54866b5d",
-   "titre": "DuongNAD/DuongNAD",
-   "url": "https://github.com/DuongNAD/DuongNAD",
+   "empreinte": "1bb2782db583602d",
+   "titre": "pyraagent/pyra",
+   "url": "https://github.com/pyraagent/pyra",
    "source": "GitHub",
-   "resume": "⚡ Config & Showcase for Nguyen Anh Duong (DuongNAD) — AI Engineer specializing in Autonomous Agentic Systems, Cognitive Architectures & GenAI Automation",
-   "score": 2,
+   "resume": "An economy of autonomous agents on Robinhood Chain. Funded jobs, server-fetched evidence, escrowed pay.",
+   "score": 3,
    "mots": [
     "agent",
+    "agents",
     "autonomous"
    ],
    "adoptable_localement": false,
    "mots_adoptables": [],
-   "vu": "2026-11-20T07:10:37Z",
+   "vu": "2026-11-27T19:56:10Z",
    "statut": "candidat"
   },
   {
-   "empreinte": "d4eb250933bc1d87",
-   "titre": "suixinga/ai-host",
-   "url": "https://github.com/suixinga/ai-host",
+   "empreinte": "1511cd8a3e48d71a",
+   "titre": "ImMortaLGuruji/MASR-MultiAgentSatelliteRouting",
+   "url": "https://github.com/ImMortaLGuruji/MASR-MultiAgentSatelliteRouting",
    "source": "GitHub",
-   "resume": "autonomous agent on github actions",
-   "score": 2,
+   "resume": "MASR is a deterministic multi-agent simulation platform modeling packet routing across a constellation of autonomous satellites operating in Low Earth Orbit (LEO). The system explores distributed routing, delay-tolerant networking, and cong",
+   "score": 3,
    "mots": [
     "agent",
+    "agents",
     "autonomous"
    ],
    "adoptable_localement": false,
    "mots_adoptables": [],
-   "vu": "2026-11-20T07:10:37Z",
+   "vu": "2026-11-27T19:56:10Z",
    "statut": "candidat"
   },
   {
-   "empreinte": "ca453a5c2e021f8b",
-   "titre": "LIUTod/scream-code",
-   "url": "https://github.com/LIUTod/scream-code",
+   "empreinte": "f9bbe9a02fea9fc2",
+   "titre": "DylanLambertson/Axis",
+   "url": "https://github.com/DylanLambertson/Axis",
    "source": "GitHub",
-   "resume": "零远程行为、子代理协同、支持自主进化的自治 Agent 编队丨 Autonomous Agent Fleet with Zero-Remote Behavior: Sub-agent Collaboration and Self-Evolution",
-   "score": 2,
+   "resume": "An AI-native IDE combining multi-provider AI integration, autonomous agent orchestration, and collaborative development in one unified workspace.",
+   "score": 3,
    "mots": [
     "agent",
-    "autonomous"
+    "autonomous",
+    "orchestration"
    ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-20T07:10:37Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "8051ddb396d7cf15",
-   "titre": "warni001/agent-crew",
-   "url": "https://github.com/warni001/agent-crew",
-   "source": "GitHub",
-   "resume": "Autonomous multi-agent coding crew on Microsoft Agent Framework",
-   "score": 2,
-   "mots": [
-    "agent",
-    "autonomous"
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "orchestration"
    ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-20T07:10:37Z",
+   "vu": "2026-11-27T19:56:10Z",
    "statut": "candidat"
   }
  ],
