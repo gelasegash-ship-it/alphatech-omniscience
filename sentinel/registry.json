@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-28T02:19:32Z",
+ "maj": "2026-11-28T02:40:44Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -342,6 +342,17 @@
    "ts": "2026-11-28T02:19:32Z",
    "examines": 60,
    "retenus": 17,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
+  },
+  {
+   "ts": "2026-11-28T02:40:44Z",
+   "examines": 60,
+   "retenus": 19,
    "total_registre": 200,
    "sources": [
     "GitHub",
@@ -1513,6 +1524,26 @@
     "benchmark"
    ],
    "vu": "2026-11-28T02:19:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "b28a97bb8b16e561",
+   "titre": "rcortez056-spec/Ramon-Cortez",
+   "url": "https://github.com/rcortez056-spec/Ramon-Cortez",
+   "source": "GitHub",
+   "resume": "Personal profile repository showcasing production-ready AI agents, autonomous workforces, and enterprise RAG architecture.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "rag"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "rag"
+   ],
+   "vu": "2026-11-28T02:40:44Z",
    "statut": "candidat"
   },
   {
@@ -3949,23 +3980,6 @@
     "agent",
     "autonomous",
     "context"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-27T19:56:10Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "1bb2782db583602d",
-   "titre": "pyraagent/pyra",
-   "url": "https://github.com/pyraagent/pyra",
-   "source": "GitHub",
-   "resume": "An economy of autonomous agents on Robinhood Chain. Funded jobs, server-fetched evidence, escrowed pay.",
-   "score": 3,
-   "mots": [
-    "agent",
-    "agents",
-    "autonomous"
    ],
    "adoptable_localement": false,
    "mots_adoptables": [],
