@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-27T19:56:10Z",
+ "maj": "2026-11-28T02:19:32Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -331,6 +331,17 @@
    "ts": "2026-11-27T19:56:10Z",
    "examines": 60,
    "retenus": 15,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
+  },
+  {
+   "ts": "2026-11-28T02:19:32Z",
+   "examines": 60,
+   "retenus": 17,
    "total_registre": 200,
    "sources": [
     "GitHub",
@@ -1464,6 +1475,44 @@
     "rag"
    ],
    "vu": "2026-11-27T19:56:10Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "d1649e7902c24dea",
+   "titre": "jongleberry/supervisor",
+   "url": "https://github.com/jongleberry/supervisor",
+   "source": "GitHub",
+   "resume": "Autonomous, self-improving supervisor for coding agents across GitHub repositories",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "self-improv"
+   ],
+   "adoptable_localement": false,
+   "mots_adoptables": [],
+   "vu": "2026-11-28T02:19:32Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "af1efe38638011fb",
+   "titre": "BrianTr9/Risk-Ladder",
+   "url": "https://github.com/BrianTr9/Risk-Ladder",
+   "source": "GitHub",
+   "resume": "Exact benchmarking of safe planning and learning for autonomous agents under model uncertainty.",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "benchmark"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "benchmark"
+   ],
+   "vu": "2026-11-28T02:19:32Z",
    "statut": "candidat"
   },
   {
@@ -3920,42 +3969,6 @@
    ],
    "adoptable_localement": false,
    "mots_adoptables": [],
-   "vu": "2026-11-27T19:56:10Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "1511cd8a3e48d71a",
-   "titre": "ImMortaLGuruji/MASR-MultiAgentSatelliteRouting",
-   "url": "https://github.com/ImMortaLGuruji/MASR-MultiAgentSatelliteRouting",
-   "source": "GitHub",
-   "resume": "MASR is a deterministic multi-agent simulation platform modeling packet routing across a constellation of autonomous satellites operating in Low Earth Orbit (LEO). The system explores distributed routing, delay-tolerant networking, and cong",
-   "score": 3,
-   "mots": [
-    "agent",
-    "agents",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-27T19:56:10Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "f9bbe9a02fea9fc2",
-   "titre": "DylanLambertson/Axis",
-   "url": "https://github.com/DylanLambertson/Axis",
-   "source": "GitHub",
-   "resume": "An AI-native IDE combining multi-provider AI integration, autonomous agent orchestration, and collaborative development in one unified workspace.",
-   "score": 3,
-   "mots": [
-    "agent",
-    "autonomous",
-    "orchestration"
-   ],
-   "adoptable_localement": true,
-   "mots_adoptables": [
-    "orchestration"
-   ],
    "vu": "2026-11-27T19:56:10Z",
    "statut": "candidat"
   }
