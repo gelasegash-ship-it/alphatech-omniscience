@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-28T02:40:44Z",
+ "maj": "2026-11-28T10:41:20Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -359,6 +359,17 @@
     "Hacker News",
     "arXiv"
    ]
+  },
+  {
+   "ts": "2026-11-28T10:41:20Z",
+   "examines": 60,
+   "retenus": 19,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
   }
  ],
  "capacites": [
@@ -642,6 +653,27 @@
     "memory"
    ],
    "vu": "2026-11-27T19:43:09Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "2bb5042c4d7802b6",
+   "titre": "atestokhay/ai-cos",
+   "url": "https://github.com/atestokhay/ai-cos",
+   "source": "GitHub",
+   "resume": "A security-first, modular AI company operating system. Features provider-independent model routing, execution gateway, cost tracking, deny-by-default governance, approval workflows, and tamper-evident audit logging. Built to orchestrate aut",
+   "score": 5,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "workflow",
+    "security"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "workflow"
+   ],
+   "vu": "2026-11-28T10:41:20Z",
    "statut": "candidat"
   },
   {
@@ -1544,6 +1576,26 @@
     "rag"
    ],
    "vu": "2026-11-28T02:40:44Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "b29ea289a6eac5d2",
+   "titre": "japhethjev/Agentic-Equity-Market-Analyst",
+   "url": "https://github.com/japhethjev/Agentic-Equity-Market-Analyst",
+   "source": "GitHub",
+   "resume": "This project builds an autonomous agentic AI system that coordinates multple agents workflow to conduct rigorous equity valuations for companies stocks and make trade recommendations based on the discovered evidence from the research findin",
+   "score": 4,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "workflow"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "workflow"
+   ],
+   "vu": "2026-11-28T10:41:20Z",
    "statut": "candidat"
   },
   {
@@ -3950,40 +4002,6 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-27T19:43:09Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "78ade9bae383ea3e",
-   "titre": "Sami-Uysal/awesome-open-ai-developer-tools",
-   "url": "https://github.com/Sami-Uysal/awesome-open-ai-developer-tools",
-   "source": "GitHub",
-   "resume": "A curated guide & directory for open-source AI devtools, local LLMs, autonomous agents, and SaaS alternatives. Built for modern AI developers.",
-   "score": 3,
-   "mots": [
-    "agent",
-    "agents",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-27T19:43:09Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "7b685ff89339fd45",
-   "titre": "poornachandra24/Helix",
-   "url": "https://github.com/poornachandra24/Helix",
-   "source": "GitHub",
-   "resume": "An autonomous, white-box AI agent harness. Built in Rust/Tokio for researchers and engineers who need extreme control over agent loops, context windows, and execution tracing.",
-   "score": 3,
-   "mots": [
-    "agent",
-    "autonomous",
-    "context"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-27T19:56:10Z",
    "statut": "candidat"
   }
  ],
