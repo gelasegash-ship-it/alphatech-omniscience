@@ -1,5 +1,5 @@
 {
- "ts": "2026-11-27T19:42:51+00:00",
+ "ts": "2026-11-28T02:19:21+00:00",
  "sante": 1.0,
  "erreur": 0.0,
  "capteurs": [
@@ -7,89 +7,89 @@
    "nom": "accueil",
    "url": "https://gelasegash-ship-it.github.io/alphatech-omniscience/",
    "code": 200,
-   "ms": 96,
+   "ms": 281,
    "ok": true
   },
   {
    "nom": "hub système",
    "url": "https://gelasegash-ship-it.github.io/alphatech-omniscience/systeme/",
    "code": 200,
-   "ms": 65,
+   "ms": 153,
    "ok": true
   },
   {
    "nom": "gestion",
    "url": "https://gelasegash-ship-it.github.io/alphatech-omniscience/gestion/",
    "code": 200,
-   "ms": 66,
+   "ms": 170,
    "ok": true
   },
   {
    "nom": "pharmacie",
    "url": "https://gelasegash-ship-it.github.io/alphatech-omniscience/pharmacie/",
    "code": 200,
-   "ms": 58,
+   "ms": 354,
    "ok": true
   },
   {
    "nom": "hôpital",
    "url": "https://gelasegash-ship-it.github.io/alphatech-omniscience/hopital/",
    "code": 200,
-   "ms": 40,
+   "ms": 127,
    "ok": true
   },
   {
    "nom": "routeur",
    "url": "https://gelasegash-ship-it.github.io/alphatech-omniscience/routeur/",
    "code": 200,
-   "ms": 53,
+   "ms": 118,
    "ok": true
   },
   {
    "nom": "modèles",
    "url": "https://gelasegash-ship-it.github.io/alphatech-omniscience/modeles/",
    "code": 200,
-   "ms": 38,
+   "ms": 150,
    "ok": true
   },
   {
    "nom": "banc",
    "url": "https://gelasegash-ship-it.github.io/alphatech-omniscience/banc/",
    "code": 200,
-   "ms": 46,
+   "ms": 136,
    "ok": true
   },
   {
    "nom": "arsenal",
    "url": "https://gelasegash-ship-it.github.io/alphatech-omniscience/arsenal/",
    "code": 200,
-   "ms": 63,
+   "ms": 130,
    "ok": true
   },
   {
    "nom": "couche commune",
    "url": "https://gelasegash-ship-it.github.io/alphatech-omniscience/apps-plus.js",
    "code": 200,
-   "ms": 55,
+   "ms": 128,
    "ok": true
   },
   {
    "nom": "registre veille",
    "url": "https://gelasegash-ship-it.github.io/alphatech-omniscience/sentinel/registry.json",
    "code": 200,
-   "ms": 55,
+   "ms": 594,
    "ok": true
   },
   {
    "nom": "registre modèles",
    "url": "https://gelasegash-ship-it.github.io/alphatech-omniscience/sentinel/models.json",
    "code": 200,
-   "ms": 60,
+   "ms": 154,
    "ok": true
   }
  ],
  "veille": {
-  "fraicheur_heures": 8.89,
+  "fraicheur_heures": 6.39,
   "capacites": 200
  },
  "cibles": {
@@ -98,7 +98,7 @@
  },
  "actions": [
   {
-   "ts": "2026-11-27T19:42:51+00:00",
+   "ts": "2026-11-28T02:19:21+00:00",
    "type": "relance de la veille",
    "detail": "workflow relancé — HTTP 204",
    "reussi": true
@@ -176,7 +176,13 @@
    "sante": 1.0,
    "erreur": 0.0,
    "actions": 1
+  },
+  {
+   "ts": "2026-11-28T02:19:21+00:00",
+   "sante": 1.0,
+   "erreur": 0.0,
+   "actions": 1
   }
  ],
- "empreinte": "81cf4aba925f6c32"
+ "empreinte": "efa2cf74812848cc"
 }
