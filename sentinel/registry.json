@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-28T10:41:20Z",
+ "maj": "2026-11-28T11:40:33Z",
  "scans": [
   {
    "ts": "2026-11-20T07:10:37Z",
@@ -370,6 +370,17 @@
     "Hacker News",
     "arXiv"
    ]
+  },
+  {
+   "ts": "2026-11-28T11:40:33Z",
+   "examines": 60,
+   "retenus": 18,
+   "total_registre": 200,
+   "sources": [
+    "GitHub",
+    "Hacker News",
+    "arXiv"
+   ]
   }
  ],
  "capacites": [
@@ -674,6 +685,28 @@
     "workflow"
    ],
    "vu": "2026-11-28T10:41:20Z",
+   "statut": "candidat"
+  },
+  {
+   "empreinte": "e1298c4255013f22",
+   "titre": "ShaikMohammad786/ForgeAI",
+   "url": "https://github.com/ShaikMohammad786/ForgeAI",
+   "source": "GitHub",
+   "resume": "ForgeAI autonomously builds, tests, and optimizes AI agents from a simple brief and document folder. It generates system prompts, RAG configurations, tools, output contracts, and evaluation datasets, iteratively improving performance within",
+   "score": 5,
+   "mots": [
+    "agent",
+    "agents",
+    "autonomous",
+    "evaluation",
+    "rag"
+   ],
+   "adoptable_localement": true,
+   "mots_adoptables": [
+    "evaluation",
+    "rag"
+   ],
+   "vu": "2026-11-28T11:40:33Z",
    "statut": "candidat"
   },
   {
@@ -3985,23 +4018,6 @@
    "adoptable_localement": false,
    "mots_adoptables": [],
    "vu": "2026-11-27T10:49:36Z",
-   "statut": "candidat"
-  },
-  {
-   "empreinte": "679ac576ee9d252f",
-   "titre": "Lordporus/omnipost",
-   "url": "https://github.com/Lordporus/omnipost",
-   "source": "GitHub",
-   "resume": "Autonomous cross-platform publishing syndicate for AI agents (X, Bluesky, LinkedIn, Threads) with zero API costs, CDP browser automation, vector carousels, and atomic state ledgers",
-   "score": 3,
-   "mots": [
-    "agent",
-    "agents",
-    "autonomous"
-   ],
-   "adoptable_localement": false,
-   "mots_adoptables": [],
-   "vu": "2026-11-27T19:43:09Z",
    "statut": "candidat"
   }
  ],
